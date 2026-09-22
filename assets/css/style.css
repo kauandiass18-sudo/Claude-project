@@ -247,11 +247,29 @@ h1, h2, p { margin: 0; }
   color: #fff;
   box-shadow: 0 10px 24px rgba(240, 122, 82, .26), inset 0 1px 0 rgba(255,255,255,.3);
 }
+/* Achadinhos: botões mais finos */
+.botao-marca--ml,
+.botao-marca--shopee {
+  grid-template-columns: 34px 1fr 34px;
+  min-height: 50px;
+  padding: 5px 10px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(160, 110, 40, .18), inset 0 1px 0 rgba(255,255,255,.3);
+}
+.botao-marca--ml .botao-marca__icone,
+.botao-marca--ml .botao-marca__seta,
+.botao-marca--shopee .botao-marca__icone,
+.botao-marca--shopee .botao-marca__seta { width: 34px; height: 34px; }
+.botao-marca--ml .botao-marca__icone svg,
+.botao-marca--shopee .botao-marca__icone svg { width: 20px; height: 20px; }
+.botao-marca--ml .botao-marca__seta svg,
+.botao-marca--shopee .botao-marca__seta svg { width: 18px; height: 18px; }
 .botao-marca--ml .botao-marca__texto,
 .botao-marca--shopee .botao-marca__texto {
-  font-size: 18px;
+  font-size: clamp(14px, 4.2vw, 16px);
   font-weight: 700;
   letter-spacing: -.01em;
+  white-space: nowrap;
   text-shadow: 0 1px 2px rgba(120, 60, 0, .28);
 }
 .botao-marca--ml svg,
