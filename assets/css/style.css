@@ -5,7 +5,8 @@
 
 :root {
   /* Base */
-  --fundo: #f7f6f3;
+  --fundo: #efe6d8;              /* bege (cor de reserva do mármore) */
+  --fundo-imagem: url("../img/marmore.jpg");
   --superficie: #ffffff;
   --tinta: #111111;
   --tinta-suave: #5f5f5f;
@@ -61,6 +62,24 @@ body {
   flex-direction: column;
 }
 
+/* Fundo de mármore bege: camada fixa atrás de todo o conteúdo
+   (funciona também no iPhone, que ignora background-attachment: fixed) */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100lvh; /* cobre a tela mesmo quando a barra do navegador some */
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 55% at 50% -5%, rgba(255, 252, 247, .55) 0%, rgba(255, 252, 247, 0) 65%),
+    var(--fundo-imagem) center / cover no-repeat,
+    var(--fundo);
+}
+
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
 button, input { font: inherit; color: inherit; }
@@ -99,12 +118,6 @@ h1, h2, p { margin: 0; }
 /* =============================================================
    PÁGINA INICIAL
    ============================================================= */
-.pagina-inicial {
-  background:
-    radial-gradient(120% 60% at 50% -10%, #ffffff 0%, rgba(255,255,255,0) 60%),
-    var(--fundo);
-}
-
 .perfil {
   flex: 1;
   width: 100%;
@@ -252,7 +265,6 @@ h1, h2, p { margin: 0; }
    PÁGINAS DE LOJA
    ============================================================= */
 .pagina-loja { --destaque: var(--tinta); --sombra-card: var(--tinta); }
-.tema-ybera { --fundo: #ffffff; }
 .tema-ml { --destaque: var(--ml-2); --sombra-card: var(--ml-sombra); }
 .tema-shopee { --destaque: var(--shopee-2); --sombra-card: var(--shopee-sombra); }
 
@@ -266,10 +278,10 @@ h1, h2, p { margin: 0; }
   align-items: center;
   gap: 8px;
   padding: calc(8px + env(safe-area-inset-top)) var(--gutter) 8px;
-  background: color-mix(in srgb, var(--fundo) 86%, transparent);
+  background: rgba(247, 241, 232, .78);
   -webkit-backdrop-filter: saturate(1.4) blur(14px);
   backdrop-filter: saturate(1.4) blur(14px);
-  border-bottom: 1px solid var(--linha-suave);
+  border-bottom: 1px solid rgba(160, 138, 108, .22);
 }
 .topo__voltar {
   width: 44px; height: 44px;
@@ -651,7 +663,7 @@ h1, h2, p { margin: 0; }
   padding: 8px var(--gutter) calc(28px + env(safe-area-inset-bottom));
   text-align: center;
   font-size: 12px;
-  color: #8a8780;
+  color: #7a7266;
 }
 .rodape__aviso { max-width: 40ch; margin: 0 auto; }
 .rodape__copy { margin-top: 6px; }
