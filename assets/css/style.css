@@ -132,67 +132,125 @@ h1, h2, p { margin: 0; }
   text-align: center;
 }
 
-.avatar {
-  width: 112px; height: 112px;
-  border-radius: 50%;
-  background: var(--superficie);
-  border: 1px solid var(--linha);
-  box-shadow: 0 0 0 5px var(--superficie), 0 0 0 6px var(--linha-suave), 0 12px 30px rgba(0,0,0,.08);
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-}
-.avatar img { width: 100%; height: 100%; object-fit: cover; }
-.avatar__iniciais {
-  font-family: var(--fonte-luxo);
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: .04em;
+/* ---------- Capa editorial ---------- */
+.capa {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.perfil__nome {
-  margin-top: 22px;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -.02em;
-  line-height: 1.2;
+/* Selo em versalete com filetes dos lados */
+.capa__selo,
+.vitrine__selo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  color: #6b5d4b;
+  padding-left: .34em;
 }
+.capa__selo::before,
+.capa__selo::after,
+.vitrine__selo::before,
+.vitrine__selo::after {
+  content: "";
+  width: 28px; height: 1px;
+  background: currentColor;
+  opacity: .55;
+}
+
+/* Foto em moldura de arco, como um espelho de salão */
+.arco {
+  position: relative;
+  width: 148px;
+  height: 188px;
+  margin-top: 22px;
+  border-radius: 999px 999px 16px 16px;
+  overflow: hidden;
+  background: #fbf8f3;
+  border: 1px solid var(--tinta);
+  box-shadow:
+    0 0 0 6px rgba(255, 252, 247, .75),
+    0 0 0 7px rgba(107, 93, 75, .35),
+    0 18px 40px rgba(90, 70, 40, .16);
+}
+.arco img { width: 100%; height: 100%; object-fit: cover; }
+.arco--vazio {
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(90% 70% at 50% 20%, rgba(255,255,255,.9), rgba(255,255,255,0) 70%),
+    var(--fundo-imagem) center / 420px auto,
+    #f3ece2;
+}
+.arco__ornamento { width: 38px; height: 38px; color: #8a7457; }
+.arco__ornamento svg { width: 100%; height: 100%; }
+
+.capa__nome {
+  margin-top: 24px;
+  font-family: var(--fonte-luxo);
+  font-weight: 500;
+  font-size: clamp(34px, 10vw, 44px);
+  line-height: 1.05;
+  letter-spacing: .01em;
+}
+
 /* Frases abaixo do nome */
 .frases {
   margin-top: 10px;
-  max-width: 36ch;
+  max-width: 32ch;
   display: grid;
-  gap: 4px;
-  color: var(--tinta-suave);
-  font-size: 15px;
-  line-height: 1.45;
+  gap: 2px;
+  font-family: var(--fonte-luxo);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 1.35;
+  color: #4d4236;
 }
 
+/* Redes sociais em versalete */
 .social {
-  margin-top: 20px;
+  margin-top: 18px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 4px 0;
+}
+.social li { display: flex; align-items: center; }
+.social li + li::before {
+  content: "";
+  width: 3px; height: 3px;
+  margin: 0 12px;
+  border-radius: 50%;
+  background: #8a7457;
 }
 .social__link {
-  width: 44px; height: 44px;
-  display: grid; place-items: center;
-  border-radius: 50%;
-  background: var(--superficie);
-  border: 1px solid var(--linha-suave);
-  transition: transform .2s var(--suave), border-color .2s, box-shadow .2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--tinta);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s, opacity .2s;
 }
-.social__link svg { width: 20px; height: 20px; }
-.social__link:active { transform: scale(.92); }
-@media (hover: hover) {
-  .social__link:hover { border-color: var(--tinta); box-shadow: 0 6px 16px rgba(0,0,0,.08); transform: translateY(-2px); }
-}
+.social__icone { width: 15px; height: 15px; }
+.social__icone svg { width: 100%; height: 100%; }
+.social__link:active { opacity: .6; }
+@media (hover: hover) { .social__link:hover { border-bottom-color: currentColor; } }
 
 /* ---------- Botões principais ---------- */
 .botoes {
   width: 100%;
-  margin-top: 34px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -263,8 +321,16 @@ h1, h2, p { margin: 0; }
   .botao-marca--shopee:hover { filter: saturate(1.08); transform: translateY(-2px); }
 }
 
-/* Logo da Shopee um pouco maior que os ícones de traço */
-.botao-marca .botao-marca__logo svg { width: 22px; height: 22px; }
+/* Logos em disco branco, na cor de cada marca */
+.botao-marca .botao-marca__logo {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(90, 50, 0, .18);
+}
+.botao-marca .botao-marca__logo svg { width: 19px; height: 19px; filter: none; }
+.botao-marca--ml .botao-marca__logo { color: #2d3277; }
+.botao-marca--shopee .botao-marca__logo { color: #ee4d2d; }
 
 /* ---------- Vitrine Ybera Paris na página inicial ---------- */
 .vitrine {
@@ -283,21 +349,22 @@ h1, h2, p { margin: 0; }
   padding-left: .22em; /* compensa o espaçamento da última letra */
   white-space: nowrap;
 }
-.vitrine__titulo::before,
+.vitrine__selo { justify-content: center; margin-bottom: 14px; }
 .vitrine__titulo::after {
   content: "";
   display: block;
   width: 48px; height: 1px;
-  margin: 0 auto;
+  margin: 16px auto 0;
   background: var(--tinta);
 }
-.vitrine__titulo::before { margin-bottom: 16px; }
-.vitrine__titulo::after { margin-top: 16px; }
 .vitrine__subtitulo {
-  margin: 12px auto 0;
-  max-width: 34ch;
-  color: var(--tinta-suave);
-  font-size: 14.5px;
+  margin: 14px auto 0;
+  max-width: 30ch;
+  font-family: var(--fonte-luxo);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: #4d4236;
 }
 
 /* =============================================================
@@ -568,6 +635,25 @@ h1, h2, p { margin: 0; }
   overflow: hidden;
   overflow-wrap: anywhere;
 }
+/* Vitrine Ybera: nome do produto em serifa, como numa revista */
+.tema-ybera .card__nome {
+  font-family: var(--fonte-luxo);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.tema-ybera .card--destaque .card__nome { font-size: 16px; }
+.frases, .vitrine__subtitulo, .vazio__titulo, .vazio__texto, .rodape__aviso { text-wrap: balance; }
+
+.card__numero {
+  font-family: var(--fonte-luxo);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  color: #8a7457;
+  letter-spacing: .04em;
+}
 .card__categoria {
   display: inline-block;
   max-width: 100%;
@@ -643,16 +729,18 @@ h1, h2, p { margin: 0; }
 /* ---------- Estado vazio ---------- */
 .vazio {
   margin-top: 28px;
-  padding: 36px 20px;
+  padding: 34px 22px 32px;
   text-align: center;
-  border: 1px dashed #c9c6be;
+  border: 1px solid rgba(107, 93, 75, .3);
   border-radius: var(--raio);
-  background: var(--superficie);
+  background: rgba(255, 252, 247, .72);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
 }
-.vazio__icone { display: grid; place-items: center; width: 48px; height: 48px; margin: 0 auto 12px; color: var(--tinta-suave); }
-.vazio__icone svg { width: 36px; height: 36px; }
+.vazio__icone { display: grid; place-items: center; width: 30px; height: 30px; margin: 0 auto 12px; color: #8a7457; }
+.vazio__icone svg { width: 100%; height: 100%; }
 .vazio__titulo { font-weight: 700; font-size: 17px; }
-.tema-ybera .vazio__titulo { font-family: var(--fonte-luxo); font-size: 22px; font-weight: 600; }
+.tema-ybera .vazio__titulo { font-family: var(--fonte-luxo); font-size: 23px; font-weight: 600; line-height: 1.2; }
 .vazio__texto { margin-top: 6px; color: var(--tinta-suave); font-size: 14.5px; }
 
 .botao-secundario {
@@ -704,8 +792,17 @@ h1, h2, p { margin: 0; }
   font-size: 12px;
   color: #7a7266;
 }
-.rodape__aviso { max-width: 40ch; margin: 0 auto; }
-.rodape__copy { margin-top: 6px; }
+.rodape__ornamento { width: 18px; height: 18px; margin: 0 auto 10px; color: #8a7457; }
+.rodape__ornamento svg { width: 100%; height: 100%; }
+.rodape__assinatura {
+  margin-bottom: 8px;
+  font-family: var(--fonte-luxo);
+  font-style: italic;
+  font-size: 20px;
+  color: #4d4236;
+}
+.rodape__aviso { max-width: 38ch; margin: 0 auto; }
+.rodape__copy { margin-top: 8px; font-size: 10.5px; letter-spacing: .28em; text-transform: uppercase; }
 
 /* ---------- Telas maiores ---------- */
 @media (min-width: 768px) {

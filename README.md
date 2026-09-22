@@ -50,7 +50,7 @@ Abra `data/perfil.js`:
 
 ```js
 window.PERFIL = {
-  nome: "Seu Nome",
+  nome: "Maria Souza",
   frases: [
     "Primeira frase que aparece abaixo do nome.",
     "Segunda frase."
@@ -71,9 +71,12 @@ window.PERFIL = {
 - **frases**: aparecem logo abaixo do seu nome, uma por linha. Coloque cada
   frase entre aspas e separe com vírgula.
 - **foto**: coloque sua foto ou logo em `assets/img/`, por exemplo
-  `assets/img/perfil.jpg`, e informe o caminho. Use uma imagem quadrada.
-  Sem foto, aparecem as iniciais do seu nome.
-- **redes**: só aparecem as redes com `url` preenchida.
+  `assets/img/perfil.jpg`, e informe o caminho. A foto aparece numa moldura
+  em arco, então use uma imagem **vertical**. Sem foto, a moldura mostra só
+  um ornamento.
+- **nome**: aparece em letras serifadas grandes. Vazio, não aparece nada.
+- **redes**: aparecem como texto em versalete (INSTAGRAM · TIKTOK).
+  Só aparecem as redes com `url` preenchida.
   Os tipos aceitos são `instagram`, `tiktok`, `youtube`, `whatsapp`, `facebook`,
   `pinterest`, `threads`, `x`, `telegram` e `email`.
 
@@ -82,7 +85,7 @@ window.PERFIL = {
 ## 2. Adicionar produtos
 
 - **Ybera Paris**: os produtos aparecem direto na **página inicial**, abaixo dos
-  botões de achadinhos. Ao tocar no produto, o cliente vai direto para o link
+  botões de achadinhos, numerados na ordem da lista (Nº 01, Nº 02...). Ao tocar no produto, o cliente vai direto para o link
   de afiliado.
 - **Mercado Livre e Shopee**: os produtos aparecem nas páginas de achadinhos,
   abertas pelos botões da página inicial.

@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Links · Ybera Paris, Mercado Livre e Shopee</title>
-  <meta name="description" content="Minha seleção de produtos favoritos da Ybera Paris, Mercado Livre e Shopee.">
+  <title>Minha curadoria · Ybera Paris e achadinhos</title>
+  <meta name="description" content="Curadoria de produtos Ybera Paris e achadinhos do Mercado Livre e da Shopee, com links diretos.">
   <meta name="theme-color" content="#efe6d8">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Meus links e produtos favoritos">
-  <meta property="og:description" content="Ybera Paris, Mercado Livre e Shopee: produtos que eu uso e recomendo.">
+  <meta property="og:title" content="Minha curadoria">
+  <meta property="og:description" content="Ybera Paris e achadinhos do Mercado Livre e da Shopee.">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,14 +18,17 @@
 </head>
 <body class="pagina-inicial">
   <main class="perfil">
-    <div class="avatar revelar" style="--i:0" data-perfil-foto></div>
-    <h1 class="perfil__nome revelar" style="--i:1" data-perfil-nome>Seu Nome</h1>
-    <div class="frases revelar" style="--i:2" data-perfil-frases></div>
-    <ul class="social revelar" style="--i:3" data-perfil-redes aria-label="Redes sociais"></ul>
+    <header class="capa">
+      <p class="capa__selo revelar" style="--i:0">Minha curadoria</p>
+      <div class="arco revelar" style="--i:1" data-perfil-foto></div>
+      <h1 class="capa__nome revelar" style="--i:2" data-perfil-nome>Minha curadoria</h1>
+      <div class="frases revelar" style="--i:3" data-perfil-frases></div>
+      <ul class="social revelar" style="--i:3" data-perfil-redes aria-label="Redes sociais"></ul>
+    </header>
 
     <nav class="botoes" aria-label="Achadinhos">
       <a class="botao-marca botao-marca--ml revelar" style="--i:4" href="mercado-livre.html">
-        <span class="botao-marca__icone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1" fill="currentColor"/></svg></span>
+        <span class="botao-marca__icone botao-marca__logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span>
         <span class="botao-marca__texto">Achadinhos do Mercado Livre</span>
         <span class="botao-marca__seta"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6"/></svg></span>
       </a>
@@ -37,8 +40,14 @@
     </nav>
 
     <!-- Vitrine Ybera Paris (produtos em data/ybera.js) -->
-    <section class="vitrine tema-ybera" data-loja="ybera" data-card-categoria="nao" aria-labelledby="titulo-ybera">
+    <section class="vitrine tema-ybera" data-loja="ybera" data-card-categoria="nao" data-numerar="sim"
+      data-rotulo-todos="Tudo"
+      data-vazio-titulo="A seleção Ybera está quase pronta"
+      data-vazio-texto="Os produtos escolhidos a dedo entram aqui em breve."
+      data-sem-resultado="Nada com esse nome por aqui"
+      aria-labelledby="titulo-ybera">
       <div class="vitrine__cabecalho revelar" style="--i:6">
+        <p class="vitrine__selo">A seleção</p>
         <h2 id="titulo-ybera" class="vitrine__titulo" data-loja-titulo>Ybera Paris</h2>
         <p class="vitrine__subtitulo" data-loja-subtitulo></p>
       </div>
@@ -46,7 +55,7 @@
       <div class="busca" role="search" data-area-busca>
         <label class="sr-only" for="busca">Pesquisar produtos Ybera</label>
         <span class="busca__icone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
-        <input id="busca" class="busca__campo" type="search" placeholder="Pesquisar produtos" autocomplete="off" enterkeyhint="search" data-busca>
+        <input id="busca" class="busca__campo" type="search" placeholder="Buscar na seleção Ybera" autocomplete="off" enterkeyhint="search" data-busca>
         <button type="button" class="busca__limpar" aria-label="Limpar pesquisa" data-busca-limpar hidden>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
         </button>
@@ -56,14 +65,14 @@
 
       <section class="secao" aria-labelledby="titulo-destaques" data-destaques-secao>
         <div class="secao__cabecalho">
-          <h3 id="titulo-destaques" class="secao__titulo">Destaques</h3>
+          <h3 id="titulo-destaques" class="secao__titulo">Os mais amados</h3>
         </div>
         <div class="trilho" data-destaques></div>
       </section>
 
       <section class="secao" aria-labelledby="titulo-produtos" data-produtos-secao>
         <div class="secao__cabecalho">
-          <h3 id="titulo-produtos" class="secao__titulo" data-produtos-titulo>Todos os produtos</h3>
+          <h3 id="titulo-produtos" class="secao__titulo" data-produtos-titulo>Coleção completa</h3>
           <span class="secao__contagem" data-contagem aria-live="polite"></span>
         </div>
         <ul class="lista" data-lista></ul>

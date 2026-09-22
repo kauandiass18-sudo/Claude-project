@@ -5,7 +5,8 @@
      Coloque cada frase entre aspas e separe com vírgula.
    • foto: caminho de uma imagem dentro do projeto
      (ex.: "assets/img/perfil.jpg") ou um link completo (https://...).
-     Se ficar vazio, aparece um monograma com as iniciais do nome.
+     Aparece dentro de uma moldura em arco. Use uma foto na vertical.
+     Se ficar vazio, a moldura mostra só um ornamento.
    • redes: preencha a URL das redes que você usa.
      Redes com url vazia NÃO aparecem no site.
      Tipos aceitos: instagram, tiktok, youtube, whatsapp, facebook,
@@ -15,9 +16,10 @@
    ============================================================= */
 
 window.PERFIL = {
-  nome: "Seu Nome",
+  nome: "",   // ex.: "Maria Souza" ou "@seuusuario". Vazio = não aparece.
   frases: [
-    "Seleção pessoal dos produtos que eu uso e recomendo."
+    // "Primeira frase",
+    // "Segunda frase"
   ],
   foto: "",
 
@@ -32,5 +34,5 @@ window.PERFIL = {
 
   // Texto exibido no rodapé de todas as páginas.
   avisoAfiliado:
-    "Alguns links são de afiliado: posso receber uma comissão, sem custo extra para você."
+    "Links de afiliado: ao comprar por aqui, você não paga nada a mais e apoia o meu trabalho."
 };

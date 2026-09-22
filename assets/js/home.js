@@ -1,14 +1,26 @@
-/* Página inicial: preenche foto, nome, frases e redes sociais a partir de data/perfil.js */
+/* =============================================================
+   Página inicial: monta a capa (foto em arco, nome, frases e
+   redes sociais) a partir de data/perfil.js.
+   Campos vazios simplesmente não aparecem: nada de texto genérico.
+   ============================================================= */
 (function () {
   "use strict";
-  const { el, ICONES, NOMES_REDES, linkSeguro, imagemSegura, iniciais, montarRodape } = window.App;
+  const { el, ICONES, NOMES_REDES, linkSeguro, imagemSegura, montarRodape } = window.App;
   const perfil = window.PERFIL || {};
+  const nomePerfil = typeof perfil.nome === "string" ? perfil.nome.trim() : "";
 
-  // Nome
+  /* ---------- Nome ---------- */
   const nome = document.querySelector("[data-perfil-nome]");
-  if (nome && perfil.nome) nome.textContent = perfil.nome;
+  if (nome) {
+    if (nomePerfil) {
+      nome.textContent = nomePerfil;
+      document.title = `${nomePerfil} · Minha curadoria`;
+    } else {
+      nome.classList.add("sr-only"); // mantém um título para leitores de tela
+    }
+  }
 
-  // Frases abaixo do nome (uma linha para cada frase)
+  /* ---------- Frases (uma por linha) ---------- */
   const caixaFrases = document.querySelector("[data-perfil-frases]");
   if (caixaFrases) {
     const frases = (Array.isArray(perfil.frases) ? perfil.frases : [])
@@ -20,31 +32,32 @@
       caixaFrases.hidden = true;
     }
   }
-  if (perfil.nome) document.title = `${perfil.nome} · Links`;
 
-  // Foto / logo (ou monograma com iniciais)
-  const avatar = document.querySelector("[data-perfil-foto]");
-  if (avatar) {
-    const monograma = () =>
-      avatar.replaceChildren(el("span", { class: "avatar__iniciais", text: iniciais(perfil.nome) }));
+  /* ---------- Foto em arco ---------- */
+  const arco = document.querySelector("[data-perfil-foto]");
+  if (arco) {
+    const ornamento = () => {
+      arco.classList.add("arco--vazio");
+      arco.replaceChildren(el("span", { class: "arco__ornamento", html: ICONES.brilho }));
+    };
     const src = imagemSegura(perfil.foto);
     if (src) {
       const img = el("img", {
         src,
-        alt: perfil.nome ? `Foto de ${perfil.nome}` : "Foto de perfil",
-        width: "112",
-        height: "112",
+        alt: nomePerfil ? `Foto de ${nomePerfil}` : "Foto de perfil",
+        width: "300",
+        height: "380",
         decoding: "async",
         fetchpriority: "high"
       });
-      img.addEventListener("error", monograma, { once: true });
-      avatar.replaceChildren(img);
+      img.addEventListener("error", ornamento, { once: true });
+      arco.replaceChildren(img);
     } else {
-      monograma();
+      ornamento();
     }
   }
 
-  // Redes sociais (só aparecem as que têm URL)
+  /* ---------- Redes sociais (texto em versalete) ---------- */
   const lista = document.querySelector("[data-perfil-redes]");
   if (lista) {
     const itens = (perfil.redes || [])
@@ -59,11 +72,12 @@
             class: "social__link",
             href: url,
             "aria-label": rotulo,
-            title: rotulo,
             target: externo ? "_blank" : null,
-            rel: externo ? "noopener me" : null,
-            html: ICONES[tipo] || ICONES.link
-          })
+            rel: externo ? "noopener me" : null
+          }, [
+            el("span", { class: "social__icone", html: ICONES[tipo] || ICONES.link }),
+            el("span", { class: "social__texto", text: rotulo })
+          ])
         );
       })
       .filter(Boolean);

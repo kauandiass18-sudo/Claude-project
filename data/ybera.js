@@ -25,9 +25,9 @@ window.LOJAS = window.LOJAS || {};
 
 window.LOJAS.ybera = {
   titulo: "Ybera Paris",
-  subtitulo: "Cuidados capilares profissionais selecionados para você.",
+  subtitulo: "Tratamento de salão para fazer em casa.",
   linkLoja: "https://www.ybera.com?parceiro=19285",
-  textoLinkLoja: "Visitar loja oficial Ybera",
+  textoLinkLoja: "Conhecer a loja oficial",
 
   // Parâmetros adicionados automaticamente aos links de ybera.com
   parametrosAfiliado: { parceiro: "19285" },

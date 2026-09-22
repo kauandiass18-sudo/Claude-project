@@ -16,6 +16,14 @@
   const slug = raiz.dataset.loja;
   const loja = (window.LOJAS || {})[slug];
   const mostrarCategoria = raiz.dataset.cardCategoria === "sim";
+  const mostrarNumero = raiz.dataset.numerar === "sim";
+  // Textos da página (definidos no HTML com data-*; têm um padrão se faltarem)
+  const txt = {
+    todos: raiz.dataset.rotuloTodos || "Todos",
+    vazioTitulo: raiz.dataset.vazioTitulo || "Em breve, novidades por aqui",
+    vazioTexto: raiz.dataset.vazioTexto || "Os produtos desta loja estão sendo selecionados.",
+    semResultado: raiz.dataset.semResultado || "Nada encontrado"
+  };
   const $ = (sel) => document.querySelector(sel);
 
   montarRodape();
@@ -54,6 +62,7 @@
       };
     })
     .filter(Boolean);
+  produtos.forEach((p, i) => { p.numero = String(i + 1).padStart(2, "0"); });
 
   /* ---------- Categorias ---------- */
   const ordem = (loja.ordemCategorias || []).map((c) => normalizar(c));
@@ -76,6 +85,7 @@
   const secaoProdutos = $("[data-produtos-secao]");
   const tituloProdutos = $("[data-produtos-titulo]");
   const lista = $("[data-lista]");
+  const tituloPadrao = tituloProdutos ? tituloProdutos.textContent : "";
   const contagem = $("[data-contagem]");
   const vazio = $("[data-vazio]");
   const linkLoja = $("[data-link-loja]");
@@ -116,6 +126,9 @@
       [
         criarMidia(produto),
         el("span", { class: "card__corpo" }, [
+          mostrarNumero && !ehDestaque
+            ? el("span", { class: "card__numero", text: `Nº ${produto.numero}` })
+            : null,
           (mostrarCategoria || ehDestaque) && produto.categoria
             ? el("span", { class: "card__categoria", text: produto.categoria })
             : null,
@@ -153,7 +166,7 @@
           renderLista();
         }
       });
-    listaCategorias.replaceChildren(chip("", "Todos"), ...categorias.map((c) => chip(c, c)));
+    listaCategorias.replaceChildren(chip("", txt.todos), ...categorias.map((c) => chip(c, c)));
   }
 
   function renderDestaques() {
@@ -178,7 +191,7 @@
     }
 
     if (tituloProdutos) {
-      tituloProdutos.textContent = estado.categoria || (termo ? "Resultados" : "Todos os produtos");
+      tituloProdutos.textContent = estado.categoria || (termo ? "Resultados" : tituloPadrao);
     }
     if (contagem) {
       contagem.textContent = `${resultado.length} ${resultado.length === 1 ? "produto" : "produtos"}`;
@@ -188,7 +201,7 @@
 
     if (!resultado.length) {
       mostrarVazio(
-        "Nenhum produto encontrado",
+        txt.semResultado,
         termo ? `Não encontramos resultados para “${estado.busca.trim()}”.` : "Não há produtos nesta categoria.",
         el("button", {
           type: "button",
@@ -213,7 +226,7 @@
     if (!vazio) return;
     vazio.replaceChildren(
       ...[
-        el("span", { class: "vazio__icone", html: ICONES.caixa }),
+        el("span", { class: "vazio__icone", html: ICONES.brilho }),
         el("p", { class: "vazio__titulo", text: tituloTxt }),
         el("p", { class: "vazio__texto", text: textoTxt }),
         acao
@@ -244,11 +257,7 @@
     if (listaCategorias) listaCategorias.hidden = true;
     if (secaoDestaques) secaoDestaques.hidden = true;
     if (secaoProdutos) secaoProdutos.hidden = true;
-    mostrarVazio(
-      "Em breve, novidades por aqui",
-      "Os produtos desta loja estão sendo selecionados. Volte em breve!",
-      null
-    );
+    mostrarVazio(txt.vazioTitulo, txt.vazioTexto, null);
     return;
   }
 
