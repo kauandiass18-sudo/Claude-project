@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ybera Paris · Produtos</title>
+  <meta name="description" content="Produtos Ybera Paris selecionados, com links diretos para a loja oficial.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Ybera Paris · Produtos">
+  <meta property="og:description" content="Produtos Ybera Paris selecionados, com links diretos para a loja oficial.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="pagina-loja tema-ybera" data-loja="ybera" data-card-categoria="nao">
+  <a class="pular" href="#conteudo">Pular para os produtos</a>
+
+  <header class="topo">
+    <a class="topo__voltar" href="index.html" aria-label="Voltar para o início">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <span class="topo__marca">Ybera Paris</span>
+    <span class="topo__espaco" aria-hidden="true"></span>
+  </header>
+
+  <main id="conteudo" class="loja">
+    <section class="loja__hero revelar" style="--i:0">
+      <h1 class="loja__titulo" data-loja-titulo>Ybera Paris</h1>
+      <p class="loja__subtitulo" data-loja-subtitulo></p>
+    </section>
+
+    <div class="busca revelar" style="--i:1" role="search" data-area-busca>
+      <label class="sr-only" for="busca">Pesquisar produtos</label>
+      <span class="busca__icone"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span>
+      <input id="busca" class="busca__campo" type="search" placeholder="Pesquisar produtos" autocomplete="off" enterkeyhint="search" data-busca>
+      <button type="button" class="busca__limpar" aria-label="Limpar pesquisa" data-busca-limpar hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+
+    <nav class="chips revelar" style="--i:2" aria-label="Categorias" data-categorias></nav>
+
+    <section class="secao" aria-labelledby="titulo-destaques" data-destaques-secao>
+      <div class="secao__cabecalho">
+        <h2 id="titulo-destaques" class="secao__titulo">Destaques</h2>
+      </div>
+      <div class="trilho" data-destaques></div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-produtos" data-produtos-secao>
+      <div class="secao__cabecalho">
+        <h2 id="titulo-produtos" class="secao__titulo" data-produtos-titulo>Todos os produtos</h2>
+        <span class="secao__contagem" data-contagem aria-live="polite"></span>
+      </div>
+      <ul class="lista" data-lista></ul>
+    </section>
+
+    <div class="vazio" data-vazio hidden></div>
+
+    <a class="botao-loja" target="_blank" rel="sponsored noopener" data-link-loja hidden>
+      <span data-link-loja-texto></span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+    </a>
+
+    <noscript><p class="vazio">Ative o JavaScript para ver os produtos.</p></noscript>
+  </main>
+
+  <footer class="rodape" data-rodape></footer>
+
+  <script src="data/perfil.js"></script>
+  <script src="data/ybera.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/loja.js"></script>
+</body>
+</html>
