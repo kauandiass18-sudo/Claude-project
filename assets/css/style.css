@@ -15,12 +15,14 @@
 
   /* Marcas */
   --ybera: #111111;
-  --ml-1: #ffd21f;
-  --ml-2: #f5b400;
-  --ml-sombra: #e0a500;
-  --shopee-1: #f89a72;
-  --shopee-2: #f07a52;
-  --shopee-sombra: #e46a43;
+  --ml-1: #f1d37a;         /* amarelo mostarda-champanhe */
+  --ml-2: #e3b94e;
+  --ml-texto: #1f1a12;     /* texto escuro: alto contraste no amarelo */
+  --ml-sombra: #c99a2e;
+  --shopee-1: #b85834;     /* laranja terracota (branco com contraste 4.6:1 ou mais) */
+  --shopee-2: #a44526;
+  --shopee-texto: #ffffff;
+  --shopee-sombra: #8e3b20;
 
   /* Tipografia */
   --fonte-ui: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -277,60 +279,47 @@ h1, h2, p { margin: 0; }
   .botao-marca:hover .botao-marca__seta svg { transform: translateX(3px); }
 }
 
-/* Mercado Livre — amarelo, texto branco */
-.botao-marca--ml {
-  background: linear-gradient(135deg, var(--ml-1), var(--ml-2));
-  color: #fff;
-  box-shadow: 0 10px 24px rgba(245, 180, 0, .28), inset 0 1px 0 rgba(255,255,255,.35);
-}
-/* Shopee — laranja suave, texto branco */
-.botao-marca--shopee {
-  background: linear-gradient(135deg, var(--shopee-1), var(--shopee-2));
-  color: #fff;
-  box-shadow: 0 10px 24px rgba(240, 122, 82, .26), inset 0 1px 0 rgba(255,255,255,.3);
-}
-/* Achadinhos: botões mais finos */
+/* ---------- Minha seleção: Mercado Livre e Shopee ---------- */
 .botao-marca--ml,
 .botao-marca--shopee {
-  grid-template-columns: 34px 1fr 34px;
-  min-height: 50px;
-  padding: 5px 10px;
-  border-radius: 14px;
-  box-shadow: 0 6px 16px rgba(160, 110, 40, .18), inset 0 1px 0 rgba(255,255,255,.3);
+  grid-template-columns: 22px 1fr 22px;
+  gap: 8px;
+  min-height: 66px;
+  padding: 10px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(60, 40, 10, .12);
+  box-shadow: 0 2px 8px rgba(60, 40, 10, .07);
+}
+.botao-marca--ml {
+  background: linear-gradient(135deg, var(--ml-1), var(--ml-2));
+  color: var(--ml-texto);
+}
+.botao-marca--shopee {
+  background: linear-gradient(135deg, var(--shopee-1), var(--shopee-2));
+  color: var(--shopee-texto);
 }
 .botao-marca--ml .botao-marca__icone,
 .botao-marca--ml .botao-marca__seta,
 .botao-marca--shopee .botao-marca__icone,
-.botao-marca--shopee .botao-marca__seta { width: 34px; height: 34px; }
+.botao-marca--shopee .botao-marca__seta { width: 22px; height: 22px; }
 .botao-marca--ml .botao-marca__icone svg,
 .botao-marca--shopee .botao-marca__icone svg { width: 20px; height: 20px; }
+.botao-marca--ml .botao-marca__icone svg { stroke-width: 1.6; }
+/* seta fina */
 .botao-marca--ml .botao-marca__seta svg,
-.botao-marca--shopee .botao-marca__seta svg { width: 18px; height: 18px; }
+.botao-marca--shopee .botao-marca__seta svg { width: 18px; height: 18px; stroke-width: 1.2; }
 .botao-marca--ml .botao-marca__texto,
 .botao-marca--shopee .botao-marca__texto {
-  font-size: clamp(14px, 4.2vw, 16px);
-  font-weight: 700;
-  letter-spacing: -.01em;
-  white-space: nowrap;
-  text-shadow: 0 1px 2px rgba(120, 60, 0, .28);
+  font-size: 15.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.005em;
+  text-wrap: balance;
 }
-.botao-marca--ml svg,
-.botao-marca--shopee svg { filter: drop-shadow(0 1px 1px rgba(120, 60, 0, .25)); }
 @media (hover: hover) {
   .botao-marca--ml:hover,
-  .botao-marca--shopee:hover { filter: saturate(1.08); transform: translateY(-2px); }
+  .botao-marca--shopee:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(60, 40, 10, .1); }
 }
-
-/* Logos em disco branco, na cor de cada marca */
-.botao-marca .botao-marca__logo {
-  width: 34px; height: 34px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(90, 50, 0, .18);
-}
-.botao-marca .botao-marca__logo svg { width: 19px; height: 19px; filter: none; }
-.botao-marca--ml .botao-marca__logo { color: #2d3277; }
-.botao-marca--shopee .botao-marca__logo { color: #ee4d2d; }
 
 /* ---------- Vitrine Ybera Paris na página inicial ---------- */
 .vitrine {
@@ -456,11 +445,12 @@ h1, h2, p { margin: 0; }
 }
 .tema-ml .loja__hero {
   background: linear-gradient(135deg, var(--ml-1), var(--ml-2));
-  box-shadow: 0 14px 30px rgba(245, 180, 0, .25);
+  color: var(--ml-texto);
+  box-shadow: 0 4px 14px rgba(60, 40, 10, .08);
 }
 .tema-shopee .loja__hero {
   background: linear-gradient(135deg, var(--shopee-1), var(--shopee-2));
-  box-shadow: 0 14px 30px rgba(240, 122, 82, .25);
+  box-shadow: 0 4px 14px rgba(60, 40, 10, .08);
 }
 .tema-ml .loja__hero::before,
 .tema-shopee .loja__hero::before,
@@ -476,10 +466,10 @@ h1, h2, p { margin: 0; }
 .tema-shopee .loja__hero::before { width: 180px; height: 180px; right: -60px; top: -70px; }
 .tema-ml .loja__hero::after,
 .tema-shopee .loja__hero::after { width: 120px; height: 120px; left: -40px; bottom: -60px; }
-.tema-ml .loja__titulo,
-.tema-shopee .loja__titulo { text-shadow: 0 1px 3px rgba(120, 60, 0, .25); }
-.tema-ml .loja__subtitulo,
-.tema-shopee .loja__subtitulo { color: rgba(255,255,255,.95); text-shadow: 0 1px 2px rgba(120, 60, 0, .25); }
+.tema-ml .loja__subtitulo { color: rgba(31, 26, 18, .8); }
+.tema-shopee .loja__subtitulo { color: rgba(255, 255, 255, .92); }
+.tema-ml .loja__hero::before,
+.tema-ml .loja__hero::after { border-color: rgba(31, 26, 18, .14); }
 .tema-ml .loja,
 .tema-shopee .loja { padding-top: 16px; }
 
@@ -551,8 +541,8 @@ h1, h2, p { margin: 0; }
 }
 .chip:active { transform: scale(.95); }
 .chip[aria-pressed="true"] { background: var(--tinta); border-color: var(--tinta); color: #fff; }
-.tema-ml .chip[aria-pressed="true"],
-.tema-shopee .chip[aria-pressed="true"] { background: var(--destaque); border-color: var(--destaque); }
+.tema-ml .chip[aria-pressed="true"] { background: var(--ml-2); border-color: var(--ml-2); color: var(--ml-texto); }
+.tema-shopee .chip[aria-pressed="true"] { background: var(--shopee-2); border-color: var(--shopee-2); }
 .tema-ybera .chip { border-color: var(--tinta); letter-spacing: .02em; }
 @media (hover: hover) { .chip:hover { border-color: var(--tinta); } }
 
@@ -684,8 +674,8 @@ h1, h2, p { margin: 0; }
   color: #fff;
   z-index: 1;
 }
-.tema-ml .card__selo,
-.tema-shopee .card__selo { background: var(--destaque); }
+.tema-ml .card__selo { background: var(--ml-2); color: var(--ml-texto); }
+.tema-shopee .card__selo { background: var(--shopee-2); }
 .card__selo svg { width: 13px; height: 13px; fill: currentColor; stroke: none; }
 
 /* Card grande da lista: foto à esquerda, nome centralizado */
@@ -782,8 +772,8 @@ h1, h2, p { margin: 0; }
   letter-spacing: .14em;
   text-transform: uppercase;
 }
-.tema-ml .botao-loja { background: linear-gradient(135deg, var(--ml-1), var(--ml-2)); color: #fff; text-shadow: 0 1px 2px rgba(120,60,0,.28); }
-.tema-shopee .botao-loja { background: linear-gradient(135deg, var(--shopee-1), var(--shopee-2)); color: #fff; text-shadow: 0 1px 2px rgba(120,60,0,.28); }
+.tema-ml .botao-loja { background: linear-gradient(135deg, var(--ml-1), var(--ml-2)); color: var(--ml-texto); }
+.tema-shopee .botao-loja { background: linear-gradient(135deg, var(--shopee-1), var(--shopee-2)); color: var(--shopee-texto); }
 
 /* ---------- Rodapé ---------- */
 .rodape {

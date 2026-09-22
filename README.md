@@ -201,10 +201,10 @@ em `:root`:
 
 ```css
 --fundo-imagem: url("../img/marmore.jpg");  /* fundo de mármore */
---ml-1: #ffd21f;      /* amarelo Mercado Livre */
---ml-2: #f5b400;
---shopee-1: #f89a72;  /* laranja suave Shopee */
---shopee-2: #f07a52;
+--ml-1: #f1d37a;      /* amarelo Mercado Livre */
+--ml-2: #e3b94e;
+--shopee-1: #b85834;  /* laranja terracota Shopee */
+--shopee-2: #a44526;
 --fonte-luxo: "Cormorant Garamond", ...;  /* tipografia da Ybera */
 ```
 
