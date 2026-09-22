@@ -1,16 +1,24 @@
-/* Página inicial: preenche foto, nome, descrição e redes sociais a partir de data/perfil.js */
+/* Página inicial: preenche foto, nome, frases e redes sociais a partir de data/perfil.js */
 (function () {
   "use strict";
   const { el, ICONES, NOMES_REDES, linkSeguro, imagemSegura, iniciais, montarRodape } = window.App;
   const perfil = window.PERFIL || {};
 
-  // Nome e descrição
+  // Nome
   const nome = document.querySelector("[data-perfil-nome]");
-  const descricao = document.querySelector("[data-perfil-descricao]");
   if (nome && perfil.nome) nome.textContent = perfil.nome;
-  if (descricao) {
-    if (perfil.descricao) descricao.textContent = perfil.descricao;
-    else descricao.hidden = true;
+
+  // Frases abaixo do nome (uma linha para cada frase)
+  const caixaFrases = document.querySelector("[data-perfil-frases]");
+  if (caixaFrases) {
+    const frases = (Array.isArray(perfil.frases) ? perfil.frases : [])
+      .map((f) => (typeof f === "string" ? f.trim() : ""))
+      .filter(Boolean);
+    if (frases.length) {
+      caixaFrases.replaceChildren(...frases.map((f) => el("p", { class: "frases__linha", text: f })));
+    } else {
+      caixaFrases.hidden = true;
+    }
   }
   if (perfil.nome) document.title = `${perfil.nome} · Links`;
 

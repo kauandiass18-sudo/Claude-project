@@ -1,6 +1,8 @@
 /* =============================================================
-   PERFIL — edite aqui seu nome, descrição, foto e redes sociais
+   PERFIL — edite aqui seu nome, frases, foto e redes sociais
    =============================================================
+   • frases: aparecem logo abaixo do seu nome, uma por linha.
+     Coloque cada frase entre aspas e separe com vírgula.
    • foto: caminho de uma imagem dentro do projeto
      (ex.: "assets/img/perfil.jpg") ou um link completo (https://...).
      Se ficar vazio, aparece um monograma com as iniciais do nome.
@@ -14,7 +16,9 @@
 
 window.PERFIL = {
   nome: "Seu Nome",
-  descricao: "Seleção pessoal dos produtos que eu uso e recomendo.",
+  frases: [
+    "Seleção pessoal dos produtos que eu uso e recomendo."
+  ],
   foto: "",
 
   redes: [

@@ -32,6 +32,8 @@
   --deslocamento: 4px;
   --largura: 560px;
   --gutter: 16px;
+  --destaque: var(--tinta);
+  --sombra-card: var(--tinta);
 
   /* Movimento */
   --suave: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -155,11 +157,15 @@ h1, h2, p { margin: 0; }
   letter-spacing: -.02em;
   line-height: 1.2;
 }
-.perfil__descricao {
-  margin-top: 8px;
-  max-width: 34ch;
+/* Frases abaixo do nome */
+.frases {
+  margin-top: 10px;
+  max-width: 36ch;
+  display: grid;
+  gap: 4px;
   color: var(--tinta-suave);
   font-size: 15px;
+  line-height: 1.45;
 }
 
 .social {
@@ -213,28 +219,6 @@ h1, h2, p { margin: 0; }
   .botao-marca:hover .botao-marca__seta svg { transform: translateX(3px); }
 }
 
-/* Ybera Paris — branco, preto, minimalista */
-.botao-marca--ybera {
-  background: var(--superficie);
-  color: var(--ybera);
-  border: 1px solid var(--ybera);
-}
-.botao-marca--ybera .botao-marca__texto {
-  font-family: var(--fonte-luxo);
-  font-weight: 500;
-  font-size: 21px;
-  letter-spacing: .32em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  padding-left: .32em; /* compensa o espaçamento da última letra */
-}
-@media (max-width: 360px) {
-  .botao-marca--ybera .botao-marca__texto { font-size: 18px; letter-spacing: .2em; padding-left: .2em; }
-}
-@media (hover: hover) {
-  .botao-marca--ybera:hover { box-shadow: 0 10px 28px rgba(0,0,0,.08); }
-}
-
 /* Mercado Livre — amarelo, texto branco */
 .botao-marca--ml {
   background: linear-gradient(135deg, var(--ml-1), var(--ml-2));
@@ -279,10 +263,47 @@ h1, h2, p { margin: 0; }
   .botao-marca--shopee:hover { filter: saturate(1.08); transform: translateY(-2px); }
 }
 
+/* Logo da Shopee um pouco maior que os ícones de traço */
+.botao-marca .botao-marca__logo svg { width: 22px; height: 22px; }
+
+/* ---------- Vitrine Ybera Paris na página inicial ---------- */
+.vitrine {
+  width: 100%;
+  margin-top: 44px;
+  text-align: left;
+}
+.vitrine__cabecalho { text-align: center; margin-bottom: 4px; }
+.vitrine__titulo {
+  font-family: var(--fonte-luxo);
+  font-weight: 500;
+  font-size: clamp(26px, 7.4vw, 34px);
+  line-height: 1.1;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  padding-left: .22em; /* compensa o espaçamento da última letra */
+  white-space: nowrap;
+}
+.vitrine__titulo::before,
+.vitrine__titulo::after {
+  content: "";
+  display: block;
+  width: 48px; height: 1px;
+  margin: 0 auto;
+  background: var(--tinta);
+}
+.vitrine__titulo::before { margin-bottom: 16px; }
+.vitrine__titulo::after { margin-top: 16px; }
+.vitrine__subtitulo {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  color: var(--tinta-suave);
+  font-size: 14.5px;
+}
+
 /* =============================================================
    PÁGINAS DE LOJA
    ============================================================= */
-.pagina-loja { --destaque: var(--tinta); --sombra-card: var(--tinta); }
+.tema-ybera { --destaque: var(--tinta); --sombra-card: var(--tinta); }
 .tema-ml { --destaque: var(--ml-2); --sombra-card: var(--ml-sombra); }
 .tema-shopee { --destaque: var(--shopee-2); --sombra-card: var(--shopee-sombra); }
 
@@ -690,7 +711,7 @@ h1, h2, p { margin: 0; }
 @media (min-width: 768px) {
   .perfil { padding-top: 72px; }
   .pagina-loja { --largura: 760px; }
-  .lista { grid-template-columns: 1fr 1fr; }
+  .pagina-loja .lista { grid-template-columns: 1fr 1fr; }
   .loja__hero { padding-top: 28px; }
 }
 

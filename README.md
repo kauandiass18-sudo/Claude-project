@@ -14,14 +14,14 @@ rodar build.
 ## Estrutura
 
 ```
-├── index.html            Página inicial (perfil + 3 botões)
-├── ybera.html            Página da Ybera Paris
-├── mercado-livre.html    Página do Mercado Livre
-├── shopee.html           Página da Shopee
+├── index.html            Página inicial: perfil, frases, botões de
+│                         achadinhos e vitrine da Ybera Paris
+├── mercado-livre.html    Achadinhos do Mercado Livre
+├── shopee.html           Achadinhos da Shopee
 │
 ├── data/                 ← É AQUI QUE VOCÊ EDITA
-│   ├── perfil.js         Nome, descrição, foto e redes sociais
-│   ├── ybera.js          Produtos da Ybera Paris
+│   ├── perfil.js         Nome, frases, foto e redes sociais
+│   ├── ybera.js          Produtos da Ybera Paris (aparecem na página inicial)
 │   ├── mercado-livre.js  Produtos do Mercado Livre
 │   └── shopee.js         Produtos da Shopee
 │
@@ -29,9 +29,10 @@ rodar build.
     ├── css/style.css     Visual (cores, fontes, cards, animações)
     ├── js/common.js      Funções compartilhadas
     ├── js/home.js        Monta a página inicial
-    ├── js/loja.js        Monta as páginas de loja (busca, categorias, cards)
+    ├── js/loja.js        Monta as vitrines (busca, categorias, destaques, cards)
     └── img/
         ├── favicon.svg
+        ├── marmore.jpg    Fundo de mármore bege
         └── produtos/
             ├── ybera/
             ├── mercado-livre/
@@ -50,7 +51,10 @@ Abra `data/perfil.js`:
 ```js
 window.PERFIL = {
   nome: "Seu Nome",
-  descricao: "Seleção pessoal dos produtos que eu uso e recomendo.",
+  frases: [
+    "Primeira frase que aparece abaixo do nome.",
+    "Segunda frase."
+  ],
   foto: "assets/img/perfil.jpg",
 
   redes: [
@@ -64,6 +68,8 @@ window.PERFIL = {
 };
 ```
 
+- **frases**: aparecem logo abaixo do seu nome, uma por linha. Coloque cada
+  frase entre aspas e separe com vírgula.
 - **foto**: coloque sua foto ou logo em `assets/img/`, por exemplo
   `assets/img/perfil.jpg`, e informe o caminho. Use uma imagem quadrada.
   Sem foto, aparecem as iniciais do seu nome.
@@ -74,6 +80,12 @@ window.PERFIL = {
 ---
 
 ## 2. Adicionar produtos
+
+- **Ybera Paris**: os produtos aparecem direto na **página inicial**, abaixo dos
+  botões de achadinhos. Ao tocar no produto, o cliente vai direto para o link
+  de afiliado.
+- **Mercado Livre e Shopee**: os produtos aparecem nas páginas de achadinhos,
+  abertas pelos botões da página inicial.
 
 Cada loja tem seu arquivo em `data/`. Dentro dele há uma lista `produtos: [ ]`.
 Cada produto é um bloco entre `{ }`, separado do próximo por **vírgula**:
@@ -185,6 +197,7 @@ As cores e fontes principais ficam no início de `assets/css/style.css`,
 em `:root`:
 
 ```css
+--fundo-imagem: url("../img/marmore.jpg");  /* fundo de mármore */
 --ml-1: #ffd21f;      /* amarelo Mercado Livre */
 --ml-2: #f5b400;
 --shopee-1: #f89a72;  /* laranja suave Shopee */

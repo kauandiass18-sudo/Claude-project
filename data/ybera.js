@@ -1,6 +1,8 @@
 /* =============================================================
-   LOJA: YBERA PARIS
+   LOJA: YBERA PARIS  (produtos exibidos na PÁGINA INICIAL)
    =============================================================
+   Ao tocar em um produto, o cliente vai direto para o affiliateUrl.
+
    COMO ADICIONAR UM PRODUTO
    Copie o bloco de exemplo abaixo, cole dentro de "produtos: [ ]"
    e preencha. Separe cada produto com vírgula.

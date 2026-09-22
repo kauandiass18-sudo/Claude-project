@@ -1,6 +1,6 @@
 /* =============================================================
-   Página de loja (Ybera Paris, Mercado Livre, Shopee).
-   Lê os produtos de data/<loja>.js e monta categorias, busca,
+   Vitrine de loja: Ybera Paris (na página inicial), Mercado Livre
+   e Shopee. Lê os produtos de data/<loja>.js e monta categorias, busca,
    destaques e a lista de cards. Normalmente você NÃO precisa
    editar este arquivo: edite os arquivos da pasta data/.
    ============================================================= */
@@ -11,10 +11,11 @@
   // Faz o :active funcionar no iOS (animação ao tocar)
   document.addEventListener("touchstart", function () {}, { passive: true });
 
-  const corpo = document.body;
-  const slug = corpo.dataset.loja;
+  const raiz = document.querySelector("[data-loja]");
+  if (!raiz) return;
+  const slug = raiz.dataset.loja;
   const loja = (window.LOJAS || {})[slug];
-  const mostrarCategoria = corpo.dataset.cardCategoria === "sim";
+  const mostrarCategoria = raiz.dataset.cardCategoria === "sim";
   const $ = (sel) => document.querySelector(sel);
 
   montarRodape();
