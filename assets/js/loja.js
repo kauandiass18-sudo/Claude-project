@@ -211,10 +211,12 @@
   function mostrarVazio(tituloTxt, textoTxt, acao) {
     if (!vazio) return;
     vazio.replaceChildren(
-      el("span", { class: "vazio__icone", html: ICONES.caixa }),
-      el("p", { class: "vazio__titulo", text: tituloTxt }),
-      el("p", { class: "vazio__texto", text: textoTxt }),
-      acao || null
+      ...[
+        el("span", { class: "vazio__icone", html: ICONES.caixa }),
+        el("p", { class: "vazio__titulo", text: tituloTxt }),
+        el("p", { class: "vazio__texto", text: textoTxt }),
+        acao
+      ].filter(Boolean)
     );
     vazio.hidden = false;
   }

@@ -212,7 +212,11 @@ h1, h2, p { margin: 0; }
   font-size: 21px;
   letter-spacing: .32em;
   text-transform: uppercase;
+  white-space: nowrap;
   padding-left: .32em; /* compensa o espaçamento da última letra */
+}
+@media (max-width: 360px) {
+  .botao-marca--ybera .botao-marca__texto { font-size: 18px; letter-spacing: .2em; padding-left: .2em; }
 }
 @media (hover: hover) {
   .botao-marca--ybera:hover { box-shadow: 0 10px 28px rgba(0,0,0,.08); }
@@ -635,8 +639,8 @@ h1, h2, p { margin: 0; }
   background: var(--tinta);
   color: #fff;
   font-family: var(--fonte-luxo);
-  font-size: 16px;
-  letter-spacing: .18em;
+  font-size: 15px;
+  letter-spacing: .14em;
   text-transform: uppercase;
 }
 .tema-ml .botao-loja { background: linear-gradient(135deg, var(--ml-1), var(--ml-2)); color: #fff; text-shadow: 0 1px 2px rgba(120,60,0,.28); }

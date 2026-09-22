@@ -135,8 +135,10 @@
     if (!alvo) return;
     const perfil = window.PERFIL || {};
     alvo.replaceChildren(
-      perfil.avisoAfiliado ? el("p", { class: "rodape__aviso", text: perfil.avisoAfiliado }) : null,
-      el("p", { class: "rodape__copy", text: `© ${new Date().getFullYear()} ${perfil.nome || ""}`.trim() })
+      ...[
+        perfil.avisoAfiliado ? el("p", { class: "rodape__aviso", text: perfil.avisoAfiliado }) : null,
+        el("p", { class: "rodape__copy", text: `© ${new Date().getFullYear()} ${perfil.nome || ""}`.trim() })
+      ].filter(Boolean)
     );
   }
 
