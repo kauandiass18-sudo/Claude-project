@@ -6,7 +6,7 @@
 :root {
   /* Base: tons de salão (creme nude, cacau e mel) */
   --fundo: #f5ebe2;          /* creme nude */
-  --fundo-fim: #ecd9c8;      /* nude mais quente, no pé da página */
+  --fundo-fim: #ead3b2;      /* champanhe dourado, no pé da página */
   --superficie: #fffaf5;     /* cards e campos */
   --rose: #efdcd1;           /* rosé nude */
   --tinta: #33211a;          /* cacau: cor do texto */
@@ -94,7 +94,8 @@ body::before {
   pointer-events: none;
   background:
     radial-gradient(90% 45% at 50% 0%, rgba(255, 250, 245, .9) 0%, rgba(255, 250, 245, 0) 70%),
-    radial-gradient(70% 40% at 100% 100%, rgba(236, 208, 156, .35) 0%, rgba(236, 208, 156, 0) 70%),
+    radial-gradient(70% 40% at 100% 100%, rgba(226, 190, 110, .45) 0%, rgba(226, 190, 110, 0) 70%),
+    radial-gradient(60% 30% at 0% 55%, rgba(236, 206, 128, .3) 0%, rgba(236, 206, 128, 0) 70%),
     linear-gradient(180deg, var(--fundo) 0%, var(--fundo-fim) 100%);
 }
 
@@ -243,7 +244,7 @@ h1, h2, h3, p { margin: 0; }
   font-weight: 500;
   font-size: 19px;
   line-height: 1.35;
-  color: var(--tinta);
+  color: var(--ouro-escuro);
   text-wrap: balance;
 }
 .capa__nome.sr-only + .frases { margin-top: 22px; }
@@ -404,7 +405,7 @@ h1, h2, h3, p { margin: 0; }
   font-style: italic;
   font-weight: 500;
   font-size: 18px;
-  color: var(--tinta-suave);
+  color: var(--ouro-escuro);
   text-wrap: balance;
 }
 
@@ -559,6 +560,7 @@ h1, h2, h3, p { margin: 0; }
   font-weight: 500;
   font-size: 18px;
   text-align: center;
+  color: var(--ouro-escuro);
 }
 .chips {
   display: flex;
@@ -581,7 +583,7 @@ h1, h2, h3, p { margin: 0; }
   padding: 0 16px 0 13px;
   border-radius: 999px;
   border: 1px solid var(--ouro);
-  background: rgba(255, 250, 245, .88);
+  background: linear-gradient(180deg, #fffaf0, #f6e8c8);
   font-size: 14.5px;
   font-weight: 500;
   white-space: nowrap;
@@ -619,7 +621,11 @@ h1, h2, h3, p { margin: 0; }
   font-style: italic;
   font-weight: 500;
   font-size: 23px;
-  line-height: 1.15;
+  line-height: 1.2;
+  background: var(--ouro-texto);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .secao__contagem {
   font-size: 12px;
@@ -635,8 +641,8 @@ h1, h2, h3, p { margin: 0; }
 .card {
   position: relative;
   display: grid;
-  background: linear-gradient(var(--superficie), var(--superficie)) padding-box, linear-gradient(135deg, rgba(201, 162, 78, .9), rgba(243, 223, 162, .7) 45%, rgba(201, 162, 78, .9)) border-box;
-  border: 1px solid transparent;
+  background: linear-gradient(var(--superficie), var(--superficie)) padding-box, var(--ouro-brilho) border-box;
+  border: 1.5px solid transparent;
   border-radius: var(--raio);
   box-shadow: var(--sombra);
   cursor: pointer;
@@ -646,7 +652,7 @@ h1, h2, h3, p { margin: 0; }
 .card:active { transform: scale(.98); box-shadow: var(--sombra-leve); }
 @media (hover: hover) {
   .card:hover { transform: translateY(-2px); background: linear-gradient(var(--superficie), var(--superficie)) padding-box, var(--ouro-brilho) border-box; }
-  .card:hover .card__seta { background: var(--ouro-brilho); color: var(--tinta); border-color: transparent; }
+  .card:hover .card__seta { transform: scale(1.08); }
   .card:hover .card__seta svg { transform: translateX(2px); }
 }
 
@@ -700,7 +706,7 @@ h1, h2, h3, p { margin: 0; }
   font-variant-numeric: tabular-nums;
 }
 .card__preco-antigo { color: #9a8677; font-size: 12.5px; }
-.card__preco-atual { font-weight: 600; font-size: 16px; color: var(--tinta); }
+.card__preco-atual { font-weight: 600; font-size: 16px; color: var(--ouro-escuro); }
 .card__preco-rotulo {
   font-size: 10.5px;
   font-weight: 600;
@@ -747,9 +753,10 @@ h1, h2, h3, p { margin: 0; }
   place-items: center;
   width: 32px; height: 32px;
   border-radius: 50%;
-  border: 1px solid var(--ouro);
-  color: var(--ouro-escuro);
-  transition: background .2s, color .2s;
+  background: var(--ouro-brilho);
+  color: var(--tinta);
+  box-shadow: 0 3px 8px -3px rgba(138, 100, 33, .6);
+  transition: transform .2s var(--suave);
 }
 .card__seta svg { width: 18px; height: 18px; transition: transform .2s var(--suave); }
 
@@ -876,7 +883,7 @@ h1, h2, h3, p { margin: 0; }
   padding: 8px var(--gutter) calc(28px + env(safe-area-inset-bottom));
   text-align: center;
   font-size: 12.5px;
-  color: var(--tinta-suave);
+  color: var(--ouro-escuro);
 }
 .rodape__ornamento { width: 26px; height: 26px; margin: 0 auto 10px; color: var(--ouro); }
 .rodape__ornamento svg { width: 100%; height: 100%; }

@@ -58,6 +58,48 @@
     criarMecha([[1.2, 0.6], [0.62, 0.5], [0.4, 1.02], [-0.2, 0.84]], 38, 0.18)
   ];
 
+  // Pó de ouro: pontinhos que cintilam em volta das mechas.
+  const brilhos = [];
+  for (let i = 0; i < 46; i++) {
+    const mecha = mechas[i % mechas.length];
+    brilhos.push({
+      mecha,
+      t: sorteio(),                       // posição ao longo da mecha
+      d: (sorteio() - 0.5) * 1.6,         // distância do centro da mecha
+      raio: 0.6 + sorteio() * 1.6,
+      fase: sorteio() * Math.PI * 2,
+      ritmo: 0.6 + sorteio() * 0.9
+    });
+  }
+
+  // Ponto de uma curva de Bézier cúbica
+  function bezier(P, t) {
+    const u = 1 - t;
+    const a = u * u * u, b = 3 * u * u * t, c = 3 * u * t * t, d = t * t * t;
+    return [
+      a * P[0][0] + b * P[1][0] + c * P[2][0] + d * P[3][0],
+      a * P[0][1] + b * P[1][1] + c * P[2][1] + d * P[3][1]
+    ];
+  }
+
+  function desenharBrilhos(tempo, lado) {
+    for (const b of brilhos) {
+      const P = b.mecha.pontos.map(([x, y]) => [x * largura, y * altura]);
+      const [x, y0] = bezier(P, b.t);
+      const y = y0 + b.d * lado * b.mecha.esp * (0.4 + b.t);
+      const luz = reduzir ? 0.7 : 0.35 + 0.65 * Math.abs(Math.sin(tempo / 900 * b.ritmo + b.fase));
+      const r = b.raio * (0.7 + luz * 0.5);
+      const g = ctx.createRadialGradient(x, y, 0, x, y, r * 4);
+      g.addColorStop(0, `rgba(255, 244, 205, ${0.95 * luz})`);
+      g.addColorStop(0.3, `rgba(226, 190, 110, ${0.6 * luz})`);
+      g.addColorStop(1, "rgba(201, 162, 78, 0)");
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(x, y, r * 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
   // Quanto cada ponto da curva se abre: raiz fechada, pontas soltas.
   const ABERTURA = [0.35, 0.8, 1.15, 1.7];
 
@@ -96,6 +138,7 @@
         ctx.stroke();
       }
     }
+    desenharBrilhos(tempo, lado);
   }
 
   let quadro = 0;
