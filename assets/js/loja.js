@@ -52,12 +52,15 @@
         return null;
       }
       const categoria = typeof p.categoria === "string" ? p.categoria.trim() : "";
+      const texto = (v) => (typeof v === "string" ? v.trim() : "");
       return {
         nome,
         categoria,
         imagem: imagemSegura(p.imagem),
         url: aplicarParametrosAfiliado(url, loja),
         destaque: p.destaque === true,
+        preco: texto(p.preco),
+        precoAntigo: texto(p.precoAntigo),
         busca: normalizar(`${nome} ${categoria}`)
       };
     })
@@ -90,6 +93,21 @@
   const vazio = $("[data-vazio]");
   const linkLoja = $("[data-link-loja]");
 
+  /* ---------- Preço ---------- */
+  function criarPreco(produto) {
+    if (!produto.preco) return null;
+    return el("span", { class: "card__preco" }, [
+      produto.precoAntigo
+        ? el("s", { class: "card__preco-antigo" }, [el("span", { class: "sr-only", text: "de " }), produto.precoAntigo])
+        : null,
+      el("span", { class: "card__preco-atual" }, [
+        produto.precoAntigo ? el("span", { class: "sr-only", text: "por " }) : null,
+        produto.preco
+      ]),
+      loja.rotuloPreco ? el("span", { class: "card__preco-rotulo", text: loja.rotuloPreco }) : null
+    ]);
+  }
+
   /* ---------- Card ---------- */
   function criarMidia(produto) {
     const midia = el("span", { class: "card__midia" });
@@ -121,7 +139,7 @@
         href: produto.url,
         target: "_blank",
         rel: "sponsored noopener",
-        style: `--i:${Math.min(indice, 12)}`
+        style: `--i:${Math.min(indice, 8)}`
       },
       [
         criarMidia(produto),
@@ -133,6 +151,7 @@
             ? el("span", { class: "card__categoria", text: produto.categoria })
             : null,
           el("span", { class: "card__nome", text: produto.nome }),
+          criarPreco(produto),
           el("span", { class: "sr-only", text: " (abre em nova aba)" })
         ]),
         ehDestaque ? null : el("span", { class: "card__seta", html: ICONES.seta })
@@ -283,6 +302,11 @@
       renderLista();
       campoBusca.focus();
     });
+  }
+
+  // Aviso sobre preços, abaixo da lista
+  if (loja.notaPrecos && produtos.some((p) => p.preco) && secaoProdutos) {
+    secaoProdutos.append(el("p", { class: "nota-precos", text: loja.notaPrecos }));
   }
 
   renderCategorias();

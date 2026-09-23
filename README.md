@@ -118,10 +118,16 @@ produtos: [
 | `affiliateUrl` | sim         | Seu link de afiliado daquele produto. Precisa começar com `https://`.    |
 | `categoria`    | recomendado | Cria automaticamente o botão de filtro da categoria.                    |
 | `imagem`       | recomendado | Caminho da foto no projeto ou link `https://` da imagem.                 |
-| `destaque`     | não         | `true` coloca o produto também na faixa **Destaques** no topo da página. |
+| `preco`        | não         | Preço atual, ex.: `"R$ 283,01"`. Aparece com o rótulo "no Pix".          |
+| `precoAntigo`  | não         | Preço antigo, ex.: `"R$ 339,90"`. Aparece riscado.                       |
+| `destaque`     | não         | `true` coloca o produto também na faixa **Os mais amados**.              |
 
 Produtos sem `nome` ou sem `affiliateUrl` válido não aparecem no site. O aviso
 fica no console do navegador (F12).
+
+> **Preços:** o site não se atualiza sozinho. Quando a Ybera mudar um preço,
+> edite `preco` e `precoAntigo` no arquivo. O aviso abaixo da lista
+> (`notaPrecos`) lembra o cliente de que o valor final é o da loja.
 
 ### Fotos dos produtos
 
