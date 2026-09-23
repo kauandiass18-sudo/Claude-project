@@ -26,6 +26,8 @@
     [205, 158, 99],
     [238, 208, 156]
   ];
+  // Reflexos dourados que brilham entre os fios.
+  const OURO = [[201, 162, 78], [236, 206, 128]];
 
   // Sorteio com semente fixa: o desenho sai sempre igual.
   let semente = 11;
@@ -36,12 +38,12 @@
   function criarMecha(pontos, quantidade, esp) {
     const fios = [];
     for (let i = 0; i < quantidade; i++) {
-      const reflexo = sorteio() < 0.16;
+      const reflexo = sorteio() < 0.22;
       fios.push({
         d: i / (quantidade - 1) - 0.5 + (sorteio() - 0.5) * 0.12,
         j: [0, 1, 2, 3].map(() => (sorteio() - 0.5) * 0.35),
-        cor: reflexo ? CORES[4] : CORES[Math.floor(sorteio() * 4)],
-        alfa: reflexo ? 0.6 : 0.1 + sorteio() * 0.2,
+        cor: reflexo ? OURO[Math.floor(sorteio() * 2)] : CORES[Math.floor(sorteio() * 4)],
+        alfa: reflexo ? 0.55 + sorteio() * 0.3 : 0.1 + sorteio() * 0.2,
         largura: reflexo ? 0.7 : 0.5 + sorteio() * 1.1,
         fase: sorteio() * Math.PI * 2
       });
