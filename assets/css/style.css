@@ -627,6 +627,9 @@ h1, h2, h3, p { margin: 0; }
   background-clip: text;
   color: transparent;
 }
+/* Na página inicial o título da lista fica centralizado, em duas linhas equilibradas */
+.tema-ybera .secao__cabecalho { justify-content: center; text-align: center; }
+.tema-ybera .secao__titulo { text-wrap: balance; }
 .secao__contagem {
   font-size: 12px;
   font-weight: 600;
