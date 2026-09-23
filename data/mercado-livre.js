@@ -21,7 +21,7 @@ window.LOJAS = window.LOJAS || {};
 
 window.LOJAS["mercado-livre"] = {
   titulo: "Mercado Livre",
-  subtitulo: "Achados do Mercado Livre que valem a pena.",
+  subtitulo: "Escovas, secadores, pentes e acessórios que valem a pena.",
   linkLoja: "",
   textoLinkLoja: "Ver minha vitrine no Mercado Livre",
 

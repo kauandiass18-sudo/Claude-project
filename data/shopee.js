@@ -21,7 +21,7 @@ window.LOJAS = window.LOJAS || {};
 
 window.LOJAS.shopee = {
   titulo: "Shopee",
-  subtitulo: "Os melhores achados da Shopee em um só lugar.",
+  subtitulo: "Presilhas, toucas, escovas e mimos para o seu cabelo.",
   linkLoja: "",
   textoLinkLoja: "Ver minha vitrine na Shopee",
 

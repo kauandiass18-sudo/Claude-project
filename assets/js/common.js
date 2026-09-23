@@ -33,6 +33,12 @@
     sacola: svg('<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>'),
     etiqueta: svg('<path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r="1" fill="currentColor"/>'),
     brilho: svg('<path d="M12 2.5c.6 4.6 2.9 6.9 7.5 7.5-4.6.6-6.9 2.9-7.5 7.5-.6-4.6-2.9-6.9-7.5-7.5 4.6-.6 6.9-2.9 7.5-7.5z"/><path d="M19 16.5c.25 1.6 1 2.35 2.5 2.5-1.5.15-2.25.9-2.5 2.5-.25-1.6-1-2.35-2.5-2.5 1.5-.15 2.25-.9 2.5-2.5z"/>'),
+    // Ícones de cabelo (filtros e ornamentos)
+    ondas: svg('<path d="M3 8c3-3 6 3 9 0s6 3 9 0"/><path d="M3 12c3-3 6 3 9 0s6 3 9 0"/><path d="M3 16c3-3 6 3 9 0s6 3 9 0"/>'),
+    liso: svg('<path d="M7 3v18"/><path d="M12 3v18"/><path d="M17 3v18"/>'),
+    gota: svg('<path d="M12 3.5c3.6 4.3 6 7.6 6 10.6a6 6 0 0 1-12 0c0-3 2.4-6.3 6-10.6z"/><path d="M9.5 14.5a2.6 2.6 0 0 0 2.5 2.4"/>'),
+    raiz: svg('<path d="M12 21v-9"/><path d="M12 12c0-4 2.5-6.6 7-7 0 4.5-2.5 7-7 7z"/><path d="M12 15c0-3-2.1-5.1-6-5.5 0 3.6 2.1 5.5 6 5.5z"/>'),
+    coracao: svg('<path d="M12 20s-7.5-4.6-7.5-10.2A4.1 4.1 0 0 1 12 7.4a4.1 4.1 0 0 1 7.5 2.4C19.5 15.4 12 20 12 20z"/>'),
     caixa: svg('<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/>')
   };
 
@@ -138,10 +144,10 @@
     const nome = typeof perfil.nome === "string" ? perfil.nome.trim() : "";
     alvo.replaceChildren(
       ...[
-        el("p", { class: "rodape__ornamento", html: ICONES.brilho }),
+        el("p", { class: "rodape__ornamento", html: ICONES.ondas }),
         nome ? el("p", { class: "rodape__assinatura", text: nome }) : null,
         perfil.avisoAfiliado ? el("p", { class: "rodape__aviso", text: perfil.avisoAfiliado }) : null,
-        el("p", { class: "rodape__copy", text: `Curadoria · ${new Date().getFullYear()}` })
+        el("p", { class: "rodape__copy", text: `Curadoria capilar · ${new Date().getFullYear()}` })
       ].filter(Boolean)
     );
   }

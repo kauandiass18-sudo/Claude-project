@@ -20,7 +20,8 @@
    • O código de parceiro (parceiro=19285) é adicionado AUTOMATICAMENTE
      em links do site ybera.com que não tiverem esse parâmetro.
    • As categorias são criadas automaticamente a partir dos produtos.
-     Use "ordemCategorias" se quiser definir a ordem dos botões.
+     Use "ordemCategorias" se quiser definir a ordem dos botões
+     e "iconesCategorias" para escolher o ícone de cada uma.
    ============================================================= */
 
 window.LOJAS = window.LOJAS || {};
@@ -38,6 +39,15 @@ window.LOJAS.ybera = {
   // Opcional: ordem das categorias nos filtros (as que não estiverem
   // aqui aparecem depois, em ordem alfabética).
   ordemCategorias: ["Progressiva", "Cronograma Capilar", "Antiqueda", "Kids"],
+
+  // Opcional: ícone de cada categoria nos filtros.
+  // Ícones disponíveis: liso, gota, raiz, coracao, ondas, brilho.
+  iconesCategorias: {
+    "Progressiva": "liso",
+    "Cronograma Capilar": "gota",
+    "Antiqueda": "raiz",
+    "Kids": "coracao"
+  },
 
   // Texto do preço (aparece depois do valor) e aviso abaixo da lista.
   rotuloPreco: "no Pix",

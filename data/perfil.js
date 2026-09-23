@@ -18,8 +18,8 @@
 window.PERFIL = {
   nome: "",   // ex.: "Maria Souza" ou "@seuusuario". Vazio = não aparece.
   frases: [
-    // "Primeira frase",
-    // "Segunda frase"
+    "Cabelo de salão sem sair de casa.",
+    "Escolhi cada produto pensando no seu fio."
   ],
   foto: "",
 

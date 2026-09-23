@@ -83,6 +83,8 @@
   const limparBusca = $("[data-busca-limpar]");
   const areaBusca = $("[data-area-busca]");
   const listaCategorias = $("[data-categorias]");
+  const tituloCategorias = $("[data-categorias-titulo]");
+  const iconesCategorias = loja.iconesCategorias || {};
   const secaoDestaques = $("[data-destaques-secao]");
   const trilhoDestaques = $("[data-destaques]");
   const secaoProdutos = $("[data-produtos-secao]");
@@ -168,15 +170,16 @@
     if (!listaCategorias) return;
     if (categorias.length < 2) {
       listaCategorias.hidden = true;
+      if (tituloCategorias) tituloCategorias.hidden = true;
       return;
     }
-    const chip = (valor, rotulo) =>
-      el("button", {
+    const chip = (valor, rotulo) => {
+      const icone = ICONES[valor ? iconesCategorias[valor] : "brilho"];
+      return el("button", {
         type: "button",
         class: "chip",
         "data-categoria": valor,
         "aria-pressed": String(estado.categoria === valor),
-        text: rotulo,
         onclick: () => {
           estado.categoria = valor;
           listaCategorias.querySelectorAll(".chip").forEach((c) =>
@@ -184,7 +187,11 @@
           );
           renderLista();
         }
-      });
+      }, [
+        icone ? el("span", { class: "chip__icone", html: icone }) : null,
+        el("span", { text: rotulo })
+      ]);
+    };
     listaCategorias.replaceChildren(chip("", txt.todos), ...categorias.map((c) => chip(c, c)));
   }
 
@@ -245,7 +252,7 @@
     if (!vazio) return;
     vazio.replaceChildren(
       ...[
-        el("span", { class: "vazio__icone", html: ICONES.brilho }),
+        el("span", { class: "vazio__icone", html: ICONES.ondas }),
         el("p", { class: "vazio__titulo", text: tituloTxt }),
         el("p", { class: "vazio__texto", text: textoTxt }),
         acao
@@ -274,6 +281,7 @@
   if (!produtos.length) {
     if (areaBusca) areaBusca.hidden = true;
     if (listaCategorias) listaCategorias.hidden = true;
+    if (tituloCategorias) tituloCategorias.hidden = true;
     if (secaoDestaques) secaoDestaques.hidden = true;
     if (secaoProdutos) secaoProdutos.hidden = true;
     mostrarVazio(txt.vazioTitulo, txt.vazioTexto, null);

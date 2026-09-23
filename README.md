@@ -1,7 +1,8 @@
-# Link na Bio · Vitrine de afiliados
+# Minha curadoria · Link na bio de cabelo
 
-Site de **link na bio** pensado para celular, com vitrine de produtos da
-**Ybera Paris**, do **Mercado Livre** e da **Shopee**.
+Site de **link na bio** pensado para celular, com cara de salão de cabelo:
+tratamentos da **Ybera Paris** e achadinhos de cabelo do **Mercado Livre** e
+da **Shopee**.
 
 Não tem carrinho, checkout nem pagamento: ao tocar em um produto, a pessoa vai
 direto para o **link de afiliado** daquele produto (em uma nova aba).
@@ -30,9 +31,9 @@ rodar build.
     ├── js/common.js      Funções compartilhadas
     ├── js/home.js        Monta a página inicial
     ├── js/loja.js        Monta as vitrines (busca, categorias, destaques, cards)
+    ├── js/fios.js        Desenha as mechas de cabelo que balançam no fundo
     └── img/
         ├── favicon.svg
-        ├── marmore.jpg    Fundo de mármore bege
         └── produtos/
             ├── ybera/
             ├── mercado-livre/
@@ -120,7 +121,7 @@ produtos: [
 | `imagem`       | recomendado | Caminho da foto no projeto ou link `https://` da imagem.                 |
 | `preco`        | não         | Preço atual, ex.: `"R$ 283,01"`. Aparece com o rótulo "no Pix".          |
 | `precoAntigo`  | não         | Preço antigo, ex.: `"R$ 339,90"`. Aparece riscado.                       |
-| `destaque`     | não         | `true` coloca o produto também na faixa **Os mais amados**.              |
+| `destaque`     | não         | `true` coloca o produto também na faixa **Queridinhos do salão**.        |
 
 Produtos sem `nome` ou sem `affiliateUrl` válido não aparecem no site. O aviso
 fica no console do navegador (F12).
@@ -149,6 +150,19 @@ ordemCategorias: ["Tratamento", "Limpeza", "Finalização"],
 
 Categorias fora da lista aparecem depois, em ordem alfabética. Com apenas uma
 categoria, os filtros ficam ocultos.
+
+Cada filtro pode ter um ícone de cabelo. Escolha em `iconesCategorias`:
+
+```js
+iconesCategorias: {
+  "Progressiva": "liso",
+  "Cronograma Capilar": "gota",
+  "Antiqueda": "raiz",
+  "Kids": "coracao"
+},
+```
+
+Os ícones disponíveis são `liso`, `gota`, `raiz`, `coracao`, `ondas` e `brilho`.
 
 ### Ybera Paris: código de parceiro automático
 
@@ -206,13 +220,17 @@ As cores e fontes principais ficam no início de `assets/css/style.css`,
 em `:root`:
 
 ```css
---fundo-imagem: url("../img/marmore.jpg");  /* fundo de mármore */
---ml-1: #f1d37a;      /* amarelo Mercado Livre */
---ml-2: #e3b94e;
---shopee-1: #b85834;  /* laranja terracota Shopee */
---shopee-2: #a44526;
---fonte-luxo: "Cormorant Garamond", ...;  /* tipografia da Ybera */
+--fundo: #f5ebe2;     /* creme nude do fundo */
+--tinta: #33211a;     /* cacau: cor do texto */
+--mel: #b9824a;       /* dourado mel dos detalhes */
+--ml-1: #f3d47c;      /* amarelo Mercado Livre */
+--shopee-1: #c0633c;  /* laranja Shopee */
+--fonte-luxo: "Bodoni Moda", ...;  /* títulos */
+--fonte-ui: "Jost", ...;           /* textos */
 ```
+
+As mechas de cabelo do fundo são desenhadas por `assets/js/fios.js`. Elas
+ficam paradas para quem ativou "reduzir movimento" no celular.
 
 ---
 

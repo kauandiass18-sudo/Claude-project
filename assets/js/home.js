@@ -38,7 +38,7 @@
   if (arco) {
     const ornamento = () => {
       arco.classList.add("arco--vazio");
-      arco.replaceChildren(el("span", { class: "arco__ornamento", html: ICONES.brilho }));
+      arco.replaceChildren(el("span", { class: "arco__ornamento", html: ICONES.ondas }));
     };
     const src = imagemSegura(perfil.foto);
     if (src) {
