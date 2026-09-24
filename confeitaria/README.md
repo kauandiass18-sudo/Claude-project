@@ -1,8 +1,8 @@
 # Site da confeitaria
 
-Site de uma confeitaria artesanal que trabalha com encomendas. Os doces flutuam
-na abertura, o cardápio tem um botão de encomenda por produto e todos os
-pedidos vão para o WhatsApp.
+Site de uma confeitaria artesanal que trabalha com encomendas. Por enquanto ele
+tem só a abertura: os doces flutuando, o título e o botão "Fazer encomenda",
+que leva para o WhatsApp. As outras seções entram depois.
 
 Feito só com HTML, CSS e JavaScript. Não precisa instalar nada nem rodar build.
 Para ver no computador, abra `index.html` no navegador.
@@ -11,19 +11,12 @@ Para ver no computador, abra `index.html` no navegador.
 
 Quase tudo fica em **`config.js`**:
 
-| O quê                          | Onde no `config.js`             |
-| ------------------------------ | ------------------------------- |
-| Nome e descrição da marca      | `marca`                         |
-| Número e mensagens do WhatsApp | `whatsapp`                      |
-| Instagram                      | `instagram`                     |
-| Título, subtítulo e doces do hero | `hero`                       |
-| Produtos, preços e fotos       | `produtos`                      |
-| Produtos em destaque           | `destaques`                     |
-| História, propósito, diferencial, ingredientes | `sobre`         |
-| Etapas do "Como funciona"      | `passos`                        |
-
-Textos entre `[colchetes]` são espaços reservados. Eles aparecem em itálico
-apagado até você escrever o texto definitivo, sem os colchetes.
+| O quê                              | Onde no `config.js` |
+| ---------------------------------- | ------------------- |
+| Nome e descrição da marca          | `marca`             |
+| Número e mensagem do WhatsApp      | `whatsapp`          |
+| Título, subtítulo e doces flutuando | `hero`             |
+| Doces e fotos                      | `produtos`          |
 
 As cores ficam no começo de `assets/css/style.css`, dentro de `:root`.
 
@@ -32,12 +25,9 @@ As cores ficam no começo de `assets/css/style.css`, dentro de `:root`.
 ```js
 whatsapp: {
   numero: "5511912345678",   // 55 + DDD + número, só números
-  mensagem: "Olá! Vi os doces no site e gostaria de fazer uma encomenda.",
-  mensagemProduto: "Olá! Vi os doces no site e gostaria de encomendar: {produto}."
+  mensagem: "Olá! Vi os doces no site e gostaria de fazer uma encomenda."
 }
 ```
-
-O botão "Encomendar" de cada doce troca `{produto}` pelo nome do doce.
 
 ## Fotos dos produtos
 
@@ -49,8 +39,6 @@ O botão "Encomendar" de cada doce troca `{produto}` pelo nome do doce.
 {
   id: "mini-pudim",
   nome: "Mini Pudim",
-  descricao: "…",
-  preco: "R$ 12,00",
   fotos: [
     "assets/img/produtos/mini-pudim-1.webp",
     "assets/img/produtos/mini-pudim-2.webp"
@@ -64,8 +52,7 @@ O botão "Encomendar" de cada doce troca `{produto}` pelo nome do doce.
   flutua solto, com sombra. É o efeito mais bonito no hero.
 - **`recortada: false`** para fotos comuns, com fundo. O site mostra a foto
   numa moldura redonda.
-- Com mais de uma foto, o card do cardápio ganha bolinhas para trocar o ângulo.
-  Na seção "Em destaque", a 2ª e a 3ª foto aparecem flutuando ao lado da principal.
+- Cada foto pode aparecer flutuando no hero. Escolha quais em `hero.composicao`.
 - Use fotos de 1000 a 1400 px no lado maior, em `.webp` ou `.jpg`, para o site
   continuar leve.
 - Enquanto um produto não tem foto, aparece um espaço reservado com o nome dele.
@@ -89,8 +76,7 @@ No celular aparecem só os 4 primeiros, para nenhum doce ficar em cima do outro.
 
 - Quem ativou "reduzir movimento" no celular ou no computador vê o site sem
   animações contínuas.
-- As animações do hero pausam quando ele sai da tela.
-- As fotos fora da primeira tela carregam só quando chegam perto.
+- As animações pausam quando a abertura sai da tela.
 
 ## Publicar
 
