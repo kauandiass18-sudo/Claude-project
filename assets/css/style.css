@@ -197,7 +197,7 @@ h1, h2, h3, p { margin: 0; }
   position: relative;
   width: 150px;
   height: 192px;
-  margin-top: 22px;
+  margin-top: 4px;
   border-radius: 999px 999px 18px 18px;
   overflow: hidden;
   background: linear-gradient(var(--superficie), var(--superficie)) padding-box, var(--ouro-brilho) border-box;

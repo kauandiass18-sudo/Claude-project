@@ -146,8 +146,7 @@
       ...[
         el("p", { class: "rodape__ornamento", html: ICONES.ondas }),
         nome ? el("p", { class: "rodape__assinatura", text: nome }) : null,
-        perfil.avisoAfiliado ? el("p", { class: "rodape__aviso", text: perfil.avisoAfiliado }) : null,
-        el("p", { class: "rodape__copy", text: `Curadoria capilar · ${new Date().getFullYear()}` })
+        perfil.avisoAfiliado ? el("p", { class: "rodape__aviso", text: perfil.avisoAfiliado }) : null
       ].filter(Boolean)
     );
   }
