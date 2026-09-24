@@ -371,6 +371,20 @@ h1, h2, h3, p { margin: 0; }
   box-shadow: inset 0 0 0 1px rgba(255, 246, 220, .45), 0 2px 6px -2px rgba(120, 80, 20, .5);
 }
 .botao-marca--ml .botao-marca__icone svg { stroke-width: 1.7; }
+/* Parceria: branco com aro de ouro */
+.botao-marca--parceria {
+  background: linear-gradient(180deg, #ffffff, #fffaf2) padding-box, var(--ouro-brilho) border-box;
+  color: var(--tinta);
+}
+.botao-marca--parceria::after { filter: invert(1); opacity: .06; }
+.botao-marca--parceria .botao-marca__icone {
+  background: var(--ouro-brilho);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 246, 220, .45), 0 2px 6px -2px rgba(120, 80, 20, .5);
+}
+.botao-marca--parceria .botao-marca__icone svg { width: 20px; height: 20px; stroke-width: 1.7; }
+.botao-marca--parceria .botao-marca__seta { color: var(--ouro-escuro); }
+
 .botao-marca--shopee {
   background: linear-gradient(120deg, var(--shopee-1), var(--shopee-2)) padding-box, var(--ouro-brilho) border-box;
   color: var(--shopee-texto);

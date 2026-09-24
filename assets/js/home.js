@@ -61,6 +61,22 @@
     }
   }
 
+  /* ---------- Botão "Feche sua parceria aqui" ---------- */
+  const botaoParceria = document.querySelector("[data-link-parceria]");
+  if (botaoParceria) {
+    const url = linkSeguro(perfil.linkParceria, { permitirMailto: true });
+    if (url) {
+      botaoParceria.href = url;
+      if (!url.startsWith("mailto:")) {
+        botaoParceria.target = "_blank";
+        botaoParceria.rel = "noopener";
+      }
+    } else {
+      // Sem link ainda: o toque não faz nada (e não pula a página).
+      botaoParceria.addEventListener("click", (e) => e.preventDefault());
+    }
+  }
+
   /* ---------- Redes sociais (texto em versalete) ---------- */
   const lista = document.querySelector("[data-perfil-redes]");
   if (lista) {
