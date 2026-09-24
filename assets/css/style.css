@@ -230,12 +230,22 @@ h1, h2, h3, p { margin: 0; }
   align-self: center;
   width: fit-content;
   max-width: 100%;
-  padding: 0 .08em; /* o itálico não fica cortado nas pontas */
   text-wrap: balance;
+  color: var(--ouro-escuro);
+}
+.capa__nome-texto {
+  padding: 0 .08em; /* o itálico não fica cortado nas pontas */
   background: var(--ouro-texto);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+.capa__enfeite {
+  display: inline-block;
+  margin: 0 .22em;
+  font-style: normal;
+  font-size: .62em;
+  vertical-align: .18em;
 }
 
 /* Frases abaixo do nome */

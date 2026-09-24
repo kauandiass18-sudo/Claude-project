@@ -17,6 +17,8 @@
 
 window.PERFIL = {
   nome: "Carla Dias",   // Vazio = não aparece.
+  // Enfeite dos dois lados do nome (ex.: "✨"). Vazio = sem enfeite.
+  enfeiteNome: "✨",
   frases: [
     // "Primeira frase",
     // "Segunda frase"

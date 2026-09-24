@@ -13,7 +13,11 @@
   const nome = document.querySelector("[data-perfil-nome]");
   if (nome) {
     if (nomePerfil) {
-      nome.textContent = nomePerfil;
+      const enfeite = typeof perfil.enfeiteNome === "string" ? perfil.enfeiteNome.trim() : "";
+      const lado = () => (enfeite ? el("span", { class: "capa__enfeite", "aria-hidden": "true", text: enfeite }) : null);
+      nome.replaceChildren(
+        ...[lado(), el("span", { class: "capa__nome-texto", text: nomePerfil }), lado()].filter(Boolean)
+      );
       document.title = `${nomePerfil} · Cuidados para o cabelo`;
     } else {
       nome.classList.add("sr-only"); // mantém um título para leitores de tela
