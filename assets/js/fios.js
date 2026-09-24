@@ -18,16 +18,15 @@
   const reduzir =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Tons de cabelo: castanho escuro, castanho, mel, caramelo e loiro.
+  // Tons de cabelo dourado: do ouro velho ao loiro champanhe.
   const CORES = [
-    [51, 33, 26],
-    [106, 66, 40],
-    [160, 110, 64],
-    [205, 158, 99],
-    [238, 208, 156]
+    [150, 108, 38],
+    [182, 138, 60],
+    [205, 166, 84],
+    [226, 192, 118]
   ];
-  // Reflexos dourados que brilham entre os fios.
-  const OURO = [[201, 162, 78], [236, 206, 128]];
+  // Reflexos dourados mais claros, que brilham entre os fios.
+  const OURO = [[240, 212, 140], [252, 234, 184]];
 
   // Sorteio com semente fixa: o desenho sai sempre igual.
   let semente = 11;
@@ -43,7 +42,7 @@
         d: i / (quantidade - 1) - 0.5 + (sorteio() - 0.5) * 0.12,
         j: [0, 1, 2, 3].map(() => (sorteio() - 0.5) * 0.35),
         cor: reflexo ? OURO[Math.floor(sorteio() * 2)] : CORES[Math.floor(sorteio() * 4)],
-        alfa: reflexo ? 0.55 + sorteio() * 0.3 : 0.1 + sorteio() * 0.2,
+        alfa: reflexo ? 0.6 + sorteio() * 0.3 : 0.18 + sorteio() * 0.24,
         largura: reflexo ? 0.7 : 0.5 + sorteio() * 1.1,
         fase: sorteio() * Math.PI * 2
       });
