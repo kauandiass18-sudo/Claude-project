@@ -86,8 +86,8 @@ window.PERFIL = {
 ## 2. Adicionar produtos
 
 - **Ybera Paris**: os produtos aparecem direto na **página inicial**, abaixo dos
-  botões de achadinhos, numerados na ordem da lista (Nº 01, Nº 02...). Ao tocar no produto, o cliente vai direto para o link
-  de afiliado.
+  botões de achadinhos, na ordem da lista e com a categoria em dourado. Ao
+  tocar no produto, o cliente vai direto para o link de afiliado.
 - **Mercado Livre e Shopee**: os produtos aparecem nas páginas de achadinhos,
   abertas pelos botões da página inicial.
 

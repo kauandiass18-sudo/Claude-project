@@ -167,9 +167,9 @@
           ]);
         })(),
         el("span", { class: "card__corpo" }, [
-          mostrarNumero && !ehDestaque
+          !ehDestaque && (mostrarNumero || (!mostrarCategoria && produto.categoria))
             ? el("span", { class: "card__meta" }, [
-                el("span", { class: "card__numero", text: `Nº ${produto.numero}` }),
+                mostrarNumero ? el("span", { class: "card__numero", text: `Nº ${produto.numero}` }) : null,
                 !mostrarCategoria && produto.categoria
                   ? el("span", { class: "card__meta-categoria", text: produto.categoria })
                   : null
