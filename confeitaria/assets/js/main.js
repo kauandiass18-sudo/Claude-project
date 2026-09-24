@@ -139,6 +139,72 @@
     }
   }, true);
 
+  /* --------------------------------------------------------- encomenda */
+  var pedido = S.pedido || {};
+  var orderEl = $("[data-order]");
+  var orderItems = (pedido.produtos || []).map(produto).filter(Boolean);
+  if (!orderItems.length) {
+    orderEl.remove();
+  } else {
+    var MAX = Math.max(1, +pedido.maximo || 99);
+    var qty = orderItems.map(function () { return 0; });
+    var ICON_MINUS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/></svg>';
+    var ICON_PLUS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8 3v10"/></svg>';
+
+    $("[data-order-title]").innerHTML = rich(pedido.titulo || "Monte sua encomenda");
+    var list = $("[data-order-list]");
+    list.innerHTML = orderItems.map(function (p, i) {
+      var id = "qtd-" + p.id;
+      return '<li class="order__item" style="--tint:' + esc(p.cor || "#B7733A") + '">' +
+        '<span class="order__name" id="' + id + '-nome"><span class="order__dot" aria-hidden="true"></span>' + esc(p.nome) + "</span>" +
+        '<div class="stepper" role="group" aria-labelledby="' + id + '-nome">' +
+        '<button type="button" data-step="-1" data-i="' + i + '" aria-label="Diminuir ' + esc(p.nome) + '" disabled>' + ICON_MINUS + "</button>" +
+        '<output id="' + id + '" aria-live="polite">0</output>' +
+        '<button type="button" data-step="1" data-i="' + i + '" aria-label="Aumentar ' + esc(p.nome) + '">' + ICON_PLUS + "</button>" +
+        "</div></li>";
+    }).join("");
+
+    var totalEl = $("[data-order-total]");
+    var sendEl = $("[data-order-send]");
+    var rows = $$(".order__item", list);
+
+    function updateOrder() {
+      var total = 0, linhas = [];
+      qty.forEach(function (q, i) {
+        total += q;
+        if (q > 0) linhas.push("• " + q + " " + orderItems[i].nome);
+        var row = rows[i];
+        row.querySelector("output").textContent = q;
+        row.querySelector('[data-step="-1"]').disabled = q <= 0;
+        row.querySelector('[data-step="1"]').disabled = q >= MAX;
+        row.classList.toggle("has-qty", q > 0);
+      });
+      totalEl.innerHTML = total
+        ? "<strong>" + total + "</strong> " + (total === 1 ? "doce escolhido" : "doces escolhidos")
+        : "Nenhum doce escolhido";
+      var ativo = total > 0;
+      sendEl.classList.toggle("is-disabled", !ativo);
+      sendEl.setAttribute("aria-disabled", String(!ativo));
+      if (ativo) {
+        sendEl.href = waLink((pedido.mensagem || "Olá! Gostaria de encomendar:") + "\n" + linhas.join("\n"));
+        sendEl.removeAttribute("tabindex");
+      } else {
+        sendEl.removeAttribute("href");
+        sendEl.setAttribute("tabindex", "-1");
+      }
+    }
+    list.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-step]");
+      if (!btn || btn.disabled) return;
+      var i = +btn.getAttribute("data-i");
+      qty[i] = Math.min(MAX, Math.max(0, qty[i] + +btn.getAttribute("data-step")));
+      var out = rows[i].querySelector("output");
+      out.classList.remove("bump"); void out.offsetWidth; out.classList.add("bump");
+      updateOrder();
+    });
+    updateOrder();
+  }
+
   /* ------------------------------------- dados para buscadores (Google) */
   try {
     var tag = document.createElement("script");

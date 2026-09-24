@@ -52,6 +52,25 @@
 
     <!-- ================================================= DOCES LIVRES -->
     <section class="solo" id="doces" aria-label="Nossos doces" data-solo></section>
+
+    <!-- ==================================================== ENCOMENDA -->
+    <section class="order" id="encomenda" data-order>
+      <div class="order__inner">
+        <header class="order__head">
+          <p class="eyebrow">Encomenda</p>
+          <h2 class="order__title" data-order-title></h2>
+          <p class="order__lead">Escolha a quantidade de cada doce e envie o pedido pelo WhatsApp.</p>
+        </header>
+        <ul class="order__list" data-order-list></ul>
+        <div class="order__foot">
+          <p class="order__total" data-order-total aria-live="polite">Nenhum doce escolhido</p>
+          <a class="btn btn--primary btn--lg order__send is-disabled" data-order-send target="_blank" rel="noopener" aria-disabled="true">
+            <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
+            Enviar pedido
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Ícone do WhatsApp -->

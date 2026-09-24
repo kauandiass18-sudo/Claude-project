@@ -44,6 +44,18 @@ window.SITE = {
   ------------------------------------------------------------------------ */
   livres: ["mousse-maracuja", "mousse-limao", "mini-pudim"],
 
+  /* ----------------------------------------------------------- ENCOMENDA
+     Lista com + e − para o cliente escolher a quantidade de cada doce.
+     O botão embaixo abre o WhatsApp com o pedido já escrito.
+  ------------------------------------------------------------------------ */
+  pedido: {
+    titulo: "Monte sua *encomenda*",
+    produtos: ["mousse-maracuja", "mousse-limao", "mini-pudim"],  // ids, na ordem
+    maximo: 99,   // quantidade máxima de cada doce
+    // Início da mensagem. A lista com as quantidades entra logo abaixo.
+    mensagem: "Olá! Vi os doces no site e gostaria de encomendar:"
+  },
+
   /* ------------------------------------------------------------- PRODUTOS
      id         identificador sem espaços e sem acentos (usado no hero)
      nome       nome do doce

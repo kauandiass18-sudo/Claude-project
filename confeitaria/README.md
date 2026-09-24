@@ -3,7 +3,9 @@
 Site de uma confeitaria artesanal que trabalha com encomendas. Por enquanto ele
 tem a abertura, com os doces flutuando, o título e o botão "Fazer encomenda",
 que leva para o WhatsApp. Logo abaixo, cada doce aparece sozinho, grande,
-flutuando livre, sem moldura.
+flutuando livre, sem moldura. No fim fica a lista de encomenda: o cliente
+escolhe a quantidade de cada doce com os botões de mais e menos e envia o
+pedido pelo WhatsApp.
 
 Feito só com HTML, CSS e JavaScript. Não precisa instalar nada nem rodar build.
 Para ver no computador, abra `index.html` no navegador.
@@ -18,6 +20,7 @@ Quase tudo fica em **`config.js`**:
 | Número e mensagem do WhatsApp      | `whatsapp`          |
 | Título, subtítulo e doces flutuando | `hero`             |
 | Doces soltos, abaixo da abertura   | `livres`            |
+| Lista de encomenda com + e −       | `pedido`            |
 | Doces e fotos                      | `produtos`          |
 
 As cores ficam no começo de `assets/css/style.css`, dentro de `:root`.
@@ -78,6 +81,21 @@ o nome ao lado. Ele entra na tela ao rolar a página e continua flutuando.
 Para o doce ficar solto de verdade, use uma foto **recortada**: PNG ou WebP
 com fundo transparente, e `recortada: true` no produto. Com foto comum, o
 fundo da foto aparece junto.
+
+## Lista de encomenda
+
+Em `pedido.produtos`, liste os ids dos doces que aparecem com os botões de
+mais e menos. O botão "Enviar pedido" só fica ativo depois que o cliente
+escolhe pelo menos um doce. Ele abre o WhatsApp com esta mensagem:
+
+```
+Olá! Vi os doces no site e gostaria de encomendar:
+• 2 Mousse de Maracujá
+• 1 Mini Pudim
+```
+
+A primeira linha vem de `pedido.mensagem`. O limite de cada doce vem de
+`pedido.maximo`.
 
 ## Acessibilidade e desempenho
 
