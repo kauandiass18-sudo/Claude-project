@@ -16,7 +16,7 @@
    ============================================================= */
 
 window.PERFIL = {
-  nome: "Carla Dias Oliveira",   // Vazio = não aparece.
+  nome: "Carla Dias",   // Vazio = não aparece.
   frases: [
     // "Primeira frase",
     // "Segunda frase"
