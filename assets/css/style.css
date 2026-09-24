@@ -383,6 +383,13 @@ h1, h2, h3, p { margin: 0; }
   box-shadow: inset 0 0 0 1px rgba(255, 246, 220, .45), 0 2px 6px -2px rgba(120, 80, 20, .5);
 }
 .botao-marca--parceria .botao-marca__icone svg { width: 20px; height: 20px; stroke-width: 1.7; }
+/* Foto redonda da Carla no lugar do ícone, com aro de ouro */
+.botao-marca__icone--foto { padding: 2px; overflow: hidden; }
+.botao-marca__icone--foto img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
 .botao-marca--parceria .botao-marca__seta { color: var(--ouro-escuro); }
 
 .botao-marca--shopee {

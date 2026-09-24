@@ -23,7 +23,7 @@ window.PERFIL = {
     // "Primeira frase",
     // "Segunda frase"
   ],
-  foto: "",
+  foto: "assets/img/perfil.jpg",
 
   redes: [
     { tipo: "instagram", url: "" },
