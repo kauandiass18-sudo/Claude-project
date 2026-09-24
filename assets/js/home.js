@@ -14,7 +14,7 @@
   if (nome) {
     if (nomePerfil) {
       nome.textContent = nomePerfil;
-      document.title = `${nomePerfil} · Minha curadoria`;
+      document.title = `${nomePerfil} · Cuidados para o cabelo`;
     } else {
       nome.classList.add("sr-only"); // mantém um título para leitores de tela
     }

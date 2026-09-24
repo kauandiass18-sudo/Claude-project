@@ -16,7 +16,7 @@
    ============================================================= */
 
 window.PERFIL = {
-  nome: "",   // ex.: "Maria Souza" ou "@seuusuario". Vazio = não aparece.
+  nome: "Carla Dias Oliveira",   // Vazio = não aparece.
   frases: [
     "Cabelo de salão sem sair de casa.",
     "Escolhi cada produto pensando no seu fio."

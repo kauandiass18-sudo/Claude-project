@@ -1,4 +1,4 @@
-# Minha curadoria · Link na bio de cabelo
+# Carla Dias Oliveira · Link na bio de cabelo
 
 Site de **link na bio** pensado para celular, com cara de salão de cabelo:
 tratamentos da **Ybera Paris** e achadinhos de cabelo do **Mercado Livre** e
