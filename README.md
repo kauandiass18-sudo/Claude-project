@@ -120,7 +120,7 @@ produtos: [
 | `categoria`    | recomendado | Cria automaticamente o botão de filtro da categoria.                    |
 | `imagem`       | recomendado | Caminho da foto no projeto ou link `https://` da imagem.                 |
 | `preco`        | não         | Preço atual, ex.: `"R$ 283,01"`. Aparece com o rótulo "no Pix".          |
-| `precoAntigo`  | não         | Preço antigo, ex.: `"R$ 339,90"`. Aparece riscado.                       |
+| `precoAntigo`  | não         | Preço antigo, ex.: `"R$ 339,90"`. Aparece riscado, e o selo dourado de desconto (ex.: `-17%`) é calculado sozinho. |
 | `destaque`     | não         | `true` coloca o produto também na faixa **Queridinhos do salão**.        |
 
 Produtos sem `nome` ou sem `affiliateUrl` válido não aparecem no site. O aviso

@@ -96,6 +96,21 @@
   const linkLoja = $("[data-link-loja]");
 
   /* ---------- Preço ---------- */
+  /** Lê "R$ 1.234,56" como número (1234.56). */
+  function valorEmReais(texto) {
+    const limpo = String(texto || "").replace(/[^\d,]/g, "").replace(",", ".");
+    const n = parseFloat(limpo);
+    return Number.isFinite(n) ? n : 0;
+  }
+
+  /** Porcentagem de desconto entre o preço antigo e o atual (ex.: 17). */
+  function desconto(produto) {
+    const antigo = valorEmReais(produto.precoAntigo);
+    const atual = valorEmReais(produto.preco);
+    if (!antigo || !atual || atual >= antigo) return 0;
+    return Math.round((1 - atual / antigo) * 100);
+  }
+
   function criarPreco(produto) {
     if (!produto.preco) return null;
     return el("span", { class: "card__preco" }, [
@@ -144,10 +159,21 @@
         style: `--i:${Math.min(indice, 8)}`
       },
       [
-        criarMidia(produto),
+        (() => {
+          const off = desconto(produto);
+          return el("span", { class: "card__foto" }, [
+            criarMidia(produto),
+            off >= 5 ? el("span", { class: "card__desconto", text: `-${off}%`, "aria-label": `${off}% de desconto` }) : null
+          ]);
+        })(),
         el("span", { class: "card__corpo" }, [
           mostrarNumero && !ehDestaque
-            ? el("span", { class: "card__numero", text: `Nº ${produto.numero}` })
+            ? el("span", { class: "card__meta" }, [
+                el("span", { class: "card__numero", text: `Nº ${produto.numero}` }),
+                !mostrarCategoria && produto.categoria
+                  ? el("span", { class: "card__meta-categoria", text: produto.categoria })
+                  : null
+              ])
             : null,
           (mostrarCategoria || ehDestaque) && produto.categoria
             ? el("span", { class: "card__categoria", text: produto.categoria })
