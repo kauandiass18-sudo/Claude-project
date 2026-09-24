@@ -105,6 +105,40 @@
   }).join(""));
   stage.setAttribute("aria-label", "Nossos doces: " + produtos.map(function (p) { return p.nome; }).join(", "));
 
+  /* ------------------------------------------------------ doces livres */
+  var solo = $("[data-solo]");
+  var livres = (S.livres || []).map(produto).filter(Boolean);
+  if (!livres.length) {
+    solo.remove();
+  } else {
+    solo.innerHTML = livres.map(function (p, i) {
+      var src = fotos(p)[0];
+      var media = src
+        ? '<img src="' + esc(src) + '" alt="' + esc(p.nome) + '" loading="lazy" decoding="async" data-free-name="' + esc(p.nome) + '">'
+        : freePlaceholder(p.nome);
+      return '<article class="solo__item" style="--tint:' + esc(p.cor || "#B7733A") + '">' +
+        '<div class="solo__stage"><div class="solo__glow" aria-hidden="true"></div>' +
+        '<div class="solo__px" data-depth="1"><div class="solo__enter">' +
+        '<span class="solo__shadow" aria-hidden="true"></span>' +
+        '<div class="solo__motion">' + media + "</div></div></div></div>" +
+        '<div class="solo__text"><span class="eyebrow">' + String(i + 1).padStart(2, "0") + " / " + String(livres.length).padStart(2, "0") + "</span>" +
+        '<h2 class="solo__name">' + esc(p.nome) + "</h2></div></article>";
+    }).join("");
+  }
+  function freePlaceholder(nome) {
+    return '<div class="ph-free" role="img" aria-label="' + esc(nome) + ' (foto em breve)">' +
+      '<span class="ph-free__name">' + esc(nome) + '</span><span class="ph-free__hint">foto recortada</span></div>';
+  }
+  // Foto dos doces livres que não carregar vira espaço reservado solto
+  document.addEventListener("error", function (e) {
+    var t = e.target;
+    if (t && t.tagName === "IMG" && t.hasAttribute("data-free-name")) {
+      var box = document.createElement("div");
+      box.innerHTML = freePlaceholder(t.getAttribute("data-free-name"));
+      t.replaceWith(box.firstChild);
+    }
+  }, true);
+
   /* ------------------------------------- dados para buscadores (Google) */
   try {
     var tag = document.createElement("script");
@@ -137,6 +171,13 @@
 
   function frame() {
     ticking = false;
+    // Doces livres: sobem um pouco mais devagar que a página (profundidade)
+    for (var j = 0; j < soloVisible.length; j++) {
+      var box = soloVisible[j].querySelector(".solo__stage");
+      var rect = box.getBoundingClientRect();
+      var prog = (rect.top + rect.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      box.querySelector(".solo__px").style.transform = "translate3d(0," + (prog * -40).toFixed(2) + "px,0) rotate(" + (prog * -2.5).toFixed(3) + "deg)";
+    }
     if (!heroVisible) return;
     var pointer = finePointer.matches;
     cx += (tx - cx) * 0.06;
@@ -152,6 +193,24 @@
     if (pointer && (Math.abs(tx - cx) > 0.0015 || Math.abs(ty - cy) > 0.0015)) request();
   }
   function request() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+
+  var soloItems = $$(".solo__item");
+  var soloVisible = [];
+  if (reduceMotion.matches || !("IntersectionObserver" in window)) {
+    soloItems.forEach(function (el) { el.classList.add("is-in"); });
+  } else {
+    var soloIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) en.target.classList.add("is-in");
+        en.target.classList.toggle("is-paused", !en.isIntersecting);
+        var k = soloVisible.indexOf(en.target);
+        if (en.isIntersecting && k < 0) soloVisible.push(en.target);
+        if (!en.isIntersecting && k >= 0) soloVisible.splice(k, 1);
+      });
+      request();
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.05 });
+    soloItems.forEach(function (el) { soloIO.observe(el); });
+  }
 
   if (!reduceMotion.matches) {
     window.addEventListener("pointermove", function (e) {

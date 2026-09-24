@@ -36,6 +36,14 @@ window.SITE = {
     ]
   },
 
+  /* ------------------------------------------------------ DOCES LIVRES
+     Parte abaixo da abertura: cada doce aparece sozinho, grande, flutuando
+     livre, sem moldura. Use os ids dos produtos, na ordem em que devem aparecer.
+     Para o doce ficar realmente solto, a foto precisa ser recortada
+     (PNG ou WebP com fundo transparente) e o produto com recortada: true.
+  ------------------------------------------------------------------------ */
+  livres: ["mousse-maracuja", "mousse-limao", "mini-pudim"],
+
   /* ------------------------------------------------------------- PRODUTOS
      id         identificador sem espaços e sem acentos (usado no hero)
      nome       nome do doce

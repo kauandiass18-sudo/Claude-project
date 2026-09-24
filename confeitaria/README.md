@@ -1,8 +1,9 @@
 # Site da confeitaria
 
 Site de uma confeitaria artesanal que trabalha com encomendas. Por enquanto ele
-tem só a abertura: os doces flutuando, o título e o botão "Fazer encomenda",
-que leva para o WhatsApp. As outras seções entram depois.
+tem a abertura, com os doces flutuando, o título e o botão "Fazer encomenda",
+que leva para o WhatsApp. Logo abaixo, cada doce aparece sozinho, grande,
+flutuando livre, sem moldura.
 
 Feito só com HTML, CSS e JavaScript. Não precisa instalar nada nem rodar build.
 Para ver no computador, abra `index.html` no navegador.
@@ -16,6 +17,7 @@ Quase tudo fica em **`config.js`**:
 | Nome e descrição da marca          | `marca`             |
 | Número e mensagem do WhatsApp      | `whatsapp`          |
 | Título, subtítulo e doces flutuando | `hero`             |
+| Doces soltos, abaixo da abertura   | `livres`            |
 | Doces e fotos                      | `produtos`          |
 
 As cores ficam no começo de `assets/css/style.css`, dentro de `:root`.
@@ -67,6 +69,15 @@ com um movimento diferente: um sobe e desce, outro gira de leve e o outro se
 aproxima e se afasta.
 
 Também dá para usar até 6 doces. Nesse caso o celular mostra só os 4 primeiros.
+
+## Doces livres
+
+Abaixo da abertura, cada doce listado em `livres` aparece sozinho, grande, com
+o nome ao lado. Ele entra na tela ao rolar a página e continua flutuando.
+
+Para o doce ficar solto de verdade, use uma foto **recortada**: PNG ou WebP
+com fundo transparente, e `recortada: true` no produto. Com foto comum, o
+fundo da foto aparece junto.
 
 ## Acessibilidade e desempenho
 
