@@ -61,16 +61,12 @@ whatsapp: {
 ## Doces flutuando no hero
 
 Em `hero.composicao`, cada linha escolhe um produto e qual foto dele usar
-(`foto: 0` é a primeira). A ordem define o lugar:
+(`foto: 0` é a primeira). Hoje são 3 doces: Mousse de Maracujá, Mousse de
+Limão e Mini Pudim. Com 3, eles ficam em triângulo, cada um no seu espaço e
+com um movimento diferente: um sobe e desce, outro gira de leve e o outro se
+aproxima e se afasta.
 
-1. grande, em primeiro plano
-2. médio
-3. médio
-4. pequeno, ao fundo
-5. pequeno, ao fundo (só no computador)
-6. pequeno (só no computador)
-
-No celular aparecem só os 4 primeiros, para nenhum doce ficar em cima do outro.
+Também dá para usar até 6 doces. Nesse caso o celular mostra só os 4 primeiros.
 
 ## Acessibilidade e desempenho
 

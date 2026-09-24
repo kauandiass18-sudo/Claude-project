@@ -209,6 +209,11 @@ em { font-style: italic; }
 .f5 { --x: 88; --y: 23; --s: 13; --r: -9deg; --z: 2; --motion: m-tilt;  --dur: 12.1s; --dur2: 18s; --delay: -8.3s; }
 .f6 { --x: 49; --y: 86; --s: 15; --r: 4deg;  --z: 3; --motion: m-sway;  --dur: 10.6s; --dur2: 25s; --delay: -3.4s; }
 
+/* Com 3 doces: triângulo equilibrado, todos grandes e sem encostar */
+.stage--3 .f1 { --x: 50; --y: 29; --s: 36; --r: -4deg; --z: 5; --motion: m-bob;  --dur: 8.6s;  --delay: -1.2s; }
+.stage--3 .f2 { --x: 23; --y: 69; --s: 31; --r: 5deg;  --z: 4; --motion: m-turn; --dur: 10.8s; --delay: -4.7s; }
+.stage--3 .f3 { --x: 77; --y: 70; --s: 31; --r: -3deg; --z: 4; --motion: m-zoom; --dur: 9.7s;  --delay: -2.9s; }
+
 /* Planos mais distantes: menores, um pouco mais claros e com leve desfoque */
 .f4 .frame, .f5 .frame { filter: blur(1.1px) saturate(.92); opacity: .9; }
 .f6 .frame { filter: blur(.5px); }
@@ -303,6 +308,9 @@ em { font-style: italic; }
   .f3 { --x: 78; --y: 80; --s: 27; }
   .f4 { --x: 20; --y: 22; --s: 21; }
   .f5, .f6 { display: none; }
+  .stage--3 .f1 { --x: 50; --y: 27; --s: 40; }
+  .stage--3 .f2 { --x: 24; --y: 72; --s: 36; }
+  .stage--3 .f3 { --x: 76; --y: 72; --s: 36; }
   .float__drift { animation: none; }
   .f4 .frame { filter: none; opacity: .95; }
 }

@@ -88,9 +88,11 @@
   $("[data-hero-title]").innerHTML = rich(hero.titulo);
   $("[data-hero-sub]").innerHTML = rich(hero.subtitulo);
 
-  var DEPTH = [1, .62, .8, .34, .3, .46];   // profundidade de cada posição (1 = mais perto)
   var stage = $("[data-stage]");
   var composicao = (hero.composicao || []).slice(0, 6);
+  // Profundidade de cada posição (1 = mais perto, reage mais ao mouse)
+  var DEPTH = composicao.length === 3 ? [1, .7, .85] : [1, .62, .8, .34, .3, .46];
+  if (composicao.length === 3) stage.classList.add("stage--3");
   stage.insertAdjacentHTML("beforeend", composicao.map(function (slot, i) {
     var p = produto(slot.produto);
     if (!p) return "";
@@ -98,7 +100,7 @@
     return '<div class="float f' + (i + 1) + " " + (p.recortada ? "is-cut" : "is-framed") + '" style="--i:' + i + ";--tint:" + esc(p.cor || "") + '" data-depth="' + DEPTH[i] + '">' +
       '<div class="float__px"><span class="float__shadow"></span>' +
       '<div class="float__motion"><div class="float__drift"><div class="frame">' +
-      img(p, n, { eager: i < 3, hint: fotos(p).length ? "foto " + (n + 1) : "foto real" + (n ? " · " + (n + 1) : "") }) +
+      img(p, n, { eager: i < 3, hint: "foto real" }) +
       "</div></div></div></div></div>";
   }).join(""));
   stage.setAttribute("aria-label", "Nossos doces: " + produtos.map(function (p) { return p.nome; }).join(", "));

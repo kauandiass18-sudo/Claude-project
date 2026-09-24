@@ -26,18 +26,13 @@ window.SITE = {
     titulo: "Doces feitos para transformar momentos em *memórias*.",
     subtitulo: "Encomende suas sobremesas favoritas e receba tudo preparado com carinho e cuidado.",
 
-    // Doces que flutuam na abertura do site (até 6).
+    // Doces que flutuam na abertura do site.
+    // Com 3 doces, cada um ganha um lugar próprio, em triângulo, no computador e no celular.
     // "foto" é a posição da foto na lista "fotos" do produto: 0 = primeira, 1 = segunda...
-    // No celular aparecem só os 4 primeiros. A ordem define o lugar de cada doce:
-    //   1º grande, em primeiro plano · 2º médio · 3º médio · 4º pequeno, ao fundo
-    //   5º pequeno, ao fundo (só computador) · 6º pequeno (só computador)
     composicao: [
-      { produto: "mini-pudim",       foto: 0 },
-      { produto: "mousse-maracuja",  foto: 0 },
-      { produto: "mousse-maracuja",  foto: 1 },
-      { produto: "mini-pudim",       foto: 1 },
-      { produto: "mousse-maracuja",  foto: 2 },
-      { produto: "mini-pudim",       foto: 2 }
+      { produto: "mousse-maracuja", foto: 0 },
+      { produto: "mousse-limao",    foto: 0 },
+      { produto: "mini-pudim",      foto: 0 }
     ]
   },
 
@@ -55,17 +50,25 @@ window.SITE = {
       id: "mini-pudim",
       nome: "Mini Pudim",
       fotos: [
-        // "assets/img/produtos/mini-pudim-1.webp",
-        // "assets/img/produtos/mini-pudim-2.webp",
+        // "assets/img/produtos/mini-pudim.webp",
       ],
       recortada: false,
       cor: "#C98E56"
     },
     {
+      id: "mousse-limao",
+      nome: "Mousse de Limão",
+      fotos: [
+        // "assets/img/produtos/mousse-limao.webp",
+      ],
+      recortada: false,
+      cor: "#C8CF86"
+    },
+    {
       id: "mousse-maracuja",
       nome: "Mousse de Maracujá",
       fotos: [
-        // "assets/img/produtos/mousse-maracuja-1.webp",
+        // "assets/img/produtos/mousse-maracuja.webp",
       ],
       recortada: false,
       cor: "#E0B64E"
