@@ -88,6 +88,11 @@
     var og = $('meta[property="og:title"]'); if (og) og.setAttribute("content", document.title);
   }
 
+  if (marca.descricao) {
+    var md = $('meta[name="description"]');
+    if (md) md.setAttribute("content", (marca.nome ? marca.nome + ": " : "") + marca.descricao + ". Encomendas pelo WhatsApp.");
+  }
+
   /* ------------------------------------------------ WhatsApp e Instagram */
   var waGeral = waLink((S.whatsapp && S.whatsapp.mensagem) || "Olá! Gostaria de fazer uma encomenda.");
   $$("[data-wa]").forEach(function (a) { a.href = waGeral; });
@@ -251,6 +256,31 @@
     $(".insta__inner").classList.add("is-solo");
   }
 
+  /* ------------------------------------- dados para buscadores (Google) */
+  try {
+    var ld = {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": marca.nome || "Confeitaria",
+      "description": marca.descricao || "",
+      "url": location.href.split("#")[0],
+      "sameAs": igUser ? [igLink] : [],
+      "hasMenu": {
+        "@type": "Menu",
+        "hasMenuItem": produtos.map(function (p) {
+          var item = { "@type": "MenuItem", "name": p.nome };
+          if (p.descricao && !isPlaceholder(p.descricao)) item.description = plain(p.descricao);
+          var f = fotos(p)[0]; if (f) item.image = new URL(f, location.href).href;
+          return item;
+        })
+      }
+    };
+    var tag = document.createElement("script");
+    tag.type = "application/ld+json";
+    tag.textContent = JSON.stringify(ld);
+    document.head.appendChild(tag);
+  } catch (err) { /* opcional */ }
+
   /* ================================================ movimento e scroll */
 
   // Revelar ao rolar
@@ -278,7 +308,7 @@
     document.body.classList.toggle("menu-open", open);
     menuBtn.setAttribute("aria-expanded", String(open));
     menuBtn.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
-    if (open) sheet.hidden = false;
+    sheet.setAttribute("aria-hidden", String(!open));
   }
   menuBtn.addEventListener("click", function () { setMenu(!document.body.classList.contains("menu-open")); });
   sheet.addEventListener("click", function (e) { if (e.target.closest("a")) setMenu(false); });
