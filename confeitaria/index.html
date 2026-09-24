@@ -63,7 +63,10 @@
         </header>
         <ul class="order__list" data-order-list></ul>
         <div class="order__foot">
-          <p class="order__total" data-order-total aria-live="polite">Nenhum doce escolhido</p>
+          <div class="order__summary" aria-live="polite">
+            <p class="order__count" data-order-count>Nenhum doce escolhido</p>
+            <p class="order__sum"><span>Total</span> <strong data-order-sum>R$ 0,00</strong></p>
+          </div>
           <a class="btn btn--primary btn--lg order__send is-disabled" data-order-send target="_blank" rel="noopener" aria-disabled="true">
             <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>
             Enviar pedido

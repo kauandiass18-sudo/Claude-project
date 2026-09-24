@@ -148,6 +148,8 @@
   } else {
     var MAX = Math.max(1, +pedido.maximo || 99);
     var qty = orderItems.map(function () { return 0; });
+    var BRL = function (v) { return "R$ " + v.toFixed(2).replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, "."); };
+    var preco = function (p) { var v = parseFloat(String(p.preco == null ? "" : p.preco).replace(",", ".")); return isFinite(v) ? v : 0; };
     var ICON_MINUS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/></svg>';
     var ICON_PLUS = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M8 3v10"/></svg>';
 
@@ -156,7 +158,10 @@
     list.innerHTML = orderItems.map(function (p, i) {
       var id = "qtd-" + p.id;
       return '<li class="order__item" style="--tint:' + esc(p.cor || "#B7733A") + '">' +
-        '<span class="order__name" id="' + id + '-nome"><span class="order__dot" aria-hidden="true"></span>' + esc(p.nome) + "</span>" +
+        '<div class="order__info"><span class="order__dot" aria-hidden="true"></span><div>' +
+        '<span class="order__name" id="' + id + '-nome">' + esc(p.nome) + "</span>" +
+        (preco(p) ? '<span class="order__price"><b>' + BRL(preco(p)) + "</b> cada <span data-line></span></span>" : "") +
+        "</div></div>" +
         '<div class="stepper" role="group" aria-labelledby="' + id + '-nome">' +
         '<button type="button" data-step="-1" data-i="' + i + '" aria-label="Diminuir ' + esc(p.nome) + '" disabled>' + ICON_MINUS + "</button>" +
         '<output id="' + id + '" aria-live="polite">0</output>' +
@@ -164,24 +169,32 @@
         "</div></li>";
     }).join("");
 
-    var totalEl = $("[data-order-total]");
+    var countEl = $("[data-order-count]");
+    var sumEl = $("[data-order-sum]");
+    var lastSum = 0;
     var sendEl = $("[data-order-send]");
     var rows = $$(".order__item", list);
 
     function updateOrder() {
-      var total = 0, linhas = [];
+      var total = 0, soma = 0, linhas = [];
       qty.forEach(function (q, i) {
-        total += q;
-        if (q > 0) linhas.push("• " + q + " " + orderItems[i].nome);
+        var p = orderItems[i], sub = q * preco(p);
+        total += q; soma += sub;
+        if (q > 0) linhas.push("• " + q + " " + p.nome + (sub ? " (" + BRL(sub) + ")" : ""));
         var row = rows[i];
+        var line = row.querySelector("[data-line]");
+        if (line) line.textContent = q > 0 ? "· " + BRL(sub) : "";
         row.querySelector("output").textContent = q;
         row.querySelector('[data-step="-1"]').disabled = q <= 0;
         row.querySelector('[data-step="1"]').disabled = q >= MAX;
         row.classList.toggle("has-qty", q > 0);
       });
-      totalEl.innerHTML = total
+      countEl.innerHTML = total
         ? "<strong>" + total + "</strong> " + (total === 1 ? "doce escolhido" : "doces escolhidos")
         : "Nenhum doce escolhido";
+      sumEl.textContent = BRL(soma);
+      if (soma !== lastSum) { sumEl.classList.remove("bump"); void sumEl.offsetWidth; sumEl.classList.add("bump"); lastSum = soma; }
+      if (soma) linhas.push("", "Total: " + BRL(soma));
       var ativo = total > 0;
       sendEl.classList.toggle("is-disabled", !ativo);
       sendEl.setAttribute("aria-disabled", String(!ativo));

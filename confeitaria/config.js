@@ -63,6 +63,7 @@ window.SITE = {
                 Coloque os arquivos em assets/img/produtos/
      recortada  true se as fotos forem PNG/WebP com fundo transparente (doce recortado).
                 false se forem fotos comuns, com fundo: o site mostra dentro de uma moldura.
+     preco      preço de cada unidade, em reais, com ponto. Ex.: 7.00 ou 12.50
      cor        tom usado enquanto a foto não chega. Use uma cor tirada do próprio doce.
   ------------------------------------------------------------------------ */
   produtos: [
@@ -72,6 +73,7 @@ window.SITE = {
       fotos: [
         // "assets/img/produtos/mini-pudim.webp",
       ],
+      preco: 7.00,
       recortada: false,
       cor: "#C98E56"
     },
@@ -81,6 +83,7 @@ window.SITE = {
       fotos: [
         // "assets/img/produtos/mousse-limao.webp",
       ],
+      preco: 7.00,
       recortada: false,
       cor: "#C8CF86"
     },
@@ -90,6 +93,7 @@ window.SITE = {
       fotos: [
         // "assets/img/produtos/mousse-maracuja.webp",
       ],
+      preco: 7.00,
       recortada: false,
       cor: "#E0B64E"
     }

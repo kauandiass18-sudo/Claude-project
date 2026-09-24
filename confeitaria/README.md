@@ -90,9 +90,15 @@ escolhe pelo menos um doce. Ele abre o WhatsApp com esta mensagem:
 
 ```
 Olá! Vi os doces no site e gostaria de encomendar:
-• 2 Mousse de Maracujá
-• 1 Mini Pudim
+• 2 Mousse de Maracujá (R$ 14,00)
+• 1 Mini Pudim (R$ 7,00)
+
+Total: R$ 21,00
 ```
+
+O preço de cada doce vem de `preco` no produto, em reais e com ponto
+(`7.00`). Embaixo da lista aparece o total do orçamento, que muda conforme o
+cliente escolhe as quantidades.
 
 A primeira linha vem de `pedido.mensagem`. O limite de cada doce vem de
 `pedido.maximo`.
