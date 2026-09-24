@@ -9,6 +9,8 @@ direto para o **link de afiliado** daquele produto (em uma nova aba).
 Feito só com **HTML, CSS e JavaScript puro**. Não precisa instalar nada nem
 rodar build.
 
+> **Site da confeitaria:** fica na pasta [`confeitaria/`](confeitaria/). As instruções estão em [`confeitaria/README.md`](confeitaria/README.md).
+
 ---
 
 ## Estrutura
