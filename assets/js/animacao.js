@@ -23,8 +23,8 @@
     ".rodape > *"
   ].join(",");
 
-  const PASSO = 90;       // intervalo entre uma peça e a próxima (ms)
-  const MAX_ATRASO = 1100; // ninguém espera mais que isso para subir
+  const PASSO = 110;      // intervalo entre uma peça e a próxima (ms)
+  const MAX_ATRASO = 1300; // ninguém espera mais que isso para subir
 
   const pecas = Array.from(document.querySelectorAll(PECAS)).filter(
     (el) => !el.closest("[hidden]")
@@ -72,8 +72,8 @@
   function conferir() {
     agendado = false;
     const alturaAgora = window.innerHeight || document.documentElement.clientHeight;
-    // a peça que espera está 48px mais baixa (translateY): desconta isso
-    const limite = alturaAgora * 0.94 + 48;
+    // a peça que espera está 90px mais baixa (translateY): desconta isso
+    const limite = alturaAgora * 0.94 + 90;
     const noFim = window.scrollY + alturaAgora >= document.documentElement.scrollHeight - 4;
     let ordem = 0;
     esperando = esperando.filter((el) => {

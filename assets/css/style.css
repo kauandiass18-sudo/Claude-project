@@ -142,19 +142,22 @@ h1, h2, h3, p { margin: 0; }
    .subir-espera deixa a peça escondida lá embaixo até ela aparecer na tela
    Só o script coloca .subir-espera: sem JavaScript, tudo aparece normal. */
 .revelar {
-  animation: subir .9s var(--suave) both;
-  animation-delay: calc(var(--i, 0) * 90ms);
+  animation: subir 1.15s cubic-bezier(.2, .8, .25, 1) both;
+  animation-delay: calc(var(--i, 0) * 110ms);
 }
-.card.revelar { animation-delay: calc(var(--i, 0) * 60ms); }
+.card.revelar { animation-delay: calc(var(--i, 0) * 70ms); }
 .subir {
-  animation: subir .9s var(--suave) both;
+  animation: subir 1.15s cubic-bezier(.2, .8, .25, 1) both;
   animation-delay: var(--atraso, 0ms);
 }
-.subir-espera { opacity: 0; transform: translateY(48px); }
+.subir-espera { opacity: 0; transform: translateY(90px) scale(.92); }
+/* vem de longe, cresce, passa um pouquinho do lugar e assenta com um balanço */
 @keyframes subir {
-  from { opacity: 0; transform: translateY(48px); }
-  60% { opacity: 1; }
-  to { opacity: 1; transform: none; }
+  0%   { opacity: 0; transform: translateY(90px) scale(.92); filter: blur(4px); }
+  55%  { opacity: 1; transform: translateY(-10px) scale(1.015); filter: blur(0); }
+  75%  { transform: translateY(4px) scale(.998); }
+  90%  { transform: translateY(-1px); }
+  100% { opacity: 1; transform: none; filter: none; }
 }
 
 /* ---------- Títulos com onda de cabelo ---------- */
