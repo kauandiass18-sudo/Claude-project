@@ -61,7 +61,9 @@
         destaque: p.destaque === true,
         preco: texto(p.preco),
         precoAntigo: texto(p.precoAntigo),
-        busca: normalizar(`${nome} ${categoria}`)
+        oQueE: texto(p.oQueE),
+        esgotado: p.esgotado === true,
+        busca: normalizar(`${nome} ${categoria} ${texto(p.oQueE)}`)
       };
     })
     .filter(Boolean);
@@ -76,7 +78,9 @@
     return a.localeCompare(b, "pt-BR");
   });
 
-  const estado = { categoria: "", busca: "" };
+  // A lista mostra os produtos aos poucos; o botão "Mostrar mais" traz os próximos
+  const POR_VEZ = 20;
+  const estado = { categoria: "", busca: "", limite: POR_VEZ };
 
   /* ---------- Elementos ---------- */
   const campoBusca = $("[data-busca]");
@@ -152,7 +156,7 @@
     const card = el(
       "a",
       {
-        class: `card ${ehDestaque ? "card--destaque" : "card--lista"} revelar`,
+        class: `card ${ehDestaque ? "card--destaque" : "card--lista"}${produto.esgotado ? " card--esgotado" : ""} revelar`,
         href: produto.url,
         target: "_blank",
         rel: "sponsored noopener",
@@ -172,13 +176,15 @@
                 mostrarNumero ? el("span", { class: "card__numero", text: `Nº ${produto.numero}` }) : null,
                 !mostrarCategoria && produto.categoria
                   ? el("span", { class: "card__meta-categoria", text: produto.categoria })
-                  : null
+                  : null,
+                produto.esgotado ? el("span", { class: "card__esgotado", text: "Esgotado" }) : null
               ])
             : null,
           (mostrarCategoria || ehDestaque) && produto.categoria
             ? el("span", { class: "card__categoria", text: produto.categoria })
             : null,
           el("span", { class: "card__nome", text: produto.nome }),
+          !ehDestaque && produto.oQueE ? el("span", { class: "card__oque", text: produto.oQueE }) : null,
           criarPreco(produto),
           el("span", { class: "sr-only", text: " (abre em nova aba)" })
         ]),
@@ -208,6 +214,7 @@
         "aria-pressed": String(estado.categoria === valor),
         onclick: () => {
           estado.categoria = valor;
+          estado.limite = POR_VEZ;
           listaCategorias.querySelectorAll(".chip").forEach((c) =>
             c.setAttribute("aria-pressed", String(c.dataset.categoria === valor))
           );
@@ -249,7 +256,34 @@
       contagem.textContent = `${resultado.length} ${resultado.length === 1 ? "produto" : "produtos"}`;
     }
 
-    lista.replaceChildren(...resultado.map((p, i) => el("li", null, criarCard(p, i, "lista"))));
+    const visiveis = resultado.slice(0, estado.limite);
+    lista.replaceChildren(...visiveis.map((p, i) => el("li", null, criarCard(p, i, "lista"))));
+
+    // Botão "Mostrar mais": aparece enquanto houver produtos escondidos
+    let botaoMais = lista.parentElement && lista.parentElement.querySelector("[data-mostrar-mais]");
+    const restantes = resultado.length - visiveis.length;
+    if (restantes > 0) {
+      if (!botaoMais) {
+        botaoMais = el("button", {
+          type: "button",
+          class: "botao-mais",
+          "data-mostrar-mais": "",
+          onclick: () => {
+            const antes = estado.limite;
+            estado.limite += POR_VEZ;
+            renderLista();
+            // leva o foco para o primeiro produto novo (teclado e leitor de tela)
+            const novo = lista.children[antes] && lista.children[antes].querySelector("a");
+            if (novo) novo.focus({ preventScroll: true });
+          }
+        });
+        lista.after(botaoMais);
+      }
+      botaoMais.textContent = `Mostrar mais produtos (${restantes})`;
+      botaoMais.hidden = false;
+    } else if (botaoMais) {
+      botaoMais.hidden = true;
+    }
 
     if (!resultado.length) {
       mostrarVazio(
@@ -262,6 +296,7 @@
           onclick: () => {
             estado.busca = "";
             estado.categoria = "";
+            estado.limite = POR_VEZ;
             if (campoBusca) campoBusca.value = "";
             atualizarBotaoLimpar();
             renderCategorias();
@@ -321,6 +356,7 @@
       clearTimeout(timer);
       timer = setTimeout(() => {
         estado.busca = campoBusca.value;
+        estado.limite = POR_VEZ;
         renderLista();
       }, 120);
     });

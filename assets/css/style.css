@@ -913,6 +913,54 @@ h1, h2, h3, p { margin: 0; }
 .tema-shopee .card__selo { background: var(--shopee-2); color: var(--shopee-texto); }
 .card__selo svg { width: 13px; height: 13px; fill: currentColor; stroke: none; }
 
+/* O que é o produto: uma ou duas linhas curtas abaixo do nome */
+.card__oque {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: var(--tinta-suave);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Esgotado: selo discreto e card mais apagado */
+.card__esgotado {
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--linha-forte);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+}
+.card--esgotado .card__foto,
+.card--esgotado .card__nome,
+.card--esgotado .card__preco { opacity: .55; }
+
+/* Botão "Mostrar mais produtos" */
+.botao-mais {
+  display: block;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: linear-gradient(180deg, #fffaf0, #f6e8c8) padding-box, var(--ouro-brilho) border-box;
+  color: var(--ouro-escuro);
+  font-family: var(--fonte-luxo);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 17px;
+  cursor: pointer;
+  transition: transform .15s var(--suave), box-shadow .2s var(--suave);
+}
+.botao-mais:active { transform: scale(.98); }
+@media (hover: hover) { .botao-mais:hover { box-shadow: 0 6px 16px -10px rgba(120, 80, 20, .5); } }
+
 /* Card da lista: foto à esquerda, texto no meio, seta à direita */
 .lista { display: grid; gap: 10px; }
 .card--lista {
