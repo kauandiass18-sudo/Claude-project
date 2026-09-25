@@ -209,7 +209,7 @@
     sendEl.addEventListener("click", function (e) {
       if (temDoce) return;
       e.preventDefault();
-      hintEl.textContent = "Escolha pelo menos um doce no + para fazer a encomenda.";
+      hintEl.textContent = "Escolha pelo menos um doce no + para enviar sua encomenda.";
       sendEl.classList.remove("shake"); void sendEl.offsetWidth; sendEl.classList.add("shake");
     });
     list.addEventListener("click", function (e) {

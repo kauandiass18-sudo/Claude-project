@@ -4,7 +4,7 @@ Site de uma confeitaria artesanal que trabalha com encomendas. Por enquanto ele
 tem a abertura, com os doces flutuando e o título. Logo abaixo, cada doce aparece sozinho, grande,
 flutuando livre, sem moldura. No fim fica a lista de encomenda: o cliente
 escolhe a quantidade de cada doce com os botões de mais e menos e envia o
-pedido pelo botão "Fazer encomenda", que abre o WhatsApp.
+pedido pelo botão "Enviar sua encomenda", que abre o WhatsApp.
 
 Feito só com HTML, CSS e JavaScript. Não precisa instalar nada nem rodar build.
 Para ver no computador, abra `index.html` no navegador.
@@ -84,7 +84,7 @@ fundo da foto aparece junto.
 ## Lista de encomenda
 
 Em `pedido.produtos`, liste os ids dos doces que aparecem com os botões de
-mais e menos. Embaixo da lista fica o botão "Fazer encomenda". Se o cliente
+mais e menos. Embaixo da lista fica o botão "Enviar sua encomenda". Se o cliente
 tocar nele sem ter escolhido nenhum doce, aparece um aviso pedindo para
 escolher pelo menos um. Com doces escolhidos, ele abre o WhatsApp com esta
 mensagem:
