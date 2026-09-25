@@ -67,6 +67,10 @@
       };
     })
     .filter(Boolean);
+  // Esgotados ficam escondidos, a não ser que a loja peça para mostrar
+  if (loja.mostrarEsgotados !== true) {
+    for (let i = produtos.length - 1; i >= 0; i--) if (produtos[i].esgotado) produtos.splice(i, 1);
+  }
   produtos.forEach((p, i) => { p.numero = String(i + 1).padStart(2, "0"); });
 
   /* ---------- Categorias ---------- */

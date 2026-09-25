@@ -122,18 +122,28 @@ produtos: [
 | `imagem`       | recomendado | Caminho da foto no projeto ou link `https://` da imagem.                 |
 | `preco`        | não         | Preço atual, ex.: `"R$ 283,01"`. Aparece com o rótulo "no Pix".          |
 | `precoAntigo`  | não         | Preço antigo, ex.: `"R$ 339,90"`. Aparece riscado, e o selo dourado de desconto (ex.: `-17%`) é calculado sozinho. |
+| `oQueE`        | não         | Frase curta sobre o que é o produto, abaixo do nome.                     |
+| `esgotado`     | não         | `true` esconde o produto (ou mostra com selo, se `mostrarEsgotados`).    |
 | `destaque`     | não         | `true` coloca o produto também na faixa **Queridinhos do salão**.        |
 
 Produtos sem `nome` ou sem `affiliateUrl` válido não aparecem no site. O aviso
 fica no console do navegador (F12).
 
-> **Preços da Ybera se atualizam sozinhos.** Todo dia às 6h (Brasília), a tarefa
-> `.github/workflows/precos-ybera.yml` abre a página de cada produto na loja da
-> Ybera, lê o preço riscado e o preço no Pix e atualiza `preco` e `precoAntigo`
-> em `data/ybera.js`. Só muda o que mudou na loja. Se uma página não puder ser
-> lida, ou o preço mudar mais de 60% de uma vez, aquele produto fica como está
-> e o aviso aparece no registro da tarefa (aba **Actions** do GitHub).
-> Para conferir na hora: aba **Actions** → *Atualizar preços da Ybera* → *Run workflow*.
+> **O catálogo da Ybera se atualiza sozinho.** Todo dia às 6h (Brasília), a
+> tarefa `.github/workflows/catalogo-ybera.yml` roda `scripts/catalogo-ybera.mjs`:
+> lê o mapa da loja (cerca de 300 produtos), abre cada produto e traz nome,
+> o que é, categoria, fotos, preço riscado, preço no Pix e estoque. Produtos
+> novos entram, preços mudam e os que saírem da loja saem do site. Os dados
+> brutos ficam em `data/ybera-catalogo.json` e a lista do site em `data/ybera.js`.
+>
+> - As categorias da loja são agrupadas em 12 grupos pelo que o cabelo precisa
+>   (regras em `GRUPOS`, no script).
+> - Produtos esgotados ficam escondidos (`mostrarEsgotados: false`) e voltam
+>   sozinhos quando o estoque voltar.
+> - `destaque: true` é a única mudança feita à mão na lista que se mantém: o
+>   produto aparece em "Queridinhos do salão".
+> - Se a loja não puder ser lida, nada é mudado. Para rodar na hora: aba
+>   **Actions** → *Atualizar catálogo da Ybera* → *Run workflow*.
 >
 > A tarefa agendada só roda na branch principal do repositório. Os produtos do
 > Mercado Livre e da Shopee continuam com preço editado à mão.

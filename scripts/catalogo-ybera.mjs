@@ -231,6 +231,37 @@ async function coletar() {
 // ---------- Etapa 2: gerar data/ybera.js ----------
 const aspas = (t) => JSON.stringify(String(t));
 
+/* A loja usa dezenas de categorias misturadas (linhas, promoções, tipos).
+   No site, cada produto entra num grupo pelo que o cabelo precisa.
+   A primeira regra que combinar (com a categoria da loja + o nome) vence. */
+const GRUPOS = [
+  ["Kids", /\bkids\b|infantil|crian/i],
+  ["Acessórios", /escova de cabelo|escovas de cabelo|secador|prancha|pente|\btouca\b|acess[oó]rio/i],
+  ["Loiros", /loir|matiz|desamarel|platinad/i],
+  ["Cachos", /cach|cacheados|ondulad|black diva|crespo|terra coco|curly/i],
+  ["Cronograma Capilar", /cronograma|cuidados profundos/i],
+  ["Antiqueda e Crescimento", /antiqueda|anti-queda|crescimento|100t[ií]metros|fortalecimento|c[aá]psula/i],
+  ["Progressiva e Liso", /progressiva|alisamento|\bliso\b|lisos|frizz|p[oó]s[- ]progressiva|botox|redutor|selagem/i],
+  ["Reconstrução", /reconstru|anti-?quebra|antiquebra|danificad|quebradi|genoma|stemcell|queratina/i],
+  ["Hidratação e Nutrição", /hidrata|nutri|brilho|umecta|[oó]leo|oils?\b/i],
+  ["Finalizadores e Proteção", /finaliza|leave-?in|prote[cç][aã]o t[eé]rmica|termoprotetor|spray|s[eé]rum/i],
+  ["Dia a Dia", /cuidado di[aá]rio|manuten[cç][aã]o|shampoo|condicionador|m[aá]scara|oleosidade|detox/i]
+];
+const GRUPO_PADRAO = "Kits e Combos";
+function grupoDe(p) {
+  const texto = `${p.categoria} ${p.nome}`;
+  for (const [nome, re] of GRUPOS) if (re.test(texto)) return nome;
+  return GRUPO_PADRAO;
+}
+const ORDEM_GRUPOS = [
+  "Progressiva e Liso", "Cronograma Capilar", "Hidratação e Nutrição", "Reconstrução",
+  "Antiqueda e Crescimento", "Cachos", "Loiros", "Finalizadores e Proteção", "Dia a Dia",
+  "Kids", "Kits e Combos", "Acessórios"
+];
+
+/** Tira do nome o sufixo da marca ("- Ybera Paris", "- Ybera Fashion Gold"). */
+const nomeLimpo = (n) => n.replace(/\s+[-–|]\s+Ybera(?:\s+(?:Paris|Fashion Gold|Discovery))?\s*$/i, "").trim();
+
 async function gerar() {
   const { produtos } = JSON.parse(await readFile(ARQ_CATALOGO, "utf8"));
   let texto = await readFile(ARQ_DADOS, "utf8");
@@ -246,11 +277,13 @@ async function gerar() {
     if (p.destaque && id && !destaques.includes(id)) destaques.push(id);
   }
 
-  const porId = new Map(produtos.map((p) => [p.id, p]));
-  const ordenados = [
-    ...destaques.filter((id) => porId.has(id)).map((id) => porId.get(id)),
-    ...produtos.filter((p) => !destaques.includes(p.id))
-  ];
+  const lista = produtos.map((p) => ({ ...p, nome: nomeLimpo(p.nome), categoria: grupoDe(p) }));
+  const porId = new Map(lista.map((p) => [p.id, p]));
+  const posGrupo = (g) => (ORDEM_GRUPOS.indexOf(g) + 1 || 99);
+  const resto = lista
+    .filter((p) => !destaques.includes(p.id))
+    .sort((a, b) => posGrupo(a.categoria) - posGrupo(b.categoria) || a.nome.localeCompare(b.nome, "pt-BR"));
+  const ordenados = [...destaques.filter((id) => porId.has(id)).map((id) => porId.get(id)), ...resto];
   // Esgotados vão para o fim
   ordenados.sort((a, b) => Number(a.esgotado) - Number(b.esgotado));
 
