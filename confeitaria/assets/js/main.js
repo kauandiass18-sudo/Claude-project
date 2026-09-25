@@ -195,17 +195,23 @@
       sumEl.textContent = BRL(soma);
       if (soma !== lastSum) { sumEl.classList.remove("bump"); void sumEl.offsetWidth; sumEl.classList.add("bump"); lastSum = soma; }
       if (soma) linhas.push("", "Total: " + BRL(soma));
-      var ativo = total > 0;
-      sendEl.classList.toggle("is-disabled", !ativo);
-      sendEl.setAttribute("aria-disabled", String(!ativo));
-      if (ativo) {
+      temDoce = total > 0;
+      if (temDoce) {
         sendEl.href = waLink((pedido.mensagem || "Olá! Gostaria de encomendar:") + "\n" + linhas.join("\n"));
-        sendEl.removeAttribute("tabindex");
+        hintEl.textContent = "";
       } else {
-        sendEl.removeAttribute("href");
-        sendEl.setAttribute("tabindex", "-1");
+        sendEl.href = "#encomenda";
       }
     }
+    // Sem nenhum doce escolhido, o botão avisa em vez de abrir o WhatsApp
+    var temDoce = false;
+    var hintEl = $("[data-order-hint]");
+    sendEl.addEventListener("click", function (e) {
+      if (temDoce) return;
+      e.preventDefault();
+      hintEl.textContent = "Escolha pelo menos um doce no + para fazer a encomenda.";
+      sendEl.classList.remove("shake"); void sendEl.offsetWidth; sendEl.classList.add("shake");
+    });
     list.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-step]");
       if (!btn || btn.disabled) return;

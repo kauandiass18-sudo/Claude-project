@@ -407,7 +407,9 @@ em { font-style: italic; }
 .order__sum span { font-size: 12px; font-weight: 500; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); }
 .order__sum strong { font-family: var(--serif); font-weight: 600; font-variant-numeric: lining-nums tabular-nums; font-feature-settings: "lnum" 1, "tnum" 1; font-size: clamp(30px, 2vw + 20px, 40px); line-height: 1; color: var(--ink); }
 .order__sum strong.bump { animation: bump .35s var(--ease-out); }
-.order__send.is-disabled { background: var(--ink-3); box-shadow: none; opacity: .6; pointer-events: none; }
+.order__send.shake { animation: shake .45s var(--ease); }
+@keyframes shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+.order__hint { min-height: 1.4em; margin-top: -12px; font-size: 15px; color: var(--accent); }
 
 /* ========================================================= CELULAR/TABLET */
 @media (max-width: 900px) {
