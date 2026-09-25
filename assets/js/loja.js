@@ -82,9 +82,7 @@
     return a.localeCompare(b, "pt-BR");
   });
 
-  // A lista mostra os produtos aos poucos; o botão "Mostrar mais" traz os próximos
-  const POR_VEZ = 20;
-  const estado = { categoria: "", busca: "", limite: POR_VEZ };
+  const estado = { categoria: "", busca: "" };
 
   /* ---------- Elementos ---------- */
   const campoBusca = $("[data-busca]");
@@ -218,7 +216,6 @@
         "aria-pressed": String(estado.categoria === valor),
         onclick: () => {
           estado.categoria = valor;
-          estado.limite = POR_VEZ;
           listaCategorias.querySelectorAll(".chip").forEach((c) =>
             c.setAttribute("aria-pressed", String(c.dataset.categoria === valor))
           );
@@ -260,34 +257,41 @@
       contagem.textContent = `${resultado.length} ${resultado.length === 1 ? "produto" : "produtos"}`;
     }
 
-    const visiveis = resultado.slice(0, estado.limite);
-    lista.replaceChildren(...visiveis.map((p, i) => el("li", null, criarCard(p, i, "lista"))));
-
-    // Botão "Mostrar mais": aparece enquanto houver produtos escondidos
-    let botaoMais = lista.parentElement && lista.parentElement.querySelector("[data-mostrar-mais]");
-    const restantes = resultado.length - visiveis.length;
-    if (restantes > 0) {
-      if (!botaoMais) {
-        botaoMais = el("button", {
-          type: "button",
-          class: "botao-mais",
-          "data-mostrar-mais": "",
-          onclick: () => {
-            const antes = estado.limite;
-            estado.limite += POR_VEZ;
-            renderLista();
-            // leva o foco para o primeiro produto novo (teclado e leitor de tela)
-            const novo = lista.children[antes] && lista.children[antes].querySelector("a");
-            if (novo) novo.focus({ preventScroll: true });
-          }
-        });
-        lista.after(botaoMais);
+    // Todos os produtos de uma vez, separados por categoria (na ordem dos filtros).
+    // Com um filtro escolhido, o título da seção já diz a categoria.
+    const grupos = [];
+    const porGrupo = new Map();
+    for (const p of resultado) {
+      const g = p.categoria || "Outros";
+      if (!porGrupo.has(g)) {
+        porGrupo.set(g, []);
+        grupos.push(g);
       }
-      botaoMais.textContent = `Mostrar mais produtos (${restantes})`;
-      botaoMais.hidden = false;
-    } else if (botaoMais) {
-      botaoMais.hidden = true;
+      porGrupo.get(g).push(p);
     }
+    const posicao = (g) => {
+      const i = categorias.indexOf(g);
+      return i === -1 ? Infinity : i;
+    };
+    grupos.sort((a, b) => posicao(a) - posicao(b));
+    const comTitulo = !estado.categoria && grupos.length > 1;
+
+    lista.replaceChildren(
+      ...grupos.map((g) => {
+        const itens = porGrupo.get(g).map((p, i) => el("li", null, criarCard(p, i, "lista")));
+        if (!comTitulo) return el("li", { class: "grupo" }, el("ul", { class: "lista grupo__lista" }, itens));
+        const icone = ICONES[iconesCategorias[g]];
+        const n = itens.length;
+        return el("li", { class: "grupo" }, [
+          el("h4", { class: "grupo__titulo" }, [
+            icone ? el("span", { class: "grupo__icone", html: icone }) : null,
+            el("span", { class: "grupo__nome", text: g }),
+            el("span", { class: "grupo__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
+          ]),
+          el("ul", { class: "lista grupo__lista" }, itens)
+        ]);
+      })
+    );
 
     if (!resultado.length) {
       mostrarVazio(
@@ -300,7 +304,6 @@
           onclick: () => {
             estado.busca = "";
             estado.categoria = "";
-            estado.limite = POR_VEZ;
             if (campoBusca) campoBusca.value = "";
             atualizarBotaoLimpar();
             renderCategorias();
@@ -360,7 +363,6 @@
       clearTimeout(timer);
       timer = setTimeout(() => {
         estado.busca = campoBusca.value;
-        estado.limite = POR_VEZ;
         renderLista();
       }, 120);
     });

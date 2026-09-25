@@ -18,7 +18,7 @@
     ".botao-marca",
     ".topo", ".loja__hero",
     ".vitrine__cabecalho", ".busca", ".chips__titulo", ".chip",
-    ".secao__cabecalho", ".card", ".nota-precos",
+    ".secao__cabecalho", ".grupo__titulo", ".card", ".nota-precos",
     ".vazio", ".botao-loja",
     ".rodape > *"
   ].join(",");

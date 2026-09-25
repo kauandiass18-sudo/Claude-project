@@ -940,26 +940,54 @@ h1, h2, h3, p { margin: 0; }
 .card--esgotado .card__nome,
 .card--esgotado .card__preco { opacity: .55; }
 
-/* Botão "Mostrar mais produtos" */
-.botao-mais {
-  display: block;
-  width: 100%;
-  min-height: 50px;
-  margin-top: 16px;
-  padding: 10px 20px;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  background: linear-gradient(180deg, #fffaf0, #f6e8c8) padding-box, var(--ouro-brilho) border-box;
-  color: var(--ouro-escuro);
+/* Produtos separados por categoria: título com ícone, fica no topo ao rolar */
+.lista:not(.grupo__lista) { gap: 30px; }
+.grupo__titulo {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 calc(var(--gutter) * -1) 12px;
+  padding: 10px var(--gutter);
+  background: rgba(245, 235, 226, .88);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, rgba(201, 162, 78, 0), var(--ouro) 20%, var(--ouro-claro) 50%, var(--ouro) 80%, rgba(201, 162, 78, 0)) 1;
+}
+/* dentro de uma categoria, o card não repete o nome dela */
+.grupo__lista .card__meta-categoria { display: none; }
+.grupo__icone {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--ouro-brilho);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 246, 220, .45);
+}
+.grupo__icone svg { width: 17px; height: 17px; stroke-width: 1.7; }
+.grupo__nome {
+  flex: 1;
+  min-width: 0;
   font-family: var(--fonte-luxo);
   font-style: italic;
   font-weight: 600;
-  font-size: 17px;
-  cursor: pointer;
-  transition: transform .15s var(--suave), box-shadow .2s var(--suave);
+  font-size: 20px;
+  line-height: 1.15;
+  color: var(--ouro-escuro);
 }
-.botao-mais:active { transform: scale(.98); }
-@media (hover: hover) { .botao-mais:hover { box-shadow: 0 6px 16px -10px rgba(120, 80, 20, .5); } }
+.grupo__qtd {
+  flex: 0 0 auto;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+}
 
 /* Card da lista: foto à esquerda, texto no meio, seta à direita */
 .lista { display: grid; gap: 10px; }
@@ -1116,7 +1144,7 @@ h1, h2, h3, p { margin: 0; }
 @media (min-width: 768px) {
   .perfil { padding-top: 72px; }
   .pagina-loja { --largura: 760px; }
-  .pagina-loja .lista { grid-template-columns: 1fr 1fr; }
+  .pagina-loja .grupo__lista { grid-template-columns: 1fr 1fr; }
   .loja__hero { padding-block: 44px; }
 }
 
