@@ -1,0 +1,42 @@
+name: Atualizar catálogo da Ybera
+
+# Todo dia às 6h (horário de Brasília) lê a loja da Ybera inteira:
+# produtos novos entram, preços mudam, os que saírem da loja saem do site.
+on:
+  schedule:
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+  push:
+    branches: [claude/editar-minha-curadoria-l4zjab]
+    paths: [scripts/catalogo-ybera.mjs, .github/workflows/catalogo-ybera.yml]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogo-ybera
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Ler a loja da Ybera e montar a lista de produtos
+        run: node scripts/catalogo-ybera.mjs
+      - name: Salvar se algo mudou
+        run: |
+          git add data/ybera.js data/ybera-catalogo.json assets/img/produtos/ybera
+          if git diff --cached --quiet; then
+            echo "Nada mudou na loja."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Atualiza catálogo da Ybera (automático)"
+          git pull --rebase --autostash origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

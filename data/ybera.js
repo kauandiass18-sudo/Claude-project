@@ -61,7 +61,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-500g-fashion-gold-150264",
       precoAntigo: "R$ 339,90",
       preco: "R$ 322,91",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Kit Escova Progressiva 150g + Shampoo + Máscara",
@@ -70,7 +70,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-150g-kit-manutencao-pos-progressiva-300ml-250g-fashion-gold-151084",
       precoAntigo: "R$ 284,90",
       preco: "R$ 270,66",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Kit Cuidados Profundos",
@@ -79,7 +79,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-ybera-fashion-gold-151333",
       precoAntigo: "R$ 299,90",
       preco: "R$ 284,91",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Cronograma Capilar Liso Perfeito",
@@ -88,7 +88,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-ybera-fashion-gold-151305",
       precoAntigo: "R$ 324,90",
       preco: "R$ 308,66",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Cronograma Capilar Kids Menino",
@@ -97,7 +97,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-ybera-fashion-kids-151312",
       precoAntigo: "R$ 249,90",
       preco: "R$ 237,41",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Cronograma Capilar Loiro Perfeito",
@@ -106,7 +106,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-loiro-perfeito-ybera-fashion-gold-151299",
       precoAntigo: "R$ 299,90",
       preco: "R$ 284,91",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Kit Liso Perfeito · 3 Máscaras",
@@ -115,7 +115,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-ybera-fashion-gold-151305",
       precoAntigo: "R$ 324,90",
       preco: "R$ 308,66",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Kit Antiqueda 100Tímetros · Shampoo + Condicionador + Tônico",
@@ -124,7 +124,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/combo-100timetros-antiqueda-capilar-fashion-gold-150314",
       precoAntigo: "R$ 349,90",
       preco: "R$ 332,41",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Kit Escova Progressiva 300g + Shampoo + Máscara 2 em 1",
@@ -133,7 +133,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/combo-escova-progressiva-300g-fashion-gold-150262",
       precoAntigo: "R$ 449,90",
       preco: "R$ 427,41",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Kit Antiqueda 100Tímetros · 90 Cápsulas + Tônico",
@@ -142,7 +142,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-100timetros-90-capsulas-softgel-cabelo-pele-e-unhas-tonico-antiqueda-capilar-150ml-ybera-fashion-gold-151484",
       precoAntigo: "R$ 349,90",
       preco: "R$ 332,41",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Escova Progressiva 300g",
@@ -151,7 +151,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-300g-fashion-gold-150795",
       precoAntigo: "R$ 257,90",
       preco: "R$ 245,01",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Kit Manutenção Pós-Progressiva",
@@ -160,7 +160,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-manutencao-pos-progressiva-300ml-250g-fashion-gold-150293",
       precoAntigo: "R$ 205,90",
       preco: "R$ 195,61",
-      destaque: false
+      destaque: true
     },
     {
       nome: "Tônico Antiqueda 100Tímetros 150ml",
@@ -169,7 +169,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/100timetros-tonico-antiqueda-capilar-150ml-fashion-gold-150308",
       precoAntigo: "R$ 127,90",
       preco: "R$ 121,51",
-      destaque: false
+      destaque: true
     },
     {
       nome: "90 Cápsulas 100Tímetros · Cabelo, Pele e Unhas",
@@ -178,7 +178,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-100timetros-90-capsulas-softgel-cabelo-pele-e-unhas-ybera-fashion-gold-151480",
       precoAntigo: "R$ 239,90",
       preco: "R$ 227,91",
-      destaque: false
+      destaque: true
     }
   ]
 };
