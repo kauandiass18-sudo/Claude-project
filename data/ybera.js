@@ -51,7 +51,7 @@ window.LOJAS.ybera = {
 
   // Texto do preço (aparece depois do valor) e aviso abaixo da lista.
   rotuloPreco: "no Pix",
-  notaPrecos: "Preços consultados em setembro de 2026. Podem mudar na loja da Ybera.",
+  notaPrecos: "Preços conferidos todos os dias na loja da Ybera. O valor final é o da loja.",
 
   produtos: [
     {

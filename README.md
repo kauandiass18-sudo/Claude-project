@@ -127,9 +127,16 @@ produtos: [
 Produtos sem `nome` ou sem `affiliateUrl` válido não aparecem no site. O aviso
 fica no console do navegador (F12).
 
-> **Preços:** o site não se atualiza sozinho. Quando a Ybera mudar um preço,
-> edite `preco` e `precoAntigo` no arquivo. O aviso abaixo da lista
-> (`notaPrecos`) lembra o cliente de que o valor final é o da loja.
+> **Preços da Ybera se atualizam sozinhos.** Todo dia às 6h (Brasília), a tarefa
+> `.github/workflows/precos-ybera.yml` abre a página de cada produto na loja da
+> Ybera, lê o preço riscado e o preço no Pix e atualiza `preco` e `precoAntigo`
+> em `data/ybera.js`. Só muda o que mudou na loja. Se uma página não puder ser
+> lida, ou o preço mudar mais de 60% de uma vez, aquele produto fica como está
+> e o aviso aparece no registro da tarefa (aba **Actions** do GitHub).
+> Para conferir na hora: aba **Actions** → *Atualizar preços da Ybera* → *Run workflow*.
+>
+> A tarefa agendada só roda na branch principal do repositório. Os produtos do
+> Mercado Livre e da Shopee continuam com preço editado à mão.
 
 ### Fotos dos produtos
 
