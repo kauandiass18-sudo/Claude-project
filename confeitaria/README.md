@@ -1,8 +1,7 @@
 # Site da confeitaria
 
 Site de uma confeitaria artesanal que trabalha com encomendas. Por enquanto ele
-tem a abertura, com os doces flutuando, o título e o botão "Fazer encomenda",
-que leva para o WhatsApp. Logo abaixo, cada doce aparece sozinho, grande,
+tem a abertura, com os doces flutuando e o título. Logo abaixo, cada doce aparece sozinho, grande,
 flutuando livre, sem moldura. No fim fica a lista de encomenda: o cliente
 escolhe a quantidade de cada doce com os botões de mais e menos e envia o
 pedido pelo WhatsApp.

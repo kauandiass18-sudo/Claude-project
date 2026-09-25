@@ -17,7 +17,7 @@ window.SITE = {
   whatsapp: {
     // Número com DDI + DDD, só números. Ex.: 55 11 91234-5678 → "5511912345678"
     numero: "5511999999999",
-    // Mensagem que já aparece escrita quando a pessoa toca em "Encomendar"
+    // Mensagem que já aparece escrita quando a pessoa toca em "Encomendar", no topo
     mensagem: "Olá! Vi os doces no site e gostaria de fazer uma encomenda."
   },
 
