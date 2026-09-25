@@ -43,7 +43,7 @@
     </nav>
 
     <!-- Vitrine Ybera Paris (produtos em data/ybera.js) -->
-    <section class="vitrine tema-ybera" data-loja="ybera" data-card-categoria="nao" data-numerar="nao"
+    <section class="vitrine tema-ybera" data-loja="ybera" data-card-categoria="nao" data-numerar="nao" data-categorias-botoes="sim"
       data-rotulo-todos="Todos"
       data-vazio-titulo="A seleção Ybera está quase pronta"
       data-vazio-texto="Os produtos escolhidos a dedo entram aqui em breve."
@@ -74,6 +74,10 @@
       </section>
 
       <section class="secao" aria-labelledby="titulo-produtos" data-produtos-secao>
+        <button type="button" class="voltar-categorias" data-voltar-categorias hidden>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6"/></svg>
+          Todas as categorias
+        </button>
         <div class="secao__cabecalho">
           <h3 id="titulo-produtos" class="secao__titulo" data-produtos-titulo aria-live="polite">Todos os cuidados que o seu cabelo merece</h3>
         </div>

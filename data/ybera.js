@@ -42,6 +42,22 @@ window.LOJAS.ybera = {
     "Kids", "Kits e Combos", "Acessórios"
   ],
 
+  // Texto do botão de cada categoria na página inicial.
+  rotulosCategorias: {
+    "Progressiva e Liso": "Sua progressiva aqui",
+    "Cronograma Capilar": "Seu cronograma capilar aqui",
+    "Hidratação e Nutrição": "Sua hidratação aqui",
+    "Reconstrução": "Sua reconstrução aqui",
+    "Antiqueda e Crescimento": "Seu antiqueda aqui",
+    "Cachos": "Seus cachos perfeitos aqui",
+    "Loiros": "Seu loiro perfeito aqui",
+    "Finalizadores e Proteção": "Seu finalizador aqui",
+    "Dia a Dia": "Seu cuidado do dia a dia aqui",
+    "Kids": "Seu kit kids aqui",
+    "Kits e Combos": "Seus kits e combos aqui",
+    "Acessórios": "Seus acessórios aqui"
+  },
+
   // Ícone de cada categoria nos filtros.
   // Ícones: liso, gota, raiz, coracao, ondas, brilho, cachos, sol, escudo, frasco, caixa, escova.
   iconesCategorias: {

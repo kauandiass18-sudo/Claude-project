@@ -940,6 +940,107 @@ h1, h2, h3, p { margin: 0; }
 .card--esgotado .card__nome,
 .card--esgotado .card__preco { opacity: .55; }
 
+/* ---------- Botões de categoria ("Sua progressiva aqui") ---------- */
+.categorias-botoes {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+.botao-categoria {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr 24px;
+  align-items: center;
+  gap: 14px;
+  min-height: 74px;
+  padding: 9px 18px 9px 9px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background: linear-gradient(180deg, #ffffff, #fffaf2) padding-box, var(--ouro-brilho) border-box;
+  color: var(--tinta);
+  box-shadow: var(--sombra-leve);
+  transition: transform .25s var(--suave), box-shadow .25s var(--suave);
+}
+.botao-categoria:active { transform: scale(.975); }
+@media (hover: hover) {
+  .botao-categoria:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
+  .botao-categoria:hover .botao-categoria__seta svg { transform: translateX(3px); }
+}
+/* foto de um produto da categoria, redonda, com aro de ouro e o ícone da categoria */
+.botao-categoria__foto {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 56px; height: 56px;
+  padding: 2px;
+  border-radius: 50%;
+  background: var(--ouro-brilho);
+}
+.botao-categoria__foto img {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #fff;
+}
+.botao-categoria__icone {
+  position: absolute;
+  right: -3px; bottom: -3px;
+  display: grid;
+  place-items: center;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--tinta);
+  color: var(--ouro-claro);
+  box-shadow: 0 0 0 2px #fffaf2;
+}
+.botao-categoria__icone svg { width: 12px; height: 12px; stroke-width: 1.8; }
+.botao-categoria__foto:not(:has(img)) .botao-categoria__icone {
+  position: static;
+  width: 100%; height: 100%;
+  box-shadow: none;
+}
+.botao-categoria__foto:not(:has(img)) .botao-categoria__icone svg { width: 22px; height: 22px; }
+.botao-categoria__texto { display: grid; gap: 3px; min-width: 0; }
+.botao-categoria__rotulo {
+  font-family: var(--fonte-luxo);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+.botao-categoria__qtd {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ouro-escuro);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.botao-categoria__seta { display: grid; place-items: center; color: var(--ouro-escuro); }
+.botao-categoria__seta svg { width: 20px; height: 20px; stroke-width: 1.4; transition: transform .25s var(--suave); }
+
+/* Voltar para os botões de categoria */
+.voltar-categorias {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  margin-bottom: 10px;
+  padding: 0 16px 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--ouro);
+  background: linear-gradient(180deg, #fffaf0, #f6e8c8);
+  color: var(--ouro-escuro);
+  font-family: var(--fonte-ui);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.voltar-categorias svg { width: 18px; height: 18px; }
+.voltar-categorias:active { transform: scale(.97); }
+
 /* Produtos separados por categoria: título com ícone, fica no topo ao rolar */
 .lista:not(.grupo__lista) { gap: 30px; }
 .grupo__titulo {

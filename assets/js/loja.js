@@ -101,6 +101,16 @@
   const vazio = $("[data-vazio]");
   const linkLoja = $("[data-link-loja]");
 
+  /* Modo "botões de categoria" (vitrine da Ybera): em vez da lista inteira,
+     um botão por categoria ("Sua progressiva aqui"). Tocando, aparecem só os
+     produtos dela. A categoria aberta vai no endereço (#progressiva-e-liso),
+     então o "voltar" do celular volta para os botões. */
+  const modoBotoes = raiz.dataset.categoriasBotoes === "sim";
+  const rotulosCategorias = loja.rotulosCategorias || {};
+  const botaoVoltar = $("[data-voltar-categorias]");
+  const slugCategoria = (c) => normalizar(c).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  let abriuPeloBotao = false;
+
   /* ---------- Preço ---------- */
   /** Lê "R$ 1.234,56" como número (1234.56). */
   function valorEmReais(texto) {
@@ -207,6 +217,39 @@
       if (tituloCategorias) tituloCategorias.hidden = true;
       return;
     }
+    if (modoBotoes) {
+      listaCategorias.className = "categorias-botoes";
+      listaCategorias.replaceChildren(
+        ...categorias.map((c) => {
+          const daCategoria = produtos.filter((p) => p.categoria === c);
+          const comFoto = daCategoria.find((p) => p.imagem);
+          const n = daCategoria.length;
+          const icone = ICONES[iconesCategorias[c]] || ICONES.brilho;
+          return el(
+            "a",
+            {
+              class: "botao-categoria",
+              href: `#${slugCategoria(c)}`,
+              onclick: () => { abriuPeloBotao = true; }
+            },
+            [
+              el("span", { class: "botao-categoria__foto" }, [
+                comFoto
+                  ? el("img", { src: comFoto.imagem, alt: "", loading: "lazy", decoding: "async", width: "52", height: "52" })
+                  : null,
+                el("span", { class: "botao-categoria__icone", html: icone })
+              ]),
+              el("span", { class: "botao-categoria__texto" }, [
+                el("span", { class: "botao-categoria__rotulo", text: rotulosCategorias[c] || c }),
+                el("span", { class: "botao-categoria__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
+              ]),
+              el("span", { class: "botao-categoria__seta", html: ICONES.seta })
+            ]
+          );
+        })
+      );
+      return;
+    }
     const chip = (valor, rotulo) => {
       const icone = ICONES[valor ? iconesCategorias[valor] : "brilho"];
       return el("button", {
@@ -242,6 +285,20 @@
   function renderLista() {
     const termo = normalizar(estado.busca);
     const filtrando = Boolean(termo || estado.categoria);
+
+    // Modo botões: sem categoria aberta e sem busca, mostra só os botões
+    if (modoBotoes) {
+      if (listaCategorias) listaCategorias.hidden = filtrando || categorias.length < 2;
+      if (tituloCategorias) tituloCategorias.hidden = filtrando || categorias.length < 2;
+      if (secaoProdutos) secaoProdutos.hidden = !filtrando;
+      if (botaoVoltar) botaoVoltar.hidden = !filtrando;
+      if (secaoDestaques && trilhoDestaques && trilhoDestaques.childElementCount) secaoDestaques.hidden = filtrando;
+      if (!filtrando) {
+        lista.replaceChildren();
+        if (vazio) vazio.hidden = true;
+        return;
+      }
+    }
     const resultado = produtos.filter(
       (p) => (!estado.categoria || p.categoria === estado.categoria) && (!termo || p.busca.includes(termo))
     );
@@ -383,6 +440,43 @@
   // Aviso sobre preços, abaixo da lista
   if (loja.notaPrecos && produtos.some((p) => p.preco) && secaoProdutos) {
     secaoProdutos.append(el("p", { class: "nota-precos", text: loja.notaPrecos }));
+  }
+
+  /* ---------- Categoria aberta pelo endereço (#slug) ---------- */
+  const suave = () =>
+    window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  function categoriaDoEndereco() {
+    const h = decodeURIComponent(location.hash.slice(1));
+    return categorias.find((c) => slugCategoria(c) === h) || "";
+  }
+  if (modoBotoes) {
+    estado.categoria = categoriaDoEndereco();
+    window.addEventListener("hashchange", () => {
+      const c = categoriaDoEndereco();
+      if (c === estado.categoria) return;
+      estado.categoria = c;
+      if (campoBusca && !c) { campoBusca.value = ""; estado.busca = ""; atualizarBotaoLimpar(); }
+      renderLista();
+      const alvo = c ? secaoProdutos : tituloCategorias || listaCategorias;
+      if (alvo) alvo.scrollIntoView({ behavior: suave(), block: "start" });
+      if (c && botaoVoltar) botaoVoltar.focus({ preventScroll: true });
+    });
+    if (botaoVoltar) {
+      botaoVoltar.addEventListener("click", () => {
+        if (estado.busca && !estado.categoria) {
+          // estava numa busca: limpa e volta para os botões
+          campoBusca.value = "";
+          estado.busca = "";
+          atualizarBotaoLimpar();
+          renderLista();
+          (tituloCategorias || listaCategorias).scrollIntoView({ behavior: suave(), block: "start" });
+          return;
+        }
+        if (abriuPeloBotao) history.back();
+        else location.hash = "";
+        abriuPeloBotao = false;
+      });
+    }
   }
 
   renderCategorias();
