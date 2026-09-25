@@ -225,6 +225,14 @@ async function coletar() {
   }
 
   produtos.sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
+  // Só salva se algum produto mudou (a data sozinha não conta como mudança)
+  try {
+    const anterior = JSON.parse(await readFile(ARQ_CATALOGO, "utf8"));
+    if (JSON.stringify(anterior.produtos) === JSON.stringify(produtos)) {
+      console.log("Nenhum produto mudou na loja.");
+      return;
+    }
+  } catch {}
   await writeFile(ARQ_CATALOGO, JSON.stringify({ lidoEm: new Date().toISOString(), produtos }, null, 1) + "\n");
 }
 
