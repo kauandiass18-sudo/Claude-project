@@ -136,14 +136,24 @@ h1, h2, h3, p { margin: 0; }
 
 :focus-visible { outline: 2px solid var(--mel-escuro); outline-offset: 3px; }
 
-/* ---------- Animação de entrada ---------- */
+/* ---------- Animação de entrada: tudo sobe de baixo para o lugar ----------
+   .revelar      anima ao abrir a página (o atraso vem de --i)
+   .subir        anima quando o assets/js/animacao.js manda (atraso em --atraso)
+   .subir-espera deixa a peça escondida lá embaixo até ela aparecer na tela
+   Só o script coloca .subir-espera: sem JavaScript, tudo aparece normal. */
 .revelar {
-  animation: surgir .6s var(--suave) both;
-  animation-delay: calc(var(--i, 0) * 60ms);
+  animation: subir .9s var(--suave) both;
+  animation-delay: calc(var(--i, 0) * 90ms);
 }
-.card.revelar { animation-delay: calc(var(--i, 0) * 35ms); }
-@keyframes surgir {
-  from { opacity: 0; transform: translateY(10px); }
+.card.revelar { animation-delay: calc(var(--i, 0) * 60ms); }
+.subir {
+  animation: subir .9s var(--suave) both;
+  animation-delay: var(--atraso, 0ms);
+}
+.subir-espera { opacity: 0; transform: translateY(48px); }
+@keyframes subir {
+  from { opacity: 0; transform: translateY(48px); }
+  60% { opacity: 1; }
   to { opacity: 1; transform: none; }
 }
 

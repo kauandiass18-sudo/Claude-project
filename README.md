@@ -32,6 +32,7 @@ rodar build.
     ├── js/home.js        Monta a página inicial
     ├── js/loja.js        Monta as vitrines (busca, categorias, destaques, cards)
     ├── js/fios.js        Desenha as mechas de cabelo que balançam no fundo
+    ├── js/animacao.js    Faz textos, fotos e produtos subirem de baixo ao aparecer
     └── img/
         ├── favicon.svg
         └── produtos/
@@ -228,6 +229,11 @@ em `:root`:
 --fonte-luxo: "Bodoni Moda", ...;  /* títulos */
 --fonte-ui: "Jost", ...;           /* textos */
 ```
+
+Ao abrir a página, cada parte sobe de baixo e para no lugar, uma depois da
+outra; o que está mais abaixo sobe quando a pessoa rola até lá
+(`assets/js/animacao.js`). A velocidade fica em `PASSO` nesse arquivo e na
+animação `subir` do `style.css`.
 
 As mechas de cabelo do fundo são desenhadas por `assets/js/fios.js`. Elas
 ficam paradas para quem ativou "reduzir movimento" no celular.
