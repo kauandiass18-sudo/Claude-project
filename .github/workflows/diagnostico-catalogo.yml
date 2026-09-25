@@ -1,0 +1,16 @@
+name: Diagnóstico do catálogo da Ybera
+on:
+  push:
+    branches: [claude/editar-minha-curadoria-l4zjab]
+    paths: [scripts/diagnostico-catalogo.mjs, .github/workflows/diagnostico-catalogo.yml]
+permissions:
+  contents: read
+jobs:
+  diagnostico:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/diagnostico-catalogo.mjs
