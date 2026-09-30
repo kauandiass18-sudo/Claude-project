@@ -101,7 +101,9 @@
     const limpo = src.trim();
     if (!limpo) return null;
     if (/^(https?:)?\/\//i.test(limpo)) return linkSeguro(limpo.startsWith("//") ? "https:" + limpo : limpo);
-    if (/^[a-z][a-z0-9+.-]*:/i.test(limpo)) return null; // bloqueia javascript:, data:, etc.
+    // Foto embutida no próprio arquivo (versão em HTML único): só imagens comuns
+    if (/^data:image\/(png|jpe?g|webp|gif);base64,[a-z0-9+/=]+$/i.test(limpo)) return limpo;
+    if (/^[a-z][a-z0-9+.-]*:/i.test(limpo)) return null; // bloqueia javascript:, outros data:, etc.
     return limpo;
   }
 
