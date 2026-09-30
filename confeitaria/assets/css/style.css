@@ -433,6 +433,7 @@ em { font-style: italic; }
   .f5, .f6 { display: none; }
   .solo__item, .solo__item:nth-child(even) { grid-template-columns: 1fr; gap: 4px; }
   .solo__item:nth-child(even) .solo__stage { order: 0; }
+  .solo { gap: 80px; }
   .solo__stage { max-width: 420px; }
   .solo__text { text-align: center; align-items: center; }
   .stage--3 .f1 { --x: 50; --y: 27; --s: 40; }
