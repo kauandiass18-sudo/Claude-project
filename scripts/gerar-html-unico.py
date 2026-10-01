@@ -6,16 +6,18 @@ de GitHub. Só as fontes vêm do Google Fonts (sem internet, usa uma parecida).
 
 Uso:  python3 scripts/gerar-html-unico.py [pasta-de-saida]
 Saída (padrão: html-unico/):
-  carla-dias.html      página inicial
+  carla-dias.html      página inicial (link na bio)
+  ybera.html           Loja Ybera: os mais vendidos
   mercado-livre.html   achadinhos do Mercado Livre
   shopee.html          achadinhos da Shopee
-Os três se ligam entre si: guarde-os na mesma pasta.
+  shein.html           achadinhos da Shein
+Eles se ligam entre si: guarde-os na mesma pasta.
 """
 import base64, json, os, re, subprocess, sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SAIDA = os.path.abspath(sys.argv[1]) if len(sys.argv) > 1 else os.path.join(RAIZ, "html-unico")
-PAGINAS = {"index.html": "carla-dias.html", "mercado-livre.html": "mercado-livre.html", "shopee.html": "shopee.html"}
+PAGINAS = {"index.html": "carla-dias.html", "ybera.html": "ybera.html", "mercado-livre.html": "mercado-livre.html", "shopee.html": "shopee.html", "shein.html": "shein.html"}
 TIPOS = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png", ".webp": "image/webp", ".gif": "image/gif", ".svg": "image/svg+xml"}
 
 

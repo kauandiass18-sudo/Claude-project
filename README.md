@@ -1,8 +1,20 @@
 # Carla Dias · Link na bio de cabelo
 
-Site de **link na bio** pensado para celular, com cara de salão de cabelo:
-tratamentos da **Ybera Paris** e achadinhos de cabelo do **Mercado Livre** e
-da **Shopee**.
+Site de **link na bio** pensado para celular, com cara de salão de cabelo.
+
+**Como está organizado**
+
+1. **Página inicial (link na bio):** foto, nome, uma chamada curta
+   ("Cabelo de salão, sem sair de casa.") e os botões:
+   - **Loja Ybera Paris** (botão principal) → subpágina com os mais vendidos;
+   - **Achadinhos do Mercado Livre**, **da Shopee** e **da Shein**;
+   - **Feche uma parceria comigo** (link em `linkParceria`, em `data/perfil.js`).
+2. **Loja Ybera (`ybera.html`):** só as 5 categorias que mais vendem
+   (Progressiva e Pós-Progressiva, Cronogramas Capilares, Finalizadores,
+   Equipamentos Profissionais e Shampoo), com os **6 mais vendidos** de cada uma,
+   e o botão **"Ver a loja completa"** com o link de parceira.
+3. **Mercado Livre, Shopee e Shein:** páginas de achadinhos. Enquanto estiverem
+   sem produtos, mostram "Em breve" e um botão para a Loja Ybera.
 
 Não tem carrinho, checkout nem pagamento: ao tocar em um produto, a pessoa vai
 direto para o **link de afiliado** daquele produto (em uma nova aba).
@@ -15,31 +27,37 @@ rodar build.
 ## Estrutura
 
 ```
-├── index.html            Página inicial: perfil, frases, botões de
-│                         achadinhos e vitrine da Ybera Paris
+├── index.html            Página inicial (link na bio): capa, chamada e botões
+├── ybera.html            Loja Ybera: os mais vendidos por categoria
 ├── mercado-livre.html    Achadinhos do Mercado Livre
 ├── shopee.html           Achadinhos da Shopee
+├── shein.html            Achadinhos da Shein
 │
 ├── data/                 ← É AQUI QUE VOCÊ EDITA
-│   ├── perfil.js         Nome, frases, foto e redes sociais
-│   ├── ybera.js          Produtos da Ybera Paris (aparecem na página inicial)
+│   ├── perfil.js         Nome, frases, foto, redes sociais e link de parceria
+│   ├── ybera.js          Produtos da Ybera Paris (atualizados sozinhos)
 │   ├── mercado-livre.js  Produtos do Mercado Livre
-│   └── shopee.js         Produtos da Shopee
+│   ├── shopee.js         Produtos da Shopee
+│   └── shein.js          Produtos da Shein
 │
 └── assets/
     ├── css/style.css     Visual (cores, fontes, cards, animações)
     ├── js/common.js      Funções compartilhadas
     ├── js/home.js        Monta a página inicial
-    ├── js/loja.js        Monta as vitrines (busca, categorias, destaques, cards)
+    ├── js/loja.js        Monta as lojas (categorias, mais vendidos, cards)
     ├── js/fios.js        Desenha as mechas de cabelo do fundo
-    ├── js/animacao.js    Faz textos, fotos e produtos subirem de baixo ao aparecer
+    ├── js/animacao.js    Faz textos, fotos e produtos subirem ao aparecer
     └── img/
         ├── favicon.svg
         └── produtos/
             ├── ybera/
             ├── mercado-livre/
-            └── shopee/
+            ├── shopee/
+            └── shein/
 ```
+
+Os textos de venda (chamada, botões e selos) ficam direto no `index.html` e no
+`ybera.html`, fáceis de trocar.
 
 No dia a dia, você só mexe na pasta **`data/`** e coloca fotos em
 **`assets/img/`**.
@@ -124,7 +142,7 @@ produtos: [
 | `precoAntigo`  | não         | Preço antigo, ex.: `"R$ 339,90"`. Aparece riscado, e o selo dourado de desconto (ex.: `-17%`) é calculado sozinho. |
 | `oQueE`        | não         | Frase curta sobre o que é o produto, abaixo do nome.                     |
 | `esgotado`     | não         | `true` esconde o produto (ou mostra com selo, se `mostrarEsgotados`).    |
-| `destaque`     | não         | `true` coloca o produto também na faixa **Queridinhos do salão**.        |
+| `destaque`     | não         | `true` dá preferência ao produto quando a categoria tem poucos campeões. |
 
 Produtos sem `nome` ou sem `affiliateUrl` válido não aparecem no site. O aviso
 fica no console do navegador (F12).
@@ -141,16 +159,12 @@ fica no console do navegador (F12).
 >   Profissionais e Shampoo (regras em `GRUPOS`, no script; o nome do produto
 >   vale primeiro), e as linhas da Ybera ganham categoria própria (`LINHAS`).
 >   O que não se encaixa vai para "Outros", que fica escondido.
-> - Na página inicial, os produtos aparecem todos de uma vez, separados por
->   categoria, cada coisa separada (com um espaço entre uma e outra):
->   Progressiva e Pós-Progressiva, Loiro Perfeito, Liso Perfeito, Cacho
->   Perfeito, Kids, Antiqueda, Cuidados Profundos, Cronogramas Capilares,
->   Terra Coco, Botulínica Anti Age, Essência Brasileira, Pro-Geno Genoma,
->   Vello, Discovery Stemcell, Detox Purificante, Life's Flower, Protect,
->   Finalizadores, Equipamentos Profissionais e Shampoo. As linhas vêm de
->   `LINHAS`, no script, pelo nome do produto. Os botões de categoria no alto filtram a lista; nomes
->   curtos para eles podem ir em `rotulosCategorias`, em `data/ybera.js`. O que
->   não é de nenhuma categoria ("Outros") não aparece.
+> - **Mais vendidos:** o script também lê o ranking oficial da loja
+>   (www.ybera.com/mais-vendidos) e anota a posição de cada produto
+>   (`maisVendido`). A Loja Ybera mostra, em cada categoria, os
+>   `produtosPorCategoria` (hoje 6) primeiros do ranking. Se uma categoria tiver
+>   menos campeões no ranking, completa com os produtos `destaque: true` e
+>   depois com os de maior valor. O ranking muda sozinho todo dia.
 > - Fotos: chegam da loja em JPG e `scripts/fotos-ybera.py` as transforma em
 >   WebP (umas 6 vezes mais leves). O mesmo script anota em
 >   `data/ybera-fotos.js` as fotos que não têm fundo branco: elas vão para o
@@ -164,9 +178,8 @@ fica no console do navegador (F12).
 >   `data/ybera.js` (hoje: Outros).
 > - Produtos esgotados ficam escondidos (`mostrarEsgotados: false`) e voltam
 >   sozinhos quando o estoque voltar.
-> - `destaque: true` é a única mudança feita à mão na lista que se mantém
->   (hoje a página inicial não tem a faixa de Queridinhos, então não muda nada
->   na tela; ele vale para quando a faixa voltar).
+> - `destaque: true` é a única mudança feita à mão na lista que se mantém: ele
+>   dá preferência ao produto quando a categoria tem poucos campeões no ranking.
 > - Se a loja não puder ser lida, nada é mudado. Para rodar na hora: aba
 >   **Actions** → *Atualizar catálogo da Ybera* → *Run workflow*.
 >
@@ -222,17 +235,15 @@ vazio, então o botão fica oculto até você colocar o link da sua vitrine.
 
 ### Loja sem produtos
 
-Enquanto a lista do Mercado Livre ou da Shopee estiver vazia:
+Os botões do Mercado Livre, da Shopee e da Shein aparecem sempre na página
+inicial. Enquanto a lista de uma delas estiver vazia, a página da loja mostra um
+bloco só, “Em breve…”, com o botão “Enquanto isso, veja os mais vendidos da
+Ybera” (e “Me siga no Instagram”, se o Instagram estiver preenchido em
+`data/perfil.js`).
 
-- o botão dela **não aparece** na página inicial (volta sozinho quando você
-  colocar o primeiro produto). Sem nenhum botão, o link "Achadinhos" do menu
-  vira "Categorias";
-- a página da loja mostra um bloco só, “Em breve…”, com o botão
-  “Enquanto isso, veja a vitrine Ybera” (e “Me siga no Instagram”, se o
-  Instagram estiver preenchido em `data/perfil.js`).
-
-O botão **“Feche sua parceria aqui”** também só aparece depois que você
-preencher `linkParceria` em `data/perfil.js`.
+O botão **“Feche uma parceria comigo”** leva ao `linkParceria` de
+`data/perfil.js`. Enquanto ele estiver vazio, o botão aparece mas não sai da
+página.
 
 ---
 

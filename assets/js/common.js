@@ -44,7 +44,8 @@
     escudo: svg('<path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.4 7.5 9.5 4.3-1.1 7.5-4.9 7.5-9.5V6z"/><path d="m9 12 2 2 4-4"/>'),
     frasco: svg('<path d="M10 2.5h4"/><path d="M10.5 2.5v3.5l-3 3.2v10.3a2 2 0 0 0 2 2h5a2 2 0 0 0 2-2V9.2l-3-3.2V2.5"/><path d="M7.5 13h9"/>'),
     escova: svg('<rect x="3" y="3.5" width="8" height="10" rx="4"/><path d="M5 6.5h4M5 9h4M5 11.5h4"/><path d="M7 13.5V21"/>'),
-    caixa: svg('<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/>')
+    caixa: svg('<path d="M21 8 12 3 3 8v8l9 5 9-5z"/><path d="m3 8 9 5 9-5"/><path d="M12 13v8"/>'),
+    cabide: svg('<path d="M10 6.5a2 2 0 1 1 2.6 1.9c-.4.1-.6.5-.6.9V10"/><path d="M12 10 3.4 16.2a1.2 1.2 0 0 0 .7 2.3h15.8a1.2 1.2 0 0 0 .7-2.3Z"/>')
   };
 
   const NOMES_REDES = {
@@ -157,6 +158,12 @@
       ].filter(Boolean)
     );
   }
+
+  // Ícones escritos no HTML como <span data-icone="nome"></span>
+  document.querySelectorAll("[data-icone]").forEach((alvo) => {
+    const icone = ICONES[alvo.dataset.icone];
+    if (icone) alvo.innerHTML = icone;
+  });
 
   window.App = {
     ICONES,

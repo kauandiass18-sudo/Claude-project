@@ -354,7 +354,7 @@ h1, h2, h3, h4, p { margin: 0; }
    ============================================================= */
 .botoes {
   width: 100%;
-  margin-top: 40px;
+  margin-top: 20px;
   display: grid;
   gap: 12px;
 }
@@ -389,7 +389,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .botao-marca__texto {
   font-family: var(--fonte-titulo);
   font-weight: 600;
-  font-size: 18px;
+  font-size: 17.5px;
   line-height: 1.2;
   text-wrap: balance;
 }
@@ -401,28 +401,97 @@ h1, h2, h3, h4, p { margin: 0; }
   .botao-marca:hover .botao-marca__seta svg { transform: translateX(3px); }
 }
 
-/* Principal: grafite, texto branco, detalhe dourado */
-.botao-marca--parceria {
+/* Título + linha de apoio dentro do botão */
+.botao-marca__textos { display: grid; gap: 2px; min-width: 0; }
+.botao-marca__sub {
+  font-size: 13px;
+  line-height: 1.35;
+  color: var(--texto-suave);
+  text-wrap: pretty;
+}
+
+/* Principal (Loja Ybera): grafite, texto branco, detalhe dourado */
+.botao-marca--principal {
+  min-height: 78px;
   border-color: var(--grafite);
   background: var(--grafite);
   color: var(--branco);
+  box-shadow: var(--sombra-elevada);
 }
-.botao-marca--parceria .botao-marca__icone {
+.botao-marca--principal .botao-marca__icone {
   border: 1px solid var(--ouro);
   background: var(--grafite);
-  padding: 2px;
+  color: var(--ouro);
 }
-.botao-marca--parceria .botao-marca__seta { color: var(--branco); }
+.botao-marca--principal .botao-marca__sub { color: rgba(255, 255, 255, .72); }
+.botao-marca--principal .botao-marca__seta { color: var(--branco); }
 @media (hover: hover) {
-  .botao-marca--parceria:hover {
+  .botao-marca--principal:hover {
     background: var(--grafite-2);
     border-color: var(--ouro);
     box-shadow: var(--sombra-elevada);
   }
-  .botao-marca--parceria:hover .botao-marca__seta { color: var(--ouro); }
+  .botao-marca--principal:hover .botao-marca__seta { color: var(--ouro); }
 }
+
+/* Parceria: branco com filete dourado e a foto dela */
+.botao-marca--parceria { border-color: var(--ouro-fino); }
+.botao-marca--parceria .botao-marca__icone { border-color: var(--ouro); padding: 2px; }
 .botao-marca__icone--foto { overflow: hidden; }
 .botao-marca__icone--foto img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+
+/* ---------- Copy de abertura (página inicial) ---------- */
+.chamada {
+  width: 100%;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--linha);
+}
+.chamada__titulo {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: clamp(24px, 6.6vw, 28px);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+.chamada__titulo em { font-style: italic; font-weight: 500; }
+.chamada__texto {
+  margin: 12px auto 0;
+  max-width: 34ch;
+  font-size: 15.5px;
+  color: var(--texto-suave);
+  text-wrap: pretty;
+}
+.chamada__guia {
+  margin-top: 18px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+.chamada__guia::after {
+  content: "";
+  display: block;
+  width: 1px; height: 18px;
+  margin: 8px auto 0;
+  background: var(--ouro-fino);
+}
+
+/* ---------- Selos de confiança ---------- */
+.selos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 16px;
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+.selos li { display: inline-flex; align-items: center; gap: 6px; }
+.selos__icone { display: grid; width: 15px; height: 15px; color: var(--ouro); }
+.selos__icone svg { width: 100%; height: 100%; stroke-width: 1.6; }
+.selos--inicio { margin-top: 28px; }
 
 /* Botão principal largo (loja oficial) */
 .botao-loja {
@@ -1046,6 +1115,56 @@ h1, h2, h3, h4, p { margin: 0; }
   color: var(--ouro);
 }
 .loja__subtitulo { margin: 12px auto 0; max-width: 32ch; font-size: 15px; color: var(--texto-suave); text-wrap: balance; }
+
+/* Subpágina Ybera: chamada própria, sem o "Achadinhos de cabelo" */
+.loja__hero--ybera { padding: 32px 20px 24px; }
+.loja__hero--ybera .loja__titulo { font-size: clamp(26px, 7.2vw, 32px); }
+.loja__hero--ybera .loja__titulo::before { content: none; }
+.loja__sobre {
+  margin-bottom: 12px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--ouro);
+}
+.loja__completa {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--grafite);
+  border-bottom: 1px solid var(--ouro-fino);
+}
+.loja__completa svg { width: 16px; height: 16px; color: var(--ouro); }
+.chips__titulo--loja { margin-top: 40px; font-size: 22px; }
+
+/* Fecho da subpágina: convite para a loja completa */
+.fecho {
+  margin-top: 56px;
+  padding: 36px 24px 28px;
+  text-align: center;
+  border: 1px solid var(--ouro-fino);
+  border-radius: var(--raio-card);
+  background: var(--branco);
+  box-shadow: var(--sombra-card);
+}
+.fecho__icone { display: grid; place-items: center; width: 28px; height: 28px; margin: 0 auto 12px; color: var(--ouro); }
+.fecho__icone svg { width: 100%; height: 100%; stroke-width: 1.4; }
+.fecho__titulo { font-family: var(--fonte-titulo); font-weight: 600; font-size: 24px; line-height: 1.2; text-wrap: balance; }
+.fecho__texto { margin: 10px auto 0; max-width: 34ch; font-size: 15px; color: var(--texto-suave); text-wrap: pretty; }
+.fecho .botao-loja { margin-top: 24px; }
+.fecho__voltar {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--texto-suave);
+  border-bottom: 1px solid var(--linha-forte);
+}
 
 /* =============================================================
    RODAPÉ

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Loja Ybera Paris · Os mais vendidos</title>
+  <meta name="description" content="Os campeões de venda da Ybera Paris, escolhidos por categoria: progressiva, cronograma capilar, finalizadores, equipamentos e shampoo.">
+  <meta name="theme-color" content="#FAF8F5">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Loja Ybera Paris · Os mais vendidos">
+  <meta property="og:description" content="Os campeões de venda da Ybera Paris, escolhidos por categoria.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Jost:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="pagina-loja tema-ybera" data-loja="ybera" data-card-categoria="nao"
+  data-rotulo-todos="Todos"
+  data-vazio-titulo="A seleção Ybera está quase pronta"
+  data-vazio-texto="Enquanto isso, a loja completa já está no ar."
+  data-sem-resultado="Nada por aqui">
+  <a class="pular" href="#conteudo">Pular para os produtos</a>
+
+  <header class="topo">
+    <a class="topo__voltar" href="index.html" aria-label="Voltar para o início">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <a class="topo__marca" href="index.html">Carla Dias</a>
+    <span class="topo__espaco" aria-hidden="true"></span>
+  </header>
+
+  <main id="conteudo" class="loja">
+    <section class="loja__hero loja__hero--ybera revelar" style="--i:0">
+      <p class="loja__sobre">Loja Ybera Paris</p>
+      <h1 class="loja__titulo">Os mais vendidos da Ybera, num só lugar</h1>
+      <p class="loja__subtitulo">Separei os campeões de venda de cada categoria para você não perder tempo. Toque no produto e compre direto no site oficial.</p>
+      <ul class="selos" aria-label="Por que comprar por aqui">
+        <li><span class="selos__icone" data-icone="escudo"></span>Site oficial da Ybera</li>
+        <li><span class="selos__icone" data-icone="etiqueta"></span>Preço conferido todo dia</li>
+        <li><span class="selos__icone" data-icone="coracao"></span>Você não paga nada a mais</li>
+      </ul>
+      <a class="loja__completa" target="_blank" rel="sponsored noopener" data-link-loja-topo hidden>
+        Prefere ver tudo? Ir para a loja completa
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </section>
+
+    <p class="chips__titulo chips__titulo--loja" id="titulo-categorias" data-categorias-titulo>O que o seu cabelo pede hoje?</p>
+    <nav class="chips" aria-labelledby="titulo-categorias" data-categorias></nav>
+
+    <section class="secao" aria-labelledby="titulo-produtos" data-produtos-secao>
+      <div class="secao__cabecalho sr-only">
+        <h2 id="titulo-produtos" class="secao__titulo" data-produtos-titulo aria-live="polite">Os mais vendidos</h2>
+      </div>
+      <ul class="lista" data-lista></ul>
+    </section>
+
+    <div class="vazio" data-vazio hidden></div>
+
+    <!-- Fecho: para quem quer ver a loja inteira -->
+    <section class="fecho revelar" aria-labelledby="titulo-fecho" data-fecho hidden>
+      <span class="fecho__icone" data-icone="ondas"></span>
+      <h2 id="titulo-fecho" class="fecho__titulo">Quer ver tudo o que a Ybera tem?</h2>
+      <p class="fecho__texto">Na loja completa estão todas as linhas: Loiro Perfeito, Cacho Perfeito, Kids, Antiqueda, Terra Coco e muito mais. O meu link de parceira já vai junto.</p>
+      <a class="botao-loja" target="_blank" rel="sponsored noopener" data-link-loja hidden>
+        <span data-link-loja-texto></span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+      </a>
+      <a class="fecho__voltar" href="index.html">Ver os outros achadinhos da Carla</a>
+    </section>
+
+    <noscript><p class="vazio">Ative o JavaScript para ver os produtos.</p></noscript>
+  </main>
+
+  <footer class="rodape" data-rodape></footer>
+
+  <script src="data/perfil.js"></script>
+  <script src="data/ybera.js"></script>
+  <script src="data/ybera-fotos.js"></script>
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/loja.js"></script>
+  <script src="assets/js/fios.js"></script>
+  <script src="assets/js/animacao.js"></script>
+</body>
+</html>

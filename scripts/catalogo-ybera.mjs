@@ -5,6 +5,7 @@
 //   node scripts/catalogo-ybera.mjs coletar  → lê a loja (precisa de internet)
 //       • pega a lista de produtos no mapa do site (sitemap.xml)
 //       • abre cada produto: nome, o que é, categoria, preços, foto, estoque
+//       • lê o ranking oficial "Mais vendidos" (posição de cada produto)
 //       • salva tudo em data/ybera-catalogo.json e as fotos novas em
 //         assets/img/produtos/ybera/ (scripts/fotos-ybera.py as deixa em WebP)
 //   node scripts/catalogo-ybera.mjs gerar    → monta data/ybera.js
@@ -145,6 +146,43 @@ function lerProduto(html, url) {
 }
 
 // ---------- Etapa 1: coletar ----------
+/* Ranking oficial "Mais vendidos" da loja (www.ybera.com/mais-vendidos).
+   A página traz a lista em JSON (schema.org ItemList), na ordem do ranking.
+   Devolve os números dos produtos, do que mais vende para o que menos vende. */
+async function lerMaisVendidos() {
+  const ids = [];
+  for (let pagina = 1; pagina <= 5; pagina++) {
+    const url = pagina === 1 ? `${LOJA}/mais-vendidos` : `${LOJA}/mais-vendidos?pagina=${pagina}`;
+    let novos = 0;
+    try {
+      const { texto } = await baixar(url);
+      for (const bloco of texto.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+        let dados;
+        try {
+          dados = JSON.parse(bloco[1]);
+        } catch {
+          continue;
+        }
+        if (!dados || dados["@type"] !== "ItemList") continue;
+        for (const item of dados.itemListElement || []) {
+          const id = (String((item && (item.url || (item.item && item.item.url))) || "").match(/-(\d+)(?:[/?#]|$)/) || [])[1];
+          if (id && !ids.includes(id)) {
+            ids.push(id);
+            novos++;
+          }
+        }
+      }
+    } catch (e) {
+      console.log(`! mais vendidos (página ${pagina}): ${e.message}`);
+      break;
+    }
+    if (!novos) break; // a página seguinte repetiu a anterior: acabou o ranking
+    await esperar(PAUSA);
+  }
+  console.log(`Mais vendidos: ${ids.length} produtos no ranking.`);
+  return ids;
+}
+
 async function coletar() {
   const mapa = await baixar(`${LOJA}/sitemap.xml`);
   const fila = [...mapa.texto.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/gi)].map((m) => m[1].replace(/&amp;/g, "&"));
@@ -225,6 +263,14 @@ async function coletar() {
     if (m && !ids.has(m[1]) && limite === Infinity) await unlink(new URL(arq, PASTA_FOTOS));
   }
 
+  // Posição de cada produto no ranking de mais vendidos (1 = o campeão)
+  const ranking = await lerMaisVendidos();
+  for (const p of produtos) {
+    const pos = ranking.indexOf(p.id);
+    if (pos !== -1) p.maisVendido = pos + 1;
+    else delete p.maisVendido;
+  }
+
   produtos.sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
   // Só salva se algum produto mudou (a data sozinha não conta como mudança)
   try {
@@ -241,9 +287,7 @@ async function coletar() {
 const aspas = (t) => JSON.stringify(String(t));
 
 /* A loja usa dezenas de categorias misturadas (linhas, promoções, tipos).
-   No site, cada produto entra num dos grupos abaixo (e depois, se o nome
-   for de uma linha como "Loiro Perfeito", na categoria da linha: LINHAS,
-   mais abaixo). Primeiro vale o NOME
+   No site, cada produto entra num dos grupos abaixo. Primeiro vale o NOME
    do produto; só se o nome não disser nada, vale a categoria da loja.
    A primeira regra que combinar vence. Produto sem grupo vai para "Outros",
    que fica escondido no site (ocultarCategorias em data/ybera.js). */
@@ -259,52 +303,15 @@ const GRUPOS = [
 ];
 const GRUPO_PADRAO = "Outros";
 
-/* Linhas da Ybera com categoria própria no site: cada coisa separada.
-   Valem só pelo NOME do produto e só para quem já entrou num dos grupos
-   acima (o que é "Outros" continua escondido). A primeira que combinar
-   vence. Kits de progressiva só mudam de categoria para as 5 primeiras
-   linhas (ex.: um kit de progressiva com Protect Poo continua em Progressiva). */
-const LINHAS_FORTES = 5;
-const LINHAS = [
-  ["Kids", /\bkids\b/i],
-  ["Loiro Perfeito", /loiro perfeito/i],
-  ["Liso Perfeito", /liso perfeito/i],
-  ["Cacho Perfeito", /cachos? perfeitos?/i],
-  ["Antiqueda", /antiqueda|100\s?t[ií]metros/i],
-  ["Cuidados Profundos", /cuidados profundos/i],
-  ["Terra Coco", /terra coco|\bcoco\b|cocada|isot[oô]nico|coquetel selante/i],
-  ["Botulínica Anti Age", /botul[ií]nica|biotox/i],
-  ["Essência Brasileira", /ess[eê]ncia brasileira|elixir d[oa] (?:floresta|cerrado|pantanal)/i],
-  ["Pro-Geno Genoma", /pro-?\s?geno|genoma/i],
-  ["Vello", /\bvello\b/i],
-  ["Discovery Stemcell", /stemcell|discovery/i],
-  ["Detox Purificante", /detox/i],
-  ["Life's Flower", /life'?s flower|\btrh\b/i],
-  ["Protect", /protect (?:poo|control)/i]
-];
-
 function grupoDe(p) {
-  let grupo = GRUPO_PADRAO;
-  busca: for (const texto of [p.nome, p.categoria]) {
-    for (const [nome, re] of GRUPOS) {
-      if (re.test(texto)) {
-        grupo = nome;
-        break busca;
-      }
-    }
+  for (const texto of [p.nome, p.categoria]) {
+    for (const [nome, re] of GRUPOS) if (re.test(texto)) return nome;
   }
-  if (grupo === GRUPO_PADRAO || grupo === "Equipamentos Profissionais") return grupo;
-  const kitDeProgressiva = grupo === "Progressiva e Pós-Progressiva" && /progressiva/i.test(p.nome);
-  const linhas = kitDeProgressiva ? LINHAS.slice(0, LINHAS_FORTES) : LINHAS;
-  for (const [nome, re] of linhas) if (re.test(p.nome)) return nome;
-  return grupo;
+  return GRUPO_PADRAO;
 }
 const ORDEM_GRUPOS = [
-  "Progressiva e Pós-Progressiva", "Loiro Perfeito", "Liso Perfeito", "Cacho Perfeito",
-  "Kids", "Antiqueda", "Cuidados Profundos", "Cronogramas Capilares", "Terra Coco",
-  "Botulínica Anti Age", "Essência Brasileira", "Pro-Geno Genoma", "Vello",
-  "Discovery Stemcell", "Detox Purificante", "Life's Flower", "Protect",
-  "Finalizadores", "Equipamentos Profissionais", "Shampoo"
+  "Progressiva e Pós-Progressiva", "Cronogramas Capilares", "Finalizadores",
+  "Equipamentos Profissionais", "Shampoo"
 ];
 
 /** Tira do nome o sufixo da marca ("- Ybera Paris", "- Ybera Fashion Gold"). */
@@ -345,6 +352,7 @@ async function gerar() {
       p.precoAntigo ? `      precoAntigo: ${aspas(paraReais(p.precoAntigo))},` : null,
       `      preco: ${aspas(paraReais(p.preco))},`,
       p.esgotado ? `      esgotado: true,` : null,
+      p.maisVendido ? `      maisVendido: ${p.maisVendido},` : null,
       `      destaque: ${destaques.includes(p.id)}`
     ].filter(Boolean);
     return `    {\n${linhas.join("\n")}\n    }`;

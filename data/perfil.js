@@ -20,7 +20,7 @@ window.PERFIL = {
   // Enfeite dos dois lados do nome (ex.: "✨"). Vazio = sem enfeite.
   enfeiteNome: "✨",
   frases: [
-    "Parceira Ybera Paris · tratamento de salão em casa"
+    "Parceira Ybera Paris"
   ],
   foto: "assets/img/perfil.jpg",
 

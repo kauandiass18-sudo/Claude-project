@@ -68,6 +68,8 @@
         precoAntigo: texto(p.precoAntigo),
         oQueE: texto(p.oQueE),
         esgotado: p.esgotado === true,
+        // Posição no ranking "Mais vendidos" da loja (1 = o que mais vende)
+        maisVendido: Number.isFinite(p.maisVendido) && p.maisVendido > 0 ? p.maisVendido : Infinity,
         busca: normalizar(`${nome} ${categoria} ${texto(p.oQueE)}`)
       };
     })
@@ -93,6 +95,27 @@
   // Esgotados ficam escondidos, a não ser que a loja peça para mostrar
   if (loja.mostrarEsgotados !== true) {
     for (let i = produtos.length - 1; i >= 0; i--) if (produtos[i].esgotado) produtos.splice(i, 1);
+  }
+  /* Seleção dos mais vendidos (produtosPorCategoria em data/<loja>.js):
+     em cada categoria ficam só os N primeiros do ranking da loja. Se uma
+     categoria tiver menos campeões no ranking, completa com os destaques e
+     depois com os de maior valor (ex.: o secador antes da touca). */
+  const porCategoria = Number(loja.produtosPorCategoria) || 0;
+  if (porCategoria) {
+    const grupos = new Map();
+    produtos.forEach((p, i) => {
+      if (p.oculto) return;
+      if (!grupos.has(p.categoria)) grupos.set(p.categoria, []);
+      grupos.get(p.categoria).push([p, i]);
+    });
+    const escolhidos = [];
+    for (const lista of grupos.values()) {
+      lista.sort((a, b) =>
+        (a[0].maisVendido - b[0].maisVendido) || (b[0].destaque - a[0].destaque) ||
+        (valorEmReais(b[0].preco) - valorEmReais(a[0].preco)) || a[1] - b[1]);
+      escolhidos.push(...lista.slice(0, porCategoria).map(([p]) => p));
+    }
+    produtos.splice(0, produtos.length, ...escolhidos);
   }
   produtos.forEach((p, i) => { p.numero = String(i + 1).padStart(2, "0"); });
 
@@ -404,7 +427,7 @@
     const filtrados = produtos.filter(
       (p) => !p.oculto && (!estado.categoria || p.categoria === estado.categoria) && (!termo || p.busca.includes(termo))
     );
-    const resultado = modoBotoes ? ordemPrateleira(filtrados) : fotoLimpaPrimeiro(filtrados);
+    const resultado = modoBotoes ? ordemPrateleira(filtrados) : porCategoria ? filtrados : fotoLimpaPrimeiro(filtrados);
 
     if (secaoDestaques && trilhoDestaques && trilhoDestaques.childElementCount) {
       secaoDestaques.hidden = filtrando;
@@ -549,6 +572,14 @@
       linkLoja.hidden = true;
     }
   }
+  // Atalho para a loja completa no alto da página e bloco de fecho
+  const linkLojaTopo = $("[data-link-loja-topo]");
+  if (linkLojaTopo && urlLoja) {
+    linkLojaTopo.href = aplicarParametrosAfiliado(urlLoja, loja);
+    linkLojaTopo.hidden = false;
+  }
+  const fecho = $("[data-fecho]");
+  if (fecho && urlLoja) fecho.hidden = false;
 
   /* ---------- Início ---------- */
   if (!produtos.length) {

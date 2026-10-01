@@ -407,7 +407,8 @@
    "preco": 113.91,
    "precoAntigo": 119.9,
    "url": "https://www.ybera.com/produto/condicionador-antiqueda-100timetros-300g-ybera-fashion-gold-150306",
-   "foto": "ybera-150306.webp"
+   "foto": "ybera-150306.webp",
+   "maisVendido": 9
   },
   {
    "id": "150363",
@@ -419,7 +420,8 @@
    "preco": 93.01,
    "precoAntigo": 97.9,
    "url": "https://www.ybera.com/produto/condicionador-coco-verde-300g-terra-coco-150363",
-   "foto": "ybera-150363.webp"
+   "foto": "ybera-150363.webp",
+   "maisVendido": 24
   },
   {
    "id": "150915",
@@ -431,7 +433,8 @@
    "preco": 359.01,
    "precoAntigo": 377.9,
    "url": "https://www.ybera.com/produto/condicionador-elixir-da-floresta-essencia-brasileira-1kg-ybera-paris-150915",
-   "foto": "ybera-150915.webp"
+   "foto": "ybera-150915.webp",
+   "maisVendido": 20
   },
   {
    "id": "150932",
@@ -455,7 +458,8 @@
    "preco": 359.01,
    "precoAntigo": 377.9,
    "url": "https://www.ybera.com/produto/condicionador-elixir-do-cerrado-essencia-brasileira-1kg-ybera-paris-150917",
-   "foto": "ybera-150917.webp"
+   "foto": "ybera-150917.webp",
+   "maisVendido": 18
   },
   {
    "id": "150931",
@@ -479,7 +483,8 @@
    "preco": 359.01,
    "precoAntigo": 377.9,
    "url": "https://www.ybera.com/produto/condicionador-elixir-do-pantanal-essencia-brasileira-1kg-ybera-paris-150919",
-   "foto": "ybera-150919.webp"
+   "foto": "ybera-150919.webp",
+   "maisVendido": 19
   },
   {
    "id": "150927",
@@ -599,7 +604,8 @@
    "preco": 237.41,
    "precoAntigo": 249.9,
    "url": "https://www.ybera.com/produto/cronograma-capilar-kids-menina-ybera-fashion-kids-151316",
-   "foto": "ybera-151316.webp"
+   "foto": "ybera-151316.webp",
+   "maisVendido": 7
   },
   {
    "id": "151312",
@@ -683,7 +689,8 @@
    "preco": 94.91,
    "precoAntigo": 99.9,
    "url": "https://www.ybera.com/produto/escova-progressiva-150g-ybera-fashion-gold-151083",
-   "foto": "ybera-151083.webp"
+   "foto": "ybera-151083.webp",
+   "maisVendido": 1
   },
   {
    "id": "151580",
@@ -815,7 +822,8 @@
    "preco": 322.91,
    "precoAntigo": 339.9,
    "url": "https://www.ybera.com/produto/escova-progressiva-500g-ybera-fashion-gold-150264",
-   "foto": "ybera-150264.webp"
+   "foto": "ybera-150264.webp",
+   "maisVendido": 2
   },
   {
    "id": "151582",
@@ -1199,7 +1207,8 @@
    "preco": 360.91,
    "precoAntigo": 379.9,
    "url": "https://www.ybera.com/produto/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341",
-   "foto": "ybera-151341.webp"
+   "foto": "ybera-151341.webp",
+   "maisVendido": 8
   },
   {
    "id": "151117",
@@ -1595,7 +1604,8 @@
    "preco": 242.16,
    "precoAntigo": 254.9,
    "url": "https://www.ybera.com/produto/kit-manutencao-pos-progressiva-shampoo-500ml-mascara-2-em-1-500g-ybera-fashion-gold-150294",
-   "foto": "ybera-150294.webp"
+   "foto": "ybera-150294.webp",
+   "maisVendido": 5
   },
   {
    "id": "151168",
@@ -1619,7 +1629,8 @@
    "preco": 422.66,
    "precoAntigo": 444.9,
    "url": "https://www.ybera.com/produto/kit-mascaras-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151600",
-   "foto": "ybera-151600.webp"
+   "foto": "ybera-151600.webp",
+   "maisVendido": 12
   },
   {
    "id": "151594",
@@ -1907,7 +1918,8 @@
    "preco": 75.91,
    "precoAntigo": 79.9,
    "url": "https://www.ybera.com/produto/leave-in-desembaracante-150ml-ybera-fashion-kids-151317",
-   "foto": "ybera-151317.webp"
+   "foto": "ybera-151317.webp",
+   "maisVendido": 10
   },
   {
    "id": "151298",
@@ -1931,7 +1943,8 @@
    "preco": 123.41,
    "precoAntigo": 129.9,
    "url": "https://www.ybera.com/produto/leave-in-universal-250g-ybera-150953",
-   "foto": "ybera-150953.webp"
+   "foto": "ybera-150953.webp",
+   "maisVendido": 6
   },
   {
    "id": "150383",
@@ -2447,7 +2460,8 @@
    "preco": 75.91,
    "precoAntigo": 79.9,
    "url": "https://www.ybera.com/produto/oleo-de-mirra-reparador-15ml-ybera-151265",
-   "foto": "ybera-151265.webp"
+   "foto": "ybera-151265.webp",
+   "maisVendido": 3
   },
   {
    "id": "150875",
@@ -2471,7 +2485,8 @@
    "preco": 254.51,
    "precoAntigo": 267.9,
    "url": "https://www.ybera.com/produto/oleo-de-mirra-reparador-90ml-ybera-150876",
-   "foto": "ybera-150876.webp"
+   "foto": "ybera-150876.webp",
+   "maisVendido": 22
   },
   {
    "id": "150935",
@@ -2579,7 +2594,8 @@
    "preco": 710.51,
    "precoAntigo": 747.9,
    "url": "https://www.ybera.com/produto/prancha-de-cabelo-alisadora-stylist-blacktitan-ultra-150802",
-   "foto": "ybera-150802.webp"
+   "foto": "ybera-150802.webp",
+   "maisVendido": 23
   },
   {
    "id": "150909",
@@ -3071,7 +3087,8 @@
    "preco": 264.01,
    "precoAntigo": 277.9,
    "url": "https://www.ybera.com/produto/shampoo-elixir-da-floresta-essencia-brasileira-1l-ybera-paris-150916",
-   "foto": "ybera-150916.webp"
+   "foto": "ybera-150916.webp",
+   "maisVendido": 16
   },
   {
    "id": "150918",
@@ -3083,7 +3100,8 @@
    "preco": 264.01,
    "precoAntigo": 277.9,
    "url": "https://www.ybera.com/produto/shampoo-elixir-do-cerrado-essencia-brasileira-1l-ybera-paris-150918",
-   "foto": "ybera-150918.webp"
+   "foto": "ybera-150918.webp",
+   "maisVendido": 15
   },
   {
    "id": "150920",
@@ -3095,7 +3113,8 @@
    "preco": 264.01,
    "precoAntigo": 277.9,
    "url": "https://www.ybera.com/produto/shampoo-elixir-do-pantanal-essencia-brasileira-1l-ybera-paris-150920",
-   "foto": "ybera-150920.webp"
+   "foto": "ybera-150920.webp",
+   "maisVendido": 17
   },
   {
    "id": "150929",
@@ -3119,7 +3138,8 @@
    "preco": 102.51,
    "precoAntigo": 107.9,
    "url": "https://www.ybera.com/produto/shampoo-essencia-brasileira-elixir-da-floresta-250ml-ybera-150928",
-   "foto": "ybera-150928.webp"
+   "foto": "ybera-150928.webp",
+   "maisVendido": 14
   },
   {
    "id": "150930",
@@ -3251,7 +3271,8 @@
    "preco": 102.51,
    "precoAntigo": 107.9,
    "url": "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-500ml-ybera-fashion-gold-151335",
-   "foto": "ybera-151335.webp"
+   "foto": "ybera-151335.webp",
+   "maisVendido": 4
   },
   {
    "id": "151212",
@@ -3383,7 +3404,8 @@
    "preco": 237.41,
    "precoAntigo": 249.9,
    "url": "https://www.ybera.com/produto/soro-vello-alfa-lactobaby-ybera-150907",
-   "foto": "ybera-150907.webp"
+   "foto": "ybera-150907.webp",
+   "maisVendido": 21
   },
   {
    "id": "150963",
@@ -3455,7 +3477,8 @@
    "preco": 226.01,
    "precoAntigo": 237.9,
    "url": "https://www.ybera.com/produto/summer-protecao-universal-250ml-ybera-151348",
-   "foto": "ybera-151348.webp"
+   "foto": "ybera-151348.webp",
+   "maisVendido": 13
   },
   {
    "id": "150951",
@@ -3467,7 +3490,8 @@
    "preco": 199.41,
    "precoAntigo": 209.9,
    "url": "https://www.ybera.com/produto/thermic-gloss-c360-universal-90ml-ybera-150951",
-   "foto": "ybera-150951.webp"
+   "foto": "ybera-150951.webp",
+   "maisVendido": 11
   },
   {
    "id": "150308",
