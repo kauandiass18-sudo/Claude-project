@@ -259,15 +259,28 @@ const GRUPOS = [
 ];
 const GRUPO_PADRAO = "Outros";
 
-/* Linhas da Ybera com categoria própria no site. Valem só pelo NOME do
-   produto e só para quem já entrou num dos grupos acima (o que é "Outros"
-   continua escondido). A primeira linha que combinar vence. */
+/* Linhas da Ybera com categoria própria no site: cada coisa separada.
+   Valem só pelo NOME do produto e só para quem já entrou num dos grupos
+   acima (o que é "Outros" continua escondido). A primeira que combinar
+   vence. Kits de progressiva só mudam de categoria para as 5 primeiras
+   linhas (ex.: um kit de progressiva com Protect Poo continua em Progressiva). */
+const LINHAS_FORTES = 5;
 const LINHAS = [
   ["Kids", /\bkids\b/i],
   ["Loiro Perfeito", /loiro perfeito/i],
   ["Liso Perfeito", /liso perfeito/i],
   ["Cacho Perfeito", /cachos? perfeitos?/i],
-  ["Antiqueda", /antiqueda|100\s?t[ií]metros/i]
+  ["Antiqueda", /antiqueda|100\s?t[ií]metros/i],
+  ["Cuidados Profundos", /cuidados profundos/i],
+  ["Terra Coco", /terra coco|\bcoco\b|cocada|isot[oô]nico|coquetel selante/i],
+  ["Botulínica Anti Age", /botul[ií]nica|biotox/i],
+  ["Essência Brasileira", /ess[eê]ncia brasileira|elixir d[oa] (?:floresta|cerrado|pantanal)/i],
+  ["Pro-Geno Genoma", /pro-?\s?geno|genoma/i],
+  ["Vello", /\bvello\b/i],
+  ["Discovery Stemcell", /stemcell|discovery/i],
+  ["Detox Purificante", /detox/i],
+  ["Life's Flower", /life'?s flower|\btrh\b/i],
+  ["Protect", /protect (?:poo|control)/i]
 ];
 
 function grupoDe(p) {
@@ -281,13 +294,17 @@ function grupoDe(p) {
     }
   }
   if (grupo === GRUPO_PADRAO || grupo === "Equipamentos Profissionais") return grupo;
-  for (const [nome, re] of LINHAS) if (re.test(p.nome)) return nome;
+  const kitDeProgressiva = grupo === "Progressiva e Pós-Progressiva" && /progressiva/i.test(p.nome);
+  const linhas = kitDeProgressiva ? LINHAS.slice(0, LINHAS_FORTES) : LINHAS;
+  for (const [nome, re] of linhas) if (re.test(p.nome)) return nome;
   return grupo;
 }
 const ORDEM_GRUPOS = [
   "Progressiva e Pós-Progressiva", "Loiro Perfeito", "Liso Perfeito", "Cacho Perfeito",
-  "Kids", "Antiqueda", "Cronogramas Capilares", "Finalizadores",
-  "Equipamentos Profissionais", "Shampoo"
+  "Kids", "Antiqueda", "Cuidados Profundos", "Cronogramas Capilares", "Terra Coco",
+  "Botulínica Anti Age", "Essência Brasileira", "Pro-Geno Genoma", "Vello",
+  "Discovery Stemcell", "Detox Purificante", "Life's Flower", "Protect",
+  "Finalizadores", "Equipamentos Profissionais", "Shampoo"
 ];
 
 /** Tira do nome o sufixo da marca ("- Ybera Paris", "- Ybera Fashion Gold"). */

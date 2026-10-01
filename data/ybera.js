@@ -50,7 +50,17 @@ window.LOJAS.ybera = {
     "Cacho Perfeito",
     "Kids",
     "Antiqueda",
+    "Cuidados Profundos",
     "Cronogramas Capilares",
+    "Terra Coco",
+    "Botulínica Anti Age",
+    "Essência Brasileira",
+    "Pro-Geno Genoma",
+    "Vello",
+    "Discovery Stemcell",
+    "Detox Purificante",
+    "Life's Flower",
+    "Protect",
     "Finalizadores",
     "Equipamentos Profissionais",
     "Shampoo"
@@ -69,7 +79,17 @@ window.LOJAS.ybera = {
     "Cacho Perfeito": "cachos",
     "Kids": "coracao",
     "Antiqueda": "raiz",
-    "Cronogramas Capilares": "ondas",
+    "Cuidados Profundos": "ondas",
+    "Cronogramas Capilares": "caixa",
+    "Terra Coco": "gota",
+    "Botulínica Anti Age": "escudo",
+    "Essência Brasileira": "raiz",
+    "Pro-Geno Genoma": "estrela",
+    "Vello": "coracao",
+    "Discovery Stemcell": "brilho",
+    "Detox Purificante": "gota",
+    "Life's Flower": "brilho",
+    "Protect": "escudo",
     "Finalizadores": "brilho",
     "Equipamentos Profissionais": "escova",
     "Shampoo": "frasco"
@@ -285,16 +305,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-manutencao-pos-progressiva-shampoo-500ml-mascara-2-em-1-500g-ybera-fashion-gold-150294",
       precoAntigo: "R$ 254,90",
       preco: "R$ 242,16",
-      destaque: false
-    },
-    {
-      nome: "Máscara Educadora 1Kg - Terra Coco",
-      oQueE: "Escova Progressiva com óleo e ácidos isolados de coco que reduz o volume e elimina o frizz de forma natural, sem danificar a fibra capilar, proporcionando…",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-150601.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-educadora-1kg-terra-coco-150601",
-      precoAntigo: "R$ 247,90",
-      preco: "R$ 235,51",
       destaque: false
     },
     {
@@ -618,6 +628,66 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit Cuidados Profundos - Máscara Reconstrução 250g + Máscara Nutrição 250g + Máscara Hidratação 250g",
+      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
+      categoria: "Cuidados Profundos",
+      imagem: "assets/img/produtos/ybera/ybera-151548.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-mascara-reconstrucao-250g-mascara-nutricao-250g-mascara-hidratacao-250g-ybera-fashion-gold-151548",
+      precoAntigo: "R$ 299,90",
+      preco: "R$ 284,91",
+      destaque: false
+    },
+    {
+      nome: "Kit Máscaras Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
+      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
+      categoria: "Cuidados Profundos",
+      imagem: "assets/img/produtos/ybera/ybera-151600.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-mascaras-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151600",
+      precoAntigo: "R$ 444,90",
+      preco: "R$ 422,66",
+      destaque: false
+    },
+    {
+      nome: "Máscara Hidratação Cuidados Profundos 250g",
+      oQueE: "Indicada para cabelos ressecados, ásperos e opacos, a Máscara Hidratação Prolongada devolve a umidade essencial aos fios, restaurando maciez, sedosidade e…",
+      categoria: "Cuidados Profundos",
+      imagem: "assets/img/produtos/ybera/ybera-151510.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-hidratacao-cuidados-profundos-250g-ybera-fashion-gold-151510",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Máscara Nutrição Cuidados Profundos 250g",
+      oQueE: "Ideal para cabelos frágeis, porosos e quebradiços, a Máscara Nutrição Profunda nutre profundamente os fios com lipídios, óleos naturais e vitaminas.",
+      categoria: "Cuidados Profundos",
+      imagem: "assets/img/produtos/ybera/ybera-151509.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-nutricao-cuidados-profundos-250g-ybera-fashion-gold-151509",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Máscara Reconstrução Cuidados Profundos 250g",
+      oQueE: "A Máscara Reconstrução Intensiva é indicada para fios frágeis, quebradiços e danificados por químicas, calor ou agressões externas.",
+      categoria: "Cuidados Profundos",
+      imagem: "assets/img/produtos/ybera/ybera-151508.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-cuidados-profundos-250g-ybera-fashion-gold-151508",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Multifunção Cuidados Profundos 500ml",
+      oQueE: "O Shampoo Multifunção Cuidados Profundos é o primeiro passo para um ritual completo de reconstrução, nutrição e hidratação dos fios .",
+      categoria: "Cuidados Profundos",
+      imagem: "assets/img/produtos/ybera/ybera-151335.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-500ml-ybera-fashion-gold-151335",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      destaque: false
+    },
+    {
       nome: "Etapa 1 - Medula 250g: Cronograma Capilar Fashion Gold",
       oQueE: "ETAPA 1: MEDULA . A Medula é a camada central do cabelo que dá sustentação à estrutura do fio.",
       categoria: "Cronogramas Capilares",
@@ -648,63 +718,363 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Cuidados Profundos - Máscara Reconstrução 250g + Máscara Nutrição 250g + Máscara Hidratação 250g",
-      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151548.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-mascara-reconstrucao-250g-mascara-nutricao-250g-mascara-hidratacao-250g-ybera-fashion-gold-151548",
-      precoAntigo: "R$ 299,90",
-      preco: "R$ 284,91",
-      destaque: false
-    },
-    {
-      nome: "Kit Máscaras Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
-      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151600.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-mascaras-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151600",
-      precoAntigo: "R$ 444,90",
-      preco: "R$ 422,66",
-      destaque: false
-    },
-    {
-      nome: "Máscara Hidratação Cuidados Profundos 250g",
-      oQueE: "Indicada para cabelos ressecados, ásperos e opacos, a Máscara Hidratação Prolongada devolve a umidade essencial aos fios, restaurando maciez, sedosidade e…",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151510.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-hidratacao-cuidados-profundos-250g-ybera-fashion-gold-151510",
+      nome: "Elixir de Coco 60ml",
+      oQueE: "Elixir de Coco 60ml - Terra Coco . Reúne os 2 campeões de hidratação e cuidado capilar em um só produto.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-151091.webp",
+      affiliateUrl: "https://www.ybera.com/produto/elixir-de-coco-60ml-ybera-terra-coco-151091",
       precoAntigo: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
     {
-      nome: "Máscara Nutrição Cuidados Profundos 250g",
-      oQueE: "Ideal para cabelos frágeis, porosos e quebradiços, a Máscara Nutrição Profunda nutre profundamente os fios com lipídios, óleos naturais e vitaminas.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151509.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-nutricao-cuidados-profundos-250g-ybera-fashion-gold-151509",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
+      nome: "Kit 1 Coquetel Selante Potencializador 1Kg + 1 Shampoo Isotônico 1L - Terra Coco",
+      oQueE: "Shampoo Isotônico . Shampoo Isotônico Sulfato Free é desenvolvido para cabelos extremamente ressecados e grossos.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-151602.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-1-coquetel-selante-potencializador-1kg-1-shampoo-isotonico-1l-terra-coco-151602",
+      precoAntigo: "R$ 489,80",
+      preco: "R$ 465,31",
       destaque: false
     },
     {
-      nome: "Máscara Reconstrução Cuidados Profundos 250g",
-      oQueE: "A Máscara Reconstrução Intensiva é indicada para fios frágeis, quebradiços e danificados por químicas, calor ou agressões externas.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151508.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-cuidados-profundos-250g-ybera-fashion-gold-151508",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
+      nome: "Kit Cocada Capilar - Shampoo Isotônico 1L + Máscara Toda de Coco 1kg",
+      oQueE: "Shampoo Isotônico Shampoo Isotônico Sulfato Free é desenvolvido para cabelos extremamente ressecados e grossos.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150330.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cocada-capilar-shampoo-isotonico-1l-mascara-toda-de-coco-1kg-ybera-terra-coco-150330",
+      precoAntigo: "R$ 359,90",
+      preco: "R$ 341,91",
       destaque: false
     },
     {
-      nome: "Shampoo Multifunção Cuidados Profundos 500ml",
-      oQueE: "O Shampoo Multifunção Cuidados Profundos é o primeiro passo para um ritual completo de reconstrução, nutrição e hidratação dos fios .",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151335.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-500ml-ybera-fashion-gold-151335",
+      nome: "Kit Cocada Capilar - Shampoo Isotônico 1L + Máscara Toda de Coco 1kg + Elixir de Coco 60ml",
+      oQueE: "Hidratação intensa para cabelos ressecados e sem vida .",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150682.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cocada-capilar-shampoo-isotonico-1l-mascara-toda-de-coco-1kg-elixir-de-coco-60ml-ybera-terra-coco-150682",
+      precoAntigo: "R$ 473,90",
+      preco: "R$ 450,21",
+      destaque: false
+    },
+    {
+      nome: "Leite de Coco Contra Frizz 300 ml - Terra Coco",
+      oQueE: "O Leite de Coco Redutor de Frizz é um finalizador sem enxágue, ideal para uso pré e pós-química.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150384.webp",
+      affiliateUrl: "https://www.ybera.com/produto/leite-de-coco-contra-frizz-300-ml-terra-coco-150384",
       precoAntigo: "R$ 107,90",
       preco: "R$ 102,51",
+      destaque: false
+    },
+    {
+      nome: "Máscara Educadora 1Kg - Terra Coco",
+      oQueE: "Escova Progressiva com óleo e ácidos isolados de coco que reduz o volume e elimina o frizz de forma natural, sem danificar a fibra capilar, proporcionando…",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150601.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-educadora-1kg-terra-coco-150601",
+      precoAntigo: "R$ 247,90",
+      preco: "R$ 235,51",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Isotônico Sulfato Free 1L",
+      oQueE: "O Shampoo Isotônico foi especialmente desenvolvido para limpar cabelos extremamente ressecados e fios grossos.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150346.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-isotonico-sulfato-free-1l-ybera-terra-coco-150346",
+      precoAntigo: "R$ 169,90",
+      preco: "R$ 161,41",
+      destaque: false
+    },
+    {
+      nome: "Soro de Coco 500ml",
+      oQueE: "O Soro de Coco foi especialmente desenvolvido para cabelos quebradiços.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150356.webp",
+      affiliateUrl: "https://www.ybera.com/produto/soro-de-coco-500ml-ybera-terra-coco-150356",
+      precoAntigo: "R$ 147,90",
+      preco: "R$ 140,51",
+      destaque: false
+    },
+    {
+      nome: "Kit Botulínica - Shampoo Anti Age Biotox 250ml + Reconstrutor 500g",
+      oQueE: "A dupla completa para reverter os sinais do tempo nos fios.",
+      categoria: "Botulínica Anti Age",
+      imagem: "assets/img/produtos/ybera/ybera-151622.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-botulinica-shampoo-anti-age-biotox-250ml-reconstrutor-500g-ybera-151622",
+      precoAntigo: "R$ 259,80",
+      preco: "R$ 246,81",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Botulínica Anti Age Biotox 1L",
+      oQueE: "Peptídeos botulínicos e vitamina E que rejuvenescem e fortalecem profundamente.",
+      categoria: "Botulínica Anti Age",
+      imagem: "assets/img/produtos/ybera/ybera-151356.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-botulinica-anti-age-biotox-1l-ybera-151356",
+      precoAntigo: "R$ 177,90",
+      preco: "R$ 169,01",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Botulínica Anti Age Biotox 250ml",
+      oQueE: "Formulado para combater o envelhecimento dos fios, o Shampoo Anti-Age BIOTOX® combina peptídeos botulínicos e vitamina E encapsulada em microesferas.",
+      categoria: "Botulínica Anti Age",
+      imagem: "assets/img/produtos/ybera/ybera-151621.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-botulinica-anti-age-biotox-250ml-ybera-151621",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Botulínica Anti Age Biotox 500ml",
+      oQueE: "Shampoo anti-age com peptídeos botulínicos e vitamina E que fortalece e rejuvenece cabelos.",
+      categoria: "Botulínica Anti Age",
+      imagem: "assets/img/produtos/ybera/ybera-151553.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-botulinica-anti-age-biotox-500ml-ybera-151553",
+      precoAntigo: "R$ 117,90",
+      preco: "R$ 112,01",
+      destaque: false
+    },
+    {
+      nome: "Kit Essência Brasileira Elixir do Pantanal - Shampoo 1kg + Condicionador 1kg",
+      oQueE: "O Shampoo Elixir do Pantanal foi desenvolvido para revitalizar cabelos secos e ressecados, unindo o poder do breu branco, da manteiga de murumuru e do óleo…",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150921.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-essencia-brasileira-elixir-do-pantanal-shampoo-1kg-condicionador-1kg-ybera-150921",
+      precoAntigo: "R$ 617,80",
+      preco: "R$ 586,91",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Elixir da Floresta Essência Brasileira 1L",
+      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150916.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-da-floresta-essencia-brasileira-1l-ybera-paris-150916",
+      precoAntigo: "R$ 277,90",
+      preco: "R$ 264,01",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Elixir do Cerrado Essência Brasileira 1L",
+      oQueE: "Cabelos mistos são um desafio diário. Você lava de manhã e, à noite, a raiz já está oleosa.",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150918.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-cerrado-essencia-brasileira-1l-ybera-paris-150918",
+      precoAntigo: "R$ 277,90",
+      preco: "R$ 264,01",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Elixir do Pantanal Essência Brasileira 1L",
+      oQueE: "O Shampoo Elixir do Pantanal foi desenvolvido para revitalizar cabelos secos e ressecados, unindo o poder do breu branco, da manteiga de murumuru e do óleo…",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150920.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-pantanal-essencia-brasileira-1l-ybera-paris-150920",
+      precoAntigo: "R$ 277,90",
+      preco: "R$ 264,01",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Essência Brasileira Elixir da Floresta 250ml",
+      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150928.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-essencia-brasileira-elixir-da-floresta-250ml-ybera-150928",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      destaque: false
+    },
+    {
+      nome: "Kit Pro-Geno Genoma - Shampoo 500ml + Máscara 500g",
+      oQueE: "Shampoo e máscara que reconstroem a fibra capilar de dentro para fora.",
+      categoria: "Pro-Geno Genoma",
+      imagem: "assets/img/produtos/ybera/ybera-151205.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-pro-geno-genoma-shampoo-500ml-mascara-500g-ybera-151205",
+      precoAntigo: "R$ 357,90",
+      preco: "R$ 340,01",
+      destaque: false
+    },
+    {
+      nome: "Shampoo + Máscara + Selador Pro-Geno Genoma 500ml/500g",
+      oQueE: "Sistema completo de reconstrução capilar: shampoo, máscara e selador.",
+      categoria: "Pro-Geno Genoma",
+      imagem: "assets/img/produtos/ybera/ybera-151206.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-mascara-selador-pro-geno-genoma-500ml-500g-ybera-paris-151206",
+      precoAntigo: "R$ 559,90",
+      preco: "R$ 531,91",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Pro-Geno Genoma 250ml",
+      oQueE: "Os cabelos danificados perdem sua força e vitalidade dia após dia.",
+      categoria: "Pro-Geno Genoma",
+      imagem: "assets/img/produtos/ybera/ybera-150938.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-pro-geno-genoma-250ml-ybera-150938",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Pro-Geno Genoma 500ml",
+      oQueE: "Os cabelos danificados perdem sua força e vitalidade dia após dia.",
+      categoria: "Pro-Geno Genoma",
+      imagem: "assets/img/produtos/ybera/ybera-150945.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-pro-geno-genoma-500ml-ybera-150945",
+      precoAntigo: "R$ 137,90",
+      preco: "R$ 131,01",
+      destaque: false
+    },
+    {
+      nome: "Kit Shampoo Vello 500ml + Máscara Vello 500g",
+      oQueE: "Kit shampoo e máscara Alfa-Lactobaby em formato econômico.",
+      categoria: "Vello",
+      imagem: "assets/img/produtos/ybera/ybera-151204.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-shampoo-vello-500ml-mascara-vello-500g-ybera-151204",
+      precoAntigo: "R$ 527,90",
+      preco: "R$ 501,51",
+      destaque: false
+    },
+    {
+      nome: "Kit Vello Alfa-Lactobaby - Shampoo 250ml + Máscara 250g",
+      oQueE: "O Shampoo Alfa-Lactobaby® é ideal para estimular o crescimento capilar.",
+      categoria: "Vello",
+      imagem: "assets/img/produtos/ybera/ybera-150904.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-ybera-150904",
+      precoAntigo: "R$ 302,90",
+      preco: "R$ 287,76",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Vello Alfa-Lactobaby 250ml",
+      oQueE: "Não tem nada tão preocupante para uma pessoa do que quando ela passa a mão pelos cabelos e sente os fios caindo com facilidade, ou olhe para o chão da casa…",
+      categoria: "Vello",
+      imagem: "assets/img/produtos/ybera/ybera-150908.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-vello-alfa-lactobaby-250ml-ybera-150908",
+      precoAntigo: "R$ 147,90",
+      preco: "R$ 140,51",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Vello Alfa-Lactobaby 500ml",
+      oQueE: "Shampoo Alfa-Lactobaby estimula crescimento capilar, fortalece folículos e reduz queda.",
+      categoria: "Vello",
+      imagem: "assets/img/produtos/ybera/ybera-151202.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-vello-alfa-lactobaby-500ml-ybera-151202",
+      precoAntigo: "R$ 237,90",
+      preco: "R$ 226,01",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Bio- Stemcell 1L Discovery",
+      oQueE: "Shampoo com células-tronco de maçã suíça que limpa suavemente enquanto promove renovação celular intensa, deixando cabelos mais densos, saudáveis e…",
+      categoria: "Discovery Stemcell",
+      imagem: "assets/img/produtos/ybera/ybera-151055.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-bio-stemcell-1l-discovery-ybera-paris-151055",
+      precoAntigo: "R$ 219,90",
+      preco: "R$ 208,91",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Bio- Stemcell Discovery 500ml",
+      oQueE: "Shampoo com células-tronco de maçã suíça que limpa e promove renovação celular dos fios.",
+      categoria: "Discovery Stemcell",
+      imagem: "assets/img/produtos/ybera/ybera-151054.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-bio-stemcell-discovery-500ml-ybera-paris-151054",
+      precoAntigo: "R$ 137,90",
+      preco: "R$ 131,01",
+      destaque: false
+    },
+    {
+      nome: "Spray Fruto Brilhante Stemcell Discovery 150ml",
+      oQueE: "Proteção térmica avançada com nutrição intensiva.",
+      categoria: "Discovery Stemcell",
+      imagem: "assets/img/produtos/ybera/ybera-151051.webp",
+      affiliateUrl: "https://www.ybera.com/produto/spray-fruto-brilhante-stemcell-discovery-150ml-ybera-paris-151051",
+      precoAntigo: "R$ 147,90",
+      preco: "R$ 140,51",
+      destaque: false
+    },
+    {
+      nome: "Kit Detox Purificante - Shampoo 250ml + Máscara 200g",
+      oQueE: "Purificação profunda, frescor e cabelos mais leves e saudáveis.",
+      categoria: "Detox Purificante",
+      imagem: "assets/img/produtos/ybera/ybera-151117.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-detox-purificante-shampoo-250ml-mascara-200g-ybera-151117",
+      precoAntigo: "R$ 254,90",
+      preco: "R$ 242,16",
+      destaque: false
+    },
+    {
+      nome: "Máscara Detox Purificante 200g",
+      oQueE: "Descubra a nova geração de purificação capilar com a Máscara Purificante PuriOxy® da Ybera.",
+      categoria: "Detox Purificante",
+      imagem: "assets/img/produtos/ybera/ybera-151160.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-detox-purificante-200g-ybera-151160",
+      precoAntigo: "R$ 147,90",
+      preco: "R$ 140,51",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Detox Purificante 250ml",
+      oQueE: "Descubra a nova geração de purificação capilar com o Shampoo Purificante PuriOxy® da Ybera.",
+      categoria: "Detox Purificante",
+      imagem: "assets/img/produtos/ybera/ybera-151159.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-detox-purificante-250ml-ybera-151159",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Membrana Termoprotetora TRH Biotech Life's Flower 150ml",
+      oQueE: "Cabelos ressecados não precisam ser sinônimo de aparência descuidada. Existe uma forma de restaurar o brilho e a suavidade que seus fios tanto pedem.",
+      categoria: "Life's Flower",
+      imagem: "assets/img/produtos/ybera/ybera-150961.webp",
+      affiliateUrl: "https://www.ybera.com/produto/membrana-termoprotetora-trh-biotech-lifes-flower-150ml-ybera-150961",
+      precoAntigo: "R$ 209,90",
+      preco: "R$ 199,41",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Life's Flower TRH Biotech 250ml",
+      oQueE: "Cabelos que são muito ressecados costumam ter a aparência de mal cuidados e que pedem por uma tesoura urgentemente.",
+      categoria: "Life's Flower",
+      imagem: "assets/img/produtos/ybera/ybera-150962.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-lifes-flower-trh-biotech-250ml-ybera-150962",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Pré-Shampoo Protect Poo 300g",
+      oQueE: "Protect Poo Pré-Shampoo Fashion Gold 300g . Cuidado preventivo que preserva a saúde dos fios.",
+      categoria: "Protect",
+      imagem: "assets/img/produtos/ybera/ybera-150338.webp",
+      affiliateUrl: "https://www.ybera.com/produto/pre-shampoo-protect-poo-300g-ybera-fashion-gold-150338",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Protect Control 300ml",
+      oQueE: "Shampoo Protect & Control Fashion Gold 300ml. Proteção pós-progressiva e cuidado diário para fios lisos.",
+      categoria: "Protect",
+      imagem: "assets/img/produtos/ybera/ybera-150354.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-protect-control-300ml-ybera-fashion-gold-150354",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Protect Control 500ml",
+      oQueE: "Shampoo Protect & Control Fashion Gold 500ml . Cuidado diário pós-progressiva para fios alinhados.",
+      categoria: "Protect",
+      imagem: "assets/img/produtos/ybera/ybera-150355.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-protect-control-500ml-ybera-fashion-gold-150355",
+      precoAntigo: "R$ 127,90",
+      preco: "R$ 121,51",
       destaque: false
     },
     {
@@ -725,16 +1095,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/6-unidades-oleo-de-mirra-reparador-15ml-ybera-paris-151448",
       precoAntigo: "R$ 234,00",
       preco: "R$ 222,30",
-      destaque: false
-    },
-    {
-      nome: "Elixir de Coco 60ml",
-      oQueE: "Elixir de Coco 60ml - Terra Coco . Reúne os 2 campeões de hidratação e cuidado capilar em um só produto.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151091.webp",
-      affiliateUrl: "https://www.ybera.com/produto/elixir-de-coco-60ml-ybera-terra-coco-151091",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
       destaque: false
     },
     {
@@ -768,16 +1128,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Leite de Coco Contra Frizz 300 ml - Terra Coco",
-      oQueE: "O Leite de Coco Redutor de Frizz é um finalizador sem enxágue, ideal para uso pré e pós-química.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150384.webp",
-      affiliateUrl: "https://www.ybera.com/produto/leite-de-coco-contra-frizz-300-ml-terra-coco-150384",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      destaque: false
-    },
-    {
       nome: "Líquido Ativador Propiônico 500ml - Black Diva",
       oQueE: "Líquido Ativador Propiônico . Especialmente formulado para ser usado com o creme emoliente Black Diva.",
       categoria: "Finalizadores",
@@ -785,26 +1135,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/liquido-ativador-propionico-500ml-black-diva-150605",
       precoAntigo: "R$ 329,90",
       preco: "R$ 313,41",
-      destaque: false
-    },
-    {
-      nome: "Máscara Detox Purificante 200g",
-      oQueE: "Descubra a nova geração de purificação capilar com a Máscara Purificante PuriOxy® da Ybera.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151160.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-detox-purificante-200g-ybera-151160",
-      precoAntigo: "R$ 147,90",
-      preco: "R$ 140,51",
-      destaque: false
-    },
-    {
-      nome: "Membrana Termoprotetora TRH Biotech Life's Flower 150ml",
-      oQueE: "Cabelos ressecados não precisam ser sinônimo de aparência descuidada. Existe uma forma de restaurar o brilho e a suavidade que seus fios tanto pedem.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150961.webp",
-      affiliateUrl: "https://www.ybera.com/produto/membrana-termoprotetora-trh-biotech-lifes-flower-150ml-ybera-150961",
-      precoAntigo: "R$ 209,90",
-      preco: "R$ 199,41",
       destaque: false
     },
     {
@@ -828,16 +1158,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Soro de Coco 500ml",
-      oQueE: "O Soro de Coco foi especialmente desenvolvido para cabelos quebradiços.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150356.webp",
-      affiliateUrl: "https://www.ybera.com/produto/soro-de-coco-500ml-ybera-terra-coco-150356",
-      precoAntigo: "R$ 147,90",
-      preco: "R$ 140,51",
-      destaque: false
-    },
-    {
       nome: "Spray BB Cream 300ml",
       oQueE: "O Spray BB Cream Day After é o produto perfeito para você que busca revitalizar e realçar a beleza dos seus cabelos entre as lavagens.",
       categoria: "Finalizadores",
@@ -845,16 +1165,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/spray-bb-cream-300ml-ybera-capulana-150524",
       precoAntigo: "R$ 117,90",
       preco: "R$ 112,01",
-      destaque: false
-    },
-    {
-      nome: "Spray Fruto Brilhante Stemcell Discovery 150ml",
-      oQueE: "Proteção térmica avançada com nutrição intensiva.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151051.webp",
-      affiliateUrl: "https://www.ybera.com/produto/spray-fruto-brilhante-stemcell-discovery-150ml-ybera-paris-151051",
-      precoAntigo: "R$ 147,90",
-      preco: "R$ 140,51",
       destaque: false
     },
     {
@@ -948,166 +1258,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit 1 Coquetel Selante Potencializador 1Kg + 1 Shampoo Isotônico 1L - Terra Coco",
-      oQueE: "Shampoo Isotônico . Shampoo Isotônico Sulfato Free é desenvolvido para cabelos extremamente ressecados e grossos.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151602.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-1-coquetel-selante-potencializador-1kg-1-shampoo-isotonico-1l-terra-coco-151602",
-      precoAntigo: "R$ 489,80",
-      preco: "R$ 465,31",
-      destaque: false
-    },
-    {
-      nome: "Kit Botulínica - Shampoo Anti Age Biotox 250ml + Reconstrutor 500g",
-      oQueE: "A dupla completa para reverter os sinais do tempo nos fios.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151622.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-botulinica-shampoo-anti-age-biotox-250ml-reconstrutor-500g-ybera-151622",
-      precoAntigo: "R$ 259,80",
-      preco: "R$ 246,81",
-      destaque: false
-    },
-    {
-      nome: "Kit Cocada Capilar - Shampoo Isotônico 1L + Máscara Toda de Coco 1kg",
-      oQueE: "Shampoo Isotônico Shampoo Isotônico Sulfato Free é desenvolvido para cabelos extremamente ressecados e grossos.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150330.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cocada-capilar-shampoo-isotonico-1l-mascara-toda-de-coco-1kg-ybera-terra-coco-150330",
-      precoAntigo: "R$ 359,90",
-      preco: "R$ 341,91",
-      destaque: false
-    },
-    {
-      nome: "Kit Cocada Capilar - Shampoo Isotônico 1L + Máscara Toda de Coco 1kg + Elixir de Coco 60ml",
-      oQueE: "Hidratação intensa para cabelos ressecados e sem vida .",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150682.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cocada-capilar-shampoo-isotonico-1l-mascara-toda-de-coco-1kg-elixir-de-coco-60ml-ybera-terra-coco-150682",
-      precoAntigo: "R$ 473,90",
-      preco: "R$ 450,21",
-      destaque: false
-    },
-    {
-      nome: "Kit Detox Purificante - Shampoo 250ml + Máscara 200g",
-      oQueE: "Purificação profunda, frescor e cabelos mais leves e saudáveis.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151117.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-detox-purificante-shampoo-250ml-mascara-200g-ybera-151117",
-      precoAntigo: "R$ 254,90",
-      preco: "R$ 242,16",
-      destaque: false
-    },
-    {
-      nome: "Kit Essência Brasileira Elixir do Pantanal - Shampoo 1kg + Condicionador 1kg",
-      oQueE: "O Shampoo Elixir do Pantanal foi desenvolvido para revitalizar cabelos secos e ressecados, unindo o poder do breu branco, da manteiga de murumuru e do óleo…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150921.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-essencia-brasileira-elixir-do-pantanal-shampoo-1kg-condicionador-1kg-ybera-150921",
-      precoAntigo: "R$ 617,80",
-      preco: "R$ 586,91",
-      destaque: false
-    },
-    {
-      nome: "Kit Pro-Geno Genoma - Shampoo 500ml + Máscara 500g",
-      oQueE: "Shampoo e máscara que reconstroem a fibra capilar de dentro para fora.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151205.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-pro-geno-genoma-shampoo-500ml-mascara-500g-ybera-151205",
-      precoAntigo: "R$ 357,90",
-      preco: "R$ 340,01",
-      destaque: false
-    },
-    {
-      nome: "Kit Shampoo Vello 500ml + Máscara Vello 500g",
-      oQueE: "Kit shampoo e máscara Alfa-Lactobaby em formato econômico.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151204.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-shampoo-vello-500ml-mascara-vello-500g-ybera-151204",
-      precoAntigo: "R$ 527,90",
-      preco: "R$ 501,51",
-      destaque: false
-    },
-    {
-      nome: "Kit Vello Alfa-Lactobaby - Shampoo 250ml + Máscara 250g",
-      oQueE: "O Shampoo Alfa-Lactobaby® é ideal para estimular o crescimento capilar.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150904.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-ybera-150904",
-      precoAntigo: "R$ 302,90",
-      preco: "R$ 287,76",
-      destaque: false
-    },
-    {
-      nome: "Pré-Shampoo Protect Poo 300g",
-      oQueE: "Protect Poo Pré-Shampoo Fashion Gold 300g . Cuidado preventivo que preserva a saúde dos fios.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150338.webp",
-      affiliateUrl: "https://www.ybera.com/produto/pre-shampoo-protect-poo-300g-ybera-fashion-gold-150338",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo + Máscara + Selador Pro-Geno Genoma 500ml/500g",
-      oQueE: "Sistema completo de reconstrução capilar: shampoo, máscara e selador.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151206.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-mascara-selador-pro-geno-genoma-500ml-500g-ybera-paris-151206",
-      precoAntigo: "R$ 559,90",
-      preco: "R$ 531,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Bio- Stemcell 1L Discovery",
-      oQueE: "Shampoo com células-tronco de maçã suíça que limpa suavemente enquanto promove renovação celular intensa, deixando cabelos mais densos, saudáveis e…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151055.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-bio-stemcell-1l-discovery-ybera-paris-151055",
-      precoAntigo: "R$ 219,90",
-      preco: "R$ 208,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Bio- Stemcell Discovery 500ml",
-      oQueE: "Shampoo com células-tronco de maçã suíça que limpa e promove renovação celular dos fios.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151054.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-bio-stemcell-discovery-500ml-ybera-paris-151054",
-      precoAntigo: "R$ 137,90",
-      preco: "R$ 131,01",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Botulínica Anti Age Biotox 1L",
-      oQueE: "Peptídeos botulínicos e vitamina E que rejuvenescem e fortalecem profundamente.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151356.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-botulinica-anti-age-biotox-1l-ybera-151356",
-      precoAntigo: "R$ 177,90",
-      preco: "R$ 169,01",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Botulínica Anti Age Biotox 250ml",
-      oQueE: "Formulado para combater o envelhecimento dos fios, o Shampoo Anti-Age BIOTOX® combina peptídeos botulínicos e vitamina E encapsulada em microesferas.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151621.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-botulinica-anti-age-biotox-250ml-ybera-151621",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Botulínica Anti Age Biotox 500ml",
-      oQueE: "Shampoo anti-age com peptídeos botulínicos e vitamina E que fortalece e rejuvenece cabelos.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151553.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-botulinica-anti-age-biotox-500ml-ybera-151553",
-      precoAntigo: "R$ 117,90",
-      preco: "R$ 112,01",
-      destaque: false
-    },
-    {
       nome: "Shampoo Brilho 300ml",
       oQueE: "O Shampoo Brilho Fashion Gold Kids transforma o banho das crianças em um momento divertido e de cuidado suave.",
       categoria: "Shampoo",
@@ -1115,136 +1265,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-brilho-300ml-ybera-fashion-kids-151318",
       precoAntigo: "R$ 79,90",
       preco: "R$ 75,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Detox Purificante 250ml",
-      oQueE: "Descubra a nova geração de purificação capilar com o Shampoo Purificante PuriOxy® da Ybera.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151159.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-detox-purificante-250ml-ybera-151159",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Elixir da Floresta Essência Brasileira 1L",
-      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150916.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-da-floresta-essencia-brasileira-1l-ybera-paris-150916",
-      precoAntigo: "R$ 277,90",
-      preco: "R$ 264,01",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Elixir do Cerrado Essência Brasileira 1L",
-      oQueE: "Cabelos mistos são um desafio diário. Você lava de manhã e, à noite, a raiz já está oleosa.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150918.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-cerrado-essencia-brasileira-1l-ybera-paris-150918",
-      precoAntigo: "R$ 277,90",
-      preco: "R$ 264,01",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Elixir do Pantanal Essência Brasileira 1L",
-      oQueE: "O Shampoo Elixir do Pantanal foi desenvolvido para revitalizar cabelos secos e ressecados, unindo o poder do breu branco, da manteiga de murumuru e do óleo…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150920.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-pantanal-essencia-brasileira-1l-ybera-paris-150920",
-      precoAntigo: "R$ 277,90",
-      preco: "R$ 264,01",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Essência Brasileira Elixir da Floresta 250ml",
-      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150928.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-essencia-brasileira-elixir-da-floresta-250ml-ybera-150928",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Isotônico Sulfato Free 1L",
-      oQueE: "O Shampoo Isotônico foi especialmente desenvolvido para limpar cabelos extremamente ressecados e fios grossos.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150346.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-isotonico-sulfato-free-1l-ybera-terra-coco-150346",
-      precoAntigo: "R$ 169,90",
-      preco: "R$ 161,41",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Life's Flower TRH Biotech 250ml",
-      oQueE: "Cabelos que são muito ressecados costumam ter a aparência de mal cuidados e que pedem por uma tesoura urgentemente.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150962.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-lifes-flower-trh-biotech-250ml-ybera-150962",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Pro-Geno Genoma 250ml",
-      oQueE: "Os cabelos danificados perdem sua força e vitalidade dia após dia.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150938.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-pro-geno-genoma-250ml-ybera-150938",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Pro-Geno Genoma 500ml",
-      oQueE: "Os cabelos danificados perdem sua força e vitalidade dia após dia.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150945.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-pro-geno-genoma-500ml-ybera-150945",
-      precoAntigo: "R$ 137,90",
-      preco: "R$ 131,01",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Protect Control 300ml",
-      oQueE: "Shampoo Protect & Control Fashion Gold 300ml. Proteção pós-progressiva e cuidado diário para fios lisos.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150354.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-protect-control-300ml-ybera-fashion-gold-150354",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Protect Control 500ml",
-      oQueE: "Shampoo Protect & Control Fashion Gold 500ml . Cuidado diário pós-progressiva para fios alinhados.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150355.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-protect-control-500ml-ybera-fashion-gold-150355",
-      precoAntigo: "R$ 127,90",
-      preco: "R$ 121,51",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Vello Alfa-Lactobaby 250ml",
-      oQueE: "Não tem nada tão preocupante para uma pessoa do que quando ela passa a mão pelos cabelos e sente os fios caindo com facilidade, ou olhe para o chão da casa…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150908.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-vello-alfa-lactobaby-250ml-ybera-150908",
-      precoAntigo: "R$ 147,90",
-      preco: "R$ 140,51",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Vello Alfa-Lactobaby 500ml",
-      oQueE: "Shampoo Alfa-Lactobaby estimula crescimento capilar, fortalece folículos e reduz queda.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151202.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-vello-alfa-lactobaby-500ml-ybera-151202",
-      precoAntigo: "R$ 237,90",
-      preco: "R$ 226,01",
       destaque: false
     },
     {
@@ -1630,7 +1650,7 @@ window.LOJAS.ybera = {
     {
       nome: "Cronograma Capilar Cuidados Profundos",
       oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
+      categoria: "Cuidados Profundos",
       imagem: "assets/img/produtos/ybera/ybera-151333.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-cuidados-profundos-ybera-fashion-gold-151333",
       precoAntigo: "R$ 299,90",
@@ -1738,17 +1758,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Completo Discovery",
-      oQueE: "Inspirada na ciência e no poder da natureza, a linha Discovery da Ybera Paris oferece um tratamento inovador que promove disciplina prolongada, ajuste…",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151218.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-completo-discovery-ybera-paris-151218",
-      precoAntigo: "R$ 559,90",
-      preco: "R$ 531,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Kit Escova Progressiva 150g + Shampoo 300ml + Máscara 250g + Óleo de Mirra 15ml",
       oQueE: "Alisamento Profissional com Cuidado Diário Inteligente .",
       categoria: "Progressiva e Pós-Progressiva",
@@ -1826,50 +1835,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Máscara Discovery Bio-Stemcell 200g",
-      oQueE: "A Máscara Bio-Stemcell® proporciona regeneração profunda e revitaliza a saúde dos fios da raiz às pontas.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151215.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-discovery-bio-stemcell-200g-ybera-paris-151215",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Máscara Educadora 500g- Terra Coco",
-      oQueE: "Escova Progressiva com óleo e ácidos isolados de coco que reduz o volume e elimina o frizz de forma natural, sem danificar a fibra capilar, proporcionando…",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-150599.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-educadora-500g-terra-coco-150599",
-      precoAntigo: "R$ 159,90",
-      preco: "R$ 151,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Sabão de Coco Líquido Capilar 1L - Terra Coco",
-      oQueE: "O Sabão de Coco Líquido Capilar limpa profundamente sem danificar os cabelos.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-150602.webp",
-      affiliateUrl: "https://www.ybera.com/produto/sabao-de-coco-liquido-capilar-1l-terra-coco-150602",
-      precoAntigo: "R$ 92,90",
-      preco: "R$ 88,26",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Sabão De Coco Liquido Capilar 500ml - Terra Coco",
-      oQueE: "O Sabão de Coco Líquido Capilar limpa profundamente sem danificar os cabelos.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-150600.webp",
-      affiliateUrl: "https://www.ybera.com/produto/sabao-de-coco-liquido-capilar-500ml-terra-coco-150600",
-      precoAntigo: "R$ 62,90",
-      preco: "R$ 59,76",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Shampoo Pós-Progressiva pH Control 250ml",
       oQueE: "Você saiu do salão com os cabelos impecáveis, alinhados e com um brilho irresistível, mas sabe que, sem os cuidados certos, esse efeito pode durar bem menos…",
       categoria: "Progressiva e Pós-Progressiva",
@@ -1938,7 +1903,7 @@ window.LOJAS.ybera = {
     {
       nome: "3 Unidades - Kit Cronograma Capilar Cuidados Profundos - Fashion Gold",
       oQueE: "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
+      categoria: "Cuidados Profundos",
       imagem: "assets/img/produtos/ybera/ybera-151438.webp",
       affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151438",
       precoAntigo: "R$ 437,70",
@@ -1949,7 +1914,7 @@ window.LOJAS.ybera = {
     {
       nome: "6 Unidades - Kit Cronograma Capilar Cuidados Profundos - Fashion Gold",
       oQueE: "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
+      categoria: "Cuidados Profundos",
       imagem: "assets/img/produtos/ybera/ybera-151437.webp",
       affiliateUrl: "https://www.ybera.com/produto/6-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151437",
       precoAntigo: "R$ 815,40",
@@ -1960,7 +1925,7 @@ window.LOJAS.ybera = {
     {
       nome: "Kit Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
       oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
+      categoria: "Cuidados Profundos",
       imagem: "assets/img/produtos/ybera/ybera-151341.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341",
       precoAntigo: "R$ 379,90",
@@ -1971,11 +1936,374 @@ window.LOJAS.ybera = {
     {
       nome: "Shampoo Multifunção Cuidados Profundos 300ml",
       oQueE: "O Shampoo Multifunção Cuidados Profundos 300ml é a versão compacta da linha que revolucionou o tratamento capilar, perfeita para quem busca resultado…",
-      categoria: "Cronogramas Capilares",
+      categoria: "Cuidados Profundos",
       imagem: "assets/img/produtos/ybera/ybera-151336.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-300ml-ybera-fashion-gold-151336",
       precoAntigo: "R$ 107,90",
       preco: "R$ 102,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Combo Finalizadores - Terra Coco",
+      oQueE: "Água de Coco Capilar 300 ml - Terra Coco A Água de Coco Capilar é considerado um verdadeiro alimento para os cabelos, pois combate o envelhecimento dos…",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150680.webp",
+      affiliateUrl: "https://www.ybera.com/produto/combo-finalizadores-terra-coco-150680",
+      precoAntigo: "R$ 447,90",
+      preco: "R$ 425,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Combo Shampoo 1L + Máscara 1kg + Elixir de Coco 60ml + Soro de Coco 500ml + Leave-in Vegetal 500ml - Terra Coco",
+      oQueE: "Shampoo Isotônico Shampoo Isotônico Sulfato Free é desenvolvido para cabelos extremamente ressecados e grossos.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150683.webp",
+      affiliateUrl: "https://www.ybera.com/produto/combo-shampoo-1l-mascara-1kg-elixir-de-coco-60ml-soro-de-coco-500ml-leave-in-vegetal-500ml-terra-coco-150683",
+      precoAntigo: "R$ 709,90",
+      preco: "R$ 674,41",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Combo Shampoo 300ml + Máscara Polpa de Coco Verde 200g + Elixir de Coco 60ml - Terra Coco",
+      oQueE: "Shampoo Coco Verde Sulfato Free 300ml Super hidratante e desenvolvido para cabelos ressecados e sem brilho, tonifica e elimina as células mortas através dos…",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150687.webp",
+      affiliateUrl: "https://www.ybera.com/produto/combo-shampoo-300ml-mascara-polpa-de-coco-verde-200g-elixir-de-coco-60ml-terra-coco-150687",
+      precoAntigo: "R$ 314,90",
+      preco: "R$ 299,16",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Cocada Capilar - Shampoo Isotônico 500ml + Máscara Toda de Coco 500g",
+      oQueE: "Shampoo Isotônico Sulfato Free 500ml Desenvolvido para cabelos extremamente ressecados e grossos.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150379.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cocada-capilar-shampoo-isotonico-500ml-mascara-toda-de-coco-500g-ybera-terra-coco-150379",
+      precoAntigo: "R$ 189,90",
+      preco: "R$ 180,41",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Tratamento Cocada Capilar 1kg - Terra Coco",
+      oQueE: "Shampoo Isotônico Sulfato Free Desenvolvido para cabelos extremamente ressecados e grossos.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150380.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-tratamento-cocada-capilar-1kg-terra-coco-150380",
+      precoAntigo: "R$ 609,90",
+      preco: "R$ 579,41",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Leave-in Vegetal 500ml - Terra Coco",
+      oQueE: "O Leave-In Vegetal é um finalizador sem enxágue que sela as cutículas dos fios, mantendo-os hidratados e protegidos contra os raios UVA e UVB, além de…",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150383.webp",
+      affiliateUrl: "https://www.ybera.com/produto/leave-in-vegetal-500ml-terra-coco-150383",
+      precoAntigo: "R$ 169,90",
+      preco: "R$ 161,41",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Leave-in Vegetal 500ml + Elixir de Coco 60ml - Terra Coco",
+      oQueE: "Dupla de hidratação com leave-in vegetal e elixir de coco.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150684.webp",
+      affiliateUrl: "https://www.ybera.com/produto/leave-in-vegetal-500ml-elixir-de-coco-60ml-terra-coco-150684",
+      precoAntigo: "R$ 279,90",
+      preco: "R$ 265,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Máscara Educadora 500g- Terra Coco",
+      oQueE: "Escova Progressiva com óleo e ácidos isolados de coco que reduz o volume e elimina o frizz de forma natural, sem danificar a fibra capilar, proporcionando…",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150599.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-educadora-500g-terra-coco-150599",
+      precoAntigo: "R$ 159,90",
+      preco: "R$ 151,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Sabão de Coco Líquido Capilar 1L - Terra Coco",
+      oQueE: "O Sabão de Coco Líquido Capilar limpa profundamente sem danificar os cabelos.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150602.webp",
+      affiliateUrl: "https://www.ybera.com/produto/sabao-de-coco-liquido-capilar-1l-terra-coco-150602",
+      precoAntigo: "R$ 92,90",
+      preco: "R$ 88,26",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Sabão De Coco Liquido Capilar 500ml - Terra Coco",
+      oQueE: "O Sabão de Coco Líquido Capilar limpa profundamente sem danificar os cabelos.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150600.webp",
+      affiliateUrl: "https://www.ybera.com/produto/sabao-de-coco-liquido-capilar-500ml-terra-coco-150600",
+      precoAntigo: "R$ 62,90",
+      preco: "R$ 59,76",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Coco Verde 300ml - Terra Coco",
+      oQueE: "O Shampoo Coco Verde limpa delicadamente e hidrata profundamente, proporcionando maciez, brilho aos cabelos.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150342.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-terra-coco-150342",
+      precoAntigo: "R$ 97,90",
+      preco: "R$ 93,01",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Coco Verde 300ml + Condicionador Coco Verde 300g - Terra Coco",
+      oQueE: "Shampoo Coco Verde Sulfato Free 300ml - Terra Coco . Desenvolvido para cabelos ressecados e sem brilho.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-151090.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-condicionador-coco-verde-300g-terra-coco-151090",
+      precoAntigo: "R$ 189,90",
+      preco: "R$ 180,41",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Coco Verde 300ml + Máscara Polpa de Coco Verde 200g - Terra Coco",
+      oQueE: "Shampoo Coco Verde Sulfato Free 300ml Super hidratante e desenvolvido para cabelos ressecados e sem brilho, tonifica e elimina as células mortas através dos…",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150689.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-mascara-polpa-de-coco-verde-200g-terra-coco-150689",
+      precoAntigo: "R$ 197,90",
+      preco: "R$ 188,01",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo de coco 300ml - Açai Terra Coco",
+      oQueE: "O Shampoo de Coco e Açaí é super hidratante, desenvolvido especialmente para cabelos ressecados e sem brilho.",
+      categoria: "Terra Coco",
+      imagem: "assets/img/produtos/ybera/ybera-150544.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-de-coco-300ml-acai-terra-coco-150544",
+      precoAntigo: "R$ 47,90",
+      preco: "R$ 45,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo + Condicionador Elixir da Floresta Essência Brasileira 1Kg",
+      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150923.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-da-floresta-essencia-brasileira-1kg-ybera-paris-150923",
+      precoAntigo: "R$ 617,80",
+      preco: "R$ 586,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo + Condicionador Elixir da Floresta Essência Brasileira 250ml",
+      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150926.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-da-floresta-essencia-brasileira-250ml-ybera-paris-150926",
+      precoAntigo: "R$ 219,90",
+      preco: "R$ 208,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo + Condicionador Elixir do Cerrado Essência Brasileira 1Kg",
+      oQueE: "Cabelos mistos sempre parecem estar em desequilíbrio. Raiz oleosa, pontas secas, necessidade de lavagens constantes.",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150922.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-cerrado-essencia-brasileira-1kg-ybera-paris-150922",
+      precoAntigo: "R$ 617,80",
+      preco: "R$ 586,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo + Condicionador Elixir do Cerrado Essência Brasileira 250ml",
+      oQueE: "Cabelos mistos sempre parecem estar em desequilíbrio. Raiz oleosa, pontas secas, necessidade de lavagens constantes.",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150924.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-cerrado-essencia-brasileira-250ml-ybera-paris-150924",
+      precoAntigo: "R$ 219,90",
+      preco: "R$ 208,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo + Condicionador Elixir do Pantanal Essência Brasileira 250ml",
+      oQueE: "O Shampoo Elixir do Pantanal foi desenvolvido para revitalizar cabelos secos e ressecados, unindo o poder do breu branco, da manteiga de murumuru e do óleo…",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150925.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-pantanal-essencia-brasileira-250ml-ybera-paris-150925",
+      precoAntigo: "R$ 219,90",
+      preco: "R$ 208,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Elixir do Pantanal Essência Brasileira 250ml",
+      oQueE: "O Shampoo Elixir do Pantanal foi desenvolvido para revitalizar cabelos secos e ressecados, unindo o poder do breu branco, da manteiga de murumuru e do óleo…",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150929.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-pantanal-essencia-brasileira-250ml-ybera-paris-150929",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Essência Brasileira Elixir do Cerrado 250ml",
+      oQueE: "Cabelos mistos são um desafio diário. Você lava de manhã e, à noite, a raiz já está oleosa.",
+      categoria: "Essência Brasileira",
+      imagem: "assets/img/produtos/ybera/ybera-150930.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-essencia-brasileira-elixir-do-cerrado-250ml-ybera-150930",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Genoma - Shampoo 250ml + Máscara 200g",
+      oQueE: "Cabelos danificados precisam de mais do que uma hidratação comum – eles precisam de um tratamento que realmente devolva a força, a maciez e o brilho…",
+      categoria: "Pro-Geno Genoma",
+      imagem: "assets/img/produtos/ybera/ybera-150941.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-genoma-shampoo-250ml-mascara-200g-ybera-150941",
+      precoAntigo: "R$ 279,90",
+      preco: "R$ 265,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Vello Alfa-Lactobaby - Shampoo 250ml + Máscara 250g + Soro 90ml",
+      oQueE: "O Shampoo Alfa-Lactobaby® é ideal para estimular o crescimento capilar.",
+      categoria: "Vello",
+      imagem: "assets/img/produtos/ybera/ybera-150903.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-soro-90ml-ybera-150903",
+      precoAntigo: "R$ 539,90",
+      preco: "R$ 512,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Vello Alfa-Lactobaby - Shampoo 250ml + Máscara 250g + Soro 90ml + Pré Limpeza 250ml + Colostro 250ml",
+      oQueE: "O Pré-Limpeza Alfa-Lactobaby® é o primeiro passo da Fertilização Capilar, desenvolvido com uma fórmula biomimética que promove uma microesfoliação suave…",
+      categoria: "Vello",
+      imagem: "assets/img/produtos/ybera/ybera-150902.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-soro-90ml-pre-limpeza-250ml-colostro-250ml-ybera-150902",
+      precoAntigo: "R$ 869,90",
+      preco: "R$ 826,41",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Completo Discovery",
+      oQueE: "Inspirada na ciência e no poder da natureza, a linha Discovery da Ybera Paris oferece um tratamento inovador que promove disciplina prolongada, ajuste…",
+      categoria: "Discovery Stemcell",
+      imagem: "assets/img/produtos/ybera/ybera-151218.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-completo-discovery-ybera-paris-151218",
+      precoAntigo: "R$ 559,90",
+      preco: "R$ 531,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Discovery Bio Stemcell - Shampoo 250ml + Máscara 200g",
+      oQueE: "Dupla regeneradora com células-tronco da maçã. Nutri profunda, fortalecimento e brilho intenso para cabelos revitalizados e resistentes.",
+      categoria: "Discovery Stemcell",
+      imagem: "assets/img/produtos/ybera/ybera-151219.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-discovery-bio-stemcell-shampoo-250ml-mascara-200g-ybera-151219",
+      precoAntigo: "R$ 229,90",
+      preco: "R$ 218,41",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Máscara Discovery Bio-Stemcell 200g",
+      oQueE: "A Máscara Bio-Stemcell® proporciona regeneração profunda e revitaliza a saúde dos fios da raiz às pontas.",
+      categoria: "Discovery Stemcell",
+      imagem: "assets/img/produtos/ybera/ybera-151215.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-discovery-bio-stemcell-200g-ybera-paris-151215",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Serum Discovery Tricomplex 90ml",
+      oQueE: "O Sérum Tricomplex Cell-Pro Vit-C® é um densificador capilar avançado que fortalece o couro cabeludo, aumenta a densidade dos fios, combate o envelhecimento…",
+      categoria: "Discovery Stemcell",
+      imagem: "assets/img/produtos/ybera/ybera-151216.webp",
+      affiliateUrl: "https://www.ybera.com/produto/serum-discovery-tricomplex-90ml-ybera-151216",
+      precoAntigo: "R$ 339,90",
+      preco: "R$ 322,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Discovery Bio-Stemcell 250ml",
+      oQueE: "O Shampoo Bio-Stemcell® estabelece um ecossistema saudável para o couro cabeludo ao combater radicais livres.",
+      categoria: "Discovery Stemcell",
+      imagem: "assets/img/produtos/ybera/ybera-151214.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-discovery-bio-stemcell-250ml-ybera-151214",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Life's Flower - Shampoo 250ml + Máscara 200g",
+      oQueE: "Cabelos que são muito ressecados costumam ter a aparência de mal cuidados e que pedem por uma tesoura urgentemente.",
+      categoria: "Life's Flower",
+      imagem: "assets/img/produtos/ybera/ybera-150964.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-lifes-flower-shampoo-250ml-mascara-200g-ybera-150964",
+      precoAntigo: "R$ 299,90",
+      preco: "R$ 284,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Membrana Termoprotetora Trehalose Life's Flower 250ml",
+      oQueE: "Treahalose Membrana Protetora .",
+      categoria: "Life's Flower",
+      imagem: "assets/img/produtos/ybera/ybera-150625.webp",
+      affiliateUrl: "https://www.ybera.com/produto/membrana-termoprotetora-trehalose-lifes-flower-250ml-ybera-paris-150625",
+      precoAntigo: "R$ 83,90",
+      preco: "R$ 79,71",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Splendor Oil TRH Biotech Life's Flower 90ml",
+      oQueE: "Quando o seu cabelo está ressecado demais, parece que não há produto que resolva o problema.",
+      categoria: "Life's Flower",
+      imagem: "assets/img/produtos/ybera/ybera-150963.webp",
+      affiliateUrl: "https://www.ybera.com/produto/splendor-oil-trh-biotech-lifes-flower-90ml-ybera-150963",
+      precoAntigo: "R$ 277,90",
+      preco: "R$ 264,01",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Pré-Shampoo Protect Poo 500g",
+      oQueE: "Protect Poo Pré-Shampoo Fashion Gold 500g. Cuidado preventivo que preserva a hidratação dos fios.",
+      categoria: "Protect",
+      imagem: "assets/img/produtos/ybera/ybera-150339.webp",
+      affiliateUrl: "https://www.ybera.com/produto/pre-shampoo-protect-poo-500g-ybera-fashion-gold-150339",
+      precoAntigo: "R$ 147,90",
+      preco: "R$ 140,51",
       esgotado: true,
       destaque: false
     },
@@ -1987,28 +2315,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/ativador-harmonizador-de-cachos-500g-capulana-150528",
       precoAntigo: "R$ 97,90",
       preco: "R$ 93,01",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Combo Finalizadores - Terra Coco",
-      oQueE: "Água de Coco Capilar 300 ml - Terra Coco A Água de Coco Capilar é considerado um verdadeiro alimento para os cabelos, pois combate o envelhecimento dos…",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150680.webp",
-      affiliateUrl: "https://www.ybera.com/produto/combo-finalizadores-terra-coco-150680",
-      precoAntigo: "R$ 447,90",
-      preco: "R$ 425,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Combo Shampoo 1L + Máscara 1kg + Elixir de Coco 60ml + Soro de Coco 500ml + Leave-in Vegetal 500ml - Terra Coco",
-      oQueE: "Shampoo Isotônico Shampoo Isotônico Sulfato Free é desenvolvido para cabelos extremamente ressecados e grossos.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150683.webp",
-      affiliateUrl: "https://www.ybera.com/produto/combo-shampoo-1l-mascara-1kg-elixir-de-coco-60ml-soro-de-coco-500ml-leave-in-vegetal-500ml-terra-coco-150683",
-      precoAntigo: "R$ 709,90",
-      preco: "R$ 674,41",
       esgotado: true,
       destaque: false
     },
@@ -2156,39 +2462,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Tratamento Cocada Capilar 1kg - Terra Coco",
-      oQueE: "Shampoo Isotônico Sulfato Free Desenvolvido para cabelos extremamente ressecados e grossos.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150380.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-tratamento-cocada-capilar-1kg-terra-coco-150380",
-      precoAntigo: "R$ 609,90",
-      preco: "R$ 579,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Leave-in Vegetal 500ml - Terra Coco",
-      oQueE: "O Leave-In Vegetal é um finalizador sem enxágue que sela as cutículas dos fios, mantendo-os hidratados e protegidos contra os raios UVA e UVB, além de…",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150383.webp",
-      affiliateUrl: "https://www.ybera.com/produto/leave-in-vegetal-500ml-terra-coco-150383",
-      precoAntigo: "R$ 169,90",
-      preco: "R$ 161,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Leave-in Vegetal 500ml + Elixir de Coco 60ml - Terra Coco",
-      oQueE: "Dupla de hidratação com leave-in vegetal e elixir de coco.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150684.webp",
-      affiliateUrl: "https://www.ybera.com/produto/leave-in-vegetal-500ml-elixir-de-coco-60ml-terra-coco-150684",
-      precoAntigo: "R$ 279,90",
-      preco: "R$ 265,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Matizador Termoativado Color Crystal 90ml",
       oQueE: "Todo cabeleireiro sabe o desafio que é alisar cabelos loiros sem alterar a cor.",
       categoria: "Finalizadores",
@@ -2196,17 +2469,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/matizador-termoativado-color-crystal-90ml-ybera-paris-150912",
       precoAntigo: "R$ 169,90",
       preco: "R$ 161,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Membrana Termoprotetora Trehalose Life's Flower 250ml",
-      oQueE: "Treahalose Membrana Protetora .",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150625.webp",
-      affiliateUrl: "https://www.ybera.com/produto/membrana-termoprotetora-trehalose-lifes-flower-250ml-ybera-paris-150625",
-      precoAntigo: "R$ 83,90",
-      preco: "R$ 79,71",
       esgotado: true,
       destaque: false
     },
@@ -2251,28 +2513,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-refil-90ml-ybera-150935",
       precoAntigo: "R$ 197,90",
       preco: "R$ 188,01",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Serum Discovery Tricomplex 90ml",
-      oQueE: "O Sérum Tricomplex Cell-Pro Vit-C® é um densificador capilar avançado que fortalece o couro cabeludo, aumenta a densidade dos fios, combate o envelhecimento…",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151216.webp",
-      affiliateUrl: "https://www.ybera.com/produto/serum-discovery-tricomplex-90ml-ybera-151216",
-      precoAntigo: "R$ 339,90",
-      preco: "R$ 322,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Splendor Oil TRH Biotech Life's Flower 90ml",
-      oQueE: "Quando o seu cabelo está ressecado demais, parece que não há produto que resolva o problema.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150963.webp",
-      affiliateUrl: "https://www.ybera.com/produto/splendor-oil-trh-biotech-lifes-flower-90ml-ybera-150963",
-      precoAntigo: "R$ 277,90",
-      preco: "R$ 264,01",
       esgotado: true,
       destaque: false
     },
@@ -2343,61 +2583,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Combo Shampoo 300ml + Máscara Polpa de Coco Verde 200g + Elixir de Coco 60ml - Terra Coco",
-      oQueE: "Shampoo Coco Verde Sulfato Free 300ml Super hidratante e desenvolvido para cabelos ressecados e sem brilho, tonifica e elimina as células mortas através dos…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150687.webp",
-      affiliateUrl: "https://www.ybera.com/produto/combo-shampoo-300ml-mascara-polpa-de-coco-verde-200g-elixir-de-coco-60ml-terra-coco-150687",
-      precoAntigo: "R$ 314,90",
-      preco: "R$ 299,16",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Cocada Capilar - Shampoo Isotônico 500ml + Máscara Toda de Coco 500g",
-      oQueE: "Shampoo Isotônico Sulfato Free 500ml Desenvolvido para cabelos extremamente ressecados e grossos.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150379.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cocada-capilar-shampoo-isotonico-500ml-mascara-toda-de-coco-500g-ybera-terra-coco-150379",
-      precoAntigo: "R$ 189,90",
-      preco: "R$ 180,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Discovery Bio Stemcell - Shampoo 250ml + Máscara 200g",
-      oQueE: "Dupla regeneradora com células-tronco da maçã. Nutri profunda, fortalecimento e brilho intenso para cabelos revitalizados e resistentes.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151219.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-discovery-bio-stemcell-shampoo-250ml-mascara-200g-ybera-151219",
-      precoAntigo: "R$ 229,90",
-      preco: "R$ 218,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Genoma - Shampoo 250ml + Máscara 200g",
-      oQueE: "Cabelos danificados precisam de mais do que uma hidratação comum – eles precisam de um tratamento que realmente devolva a força, a maciez e o brilho…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150941.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-genoma-shampoo-250ml-mascara-200g-ybera-150941",
-      precoAntigo: "R$ 279,90",
-      preco: "R$ 265,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Life's Flower - Shampoo 250ml + Máscara 200g",
-      oQueE: "Cabelos que são muito ressecados costumam ter a aparência de mal cuidados e que pedem por uma tesoura urgentemente.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150964.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-lifes-flower-shampoo-250ml-mascara-200g-ybera-150964",
-      precoAntigo: "R$ 299,90",
-      preco: "R$ 284,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Kit Mirra - Shampoo Mirracura 250ml + Máscara Mirracura 200g",
       oQueE: "Cicatrização completa para os seus fios.",
       categoria: "Shampoo",
@@ -2449,171 +2634,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-quarta-camada-shampoo-500ml-reconstrutor-500g-ybera-151069",
       precoAntigo: "R$ 355,90",
       preco: "R$ 338,11",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Vello Alfa-Lactobaby - Shampoo 250ml + Máscara 250g + Soro 90ml",
-      oQueE: "O Shampoo Alfa-Lactobaby® é ideal para estimular o crescimento capilar.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150903.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-soro-90ml-ybera-150903",
-      precoAntigo: "R$ 539,90",
-      preco: "R$ 512,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Vello Alfa-Lactobaby - Shampoo 250ml + Máscara 250g + Soro 90ml + Pré Limpeza 250ml + Colostro 250ml",
-      oQueE: "O Pré-Limpeza Alfa-Lactobaby® é o primeiro passo da Fertilização Capilar, desenvolvido com uma fórmula biomimética que promove uma microesfoliação suave…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150902.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-soro-90ml-pre-limpeza-250ml-colostro-250ml-ybera-150902",
-      precoAntigo: "R$ 869,90",
-      preco: "R$ 826,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Pré-Shampoo Protect Poo 500g",
-      oQueE: "Protect Poo Pré-Shampoo Fashion Gold 500g. Cuidado preventivo que preserva a hidratação dos fios.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150339.webp",
-      affiliateUrl: "https://www.ybera.com/produto/pre-shampoo-protect-poo-500g-ybera-fashion-gold-150339",
-      precoAntigo: "R$ 147,90",
-      preco: "R$ 140,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo + Condicionador Elixir da Floresta Essência Brasileira 1Kg",
-      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150923.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-da-floresta-essencia-brasileira-1kg-ybera-paris-150923",
-      precoAntigo: "R$ 617,80",
-      preco: "R$ 586,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo + Condicionador Elixir da Floresta Essência Brasileira 250ml",
-      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150926.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-da-floresta-essencia-brasileira-250ml-ybera-paris-150926",
-      precoAntigo: "R$ 219,90",
-      preco: "R$ 208,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo + Condicionador Elixir do Cerrado Essência Brasileira 1Kg",
-      oQueE: "Cabelos mistos sempre parecem estar em desequilíbrio. Raiz oleosa, pontas secas, necessidade de lavagens constantes.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150922.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-cerrado-essencia-brasileira-1kg-ybera-paris-150922",
-      precoAntigo: "R$ 617,80",
-      preco: "R$ 586,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo + Condicionador Elixir do Cerrado Essência Brasileira 250ml",
-      oQueE: "Cabelos mistos sempre parecem estar em desequilíbrio. Raiz oleosa, pontas secas, necessidade de lavagens constantes.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150924.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-cerrado-essencia-brasileira-250ml-ybera-paris-150924",
-      precoAntigo: "R$ 219,90",
-      preco: "R$ 208,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo + Condicionador Elixir do Pantanal Essência Brasileira 250ml",
-      oQueE: "O Shampoo Elixir do Pantanal foi desenvolvido para revitalizar cabelos secos e ressecados, unindo o poder do breu branco, da manteiga de murumuru e do óleo…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150925.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-pantanal-essencia-brasileira-250ml-ybera-paris-150925",
-      precoAntigo: "R$ 219,90",
-      preco: "R$ 208,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Coco Verde 300ml - Terra Coco",
-      oQueE: "O Shampoo Coco Verde limpa delicadamente e hidrata profundamente, proporcionando maciez, brilho aos cabelos.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150342.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-terra-coco-150342",
-      precoAntigo: "R$ 97,90",
-      preco: "R$ 93,01",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Coco Verde 300ml + Condicionador Coco Verde 300g - Terra Coco",
-      oQueE: "Shampoo Coco Verde Sulfato Free 300ml - Terra Coco . Desenvolvido para cabelos ressecados e sem brilho.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151090.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-condicionador-coco-verde-300g-terra-coco-151090",
-      precoAntigo: "R$ 189,90",
-      preco: "R$ 180,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Coco Verde 300ml + Máscara Polpa de Coco Verde 200g - Terra Coco",
-      oQueE: "Shampoo Coco Verde Sulfato Free 300ml Super hidratante e desenvolvido para cabelos ressecados e sem brilho, tonifica e elimina as células mortas através dos…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150689.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-mascara-polpa-de-coco-verde-200g-terra-coco-150689",
-      precoAntigo: "R$ 197,90",
-      preco: "R$ 188,01",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo de coco 300ml - Açai Terra Coco",
-      oQueE: "O Shampoo de Coco e Açaí é super hidratante, desenvolvido especialmente para cabelos ressecados e sem brilho.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150544.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-de-coco-300ml-acai-terra-coco-150544",
-      precoAntigo: "R$ 47,90",
-      preco: "R$ 45,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Discovery Bio-Stemcell 250ml",
-      oQueE: "O Shampoo Bio-Stemcell® estabelece um ecossistema saudável para o couro cabeludo ao combater radicais livres.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151214.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-discovery-bio-stemcell-250ml-ybera-151214",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Elixir do Pantanal Essência Brasileira 250ml",
-      oQueE: "O Shampoo Elixir do Pantanal foi desenvolvido para revitalizar cabelos secos e ressecados, unindo o poder do breu branco, da manteiga de murumuru e do óleo…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150929.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-pantanal-essencia-brasileira-250ml-ybera-paris-150929",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Essência Brasileira Elixir do Cerrado 250ml",
-      oQueE: "Cabelos mistos são um desafio diário. Você lava de manhã e, à noite, a raiz já está oleosa.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150930.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-essencia-brasileira-elixir-do-cerrado-250ml-ybera-150930",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
       esgotado: true,
       destaque: false
     },

@@ -142,11 +142,13 @@ fica no console do navegador (F12).
 >   vale primeiro), e as linhas da Ybera ganham categoria própria (`LINHAS`).
 >   O que não se encaixa vai para "Outros", que fica escondido.
 > - Na página inicial, os produtos aparecem todos de uma vez, separados por
->   categoria (com um espaço entre uma e outra): Progressiva e Pós-Progressiva,
->   Loiro Perfeito, Liso Perfeito, Cacho Perfeito, Kids, Antiqueda,
->   Cronogramas Capilares, Finalizadores, Equipamentos Profissionais e
->   Shampoo. As linhas (Loiro Perfeito, Kids...) vêm de `LINHAS`, no script,
->   pelo nome do produto. Os botões de categoria no alto filtram a lista; nomes
+>   categoria, cada coisa separada (com um espaço entre uma e outra):
+>   Progressiva e Pós-Progressiva, Loiro Perfeito, Liso Perfeito, Cacho
+>   Perfeito, Kids, Antiqueda, Cuidados Profundos, Cronogramas Capilares,
+>   Terra Coco, Botulínica Anti Age, Essência Brasileira, Pro-Geno Genoma,
+>   Vello, Discovery Stemcell, Detox Purificante, Life's Flower, Protect,
+>   Finalizadores, Equipamentos Profissionais e Shampoo. As linhas vêm de
+>   `LINHAS`, no script, pelo nome do produto. Os botões de categoria no alto filtram a lista; nomes
 >   curtos para eles podem ir em `rotulosCategorias`, em `data/ybera.js`. O que
 >   não é de nenhuma categoria ("Outros") não aparece.
 > - Fotos: chegam da loja em JPG e `scripts/fotos-ybera.py` as transforma em
