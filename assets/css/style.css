@@ -717,7 +717,8 @@ h1, h2, h3, h4, p { margin: 0; }
 
 /* ---------- Lista agrupada (categoria aberta ou busca) ---------- */
 .lista { display: grid; gap: 12px; }
-.lista:not(.grupo__lista) { gap: 40px; }
+/* Distância entre uma categoria e a próxima */
+.lista:not(.grupo__lista) { gap: 56px; }
 .grupo__titulo {
   position: sticky;
   top: var(--altura-cabecalho);

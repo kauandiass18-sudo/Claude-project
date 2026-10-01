@@ -273,7 +273,7 @@
         ehDestaque ? null : el("span", { class: "card__seta", html: ICONES.seta })
       ]
     );
-    if (produto.destaque && !ehDestaque) {
+    if (produto.destaque && !ehDestaque && secaoDestaques) {
       card.prepend(el("span", { class: "card__selo", "aria-label": "Destaque", html: ICONES.estrela }));
     }
     return card;
@@ -371,7 +371,7 @@
         el("span", { text: rotulo })
       ]);
     };
-    listaCategorias.replaceChildren(chip("", txt.todos), ...categorias.map((c) => chip(c, c)));
+    listaCategorias.replaceChildren(chip("", txt.todos), ...categorias.map((c) => chip(c, rotulosCategorias[c] || c)));
   }
 
   function renderDestaques() {
@@ -404,7 +404,7 @@
     const filtrados = produtos.filter(
       (p) => !p.oculto && (!estado.categoria || p.categoria === estado.categoria) && (!termo || p.busca.includes(termo))
     );
-    const resultado = modoBotoes ? ordemPrateleira(filtrados) : filtrados;
+    const resultado = modoBotoes ? ordemPrateleira(filtrados) : fotoLimpaPrimeiro(filtrados);
 
     if (secaoDestaques && trilhoDestaques && trilhoDestaques.childElementCount) {
       secaoDestaques.hidden = filtrando;
@@ -452,7 +452,7 @@
         return el("li", { class: "grupo" }, [
           el("h4", { class: "grupo__titulo" }, [
             icone ? el("span", { class: "grupo__icone", html: icone }) : null,
-            el("span", { class: "grupo__nome", text: rotulosCategorias[g] || g }),
+            el("span", { class: "grupo__nome", text: g }),
             el("span", { class: "grupo__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
           ]),
           el("ul", { class: classeLista }, itens)

@@ -34,9 +34,8 @@ window.LOJAS.ybera = {
   // estoque voltar). true = mostrar com o selo "Esgotado".
   mostrarEsgotados: false,
 
-  // Categorias que NÃO aparecem no site (nem na vitrine, nem na busca).
-  // "Outros" junta o que não é de nenhuma das 5 categorias. Produtos com
-  // destaque: true continuam nos Queridinhos mesmo assim.
+  // Categorias que NÃO aparecem no site (nem na lista, nem na busca).
+  // "Outros" junta o que não é de nenhuma das 5 categorias.
   ocultarCategorias: ["Outros"],
 
   // Produtos que NÃO aparecem no site quando o nome tem uma destas
@@ -52,18 +51,9 @@ window.LOJAS.ybera = {
     "Shampoo"
   ],
 
-  // Título curto de cada prateleira. Sem título aqui, aparece o nome da
-  // categoria (que continua aparecendo inteiro ao tocar em "Ver todos").
-  rotulosCategorias: {
-    "Progressiva e Pós-Progressiva": "Progressiva",
-    "Cronogramas Capilares": "Cronogramas",
-    "Finalizadores": "Finalizadores",
-    "Equipamentos Profissionais": "Equipamentos",
-    "Shampoo": "Shampoo"
-  },
-
-  // Quantos produtos cada prateleira mostra antes do cartão "Ver todos".
-  produtosPorPrateleira: 10,
+  // Nome curto de cada categoria nos botões de filtro (opcional).
+  // Sem nome aqui, aparece o nome inteiro da categoria.
+  rotulosCategorias: {},
 
   // Ícone de cada categoria.
   // Ícones: liso, gota, raiz, coracao, ondas, brilho, cachos, sol, escudo, frasco, caixa, escova.

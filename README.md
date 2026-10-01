@@ -140,29 +140,27 @@ fica no console do navegador (F12).
 >   Pós-Progressiva, Cronogramas Capilares, Finalizadores, Equipamentos
 >   Profissionais e Shampoo (regras em `GRUPOS`, no script; o nome do produto
 >   vale primeiro). O que não se encaixa vai para "Outros", que fica escondido.
-> - Na página inicial, a vitrine tem uma prateleira por categoria, com os
->   produtos lado a lado, para deslizar (no computador, com setas). Cada
->   prateleira mostra até `produtosPorPrateleira` produtos (hoje 10) e termina
->   num cartão "Ver todos os N". "Ver todos" abre só aquela categoria, em
->   vitrine de dois por linha. Os títulos curtos das prateleiras ("Progressiva",
->   "Cronogramas"...) ficam em `rotulosCategorias`, em `data/ybera.js`.
+> - Na página inicial, os produtos aparecem todos de uma vez, separados pelas
+>   5 categorias (com um espaço entre uma e outra). Os botões de categoria no
+>   alto filtram a lista; nomes curtos para eles podem ir em
+>   `rotulosCategorias`, em `data/ybera.js`. O que não é de nenhuma das 5
+>   categorias ("Outros") não aparece.
 > - Fotos: chegam da loja em JPG e `scripts/fotos-ybera.py` as transforma em
 >   WebP (umas 6 vezes mais leves). O mesmo script anota em
 >   `data/ybera-fotos.js` as fotos que não têm fundo branco: elas vão para o
->   fim das prateleiras e dos Queridinhos, que começam pelas fotos mais limpas.
->   Os Queridinhos alternam as categorias (um de cada por vez).
+>   fim de cada categoria, que começa pelas fotos mais limpas.
 > - Preço: o valor grande é o do Pix; o preço maior da loja aparece como
 >   "ou R$ X no cartão", sem riscar. Só desconto de 10% ou mais
 >   (`descontoMinimoSelo`) vira promoção, com preço riscado e selo "-10%".
 > - Produtos com certas palavras no nome ficam escondidos com
 >   `ocultarProdutosCom`, em `data/ybera.js` (hoje: Black Diva).
 > - Categorias inteiras podem ser escondidas em `ocultarCategorias`, em
->   `data/ybera.js` (hoje: Outros). Produtos com `destaque: true` continuam
->   nos Queridinhos mesmo com a categoria escondida.
+>   `data/ybera.js` (hoje: Outros).
 > - Produtos esgotados ficam escondidos (`mostrarEsgotados: false`) e voltam
 >   sozinhos quando o estoque voltar.
-> - `destaque: true` é a única mudança feita à mão na lista que se mantém: o
->   produto aparece em "Queridinhos do salão".
+> - `destaque: true` é a única mudança feita à mão na lista que se mantém
+>   (hoje a página inicial não tem a faixa de Queridinhos, então não muda nada
+>   na tela; ele vale para quando a faixa voltar).
 > - Se a loja não puder ser lida, nada é mudado. Para rodar na hora: aba
 >   **Actions** → *Atualizar catálogo da Ybera* → *Run workflow*.
 >
