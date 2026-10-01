@@ -10,13 +10,13 @@ jobs:
       - name: Ler página
         run: |
           UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
-          for u in "https://www.ybera.com/mais-vendidos" "https://www.ybera.com/mais-vendidos?pagina=2" "https://www.ybera.com/mais-vendidos?pg=2" "https://www.ybera.com/mais-vendidos?page=2"; do
-            echo "=== $u"
-            curl -sL -A "$UA" "$u" -o p.html -w "HTTP %{http_code} %{size_download}\n"
-            grep -oiE 'href="[^"]*produto/[^"]+"' p.html | awk '!s[$0]++' | head -80
-            echo "--- paginação"
-            grep -oiE '(href="[^"]*(pagina|pg|page)=[0-9]+[^"]*")' p.html | sort -u | head
-            grep -oiE 'total[^<]{0,60}produtos?' p.html | head -3
-          done
-          echo "=== trecho"
-          curl -sL -A "$UA" "https://www.ybera.com/mais-vendidos" | tr -s ' \n' ' ' | grep -oiE '.{0,200}(carregar mais|ver mais|load more|infinite|next).{0,200}' | head -5
+          curl -sL -A "$UA" "https://www.ybera.com/mais-vendidos" -o p.html
+          echo "--- produtos com escova"; grep -oiE '.{0,160}escova-progressiva.{0,160}' p.html | head -4
+          echo "--- slugs"; grep -oiE '(slug|url|link)[":= ]{1,4}"?[^",}]{0,120}-[0-9]{6}' p.html | head -30
+          echo "--- ids de 6 digitos em ordem"; grep -oE '15[01][0-9]{3}' p.html | awk '!s[$0]++' | head -60 | tr '\n' ' '; echo
+          echo "--- scripts"; grep -oiE '<script[^>]*src="[^"]+"' p.html | head -20
+          echo "--- api"; grep -oiE '(https?:)?//[^"'"'"' ]*(api|graphql|search|vitrine|showcase)[^"'"'"' ]{0,120}' p.html | sort -u | head -20
+          echo "--- nuxt"; grep -oiE '(__NUXT__|__NEXT_DATA__|window\.__[A-Z_]+)' p.html | sort | uniq -c
+          echo "--- titulo"; grep -oiE '<title>[^<]*' p.html
+          echo "--- nomes"; grep -oiE '"name":"[^"]{5,120}"' p.html | awk '!s[$0]++' | head -40
+          echo "--- trecho meio"; tr -s ' \n' ' ' < p.html | grep -oiE '.{0,300}mais vendidos.{0,300}' | head -4
