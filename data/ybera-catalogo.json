@@ -1,5 +1,5 @@
 {
- "lidoEm": "2026-10-01T20:43:02.550Z",
+ "lidoEm": "2026-10-01T21:18:54.457Z",
  "produtos": [
   {
    "id": "151545",
@@ -19,7 +19,7 @@
    "oQueE": "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
    "categoria": "Fashion Gold",
    "imagem": "https://lojaybera.fbitsstatic.net/img/p/3-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151438/338048-1.jpg?w=420&h=420&v=202604301615",
-   "esgotado": true,
+   "esgotado": false,
    "preco": 415.82,
    "precoAntigo": 437.7,
    "url": "https://www.ybera.com/produto/3-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151438",
@@ -1203,7 +1203,7 @@
    "oQueE": "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
    "categoria": "Cuidados Profundos",
    "imagem": "https://lojaybera.fbitsstatic.net/img/p/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341/337939-1.jpg?w=420&h=420&v=202604301605",
-   "esgotado": true,
+   "esgotado": false,
    "preco": 360.91,
    "precoAntigo": 379.9,
    "url": "https://www.ybera.com/produto/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341",

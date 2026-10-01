@@ -366,6 +366,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "3 Unidades - Kit Cronograma Capilar Cuidados Profundos - Fashion Gold",
+      oQueE: "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151438.webp",
+      affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151438",
+      precoAntigo: "R$ 437,70",
+      preco: "R$ 415,82",
+      destaque: false
+    },
+    {
       nome: "3 Unidades - Kit Kids Menina",
       oQueE: "Kit Kids Menina Ybera Fashion Kids . Cuidado seguro, divertido e completo para os cabelos das crianças .",
       categoria: "Cronogramas Capilares",
@@ -453,6 +463,17 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-mascara-reconstrucao-250g-mascara-nutricao-250g-mascara-hidratacao-250g-ybera-fashion-gold-151548",
       precoAntigo: "R$ 299,90",
       preco: "R$ 284,91",
+      destaque: false
+    },
+    {
+      nome: "Kit Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
+      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151341.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341",
+      precoAntigo: "R$ 379,90",
+      preco: "R$ 360,91",
+      maisVendido: 8,
       destaque: false
     },
     {
@@ -1905,17 +1926,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "3 Unidades - Kit Cronograma Capilar Cuidados Profundos - Fashion Gold",
-      oQueE: "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151438.webp",
-      affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151438",
-      precoAntigo: "R$ 437,70",
-      preco: "R$ 415,82",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "6 Unidades - Kit Cronograma Capilar Cuidados Profundos - Fashion Gold",
       oQueE: "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
       categoria: "Cronogramas Capilares",
@@ -1924,18 +1934,6 @@ window.LOJAS.ybera = {
       precoAntigo: "R$ 815,40",
       preco: "R$ 774,63",
       esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
-      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151341.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341",
-      precoAntigo: "R$ 379,90",
-      preco: "R$ 360,91",
-      esgotado: true,
-      maisVendido: 8,
       destaque: false
     },
     {
