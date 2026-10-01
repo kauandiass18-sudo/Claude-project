@@ -294,8 +294,8 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150601.jpg",
       affiliateUrl: "https://www.ybera.com/produto/mascara-educadora-1kg-terra-coco-150601",
-      precoAntigo: "R$ 339,90",
-      preco: "R$ 322,91",
+      precoAntigo: "R$ 247,90",
+      preco: "R$ 235,51",
       destaque: false
     },
     {
@@ -439,6 +439,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit Máscaras Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
+      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151600.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/kit-mascaras-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151600",
+      precoAntigo: "R$ 444,90",
+      preco: "R$ 422,66",
+      destaque: false
+    },
+    {
       nome: "Máscara Hidratação Cuidados Profundos 250g",
       oQueE: "Indicada para cabelos ressecados, ásperos e opacos, a Máscara Hidratação Prolongada devolve a umidade essencial aos fios, restaurando maciez, sedosidade e…",
       categoria: "Cronogramas Capilares",
@@ -469,6 +479,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Shampoo Multifunção Cuidados Profundos 500ml",
+      oQueE: "O Shampoo Multifunção Cuidados Profundos é o primeiro passo para um ritual completo de reconstrução, nutrição e hidratação dos fios .",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151335.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-500ml-ybera-fashion-gold-151335",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      destaque: false
+    },
+    {
       nome: "Top Coat Liso Perfeito 150ml",
       oQueE: "Top Coat Liso Blindado 150ml . Blindagem inteligente para um liso protegido, alinhado e livre de frizz por muito mais tempo.",
       categoria: "Cronogramas Capilares",
@@ -476,6 +496,26 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/top-coat-liso-perfeito-150ml-ybera-fashion-gold-151304",
       precoAntigo: "R$ 99,90",
       preco: "R$ 94,91",
+      destaque: false
+    },
+    {
+      nome: "12 Unidades - Óleo De Mirra Reparador 15ml",
+      oQueE: "Óleo de Mirra Hidratante Milagroso 90ml da Ybera, um verdadeiro tesouro da natureza para seus cabelos!",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-151545.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/12-unidades-oleo-de-mirra-reparador-15ml-ybera-paris-151545",
+      precoAntigo: "R$ 958,80",
+      preco: "R$ 910,86",
+      destaque: false
+    },
+    {
+      nome: "6 Unidades - Óleo De Mirra Reparador 15ml",
+      oQueE: "Óleo de Mirra Hidratante Milagroso 90ml da Ybera Paris, um verdadeiro tesouro da natureza para seus cabelos!",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-151448.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/6-unidades-oleo-de-mirra-reparador-15ml-ybera-paris-151448",
+      precoAntigo: "R$ 234,00",
+      preco: "R$ 222,30",
       destaque: false
     },
     {
@@ -509,6 +549,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit 30 Cápsulas Antiqueda Capilar + Óleo de Mirra 15ml + Tônico Antiqueda 150ml",
+      oQueE: "Uma rotina completa de cuidados para fortalecer e revitalizar os cabelos de dentro para fora.",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-151618.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/kit-30-capsulas-antiqueda-capilar-oleo-de-mirra-15ml-tonico-antiqueda-150ml-ybera-fashion-gold-151618",
+      precoAntigo: "R$ 307,70",
+      preco: "R$ 278,26",
+      destaque: false
+    },
+    {
       nome: "Kit Cacho Perfeito Creme de Pentear 500g + Leave-in 300ml + Óleo Reparador 150ml",
       oQueE: "Kit Cacho Perfeito – Definição, Nutrição e Brilho.",
       categoria: "Finalizadores",
@@ -516,16 +566,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-creme-de-pentear-500g-leave-in-300ml-oleo-reparador-150ml-ybera-fashion-gold-151619",
       precoAntigo: "R$ 429,70",
       preco: "R$ 388,46",
-      destaque: false
-    },
-    {
-      nome: "Kit Leave-in Universal 250g + Óleo de Mirra Reparador 90ml Refil",
-      oQueE: "Kit Óleo de Mirra + Leave-in Universal . Tenha cabelos nutridos, protegidos e com brilho incrível todos os dias.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151040.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/kit-leave-in-universal-250g-oleo-de-mirra-reparador-90ml-refil-ybera-151040",
-      precoAntigo: "R$ 311,90",
-      preco: "R$ 296,31",
       destaque: false
     },
     {
@@ -609,13 +649,13 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Óleo de Mirra Reparador Refil 90ml",
-      oQueE: "Óleo de Mirra Hidratante Milagroso 90ml da Ybera , um verdadeiro tesouro da natureza para seus cabelos!",
+      nome: "Óleo de Mirra Reparador 15ml",
+      oQueE: "Óleo de Mirra Hidratante Milagroso 15ml da Ybera, um verdadeiro tesouro da natureza para seus cabelos!",
       categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150935.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-refil-90ml-ybera-150935",
-      precoAntigo: "R$ 197,90",
-      preco: "R$ 188,01",
+      imagem: "assets/img/produtos/ybera/ybera-151265.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-15ml-ybera-151265",
+      precoAntigo: "R$ 79,90",
+      preco: "R$ 75,91",
       destaque: false
     },
     {
@@ -636,16 +676,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/protetor-termico-spray-memory150ml-fashion-gold-150358",
       precoAntigo: "R$ 219,90",
       preco: "R$ 208,91",
-      destaque: false
-    },
-    {
-      nome: "Serum Discovery Tricomplex 90ml",
-      oQueE: "O Sérum Tricomplex Cell-Pro Vit-C® é um densificador capilar avançado que fortalece o couro cabeludo, aumenta a densidade dos fios, combate o envelhecimento…",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151216.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/serum-discovery-tricomplex-90ml-ybera-151216",
-      precoAntigo: "R$ 339,90",
-      preco: "R$ 322,91",
       destaque: false
     },
     {
@@ -746,6 +776,16 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/secador-stylist-essence-air-fashion-gold-150854",
       precoAntigo: "R$ 1.397,90",
       preco: "R$ 1.328,01",
+      destaque: false
+    },
+    {
+      nome: "Touca de Cetim",
+      oQueE: "Touca de Cetim Ybera Fashion Gold. Proteção inteligente para potencializar seus resultados.",
+      categoria: "Equipamentos Profissionais",
+      imagem: "assets/img/produtos/ybera/ybera-150679.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/touca-de-cetim-ybera-fashion-gold-150679",
+      precoAntigo: "R$ 69,90",
+      preco: "R$ 66,41",
       destaque: false
     },
     {
@@ -929,16 +969,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Shampoo Alinhador Liso Perfeito 500ml",
-      oQueE: "Shampoo Alinhador 500ml . Limpeza inteligente que trata, equilibra e disciplina os fios desde a primeira lavagem.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151306.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-alinhador-liso-perfeito-500ml-ybera-fashion-gold-151306",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      destaque: false
-    },
-    {
       nome: "Shampoo Antiqueda 100Tímetros 300ml",
       oQueE: "Limpeza, fortalecimento e cuidado contra a queda capilar .",
       categoria: "Shampoo",
@@ -1059,6 +1089,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Shampoo Essência Brasileira Elixir da Floresta 250ml",
+      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-150928.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-essencia-brasileira-elixir-da-floresta-250ml-ybera-150928",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      destaque: false
+    },
+    {
       nome: "Shampoo Isotônico Sulfato Free 1L",
       oQueE: "O Shampoo Isotônico foi especialmente desenvolvido para limpar cabelos extremamente ressecados e fios grossos.",
       categoria: "Shampoo",
@@ -1066,6 +1106,16 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-isotonico-sulfato-free-1l-ybera-terra-coco-150346",
       precoAntigo: "R$ 169,90",
       preco: "R$ 161,41",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Life's Flower TRH Biotech 250ml",
+      oQueE: "Cabelos que são muito ressecados costumam ter a aparência de mal cuidados e que pedem por uma tesoura urgentemente.",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-150962.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-lifes-flower-trh-biotech-250ml-ybera-150962",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
       destaque: false
     },
     {
@@ -1239,6 +1289,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Combo Essência Brasileira 1Kg",
+      oQueE: "Informações importantes 1. Produto original da Ybera Paris. 2. Todas as compras serão faturadas com Nota Fiscal.",
+      categoria: "Outros",
+      imagem: "assets/img/produtos/ybera/ybera-151224.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/combo-essencia-brasileira-1kg-ybera-paris-151224",
+      precoAntigo: "R$ 1.343,40",
+      preco: "R$ 1.276,23",
+      destaque: false
+    },
+    {
       nome: "Combo Premium Cachos Perfeitos",
       oQueE: "O Kit Ybera Fashion Gold Cacho Perfeito foi desenvolvido especialmente para cuidar de todas as curvaturas — de 2A a 4C — , oferecendo nutrição inteligente,…",
       categoria: "Outros",
@@ -1316,16 +1376,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/fio-liquido-pro-geno-genoma-500ml-ybera-150942",
       precoAntigo: "R$ 407,90",
       preco: "R$ 387,51",
-      destaque: false
-    },
-    {
-      nome: "Kit Antiqueda 100Tímetros - 2 Tônico Antiqueda 150ml + 90 Cápsulas Softgel",
-      oQueE: "O 100timetros foi desenvolvido para respeitar o ciclo natural de crescimento e renovação do organismo, que ocorre em aproximadamente 90 dias.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151624.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-2-tonico-antiqueda-150ml-90-capsulas-softgel-ybera-fashion-gold-151624",
-      precoAntigo: "R$ 495,70",
-      preco: "R$ 470,92",
       destaque: false
     },
     {
@@ -1539,16 +1589,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Pré Limpeza Vello Alfa-Lactobaby 250ml",
-      oQueE: "Se você sente sensibilidade, coceira ou descamação no couro cabeludo, com aquela sensação de cabelos pesados, isso pode ser um sinal de que a raiz do seu…",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-150909.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/pre-limpeza-vello-alfa-lactobaby-250ml-ybera-150909",
-      precoAntigo: "R$ 169,90",
-      preco: "R$ 161,41",
-      destaque: false
-    },
-    {
       nome: "Reconstrutor Botulínica Inteligente BioTox 1Kg",
       oQueE: "Reposição inteligente de massa proteica que elimina porosidade e restaura flexibilidade.",
       categoria: "Outros",
@@ -1576,16 +1616,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/reconstrutor-botulinica-inteligente-biotox-500g-ybera-151555",
       precoAntigo: "R$ 207,90",
       preco: "R$ 197,51",
-      destaque: false
-    },
-    {
-      nome: "Reconstrutor Exo CromaTech Quarta Camada 200g",
-      oQueE: "O Reconstrutor Exo Cromatech® é um tratamento intensivo que nutre profundamente os fios e prepara a fibra capilar para a formação da quarta camada protetora.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151077.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/reconstrutor-exo-cromatech-quarta-camada-200g-ybera-paris-151077",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
       destaque: false
     },
     {
@@ -1916,17 +1946,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Máscaras Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
-      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151600.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/kit-mascaras-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151600",
-      precoAntigo: "R$ 444,90",
-      preco: "R$ 422,66",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Kit Máscaras Liso Perfeito + Shampoo Liso Perfeito 500ml",
       oQueE: "Revele a beleza de um liso disciplinado, alinhado, hidratado e livre de frizz com o cuidado completo da Ybera Fashion Gold.",
       categoria: "Cronogramas Capilares",
@@ -1945,39 +1964,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-300ml-ybera-fashion-gold-151336",
       precoAntigo: "R$ 107,90",
       preco: "R$ 102,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Multifunção Cuidados Profundos 500ml",
-      oQueE: "O Shampoo Multifunção Cuidados Profundos é o primeiro passo para um ritual completo de reconstrução, nutrição e hidratação dos fios .",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151335.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-500ml-ybera-fashion-gold-151335",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "12 Unidades - Óleo De Mirra Reparador 15ml",
-      oQueE: "Óleo de Mirra Hidratante Milagroso 90ml da Ybera, um verdadeiro tesouro da natureza para seus cabelos!",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151545.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/12-unidades-oleo-de-mirra-reparador-15ml-ybera-paris-151545",
-      precoAntigo: "R$ 958,80",
-      preco: "R$ 910,86",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "6 Unidades - Óleo De Mirra Reparador 15ml",
-      oQueE: "Óleo de Mirra Hidratante Milagroso 90ml da Ybera Paris, um verdadeiro tesouro da natureza para seus cabelos!",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151448.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/6-unidades-oleo-de-mirra-reparador-15ml-ybera-paris-151448",
-      precoAntigo: "R$ 234,00",
-      preco: "R$ 222,30",
       esgotado: true,
       destaque: false
     },
@@ -2048,17 +2034,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit 30 Cápsulas Antiqueda Capilar + Óleo de Mirra 15ml + Tônico Antiqueda 150ml",
-      oQueE: "Uma rotina completa de cuidados para fortalecer e revitalizar os cabelos de dentro para fora.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151618.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/kit-30-capsulas-antiqueda-capilar-oleo-de-mirra-15ml-tonico-antiqueda-150ml-ybera-fashion-gold-151618",
-      precoAntigo: "R$ 292,90",
-      preco: "R$ 278,26",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Kit Leave-in Universal 250g + Óleo de Mirra Reparador 60ml",
       oQueE: "Óleo de Mirra Hidratante Milagroso 60ml da Ybera Paris, um verdadeiro tesouro da natureza para seus cabelos!",
       categoria: "Finalizadores",
@@ -2077,6 +2052,17 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-leave-in-universal-250g-oleo-de-mirra-reparador-90ml-ybera-151035",
       precoAntigo: "R$ 378,90",
       preco: "R$ 359,96",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Leave-in Universal 250g + Óleo de Mirra Reparador 90ml Refil",
+      oQueE: "Kit Óleo de Mirra + Leave-in Universal . Tenha cabelos nutridos, protegidos e com brilho incrível todos os dias.",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-151040.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/kit-leave-in-universal-250g-oleo-de-mirra-reparador-90ml-refil-ybera-151040",
+      precoAntigo: "R$ 311,90",
+      preco: "R$ 296,31",
       esgotado: true,
       destaque: false
     },
@@ -2224,17 +2210,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Óleo de Mirra Reparador 15ml",
-      oQueE: "Óleo de Mirra Hidratante Milagroso 15ml da Ybera, um verdadeiro tesouro da natureza para seus cabelos!",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151265.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-15ml-ybera-151265",
-      precoAntigo: "R$ 79,90",
-      preco: "R$ 75,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Óleo de Mirra Reparador 60ml",
       oQueE: "Óleo de Mirra Hidratante Milagroso 60ml da Ybera Paris , um verdadeiro tesouro da natureza para seus cabelos!",
       categoria: "Finalizadores",
@@ -2253,6 +2228,28 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-90ml-ybera-150876",
       precoAntigo: "R$ 267,90",
       preco: "R$ 254,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Óleo de Mirra Reparador Refil 90ml",
+      oQueE: "Óleo de Mirra Hidratante Milagroso 90ml da Ybera , um verdadeiro tesouro da natureza para seus cabelos!",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-150935.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-refil-90ml-ybera-150935",
+      precoAntigo: "R$ 197,90",
+      preco: "R$ 188,01",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Serum Discovery Tricomplex 90ml",
+      oQueE: "O Sérum Tricomplex Cell-Pro Vit-C® é um densificador capilar avançado que fortalece o couro cabeludo, aumenta a densidade dos fios, combate o envelhecimento…",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-151216.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/serum-discovery-tricomplex-90ml-ybera-151216",
+      precoAntigo: "R$ 339,90",
+      preco: "R$ 322,91",
       esgotado: true,
       destaque: false
     },
@@ -2330,17 +2327,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/prancha-de-cabelo-alisadora-stylist-blacktitan-ultra-150802",
       precoAntigo: "R$ 747,90",
       preco: "R$ 710,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Touca de Cetim",
-      oQueE: "Touca de Cetim Ybera Fashion Gold. Proteção inteligente para potencializar seus resultados.",
-      categoria: "Equipamentos Profissionais",
-      imagem: "assets/img/produtos/ybera/ybera-150679.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/touca-de-cetim-ybera-fashion-gold-150679",
-      precoAntigo: "R$ 69,90",
-      preco: "R$ 66,41",
       esgotado: true,
       destaque: false
     },
@@ -2554,6 +2540,17 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Shampoo Alinhador Liso Perfeito 500ml",
+      oQueE: "Shampoo Alinhador 500ml . Limpeza inteligente que trata, equilibra e disciplina os fios desde a primeira lavagem.",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-151306.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-alinhador-liso-perfeito-500ml-ybera-fashion-gold-151306",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
       nome: "Shampoo Coco Verde 300ml - Terra Coco",
       oQueE: "O Shampoo Coco Verde limpa delicadamente e hidrata profundamente, proporcionando maciez, brilho aos cabelos.",
       categoria: "Shampoo",
@@ -2620,33 +2617,22 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Shampoo Elixir da Floresta Essência Brasileira 250ml",
-      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150928.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-da-floresta-essencia-brasileira-250ml-ybera-paris-150928",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Elixir do Cerrado Essência Brasileira 250ml",
-      oQueE: "Cabelos mistos são um desafio diário. Você lava de manhã e, à noite, a raiz já está oleosa.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150930.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-cerrado-essencia-brasileira-250ml-ybera-paris-150930",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Shampoo Elixir do Pantanal Essência Brasileira 250ml",
       oQueE: "O Shampoo Elixir do Pantanal foi desenvolvido para revitalizar cabelos secos e ressecados, unindo o poder do breu branco, da manteiga de murumuru e do óleo…",
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150929.jpg",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-pantanal-essencia-brasileira-250ml-ybera-paris-150929",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Essência Brasileira Elixir do Cerrado 250ml",
+      oQueE: "Cabelos mistos são um desafio diário. Você lava de manhã e, à noite, a raiz já está oleosa.",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-150930.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-essencia-brasileira-elixir-do-cerrado-250ml-ybera-150930",
       precoAntigo: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
@@ -2660,17 +2646,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-exo-cromatech-quarta-camada-250ml-ybera-paris-151073",
       precoAntigo: "R$ 97,90",
       preco: "R$ 93,01",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Life's Flower TRH Biotech 250ml",
-      oQueE: "Cabelos que são muito ressecados costumam ter a aparência de mal cuidados e que pedem por uma tesoura urgentemente.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150962.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-lifes-flower-trh-biotech-250ml-ybera-150962",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
       esgotado: true,
       destaque: false
     },
@@ -2792,17 +2767,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/combo-embaixador-150701",
       precoAntigo: "R$ 5.150,20",
       preco: "R$ 4.892,69",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Combo Essência Brasileira 1Kg",
-      oQueE: "Informações importantes 1. Produto original da Ybera Paris. 2. Todas as compras serão faturadas com Nota Fiscal.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151224.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/combo-essencia-brasileira-1kg-ybera-paris-151224",
-      precoAntigo: "R$ 1.343,40",
-      preco: "R$ 1.276,23",
       esgotado: true,
       destaque: false
     },
@@ -3122,6 +3086,28 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/power-mask-500g-black-diva-150603",
       precoAntigo: "R$ 157,90",
       preco: "R$ 150,01",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Pré Limpeza Vello Alfa-Lactobaby 250ml",
+      oQueE: "Se você sente sensibilidade, coceira ou descamação no couro cabeludo, com aquela sensação de cabelos pesados, isso pode ser um sinal de que a raiz do seu…",
+      categoria: "Outros",
+      imagem: "assets/img/produtos/ybera/ybera-150909.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/pre-limpeza-vello-alfa-lactobaby-250ml-ybera-150909",
+      precoAntigo: "R$ 169,90",
+      preco: "R$ 161,41",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Reconstrutor Exo CromaTech Quarta Camada 200g",
+      oQueE: "O Reconstrutor Exo Cromatech® é um tratamento intensivo que nutre profundamente os fios e prepara a fibra capilar para a formação da quarta camada protetora.",
+      categoria: "Outros",
+      imagem: "assets/img/produtos/ybera/ybera-151077.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/reconstrutor-exo-cromatech-quarta-camada-200g-ybera-paris-151077",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
       esgotado: true,
       destaque: false
     },
