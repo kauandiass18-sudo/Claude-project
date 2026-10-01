@@ -1188,16 +1188,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Shampoo Mirracura 250ml",
-      oQueE: "Cicatrização completa para os seus fios.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150874.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-mirracura-250ml-ybera-150874",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      destaque: false
-    },
-    {
       nome: "Shampoo Pro-Geno Genoma 250ml",
       oQueE: "Os cabelos danificados perdem sua força e vitalidade dia após dia.",
       categoria: "Shampoo",
@@ -1258,26 +1248,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "12 Coquetel Selante Potencializador 1Kg - Terra Coco",
-      oQueE: "Máscara Educadora Terra Coco reduz o volume e trata naturalmente através dos ácidos do coco.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151603.webp",
-      affiliateUrl: "https://www.ybera.com/produto/12-coquetel-selante-potencializador-1kg-terra-coco-151603",
-      precoAntigo: "R$ 4.780,80",
-      preco: "R$ 4.541,76",
-      destaque: false
-    },
-    {
-      nome: "3 Coquetel Selante Potencializador 1Kg - Terra Coco",
-      oQueE: "Máscara Educadora Terra Coco reduz o volume e trata naturalmente através dos ácidos do coco.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151601.webp",
-      affiliateUrl: "https://www.ybera.com/produto/3-coquetel-selante-potencializador-1kg-terra-coco-151601",
-      precoAntigo: "R$ 1.019,70",
-      preco: "R$ 968,72",
-      destaque: false
-    },
-    {
       nome: "30 Cápsulas 100Tímetros Softgel Cabelo, Pele e Unhas",
       oQueE: "100timetros 30 cápsulas softgel - Cabelo, Pele e Unhas . O 100timetros 30 cápsulas representa o início do ciclo de transformação.",
       categoria: "Outros",
@@ -1285,16 +1255,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/30-capsulas-100timetros-softgel-cabelo-pele-e-unhas-ybera-fashion-gold-151481",
       precoAntigo: "R$ 99,90",
       preco: "R$ 94,91",
-      destaque: false
-    },
-    {
-      nome: "6 Coquetel Selante Potencializador 1Kg - Terra Coco",
-      oQueE: "Máscara Educadora Terra Coco reduz o volume e trata naturalmente através dos ácidos do coco.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151604.webp",
-      affiliateUrl: "https://www.ybera.com/produto/6-coquetel-selante-potencializador-1kg-terra-coco-151604",
-      precoAntigo: "R$ 1.355,40",
-      preco: "R$ 1.287,63",
       destaque: false
     },
     {
@@ -2676,6 +2636,17 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-light-poo-500ml-black-diva-150543",
       precoAntigo: "R$ 157,90",
       preco: "R$ 150,01",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Mirracura 250ml",
+      oQueE: "Cicatrização completa para os seus fios.",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-150874.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-mirracura-250ml-ybera-150874",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
       esgotado: true,
       destaque: false
     },

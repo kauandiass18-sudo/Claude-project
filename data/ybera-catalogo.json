@@ -1,18 +1,6 @@
 {
- "lidoEm": "2026-10-01T19:45:55.144Z",
+ "lidoEm": "2026-10-01T20:43:02.550Z",
  "produtos": [
-  {
-   "id": "151603",
-   "nome": "12 Coquetel Selante Potencializador 1Kg - Terra Coco",
-   "oQueE": "Máscara Educadora Terra Coco reduz o volume e trata naturalmente através dos ácidos do coco.",
-   "categoria": "Terra Coco",
-   "imagem": "https://lojaybera.fbitsstatic.net/img/p/12-coquetel-selante-potencializador-1kg-terra-coco-151603/338246-1.jpg?w=420&h=420&v=202608211051",
-   "esgotado": false,
-   "preco": 4541.76,
-   "precoAntigo": 4780.8,
-   "url": "https://www.ybera.com/produto/12-coquetel-selante-potencializador-1kg-terra-coco-151603",
-   "foto": "ybera-151603.webp"
-  },
   {
    "id": "151545",
    "nome": "12 Unidades - Óleo De Mirra Reparador 15ml - Ybera Paris",
@@ -24,18 +12,6 @@
    "precoAntigo": 958.8,
    "url": "https://www.ybera.com/produto/12-unidades-oleo-de-mirra-reparador-15ml-ybera-paris-151545",
    "foto": "ybera-151545.webp"
-  },
-  {
-   "id": "151601",
-   "nome": "3 Coquetel Selante Potencializador 1Kg - Terra Coco",
-   "oQueE": "Máscara Educadora Terra Coco reduz o volume e trata naturalmente através dos ácidos do coco.",
-   "categoria": "Terra Coco",
-   "imagem": "https://lojaybera.fbitsstatic.net/img/p/3-coquetel-selante-potencializador-1kg-terra-coco-151601/338244-1.jpg?w=420&h=420&v=202608211059",
-   "esgotado": false,
-   "preco": 968.72,
-   "precoAntigo": 1019.7,
-   "url": "https://www.ybera.com/produto/3-coquetel-selante-potencializador-1kg-terra-coco-151601",
-   "foto": "ybera-151601.webp"
   },
   {
    "id": "151438",
@@ -72,18 +48,6 @@
    "precoAntigo": 99.9,
    "url": "https://www.ybera.com/produto/30-capsulas-100timetros-softgel-cabelo-pele-e-unhas-ybera-fashion-gold-151481",
    "foto": "ybera-151481.webp"
-  },
-  {
-   "id": "151604",
-   "nome": "6 Coquetel Selante Potencializador 1Kg - Terra Coco",
-   "oQueE": "Máscara Educadora Terra Coco reduz o volume e trata naturalmente através dos ácidos do coco.",
-   "categoria": "Terra Coco",
-   "imagem": "https://lojaybera.fbitsstatic.net/img/p/6-coquetel-selante-potencializador-1kg-terra-coco-151604/338247-1.jpg?w=420&h=420&v=202608211048",
-   "esgotado": false,
-   "preco": 1287.63,
-   "precoAntigo": 1355.4,
-   "url": "https://www.ybera.com/produto/6-coquetel-selante-potencializador-1kg-terra-coco-151604",
-   "foto": "ybera-151604.webp"
   },
   {
    "id": "151437",
@@ -3235,7 +3199,7 @@
    "oQueE": "Cicatrização completa para os seus fios.",
    "categoria": "Shampoo",
    "imagem": "https://lojaybera.fbitsstatic.net/img/p/shampoo-mirracura-250ml-ybera-150874/337435-4.jpg?w=420&h=420&v=202609141100",
-   "esgotado": false,
+   "esgotado": true,
    "preco": 102.51,
    "precoAntigo": 107.9,
    "url": "https://www.ybera.com/produto/shampoo-mirracura-250ml-ybera-150874",
