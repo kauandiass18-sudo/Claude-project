@@ -34,6 +34,10 @@ window.LOJAS.ybera = {
   // estoque voltar). true = mostrar com o selo "Esgotado".
   mostrarEsgotados: false,
 
+  // Categorias que NÃO aparecem no site (nem na vitrine, nem na busca).
+  // Para voltar a mostrar, é só tirar o nome daqui.
+  ocultarCategorias: ["Hidratação e Nutrição", "Reconstrução"],
+
   // Ordem das categorias nos filtros (as que não estiverem aqui
   // aparecem depois, em ordem alfabética).
   ordemCategorias: [

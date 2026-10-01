@@ -67,6 +67,13 @@
       };
     })
     .filter(Boolean);
+  // Categorias escondidas pela loja (ocultarCategorias em data/<loja>.js)
+  const ocultas = (loja.ocultarCategorias || []).map((c) => normalizar(c));
+  if (ocultas.length) {
+    for (let i = produtos.length - 1; i >= 0; i--) {
+      if (ocultas.includes(normalizar(produtos[i].categoria))) produtos.splice(i, 1);
+    }
+  }
   // Esgotados ficam escondidos, a não ser que a loja peça para mostrar
   if (loja.mostrarEsgotados !== true) {
     for (let i = produtos.length - 1; i >= 0; i--) if (produtos[i].esgotado) produtos.splice(i, 1);

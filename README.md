@@ -142,6 +142,8 @@ fica no console do navegador (F12).
 >   aqui", "Seu loiro perfeito aqui"...) com os produtos lado a lado, para
 >   deslizar. "Ver todos" abre só aquele grupo, em vitrine de dois por linha.
 >   Os títulos ficam em `rotulosCategorias`, em `data/ybera.js`.
+> - Categorias inteiras podem ser escondidas em `ocultarCategorias`, em
+>   `data/ybera.js` (hoje: Hidratação e Nutrição, Reconstrução).
 > - Produtos esgotados ficam escondidos (`mostrarEsgotados: false`) e voltam
 >   sozinhos quando o estoque voltar.
 > - `destaque: true` é a única mudança feita à mão na lista que se mantém: o
