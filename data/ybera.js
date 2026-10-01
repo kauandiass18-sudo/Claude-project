@@ -113,6 +113,16 @@ window.LOJAS.ybera = {
       destaque: true
     },
     {
+      nome: "Cronograma Capilar Kids Menina",
+      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151316.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-kids-menina-ybera-fashion-kids-151316",
+      precoAntigo: "R$ 249,90",
+      preco: "R$ 237,41",
+      destaque: true
+    },
+    {
       nome: "Cronograma Capilar Loiro Perfeito",
       oQueE: "Kit de Máscaras Cronograma Capilar Loiro Perfeito Revele a beleza de um loiro iluminado, saudável e sofisticado.",
       categoria: "Cronogramas Capilares",
@@ -343,6 +353,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "3 Unidades - Kit Kids Menina",
+      oQueE: "Kit Kids Menina Ybera Fashion Kids . Cuidado seguro, divertido e completo para os cabelos das crianças .",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151440.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-kids-menina-ybera-fashion-kids-151440",
+      precoAntigo: "R$ 377,70",
+      preco: "R$ 358,82",
+      destaque: false
+    },
+    {
       nome: "6 Unidades - Kit Cronograma Liso Perfeito",
       oQueE: "Kit Cronograma Capilar Liso Perfeito . Liso disciplinado, alinhado e protegido.",
       categoria: "Cronogramas Capilares",
@@ -353,6 +373,26 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "6 Unidades - Kit Kids Menina",
+      oQueE: "Kit Kids Menina Ybera Fashion Kids . Cuidado seguro, divertido e completo para os cabelos das crianças .",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151439.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/6-unidades-kit-kids-menina-ybera-fashion-kids-151439",
+      precoAntigo: "R$ 707,40",
+      preco: "R$ 672,03",
+      destaque: false
+    },
+    {
+      nome: "Combo Premium Kids Menina",
+      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151315.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/combo-premium-kids-menina-ybera-fashion-kids-151315",
+      precoAntigo: "R$ 389,90",
+      preco: "R$ 370,41",
+      destaque: false
+    },
+    {
       nome: "Cronograma Capilar Cacho Perfeito",
       oQueE: "Kit Cacho Perfeito – Ybera Fashion Gold Cronograma Capilar completo para cachos saudáveis, definidos e livres de frizz .",
       categoria: "Cronogramas Capilares",
@@ -360,16 +400,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-cacho-perfeito-ybera-fashion-gold-151324",
       precoAntigo: "R$ 299,90",
       preco: "R$ 284,91",
-      destaque: false
-    },
-    {
-      nome: "Cronograma Capilar Kids Menina",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151316.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-kids-menina-ybera-fashion-kids-151316",
-      precoAntigo: "R$ 249,90",
-      preco: "R$ 237,41",
       destaque: false
     },
     {
@@ -410,6 +440,26 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-mascara-reconstrucao-250g-mascara-nutricao-250g-mascara-hidratacao-250g-ybera-fashion-gold-151548",
       precoAntigo: "R$ 299,90",
       preco: "R$ 284,91",
+      destaque: false
+    },
+    {
+      nome: "Kit Kids Menina + Shampoo Brilho 300ml",
+      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151314.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menina-shampoo-brilho-300ml-ybera-fashion-kids-151314",
+      precoAntigo: "R$ 313,90",
+      preco: "R$ 298,21",
+      destaque: false
+    },
+    {
+      nome: "Kit Kids Menino + Kit Kids Menina",
+      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151562.jpg",
+      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-kids-menina-ybera-fashion-kids-151562",
+      precoAntigo: "R$ 499,80",
+      preco: "R$ 474,81",
       destaque: false
     },
     {
@@ -893,16 +943,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Kids Menina + Shampoo Brilho 300ml - Ybera Fashion Kids",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151314.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menina-shampoo-brilho-300ml-ybera-fashion-kids-151314",
-      precoAntigo: "R$ 313,90",
-      preco: "R$ 298,21",
-      destaque: false
-    },
-    {
       nome: "Kit Liso Perfeito + Shampoo Liso Perfeito 500ml - Fashion Gold",
       oQueE: "Revele a beleza de um liso disciplinado, alinhado, hidratado e livre de frizz com o cuidado completo da Ybera Fashion Gold.",
       categoria: "Shampoo",
@@ -1223,16 +1263,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "3 Unidades - Kit Kids Menina - Ybera Fashion Kids",
-      oQueE: "Kit Kids Menina Ybera Fashion Kids . Cuidado seguro, divertido e completo para os cabelos das crianças .",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151440.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-kids-menina-ybera-fashion-kids-151440",
-      precoAntigo: "R$ 377,70",
-      preco: "R$ 358,82",
-      destaque: false
-    },
-    {
       nome: "30 Cápsulas 100Tímetros Softgel Cabelo, Pele e Unhas",
       oQueE: "100timetros 30 cápsulas softgel - Cabelo, Pele e Unhas . O 100timetros 30 cápsulas representa o início do ciclo de transformação.",
       categoria: "Outros",
@@ -1250,16 +1280,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/6-coquetel-selante-potencializador-1kg-terra-coco-151604",
       precoAntigo: "R$ 1.355,40",
       preco: "R$ 1.287,63",
-      destaque: false
-    },
-    {
-      nome: "6 Unidades - Kit Kids Menina - Ybera Fashion Kids",
-      oQueE: "Kit Kids Menina Ybera Fashion Kids . Cuidado seguro, divertido e completo para os cabelos das crianças .",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151439.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/6-unidades-kit-kids-menina-ybera-fashion-kids-151439",
-      precoAntigo: "R$ 707,40",
-      preco: "R$ 672,03",
       destaque: false
     },
     {
@@ -1310,16 +1330,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/combo-premium-cachos-perfeitos-ybera-fashion-gold-151322",
       precoAntigo: "R$ 815,60",
       preco: "R$ 774,82",
-      destaque: false
-    },
-    {
-      nome: "Combo Premium Kids Menina - Ybera Fashion Kids",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151315.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/combo-premium-kids-menina-ybera-fashion-kids-151315",
-      precoAntigo: "R$ 389,90",
-      preco: "R$ 370,41",
       destaque: false
     },
     {
@@ -1410,16 +1420,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-mascara-antifrizz-250g-mascara-forca-e-antiquebra-250g-mascara-maciez-intensa-250g-ybera-fashion-gold-151549",
       precoAntigo: "R$ 299,90",
       preco: "R$ 284,91",
-      destaque: false
-    },
-    {
-      nome: "Kit Kids Menino + Kit Kids Menina - Ybera Fashion Kids",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151562.jpg",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-kids-menina-ybera-fashion-kids-151562",
-      precoAntigo: "R$ 499,80",
-      preco: "R$ 474,81",
       destaque: false
     },
     {

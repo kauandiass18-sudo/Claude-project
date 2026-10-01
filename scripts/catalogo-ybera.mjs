@@ -247,6 +247,8 @@ const aspas = (t) => JSON.stringify(String(t));
 const GRUPOS = [
   // "escova" sozinha não conta: "Escova Progressiva" é progressiva
   ["Equipamentos Profissionais", /secador|prancha|chapinha|babyliss|modelador|difusor|\bescovas?\b(?!.*progressiva)|\bpente\b|equipamento|avental|capa de corte|cumbuca|pincel|borrifador|\btouca\b|\bluvas?\b/i],
+  // Kits Kids são cronogramas capilares para crianças
+  ["Cronogramas Capilares", /\bkids\b/i],
   ["Progressiva e Pós-Progressiva", /progressiva|alisamento|alisante|botox|selagem|redutor de volume|p[oó]s[- ]?qu[ií]mica/i],
   ["Cronogramas Capilares", /cronograma|cuidados profundos|kit (?:de )?m[aá]scaras/i],
   ["Finalizadores", /finaliza|leave-?in|[oó]leo|\boils?\b|s[eé]rum|prote(?:tor|[cç][aã]o) t[eé]rmic|termoprotetor|\bspray\b|fluido|reparador de pontas|creme (?:de|para) pentear|ativador|gelatina|mousse/i],
@@ -265,7 +267,7 @@ const ORDEM_GRUPOS = [
 ];
 
 /** Tira do nome o sufixo da marca ("- Ybera Paris", "- Ybera Fashion Gold"). */
-const nomeLimpo = (n) => n.replace(/\s+[-–|]\s+Ybera(?:\s+(?:Paris|Fashion Gold|Discovery))?\s*$/i, "").trim();
+const nomeLimpo = (n) => n.replace(/\s+[-–|]\s+Ybera(?:\s+(?:Paris|Fashion Gold|Fashion Kids|Discovery))?\s*$/i, "").trim();
 
 async function gerar() {
   const { produtos } = JSON.parse(await readFile(ARQ_CATALOGO, "utf8"));
