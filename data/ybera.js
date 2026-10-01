@@ -39,6 +39,10 @@ window.LOJAS.ybera = {
   // destaque: true continuam nos Queridinhos mesmo assim.
   ocultarCategorias: ["Outros"],
 
+  // Produtos que NÃO aparecem no site quando o nome tem uma destas
+  // palavras (vale também para produtos novos que a loja lançar).
+  ocultarProdutosCom: ["Black Diva"],
+
   // Ordem das categorias na vitrine.
   ordemCategorias: [
     "Progressiva e Pós-Progressiva",

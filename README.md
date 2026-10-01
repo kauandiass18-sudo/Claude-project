@@ -144,6 +144,8 @@ fica no console do navegador (F12).
 >   produtos lado a lado, para deslizar. "Ver todos" abre só aquela categoria,
 >   em vitrine de dois por linha. Títulos próprios podem ir em
 >   `rotulosCategorias`, em `data/ybera.js`.
+> - Produtos com certas palavras no nome ficam escondidos com
+>   `ocultarProdutosCom`, em `data/ybera.js` (hoje: Black Diva).
 > - Categorias inteiras podem ser escondidas em `ocultarCategorias`, em
 >   `data/ybera.js` (hoje: Outros). Produtos com `destaque: true` continuam
 >   nos Queridinhos mesmo com a categoria escondida.

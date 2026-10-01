@@ -77,6 +77,14 @@
       else produtos.splice(i, 1);
     }
   }
+  // Produtos escondidos pelo nome (ocultarProdutosCom em data/<loja>.js)
+  const palavrasOcultas = (loja.ocultarProdutosCom || []).map((t) => normalizar(t)).filter(Boolean);
+  if (palavrasOcultas.length) {
+    for (let i = produtos.length - 1; i >= 0; i--) {
+      const nome = normalizar(produtos[i].nome);
+      if (palavrasOcultas.some((t) => nome.includes(t))) produtos.splice(i, 1);
+    }
+  }
   // Esgotados ficam escondidos, a não ser que a loja peça para mostrar
   if (loja.mostrarEsgotados !== true) {
     for (let i = produtos.length - 1; i >= 0; i--) if (produtos[i].esgotado) produtos.splice(i, 1);
