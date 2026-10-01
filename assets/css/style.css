@@ -822,12 +822,24 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .grupo__qtd { flex: 0 0 auto; color: var(--texto-suave); }
 
+/* O que a categoria faz, logo abaixo do título */
+.grupo__descricao {
+  margin: -4px 0 16px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--texto-suave);
+  text-wrap: pretty;
+}
+
 /* Vitrine de 2 por linha */
 .lista--vitrine {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
 }
 .lista--vitrine .card--destaque { width: auto; height: 100%; }
+/* Na vitrine, o card diz em uma ou duas linhas o que o produto faz */
+.card--destaque .card__oque { font-size: 12px; line-height: 1.4; }
+.lista--vitrine .card--destaque .card__nome { min-height: 0; }
 
 /* =============================================================
    CARDS DE PRODUTO — a mesma linguagem em todo lugar
@@ -1198,6 +1210,7 @@ h1, h2, h3, h4, p { margin: 0; }
   .perfil { padding-top: 64px; }
   .pagina-loja { --largura: 760px; }
   .pagina-loja .grupo__lista { grid-template-columns: 1fr 1fr; }
+  .pagina-loja .lista--vitrine { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .lista--vitrine { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .card--destaque { width: 172px; }
   .arco { width: 160px; height: 206px; }

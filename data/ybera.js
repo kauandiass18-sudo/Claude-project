@@ -51,6 +51,15 @@ window.LOJAS.ybera = {
     "Shampoo"
   ],
 
+  // O que cada categoria faz: aparece logo abaixo do título dela.
+  descricoesCategorias: {
+    "Progressiva e Pós-Progressiva": "Alisa, tira o frizz e mantém o liso por mais tempo.",
+    "Cronogramas Capilares": "Hidratação, nutrição e reconstrução na ordem certa para o seu fio.",
+    "Finalizadores": "Brilho, proteção do calor e fios alinhados no dia a dia.",
+    "Equipamentos Profissionais": "Ferramentas de salão para cuidar do cabelo em casa.",
+    "Shampoo": "Limpeza que trata o fio desde a raiz."
+  },
+
   // Quantos produtos cada categoria mostra: os primeiros do ranking
   // "Mais vendidos" da loja da Ybera (atualizado todo dia).
   produtosPorCategoria: 6,

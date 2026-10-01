@@ -108,10 +108,13 @@
       if (!grupos.has(p.categoria)) grupos.set(p.categoria, []);
       grupos.get(p.categoria).push([p, i]);
     });
+    // Pacotes de revenda ("12 Unidades - ...") só entram se faltar produto
+    const atacado = (p) => Number(/^\d+\s+unidades\b/i.test(p.nome));
     const escolhidos = [];
     for (const lista of grupos.values()) {
       lista.sort((a, b) =>
         (a[0].maisVendido - b[0].maisVendido) || (b[0].destaque - a[0].destaque) ||
+        (atacado(a[0]) - atacado(b[0])) ||
         (valorEmReais(b[0].preco) - valorEmReais(a[0].preco)) || a[1] - b[1]);
       escolhidos.push(...lista.slice(0, porCategoria).map(([p]) => p));
     }
@@ -188,6 +191,10 @@
      então o "voltar" do celular volta para os botões. */
   const modoBotoes = raiz.dataset.categoriasBotoes === "sim";
   const rotulosCategorias = loja.rotulosCategorias || {};
+  const descricoesCategorias = loja.descricoesCategorias || {};
+  // Estilo vitrine: cards lado a lado (2 por linha no celular), cada um
+  // dizendo o que o produto faz. Liga com data-estilo="vitrine" no HTML.
+  const estiloVitrine = modoBotoes || raiz.dataset.estilo === "vitrine";
   const botaoVoltar = $("[data-voltar-categorias]");
   const slugCategoria = (c) => normalizar(c).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
   let abriuPeloBotao = false;
@@ -289,7 +296,7 @@
             ? el("span", { class: "card__categoria", text: produto.categoria })
             : null,
           el("span", { class: "card__nome", text: produto.nome }),
-          !ehDestaque && produto.oQueE ? el("span", { class: "card__oque", text: produto.oQueE }) : null,
+          (!ehDestaque || estiloVitrine) && produto.oQueE ? el("span", { class: "card__oque", text: produto.oQueE }) : null,
           criarPreco(produto),
           el("span", { class: "sr-only", text: " (abre em nova aba)" })
         ]),
@@ -466,10 +473,14 @@
 
     lista.replaceChildren(
       ...grupos.map((g) => {
-        const variante = modoBotoes ? "destaque" : "lista";
-        const classeLista = modoBotoes ? "lista grupo__lista lista--vitrine" : "lista grupo__lista";
+        const variante = estiloVitrine ? "destaque" : "lista";
+        const classeLista = estiloVitrine ? "lista grupo__lista lista--vitrine" : "lista grupo__lista";
         const itens = porGrupo.get(g).map((p, i) => el("li", null, criarCard(p, i, variante)));
-        if (!comTitulo) return el("li", { class: "grupo" }, el("ul", { class: classeLista }, itens));
+        // O que a categoria faz (descricoesCategorias em data/<loja>.js)
+        const descricao = descricoesCategorias[g]
+          ? el("p", { class: "grupo__descricao", text: descricoesCategorias[g] })
+          : null;
+        if (!comTitulo) return el("li", { class: "grupo" }, [descricao, el("ul", { class: classeLista }, itens)]);
         const icone = ICONES[iconesCategorias[g]];
         const n = itens.length;
         return el("li", { class: "grupo" }, [
@@ -478,6 +489,7 @@
             el("span", { class: "grupo__nome", text: g }),
             el("span", { class: "grupo__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
           ]),
+          descricao,
           el("ul", { class: classeLista }, itens)
         ]);
       })

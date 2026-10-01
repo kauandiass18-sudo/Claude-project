@@ -11,8 +11,10 @@ Site de **link na bio** pensado para celular, com cara de salão de cabelo.
    - **Feche uma parceria comigo** (link em `linkParceria`, em `data/perfil.js`).
 2. **Loja Ybera (`ybera.html`):** só as 5 categorias que mais vendem
    (Progressiva e Pós-Progressiva, Cronogramas Capilares, Finalizadores,
-   Equipamentos Profissionais e Shampoo), com os **6 mais vendidos** de cada uma,
-   e o botão **"Ver a loja completa"** com o link de parceira.
+   Equipamentos Profissionais e Shampoo), com os **6 mais vendidos** de cada uma
+   em estilo vitrine (dois cards lado a lado, cada um dizendo o que o produto
+   faz), uma frase sobre o que cada categoria faz (`descricoesCategorias`, em
+   `data/ybera.js`) e o botão **"Ver a loja completa"** com o link de parceira.
 3. **Mercado Livre, Shopee e Shein:** páginas de achadinhos. Enquanto estiverem
    sem produtos, mostram "Em breve" e um botão para a Loja Ybera.
 
