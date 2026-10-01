@@ -136,15 +136,19 @@ fica no console do navegador (F12).
 > novos entram, preços mudam e os que saírem da loja saem do site. Os dados
 > brutos ficam em `data/ybera-catalogo.json` e a lista do site em `data/ybera.js`.
 >
-> - As categorias da loja são agrupadas em 5 categorias do site: Progressiva e
+> - As categorias da loja são agrupadas em categorias do site: Progressiva e
 >   Pós-Progressiva, Cronogramas Capilares, Finalizadores, Equipamentos
 >   Profissionais e Shampoo (regras em `GRUPOS`, no script; o nome do produto
->   vale primeiro). O que não se encaixa vai para "Outros", que fica escondido.
-> - Na página inicial, os produtos aparecem todos de uma vez, separados pelas
->   5 categorias (com um espaço entre uma e outra). Os botões de categoria no
->   alto filtram a lista; nomes curtos para eles podem ir em
->   `rotulosCategorias`, em `data/ybera.js`. O que não é de nenhuma das 5
->   categorias ("Outros") não aparece.
+>   vale primeiro), e as linhas da Ybera ganham categoria própria (`LINHAS`).
+>   O que não se encaixa vai para "Outros", que fica escondido.
+> - Na página inicial, os produtos aparecem todos de uma vez, separados por
+>   categoria (com um espaço entre uma e outra): Progressiva e Pós-Progressiva,
+>   Loiro Perfeito, Liso Perfeito, Cacho Perfeito, Kids, Antiqueda,
+>   Cronogramas Capilares, Finalizadores, Equipamentos Profissionais e
+>   Shampoo. As linhas (Loiro Perfeito, Kids...) vêm de `LINHAS`, no script,
+>   pelo nome do produto. Os botões de categoria no alto filtram a lista; nomes
+>   curtos para eles podem ir em `rotulosCategorias`, em `data/ybera.js`. O que
+>   não é de nenhuma categoria ("Outros") não aparece.
 > - Fotos: chegam da loja em JPG e `scripts/fotos-ybera.py` as transforma em
 >   WebP (umas 6 vezes mais leves). O mesmo script anota em
 >   `data/ybera-fotos.js` as fotos que não têm fundo branco: elas vão para o

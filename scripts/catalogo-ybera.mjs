@@ -241,7 +241,9 @@ async function coletar() {
 const aspas = (t) => JSON.stringify(String(t));
 
 /* A loja usa dezenas de categorias misturadas (linhas, promoções, tipos).
-   No site, cada produto entra num dos grupos abaixo. Primeiro vale o NOME
+   No site, cada produto entra num dos grupos abaixo (e depois, se o nome
+   for de uma linha como "Loiro Perfeito", na categoria da linha: LINHAS,
+   mais abaixo). Primeiro vale o NOME
    do produto; só se o nome não disser nada, vale a categoria da loja.
    A primeira regra que combinar vence. Produto sem grupo vai para "Outros",
    que fica escondido no site (ocultarCategorias em data/ybera.js). */
@@ -256,14 +258,35 @@ const GRUPOS = [
   ["Shampoo", /shampoo/i]
 ];
 const GRUPO_PADRAO = "Outros";
+
+/* Linhas da Ybera com categoria própria no site. Valem só pelo NOME do
+   produto e só para quem já entrou num dos grupos acima (o que é "Outros"
+   continua escondido). A primeira linha que combinar vence. */
+const LINHAS = [
+  ["Kids", /\bkids\b/i],
+  ["Loiro Perfeito", /loiro perfeito/i],
+  ["Liso Perfeito", /liso perfeito/i],
+  ["Cacho Perfeito", /cachos? perfeitos?/i],
+  ["Antiqueda", /antiqueda|100\s?t[ií]metros/i]
+];
+
 function grupoDe(p) {
-  for (const texto of [p.nome, p.categoria]) {
-    for (const [nome, re] of GRUPOS) if (re.test(texto)) return nome;
+  let grupo = GRUPO_PADRAO;
+  busca: for (const texto of [p.nome, p.categoria]) {
+    for (const [nome, re] of GRUPOS) {
+      if (re.test(texto)) {
+        grupo = nome;
+        break busca;
+      }
+    }
   }
-  return GRUPO_PADRAO;
+  if (grupo === GRUPO_PADRAO || grupo === "Equipamentos Profissionais") return grupo;
+  for (const [nome, re] of LINHAS) if (re.test(p.nome)) return nome;
+  return grupo;
 }
 const ORDEM_GRUPOS = [
-  "Progressiva e Pós-Progressiva", "Cronogramas Capilares", "Finalizadores",
+  "Progressiva e Pós-Progressiva", "Loiro Perfeito", "Liso Perfeito", "Cacho Perfeito",
+  "Kids", "Antiqueda", "Cronogramas Capilares", "Finalizadores",
   "Equipamentos Profissionais", "Shampoo"
 ];
 

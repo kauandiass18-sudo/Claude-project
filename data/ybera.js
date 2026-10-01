@@ -35,7 +35,7 @@ window.LOJAS.ybera = {
   mostrarEsgotados: false,
 
   // Categorias que NÃO aparecem no site (nem na lista, nem na busca).
-  // "Outros" junta o que não é de nenhuma das 5 categorias.
+  // "Outros" junta o que não é de nenhuma das categorias do site.
   ocultarCategorias: ["Outros"],
 
   // Produtos que NÃO aparecem no site quando o nome tem uma destas
@@ -45,6 +45,11 @@ window.LOJAS.ybera = {
   // Ordem das categorias na vitrine.
   ordemCategorias: [
     "Progressiva e Pós-Progressiva",
+    "Loiro Perfeito",
+    "Liso Perfeito",
+    "Cacho Perfeito",
+    "Kids",
+    "Antiqueda",
     "Cronogramas Capilares",
     "Finalizadores",
     "Equipamentos Profissionais",
@@ -59,6 +64,11 @@ window.LOJAS.ybera = {
   // Ícones: liso, gota, raiz, coracao, ondas, brilho, cachos, sol, escudo, frasco, caixa, escova.
   iconesCategorias: {
     "Progressiva e Pós-Progressiva": "liso",
+    "Loiro Perfeito": "sol",
+    "Liso Perfeito": "gota",
+    "Cacho Perfeito": "cachos",
+    "Kids": "coracao",
+    "Antiqueda": "raiz",
     "Cronogramas Capilares": "ondas",
     "Finalizadores": "brilho",
     "Equipamentos Profissionais": "escova",
@@ -100,7 +110,7 @@ window.LOJAS.ybera = {
     {
       nome: "Cronograma Capilar Liso Perfeito",
       oQueE: "Kit de Máscaras Cronograma Capilar Liso Perfeito. Revele a beleza de um liso disciplinado, alinhado e livre de frizz.",
-      categoria: "Cronogramas Capilares",
+      categoria: "Liso Perfeito",
       imagem: "assets/img/produtos/ybera/ybera-151305.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-liso-perfeito-ybera-fashion-gold-151305",
       precoAntigo: "R$ 324,90",
@@ -110,7 +120,7 @@ window.LOJAS.ybera = {
     {
       nome: "Cronograma Capilar Kids Menino",
       oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
-      categoria: "Cronogramas Capilares",
+      categoria: "Kids",
       imagem: "assets/img/produtos/ybera/ybera-151312.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-kids-menino-ybera-fashion-kids-151312",
       precoAntigo: "R$ 249,90",
@@ -120,7 +130,7 @@ window.LOJAS.ybera = {
     {
       nome: "Cronograma Capilar Kids Menina",
       oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
-      categoria: "Cronogramas Capilares",
+      categoria: "Kids",
       imagem: "assets/img/produtos/ybera/ybera-151316.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-kids-menina-ybera-fashion-kids-151316",
       precoAntigo: "R$ 249,90",
@@ -130,7 +140,7 @@ window.LOJAS.ybera = {
     {
       nome: "Cronograma Capilar Loiro Perfeito",
       oQueE: "Kit de Máscaras Cronograma Capilar Loiro Perfeito Revele a beleza de um loiro iluminado, saudável e sofisticado.",
-      categoria: "Cronogramas Capilares",
+      categoria: "Loiro Perfeito",
       imagem: "assets/img/produtos/ybera/ybera-151299.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-loiro-perfeito-ybera-fashion-gold-151299",
       precoAntigo: "R$ 299,90",
@@ -140,7 +150,7 @@ window.LOJAS.ybera = {
     {
       nome: "Kit Antiqueda 100Tímetros - Shampoo 300ml + Condicionador 300g + Tônico 150ml",
       oQueE: "Kit 100Tímetros Antiqueda – Tratamento Completo Contra a Queda Capilar .",
-      categoria: "Shampoo",
+      categoria: "Antiqueda",
       imagem: "assets/img/produtos/ybera/ybera-150314.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-tonico-150ml-ybera-fashion-gold-150314",
       precoAntigo: "R$ 349,90",
@@ -238,26 +248,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Cronograma Liso Perfeito + Escova Progressiva 300g + Shampoo Pós-Progressiva 300ml + Máscara 2 em 1 250g",
-      oQueE: "Kit de Máscaras Cronograma Capilar Liso Perfeito . Revele a beleza de um liso disciplinado, alinhado e livre de frizz.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151608.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cronograma-liso-perfeito-escova-progressiva-300g-shampoo-pos-progressiva-300ml-mascara-2-em-1-250g-ybera-fashion-gold-151608",
-      precoAntigo: "R$ 734,90",
-      preco: "R$ 698,16",
-      destaque: false
-    },
-    {
-      nome: "Kit Cronograma Liso Perfeito + Shampoo Pós-Progressiva 500ml",
-      oQueE: "Kit de Máscaras Cronograma Capilar Liso Perfeito. Revele a beleza de um liso disciplinado, alinhado e livre de frizz.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151606.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cronograma-liso-perfeito-shampoo-pos-progressiva-500ml-ybera-fashion-gold-151606",
-      precoAntigo: "R$ 387,90",
-      preco: "R$ 368,51",
-      destaque: false
-    },
-    {
       nome: "Kit Escova Progressiva 300g + Shampoo Pós-Progressiva 300ml + Máscara 2 em 1 250g + Protect Poo 300g",
       oQueE: "Você encontrou a solução para alisar os seus cabelos de forma segura, sem precisar se preocupar com o mau odor ou se irá danificar o seu cabelo.",
       categoria: "Progressiva e Pós-Progressiva",
@@ -275,16 +265,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-500g-shampoo-pos-progressiva-500ml-mascara-2-em-1-500g-ybera-fashion-gold-150261",
       precoAntigo: "R$ 577,90",
       preco: "R$ 549,01",
-      destaque: false
-    },
-    {
-      nome: "Kit Liso Perfeito - Máscara Resistência Absoluta 250g + Máscara Liso Encorpado 250g + Máscara Blindagem Polidora 250g",
-      oQueE: "Kit de Máscaras Cronograma Capilar Liso Perfeito. Revele a beleza de um liso disciplinado, alinhado e livre de frizz.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151550.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-mascara-resistencia-absoluta-250g-mascara-liso-encorpado-250g-mascara-blindagem-polidora-250g-ybera-fashion-gold-151550",
-      precoAntigo: "R$ 299,90",
-      preco: "R$ 284,91",
       destaque: false
     },
     {
@@ -318,26 +298,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Máscara Hidratação Liso Encorpado Liso Perfeito 250g",
-      oQueE: "A Máscara Liso Encorpado do Cronograma Capilar Liso Perfeito fortalece os fios fragilizados, reduz a quebra e aumenta a resistência da fibra capilar.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151516.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-hidratacao-liso-encorpado-liso-perfeito-250g-ybera-fashion-gold-151516",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      destaque: false
-    },
-    {
-      nome: "Máscara Nutrição Blindagem Polidora Liso Perfeito 250g",
-      oQueE: "A Máscara Blindagem Polidora do Cronograma Liso Perfeito foi desenvolvida para cabelos lisos e alisados que sofrem com frizz persistente, ondulação…",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151515.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-nutricao-blindagem-polidora-liso-perfeito-250g-ybera-fashion-gold-151515",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      destaque: false
-    },
-    {
       nome: "Máscara Pós-Progressiva pH Control 200g",
       oQueE: "Cabelos alisados precisam de um cuidado especial para manter o efeito liso impecável por mais tempo.",
       categoria: "Progressiva e Pós-Progressiva",
@@ -348,29 +308,29 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Máscara Reconstrução Resistência Absoluta Liso Perfeito 250g",
-      oQueE: "A Máscara Resistência Absoluta do Cronograma Capilar Liso Perfeito fortalece os cabelos lisos fragilizados, devolvendo a elasticidade e a resistência dos fios.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151517.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-resistencia-absoluta-liso-perfeito-250g-ybera-fashion-gold-151517",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
+      nome: "Leave-in Loiro Perfeito 150ml",
+      oQueE: "O Leave-in SOS Loiro Polido Ybera Fashion Gold é o finalizador essencial para fios loiros protegidos e brilhantes.",
+      categoria: "Loiro Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151298.webp",
+      affiliateUrl: "https://www.ybera.com/produto/leave-in-loiro-perfeito-150ml-ybera-fashion-gold-151298",
+      precoAntigo: "R$ 99,90",
+      preco: "R$ 94,91",
       destaque: false
     },
     {
-      nome: "3 Unidades - Kit Kids Menina",
-      oQueE: "Kit Kids Menina Ybera Fashion Kids . Cuidado seguro, divertido e completo para os cabelos das crianças .",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151440.webp",
-      affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-kids-menina-ybera-fashion-kids-151440",
-      precoAntigo: "R$ 377,70",
-      preco: "R$ 358,82",
+      nome: "Shampoo Luminoso Loiro Perfeito 500ml",
+      oQueE: "O Shampoo Luminoso promove uma limpeza profunda sem agredir.",
+      categoria: "Loiro Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151297.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-luminoso-loiro-perfeito-500ml-ybera-fashion-gold-151297",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
       destaque: false
     },
     {
       nome: "6 Unidades - Kit Cronograma Liso Perfeito",
       oQueE: "Kit Cronograma Capilar Liso Perfeito . Liso disciplinado, alinhado e protegido.",
-      categoria: "Cronogramas Capilares",
+      categoria: "Liso Perfeito",
       imagem: "assets/img/produtos/ybera/ybera-151443.webp",
       affiliateUrl: "https://www.ybera.com/produto/6-unidades-kit-cronograma-liso-perfeito-ybera-fashion-gold-151443",
       precoAntigo: "R$ 815,40",
@@ -378,9 +338,169 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit Cronograma Liso Perfeito + Escova Progressiva 300g + Shampoo Pós-Progressiva 300ml + Máscara 2 em 1 250g",
+      oQueE: "Kit de Máscaras Cronograma Capilar Liso Perfeito . Revele a beleza de um liso disciplinado, alinhado e livre de frizz.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151608.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cronograma-liso-perfeito-escova-progressiva-300g-shampoo-pos-progressiva-300ml-mascara-2-em-1-250g-ybera-fashion-gold-151608",
+      precoAntigo: "R$ 734,90",
+      preco: "R$ 698,16",
+      destaque: false
+    },
+    {
+      nome: "Kit Cronograma Liso Perfeito + Shampoo Pós-Progressiva 500ml",
+      oQueE: "Kit de Máscaras Cronograma Capilar Liso Perfeito. Revele a beleza de um liso disciplinado, alinhado e livre de frizz.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151606.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cronograma-liso-perfeito-shampoo-pos-progressiva-500ml-ybera-fashion-gold-151606",
+      precoAntigo: "R$ 387,90",
+      preco: "R$ 368,51",
+      destaque: false
+    },
+    {
+      nome: "Kit Liso Perfeito - Máscara Resistência Absoluta 250g + Máscara Liso Encorpado 250g + Máscara Blindagem Polidora 250g",
+      oQueE: "Kit de Máscaras Cronograma Capilar Liso Perfeito. Revele a beleza de um liso disciplinado, alinhado e livre de frizz.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151550.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-mascara-resistencia-absoluta-250g-mascara-liso-encorpado-250g-mascara-blindagem-polidora-250g-ybera-fashion-gold-151550",
+      precoAntigo: "R$ 299,90",
+      preco: "R$ 284,91",
+      destaque: false
+    },
+    {
+      nome: "Kit Liso Perfeito + Shampoo Liso Perfeito 500ml - Fashion Gold",
+      oQueE: "Revele a beleza de um liso disciplinado, alinhado, hidratado e livre de frizz com o cuidado completo da Ybera Fashion Gold.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151303.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-shampoo-liso-perfeito-500ml-fashion-gold-151303",
+      precoAntigo: "R$ 387,90",
+      preco: "R$ 368,51",
+      destaque: false
+    },
+    {
+      nome: "Kit Liso Perfeito Shampoo 500ml + Top Coat 150ml",
+      oQueE: "Shampoo Alinhador 500ml + Top Coat 150ml . Limpeza equilibrante + blindagem térmica para um liso disciplinado, alinhado e protegido todos os dias.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151409.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-shampoo-500ml-top-coat-150ml-ybera-fashion-gold-151409",
+      precoAntigo: "R$ 207,80",
+      preco: "R$ 197,41",
+      destaque: false
+    },
+    {
+      nome: "Máscara Hidratação Liso Encorpado Liso Perfeito 250g",
+      oQueE: "A Máscara Liso Encorpado do Cronograma Capilar Liso Perfeito fortalece os fios fragilizados, reduz a quebra e aumenta a resistência da fibra capilar.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151516.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-hidratacao-liso-encorpado-liso-perfeito-250g-ybera-fashion-gold-151516",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Máscara Nutrição Blindagem Polidora Liso Perfeito 250g",
+      oQueE: "A Máscara Blindagem Polidora do Cronograma Liso Perfeito foi desenvolvida para cabelos lisos e alisados que sofrem com frizz persistente, ondulação…",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151515.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-nutricao-blindagem-polidora-liso-perfeito-250g-ybera-fashion-gold-151515",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Máscara Reconstrução Resistência Absoluta Liso Perfeito 250g",
+      oQueE: "A Máscara Resistência Absoluta do Cronograma Capilar Liso Perfeito fortalece os cabelos lisos fragilizados, devolvendo a elasticidade e a resistência dos fios.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151517.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-resistencia-absoluta-liso-perfeito-250g-ybera-fashion-gold-151517",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Top Coat Liso Perfeito 150ml",
+      oQueE: "Top Coat Liso Blindado 150ml . Blindagem inteligente para um liso protegido, alinhado e livre de frizz por muito mais tempo.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151304.webp",
+      affiliateUrl: "https://www.ybera.com/produto/top-coat-liso-perfeito-150ml-ybera-fashion-gold-151304",
+      precoAntigo: "R$ 99,90",
+      preco: "R$ 94,91",
+      destaque: false
+    },
+    {
+      nome: "Creme para Pentear Cacho Perfeito 500g",
+      oQueE: "O Creme para Pentear Cachos Curvas Ybera Fashion foi desenvolvido para todas as curvaturas, de 2A a 4C, garantindo definição, leveza e movimento natural aos…",
+      categoria: "Cacho Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151329.webp",
+      affiliateUrl: "https://www.ybera.com/produto/creme-para-pentear-cacho-perfeito-500g-ybera-fashion-gold-151329",
+      precoAntigo: "R$ 129,90",
+      preco: "R$ 123,41",
+      destaque: false
+    },
+    {
+      nome: "Cronograma Capilar Cacho Perfeito",
+      oQueE: "Kit Cacho Perfeito – Ybera Fashion Gold Cronograma Capilar completo para cachos saudáveis, definidos e livres de frizz .",
+      categoria: "Cacho Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151324.webp",
+      affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-cacho-perfeito-ybera-fashion-gold-151324",
+      precoAntigo: "R$ 299,90",
+      preco: "R$ 284,91",
+      destaque: false
+    },
+    {
+      nome: "Kit Cacho Perfeito Creme de Pentear 500g + Leave-in 300ml + Óleo Reparador 150ml",
+      oQueE: "Kit Cacho Perfeito – Definição, Nutrição e Brilho.",
+      categoria: "Cacho Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151619.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-creme-de-pentear-500g-leave-in-300ml-oleo-reparador-150ml-ybera-fashion-gold-151619",
+      precoAntigo: "R$ 429,70",
+      preco: "R$ 388,46",
+      destaque: false
+    },
+    {
+      nome: "Leave-in Cacho Perfeito 300ml",
+      oQueE: "O Leave-In Nutre e Leve da linha Cacho Perfeito Ybera foi desenvolvido especialmente para cabelos ondulados e cacheados (curvaturas de 2A a 4C) que precisam…",
+      categoria: "Cacho Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151328.webp",
+      affiliateUrl: "https://www.ybera.com/produto/leave-in-cacho-perfeito-300ml-ybera-fashion-gold-151328",
+      precoAntigo: "R$ 129,90",
+      preco: "R$ 123,41",
+      destaque: false
+    },
+    {
+      nome: "Óleo Reparador Nutre Cacho Perfeito 150ml",
+      oQueE: "O Óleo Reparador Cacho Perfeito Ybera Fashion Gold foi desenvolvido para nutrir profundamente os cabelos cacheados, eliminando o frizz e realçando o brilho…",
+      categoria: "Cacho Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151325.webp",
+      affiliateUrl: "https://www.ybera.com/produto/oleo-reparador-nutre-cacho-perfeito-150ml-ybera-fashion-gold-151325",
+      precoAntigo: "R$ 169,90",
+      preco: "R$ 161,41",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Curvaturas Cacho Perfeito 500ml",
+      oQueE: "O Shampoo Curvaturas Cacho Perfeito Ybera Fashion Gold foi desenvolvido especialmente para cabelos ondulados, cacheados e crespos que precisam de uma…",
+      categoria: "Cacho Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151327.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-curvaturas-cacho-perfeito-500ml-ybera-fashion-gold-151327",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      destaque: false
+    },
+    {
+      nome: "3 Unidades - Kit Kids Menina",
+      oQueE: "Kit Kids Menina Ybera Fashion Kids . Cuidado seguro, divertido e completo para os cabelos das crianças .",
+      categoria: "Kids",
+      imagem: "assets/img/produtos/ybera/ybera-151440.webp",
+      affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-kids-menina-ybera-fashion-kids-151440",
+      precoAntigo: "R$ 377,70",
+      preco: "R$ 358,82",
+      destaque: false
+    },
+    {
       nome: "6 Unidades - Kit Kids Menina",
       oQueE: "Kit Kids Menina Ybera Fashion Kids . Cuidado seguro, divertido e completo para os cabelos das crianças .",
-      categoria: "Cronogramas Capilares",
+      categoria: "Kids",
       imagem: "assets/img/produtos/ybera/ybera-151439.webp",
       affiliateUrl: "https://www.ybera.com/produto/6-unidades-kit-kids-menina-ybera-fashion-kids-151439",
       precoAntigo: "R$ 707,40",
@@ -390,7 +510,7 @@ window.LOJAS.ybera = {
     {
       nome: "Combo Premium Kids Menina",
       oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
-      categoria: "Cronogramas Capilares",
+      categoria: "Kids",
       imagem: "assets/img/produtos/ybera/ybera-151315.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-premium-kids-menina-ybera-fashion-kids-151315",
       precoAntigo: "R$ 389,90",
@@ -398,13 +518,103 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Cronograma Capilar Cacho Perfeito",
-      oQueE: "Kit Cacho Perfeito – Ybera Fashion Gold Cronograma Capilar completo para cachos saudáveis, definidos e livres de frizz .",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151324.webp",
-      affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-cacho-perfeito-ybera-fashion-gold-151324",
-      precoAntigo: "R$ 299,90",
-      preco: "R$ 284,91",
+      nome: "Kit Kids Menina + Shampoo Brilho 300ml",
+      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
+      categoria: "Kids",
+      imagem: "assets/img/produtos/ybera/ybera-151314.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menina-shampoo-brilho-300ml-ybera-fashion-kids-151314",
+      precoAntigo: "R$ 313,90",
+      preco: "R$ 298,21",
+      destaque: false
+    },
+    {
+      nome: "Kit Kids Menino + Kit Kids Menina",
+      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
+      categoria: "Kids",
+      imagem: "assets/img/produtos/ybera/ybera-151562.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-kids-menina-ybera-fashion-kids-151562",
+      precoAntigo: "R$ 499,80",
+      preco: "R$ 474,81",
+      destaque: false
+    },
+    {
+      nome: "Kit Kids Menino + Kit Máscaras Cuidados Profundos",
+      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
+      categoria: "Kids",
+      imagem: "assets/img/produtos/ybera/ybera-151567.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-mascaras-cuidados-profundos-ybera-fashion-gold-151567",
+      precoAntigo: "R$ 549,80",
+      preco: "R$ 522,31",
+      destaque: false
+    },
+    {
+      nome: "Kit Kids Menino + Kit Máscaras Liso Perfeito",
+      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
+      categoria: "Kids",
+      imagem: "assets/img/produtos/ybera/ybera-151569.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-mascaras-liso-perfeito-ybera-fashion-gold-151569",
+      precoAntigo: "R$ 549,80",
+      preco: "R$ 522,31",
+      destaque: false
+    },
+    {
+      nome: "Kit Kids Menino + Kit Máscaras Loiro Perfeito",
+      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
+      categoria: "Kids",
+      imagem: "assets/img/produtos/ybera/ybera-151570.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-mascaras-loiro-perfeito-ybera-fashion-gold-151570",
+      precoAntigo: "R$ 549,80",
+      preco: "R$ 522,31",
+      destaque: false
+    },
+    {
+      nome: "Kit 30 Cápsulas Antiqueda Capilar + Óleo de Mirra 15ml + Tônico Antiqueda 150ml",
+      oQueE: "Uma rotina completa de cuidados para fortalecer e revitalizar os cabelos de dentro para fora.",
+      categoria: "Antiqueda",
+      imagem: "assets/img/produtos/ybera/ybera-151618.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-30-capsulas-antiqueda-capilar-oleo-de-mirra-15ml-tonico-antiqueda-150ml-ybera-fashion-gold-151618",
+      precoAntigo: "R$ 307,70",
+      preco: "R$ 278,26",
+      destaque: false
+    },
+    {
+      nome: "Kit Antiqueda 100Tímetros - Shampoo 300ml + Condicionador 300g",
+      oQueE: "Kit Shampoo e Condicionador Antiqueda 100timetros – Força, Crescimento e Densidade Capilar .",
+      categoria: "Antiqueda",
+      imagem: "assets/img/produtos/ybera/ybera-150703.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-ybera-fashion-gold-150703",
+      precoAntigo: "R$ 227,90",
+      preco: "R$ 216,51",
+      destaque: false
+    },
+    {
+      nome: "Kit Antiqueda 100Tímetros - Shampoo 300ml + Condicionador 300g + 30 Cápsulas Softgel",
+      oQueE: "Uma rotina completa para cuidar da beleza de dentro para fora.",
+      categoria: "Antiqueda",
+      imagem: "assets/img/produtos/ybera/ybera-151623.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-30-capsulas-softgel-ybera-fashion-gold-151623",
+      precoAntigo: "R$ 334,80",
+      preco: "R$ 318,06",
+      destaque: false
+    },
+    {
+      nome: "Kit Antiqueda 100Tímetros - Shampoo 300ml + Condicionador 300g + Tônico 150ml + 90 Cápsulas",
+      oQueE: "Kit 100Tímetros – Cabelo, Pele e Unhas + Antiqueda . Uma rotina completa para cuidar da beleza de dentro para fora.",
+      categoria: "Antiqueda",
+      imagem: "assets/img/produtos/ybera/ybera-151617.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-tonico-150ml-90-capsulas-ybera-fashion-gold-151617",
+      precoAntigo: "R$ 607,60",
+      preco: "R$ 549,01",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Antiqueda 100Tímetros 300ml",
+      oQueE: "Limpeza, fortalecimento e cuidado contra a queda capilar .",
+      categoria: "Antiqueda",
+      imagem: "assets/img/produtos/ybera/ybera-150307.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-antiqueda-100timetros-300ml-ybera-fashion-gold-150307",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
       destaque: false
     },
     {
@@ -445,56 +655,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-mascara-reconstrucao-250g-mascara-nutricao-250g-mascara-hidratacao-250g-ybera-fashion-gold-151548",
       precoAntigo: "R$ 299,90",
       preco: "R$ 284,91",
-      destaque: false
-    },
-    {
-      nome: "Kit Kids Menina + Shampoo Brilho 300ml",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151314.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menina-shampoo-brilho-300ml-ybera-fashion-kids-151314",
-      precoAntigo: "R$ 313,90",
-      preco: "R$ 298,21",
-      destaque: false
-    },
-    {
-      nome: "Kit Kids Menino + Kit Kids Menina",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151562.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-kids-menina-ybera-fashion-kids-151562",
-      precoAntigo: "R$ 499,80",
-      preco: "R$ 474,81",
-      destaque: false
-    },
-    {
-      nome: "Kit Kids Menino + Kit Máscaras Cuidados Profundos",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151567.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-mascaras-cuidados-profundos-ybera-fashion-gold-151567",
-      precoAntigo: "R$ 549,80",
-      preco: "R$ 522,31",
-      destaque: false
-    },
-    {
-      nome: "Kit Kids Menino + Kit Máscaras Liso Perfeito",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151569.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-mascaras-liso-perfeito-ybera-fashion-gold-151569",
-      precoAntigo: "R$ 549,80",
-      preco: "R$ 522,31",
-      destaque: false
-    },
-    {
-      nome: "Kit Kids Menino + Kit Máscaras Loiro Perfeito",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151570.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-mascaras-loiro-perfeito-ybera-fashion-gold-151570",
-      precoAntigo: "R$ 549,80",
-      preco: "R$ 522,31",
       destaque: false
     },
     {
@@ -548,16 +708,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Top Coat Liso Perfeito 150ml",
-      oQueE: "Top Coat Liso Blindado 150ml . Blindagem inteligente para um liso protegido, alinhado e livre de frizz por muito mais tempo.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151304.webp",
-      affiliateUrl: "https://www.ybera.com/produto/top-coat-liso-perfeito-150ml-ybera-fashion-gold-151304",
-      precoAntigo: "R$ 99,90",
-      preco: "R$ 94,91",
-      destaque: false
-    },
-    {
       nome: "12 Unidades - Óleo De Mirra Reparador 15ml",
       oQueE: "Óleo de Mirra Hidratante Milagroso 90ml da Ybera, um verdadeiro tesouro da natureza para seus cabelos!",
       categoria: "Finalizadores",
@@ -575,16 +725,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/6-unidades-oleo-de-mirra-reparador-15ml-ybera-paris-151448",
       precoAntigo: "R$ 234,00",
       preco: "R$ 222,30",
-      destaque: false
-    },
-    {
-      nome: "Creme para Pentear Cacho Perfeito 500g",
-      oQueE: "O Creme para Pentear Cachos Curvas Ybera Fashion foi desenvolvido para todas as curvaturas, de 2A a 4C, garantindo definição, leveza e movimento natural aos…",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151329.webp",
-      affiliateUrl: "https://www.ybera.com/produto/creme-para-pentear-cacho-perfeito-500g-ybera-fashion-gold-151329",
-      precoAntigo: "R$ 129,90",
-      preco: "R$ 123,41",
       destaque: false
     },
     {
@@ -608,36 +748,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit 30 Cápsulas Antiqueda Capilar + Óleo de Mirra 15ml + Tônico Antiqueda 150ml",
-      oQueE: "Uma rotina completa de cuidados para fortalecer e revitalizar os cabelos de dentro para fora.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151618.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-30-capsulas-antiqueda-capilar-oleo-de-mirra-15ml-tonico-antiqueda-150ml-ybera-fashion-gold-151618",
-      precoAntigo: "R$ 307,70",
-      preco: "R$ 278,26",
-      destaque: false
-    },
-    {
-      nome: "Kit Cacho Perfeito Creme de Pentear 500g + Leave-in 300ml + Óleo Reparador 150ml",
-      oQueE: "Kit Cacho Perfeito – Definição, Nutrição e Brilho.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151619.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-creme-de-pentear-500g-leave-in-300ml-oleo-reparador-150ml-ybera-fashion-gold-151619",
-      precoAntigo: "R$ 429,70",
-      preco: "R$ 388,46",
-      destaque: false
-    },
-    {
-      nome: "Leave-in Cacho Perfeito 300ml",
-      oQueE: "O Leave-In Nutre e Leve da linha Cacho Perfeito Ybera foi desenvolvido especialmente para cabelos ondulados e cacheados (curvaturas de 2A a 4C) que precisam…",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151328.webp",
-      affiliateUrl: "https://www.ybera.com/produto/leave-in-cacho-perfeito-300ml-ybera-fashion-gold-151328",
-      precoAntigo: "R$ 129,90",
-      preco: "R$ 123,41",
-      destaque: false
-    },
-    {
       nome: "Leave-in Desembaraçante 150ml",
       oQueE: "O Leave-in Desembaraçante Fashion Gold Kids foi desenvolvido para facilitar o cuidado diário dos cabelos infantis, tornando o momento de pentear muito mais…",
       categoria: "Finalizadores",
@@ -645,16 +755,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/leave-in-desembaracante-150ml-ybera-fashion-kids-151317",
       precoAntigo: "R$ 79,90",
       preco: "R$ 75,91",
-      destaque: false
-    },
-    {
-      nome: "Leave-in Loiro Perfeito 150ml",
-      oQueE: "O Leave-in SOS Loiro Polido Ybera Fashion Gold é o finalizador essencial para fios loiros protegidos e brilhantes.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151298.webp",
-      affiliateUrl: "https://www.ybera.com/produto/leave-in-loiro-perfeito-150ml-ybera-fashion-gold-151298",
-      precoAntigo: "R$ 99,90",
-      preco: "R$ 94,91",
       destaque: false
     },
     {
@@ -715,16 +815,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-15ml-ybera-151265",
       precoAntigo: "R$ 79,90",
       preco: "R$ 75,91",
-      destaque: false
-    },
-    {
-      nome: "Óleo Reparador Nutre Cacho Perfeito 150ml",
-      oQueE: "O Óleo Reparador Cacho Perfeito Ybera Fashion Gold foi desenvolvido para nutrir profundamente os cabelos cacheados, eliminando o frizz e realçando o brilho…",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151325.webp",
-      affiliateUrl: "https://www.ybera.com/produto/oleo-reparador-nutre-cacho-perfeito-150ml-ybera-fashion-gold-151325",
-      precoAntigo: "R$ 169,90",
-      preco: "R$ 161,41",
       destaque: false
     },
     {
@@ -868,36 +958,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Antiqueda 100Tímetros - Shampoo 300ml + Condicionador 300g",
-      oQueE: "Kit Shampoo e Condicionador Antiqueda 100timetros – Força, Crescimento e Densidade Capilar .",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150703.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-ybera-fashion-gold-150703",
-      precoAntigo: "R$ 227,90",
-      preco: "R$ 216,51",
-      destaque: false
-    },
-    {
-      nome: "Kit Antiqueda 100Tímetros - Shampoo 300ml + Condicionador 300g + 30 Cápsulas Softgel",
-      oQueE: "Uma rotina completa para cuidar da beleza de dentro para fora.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151623.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-30-capsulas-softgel-ybera-fashion-gold-151623",
-      precoAntigo: "R$ 334,80",
-      preco: "R$ 318,06",
-      destaque: false
-    },
-    {
-      nome: "Kit Antiqueda 100Tímetros - Shampoo 300ml + Condicionador 300g + Tônico 150ml + 90 Cápsulas",
-      oQueE: "Kit 100Tímetros – Cabelo, Pele e Unhas + Antiqueda . Uma rotina completa para cuidar da beleza de dentro para fora.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151617.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-tonico-150ml-90-capsulas-ybera-fashion-gold-151617",
-      precoAntigo: "R$ 607,60",
-      preco: "R$ 549,01",
-      destaque: false
-    },
-    {
       nome: "Kit Botulínica - Shampoo Anti Age Biotox 250ml + Reconstrutor 500g",
       oQueE: "A dupla completa para reverter os sinais do tempo nos fios.",
       categoria: "Shampoo",
@@ -948,26 +1008,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Liso Perfeito + Shampoo Liso Perfeito 500ml - Fashion Gold",
-      oQueE: "Revele a beleza de um liso disciplinado, alinhado, hidratado e livre de frizz com o cuidado completo da Ybera Fashion Gold.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151303.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-shampoo-liso-perfeito-500ml-fashion-gold-151303",
-      precoAntigo: "R$ 387,90",
-      preco: "R$ 368,51",
-      destaque: false
-    },
-    {
-      nome: "Kit Liso Perfeito Shampoo 500ml + Top Coat 150ml",
-      oQueE: "Shampoo Alinhador 500ml + Top Coat 150ml . Limpeza equilibrante + blindagem térmica para um liso disciplinado, alinhado e protegido todos os dias.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151409.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-shampoo-500ml-top-coat-150ml-ybera-fashion-gold-151409",
-      precoAntigo: "R$ 207,80",
-      preco: "R$ 197,41",
-      destaque: false
-    },
-    {
       nome: "Kit Pro-Geno Genoma - Shampoo 500ml + Máscara 500g",
       oQueE: "Shampoo e máscara que reconstroem a fibra capilar de dentro para fora.",
       categoria: "Shampoo",
@@ -1015,16 +1055,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-mascara-selador-pro-geno-genoma-500ml-500g-ybera-paris-151206",
       precoAntigo: "R$ 559,90",
       preco: "R$ 531,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Antiqueda 100Tímetros 300ml",
-      oQueE: "Limpeza, fortalecimento e cuidado contra a queda capilar .",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150307.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-antiqueda-100timetros-300ml-ybera-fashion-gold-150307",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
       destaque: false
     },
     {
@@ -1085,16 +1115,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-brilho-300ml-ybera-fashion-kids-151318",
       precoAntigo: "R$ 79,90",
       preco: "R$ 75,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Curvaturas Cacho Perfeito 500ml",
-      oQueE: "O Shampoo Curvaturas Cacho Perfeito Ybera Fashion Gold foi desenvolvido especialmente para cabelos ondulados, cacheados e crespos que precisam de uma…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151327.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-curvaturas-cacho-perfeito-500ml-ybera-fashion-gold-151327",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
       destaque: false
     },
     {
@@ -1165,16 +1185,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-lifes-flower-trh-biotech-250ml-ybera-150962",
       precoAntigo: "R$ 119,90",
       preco: "R$ 113,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Luminoso Loiro Perfeito 500ml",
-      oQueE: "O Shampoo Luminoso promove uma limpeza profunda sem agredir.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151297.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-luminoso-loiro-perfeito-500ml-ybera-fashion-gold-151297",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
       destaque: false
     },
     {
@@ -1882,6 +1892,50 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit Máscaras Liso Perfeito + Shampoo Liso Perfeito 500ml",
+      oQueE: "Revele a beleza de um liso disciplinado, alinhado, hidratado e livre de frizz com o cuidado completo da Ybera Fashion Gold.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151594.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-mascaras-liso-perfeito-shampoo-liso-perfeito-500ml-ybera-fashion-gold-151594",
+      precoAntigo: "R$ 444,90",
+      preco: "R$ 422,66",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Alinhador Liso Perfeito 500ml",
+      oQueE: "Shampoo Alinhador 500ml . Limpeza inteligente que trata, equilibra e disciplina os fios desde a primeira lavagem.",
+      categoria: "Liso Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151306.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-alinhador-liso-perfeito-500ml-ybera-fashion-gold-151306",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Cacho Perfeito + Shampoo Curvaturas Cacho Perfeito 500ml",
+      oQueE: "O Kit Ybera Fashion Gold Cacho Perfeito foi desenvolvido especialmente para cuidar de todas as curvaturas — de 2A a 4C — , oferecendo nutrição inteligente,…",
+      categoria: "Cacho Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151323.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-shampoo-curvaturas-cacho-perfeito-500ml-–-ybera-fashion-gold-151323",
+      precoAntigo: "R$ 385,80",
+      preco: "R$ 366,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Curvaturas 1l Cacho Perfeito",
+      oQueE: "O Shampoo Curvaturas Cacho Perfeito Ybera Fashion Gold 1L oferece limpeza inteligente e tratamento prolongado para cabelos ondulados, cacheados e crespos.",
+      categoria: "Cacho Perfeito",
+      imagem: "assets/img/produtos/ybera/ybera-151326.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-curvaturas-1l-cacho-perfeito-ybera-fashion-gold-151326",
+      precoAntigo: "R$ 149,90",
+      preco: "R$ 142,41",
+      esgotado: true,
+      destaque: false
+    },
+    {
       nome: "3 Unidades - Kit Cronograma Capilar Cuidados Profundos - Fashion Gold",
       oQueE: "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
       categoria: "Cronogramas Capilares",
@@ -1911,17 +1965,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341",
       precoAntigo: "R$ 379,90",
       preco: "R$ 360,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Máscaras Liso Perfeito + Shampoo Liso Perfeito 500ml",
-      oQueE: "Revele a beleza de um liso disciplinado, alinhado, hidratado e livre de frizz com o cuidado completo da Ybera Fashion Gold.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151594.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-mascaras-liso-perfeito-shampoo-liso-perfeito-500ml-ybera-fashion-gold-151594",
-      precoAntigo: "R$ 444,90",
-      preco: "R$ 422,66",
       esgotado: true,
       destaque: false
     },
@@ -2311,17 +2354,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Cacho Perfeito + Shampoo Curvaturas Cacho Perfeito 500ml",
-      oQueE: "O Kit Ybera Fashion Gold Cacho Perfeito foi desenvolvido especialmente para cuidar de todas as curvaturas — de 2A a 4C — , oferecendo nutrição inteligente,…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151323.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-shampoo-curvaturas-cacho-perfeito-500ml-–-ybera-fashion-gold-151323",
-      precoAntigo: "R$ 385,80",
-      preco: "R$ 366,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Kit Cocada Capilar - Shampoo Isotônico 500ml + Máscara Toda de Coco 500g",
       oQueE: "Shampoo Isotônico Sulfato Free 500ml Desenvolvido para cabelos extremamente ressecados e grossos.",
       categoria: "Shampoo",
@@ -2509,17 +2541,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Shampoo Alinhador Liso Perfeito 500ml",
-      oQueE: "Shampoo Alinhador 500ml . Limpeza inteligente que trata, equilibra e disciplina os fios desde a primeira lavagem.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151306.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-alinhador-liso-perfeito-500ml-ybera-fashion-gold-151306",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Shampoo Coco Verde 300ml - Terra Coco",
       oQueE: "O Shampoo Coco Verde limpa delicadamente e hidrata profundamente, proporcionando maciez, brilho aos cabelos.",
       categoria: "Shampoo",
@@ -2549,17 +2570,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-mascara-polpa-de-coco-verde-200g-terra-coco-150689",
       precoAntigo: "R$ 197,90",
       preco: "R$ 188,01",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Curvaturas 1l Cacho Perfeito",
-      oQueE: "O Shampoo Curvaturas Cacho Perfeito Ybera Fashion Gold 1L oferece limpeza inteligente e tratamento prolongado para cabelos ondulados, cacheados e crespos.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151326.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-curvaturas-1l-cacho-perfeito-ybera-fashion-gold-151326",
-      precoAntigo: "R$ 149,90",
-      preco: "R$ 142,41",
       esgotado: true,
       destaque: false
     },
