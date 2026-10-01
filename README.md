@@ -136,14 +136,17 @@ fica no console do navegador (F12).
 > novos entram, preços mudam e os que saírem da loja saem do site. Os dados
 > brutos ficam em `data/ybera-catalogo.json` e a lista do site em `data/ybera.js`.
 >
-> - As categorias da loja são agrupadas em 12 grupos pelo que o cabelo precisa
->   (regras em `GRUPOS`, no script).
-> - Na página inicial, a vitrine tem uma prateleira por grupo ("Sua progressiva
->   aqui", "Seu loiro perfeito aqui"...) com os produtos lado a lado, para
->   deslizar. "Ver todos" abre só aquele grupo, em vitrine de dois por linha.
->   Os títulos ficam em `rotulosCategorias`, em `data/ybera.js`.
+> - As categorias da loja são agrupadas em 5 categorias do site: Progressiva e
+>   Pós-Progressiva, Cronogramas Capilares, Finalizadores, Equipamentos
+>   Profissionais e Shampoo (regras em `GRUPOS`, no script; o nome do produto
+>   vale primeiro). O que não se encaixa vai para "Outros", que fica escondido.
+> - Na página inicial, a vitrine tem uma prateleira por categoria, com os
+>   produtos lado a lado, para deslizar. "Ver todos" abre só aquela categoria,
+>   em vitrine de dois por linha. Títulos próprios podem ir em
+>   `rotulosCategorias`, em `data/ybera.js`.
 > - Categorias inteiras podem ser escondidas em `ocultarCategorias`, em
->   `data/ybera.js` (hoje: Hidratação e Nutrição, Reconstrução).
+>   `data/ybera.js` (hoje: Outros). Produtos com `destaque: true` continuam
+>   nos Queridinhos mesmo com a categoria escondida.
 > - Produtos esgotados ficam escondidos (`mostrarEsgotados: false`) e voltam
 >   sozinhos quando o estoque voltar.
 > - `destaque: true` é a única mudança feita à mão na lista que se mantém: o

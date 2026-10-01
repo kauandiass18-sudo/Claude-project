@@ -71,7 +71,10 @@
   const ocultas = (loja.ocultarCategorias || []).map((c) => normalizar(c));
   if (ocultas.length) {
     for (let i = produtos.length - 1; i >= 0; i--) {
-      if (ocultas.includes(normalizar(produtos[i].categoria))) produtos.splice(i, 1);
+      const p = produtos[i];
+      if (!ocultas.includes(normalizar(p.categoria))) continue;
+      if (p.destaque) p.oculto = true; // fica só nos Queridinhos
+      else produtos.splice(i, 1);
     }
   }
   // Esgotados ficam escondidos, a não ser que a loja peça para mostrar
@@ -82,7 +85,7 @@
 
   /* ---------- Categorias ---------- */
   const ordem = (loja.ordemCategorias || []).map((c) => normalizar(c));
-  const categorias = [...new Set(produtos.map((p) => p.categoria).filter(Boolean))].sort((a, b) => {
+  const categorias = [...new Set(produtos.filter((p) => !p.oculto).map((p) => p.categoria).filter(Boolean))].sort((a, b) => {
     const ia = ordem.indexOf(normalizar(a));
     const ib = ordem.indexOf(normalizar(b));
     if (ia !== -1 || ib !== -1) return (ia === -1 ? Infinity : ia) - (ib === -1 ? Infinity : ib);
@@ -232,7 +235,7 @@
       listaCategorias.className = "prateleiras";
       listaCategorias.replaceChildren(
         ...categorias.map((c) => {
-          const daCategoria = produtos.filter((p) => p.categoria === c);
+          const daCategoria = produtos.filter((p) => p.categoria === c && !p.oculto);
           const n = daCategoria.length;
           const icone = ICONES[iconesCategorias[c]] || ICONES.brilho;
           const idTitulo = `prateleira-${slugCategoria(c)}`;
@@ -306,7 +309,7 @@
       }
     }
     const resultado = produtos.filter(
-      (p) => (!estado.categoria || p.categoria === estado.categoria) && (!termo || p.busca.includes(termo))
+      (p) => !p.oculto && (!estado.categoria || p.categoria === estado.categoria) && (!termo || p.busca.includes(termo))
     );
 
     if (secaoDestaques && trilhoDestaques && trilhoDestaques.childElementCount) {

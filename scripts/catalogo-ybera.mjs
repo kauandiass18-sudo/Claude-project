@@ -240,31 +240,28 @@ async function coletar() {
 const aspas = (t) => JSON.stringify(String(t));
 
 /* A loja usa dezenas de categorias misturadas (linhas, promoções, tipos).
-   No site, cada produto entra num grupo pelo que o cabelo precisa.
-   A primeira regra que combinar (com a categoria da loja + o nome) vence. */
+   No site, cada produto entra num dos grupos abaixo. Primeiro vale o NOME
+   do produto; só se o nome não disser nada, vale a categoria da loja.
+   A primeira regra que combinar vence. Produto sem grupo vai para "Outros",
+   que fica escondido no site (ocultarCategorias em data/ybera.js). */
 const GRUPOS = [
-  ["Kids", /\bkids\b|infantil|crian/i],
-  ["Acessórios", /escova de cabelo|escovas de cabelo|secador|prancha|pente|\btouca\b|acess[oó]rio/i],
-  ["Loiros", /loir|matiz|desamarel|platinad/i],
-  ["Cachos", /cach|cacheados|ondulad|black diva|crespo|terra coco|curly/i],
-  ["Cronograma Capilar", /cronograma|cuidados profundos/i],
-  ["Antiqueda e Crescimento", /antiqueda|anti-queda|crescimento|100t[ií]metros|fortalecimento|c[aá]psula/i],
-  ["Progressiva e Liso", /progressiva|alisamento|\bliso\b|lisos|frizz|p[oó]s[- ]progressiva|botox|redutor|selagem/i],
-  ["Reconstrução", /reconstru|anti-?quebra|antiquebra|danificad|quebradi|genoma|stemcell|queratina/i],
-  ["Hidratação e Nutrição", /hidrata|nutri|brilho|umecta|[oó]leo|oils?\b/i],
-  ["Finalizadores e Proteção", /finaliza|leave-?in|prote[cç][aã]o t[eé]rmica|termoprotetor|spray|s[eé]rum/i],
-  ["Dia a Dia", /cuidado di[aá]rio|manuten[cç][aã]o|shampoo|condicionador|m[aá]scara|oleosidade|detox/i]
+  // "escova" sozinha não conta: "Escova Progressiva" é progressiva
+  ["Equipamentos Profissionais", /secador|prancha|chapinha|babyliss|modelador|difusor|\bescovas?\b(?!.*progressiva)|\bpente\b|equipamento|avental|capa de corte|cumbuca|pincel|borrifador|\btouca\b|\bluvas?\b/i],
+  ["Progressiva e Pós-Progressiva", /progressiva|alisamento|alisante|botox|selagem|redutor de volume|p[oó]s[- ]?qu[ií]mica/i],
+  ["Cronogramas Capilares", /cronograma|cuidados profundos|kit (?:de )?m[aá]scaras/i],
+  ["Finalizadores", /finaliza|leave-?in|[oó]leo|\boils?\b|s[eé]rum|prote(?:tor|[cç][aã]o) t[eé]rmic|termoprotetor|\bspray\b|fluido|reparador de pontas|creme (?:de|para) pentear|ativador|gelatina|mousse/i],
+  ["Shampoo", /shampoo/i]
 ];
-const GRUPO_PADRAO = "Kits e Combos";
+const GRUPO_PADRAO = "Outros";
 function grupoDe(p) {
-  const texto = `${p.categoria} ${p.nome}`;
-  for (const [nome, re] of GRUPOS) if (re.test(texto)) return nome;
+  for (const texto of [p.nome, p.categoria]) {
+    for (const [nome, re] of GRUPOS) if (re.test(texto)) return nome;
+  }
   return GRUPO_PADRAO;
 }
 const ORDEM_GRUPOS = [
-  "Progressiva e Liso", "Cronograma Capilar", "Hidratação e Nutrição", "Reconstrução",
-  "Antiqueda e Crescimento", "Cachos", "Loiros", "Finalizadores e Proteção", "Dia a Dia",
-  "Kids", "Kits e Combos", "Acessórios"
+  "Progressiva e Pós-Progressiva", "Cronogramas Capilares", "Finalizadores",
+  "Equipamentos Profissionais", "Shampoo"
 ];
 
 /** Tira do nome o sufixo da marca ("- Ybera Paris", "- Ybera Fashion Gold"). */
