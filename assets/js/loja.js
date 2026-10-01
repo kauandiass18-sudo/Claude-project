@@ -43,6 +43,8 @@
   }
 
   /* ---------- Produtos válidos ---------- */
+  // Fotos sem fundo branco (data/<loja>-fotos.js) vão para o fim das fileiras
+  const semFundoBranco = new Set(((window.FOTOS_SEM_FUNDO_BRANCO || {})[slug]) || []);
   const produtos = (Array.isArray(loja.produtos) ? loja.produtos : [])
     .map((p, i) => {
       const nome = p && typeof p.nome === "string" ? p.nome.trim() : "";
@@ -53,8 +55,11 @@
       }
       const categoria = typeof p.categoria === "string" ? p.categoria.trim() : "";
       const texto = (v) => (typeof v === "string" ? v.trim() : "");
+      const id = (url.match(/-(\d+)(?:[/?#]|$)/) || [])[1] || "";
       return {
         nome,
+        id,
+        fotoLimpa: !semFundoBranco.has(id),
         categoria,
         imagem: imagemSegura(p.imagem),
         url: aplicarParametrosAfiliado(url, loja),
@@ -100,6 +105,39 @@
     return a.localeCompare(b, "pt-BR");
   });
 
+  /* ---------- Ordem da vitrine ----------
+     Queridinhos: um de cada categoria por vez, fotos de fundo branco primeiro.
+     Prateleiras: fotos de fundo branco primeiro, e os primeiros Queridinhos
+     mais para o fim, para a vitrine não começar repetindo os mesmos. */
+  const fotoLimpaPrimeiro = (lista) =>
+    lista.map((p, i) => [p, i]).sort((a, b) => (b[0].fotoLimpa - a[0].fotoLimpa) || a[1] - b[1]).map(([p]) => p);
+
+  function ordemDestaques() {
+    const destaques = fotoLimpaPrimeiro(produtos.filter((p) => p.destaque));
+    const filas = new Map();
+    for (const p of destaques) {
+      const g = p.categoria || "Outros";
+      if (!filas.has(g)) filas.set(g, []);
+      filas.get(g).push(p);
+    }
+    const ordem = [];
+    while (ordem.length < destaques.length) {
+      for (const fila of filas.values()) if (fila.length) ordem.push(fila.shift());
+    }
+    return ordem;
+  }
+  const destaquesEmOrdem = ordemDestaques();
+  const primeirosDestaques = new Set(destaquesEmOrdem.slice(0, 4));
+  const ordemPrateleira = (lista) =>
+    lista
+      .map((p, i) => [p, i])
+      .sort((a, b) =>
+        (b[0].fotoLimpa - a[0].fotoLimpa) ||
+        (primeirosDestaques.has(a[0]) - primeirosDestaques.has(b[0])) ||
+        a[1] - b[1]
+      )
+      .map(([p]) => p);
+
   const estado = { categoria: "", busca: "" };
 
   /* ---------- Elementos ---------- */
@@ -115,6 +153,8 @@
   const tituloProdutos = $("[data-produtos-titulo]");
   const lista = $("[data-lista]");
   const tituloPadrao = tituloProdutos ? tituloProdutos.textContent : "";
+  const cabecalhoProdutos = tituloProdutos ? tituloProdutos.closest(".secao__cabecalho") : null;
+  let notaPrecos = null;
   const contagem = $("[data-contagem]");
   const vazio = $("[data-vazio]");
   const linkLoja = $("[data-link-loja]");
@@ -145,17 +185,28 @@
     return Math.round((1 - atual / antigo) * 100);
   }
 
+  /* Desconto pequeno (ex.: 5% no Pix) não é promoção: o preço maior aparece
+     como "ou R$ X no cartão", sem riscar. Só desconto a partir de
+     descontoMinimoSelo vira promoção (preço riscado + selo "-10%"). */
+  const minimoSelo = Number(loja.descontoMinimoSelo) || 5;
+  const ehPromocao = (produto) => desconto(produto) >= minimoSelo;
+
   function criarPreco(produto) {
     if (!produto.preco) return null;
+    const promocao = produto.precoAntigo && ehPromocao(produto);
+    const normal = produto.precoAntigo && !promocao && loja.rotuloPrecoNormal;
     return el("span", { class: "card__preco" }, [
-      produto.precoAntigo
+      promocao
         ? el("s", { class: "card__preco-antigo" }, [el("span", { class: "sr-only", text: "de " }), produto.precoAntigo])
         : null,
       el("span", { class: "card__preco-atual" }, [
-        produto.precoAntigo ? el("span", { class: "sr-only", text: "por " }) : null,
+        promocao ? el("span", { class: "sr-only", text: "por " }) : null,
         produto.preco
       ]),
-      loja.rotuloPreco ? el("span", { class: "card__preco-rotulo", text: loja.rotuloPreco }) : null
+      loja.rotuloPreco ? el("span", { class: "card__preco-rotulo", text: loja.rotuloPreco }) : null,
+      normal
+        ? el("span", { class: "card__preco-normal", text: `ou ${produto.precoAntigo} ${loja.rotuloPrecoNormal}` })
+        : null
     ]);
   }
 
@@ -197,7 +248,8 @@
           const off = desconto(produto);
           return el("span", { class: "card__foto" }, [
             criarMidia(produto),
-            off >= 5 ? el("span", { class: "card__desconto", text: `-${off}%`, "aria-label": `${off}% de desconto` }) : null
+            ehPromocao(produto) ? el("span", { class: "card__desconto", text: `-${off}%`, "aria-label": `${off}% de desconto` }) : null,
+            ehDestaque ? el("span", { class: "card__ir", "aria-hidden": "true", html: ICONES.seta }) : null
           ]);
         })(),
         el("span", { class: "card__corpo" }, [
@@ -210,15 +262,12 @@
                 produto.esgotado ? el("span", { class: "card__esgotado", text: "Esgotado" }) : null
               ])
             : null,
-          (mostrarCategoria || ehDestaque) && produto.categoria
+          mostrarCategoria && !ehDestaque && produto.categoria
             ? el("span", { class: "card__categoria", text: produto.categoria })
             : null,
           el("span", { class: "card__nome", text: produto.nome }),
           !ehDestaque && produto.oQueE ? el("span", { class: "card__oque", text: produto.oQueE }) : null,
           criarPreco(produto),
-          ehDestaque
-            ? el("span", { class: "card__acao", "aria-hidden": "true" }, [el("span", { text: "Ver na loja" }), el("span", { html: ICONES.seta })])
-            : null,
           el("span", { class: "sr-only", text: " (abre em nova aba)" })
         ]),
         ehDestaque ? null : el("span", { class: "card__seta", html: ICONES.seta })
@@ -229,6 +278,29 @@
     }
     return card;
   }
+
+  /* ---------- Fileira com setas (computador) ----------
+     No celular a fileira desliza com o dedo; em telas com mouse aparecem
+     duas setas nas laterais. */
+  function comSetas(trilho) {
+    const janela = el("div", { class: "janela" });
+    const passo = (lado) => () =>
+      trilho.scrollBy({ left: lado * Math.max(trilho.clientWidth * 0.8, 160), behavior: suave() });
+    const antes = el("button", { type: "button", class: "janela__seta janela__seta--antes", "aria-label": "Anteriores", html: ICONES.voltar, onclick: passo(-1) });
+    const depois = el("button", { type: "button", class: "janela__seta janela__seta--depois", "aria-label": "Próximos", html: ICONES.seta, onclick: passo(1) });
+    const atualizar = () => {
+      antes.disabled = trilho.scrollLeft <= 4;
+      depois.disabled = trilho.scrollLeft + trilho.clientWidth >= trilho.scrollWidth - 4;
+    };
+    trilho.addEventListener("scroll", atualizar, { passive: true });
+    window.addEventListener("resize", atualizar);
+    requestAnimationFrame(atualizar);
+    if (trilho.parentNode) trilho.replaceWith(janela);
+    janela.append(trilho, antes, depois);
+    return janela;
+  }
+
+  const abrirCategoria = () => { abriuPeloBotao = true; };
 
   /* ---------- Renderização ---------- */
   function renderCategorias() {
@@ -243,10 +315,23 @@
       listaCategorias.className = "prateleiras";
       listaCategorias.replaceChildren(
         ...categorias.map((c) => {
-          const daCategoria = produtos.filter((p) => p.categoria === c && !p.oculto);
+          const daCategoria = ordemPrateleira(produtos.filter((p) => p.categoria === c && !p.oculto));
           const n = daCategoria.length;
+          const limite = Number(loja.produtosPorPrateleira) || Infinity;
+          const mostrados = daCategoria.slice(0, limite);
           const icone = ICONES[iconesCategorias[c]] || ICONES.brilho;
           const idTitulo = `prateleira-${slugCategoria(c)}`;
+          const link = `#${slugCategoria(c)}`;
+          const trilho = el("div", { class: "trilho prateleira__trilho" }, [
+            ...mostrados.map((p, i) => criarCard(p, i, "destaque")),
+            n > mostrados.length
+              ? el("a", { class: "card card--ver-todos", href: link, onclick: abrirCategoria }, [
+                  el("span", { class: "card__ver-todos-seta", html: ICONES.seta }),
+                  el("span", { class: "card__ver-todos-texto" }, [`Ver todos os ${n}`]),
+                  el("span", { class: "card__ver-todos-nome", text: rotulosCategorias[c] || c })
+                ])
+              : null
+          ]);
           return el("section", { class: "prateleira", "aria-labelledby": idTitulo }, [
             el("div", { class: "prateleira__cabecalho" }, [
               el("span", { class: "prateleira__icone", html: icone }),
@@ -256,12 +341,12 @@
               ]),
               el("a", {
                 class: "prateleira__ver",
-                href: `#${slugCategoria(c)}`,
+                href: link,
                 "aria-label": `Ver todos de ${c}`,
-                onclick: () => { abriuPeloBotao = true; }
+                onclick: abrirCategoria
               }, [el("span", { text: "Ver todos" }), el("span", { class: "prateleira__ver-seta", html: ICONES.seta })])
             ]),
-            el("div", { class: "trilho prateleira__trilho" }, daCategoria.map((p, i) => criarCard(p, i, "destaque")))
+            comSetas(trilho)
           ]);
         })
       );
@@ -291,12 +376,12 @@
 
   function renderDestaques() {
     if (!secaoDestaques || !trilhoDestaques) return;
-    const destaques = produtos.filter((p) => p.destaque);
-    if (!destaques.length) {
+    if (!destaquesEmOrdem.length) {
       secaoDestaques.hidden = true;
       return;
     }
-    trilhoDestaques.replaceChildren(...destaques.map((p, i) => criarCard(p, i, "destaque")));
+    trilhoDestaques.replaceChildren(...destaquesEmOrdem.map((p, i) => criarCard(p, i, "destaque")));
+    comSetas(trilhoDestaques);
   }
 
   function renderLista() {
@@ -316,17 +401,23 @@
         return;
       }
     }
-    const resultado = produtos.filter(
+    const filtrados = produtos.filter(
       (p) => !p.oculto && (!estado.categoria || p.categoria === estado.categoria) && (!termo || p.busca.includes(termo))
     );
+    const resultado = modoBotoes ? ordemPrateleira(filtrados) : filtrados;
 
     if (secaoDestaques && trilhoDestaques && trilhoDestaques.childElementCount) {
       secaoDestaques.hidden = filtrando;
     }
 
     if (tituloProdutos) {
-      tituloProdutos.textContent = estado.categoria || (termo ? "Resultados" : tituloPadrao);
+      const n = resultado.length;
+      tituloProdutos.textContent = termo
+        ? `${n} ${n === 1 ? "resultado" : "resultados"} para “${estado.busca.trim()}”${estado.categoria ? ` em ${estado.categoria}` : ""}`
+        : estado.categoria || tituloPadrao;
     }
+    if (cabecalhoProdutos) cabecalhoProdutos.hidden = !resultado.length;
+    if (notaPrecos) notaPrecos.hidden = !resultado.length;
     if (contagem) {
       contagem.textContent = `${resultado.length} ${resultado.length === 1 ? "produto" : "produtos"}`;
     }
@@ -361,7 +452,7 @@
         return el("li", { class: "grupo" }, [
           el("h4", { class: "grupo__titulo" }, [
             icone ? el("span", { class: "grupo__icone", html: icone }) : null,
-            el("span", { class: "grupo__nome", text: g }),
+            el("span", { class: "grupo__nome", text: rotulosCategorias[g] || g }),
             el("span", { class: "grupo__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
           ]),
           el("ul", { class: classeLista }, itens)
@@ -370,36 +461,74 @@
     );
 
     if (!resultado.length) {
-      mostrarVazio(
-        txt.semResultado,
-        termo ? `Não encontramos resultados para “${estado.busca.trim()}”.` : "Não há produtos nesta categoria.",
-        el("button", {
-          type: "button",
-          class: "botao-secundario",
-          text: "Limpar filtros",
-          onclick: () => {
-            estado.busca = "";
-            estado.categoria = "";
-            if (campoBusca) campoBusca.value = "";
-            atualizarBotaoLimpar();
-            renderCategorias();
-            renderLista();
-          }
-        })
-      );
+      const zerarBusca = () => {
+        estado.busca = "";
+        if (campoBusca) campoBusca.value = "";
+        atualizarBotaoLimpar();
+      };
+      // Sugere as categorias: um toque abre a categoria (sem a busca)
+      const sugestoes = categorias.length > 1
+        ? el("div", { class: "vazio__sugestoes" }, categorias.map((c) =>
+            el("button", {
+              type: "button",
+              class: "chip",
+              onclick: () => {
+                zerarBusca();
+                if (modoBotoes) {
+                  abriuPeloBotao = true;
+                  location.hash = slugCategoria(c);
+                } else {
+                  estado.categoria = c;
+                  renderCategorias();
+                  renderLista();
+                }
+              }
+            }, [
+              ICONES[iconesCategorias[c]] ? el("span", { class: "chip__icone", html: ICONES[iconesCategorias[c]] }) : null,
+              el("span", { text: rotulosCategorias[c] || c })
+            ])
+          ))
+        : null;
+      mostrarVazio({
+        titulo: txt.semResultado,
+        texto: termo
+          ? `Não encontramos nada para “${estado.busca.trim()}”. Tente outra palavra ou escolha uma categoria:`
+          : "Não há produtos nesta categoria.",
+        acoes: [
+          sugestoes,
+          el("button", {
+            type: "button",
+            class: "botao-secundario",
+            text: termo ? "Limpar busca" : "Ver todos",
+            onclick: () => {
+              zerarBusca();
+              if (modoBotoes && estado.categoria) {
+                renderLista();
+                return;
+              }
+              estado.categoria = "";
+              renderCategorias();
+              renderLista();
+              if (campoBusca && termo) campoBusca.focus();
+            }
+          })
+        ]
+      });
     } else if (vazio) {
       vazio.hidden = true;
     }
   }
 
-  function mostrarVazio(tituloTxt, textoTxt, acao) {
+  function mostrarVazio({ sobre, titulo, texto, acoes = [] }) {
     if (!vazio) return;
+    const botoes = acoes.filter(Boolean);
     vazio.replaceChildren(
       ...[
         el("span", { class: "vazio__icone", html: ICONES.ondas }),
-        el("p", { class: "vazio__titulo", text: tituloTxt }),
-        el("p", { class: "vazio__texto", text: textoTxt }),
-        acao
+        sobre ? el("p", { class: "vazio__sobre", text: sobre }) : null,
+        el("p", { class: "vazio__titulo", text: titulo }),
+        el("p", { class: "vazio__texto", text: texto }),
+        botoes.length ? el("div", { class: "vazio__acoes" }, botoes) : null
       ].filter(Boolean)
     );
     vazio.hidden = false;
@@ -428,7 +557,26 @@
     if (tituloCategorias) tituloCategorias.hidden = true;
     if (secaoDestaques) secaoDestaques.hidden = true;
     if (secaoProdutos) secaoProdutos.hidden = true;
-    mostrarVazio(txt.vazioTitulo, txt.vazioTexto, null);
+    // Loja ainda vazia: um bloco só, com um caminho para a vitrine (e o Instagram)
+    const hero = $(".loja__hero");
+    if (hero) hero.hidden = true;
+    const acoes = [];
+    const destinoVazio = raiz.dataset.vazioLink;
+    if (destinoVazio) {
+      acoes.push(el("a", { class: "botao-loja botao-loja--compacto", href: destinoVazio }, [
+        el("span", { text: raiz.dataset.vazioLinkTexto || "Voltar ao início" }),
+        el("span", { class: "botao-loja__seta", html: ICONES.seta })
+      ]));
+    }
+    const insta = ((window.PERFIL || {}).redes || []).find((r) => r && r.tipo === "instagram");
+    const urlInsta = insta && linkSeguro(insta.url);
+    if (urlInsta) {
+      acoes.push(el("a", { class: "botao-secundario", href: urlInsta, target: "_blank", rel: "noopener me" }, [
+        el("span", { class: "chip__icone", html: ICONES.instagram }),
+        el("span", { text: "Me siga no Instagram" })
+      ]));
+    }
+    mostrarVazio({ sobre: hero ? `Achadinhos · ${loja.titulo || ""}` : "", titulo: txt.vazioTitulo, texto: txt.vazioTexto, acoes });
     return;
   }
 
@@ -458,7 +606,8 @@
 
   // Aviso sobre preços, abaixo da lista
   if (loja.notaPrecos && produtos.some((p) => p.preco) && secaoProdutos) {
-    secaoProdutos.append(el("p", { class: "nota-precos", text: loja.notaPrecos }));
+    notaPrecos = el("p", { class: "nota-precos", text: loja.notaPrecos });
+    secaoProdutos.append(notaPrecos);
   }
 
   /* ---------- Categoria aberta pelo endereço (#slug) ---------- */

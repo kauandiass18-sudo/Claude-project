@@ -80,6 +80,7 @@ def gerar(origem, destino):
     # Links entre as páginas
     for antes, depois in PAGINAS.items():
         html = html.replace(f'href="{antes}"', f'href="{depois}"')
+        html = re.sub(rf'(href|data-vazio-link)="{re.escape(antes)}#', rf'\1="{depois}#', html)
 
     restos = re.findall(r'(?:src|href)="((?:assets|data)/[^"]+)"', html)
     if restos:

@@ -1,8 +1,9 @@
 /* =============================================================
    Mechas de cabelo desenhadas no fundo de todas as páginas.
    É só decoração: fica atrás do conteúdo e não recebe toques.
-   Os fios balançam devagar, e ficam parados para quem pediu ao
-   celular para reduzir animações.
+   Os fios balançam devagar só nos primeiros segundos e depois param
+   (economiza bateria). Ficam parados desde o início para quem pediu
+   ao celular para reduzir animações.
    Normalmente você NÃO precisa editar este arquivo.
    ============================================================= */
 (function () {
@@ -115,14 +116,21 @@
     ctx.lineCap = "round";
   }
 
+  const DURACAO = 6000; // ms de balanço ao abrir a página
+  let inicio = null;
+  // O balanço vai diminuindo até parar, sem tranco
+  const forca = (tempo) =>
+    reduzir || parado || inicio === null ? 0 : Math.max(0, 1 - (tempo - inicio) / DURACAO) ** 2;
+
   function desenhar(tempo) {
     ctx.clearRect(0, 0, largura, altura);
+    const amplitude = 7 * forca(tempo);
     const lado = Math.min(largura, altura * 0.8);
     for (const mecha of mechas) {
       const esp = lado * mecha.esp;
       const P = mecha.pontos.map(([x, y]) => [x * largura, y * altura]);
       for (const fio of mecha.fios) {
-        const balanco = reduzir ? 0 : Math.sin(tempo / 2800 + fio.fase) * 7;
+        const balanco = amplitude ? Math.sin(tempo / 2800 + fio.fase) * amplitude : 0;
         const ponto = (i) => [
           P[i][0] + fio.j[i] * esp * 0.4,
           P[i][1] + fio.d * esp * ABERTURA[i] + fio.j[i] * esp * 0.25 + balanco * (i / 3) * 1.4
@@ -140,14 +148,17 @@
   }
 
   let quadro = 0;
+  let parado = reduzir;
   function animar(tempo) {
+    if (inicio === null) inicio = tempo;
     desenhar(tempo);
-    quadro = requestAnimationFrame(animar);
+    if (forca(tempo) > 0) quadro = requestAnimationFrame(animar);
+    else parado = true; // desenho final fica na tela, sem gastar bateria
   }
 
   function iniciar() {
     ajustarTamanho();
-    if (reduzir) {
+    if (parado) {
       desenhar(0);
       return;
     }
@@ -160,14 +171,17 @@
     clearTimeout(espera);
     espera = setTimeout(() => {
       ajustarTamanho();
-      if (reduzir) desenhar(0);
+      if (parado) desenhar(0);
     }, 120);
   });
 
-  // Economiza bateria: para de desenhar quando a aba fica escondida.
+  // Aba escondida no meio do balanço: para e deixa os fios no lugar.
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) cancelAnimationFrame(quadro);
-    else if (!reduzir) quadro = requestAnimationFrame(animar);
+    if (document.hidden && !parado) {
+      cancelAnimationFrame(quadro);
+      parado = true;
+      desenhar(0);
+    }
   });
 
   iniciar();

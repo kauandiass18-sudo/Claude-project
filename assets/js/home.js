@@ -76,13 +76,35 @@
     const url = linkSeguro(perfil.linkParceria, { permitirMailto: true });
     if (url) {
       botaoParceria.href = url;
+      botaoParceria.hidden = false;
       if (!url.startsWith("mailto:")) {
         botaoParceria.target = "_blank";
         botaoParceria.rel = "noopener";
       }
     } else {
-      // Sem link ainda: o toque não faz nada (e não pula a página).
-      botaoParceria.addEventListener("click", (e) => e.preventDefault());
+      // Sem link ainda: o botão fica escondido até você preencher linkParceria.
+      botaoParceria.hidden = true;
+    }
+  }
+
+  /* ---------- Botões do Mercado Livre e da Shopee ----------
+     Só aparecem quando a loja tem pelo menos um produto em data/<loja>.js.
+     Sem nenhum botão, o bloco e o link "Achadinhos" do menu somem também. */
+  const lojas = window.LOJAS || {};
+  document.querySelectorAll("[data-botao-loja]").forEach((botao) => {
+    const dados = lojas[botao.dataset.botaoLoja];
+    const temProdutos = dados && Array.isArray(dados.produtos) && dados.produtos.length > 0;
+    botao.hidden = !temProdutos;
+  });
+  const blocoBotoes = document.querySelector("#achadinhos");
+  if (blocoBotoes) {
+    const algum = Array.from(blocoBotoes.children).some((b) => !b.hidden);
+    blocoBotoes.hidden = !algum;
+    const linkMenu = document.querySelector("[data-nav-achadinhos]");
+    if (linkMenu && !algum) {
+      // No lugar de "Achadinhos", o menu leva às categorias da vitrine
+      linkMenu.href = "#titulo-categorias";
+      linkMenu.textContent = "Categorias";
     }
   }
 

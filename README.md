@@ -31,7 +31,7 @@ rodar build.
     ├── js/common.js      Funções compartilhadas
     ├── js/home.js        Monta a página inicial
     ├── js/loja.js        Monta as vitrines (busca, categorias, destaques, cards)
-    ├── js/fios.js        Desenha as mechas de cabelo que balançam no fundo
+    ├── js/fios.js        Desenha as mechas de cabelo do fundo
     ├── js/animacao.js    Faz textos, fotos e produtos subirem de baixo ao aparecer
     └── img/
         ├── favicon.svg
@@ -141,9 +141,19 @@ fica no console do navegador (F12).
 >   Profissionais e Shampoo (regras em `GRUPOS`, no script; o nome do produto
 >   vale primeiro). O que não se encaixa vai para "Outros", que fica escondido.
 > - Na página inicial, a vitrine tem uma prateleira por categoria, com os
->   produtos lado a lado, para deslizar. "Ver todos" abre só aquela categoria,
->   em vitrine de dois por linha. Títulos próprios podem ir em
->   `rotulosCategorias`, em `data/ybera.js`.
+>   produtos lado a lado, para deslizar (no computador, com setas). Cada
+>   prateleira mostra até `produtosPorPrateleira` produtos (hoje 10) e termina
+>   num cartão "Ver todos os N". "Ver todos" abre só aquela categoria, em
+>   vitrine de dois por linha. Os títulos curtos das prateleiras ("Progressiva",
+>   "Cronogramas"...) ficam em `rotulosCategorias`, em `data/ybera.js`.
+> - Fotos: chegam da loja em JPG e `scripts/fotos-ybera.py` as transforma em
+>   WebP (umas 6 vezes mais leves). O mesmo script anota em
+>   `data/ybera-fotos.js` as fotos que não têm fundo branco: elas vão para o
+>   fim das prateleiras e dos Queridinhos, que começam pelas fotos mais limpas.
+>   Os Queridinhos alternam as categorias (um de cada por vez).
+> - Preço: o valor grande é o do Pix; o preço maior da loja aparece como
+>   "ou R$ X no cartão", sem riscar. Só desconto de 10% ou mais
+>   (`descontoMinimoSelo`) vira promoção, com preço riscado e selo "-10%".
 > - Produtos com certas palavras no nome ficam escondidos com
 >   `ocultarProdutosCom`, em `data/ybera.js` (hoje: Black Diva).
 > - Categorias inteiras podem ser escondidas em `ocultarCategorias`, em
@@ -208,7 +218,17 @@ vazio, então o botão fica oculto até você colocar o link da sua vitrine.
 
 ### Loja sem produtos
 
-Enquanto a lista estiver vazia, a página mostra “Em breve, novidades por aqui”.
+Enquanto a lista do Mercado Livre ou da Shopee estiver vazia:
+
+- o botão dela **não aparece** na página inicial (volta sozinho quando você
+  colocar o primeiro produto). Sem nenhum botão, o link "Achadinhos" do menu
+  vira "Categorias";
+- a página da loja mostra um bloco só, “Em breve…”, com o botão
+  “Enquanto isso, veja a vitrine Ybera” (e “Me siga no Instagram”, se o
+  Instagram estiver preenchido em `data/perfil.js`).
+
+O botão **“Feche sua parceria aqui”** também só aparece depois que você
+preencher `linkParceria` em `data/perfil.js`.
 
 ---
 
@@ -265,10 +285,17 @@ Regras do sistema:
 - **Botões secundários:** fundo branco, texto grafite, borda fina (lojas,
   "Ver todos", "Todas as categorias").
 - **Cards de produto:** brancos, borda discreta, sombra suave, foto grande,
-  preço em Bodoni e "Ver na loja" no pé. Iguais em todas as páginas.
+  nome em até 3 linhas, preço em Bodoni e uma setinha dourada no canto da foto.
+  Iguais em todas as páginas.
+- **Caixa-alta** só no menu e nos contadores ("20 produtos"); o resto do texto
+  é normal, para ler fácil.
+- **Toque:** tudo que se toca tem pelo menos 44px de altura.
+- **Movimento:** as peças sobem 24px e aparecem em 0,7s, sem quique. Cards
+  escondidos para o lado da fileira não animam.
 
 Os fios de cabelo do fundo (`assets/js/fios.js`) são só textura, em grafite
-bem claro, com raros fios dourados.
+bem claro, com raros fios dourados. Eles balançam só nos primeiros segundos e
+depois param, para não gastar bateria.
 
 ---
 

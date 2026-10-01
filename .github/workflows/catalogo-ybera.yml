@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   push:
     branches: [claude/editar-minha-curadoria-l4zjab]
-    paths: [scripts/catalogo-ybera.mjs, .github/workflows/catalogo-ybera.yml]
+    paths: [scripts/catalogo-ybera.mjs, scripts/fotos-ybera.py, .github/workflows/catalogo-ybera.yml]
 
 permissions:
   contents: write
@@ -28,9 +28,16 @@ jobs:
           node-version: 22
       - name: Ler a loja da Ybera e montar a lista de produtos
         run: node scripts/catalogo-ybera.mjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Deixar as fotos novas leves (WebP) e ver quais têm fundo branco
+        run: |
+          pip install --quiet pillow
+          python scripts/fotos-ybera.py
       - name: Salvar se algo mudou
         run: |
-          git add data/ybera.js data/ybera-catalogo.json assets/img/produtos/ybera
+          git add data/ybera.js data/ybera-catalogo.json data/ybera-fotos.js assets/img/produtos/ybera
           if git diff --cached --quiet; then
             echo "Nada mudou na loja."
             exit 0

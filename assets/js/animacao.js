@@ -1,7 +1,8 @@
 /* =============================================================
    Animação de entrada: ao abrir a página, textos, fotos, botões e
-   produtos sobem de baixo e param no seu lugar, um depois do outro.
+   produtos sobem um pouquinho e aparecem, um depois do outro.
    O que está mais abaixo sobe quando a pessoa rola até lá.
+   Cards escondidos para o lado (fileiras que deslizam) não animam.
    Quem pediu ao celular para reduzir animações vê tudo parado.
    Normalmente você NÃO precisa editar este arquivo.
    ============================================================= */
@@ -23,15 +24,26 @@
     ".rodape > *"
   ].join(",");
 
-  const PASSO = 110;      // intervalo entre uma peça e a próxima (ms)
-  const MAX_ATRASO = 1300; // ninguém espera mais que isso para subir
+  const PASSO = 70;       // intervalo entre uma peça e a próxima (ms)
+  const MAX_ATRASO = 700;  // ninguém espera mais que isso para subir
+  const SUBIDA = 24;       // quanto a peça sobe (px): o mesmo do style.css
 
+  const larguraTela = window.innerWidth || document.documentElement.clientWidth;
+  // Fora da tela para o lado (fileira que desliza): fica parado, já visível
+  const paraOLado = (el) => {
+    const r = el.getBoundingClientRect();
+    return r.left >= larguraTela - 1 || r.right <= 1;
+  };
   const pecas = Array.from(document.querySelectorAll(PECAS)).filter(
     (el) => !el.closest("[hidden]")
   );
+  pecas.forEach((el) => {
+    if (paraOLado(el)) el.classList.remove("revelar");
+  });
+  const animadas = pecas.filter((el) => !paraOLado(el));
 
   // Tira a animação antiga para cada peça seguir um só ritmo
-  pecas.forEach((el) => {
+  animadas.forEach((el) => {
     el.classList.remove("revelar");
     el.style.removeProperty("--i");
   });
@@ -54,7 +66,7 @@
   const alturaTela = window.innerHeight || document.documentElement.clientHeight;
   const naTela = [];
   const abaixo = [];
-  pecas.forEach((el) => {
+  animadas.forEach((el) => {
     const topo = el.getBoundingClientRect().top;
     (topo < alturaTela * 0.95 ? naTela : abaixo).push(el);
   });
@@ -72,8 +84,8 @@
   function conferir() {
     agendado = false;
     const alturaAgora = window.innerHeight || document.documentElement.clientHeight;
-    // a peça que espera está 90px mais baixa (translateY): desconta isso
-    const limite = alturaAgora * 0.94 + 90;
+    // a peça que espera está mais baixa (translateY): desconta isso
+    const limite = alturaAgora * 0.94 + SUBIDA;
     const noFim = window.scrollY + alturaAgora >= document.documentElement.scrollHeight - 4;
     let ordem = 0;
     esperando = esperando.filter((el) => {

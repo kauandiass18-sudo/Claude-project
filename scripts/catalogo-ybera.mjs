@@ -6,7 +6,7 @@
 //       • pega a lista de produtos no mapa do site (sitemap.xml)
 //       • abre cada produto: nome, o que é, categoria, preços, foto, estoque
 //       • salva tudo em data/ybera-catalogo.json e as fotos novas em
-//         assets/img/produtos/ybera/
+//         assets/img/produtos/ybera/ (scripts/fotos-ybera.py as deixa em WebP)
 //   node scripts/catalogo-ybera.mjs gerar    → monta data/ybera.js
 //       • a partir do data/ybera-catalogo.json (sem internet)
 //       • mantém os produtos marcados como destaque ("Queridinhos")
@@ -192,13 +192,14 @@ async function coletar() {
     throw new Error("menos da metade dos produtos foi lida; nada foi mudado");
   }
 
-  // Fotos: baixa só as que ainda não existem (quadradas, 400px)
+  // Fotos: baixa só as que ainda não existem (quadradas, 400px).
+  // Chegam em JPG; depois scripts/fotos-ybera.py transforma em WebP (mais leve).
   await mkdir(PASTA_FOTOS, { recursive: true });
   for (const p of produtos) {
-    p.foto = `ybera-${p.id}.jpg`;
-    const destino = new URL(p.foto, PASTA_FOTOS);
+    p.foto = `ybera-${p.id}.webp`;
+    const destino = new URL(`ybera-${p.id}.jpg`, PASTA_FOTOS);
     try {
-      await access(destino);
+      await access(new URL(p.foto, PASTA_FOTOS));
       continue;
     } catch {}
     if (!p.imagem) {
@@ -217,10 +218,10 @@ async function coletar() {
     }
   }
 
-  // Apaga fotos de produtos que saíram da loja (só as geradas aqui: ybera-<id>.jpg)
+  // Apaga fotos de produtos que saíram da loja (só as geradas aqui: ybera-<id>.webp)
   const ids = new Set(produtos.map((p) => p.id));
   for (const arq of await readdir(PASTA_FOTOS)) {
-    const m = arq.match(/^ybera-(\d+)\.jpg$/);
+    const m = arq.match(/^ybera-(\d+)\.(?:jpg|webp)$/);
     if (m && !ids.has(m[1]) && limite === Infinity) await unlink(new URL(arq, PASTA_FOTOS));
   }
 

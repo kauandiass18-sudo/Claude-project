@@ -20,8 +20,7 @@ window.PERFIL = {
   // Enfeite dos dois lados do nome (ex.: "✨"). Vazio = sem enfeite.
   enfeiteNome: "✨",
   frases: [
-    // "Primeira frase",
-    // "Segunda frase"
+    "Parceira Ybera Paris · tratamento de salão em casa"
   ],
   foto: "assets/img/perfil.jpg",
 
@@ -37,7 +36,7 @@ window.PERFIL = {
   // Link do botão "Feche sua parceria aqui" (acima do Mercado Livre).
   // Pode ser WhatsApp ("https://wa.me/55DDDNUMERO"), e-mail
   // ("mailto:voce@exemplo.com") ou qualquer link https://.
-  // Vazio = o botão aparece, mas ainda não leva a lugar nenhum.
+  // Vazio = o botão fica escondido até você colocar o link.
   linkParceria: "",
 
   // Texto exibido no rodapé de todas as páginas.
