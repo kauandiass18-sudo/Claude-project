@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Carla Dias · Cuidados para o cabelo</title>
   <meta name="description" content="Tratamentos Ybera Paris e achadinhos de cabelo do Mercado Livre e da Shopee, com links diretos.">
-  <meta name="theme-color" content="#f5ebe2">
+  <meta name="theme-color" content="#FAF8F5">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Carla Dias">
   <meta property="og:description" content="Tratamentos Ybera Paris e achadinhos de cabelo do Mercado Livre e da Shopee.">
@@ -16,7 +16,16 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="pagina-inicial">
-  <main class="perfil">
+  <header class="cabecalho">
+    <div class="cabecalho__interno">
+      <a class="cabecalho__marca" href="#topo" data-perfil-marca>Carla Dias</a>
+      <nav class="cabecalho__nav" aria-label="Navegação">
+        <a href="#achadinhos">Achadinhos</a>
+        <a href="#titulo-ybera">Vitrine</a>
+      </nav>
+    </div>
+  </header>
+  <main class="perfil" id="topo">
     <header class="capa">
       <div class="arco revelar" style="--i:1" data-perfil-foto></div>
       <h1 class="capa__nome revelar" style="--i:2" data-perfil-nome>Carla Dias</h1>
@@ -24,7 +33,7 @@
       <ul class="social revelar" style="--i:3" data-perfil-redes aria-label="Redes sociais"></ul>
     </header>
 
-    <nav class="botoes" aria-label="Parceria e minha seleção nas lojas">
+    <nav class="botoes" id="achadinhos" aria-label="Parceria e minha seleção nas lojas">
       <a class="botao-marca botao-marca--parceria revelar" style="--i:4" href="#parceria" data-link-parceria>
         <span class="botao-marca__icone botao-marca__icone--foto"><img src="assets/img/perfil-rosto.jpg" alt="" width="44" height="44" decoding="async"></span>
         <span class="botao-marca__texto">Feche sua parceria aqui</span>

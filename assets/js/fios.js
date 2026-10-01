@@ -18,15 +18,14 @@
   const reduzir =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Tons de cabelo dourado: do ouro velho ao loiro champanhe.
+  // Textura discreta: fios em grafite bem claro e, raramente, um fio dourado.
   const CORES = [
-    [150, 108, 38],
-    [182, 138, 60],
-    [205, 166, 84],
-    [226, 192, 118]
+    [28, 27, 25],
+    [60, 56, 50],
+    [107, 102, 95]
   ];
-  // Reflexos dourados mais claros, que brilham entre os fios.
-  const OURO = [[240, 212, 140], [252, 234, 184]];
+  // O único dourado do site
+  const OURO = [[138, 106, 59], [138, 106, 59]];
 
   // Sorteio com semente fixa: o desenho sai sempre igual.
   let semente = 11;
@@ -37,13 +36,13 @@
   function criarMecha(pontos, quantidade, esp) {
     const fios = [];
     for (let i = 0; i < quantidade; i++) {
-      const reflexo = sorteio() < 0.22;
+      const reflexo = sorteio() < 0.07;
       fios.push({
         d: i / (quantidade - 1) - 0.5 + (sorteio() - 0.5) * 0.12,
         j: [0, 1, 2, 3].map(() => (sorteio() - 0.5) * 0.35),
-        cor: reflexo ? OURO[Math.floor(sorteio() * 2)] : CORES[Math.floor(sorteio() * 4)],
-        alfa: reflexo ? 0.6 + sorteio() * 0.3 : 0.18 + sorteio() * 0.24,
-        largura: reflexo ? 0.7 : 0.5 + sorteio() * 1.1,
+        cor: reflexo ? OURO[Math.floor(sorteio() * 2)] : CORES[Math.floor(sorteio() * 3)],
+        alfa: reflexo ? 0.22 + sorteio() * 0.12 : 0.025 + sorteio() * 0.045,
+        largura: reflexo ? 0.6 : 0.4 + sorteio() * 0.8,
         fase: sorteio() * Math.PI * 2
       });
     }
@@ -59,7 +58,7 @@
 
   // Pó de ouro: pontinhos que cintilam em volta das mechas.
   const brilhos = [];
-  for (let i = 0; i < 46; i++) {
+  for (let i = 0; i < 0; i++) { // sem pó de ouro: o dourado fica nos detalhes
     const mecha = mechas[i % mechas.length];
     brilhos.push({
       mecha,

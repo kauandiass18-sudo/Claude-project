@@ -198,6 +198,9 @@
           el("span", { class: "card__nome", text: produto.nome }),
           !ehDestaque && produto.oQueE ? el("span", { class: "card__oque", text: produto.oQueE }) : null,
           criarPreco(produto),
+          ehDestaque
+            ? el("span", { class: "card__acao", "aria-hidden": "true" }, [el("span", { text: "Ver na loja" }), el("span", { html: ICONES.seta })])
+            : null,
           el("span", { class: "sr-only", text: " (abre em nova aba)" })
         ]),
         ehDestaque ? null : el("span", { class: "card__seta", html: ICONES.seta })

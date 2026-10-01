@@ -14,11 +14,20 @@
   if (nome) {
     if (nomePerfil) {
       const enfeite = typeof perfil.enfeiteNome === "string" ? perfil.enfeiteNome.trim() : "";
-      const lado = () => (enfeite ? el("span", { class: "capa__enfeite", "aria-hidden": "true", text: enfeite }) : null);
+      // "✨" vira uma estrela dourada desenhada (combina com o resto do site)
+      const ESTRELA = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2c.8 5.6 4.4 9.2 10 10-5.6.8-9.2 4.4-10 10-.8-5.6-4.4-9.2-10-10 5.6-.8 9.2-4.4 10-10z"/></svg>';
+      const lado = () =>
+        enfeite
+          ? enfeite === "✨"
+            ? el("span", { class: "capa__enfeite", "aria-hidden": "true", html: ESTRELA })
+            : el("span", { class: "capa__enfeite", "aria-hidden": "true", text: enfeite })
+          : null;
       nome.replaceChildren(
         ...[lado(), el("span", { class: "capa__nome-texto", text: nomePerfil }), lado()].filter(Boolean)
       );
       document.title = `${nomePerfil} · Cuidados para o cabelo`;
+      const marca = document.querySelector("[data-perfil-marca]");
+      if (marca) marca.textContent = nomePerfil;
     } else {
       nome.classList.add("sr-only"); // mantém um título para leitores de tela
     }

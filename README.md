@@ -238,26 +238,30 @@ Depois, coloque o endereço do site na bio do Instagram ou TikTok.
 
 ## 5. Personalizar o visual
 
-As cores e fontes principais ficam no início de `assets/css/style.css`,
-em `:root`:
+O visual segue um sistema de três cores, definido no início de
+`assets/css/style.css`, em `:root`:
 
 ```css
---fundo: #f5ebe2;     /* creme nude do fundo */
---tinta: #33211a;     /* cacau: cor do texto */
---mel: #b9824a;       /* dourado mel dos detalhes */
---ml-1: #f3d47c;      /* amarelo Mercado Livre */
---shopee-1: #c0633c;  /* laranja Shopee */
---fonte-luxo: "Bodoni Moda", ...;  /* títulos */
---fonte-ui: "Jost", ...;           /* textos */
+--fundo: #FAF8F5;     /* off-white: cor dominante (cerca de 70%) */
+--grafite: #1C1B19;   /* textos, títulos e botão principal (cerca de 25%) */
+--ouro: #8A6A3B;      /* o único dourado: só em detalhes (cerca de 5%) */
+--fonte-titulo: "Bodoni Moda", ...;  /* títulos e preços */
+--fonte-texto: "Jost", ...;          /* textos */
 ```
 
-Ao abrir a página, cada parte sobe de baixo e para no lugar, uma depois da
-outra; o que está mais abaixo sobe quando a pessoa rola até lá
-(`assets/js/animacao.js`). A velocidade fica em `PASSO` nesse arquivo e na
-animação `subir` do `style.css`.
+Regras do sistema:
 
-As mechas de cabelo do fundo são desenhadas por `assets/js/fios.js`. Elas
-ficam paradas para quem ativou "reduzir movimento" no celular.
+- **Dourado é joia:** fios, ícones, "no Pix", desconto, setas e hover. Nunca
+  preenche áreas grandes nem usa degradê.
+- **Botão principal:** fundo grafite, texto branco, detalhe dourado
+  ("Feche sua parceria aqui" e "Conhecer a loja oficial").
+- **Botões secundários:** fundo branco, texto grafite, borda fina (lojas,
+  "Ver todos", "Todas as categorias").
+- **Cards de produto:** brancos, borda discreta, sombra suave, foto grande,
+  preço em Bodoni e "Ver na loja" no pé. Iguais em todas as páginas.
+
+Os fios de cabelo do fundo (`assets/js/fios.js`) são só textura, em grafite
+bem claro, com raros fios dourados.
 
 ---
 
