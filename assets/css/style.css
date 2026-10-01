@@ -940,86 +940,93 @@ h1, h2, h3, p { margin: 0; }
 .card--esgotado .card__nome,
 .card--esgotado .card__preco { opacity: .55; }
 
-/* ---------- Botões de categoria ("Sua progressiva aqui") ---------- */
-.categorias-botoes {
+/* ---------- Vitrine: uma prateleira por categoria ---------- */
+.prateleiras {
   display: grid;
-  gap: 12px;
-  margin-top: 14px;
+  gap: 26px;
+  margin-top: 16px;
 }
-.botao-categoria {
-  position: relative;
-  display: grid;
-  grid-template-columns: 56px 1fr 24px;
+/* a fileira rola só por dentro; a página não fica mais larga que a tela */
+.prateleira { min-width: 0; }
+.prateleira__cabecalho {
+  display: flex;
   align-items: center;
-  gap: 14px;
-  min-height: 74px;
-  padding: 9px 18px 9px 9px;
-  border-radius: 999px;
-  border: 1.5px solid transparent;
-  background: linear-gradient(180deg, #ffffff, #fffaf2) padding-box, var(--ouro-brilho) border-box;
-  color: var(--tinta);
-  box-shadow: var(--sombra-leve);
-  transition: transform .25s var(--suave), box-shadow .25s var(--suave);
+  gap: 10px;
+  margin-bottom: 4px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, var(--ouro), var(--ouro-claro) 50%, rgba(201, 162, 78, 0)) 1;
 }
-.botao-categoria:active { transform: scale(.975); }
-@media (hover: hover) {
-  .botao-categoria:hover { transform: translateY(-2px); box-shadow: var(--sombra); }
-  .botao-categoria:hover .botao-categoria__seta svg { transform: translateX(3px); }
-}
-/* foto de um produto da categoria, redonda, com aro de ouro e o ícone da categoria */
-.botao-categoria__foto {
-  position: relative;
+.prateleira__icone {
   display: grid;
   place-items: center;
-  width: 56px; height: 56px;
-  padding: 2px;
+  flex: 0 0 auto;
+  width: 36px; height: 36px;
   border-radius: 50%;
   background: var(--ouro-brilho);
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 246, 220, .45), 0 2px 6px -2px rgba(120, 80, 20, .5);
 }
-.botao-categoria__foto img {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  object-fit: contain;
-  background: #fff;
-}
-.botao-categoria__icone {
-  position: absolute;
-  right: -3px; bottom: -3px;
+.prateleira__icone svg { width: 18px; height: 18px; stroke-width: 1.7; }
+.prateleira__titulo {
+  flex: 1;
+  min-width: 0;
   display: grid;
-  place-items: center;
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  background: var(--tinta);
-  color: var(--ouro-claro);
-  box-shadow: 0 0 0 2px #fffaf2;
-}
-.botao-categoria__icone svg { width: 12px; height: 12px; stroke-width: 1.8; }
-.botao-categoria__foto:not(:has(img)) .botao-categoria__icone {
-  position: static;
-  width: 100%; height: 100%;
-  box-shadow: none;
-}
-.botao-categoria__foto:not(:has(img)) .botao-categoria__icone svg { width: 22px; height: 22px; }
-.botao-categoria__texto { display: grid; gap: 3px; min-width: 0; }
-.botao-categoria__rotulo {
+  gap: 2px;
+  margin: 0;
   font-family: var(--fonte-luxo);
+  font-style: italic;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.15;
+  color: var(--tinta);
   text-wrap: balance;
 }
-.botao-categoria__qtd {
-  font-size: 10px;
+.prateleira__qtd {
+  font-family: var(--fonte-ui);
+  font-style: normal;
+  font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: .12em;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--ouro-escuro);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.botao-categoria__seta { display: grid; place-items: center; color: var(--ouro-escuro); }
-.botao-categoria__seta svg { width: 20px; height: 20px; stroke-width: 1.4; transition: transform .25s var(--suave); }
+.prateleira__ver {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 36px;
+  padding: 0 8px 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--ouro);
+  background: linear-gradient(180deg, #fffaf0, #f6e8c8);
+  color: var(--ouro-escuro);
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.prateleira__ver-seta { display: grid; place-items: center; }
+.prateleira__ver-seta svg { width: 16px; height: 16px; }
+.prateleira__ver:active { transform: scale(.96); }
+.prateleira__trilho { padding-top: 12px; }
+
+/* Nas prateleiras e na vitrine de uma categoria, o card não repete a categoria */
+.prateleira .card__categoria,
+.lista--vitrine .card__categoria { display: none; }
+
+/* Categoria aberta ou busca: vitrine com 2 produtos por linha */
+.lista--vitrine {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.lista--vitrine .card--destaque { width: auto; height: 100%; }
+@media (min-width: 768px) {
+  .lista--vitrine { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 
 /* Voltar para os botões de categoria */
 .voltar-categorias {

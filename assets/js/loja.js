@@ -218,34 +218,30 @@
       return;
     }
     if (modoBotoes) {
-      listaCategorias.className = "categorias-botoes";
+      // Vitrine: uma prateleira por categoria, com os produtos lado a lado
+      listaCategorias.className = "prateleiras";
       listaCategorias.replaceChildren(
         ...categorias.map((c) => {
           const daCategoria = produtos.filter((p) => p.categoria === c);
-          const comFoto = daCategoria.find((p) => p.imagem);
           const n = daCategoria.length;
           const icone = ICONES[iconesCategorias[c]] || ICONES.brilho;
-          return el(
-            "a",
-            {
-              class: "botao-categoria",
-              href: `#${slugCategoria(c)}`,
-              onclick: () => { abriuPeloBotao = true; }
-            },
-            [
-              el("span", { class: "botao-categoria__foto" }, [
-                comFoto
-                  ? el("img", { src: comFoto.imagem, alt: "", loading: "lazy", decoding: "async", width: "52", height: "52" })
-                  : null,
-                el("span", { class: "botao-categoria__icone", html: icone })
+          const idTitulo = `prateleira-${slugCategoria(c)}`;
+          return el("section", { class: "prateleira", "aria-labelledby": idTitulo }, [
+            el("div", { class: "prateleira__cabecalho" }, [
+              el("span", { class: "prateleira__icone", html: icone }),
+              el("h3", { class: "prateleira__titulo", id: idTitulo }, [
+                el("span", { text: rotulosCategorias[c] || c }),
+                el("span", { class: "prateleira__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
               ]),
-              el("span", { class: "botao-categoria__texto" }, [
-                el("span", { class: "botao-categoria__rotulo", text: rotulosCategorias[c] || c }),
-                el("span", { class: "botao-categoria__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
-              ]),
-              el("span", { class: "botao-categoria__seta", html: ICONES.seta })
-            ]
-          );
+              el("a", {
+                class: "prateleira__ver",
+                href: `#${slugCategoria(c)}`,
+                "aria-label": `Ver todos de ${c}`,
+                onclick: () => { abriuPeloBotao = true; }
+              }, [el("span", { text: "Ver todos" }), el("span", { class: "prateleira__ver-seta", html: ICONES.seta })])
+            ]),
+            el("div", { class: "trilho prateleira__trilho" }, daCategoria.map((p, i) => criarCard(p, i, "destaque")))
+          ]);
         })
       );
       return;
@@ -335,8 +331,10 @@
 
     lista.replaceChildren(
       ...grupos.map((g) => {
-        const itens = porGrupo.get(g).map((p, i) => el("li", null, criarCard(p, i, "lista")));
-        if (!comTitulo) return el("li", { class: "grupo" }, el("ul", { class: "lista grupo__lista" }, itens));
+        const variante = modoBotoes ? "destaque" : "lista";
+        const classeLista = modoBotoes ? "lista grupo__lista lista--vitrine" : "lista grupo__lista";
+        const itens = porGrupo.get(g).map((p, i) => el("li", null, criarCard(p, i, variante)));
+        if (!comTitulo) return el("li", { class: "grupo" }, el("ul", { class: classeLista }, itens));
         const icone = ICONES[iconesCategorias[g]];
         const n = itens.length;
         return el("li", { class: "grupo" }, [
@@ -345,7 +343,7 @@
             el("span", { class: "grupo__nome", text: g }),
             el("span", { class: "grupo__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
           ]),
-          el("ul", { class: "lista grupo__lista" }, itens)
+          el("ul", { class: classeLista }, itens)
         ]);
       })
     );

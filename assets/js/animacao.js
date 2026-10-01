@@ -15,7 +15,7 @@
   // Peças que sobem, na ordem em que aparecem na página
   const PECAS = [
     ".arco", ".capa__nome", ".frases", ".social",
-    ".botao-marca", ".botao-categoria",
+    ".botao-marca", ".prateleira__cabecalho",
     ".topo", ".loja__hero",
     ".vitrine__cabecalho", ".busca", ".chips__titulo", ".chip",
     ".secao__cabecalho", ".grupo__titulo", ".card", ".nota-precos",

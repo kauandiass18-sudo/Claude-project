@@ -138,9 +138,10 @@ fica no console do navegador (F12).
 >
 > - As categorias da loja são agrupadas em 12 grupos pelo que o cabelo precisa
 >   (regras em `GRUPOS`, no script).
-> - Na página inicial, cada grupo vira um botão ("Sua progressiva aqui",
->   "Seu loiro perfeito aqui"...). Tocando, aparecem só os produtos dele. Os
->   textos dos botões ficam em `rotulosCategorias`, em `data/ybera.js`.
+> - Na página inicial, a vitrine tem uma prateleira por grupo ("Sua progressiva
+>   aqui", "Seu loiro perfeito aqui"...) com os produtos lado a lado, para
+>   deslizar. "Ver todos" abre só aquele grupo, em vitrine de dois por linha.
+>   Os títulos ficam em `rotulosCategorias`, em `data/ybera.js`.
 > - Produtos esgotados ficam escondidos (`mostrarEsgotados: false`) e voltam
 >   sozinhos quando o estoque voltar.
 > - `destaque: true` é a única mudança feita à mão na lista que se mantém: o
