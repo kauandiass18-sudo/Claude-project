@@ -1,0 +1,22 @@
+name: Diagnóstico mais vendidos (temporário)
+on:
+  push:
+    branches: [claude/editar-minha-curadoria-l4zjab]
+    paths: [.github/workflows/diag-mais-vendidos.yml]
+jobs:
+  ver:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ler página
+        run: |
+          UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+          for u in "https://www.ybera.com/mais-vendidos" "https://www.ybera.com/mais-vendidos?pagina=2" "https://www.ybera.com/mais-vendidos?pg=2" "https://www.ybera.com/mais-vendidos?page=2"; do
+            echo "=== $u"
+            curl -sL -A "$UA" "$u" -o p.html -w "HTTP %{http_code} %{size_download}\n"
+            grep -oiE 'href="[^"]*produto/[^"]+"' p.html | awk '!s[$0]++' | head -80
+            echo "--- paginação"
+            grep -oiE '(href="[^"]*(pagina|pg|page)=[0-9]+[^"]*")' p.html | sort -u | head
+            grep -oiE 'total[^<]{0,60}produtos?' p.html | head -3
+          done
+          echo "=== trecho"
+          curl -sL -A "$UA" "https://www.ybera.com/mais-vendidos" | tr -s ' \n' ' ' | grep -oiE '.{0,200}(carregar mais|ver mais|load more|infinite|next).{0,200}' | head -5
