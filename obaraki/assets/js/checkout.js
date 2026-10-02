@@ -131,7 +131,7 @@
       '<section class="step-panel' +
       (state.step === 1 ? " is-current" : "") +
       '" data-step="1">' +
-      '<h2><span class="n">1</span>Dados do cliente</h2>' +
+      '<h2>Dados do cliente</h2>' +
       '<div class="form-grid">' +
       field("name", "Nome", state.name, 'autocomplete="name" placeholder="Como podemos te chamar?" required maxlength="60"', '<span class="error">Informe seu nome.</span>') +
       field(
@@ -194,7 +194,7 @@
       '<section class="step-panel' +
       (state.step === 2 ? " is-current" : "") +
       '" data-step="2">' +
-      '<h2><span class="n">2</span>Entrega</h2>' +
+      '<h2>Entrega</h2>' +
       '<div class="form-grid">' +
       '<div class="row-num">' +
       field(
@@ -240,7 +240,7 @@
       '<section class="step-panel' +
       (state.step === 3 ? " is-current" : "") +
       '" data-step="3">' +
-      '<h2><span class="n">3</span>Forma de pagamento</h2>' +
+      '<h2>Forma de pagamento</h2>' +
       '<div class="pay-grid" role="radiogroup" aria-label="Forma de pagamento">' +
       methods
         .map(function (m) {
@@ -285,7 +285,7 @@
       esc(a.city) +
       '</div><button type="button" data-goto="2">Editar</button></div>' +
       "</div>" +
-      '<label class="option" style="margin-top:12px;border-style:dashed"><input type="checkbox" name="remember"' +
+      '<label class="option option--quiet"><input type="checkbox" name="remember"' +
       (state.remember ? " checked" : "") +
       '><span class="check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><span class="name" style="font-weight:500;font-size:13.5px">Lembrar meus dados neste aparelho</span></label>' +
       "</div>" +

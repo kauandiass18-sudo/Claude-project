@@ -35,12 +35,12 @@
         esc(c.id) +
         '">' +
         head +
-        '<div class="menu-empty"><span>Os itens de ' +
-        esc(c.name.toLowerCase()) +
-        " estão sendo atualizados no cardápio online.</span>" +
+        '<div class="menu-empty"><span>Itens em atualização no cardápio online.</span>' +
         '<a target="_blank" rel="noopener" href="' +
         U.waHref("Olá! Quais opções de " + c.name + " vocês têm hoje?") +
-        '">Consultar no WhatsApp →</a></div></section>'
+        '"><svg class="icon icon-sm" viewBox="0 0 24 24" style="fill:currentColor;stroke:none">' +
+        U.WA_SVG.replace(/^<svg[^>]*>|<\/svg>$/g, "") +
+        "</svg>Consultar no WhatsApp</a></div></section>"
       );
     }
 

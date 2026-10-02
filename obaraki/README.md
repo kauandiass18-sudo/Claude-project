@@ -83,7 +83,8 @@ Nada disso foi inventado. Preencha pelo painel quando tiver os dados:
 - Preço do Combo Família (hoje aparece como "Preço sob consulta").
 - Produtos das categorias Sushi, Hossomaki, Uramaki, Hot Roll, Fritos, Yakisoba,
   Poké, Teppan, Porções, Bebidas, Sobremesas e Adicionais.
-- Links do Instagram e do iFood, e o horário de atendimento.
+- Links do Instagram e do iFood, e o horário de atendimento. Enquanto os links
+  estiverem vazios, os botões aparecem e mostram o aviso "em breve" ao toque.
 - Quais temakis aceitam fritura (hoje todos têm a opção de + R$ 5,00).
 - Endereço do site para o SEO: após publicar, ajuste `og:image` nas páginas
   para o endereço completo, como `https://seusite.com.br/assets/img/og-image.png`.

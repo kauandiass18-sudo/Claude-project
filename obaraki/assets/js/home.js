@@ -16,9 +16,15 @@
     }, obj);
   }
 
-  function hideSection(name) {
+  /* Mostra ou esconde uma seção conforme os dados. Como o painel pode
+     re-renderizar a página, a seção também volta a aparecer quando preciso. */
+  function showSection(name, on) {
     var s = document.querySelector('[data-section="' + name + '"]');
-    if (s) s.hidden = true;
+    if (s) s.hidden = !on;
+  }
+
+  function hideSection(name) {
+    showSection(name, false);
   }
 
   function render() {
@@ -40,7 +46,7 @@
     } else if (d.areaLabel) {
       meta.push(icon("moto") + esc(d.areaLabel));
     }
-    meta.push(icon("card") + "Pix, cartão ou dinheiro");
+    /* Formas de pagamento já aparecem na faixa de benefícios logo abaixo. */
     if (s.hours) meta.push(icon("clock") + esc(s.hours));
     $("[data-hero-meta]").innerHTML = meta
       .map(function (m) {
@@ -71,6 +77,7 @@
 
     /* Promoções */
     var promos = S.promotions();
+    showSection("promos", !!promos.length);
     if (promos.length) {
       $('[data-render="promos"]').innerHTML = promos.map(U.promoCard).join("");
     } else hideSection("promos");
@@ -92,6 +99,7 @@
       return !shown[p.id];
     });
     if (!combos.length) combos = allCombos;
+    showSection("combos", !!combos.length);
     if (combos.length) {
       $('[data-render="combos"]').innerHTML = combos
         .slice(0, 6)
@@ -105,12 +113,14 @@
     var exec = S.products().filter(function (p) {
       return p.kind === "executivo";
     });
+    showSection("exec", !!exec.length);
     if (exec.length) {
       $('[data-render="exec"]').innerHTML = exec.map(U.execCard).join("");
     } else hideSection("exec");
 
     /* Temakis */
     var temakis = S.products({ category: "temaki" });
+    showSection("temaki", !!temakis.length);
     if (temakis.length) {
       $('[data-render="temakis"]').innerHTML = temakis.map(U.menuRow).join("");
       var opt = null;
@@ -122,9 +132,10 @@
       var withImg = temakis.filter(function (p) {
         return p.image;
       })[0];
+      $("[data-temaki-aside]").classList.toggle("has-photo", !!withImg);
       $("[data-temaki-bg]").innerHTML = withImg
         ? '<img src="' + esc(withImg.image) + '" alt="" loading="lazy">'
-        : '<div class="ph" aria-hidden="true"><div class="ph-mark"><span>手巻</span></div></div>';
+        : '<div class="temaki-art" aria-hidden="true"><span>手巻</span></div>';
     } else hideSection("temaki");
 
     /* Categorias */
@@ -140,7 +151,7 @@
     about.classList.toggle("has-photo", hasAbout);
     about.innerHTML = hasAbout
       ? '<img src="' + esc(s.about.image) + '" alt="ObaraKi Temakeria" loading="lazy">'
-      : '<div class="about-art" aria-hidden="true"><span class="sun"></span><img src="assets/img/hero-sushi.svg" alt="" loading="lazy"></div>';
+      : '<div class="about-art" aria-hidden="true"><span class="sun"></span><span class="about-kanji">手巻寿司</span></div>';
 
     /* Contato */
     var fee =
@@ -201,9 +212,15 @@
           if (tiles.length < 6) tiles.push({ src: p.image, label: p.name, kanji: U.kanjiFor(p) });
         });
     }
+    /* Sem link do Instagram a seção fica oculta. Sem nenhuma foto real, não
+       inventamos um feed: mostramos só o título e o botão. */
+    showSection("insta", true);
+    var hasPhotos = tiles.length > 0;
+    $('[data-render="insta"]').hidden = !hasPhotos;
+    $(".insta-head").classList.toggle("is-compact", !hasPhotos);
     var fallbackKanji = ["手巻", "刺身", "握り", "盛合", "寿司", "揚巻"];
     var i = 0;
-    while (tiles.length < 6) {
+    while (hasPhotos && tiles.length < 6) {
       tiles.push({ src: "", label: "", kanji: fallbackKanji[i++ % fallbackKanji.length] });
     }
     var instaAttrs = U.linkAttrs("instagram");

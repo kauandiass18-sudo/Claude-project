@@ -267,6 +267,7 @@ button {
   transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
   white-space: nowrap;
   align-self: flex-start;
+  min-height: 44px;
 }
 
 .link-more:hover {
@@ -378,6 +379,13 @@ button {
   font-size: 11px;
 }
 
+/* Em telas de toque, nenhum botão fica abaixo de 44 px */
+@media (pointer: coarse) {
+  .btn-sm {
+    min-height: 44px;
+  }
+}
+
 .btn[disabled],
 .btn.is-disabled {
   opacity: 0.4;
@@ -437,8 +445,8 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  height: 42px;
-  padding: 0 16px 0 13px;
+  height: 44px;
+  padding: 0 17px 0 14px;
   border-radius: 999px;
   background: var(--red);
   color: #fff;
@@ -476,7 +484,7 @@ button {
 }
 
 .btn-add--round {
-  width: 42px;
+  width: 44px;
   padding: 0;
   justify-content: center;
 }
@@ -512,6 +520,7 @@ button {
   align-items: center;
   gap: 11px;
   flex: none;
+  min-height: 44px;
 }
 
 .brand-mark {
@@ -732,6 +741,10 @@ button {
   gap: 10px;
 }
 
+.mobile-menu-foot .row > :only-child {
+  grid-column: 1 / -1;
+}
+
 /* ---------- Hero ---------- */
 
 .hero {
@@ -769,7 +782,7 @@ button {
 .hero-title {
   font-family: var(--f-display);
   font-weight: 600;
-  font-size: clamp(44px, 12vw, 86px);
+  font-size: clamp(44px, 12vw, 78px);
   line-height: 0.98;
   letter-spacing: -0.015em;
   margin: 18px 0 18px;
@@ -869,8 +882,8 @@ button {
 
 .hero-kanji {
   position: absolute;
-  right: 0;
-  top: 2%;
+  left: 10px;
+  top: 4%;
   writing-mode: vertical-rl;
   font-family: var(--f-jp);
   font-size: 15px;
@@ -929,7 +942,7 @@ button {
 
 .hero-chip--a {
   left: 0;
-  bottom: 9%;
+  bottom: 16%;
 }
 
 .hero-chip--b {
@@ -943,10 +956,14 @@ button {
   }
 
   .hero-grid {
-    grid-template-columns: 1.02fr 1fr;
+    grid-template-columns: 1.14fr 0.86fr;
     align-items: center;
     gap: 40px;
     min-height: min(640px, calc(100vh - var(--header-h) - 120px));
+  }
+
+  .hero-title {
+    font-size: clamp(56px, 5.5vw, 78px);
   }
 
   .hero-sub {
@@ -963,11 +980,19 @@ button {
 
   .hero-chip--a {
     left: -4%;
+    bottom: 9%;
   }
 
   .hero-kanji {
     font-size: 17px;
+    left: auto;
     right: -2%;
+    top: 2%;
+  }
+
+  .hero-chip--b {
+    right: 12%;
+    top: 4%;
   }
 }
 
@@ -1123,12 +1148,14 @@ button {
   pointer-events: none;
 }
 
+/* Moldura sem foto: grafite, seigaiha suave, anel duplo dourado e ideograma
+   em marfim. Sem vermelho: a cor de ação fica reservada aos botões. */
 .ph {
   position: absolute;
   inset: 0;
   display: grid;
   place-items: center;
-  background: radial-gradient(120% 90% at 50% 0%, #1d1d1d 0%, #111 70%);
+  background: radial-gradient(110% 85% at 50% 8%, #1b1b1b 0%, #121212 55%, #0e0e0e 100%);
   overflow: hidden;
 }
 
@@ -1138,17 +1165,17 @@ button {
   inset: 0;
   background-image: var(--seigaiha);
   background-size: 34px 17px;
-  opacity: 0.07;
-  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 75%);
-  mask-image: linear-gradient(to top, #000 0%, transparent 75%);
+  opacity: 0.08;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 62%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 62%);
 }
 
 .ph-mark {
   position: relative;
   display: grid;
   place-items: center;
-  width: 46%;
-  max-width: 132px;
+  width: 42%;
+  max-width: 124px;
   aspect-ratio: 1;
   border-radius: 50%;
   border: 1px solid var(--gold-soft);
@@ -1157,17 +1184,16 @@ button {
 .ph-mark::before {
   content: "";
   position: absolute;
-  inset: 14%;
+  inset: 9%;
   border-radius: 50%;
-  background: var(--red-dark);
-  opacity: 0.85;
+  border: 1px solid rgba(201, 164, 92, 0.16);
 }
 
 .ph-mark span {
   position: relative;
   font-family: var(--f-jp);
-  font-size: clamp(18px, 4.6vw, 28px);
-  color: #fff;
+  font-size: clamp(18px, 4.6vw, 26px);
+  color: #eee4d0;
   letter-spacing: 0.08em;
   line-height: 1;
 }
@@ -1282,7 +1308,7 @@ button {
 
 .pcard-foot {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 12px;
   margin-top: auto;
@@ -1523,7 +1549,7 @@ button {
 
 .promo-card .row {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   gap: 10px;
   margin-top: auto;
@@ -1648,7 +1674,7 @@ button {
 
 @media (max-width: 559px) {
   .exec-card .btn-add {
-    width: 42px;
+    width: 44px;
     padding: 0;
     justify-content: center;
   }
@@ -1703,7 +1729,7 @@ button {
   position: relative;
   border-radius: 24px;
   overflow: hidden;
-  min-height: 300px;
+  min-height: 304px;
   background: var(--surface);
   border: 1px solid var(--line);
   display: flex;
@@ -1730,26 +1756,48 @@ button {
   background: linear-gradient(to top, rgba(8, 8, 8, 0.92) 10%, rgba(8, 8, 8, 0.15) 70%);
 }
 
-.temaki-aside .bg .ph {
-  place-items: start end;
-  padding: 26px;
+/* Sem foto: painel tipográfico com o ideograma vertical e seigaiha na base */
+.temaki-aside:not(.has-photo) .bg::after {
+  display: none;
 }
 
-.temaki-aside .bg .ph-mark {
-  width: 88px;
+.temaki-art {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(90% 70% at 80% 10%, #1a1a1a 0%, var(--surface) 70%);
 }
 
-.temaki-aside .bg .ph-mark span {
-  font-size: 22px;
+.temaki-art::before {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0 0;
+  background-image: var(--seigaiha);
+  background-size: 40px 20px;
+  opacity: 0.08;
+  -webkit-mask-image: linear-gradient(to top, #000, transparent);
+  mask-image: linear-gradient(to top, #000, transparent);
+}
+
+.temaki-art span {
+  position: absolute;
+  top: 24px;
+  right: 22px;
+  writing-mode: vertical-rl;
+  font-family: var(--f-jp);
+  font-size: 40px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  color: #eee4d0;
+  padding-right: 16px;
+  border-right: 1px solid var(--gold-soft);
 }
 
 @media (min-width: 900px) {
-  .temaki-aside .bg .ph-mark {
-    width: 132px;
-  }
-
-  .temaki-aside .bg .ph-mark span {
-    font-size: 32px;
+  .temaki-art span {
+    top: 40px;
+    right: 40px;
+    font-size: 76px;
+    padding-right: 26px;
   }
 }
 
@@ -1769,6 +1817,11 @@ button {
   margin: 0;
   color: var(--text-2);
   max-width: 360px;
+}
+
+.temaki-aside:not(.has-photo) p,
+.temaki-aside:not(.has-photo) h2 {
+  max-width: calc(100% - 64px);
 }
 
 .temaki-list {
@@ -1798,8 +1851,13 @@ button {
 }
 
 .menu-row .ph-mark {
-  width: 76%;
+  width: 72%;
   border: 0;
+}
+
+.menu-row .ph-mark::before {
+  inset: 0;
+  border-color: var(--gold-soft);
 }
 
 .menu-row .ph-mark span {
@@ -1850,6 +1908,47 @@ button {
 @media (hover: hover) {
   .menu-row:hover h3 {
     color: var(--gold);
+  }
+}
+
+/* Celular: preço passa para baixo do nome, para o nome não quebrar em
+   pedaços ao lado do preço e do botão */
+@media (max-width: 559px) {
+  .menu-row {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr) auto;
+    column-gap: 14px;
+    row-gap: 6px;
+    align-items: center;
+  }
+
+  .menu-row .media {
+    grid-row: 1 / span 2;
+  }
+
+  .menu-row-info {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+  }
+
+  .menu-row .right {
+    display: contents;
+  }
+
+  .menu-row .right > :first-child {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+  }
+
+  .menu-row .right .btn-add {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+
+  .menu-row .price {
+    font-size: 15px;
   }
 }
 
@@ -1951,7 +2050,8 @@ button {
 
 .about-art .sun {
   position: absolute;
-  width: 62%;
+  width: 50%;
+  max-width: 290px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--red-dark);
@@ -1965,11 +2065,16 @@ button {
   border: 1px solid var(--gold-soft);
 }
 
-.about-art img {
+.about-kanji {
   position: relative;
-  width: 92%;
-  height: auto;
-  object-fit: contain;
+  z-index: 1;
+  writing-mode: vertical-rl;
+  font-family: var(--f-jp);
+  font-size: clamp(24px, 6.2vw, 38px);
+  line-height: 1;
+  letter-spacing: 0.3em;
+  color: #f4ece0;
+  padding-top: 0.3em;
 }
 
 .about-visual .ph-mark span {
@@ -2072,7 +2177,8 @@ button {
 
 @media (min-width: 900px) {
   .contact {
-    grid-template-columns: repeat(3, 1fr);
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
     gap: 22px;
   }
 
@@ -2161,6 +2267,14 @@ button {
   margin-bottom: 26px;
 }
 
+/* Sem fotos: faixa compacta, sem quadrados de preenchimento */
+.insta-head.is-compact {
+  margin-bottom: 0;
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
 @media (min-width: 900px) {
   .insta-head {
     flex-direction: row;
@@ -2174,6 +2288,9 @@ button {
 .site-footer {
   position: relative;
   margin-top: 40px;
+  /* No celular o rodapé ocupa também o espaço reservado à barra inferior */
+  margin-bottom: calc(var(--bottom-h) * -1);
+  padding-bottom: var(--bottom-h);
   border-top: 1px solid var(--line);
   background: var(--ink-2);
   overflow: hidden;
@@ -2220,14 +2337,16 @@ button {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 2px;
+  gap: 0;
 }
 
 .footer-col a {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 7px 0;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0;
   font-size: 14px;
   color: var(--text-2);
   transition: color 0.2s var(--ease);
@@ -2262,6 +2381,12 @@ button {
 
 .footer-bottom a:hover {
   color: #fff;
+}
+
+@media (min-width: 900px) and (pointer: fine) {
+  .footer-col a {
+    min-height: 36px;
+  }
 }
 
 @media (min-width: 900px) {
@@ -2580,8 +2705,13 @@ button {
 }
 
 .cart-item .ph-mark {
-  width: 76%;
+  width: 72%;
   border: 0;
+}
+
+.cart-item .ph-mark::before {
+  inset: 0;
+  border-color: var(--gold-soft);
 }
 
 .cart-item .ph-mark span {
@@ -2624,10 +2754,13 @@ button {
 }
 
 .link-remove {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   font-size: 12px;
   font-weight: 600;
   color: var(--muted);
-  padding: 8px 0;
+  padding: 0 2px;
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-color: rgba(255, 255, 255, 0.2);
@@ -2640,14 +2773,14 @@ button {
 .stepper {
   display: inline-flex;
   align-items: center;
-  height: 40px;
+  height: 44px;
   border: 1px solid var(--line-2);
   border-radius: 999px;
   overflow: hidden;
 }
 
 .stepper button {
-  width: 40px;
+  width: 44px;
   height: 100%;
   display: grid;
   place-items: center;
@@ -2968,6 +3101,18 @@ button {
   background: rgba(201, 0, 22, 0.06);
 }
 
+/* Opção secundária (ex.: "Lembrar meus dados"): sem fundo vermelho, que
+   lembraria um aviso de erro */
+.option--quiet {
+  margin-top: 12px;
+  border-color: var(--line);
+}
+
+.option--quiet:has(input:checked) {
+  border-color: var(--line);
+  background: transparent;
+}
+
 .option .name {
   flex: 1;
   font-size: 14.5px;
@@ -3284,7 +3429,7 @@ select.input option {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  height: 40px;
+  height: 44px;
   padding: 0 16px;
   border-radius: 999px;
   border: 1px solid var(--line-2);
@@ -3372,7 +3517,7 @@ select.input option {
 }
 
 .toast button {
-  height: 36px;
+  height: 44px;
   padding: 0 14px;
   border-radius: 10px;
   background: var(--ink);
@@ -3464,7 +3609,7 @@ select.input option {
   display: flex;
   gap: 8px;
   overflow-x: auto;
-  padding: 12px 0;
+  padding: 10px 0;
   scrollbar-width: none;
   -webkit-mask-image: linear-gradient(to right, #000 92%, transparent);
   mask-image: linear-gradient(to right, #000 92%, transparent);
@@ -3544,25 +3689,42 @@ select.input option {
 
 .menu-empty {
   display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 22px;
-  border-radius: var(--radius);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 16px;
+  padding: 6px 6px 6px 18px;
+  border-radius: 14px;
   border: 1px dashed var(--line-2);
-  color: var(--text-2);
-  font-size: 14px;
+  color: var(--muted);
+  font-size: 13.5px;
 }
 
 .menu-empty a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 10px;
   color: var(--gold);
+  font-size: 12.5px;
   font-weight: 700;
+  transition: background-color 0.2s var(--ease);
 }
 
-@media (min-width: 700px) {
+.menu-empty a:hover {
+  background: rgba(201, 164, 92, 0.08);
+}
+
+@media (max-width: 420px) {
   .menu-empty {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+    padding: 12px 6px 6px 16px;
+  }
+
+  .menu-empty a {
+    padding: 0 10px;
+    margin-left: -10px;
   }
 }
 
@@ -3683,18 +3845,6 @@ select.input option {
   text-transform: uppercase;
 }
 
-.step-panel h2 .n {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 1px solid var(--gold-soft);
-  color: var(--gold);
-  font-size: 12px;
-  letter-spacing: 0;
-}
-
 .step-actions {
   display: flex;
   gap: 10px;
@@ -3753,7 +3903,9 @@ select.input option {
   font-weight: 700;
   color: var(--gold);
   align-self: center;
-  padding: 6px 0;
+  min-height: 44px;
+  padding: 0 4px;
+  margin: -8px -4px;
 }
 
 .pay-grid {
@@ -4026,80 +4178,132 @@ select.input option {
   }
 }
 
-/* Cardápio no celular: cards horizontais, rápidos de percorrer */
-@media (max-width: 559px) {
+/* Cardápio: cards horizontais em qualquer largura (texto à esquerda,
+   miniatura quadrada à direita). Fica denso como um cardápio de verdade e
+   continua bonito quando as fotos reais entrarem. */
+.menu-section .grid-cards {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 760px) {
+  .menu-section .grid-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+
+.menu-section .pcard {
+  --thumb: 112px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--thumb);
+  align-items: stretch;
+  min-height: calc(var(--thumb) + 28px);
+}
+
+@media (min-width: 900px) {
   .menu-section .pcard {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 112px;
-    align-items: stretch;
+    --thumb: 132px;
+  }
+}
+
+.menu-section .pcard .media {
+  grid-column: 2;
+  grid-row: 1;
+  width: var(--thumb);
+  aspect-ratio: 1;
+  margin: 14px 14px 14px 0;
+  border-radius: 12px;
+  align-self: start;
+}
+
+.menu-section .pcard .media .tags {
+  top: 6px;
+  left: 6px;
+}
+
+.menu-section .pcard .media .tag {
+  height: 20px;
+  padding: 0 7px;
+  font-size: 8.5px;
+}
+
+.menu-section .pcard .ph-mark {
+  width: 64%;
+}
+
+.menu-section .pcard .ph-mark span {
+  font-size: 15px;
+}
+
+.menu-section .pcard-body {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 16px 12px 16px 18px;
+}
+
+.menu-section .pcard-title {
+  font-size: 22px;
+}
+
+.menu-section .pcard-desc {
+  font-size: 13px;
+}
+
+.menu-section .pcard-comp {
+  display: none;
+}
+
+.menu-section .pcard-foot {
+  padding-top: 12px;
+}
+
+.menu-section .pcard-foot .price {
+  font-size: 17px;
+}
+
+/* Botão "+" encaixado no canto da miniatura, como nos apps de delivery */
+.menu-section .pcard .btn-add:not(.btn-add--consult) {
+  position: absolute;
+  z-index: 3;
+  top: calc(14px + var(--thumb) - 38px);
+  right: 6px;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  justify-content: center;
+  border: 3px solid var(--surface);
+}
+
+.menu-section .pcard .btn-add .lbl {
+  display: none;
+}
+
+.menu-section .pcard .btn-add .icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Executivos no cardápio seguem o mesmo desenho horizontal */
+@media (min-width: 900px) {
+  .menu-section .exec-card {
+    grid-template-columns: 96px minmax(0, 1fr);
+    padding: 14px;
   }
 
-  .menu-section .pcard .media {
-    grid-column: 2;
-    grid-row: 1;
+  .menu-section .exec-card .media {
     aspect-ratio: 1;
-    margin: 14px 14px 14px 0;
-    border-radius: 12px;
-    align-self: start;
   }
 
-  .menu-section .pcard .media .tags {
-    top: 6px;
-    left: 6px;
+  .menu-section .exec-card .ph-mark {
+    width: 70%;
   }
 
-  .menu-section .pcard .media .tag {
-    height: 20px;
-    padding: 0 7px;
-    font-size: 8.5px;
-  }
-
-  .menu-section .pcard .ph-mark {
-    width: 64%;
-  }
-
-  .menu-section .pcard .ph-mark span {
+  .menu-section .exec-card .ph-mark span {
     font-size: 15px;
   }
 
-  .menu-section .pcard-body {
-    grid-column: 1;
-    grid-row: 1;
-    padding: 16px 0 16px 16px;
-  }
-
-  .menu-section .pcard-title {
-    font-size: 21px;
-  }
-
-  .menu-section .pcard-desc {
-    font-size: 13px;
-  }
-
-  .menu-section .pcard-comp {
-    display: none;
-  }
-
-  .menu-section .pcard-foot {
-    padding-top: 12px;
-  }
-
-  .menu-section .pcard-foot .price {
-    font-size: 17px;
-  }
-
-  .menu-section .pcard .btn-add:not(.btn-add--consult) {
-    width: 40px;
-    height: 40px;
+  .menu-section .exec-card-body {
     padding: 0;
-    justify-content: center;
-  }
-
-  .menu-section .pcard .btn-add .lbl {
-    display: none;
-  }
-
-  .menu-section .grid-cards {
-    gap: 12px;
   }
 }

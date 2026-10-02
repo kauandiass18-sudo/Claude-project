@@ -146,8 +146,9 @@
 
   function metaText(p) {
     var parts = [];
+    /* "Combo" não entra: todas as vitrines já são de combos. O rótulo dourado
+       fica para o que informa algo (executivo, quantidade de peças). */
     if (p.kind === "executivo") parts.push("Executivo");
-    else if (p.kind === "combo") parts.push("Combo");
     if (p.quantity) parts.push(p.quantity);
     return parts.join(" · ");
   }
@@ -186,12 +187,16 @@
 
   function promoCard(entry) {
     var p = entry.product;
+    /* Dentro do painel de promoções a etiqueta padrão "Promoção" é redundante;
+       só mostramos rótulos personalizados (ex.: "Leve 2"). */
+    var label = String(entry.promo.label || "").trim();
+    var tag = label && label.toLowerCase() !== "promoção" ? '<div class="tags"><span class="tag tag-red">' + esc(label) + "</span></div>" : "";
     return (
       '<article class="promo-card" tabindex="0" data-open="' +
       esc(p.id) +
       '">' +
       '<div class="media">' +
-      mediaHTML(p.image, p.name, kanjiFor(p), '<div class="tags"><span class="tag tag-red">' + esc(entry.promo.label || "Promoção") + "</span></div>") +
+      mediaHTML(p.image, p.name, kanjiFor(p), tag) +
       "</div>" +
       '<div class="promo-card-body">' +
       '<div class="pcard-meta">' +
@@ -219,10 +224,8 @@
       mediaHTML(p.image, p.name, kanjiFor(p), tagsHTML(p)) +
       "</div>" +
       '<div class="exec-card-body">' +
-      '<div class="num">Executivo · Nº ' +
-      (i + 1) +
-      (p.quantity ? " · " + esc(p.quantity) : "") +
-      "</div>" +
+      /* O nome já diz "Executivo N"; o rótulo mostra só a quantidade de peças. */
+      (p.quantity ? '<div class="num">' + esc(p.quantity) + "</div>" : "") +
       "<h3>" +
       esc(p.name) +
       "</h3>" +
@@ -489,11 +492,7 @@
       '<div class="mobile-menu-foot">' +
       '<a class="btn btn-primary btn-block" href="cardapio.html">Pedir agora</a>' +
       '<div class="row">' +
-      '<a class="btn btn-ghost" ' +
-      linkAttrs("instagram") +
-      ">" +
-      icon("insta", "icon-sm") +
-      "Instagram</a>" +
+      '<a class="btn btn-ghost" ' + linkAttrs("instagram") + ">" + icon("insta", "icon-sm") + "Instagram</a>" +
       '<button class="btn btn-ghost" data-action="account">' +
       icon("user", "icon-sm") +
       "Meus dados</button>" +
@@ -613,16 +612,8 @@
       '" target="_blank" rel="noopener">' +
       icon("chat") +
       "WhatsApp</a></li>" +
-      "<li><a " +
-      linkAttrs("instagram") +
-      ">" +
-      icon("insta") +
-      "Instagram</a></li>" +
-      "<li><a " +
-      linkAttrs("ifood") +
-      ">" +
-      icon("store") +
-      "iFood</a></li>" +
+      "<li><a " + linkAttrs("instagram") + ">" + icon("insta") + "Instagram</a></li>" +
+      "<li><a " + linkAttrs("ifood") + ">" + icon("store") + "iFood</a></li>" +
       "</ul></div>" +
       '<div class="footer-col"><h4>Delivery</h4><ul>' +
       '<li><a href="cardapio.html">' +
