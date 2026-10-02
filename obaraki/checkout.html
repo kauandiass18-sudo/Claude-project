@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Finalizar pedido | ObaraKi Temakeria</title>
+  <meta name="description" content="ObaraKi Temakeria: delivery de sushi, temaki e combos em Ribeirão Preto. Peças frescas, combos especiais e pedido rápido pelo site ou WhatsApp.">
+  <meta name="keywords" content="ObaraKi Temakeria, temakeria em Ribeirão Preto, sushi Ribeirão Preto, delivery de sushi Ribeirão Preto, temaki Ribeirão Preto">
+  <meta name="theme-color" content="#080808">
+  <meta name="robots" content="noindex, follow">
+
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ObaraKi Temakeria">
+  <meta property="og:title" content="ObaraKi Temakeria | Sushi e Temaki Delivery em Ribeirão Preto">
+  <meta property="og:description" content="Combos especiais, peças frescas e pedido rápido pelo site ou WhatsApp.">
+  <meta property="og:image" content="assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/obaraki.css">
+</head>
+<body data-page="checkout">
+  <header class="checkout-header">
+    <div class="container">
+      <a class="icon-btn" href="cardapio.html" aria-label="Voltar ao cardápio"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg></a>
+      <span data-brand></span>
+      <span class="secure"><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><span class="only-desktop">Sem cadastro</span></span>
+    </div>
+  </header>
+
+  <main id="conteudo" class="container page-fade" data-checkout></main>
+
+  <noscript><p class="noscript">Ative o JavaScript para finalizar o pedido. Ou chame no WhatsApp: (16) 99412-3757.</p></noscript>
+
+  <script src="data/cardapio.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/checkout.js"></script>
+</body>
+</html>

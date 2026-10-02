@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ObaraKi Temakeria | Sushi e Temaki Delivery em Ribeirão Preto</title>
+  <meta name="description" content="ObaraKi Temakeria: delivery de sushi, temaki e combos em Ribeirão Preto. Peças frescas, combos especiais e pedido rápido pelo site ou WhatsApp.">
+  <meta name="keywords" content="ObaraKi Temakeria, temakeria em Ribeirão Preto, sushi Ribeirão Preto, delivery de sushi Ribeirão Preto, temaki Ribeirão Preto">
+  <meta name="theme-color" content="#080808">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="ObaraKi Temakeria">
+  <meta property="og:title" content="ObaraKi Temakeria | Sushi e Temaki Delivery em Ribeirão Preto">
+  <meta property="og:description" content="Combos especiais, peças frescas e pedido rápido pelo site ou WhatsApp.">
+  <meta property="og:image" content="assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/obaraki.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "ObaraKi Temakeria",
+    "description": "Temakeria delivery em Ribeirão Preto: sushi, temaki e combos.",
+    "servesCuisine": ["Japonesa", "Sushi", "Temaki"],
+    "telephone": "+55 16 99412-3757",
+    "priceRange": "$$",
+    "areaServed": { "@type": "City", "name": "Ribeirão Preto" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Ribeirão Preto", "addressRegion": "SP", "addressCountry": "BR" },
+    "hasMenu": "cardapio.html",
+    "acceptsReservations": false
+  }
+  </script>
+</head>
+<body data-page="home">
+  <a class="sr-only" href="#conteudo">Pular para o conteúdo</a>
+  <header id="site-header" class="site-header"></header>
+
+  <main id="conteudo" class="page-fade">
+
+    <!-- HERO -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow" data-set="hero.eyebrow">ObaraKi Temakeria</span>
+          <h1 class="hero-title" id="hero-title" data-set="hero.title">Seu sushi favorito,
+do seu jeito.</h1>
+          <p class="hero-sub" data-set="hero.subtitle">Combos especiais, peças frescas e sabores preparados para transformar seu pedido em uma experiência.</p>
+          <div class="hero-cta">
+            <a class="btn btn-ghost" href="cardapio.html">Ver cardápio</a>
+            <a class="btn btn-primary" href="cardapio.html#cat-combos">Pedir agora</a>
+          </div>
+          <div class="hero-meta" data-hero-meta></div>
+        </div>
+
+        <div class="hero-visual reveal" data-hero-visual>
+          <div class="hero-sun" aria-hidden="true"></div>
+          <img class="hero-art" src="assets/img/hero-sushi.svg" alt="Niguiris de salmão servidos em prancha" width="640" height="640" fetchpriority="high">
+          <span class="hero-kanji" aria-hidden="true">手巻寿司</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="benefits" aria-label="Por que pedir na ObaraKi">
+      <div class="container benefits-grid reveal-stagger">
+        <div class="benefit">
+          <svg class="icon" aria-hidden="true"><use href="#i-fish"/></svg>
+          <div><h3>Peças frescas</h3><p>Preparadas com cuidado</p></div>
+        </div>
+        <div class="benefit">
+          <svg class="icon" aria-hidden="true"><use href="#i-moto"/></svg>
+          <div><h3>Entrega rápida</h3><p>Seu pedido chegando até você</p></div>
+        </div>
+        <div class="benefit">
+          <svg class="icon" aria-hidden="true"><use href="#i-card"/></svg>
+          <div><h3>Pagamento fácil</h3><p>Pix, cartão e outras opções</p></div>
+        </div>
+        <div class="benefit">
+          <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+          <div><h3>Pedido pelo WhatsApp</h3><p>Atendimento rápido</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAVORITOS -->
+    <section class="section" id="favoritos" aria-labelledby="fav-title">
+      <div class="container">
+        <div class="section-head section-head--row reveal">
+          <div>
+            <span class="eyebrow">Mais pedidos</span>
+            <h2 id="fav-title" style="margin-top:12px">Os favoritos da ObaraKi</h2>
+            <p style="margin-top:10px">Os combos que mais fazem sucesso.</p>
+          </div>
+          <a class="link-more" href="cardapio.html">Cardápio completo<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="rail rail--4 reveal-stagger" data-render="favorites"></div>
+      </div>
+    </section>
+
+    <!-- PROMOÇÕES -->
+    <section class="section" id="promocoes" aria-labelledby="promo-title" data-section="promos">
+      <div class="container">
+        <div class="promo-panel reveal">
+          <span class="promo-kanji" aria-hidden="true">特価</span>
+          <div class="section-head">
+            <span class="eyebrow">Ofertas</span>
+            <h2 id="promo-title">Promoções da ObaraKi</h2>
+            <p>Combos em destaque para pedir hoje.</p>
+          </div>
+          <div class="promo-rail" data-render="promos"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMBOS -->
+    <section class="section" id="combos" aria-labelledby="combos-title" data-section="combos">
+      <div class="container">
+        <div class="section-head section-head--row reveal">
+          <div>
+            <span class="eyebrow">Para compartilhar</span>
+            <h2 id="combos-title" style="margin-top:12px">Mais combos da casa</h2>
+            <p style="margin-top:10px">Monte a mesa com uma seleção pronta da casa.</p>
+          </div>
+          <a class="link-more" href="cardapio.html#cat-combos">Ver todos os combos<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="rail rail--3 reveal-stagger" data-render="combos"></div>
+      </div>
+    </section>
+
+    <!-- EXECUTIVOS -->
+    <section class="section" id="executivos" aria-labelledby="exec-title" data-section="exec">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Para o dia a dia</span>
+          <h2 id="exec-title">Combos executivos</h2>
+          <p>Seleções executivas da casa.</p>
+        </div>
+        <div class="exec-grid reveal-stagger" data-render="exec"></div>
+      </div>
+    </section>
+
+    <!-- TEMAKIS -->
+    <section class="section" id="temakis" aria-labelledby="temaki-title" data-section="temaki">
+      <div class="container temaki">
+        <div class="temaki-aside reveal" data-temaki-aside>
+          <div class="bg" data-temaki-bg></div>
+          <span class="eyebrow">Especialidade da casa</span>
+          <h2 id="temaki-title">Temakis</h2>
+          <p data-temaki-note>O clássico da temakeria em várias versões.</p>
+        </div>
+        <ul class="temaki-list reveal-stagger" data-render="temakis"></ul>
+      </div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="section section--tight" aria-labelledby="cat-title">
+      <div class="container">
+        <div class="section-head section-head--row reveal">
+          <div>
+            <span class="eyebrow">Cardápio</span>
+            <h2 id="cat-title" style="margin-top:12px">Navegue por categoria</h2>
+          </div>
+        </div>
+        <div class="cat-tiles reveal-stagger" data-render="cats"></div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="section" id="sobre" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about-visual media reveal" data-about-visual></div>
+        <div class="reveal">
+          <span class="eyebrow" id="about-title" data-set="about.title">Sobre a ObaraKi</span>
+          <p class="about-quote" data-set="about.text">Na ObaraKi, cada pedido é preparado com cuidado para entregar uma experiência especial em cada peça.</p>
+          <div class="about-sign"><span class="hanko" aria-hidden="true" style="font-family:var(--f-display);font-size:22px;font-weight:700">O</span>ObaraKi Temakeria</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section" id="contato" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Contato</span>
+          <h2 id="contact-title">Peça do seu jeito</h2>
+        </div>
+        <div class="contact reveal-stagger" data-render="contact"></div>
+      </div>
+    </section>
+
+    <!-- INSTAGRAM -->
+    <section class="section" aria-labelledby="insta-title">
+      <div class="container">
+        <div class="insta-head reveal">
+          <div class="section-head" style="margin:0">
+            <span class="eyebrow" data-insta-handle>Instagram</span>
+            <h2 id="insta-title">Siga a ObaraKi</h2>
+          </div>
+          <a class="btn btn-ghost" data-insta-btn><svg class="icon icon-sm" aria-hidden="true"><use href="#i-insta"/></svg>Ver Instagram</a>
+        </div>
+        <div class="insta-grid reveal-stagger" data-render="insta"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+
+  <noscript><p class="noscript">Ative o JavaScript para ver o cardápio e fazer seu pedido. Ou chame no WhatsApp: (16) 99412-3757.</p></noscript>
+
+  <script src="data/cardapio.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>
