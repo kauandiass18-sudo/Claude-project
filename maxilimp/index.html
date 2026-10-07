@@ -28,7 +28,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/img/vidros-remocao-calcificacao.webp">
   <link rel="stylesheet" href="assets/css/maxilimp.css">
 
   <script type="application/ld+json">
@@ -94,7 +93,6 @@
       <ul class="nav__list">
         <li><a href="#inicio">Início</a></li>
         <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#resultados">Resultados</a></li>
         <li><a href="#projetos">Projetos</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#contato">Contato</a></li>
@@ -114,9 +112,7 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero" id="inicio" aria-labelledby="hero-title">
-  <div class="hero__media">
-    <img src="assets/img/vidros-remocao-calcificacao.webp" alt="Profissional da Maxilimp polindo vidro de janela para remoção de marcas de calcificação" width="828" height="910" fetchpriority="high">
-  </div>
+  <div class="hero__grid" aria-hidden="true"></div>
   <div class="container hero__inner">
     <div class="hero__content">
       <p class="eyebrow eyebrow--light"><span class="eyebrow__dot"></span>Maxilimp · Soluções em Limpeza</p>
@@ -137,6 +133,26 @@
         <li>Vidros e pisos</li>
         <li>Drones</li>
       </ul>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <svg class="hero__rings" viewBox="0 0 600 600">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#4b92bd"/><stop offset="1" stop-color="#41884a"/>
+          </linearGradient>
+        </defs>
+        <circle cx="300" cy="300" r="290" fill="none" stroke="url(#hg)" stroke-opacity=".18"/>
+        <circle cx="300" cy="300" r="215" fill="none" stroke="url(#hg)" stroke-opacity=".28" stroke-dasharray="2 8"/>
+        <circle cx="300" cy="300" r="140" fill="none" stroke="url(#hg)" stroke-opacity=".45"/>
+        <path d="M300 10a290 290 0 0 1 290 290" fill="none" stroke="url(#hg)" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M85 300a215 215 0 0 1 215-215" fill="none" stroke="url(#hg)" stroke-width="2" stroke-linecap="round" stroke-opacity=".8"/>
+      </svg>
+      <div class="hero__core"><svg class="ico"><use href="#i-shield"/></svg></div>
+      <div class="hero__chip hero__chip--1"><span><svg class="ico"><use href="#i-helmet"/></svg></span>Trabalhos em altura</div>
+      <div class="hero__chip hero__chip--2"><span><svg class="ico"><use href="#i-solar"/></svg></span>Placas solares</div>
+      <div class="hero__chip hero__chip--3"><span><svg class="ico"><use href="#i-drone"/></svg></span>Limpeza com drones</div>
+      <div class="hero__chip hero__chip--4"><span><svg class="ico"><use href="#i-window"/></svg></span>Fachadas e vidros</div>
     </div>
   </div>
 </section>
@@ -174,11 +190,8 @@
       <p class="section__lead">Tecnologia, experiência e cuidado em cada serviço.</p>
     </header>
 
-    <!-- Para trocar a imagem de um card sem foto: substitua o <div class="svc__ph"> por
-         <img src="assets/img/SUA-FOTO.webp" alt="..." loading="lazy"> -->
     <div class="svc-grid">
       <article class="svc reveal">
-        <div class="svc__media"><img src="assets/img/placas-solares-profissional.webp" alt="Profissional com capacete e cinto de segurança limpando placas solares com escova rotativa" loading="lazy" width="420" height="1326" style="object-position:50% 22%"></div>
         <div class="svc__body">
           <span class="svc__icon"><svg class="ico"><use href="#i-solar"/></svg></span>
           <h3 class="svc__title">Limpeza de Placas Solares</h3>
@@ -188,7 +201,6 @@
       </article>
 
       <article class="svc reveal">
-        <div class="svc__media"><div class="svc__ph" aria-hidden="true"><svg class="ico"><use href="#i-building"/></svg></div></div>
         <div class="svc__body">
           <span class="svc__icon"><svg class="ico"><use href="#i-building"/></svg></span>
           <h3 class="svc__title">Limpeza de Fachadas</h3>
@@ -198,7 +210,6 @@
       </article>
 
       <article class="svc reveal">
-        <div class="svc__media"><img src="assets/img/vidros-remocao-calcificacao.webp" alt="Polimento de vidro com politriz para remoção de marcas d'água" loading="lazy" width="828" height="910" style="object-position:70% 30%"></div>
         <div class="svc__body">
           <span class="svc__icon"><svg class="ico"><use href="#i-window"/></svg></span>
           <h3 class="svc__title">Limpeza e Restauração de Vidros</h3>
@@ -208,7 +219,6 @@
       </article>
 
       <article class="svc reveal">
-        <div class="svc__media"><div class="svc__ph" aria-hidden="true"><svg class="ico"><use href="#i-floor"/></svg></div></div>
         <div class="svc__body">
           <span class="svc__icon"><svg class="ico"><use href="#i-floor"/></svg></span>
           <h3 class="svc__title">Polimento de Pisos</h3>
@@ -218,7 +228,6 @@
       </article>
 
       <article class="svc reveal">
-        <div class="svc__media"><img src="assets/img/pos-obra-polimento-piso.webp" alt="Máquina de limpeza removendo resíduos de obra de um piso" loading="lazy" width="788" height="1023" style="object-position:60% 40%"></div>
         <div class="svc__body">
           <span class="svc__icon"><svg class="ico"><use href="#i-brush"/></svg></span>
           <h3 class="svc__title">Limpeza Pós-Obra</h3>
@@ -228,7 +237,6 @@
       </article>
 
       <article class="svc reveal">
-        <div class="svc__media"><img src="assets/img/trabalho-em-altura.webp" alt="Profissional equipado com capacete e cordas preparando trabalho em altura no topo de um prédio" loading="lazy" width="546" height="610" style="object-position:50% 35%"></div>
         <div class="svc__body">
           <span class="svc__icon"><svg class="ico"><use href="#i-helmet"/></svg></span>
           <h3 class="svc__title">Trabalhos em Altura</h3>
@@ -238,7 +246,6 @@
       </article>
 
       <article class="svc reveal">
-        <div class="svc__media"><img src="assets/img/limpeza-com-drone.webp" alt="Drone realizando limpeza na fachada de um edifício" loading="lazy" width="550" height="424" style="object-position:35% 50%"></div>
         <div class="svc__body">
           <span class="svc__icon"><svg class="ico"><use href="#i-drone"/></svg></span>
           <h3 class="svc__title">Limpeza com Drones</h3>
@@ -248,7 +255,6 @@
       </article>
 
       <article class="svc reveal">
-        <div class="svc__media"><div class="svc__ph" aria-hidden="true"><svg class="ico"><use href="#i-drop"/></svg></div></div>
         <div class="svc__body">
           <span class="svc__icon"><svg class="ico"><use href="#i-drop"/></svg></span>
           <h3 class="svc__title">Restauração e Impermeabilização</h3>
@@ -265,9 +271,7 @@
   <div class="container solar__inner">
     <div class="solar__visual reveal">
       <div class="solar__panel" aria-hidden="true"></div>
-      <figure class="solar__photo">
-        <img src="assets/img/placas-solares-profissional.webp" alt="Profissional da Maxilimp equipado com capacete e cinto, limpando painéis solares em um telhado" loading="lazy" width="420" height="1326">
-      </figure>
+      <div class="solar__core"><svg class="ico"><use href="#i-solar"/></svg></div>
       <div class="solar__badge">
         <svg class="ico"><use href="#i-solar"/></svg>
         <span>Limpeza de módulos<br>fotovoltaicos</span>
@@ -292,11 +296,13 @@
 <!-- ========== POR QUE ESCOLHER ========== -->
 <section class="why" aria-labelledby="why-title">
   <div class="container why__inner">
-    <div class="why__content">
-      <header class="reveal">
-        <p class="eyebrow eyebrow--light">Diferenciais</p>
-        <h2 class="section__title section__title--light" id="why-title">Por que escolher a Maxilimp?</h2>
-      </header>
+    <header class="why__head reveal">
+      <p class="eyebrow eyebrow--light">Diferenciais</p>
+      <h2 class="section__title section__title--light" id="why-title">Por que escolher a Maxilimp?</h2>
+      <a class="btn btn--primary btn--lg" href="https://wa.me/5555999816001?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20com%20a%20Maxilimp." target="_blank" rel="noopener" data-wa>
+        <svg class="ico"><use href="#i-whatsapp"/></svg> Solicitar orçamento
+      </a>
+    </header>
       <ul class="why__list">
         <li class="reveal"><svg class="ico"><use href="#i-check-circle"/></svg>Atendimento profissional</li>
         <li class="reveal"><svg class="ico"><use href="#i-check-circle"/></svg>Equipamentos especializados</li>
@@ -307,21 +313,16 @@
         <li class="reveal"><svg class="ico"><use href="#i-check-circle"/></svg>Profissionais preparados</li>
         <li class="reveal"><svg class="ico"><use href="#i-check-circle"/></svg>Atendimento para diferentes tipos de ambientes</li>
       </ul>
-    </div>
-    <figure class="why__media reveal">
-      <img src="assets/img/pos-obra-polimento-piso.webp" alt="Colaborador da Maxilimp operando máquina de limpeza de piso" loading="lazy" width="788" height="1023">
-      <figcaption>Limpeza técnica com equipamento profissional</figcaption>
-    </figure>
   </div>
 </section>
 
 <!-- ========== ANTES E DEPOIS ========== -->
-<section class="section" id="resultados" aria-labelledby="ba-title">
+<section class="section section--soft" id="projetos" aria-labelledby="ba-title">
   <div class="container">
     <header class="section__head reveal">
       <p class="eyebrow">Antes e depois</p>
       <h2 class="section__title" id="ba-title">Resultados que podem ser vistos.</h2>
-      <p class="section__lead">Arraste o controle para comparar.</p>
+      <p class="section__lead">Arraste o controle para comparar o antes e o depois de cada serviço.</p>
     </header>
 
     <div class="ba reveal">
@@ -337,61 +338,7 @@
         </div>
         <p class="ba__caption"></p>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== GALERIA ========== -->
-<section class="section section--soft" id="projetos" aria-labelledby="gal-title">
-  <div class="container">
-    <header class="section__head section__head--split reveal">
-      <div>
-        <p class="eyebrow">Projetos</p>
-        <h2 class="section__title" id="gal-title">Nosso trabalho em campo</h2>
-      </div>
-      <a class="btn btn--outline" href="https://www.instagram.com/maxilimptp/" target="_blank" rel="noopener">
-        <svg class="ico"><use href="#i-instagram"/></svg> Ver mais no Instagram
-      </a>
-    </header>
-
-    <!-- Para adicionar fotos: copie um <figure class="gal__item"> e troque src, alt e legenda. -->
-    <div class="gal">
-      <figure class="gal__item gal__item--tall reveal">
-        <button type="button" class="gal__btn" aria-label="Ampliar: Remoção de marcas d'água em vidros">
-          <img src="assets/img/vidros-remocao-calcificacao.webp" alt="Remoção de marcas d'água (calcificação) em vidros com politriz" loading="lazy" width="828" height="910">
-        </button>
-        <figcaption><span>Vidros</span>Remoção de marcas d'água</figcaption>
-      </figure>
-      <figure class="gal__item reveal">
-        <button type="button" class="gal__btn" aria-label="Ampliar: Trabalho em altura">
-          <img src="assets/img/trabalho-em-altura.webp" alt="Profissional com equipamentos de segurança iniciando trabalho em altura" loading="lazy" width="546" height="610">
-        </button>
-        <figcaption><span>Altura</span>Trabalho em altura</figcaption>
-      </figure>
-      <figure class="gal__item reveal">
-        <button type="button" class="gal__btn" aria-label="Ampliar: Limpeza com drone">
-          <img src="assets/img/limpeza-com-drone.webp" alt="Drone aplicando limpeza em fachada de edifício" loading="lazy" width="550" height="424">
-        </button>
-        <figcaption><span>Drones</span>Limpeza de fachada com drone</figcaption>
-      </figure>
-      <figure class="gal__item gal__item--tall reveal">
-        <button type="button" class="gal__btn" aria-label="Ampliar: Limpeza de placas solares">
-          <img src="assets/img/placas-solares-profissional.webp" alt="Limpeza de placas solares com escova rotativa" loading="lazy" width="420" height="1326">
-        </button>
-        <figcaption><span>Placas solares</span>Limpeza de painéis</figcaption>
-      </figure>
-      <figure class="gal__item reveal">
-        <button type="button" class="gal__btn" aria-label="Ampliar: Limpeza pós-obra">
-          <img src="assets/img/pos-obra-polimento-piso.webp" alt="Limpeza pós-obra de piso com máquina profissional" loading="lazy" width="788" height="1023">
-        </button>
-        <figcaption><span>Pós-obra</span>Limpeza de piso pós-obra</figcaption>
-      </figure>
-      <figure class="gal__item reveal">
-        <button type="button" class="gal__btn" aria-label="Ampliar: Equipamento profissional">
-          <img src="assets/img/equipamento-limpeza.webp" alt="Equipamento profissional de limpeza com mangueiras e cilindro" loading="lazy" width="548" height="610">
-        </button>
-        <figcaption><span>Equipamentos</span>Equipamento especializado</figcaption>
-      </figure>
+      <p class="ba__more"><a href="https://www.instagram.com/maxilimptp/" target="_blank" rel="noopener"><svg class="ico"><use href="#i-instagram"/></svg> Veja mais trabalhos no Instagram</a></p>
     </div>
   </div>
 </section>
@@ -436,24 +383,16 @@
 <!-- ========== SEGURANÇA ========== -->
 <section class="safety" id="seguranca" aria-labelledby="safety-title">
   <div class="container safety__inner">
-    <div class="safety__media reveal">
-      <figure class="safety__photo safety__photo--a">
-        <img src="assets/img/trabalho-em-altura.webp" alt="Profissional da Maxilimp com capacete, cinto e cordas de segurança no topo de um edifício" loading="lazy" width="546" height="610">
-      </figure>
-      <figure class="safety__photo safety__photo--b">
-        <img src="assets/img/placas-solares-profissional.webp" alt="Profissional com capacete e cinto de segurança trabalhando em telhado" loading="lazy" width="420" height="1326">
-      </figure>
-    </div>
     <div class="safety__content reveal">
       <p class="eyebrow">Trabalhos em altura</p>
       <h2 class="section__title" id="safety-title">Segurança em primeiro lugar</h2>
       <p class="section__lead">Trabalhos em altura exigem planejamento, equipamentos adequados e procedimentos de segurança. Nossa equipe atua seguindo práticas apropriadas para cada tipo de serviço.</p>
-      <ul class="safety__pillars">
+    </div>
+    <ul class="safety__pillars reveal">
         <li><span><svg class="ico"><use href="#i-clipboard"/></svg></span><div><h3>Planejamento</h3><p>Cada serviço é avaliado antes da execução.</p></div></li>
         <li><span><svg class="ico"><use href="#i-harness"/></svg></span><div><h3>Equipamentos adequados</h3><p>Capacete, cinto, cordas e acessórios para cada situação.</p></div></li>
         <li><span><svg class="ico"><use href="#i-shield"/></svg></span><div><h3>Procedimentos</h3><p>Práticas apropriadas para cada tipo de serviço.</p></div></li>
-      </ul>
-    </div>
+    </ul>
   </div>
 </section>
 
@@ -551,17 +490,6 @@
   <svg class="ico"><use href="#i-whatsapp"/></svg>
   <span class="wa-float__label">Orçamento</span>
 </a>
-
-<!-- Lightbox -->
-<div class="lightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada" hidden>
-  <button class="lightbox__close" type="button" aria-label="Fechar"><svg class="ico"><use href="#i-close"/></svg></button>
-  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Imagem anterior"><svg class="ico"><use href="#i-left"/></svg></button>
-  <figure class="lightbox__figure">
-    <img alt="">
-    <figcaption></figcaption>
-  </figure>
-  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Próxima imagem"><svg class="ico"><use href="#i-right"/></svg></button>
-</div>
 
 <script src="assets/js/maxilimp.js" defer></script>
 </body>
