@@ -425,7 +425,7 @@ button { font: inherit; color: inherit; cursor: pointer; background: none; borde
 }
 
 /* ---------- Destaque placas solares ---------- */
-.solar { padding: var(--section-y) 0; background: var(--bg-soft); overflow: hidden; }
+.solar { padding: var(--section-y) 0; background: #fff; overflow: hidden; }
 .solar__inner { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(48px, 7vw, 110px); align-items: center; }
 .solar__visual { position: relative; aspect-ratio: 5 / 4.6; max-height: 600px; }
 .solar__panel {
