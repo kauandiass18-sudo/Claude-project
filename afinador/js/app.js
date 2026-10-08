@@ -146,23 +146,38 @@ async function boot() {
   const wait = SPLASH_MIN_MS - (performance.now() - bootStarted);
   if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
 
-  history.replaceState({ depth: 1 }, '');
+  try {
+    history.replaceState({ depth: 1 }, '');
+  } catch {
+    // Histórico indisponível (ex.: página embutida): a navegação segue sem ele.
+  }
   router.reset(route, route === 'denied' ? { kind: 'denied' } : params);
   if (route === 'tuner') resumeTuner();
+}
 
+function hideSplash() {
   const splash = document.getElementById('splash');
   splash?.classList.add('is-hidden');
   splash?.addEventListener('transitionend', () => splash.remove(), { once: true });
   setTimeout(() => splash?.remove(), 800);
 }
 
-boot();
+// Mesmo que algo falhe na inicialização, a splash nunca fica presa na tela.
+boot()
+  .catch((error) => {
+    console.error(error);
+    if (!router.current) router.reset('instruments', { first: true });
+  })
+  .finally(hideSplash);
 
 /* ---------- Offline ---------- */
 
 const secureHost = location.protocol === 'https:' || ['localhost', '127.0.0.1'].includes(location.hostname);
-if ('serviceWorker' in navigator && secureHost) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('./sw.js').catch(() => {});
-  });
-}
+window.addEventListener('load', () => {
+  try {
+    // Em páginas embutidas/isoladas o simples acesso ao serviceWorker pode lançar erro.
+    if (secureHost && 'serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').catch(() => {});
+  } catch {
+    // Sem modo offline neste contexto.
+  }
+});

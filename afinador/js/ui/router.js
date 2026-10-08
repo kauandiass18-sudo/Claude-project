@@ -4,6 +4,15 @@
  */
 import { prefersReducedMotion } from './dom.js';
 
+function safe(fn) {
+  try {
+    fn();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export class Router {
   /**
    * @param {HTMLElement} root
@@ -42,7 +51,7 @@ export class Router {
     const below = this.current;
     const view = this.mount(name, params);
     this.stack.push(view);
-    history.pushState({ depth: this.stack.length }, '');
+    this.historyOk = safe(() => history.pushState({ depth: this.stack.length }, ''));
     below?.el.setAttribute('inert', '');
     this.animate(view.el, 'push-in');
     if (below) this.animate(below.el, 'push-under');
@@ -52,7 +61,8 @@ export class Router {
   /** Volta para a tela anterior. */
   pop({ fromHistory = false } = {}) {
     if (this.stack.length < 2) return;
-    if (!fromHistory) {
+    // Sem histórico do navegador (página embutida), volta direto.
+    if (!fromHistory && this.historyOk) {
       history.back();
       return;
     }
