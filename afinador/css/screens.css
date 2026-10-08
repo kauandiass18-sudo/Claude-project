@@ -1,0 +1,715 @@
+/* ============================================================
+   Telas: introdução/permissão, afinador e páginas secundárias.
+   ============================================================ */
+
+/* ---------- Introdução, permissão e microfone bloqueado ---------- */
+
+.onboarding {
+  padding-left: calc(var(--gutter) + var(--safe-left));
+  padding-right: calc(var(--gutter) + var(--safe-right));
+}
+
+.onboarding-body,
+.onboarding-actions {
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.onboarding-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: var(--s-10);
+}
+
+.brand-mark {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--s-8);
+  color: var(--text);
+}
+
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+}
+
+.onboarding-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.onboarding-text {
+  margin-top: var(--s-3);
+  max-width: 32ch;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: var(--text-2);
+}
+
+.onboarding-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-6) 0 var(--s-6);
+}
+
+.fineprint {
+  font-size: var(--text-sm);
+  color: var(--text-3);
+}
+
+.icon-badge {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--s-6);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  color: var(--text);
+}
+
+.icon-badge svg {
+  width: 26px;
+  height: 26px;
+}
+
+.icon-badge-muted {
+  color: var(--text-2);
+}
+
+.privacy-note {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-5);
+  font-size: var(--text-sm);
+  color: var(--text-2);
+}
+
+.privacy-note svg {
+  width: 18px;
+  height: 18px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+  list-style: none;
+  counter-reset: step;
+}
+
+.steps li {
+  display: flex;
+  gap: var(--s-3);
+  font-size: var(--text-md);
+  line-height: 1.4;
+  color: var(--text-2);
+}
+
+.steps li::before {
+  counter-increment: step;
+  content: counter(step);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  color: var(--text);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+/* ---------- Afinador ---------- */
+
+.tuner {
+  --dial-max: min(100%, 440px);
+}
+
+.tuner > .topbar,
+.tuner > .tuner-main,
+.tuner > .strings-panel {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Cores de estado: usadas com moderação (ponteiro, faixa e etiqueta). */
+.tuner[data-zone^='flat'] {
+  --zone: var(--flat);
+  --zone-soft: var(--flat-soft);
+}
+.tuner[data-zone^='sharp'] {
+  --zone: var(--sharp);
+  --zone-soft: var(--sharp-soft);
+}
+.tuner[data-zone='in-tune'] {
+  --zone: var(--ok);
+  --zone-soft: var(--ok-soft);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  min-height: 56px;
+  padding: var(--s-2) calc(var(--gutter) - 10px) 0 var(--gutter);
+}
+
+.tuning-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 var(--s-2) 0 var(--s-4);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  transition: background-color var(--fast);
+}
+
+.tuning-chip:active {
+  background: var(--surface-press);
+}
+
+.chip-text {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.chip-title {
+  font-size: var(--text-md);
+  font-weight: 600;
+}
+
+.chip-sub {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: var(--text-sm);
+  color: var(--text-3);
+  letter-spacing: 0.1em;
+}
+
+.chip-icon {
+  flex: none;
+  color: var(--text-3);
+}
+
+.chip-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tuner-main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 calc(var(--gutter) - 8px);
+}
+
+/* Mostrador + nota */
+
+.dial {
+  position: relative;
+  width: clamp(240px, calc((100dvh - 452px - var(--safe-top) - var(--safe-bottom)) * 1.63), var(--dial-max));
+  container-type: inline-size;
+}
+
+.gauge-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.gauge-track {
+  fill: none;
+  stroke: var(--track);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.gauge-band {
+  fill: none;
+  stroke: var(--ok);
+  stroke-width: 4;
+  stroke-linecap: round;
+  opacity: 0.35;
+  transition: opacity var(--medium) ease, stroke-width var(--medium) var(--ease-out);
+}
+
+.tuner[data-zone='in-tune'] .gauge-band {
+  opacity: 1;
+}
+
+.tuner[data-confirmed='true'] .gauge-band {
+  stroke-width: 6;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke: var(--zone);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0;
+  transition: opacity var(--medium) ease, stroke var(--medium) ease;
+}
+
+.gauge[data-state='active'] .gauge-fill {
+  opacity: 0.9;
+}
+
+.gauge[data-state='hold'] .gauge-fill {
+  opacity: 0.45;
+}
+
+.tick {
+  stroke: var(--tick);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.tick-major {
+  stroke: var(--tick-major);
+  stroke-width: 2;
+}
+
+.tick-zero {
+  stroke: var(--text);
+  stroke-width: 2.5;
+}
+
+.tick-label {
+  fill: var(--text-3);
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 500;
+  text-anchor: middle;
+  font-variant-numeric: tabular-nums;
+}
+
+.needle-body {
+  fill: var(--zone);
+  stroke: var(--bg);
+  stroke-width: 3;
+  transition: fill var(--medium) ease;
+}
+
+.gauge-needle {
+  transition: opacity var(--medium) ease;
+}
+
+.gauge[data-state='idle'] .gauge-needle {
+  opacity: 0.3;
+}
+
+.gauge[data-state='hold'] .gauge-needle {
+  opacity: 0.6;
+}
+
+.note {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  transform: translateX(-50%);
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 120px;
+  font-weight: 600;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  transition: color var(--medium) ease, opacity var(--medium) ease;
+}
+
+@supports (font-size: 1cqi) {
+  .note {
+    font-size: 33cqi;
+  }
+}
+
+.note-letter {
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sem nota: um traço discreto no lugar da letra. */
+.note.is-empty .note-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0.6em;
+  height: 0.8em;
+}
+
+.note.is-empty .note-letter::before {
+  content: '';
+  width: 0.3em;
+  height: 4px;
+  border-radius: 2px;
+  background: currentColor;
+}
+
+.note-acc,
+.note-octave {
+  position: absolute;
+  left: 100%;
+  margin-left: 0.04em;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.note-acc {
+  top: -0.06em;
+  font-size: 0.34em;
+}
+
+.note-octave {
+  bottom: 0;
+  font-size: 0.2em;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.note-ring {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1.45em;
+  height: 1.45em;
+  margin: -0.725em 0 0 -0.725em;
+  border-radius: 50%;
+  border: 2px solid var(--ok);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tuner[data-status='idle'] .note,
+.tuner[data-status='weak'] .note,
+.tuner[data-status='unstable'] .note,
+.tuner[data-status='ambiguous'] .note {
+  opacity: 0.32;
+}
+
+.tuner[data-status='hold'] .note {
+  opacity: 0.7;
+}
+
+.tuner[data-confirmed='true'] .note {
+  color: var(--ok);
+}
+
+.note.celebrate .note-letter {
+  animation: note-pop 460ms var(--ease-out);
+}
+
+.note.celebrate .note-ring {
+  animation: ring 760ms var(--ease-out);
+}
+
+@keyframes note-pop {
+  40% {
+    transform: scale(1.045);
+  }
+}
+
+@keyframes ring {
+  from {
+    opacity: 0.55;
+    transform: scale(0.72);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+}
+
+.note-name {
+  margin-top: var(--s-3);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--text-2);
+  text-transform: uppercase;
+}
+
+/* Leituras */
+
+.stats {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--s-5);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0 var(--s-5);
+}
+
+.stat + .stat {
+  border-left: 1px solid var(--line-strong);
+}
+
+.stat-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.stat-value {
+  display: block;
+  min-width: 6.6em;
+  text-align: center;
+  font-size: var(--text-lg);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+/* Estado */
+
+.status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s-2);
+  margin-top: var(--s-5);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 var(--s-4);
+  border-radius: 999px;
+  background: var(--zone-soft);
+  color: var(--zone);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background-color var(--medium) ease, color var(--medium) ease;
+}
+
+.status-icon:empty {
+  display: none;
+}
+
+.status-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke-width: 2.4;
+}
+
+/* Mensagens de orientação: tom neutro e sem caixa alta. */
+.tuner:not([data-status='active']):not([data-status='hold']) .status-pill {
+  background: var(--surface);
+  color: var(--text-2);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.tuner[data-confirmed='true'] .status-pill {
+  background: var(--ok);
+  color: var(--text-inverse);
+}
+
+.tuner[data-status='hold'] .status-pill {
+  opacity: 0.75;
+}
+
+.status-hint {
+  min-height: 1.4em;
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  text-align: center;
+}
+
+/* Cordas */
+
+.strings-panel {
+  padding: var(--s-3) var(--gutter) var(--s-4);
+}
+
+.strings-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin-bottom: var(--s-3);
+}
+
+.strings-caption {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+/* Ativação do microfone (quando o navegador exige um toque) */
+
+.unlock {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  background: rgba(13, 14, 16, 0.72);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: #f2f3f5;
+  font-size: var(--text-md);
+  font-weight: 600;
+  animation: fade-in var(--medium) var(--ease-out) both;
+}
+
+:root[data-theme='light'] .unlock {
+  background: rgba(244, 244, 241, 0.78);
+  color: #111214;
+}
+
+.unlock-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+}
+
+.unlock-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+/* Telas baixas (iPhone SE, Android compactos) */
+@media (max-height: 700px) {
+  .topbar {
+    min-height: 48px;
+    padding-top: var(--s-1);
+  }
+  .stats,
+  .status {
+    margin-top: var(--s-3);
+  }
+  .note-name {
+    margin-top: var(--s-2);
+  }
+  .string {
+    min-height: 52px;
+  }
+  .strings-head {
+    margin-bottom: var(--s-2);
+  }
+  .strings-panel {
+    padding-bottom: var(--s-3);
+  }
+}
+
+/* ---------- Sobre ---------- */
+
+.about-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--s-6) 0 var(--s-8);
+  text-align: center;
+}
+
+.brand-mark-sm {
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--s-3);
+}
+
+.about-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.about-version {
+  margin-top: 2px;
+  font-size: var(--text-sm);
+  color: var(--text-3);
+}
+
+/* ---------- Celular na horizontal: mostrador à esquerda, cordas à direita ---------- */
+@media (orientation: landscape) and (max-height: 540px) {
+  .tuner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: var(--s-6);
+    padding-left: calc(var(--safe-left) + var(--s-2));
+    padding-right: calc(var(--safe-right) + var(--s-2));
+  }
+
+  .tuner > .topbar {
+    grid-column: 1 / -1;
+    max-width: none;
+    min-height: 48px;
+    padding-top: var(--s-1);
+  }
+
+  .tuner > .tuner-main {
+    grid-column: 1;
+    max-width: none;
+    padding-bottom: var(--s-2);
+  }
+
+  .tuner > .strings-panel {
+    grid-column: 2;
+    align-self: center;
+    max-width: 440px;
+    padding-bottom: var(--s-2);
+  }
+
+  .dial {
+    width: clamp(200px, calc((100dvh - 230px - var(--safe-bottom)) * 1.63), var(--dial-max));
+  }
+
+  .note-name {
+    margin-top: var(--s-1);
+  }
+
+  .stats,
+  .status {
+    margin-top: var(--s-2);
+  }
+
+  .stat-value {
+    font-size: var(--text-base);
+  }
+}

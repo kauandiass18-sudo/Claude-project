@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Afina — Afinador de violão</title>
+  <meta name="description" content="Afinador de violão rápido e preciso. Toque a corda, veja a nota e afine em segundos. Sem cadastro e sem anúncios.">
+  <meta name="theme-color" content="#0d0e10">
+  <meta name="color-scheme" content="dark light">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Afina">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-180.png">
+  <link rel="modulepreload" href="js/app.js">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/screens.css">
+  <script>
+    // Aplica o tema salvo antes da primeira pintura (evita piscar).
+    try {
+      var t = (JSON.parse(localStorage.getItem('afina.settings.v1')) || {}).theme || 'dark';
+      if (t === 'system') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <div id="splash" class="splash" aria-hidden="true">
+    <svg class="splash-mark" viewBox="0 0 64 64">
+      <path d="M12 42a20 20 0 0 1 40 0" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" opacity=".28"/>
+      <path d="M27.5 22.5a20 20 0 0 1 9 0" fill="none" stroke="var(--ok)" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M32 42V27" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
+      <circle cx="32" cy="42" r="4.2" fill="currentColor"/>
+    </svg>
+    <span class="splash-name">Afina</span>
+  </div>
+
+  <noscript>
+    <p class="noscript">O Afina precisa de JavaScript para acessar o microfone e afinar seu violão.</p>
+  </noscript>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
