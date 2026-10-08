@@ -11,7 +11,8 @@
  * É puro: o tempo chega em cada quadro (`t`, em ms), o que facilita testes.
  */
 import { centsBetween, freqToMidi, midiToFreq, nearestNote } from './music.js';
-import { getTuning, resolveStrings } from './tunings.js';
+import { resolveStrings } from './tunings.js';
+import { getInstrument, getTuning } from './instruments/index.js';
 
 export const Status = Object.freeze({
   IDLE: 'idle', // nada tocando
@@ -37,8 +38,6 @@ export const SENSITIVITY = Object.freeze({
   high: { rms: 0.0022, clarity: 0.82 },
 });
 
-export const MIN_FREQ = 60;
-export const MAX_FREQ = 1100;
 
 const HOLD_MS = 1500;
 const WEAK_MS = 600;
@@ -52,7 +51,6 @@ const JUMP_CENTS = 45;
 const JUMP_FRAMES = 3;
 const ONSET_FRAMES = 2;
 const AMBIGUOUS_MARGIN = 80;
-const AUTO_MAX_CENTS = 300;
 const LOCK_BIAS_CENTS = 60;
 const ZONE_SWITCH_MS = 120; // tempo mínimo para trocar de zona (evita cintilação)
 const ZONE_LEAVE_TUNE_MS = 250; // sair de "afinado" exige um pouco mais de certeza
@@ -79,6 +77,7 @@ function median(values) {
 export class TunerEngine {
   constructor(config = {}) {
     this.cfg = {
+      instrumentId: 'guitar',
       tuningId: 'standard',
       a4: 440,
       mode: 'auto',
@@ -96,16 +95,22 @@ export class TunerEngine {
     const prev = this.cfg;
     const next = { ...prev, ...patch };
     this.cfg = next;
-    if (!this.strings || next.tuningId !== prev.tuningId || next.a4 !== prev.a4) {
-      this.tuning = getTuning(next.tuningId);
+    const instrumentChanged = next.instrumentId !== prev.instrumentId;
+    const tuningChanged = instrumentChanged || next.tuningId !== prev.tuningId;
+    if (!this.strings || tuningChanged || next.a4 !== prev.a4) {
+      this.instrument = getInstrument(next.instrumentId);
+      this.analysis = this.instrument.analysis;
+      this.tuning = getTuning(next.instrumentId, next.tuningId);
       this.strings = resolveStrings(this.tuning, next.a4);
     }
-    if (next.tuningId !== prev.tuningId) {
+    // Outro instrumento: nada do anterior é mantido (leituras, corda, marcas).
+    if (instrumentChanged && this.history) this.reset();
+    if (tuningChanged) {
       this.tuned.clear();
       this.locked = null;
     }
     if (next.a4 !== prev.a4) this.tuned.clear();
-    if (next.mode !== prev.mode || next.stringIndex !== prev.stringIndex || next.tuningId !== prev.tuningId) {
+    if (next.mode !== prev.mode || next.stringIndex !== prev.stringIndex || tuningChanged) {
       this.resetConfirmation();
       if (next.mode === 'manual') this.locked = null;
     }
@@ -158,6 +163,12 @@ export class TunerEngine {
     this.confirmTarget = null;
   }
 
+  /** Limiares de energia e clareza, ajustados ao instrumento. */
+  get gate() {
+    const base = SENSITIVITY[this.cfg.sensitivity] ?? SENSITIVITY.medium;
+    return { rms: base.rms * this.analysis.rmsScale, clarity: base.clarity };
+  }
+
   /** Frequência esperada, usada como dica pelo detector no modo manual. */
   get hintHz() {
     return this.cfg.mode === 'manual' ? this.strings[this.cfg.stringIndex].freq : null;
@@ -168,9 +179,10 @@ export class TunerEngine {
    * @param {{ freq: number|null, clarity: number, rms: number, t: number }} frame
    */
   process({ freq, clarity, rms, t }) {
-    const gate = SENSITIVITY[this.cfg.sensitivity] ?? SENSITIVITY.medium;
+    const gate = this.gate;
+    const { minFreq, maxFreq } = this.analysis;
     const loud = rms >= gate.rms;
-    const valid = loud && freq != null && clarity >= gate.clarity && freq >= MIN_FREQ && freq <= MAX_FREQ;
+    const valid = loud && freq != null && clarity >= gate.clarity && freq >= minFreq && freq <= maxFreq;
 
     if (valid) {
       this.weakSince = null;
@@ -232,7 +244,8 @@ export class TunerEngine {
     }
     // Suavização adaptativa: rápida para mudanças grandes, lenta para tremores.
     const delta = Math.abs(target - this.display) * 100;
-    const alpha = delta > 15 ? 0.55 : delta > 4 ? 0.3 : 0.15;
+    const k = this.analysis.smoothing;
+    const alpha = Math.min(1, (delta > 15 ? 0.55 : delta > 4 ? 0.3 : 0.15) * k);
     this.display += (target - this.display) * alpha;
   }
 
@@ -245,12 +258,12 @@ export class TunerEngine {
 
     if (this.locked != null) {
       const lockedCents = Math.abs(centsBetween(freq, this.strings[this.locked].freq));
-      if (lockedCents <= AUTO_MAX_CENTS && lockedCents <= Math.abs(best.cents) + LOCK_BIAS_CENTS) {
+      if (lockedCents <= this.analysis.autoRange && lockedCents <= Math.abs(best.cents) + LOCK_BIAS_CENTS) {
         return this.locked;
       }
     }
 
-    const tooFar = Math.abs(best.cents) > AUTO_MAX_CENTS;
+    const tooFar = Math.abs(best.cents) > this.analysis.autoRange;
     const tooClose = second && Math.abs(second.cents) - Math.abs(best.cents) < AMBIGUOUS_MARGIN;
     if (tooFar || tooClose) return null;
     this.locked = best.index;
@@ -302,7 +315,9 @@ export class TunerEngine {
 
   quietSnapshot(t) {
     if (this.last && this.display != null && t - this.lastValidAt <= HOLD_MS) {
-      return { ...this.last, status: Status.HOLD, justTuned: false, tuned: [...this.tuned] };
+      // "Espera" só faz sentido para uma leitura com corda; ambiguidade continua ambígua.
+      const status = this.last.status === Status.AMBIGUOUS ? Status.AMBIGUOUS : Status.HOLD;
+      return { ...this.last, status, justTuned: false, tuned: [...this.tuned] };
     }
 
     this.history = [];
@@ -332,6 +347,8 @@ export class TunerEngine {
 
   base(partial) {
     return {
+      instrumentId: this.cfg.instrumentId,
+      tuningId: this.tuning.id,
       mode: this.cfg.mode,
       tolerance: this.cfg.tolerance,
       strings: this.strings,

@@ -31,3 +31,36 @@ export const logoMark = `<svg viewBox="0 0 64 64" aria-hidden="true" focusable="
   <path d="M32 42V27" stroke="currentColor" stroke-width="3.2" stroke-linecap="round"/>
   <circle cx="32" cy="42" r="4.2" fill="currentColor"/>
 </svg>`;
+
+/**
+ * Ilustrações lineares dos instrumentos (48×48). O traço não escala com o
+ * tamanho (`non-scaling-stroke`), então ficam nítidos tanto grandes quanto pequenos.
+ */
+const instrument = (body) =>
+  `<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${body}</svg>`;
+
+export const instrumentIcons = {
+  guitar: instrument(
+    '<rect x="21" y="2.5" width="6" height="6.5" rx="1.6" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M22.6 9v10.4M25.4 9v10.4" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M18.07 29.73A7 7 0 1 1 29.93 29.73A9 9 0 1 1 18.07 29.73Z" vector-effect="non-scaling-stroke"/>' +
+      '<circle cx="24" cy="31" r="2.7" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M20.5 40h7" vector-effect="non-scaling-stroke"/>',
+  ),
+  violin: instrument(
+    '<circle cx="24" cy="4.6" r="2.1" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M23 6.6v3.2M25 6.6v3.2" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M22.7 9.8v18.6c0 .9.6 1.4 1.3 1.4s1.3-.5 1.3-1.4V9.8Z" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M24 18.8c4.6 0 7.6 1 7.6 4.6 0 2.9-2.8 3.9-2.8 6.8s4 3.4 4 8.6c0 4.6-4.6 6.4-8.8 6.4s-8.8-1.8-8.8-6.4c0-5.2 4-5.7 4-8.6s-2.8-3.9-2.8-6.8c0-3.6 3-4.6 7.6-4.6Z" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M19.9 31.2c.8 1.3-.8 3.1 0 4.6M28.1 31.2c-.8 1.3.8 3.1 0 4.6" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M21.5 34.4h5" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M22.7 37.4l.6 5.2h1.4l.6-5.2Z" vector-effect="non-scaling-stroke"/>',
+  ),
+  ukulele: instrument(
+    '<rect x="21.4" y="9" width="5.2" height="5.2" rx="1.4" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M22.9 14.2v9.6M25.1 14.2v9.6" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M19.49 32.15A5.5 5.5 0 1 1 28.51 32.15A7 7 0 1 1 19.49 32.15Z" vector-effect="non-scaling-stroke"/>' +
+      '<circle cx="24" cy="33.6" r="2.1" vector-effect="non-scaling-stroke"/>' +
+      '<path d="M21.6 40.6h4.8" vector-effect="non-scaling-stroke"/>',
+  ),
+};

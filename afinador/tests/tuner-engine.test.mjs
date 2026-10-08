@@ -163,3 +163,65 @@ test('zona exibida nunca contradiz os cents exibidos (fora da transição)', () 
     assert.equal(snap.zone === Zone.IN_TUNE, shown <= 5, `${c}: ${snap.zone} com ${shown}`);
   }
 });
+
+test('violino: modo automático reconhece G D A E', () => {
+  [196, 293.66, 440, 659.26].forEach((f, i) => {
+    const e = new TunerEngine({ instrumentId: 'violin', mode: 'auto' });
+    const snap = feed(e, at(f, -8), 10, { t: 0 });
+    assert.equal(snap.target.index, i);
+    assert.equal(snap.target.number, 4 - i);
+    assert.equal(snap.zone, Zone.FLAT);
+  });
+});
+
+test('ukulele: reconhece G4 reentrante e C4', () => {
+  const e = new TunerEngine({ instrumentId: 'ukulele', mode: 'auto' });
+  const s = { t: 0 };
+  let snap = feed(e, 392, 10, s);
+  assert.equal(snap.target.name, 'G4');
+  assert.equal(snap.target.number, 4);
+  feed(e, null, 80, s, { rms: 0 });
+  snap = feed(e, 261.63, 10, s);
+  assert.equal(snap.target.name, 'C4');
+  assert.equal(snap.target.number, 3);
+});
+
+test('frequências fora da faixa do instrumento são ignoradas', () => {
+  const v = new TunerEngine({ instrumentId: 'violin', mode: 'auto' });
+  const snap = feed(v, 82.41, 40, { t: 0 });
+  assert.notEqual(snap.status, Status.ACTIVE, 'Mi grave do violão não existe no violino');
+});
+
+test('trocar de instrumento não mantém nada do anterior', () => {
+  const e = new TunerEngine({ instrumentId: 'guitar', mode: 'auto' });
+  const s = { t: 0 };
+  for (let i = 0; i < 30; i++) feed(e, 110, 1, s);
+  assert.deepEqual(e.tuned.size, 1);
+  e.configure({ instrumentId: 'ukulele' });
+  assert.equal(e.tuned.size, 0);
+  assert.equal(e.locked, null);
+  assert.equal(e.display, null);
+  assert.equal(e.strings.length, 4);
+  const idle = feed(e, null, 1, s, { rms: 0 });
+  assert.equal(idle.status, Status.IDLE);
+  assert.equal(idle.instrumentId, 'ukulele');
+  assert.equal(idle.target, null);
+});
+
+test('parâmetros de análise diferem por instrumento', () => {
+  const g = new TunerEngine({ instrumentId: 'guitar' });
+  const v = new TunerEngine({ instrumentId: 'violin' });
+  const u = new TunerEngine({ instrumentId: 'ukulele' });
+  assert.notEqual(g.analysis.minFreq, v.analysis.minFreq);
+  assert.ok(v.gate.rms > g.gate.rms && u.gate.rms < g.gate.rms);
+});
+
+test('após uma leitura ambígua, o silêncio não gera estado sem zona', () => {
+  const e = new TunerEngine({ mode: 'auto' });
+  const s = { t: 0 };
+  assert.equal(feed(e, at(110, 250), 10, s).status, Status.AMBIGUOUS);
+  for (let i = 0; i < 80; i++) {
+    const snap = feed(e, null, 1, s, { rms: 0 });
+    if (snap.status === Status.HOLD || snap.status === Status.ACTIVE) assert.ok(snap.zone, 'leitura sem zona');
+  }
+});

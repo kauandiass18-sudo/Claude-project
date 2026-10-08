@@ -2,10 +2,10 @@
  * Inicialização do aplicativo: tema, navegação, microfone e ciclo de vida.
  */
 import { Router } from './ui/router.js';
-import { settings } from './state/settings.js';
+import { currentProfile, settings } from './state/settings.js';
 import { TunerSession } from './session/tuner-session.js';
 import { MicError, queryMicPermission } from './audio/microphone.js';
-import { introScreen } from './ui/screens/intro.js';
+import { instrumentsScreen } from './ui/screens/instruments.js';
 import { permissionScreen } from './ui/screens/permission.js';
 import { deniedScreen } from './ui/screens/denied.js';
 import { tunerScreen } from './ui/screens/tuner.js';
@@ -37,11 +37,13 @@ const session = new TunerSession();
 
 function syncSession() {
   const s = settings.get();
+  const profile = currentProfile();
   session.configure({
-    tuningId: s.tuningId,
+    instrumentId: s.instrument ?? 'guitar',
+    tuningId: profile.tuningId,
+    mode: profile.mode,
+    stringIndex: profile.stringIndex,
     a4: s.a4,
-    mode: s.mode,
-    stringIndex: s.stringIndex,
     tolerance: s.tolerance,
     sensitivity: s.sensitivity,
     confirmSound: s.confirmSound,
@@ -57,7 +59,7 @@ settings.subscribe((state, prev, changed) => {
 /* ---------- Navegação ---------- */
 
 const router = new Router(document.getElementById('app'), {
-  intro: introScreen,
+  instruments: instrumentsScreen,
   permission: permissionScreen,
   denied: deniedScreen,
   tuner: tunerScreen,
@@ -130,9 +132,13 @@ document.addEventListener('pointerdown', () => session.suspended && session.resu
 /* ---------- Início ---------- */
 
 async function boot() {
-  const { onboarded } = settings.get();
-  let route = 'intro';
-  if (onboarded) {
+  // Primeira vez (ou nenhum instrumento escolhido): "Escolha seu instrumento".
+  // Depois, abre direto no último instrumento usado.
+  const { onboarded, instrument } = settings.get();
+  let route = 'instruments';
+  let params = { first: true };
+  if (onboarded && instrument) {
+    params = undefined;
     const permission = await queryMicPermission();
     route = permission === 'granted' ? 'tuner' : permission === 'denied' ? 'denied' : 'permission';
   }
@@ -141,7 +147,7 @@ async function boot() {
   if (wait > 0) await new Promise((resolve) => setTimeout(resolve, wait));
 
   history.replaceState({ depth: 1 }, '');
-  router.reset(route, route === 'denied' ? { kind: 'denied' } : undefined);
+  router.reset(route, route === 'denied' ? { kind: 'denied' } : params);
   if (route === 'tuner') resumeTuner();
 
   const splash = document.getElementById('splash');

@@ -32,7 +32,7 @@ const COPY = {
   denied: {
     icon: icons.micOff,
     title: 'Microfone bloqueado',
-    text: 'Para afinar, o Afina precisa ouvir o violão. Libere o microfone nas configurações:',
+    text: 'Para afinar, o Afina precisa ouvir o instrumento. Libere o microfone nas configurações:',
     steps: true,
   },
   'not-found': {

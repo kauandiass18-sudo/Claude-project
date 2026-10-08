@@ -44,3 +44,30 @@ test('silêncio e ruído não produzem leitura confiável', () => {
   const r = det.detect(noise(4096, 0.2));
   assert.ok(r.clarity < 0.8, `clareza do ruído: ${r.clarity}`);
 });
+
+test('violino e ukulele: precisão com parâmetros próprios', async () => {
+  const { INSTRUMENTS } = await import('../js/core/instruments/index.js');
+  const { resolveStrings } = await import('../js/core/tunings.js');
+  for (const instrument of INSTRUMENTS.filter((i) => i.id !== 'guitar')) {
+    const { minFreq, maxFreq, threshold } = instrument.analysis;
+    const det = new PitchDetector({ sampleRate: 48000, minFreq, maxFreq, threshold });
+    for (const tuning of instrument.tunings) {
+      for (const s of resolveStrings(tuning)) {
+        for (const dc of [-30, -7, 0, 12]) {
+          const f = s.freq * 2 ** (dc / 1200);
+          // Violino: harmônicos fortes (som de arco); ukulele: fundamental dominante.
+          const amps = instrument.id === 'violin' ? [0.6, 1, 0.9, 0.7, 0.5, 0.4] : [1, 0.5, 0.3, 0.15];
+          const r = det.detect(pluck(f, { amps }));
+          assert.ok(Math.abs(cents(r.freq, f)) < 1, `${instrument.id} ${s.name}${dc}: ${r.freq}`);
+        }
+      }
+    }
+  }
+});
+
+test('faixa do instrumento impede ler o 2º harmônico como nota (violão, Mi agudo)', () => {
+  const det = new PitchDetector({ sampleRate: 48000, minFreq: 60, maxFreq: 520 });
+  // Mi 4 com 2º harmônico dominante.
+  const r = det.detect(pluck(329.63, { amps: [0.25, 1, 0.3] }));
+  assert.ok(Math.abs(cents(r.freq, 329.63)) < 1, `${r.freq}`);
+});

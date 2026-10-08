@@ -5,7 +5,7 @@
 import { Microphone } from '../audio/microphone.js';
 import { PitchDetector } from '../audio/pitch-detector.js';
 import { playChime } from '../audio/chime.js';
-import { MAX_FREQ, MIN_FREQ, SENSITIVITY, TunerEngine } from '../core/tuner-engine.js';
+import { TunerEngine } from '../core/tuner-engine.js';
 
 const ANALYSIS_INTERVAL_MS = 30; // ~33 análises por segundo
 const CHIME_MUTE_MS = 320; // ignora o próprio som de confirmação
@@ -31,6 +31,20 @@ export class TunerSession {
   configure({ confirmSound, ...engineConfig }) {
     if (confirmSound !== undefined) this.confirmSound = confirmSound;
     this.engine.configure(engineConfig);
+    this.applyAnalysis();
+  }
+
+  /** Ajusta detector e filtros do microfone ao instrumento atual. */
+  applyAnalysis() {
+    const a = this.engine.analysis;
+    const sampleRate = this.mic.ctx?.sampleRate;
+    if (!sampleRate) return;
+    const d = this.detector;
+    if (!d || d.sampleRate !== sampleRate || d.minFreq !== a.minFreq || d.maxFreq !== a.maxFreq || d.threshold !== a.threshold) {
+      this.detector = new PitchDetector({ sampleRate, minFreq: a.minFreq, maxFreq: a.maxFreq, threshold: a.threshold });
+      this.busySince = 0;
+    }
+    this.mic.configure({ highpass: a.highpass, lowpass: a.lowpass, bufferSize: this.detector.bufferSize });
   }
 
   subscribe(listener) {
@@ -52,11 +66,10 @@ export class TunerSession {
   }
 
   async start() {
-    const sampleRate = this.mic.ensureContext().sampleRate;
-    if (!this.detector || this.detector.sampleRate !== sampleRate) {
-      this.detector = new PitchDetector({ sampleRate, minFreq: MIN_FREQ, maxFreq: MAX_FREQ });
-    }
+    this.mic.ensureContext();
+    this.applyAnalysis();
     await this.mic.start(this.detector.bufferSize);
+    this.applyAnalysis();
     this.createWorker();
     this.engine.reset();
     this.requestWakeLock();
@@ -112,13 +125,14 @@ export class TunerSession {
     }
 
     const hintHz = this.engine.hintHz;
-    const minRms = (SENSITIVITY[this.engine.cfg.sensitivity] ?? SENSITIVITY.medium).rms * 0.3;
+    const minRms = this.engine.gate.rms * 0.3;
+    const { minFreq, maxFreq, threshold } = this.detector;
 
     if (this.worker) {
       const copy = samples.slice(samples.length - this.detector.bufferSize);
       this.busySince = now;
       this.worker.postMessage(
-        { samples: copy, sampleRate: this.detector.sampleRate, minFreq: MIN_FREQ, maxFreq: MAX_FREQ, hintHz, minRms, t: now },
+        { samples: copy, sampleRate: this.detector.sampleRate, minFreq, maxFreq, threshold, hintHz, minRms, t: now },
         [copy.buffer],
       );
     } else {

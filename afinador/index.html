@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Afina — Afinador de violão</title>
-  <meta name="description" content="Afinador de violão rápido e preciso. Toque a corda, veja a nota e afine em segundos. Sem cadastro e sem anúncios.">
+  <title>Afina — Afinador de violão, violino e ukulele</title>
+  <meta name="description" content="Afinador rápido e preciso para violão, violino e ukulele. Toque a corda, veja a nota e afine em segundos. Sem cadastro e sem anúncios.">
   <meta name="theme-color" content="#0d0e10">
   <meta name="color-scheme" content="dark light">
   <meta name="mobile-web-app-capable" content="yes">
@@ -23,7 +23,7 @@
   <script>
     // Aplica o tema salvo antes da primeira pintura (evita piscar).
     try {
-      var t = (JSON.parse(localStorage.getItem('afina.settings.v1')) || {}).theme || 'dark';
+      var t = (JSON.parse(localStorage.getItem('afina.settings.v2') || localStorage.getItem('afina.settings.v1')) || {}).theme || 'dark';
       if (t === 'system') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       document.documentElement.dataset.theme = t;
     } catch (e) {}

@@ -20,6 +20,8 @@ export class PitchDetector {
    */
   constructor({ sampleRate, minFreq = 60, maxFreq = 1100, threshold = 0.15 }) {
     this.sampleRate = sampleRate;
+    this.minFreq = minFreq;
+    this.maxFreq = maxFreq;
     this.threshold = threshold;
     this.tauMin = Math.max(2, Math.floor(sampleRate / maxFreq));
     this.tauMax = Math.ceil(sampleRate / minFreq);

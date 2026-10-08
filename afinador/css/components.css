@@ -239,7 +239,8 @@ button.row:active {
 
 .mono {
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
+  word-spacing: 0.2em;
 }
 
 /* ---------- Controle segmentado ---------- */
@@ -382,9 +383,13 @@ button.row:active {
 /* ---------- Seletor de cordas ---------- */
 
 .strings {
+  --count: 6;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(var(--count), 1fr);
   gap: var(--s-2);
+  /* Com 4 cordas os botões não ficam largos demais. */
+  max-width: calc(var(--count) * 84px);
+  margin: 0 auto;
 }
 
 .string {
@@ -515,4 +520,109 @@ button.row:active {
 .auto-toggle[aria-pressed='true']::before {
   background: var(--ok);
   opacity: 1;
+}
+
+/* ---------- Cartões de instrumento ---------- */
+
+.instrument-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.onboarding .instrument-list {
+  margin-top: var(--s-8);
+}
+
+.instrument-card {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  width: 100%;
+  min-height: 84px;
+  padding: var(--s-3) var(--s-4) var(--s-3) var(--s-3);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: inset 0 0 0 1px var(--line);
+  text-align: left;
+  transition: transform var(--fast) var(--ease-out), background-color var(--fast), box-shadow var(--fast);
+}
+
+.instrument-card:active {
+  transform: scale(0.985);
+  background: var(--surface-press);
+}
+
+.instrument-card[aria-current='true'] {
+  box-shadow: inset 0 0 0 1.5px var(--text);
+}
+
+.instrument-art {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.instrument-art svg {
+  width: 52px;
+  height: 52px;
+}
+
+.instrument-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-width: 0;
+}
+
+.instrument-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.instrument-meta {
+  font-size: var(--text-sm);
+  color: var(--text-3);
+}
+
+.instrument-meta .mono {
+  letter-spacing: 0.08em;
+}
+
+.instrument-end {
+  flex: none;
+  color: var(--text-3);
+}
+
+.instrument-end svg {
+  width: 20px;
+  height: 20px;
+}
+
+.instrument-card[aria-current='true'] .instrument-end {
+  color: var(--text);
+}
+
+.row-instrument-art {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin: -4px 0 -4px -4px;
+  border-radius: 8px;
+  background: var(--surface-2);
+}
+
+.row-instrument-art svg {
+  width: 28px;
+  height: 28px;
 }

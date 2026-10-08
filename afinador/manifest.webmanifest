@@ -1,7 +1,7 @@
 {
-  "name": "Afina — Afinador de violão",
+  "name": "Afina — Afinador de cordas",
   "short_name": "Afina",
-  "description": "Afinador de violão rápido e preciso. Funciona offline, sem cadastro e sem anúncios.",
+  "description": "Afinador rápido e preciso para violão, violino e ukulele. Funciona offline, sem cadastro e sem anúncios.",
   "lang": "pt-BR",
   "start_url": "./",
   "scope": "./",

@@ -2,7 +2,7 @@
  * Service worker: guarda o aplicativo no aparelho para funcionar offline.
  * Ao publicar mudanças, aumente CACHE_VERSION.
  */
-const CACHE_VERSION = 'afina-v1.0.0';
+const CACHE_VERSION = 'afina-v1.1.0';
 
 const ASSETS = [
   './',
@@ -23,6 +23,10 @@ const ASSETS = [
   './js/audio/microphone.js',
   './js/audio/pitch-detector.js',
   './js/audio/pitch-worker.js',
+  './js/core/instruments/guitar.js',
+  './js/core/instruments/index.js',
+  './js/core/instruments/ukulele.js',
+  './js/core/instruments/violin.js',
   './js/core/music.js',
   './js/core/tuner-engine.js',
   './js/core/tunings.js',
@@ -37,7 +41,7 @@ const ASSETS = [
   './js/ui/components/string-selector.js',
   './js/ui/screens/about.js',
   './js/ui/screens/denied.js',
-  './js/ui/screens/intro.js',
+  './js/ui/screens/instruments.js',
   './js/ui/screens/page.js',
   './js/ui/screens/permission.js',
   './js/ui/screens/settings.js',

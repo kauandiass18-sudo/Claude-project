@@ -140,6 +140,7 @@
 }
 
 .tuner > .topbar,
+.tuner > .tuning-bar,
 .tuner > .tuner-main,
 .tuner > .strings-panel {
   width: 100%;
@@ -200,6 +201,57 @@
   font-weight: 600;
 }
 
+.instrument-chip {
+  gap: var(--s-2);
+  padding-left: var(--s-2);
+}
+
+.instrument-chip-art {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--surface-2);
+}
+
+.instrument-chip-art svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Afinação: logo abaixo do instrumento (hierarquia instrumento → afinação). */
+.tuning-bar {
+  display: flex;
+  justify-content: center;
+  padding: var(--s-2) var(--gutter) 0;
+}
+
+.tuning-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  min-height: var(--tap);
+  max-width: 100%;
+  padding: 0 var(--s-2) 0 var(--s-3);
+  border-radius: 999px;
+  transition: background-color var(--fast);
+}
+
+.tuning-link:active {
+  background: var(--surface);
+}
+
+.tuning-link .chip-title {
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.tuning-link .chip-sub {
+  color: var(--text);
+  font-weight: 500;
+}
+
 .chip-sub {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -232,7 +284,7 @@
 
 .dial {
   position: relative;
-  width: clamp(240px, calc((100dvh - 452px - var(--safe-top) - var(--safe-bottom)) * 1.63), var(--dial-max));
+  width: clamp(240px, calc((100dvh - 500px - var(--safe-top) - var(--safe-bottom)) * 1.63), var(--dial-max));
   container-type: inline-size;
 }
 
@@ -618,6 +670,9 @@
     min-height: 48px;
     padding-top: var(--s-1);
   }
+  .tuning-bar {
+    padding-top: 0;
+  }
   .stats,
   .status {
     margin-top: var(--s-3);
@@ -670,28 +725,38 @@
   .tuner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      'top top'
+      'main tune'
+      'main strings';
     column-gap: var(--s-6);
     padding-left: calc(var(--safe-left) + var(--s-2));
     padding-right: calc(var(--safe-right) + var(--s-2));
   }
 
   .tuner > .topbar {
-    grid-column: 1 / -1;
+    grid-area: top;
     max-width: none;
     min-height: 48px;
     padding-top: var(--s-1);
   }
 
+  .tuner > .tuning-bar {
+    grid-area: tune;
+    align-self: end;
+    max-width: 440px;
+  }
+
   .tuner > .tuner-main {
-    grid-column: 1;
+    grid-area: main;
     max-width: none;
     padding-bottom: var(--s-2);
   }
 
   .tuner > .strings-panel {
-    grid-column: 2;
-    align-self: center;
+    grid-area: strings;
+    align-self: start;
     max-width: 440px;
     padding-bottom: var(--s-2);
   }

@@ -1,7 +1,7 @@
-# Afina · Afinador de violão
+# Afina · Afinador de cordas
 
-Afinador de violão profissional que roda direto no navegador do celular e pode
-ser **instalado na tela inicial** como um aplicativo (PWA).
+Afinador profissional para **violão, violino e ukulele** que roda direto no
+navegador do celular e pode ser **instalado na tela inicial** como um aplicativo (PWA).
 
 - Abre em segundos, sem cadastro, sem anúncios.
 - Detecta a frequência pelo microfone com **precisão abaixo de 1 cent**.
@@ -15,9 +15,12 @@ Feito com **HTML, CSS e JavaScript puro**. Não precisa instalar nada nem rodar 
 ## Como usar
 
 1. Abra o endereço (precisa ser `https://` — exigência dos navegadores para o microfone).
-2. Toque em **Começar** e permita o microfone.
+2. Em **Escolha seu instrumento**, toque em Violão, Violino ou Ukulele e permita o microfone.
 3. Toque uma corda solta. O Afina mostra a nota, a frequência, o desvio em cents e
    se a corda está **grave**, **afinada** ou **aguda**.
+
+Nas próximas aberturas o app vai direto para o último instrumento usado. Para mudar,
+toque no nome do instrumento no topo do afinador (**Trocar instrumento**).
 
 Para instalar como aplicativo:
 
@@ -38,7 +41,11 @@ npm test         # testes do motor de detecção e da lógica do afinador (Node 
 
 | | |
 |---|---|
-| Afinações | Padrão (E A D G B E), Drop D, DADGAD, Meio tom abaixo (E♭), Open G, Open D |
+| Instrumentos | **Violão** (6 cordas), **Violino** (4 cordas), **Ukulele** (4 cordas) |
+| Violão | Padrão (E A D G B E), Drop D, Eb Standard, D Standard, DADGAD, Open G, Open D |
+| Violino | Padrão (G3 D4 A4 E5) |
+| Ukulele | Padrão reentrante (G4 C4 E4 A4) e Low G (G3 C4 E4 A4) |
+| Perfis | Afinação, modo e corda ficam salvos **separadamente para cada instrumento** |
 | Modos | **Automático** (identifica a corda) ou **Manual** (escolhe a corda) |
 | Estados | Muito grave · Ligeiramente grave · Afinado · Ligeiramente agudo · Muito agudo |
 | Calibração | A4 de 430 a 450 Hz (padrão 440 Hz) |
@@ -69,8 +76,13 @@ afinador/
 ├── js/
 │   ├── app.js              Inicialização: tema, navegação, microfone, ciclo de vida
 │   ├── core/               Lógica pura (sem DOM, testável)
+│   │   ├── instruments/    Um arquivo por instrumento  ← adicione novos aqui
+│   │   │   ├── index.js    Registro de instrumentos
+│   │   │   ├── guitar.js   Violão: afinações + parâmetros de análise
+│   │   │   ├── violin.js   Violino
+│   │   │   └── ukulele.js  Ukulele
 │   │   ├── music.js        Frequência ⇄ nota ⇄ cents, nomes em português
-│   │   ├── tunings.js      Catálogo de afinações  ← adicione novas aqui
+│   │   ├── tunings.js      Resolve as cordas de uma afinação
 │   │   └── tuner-engine.js Suavização, estabilidade, escolha de corda, zonas
 │   ├── audio/
 │   │   ├── microphone.js   Captura com Web Audio (sem gravar nada)
@@ -83,19 +95,47 @@ afinador/
 │   └── ui/
 │       ├── router.js       Navegação entre telas
 │       ├── components/     Mostrador, seletor de cordas, controles
-│       └── screens/        Introdução, permissão, afinador, afinações, configurações, sobre
+│       └── screens/        Instrumentos, permissão, afinador, afinações, configurações, sobre
 └── tests/                  Testes automatizados (node --test)
 ```
 
 ### Adicionar uma afinação
 
-Inclua um objeto em `js/core/tunings.js` (notas da 6ª para a 1ª corda):
+Inclua um objeto em `tunings` no arquivo do instrumento, por exemplo
+`js/core/instruments/guitar.js` (notas da corda de número mais alto para a 1ª):
 
 ```js
 { id: 'open-e', name: 'Open E', notes: ['E2', 'B2', 'E3', 'G#3', 'B3', 'E4'] },
 ```
 
 Ela aparece automaticamente na tela de afinações e funciona nos dois modos.
+
+### Adicionar um instrumento (baixo, cavaquinho, bandolim…)
+
+1. Crie `js/core/instruments/<id>.js` no mesmo formato de `guitar.js`, com as
+   afinações e um bloco `analysis` próprio:
+
+   ```js
+   export default {
+     id: 'cavaquinho',
+     name: 'Cavaquinho',
+     tunings: [{ id: 'standard', name: 'Padrão', notes: ['D4', 'G4', 'B4', 'D5'] }],
+     analysis: {
+       minFreq: 230, maxFreq: 900,   // faixa útil: corda mais grave/aguda com folga
+       threshold: 0.14,              // limiar do YIN
+       highpass: 180, lowpass: 3000, // filtros do microfone
+       rmsScale: 0.9,                // energia mínima relativa (som mais fraco = menor)
+       smoothing: 1.1,               // >1 responde mais rápido, <1 mais estável
+       autoRange: 250,               // cents máximos para associar uma corda no automático
+     },
+   };
+   ```
+
+2. Registre-o em `js/core/instruments/index.js`.
+3. Desenhe o ícone em `instrumentIcons` (`js/ui/icons.js`) e inclua o arquivo no `sw.js`.
+
+Quantidade de cordas, seletor, modo automático e configurações se ajustam sozinhos.
+Um teste verifica se a faixa e os filtros de cada instrumento cobrem todas as cordas.
 
 ### Publicar uma nova versão
 
@@ -107,12 +147,14 @@ novo, inclua-o na lista `ASSETS` do `sw.js` — um teste avisa se faltar algum.
 
 ## Como a detecção funciona
 
-1. O áudio do microfone passa por filtros (corta abaixo de 45 Hz e acima de 1,4 kHz),
-   com cancelamento de eco, supressão de ruído e ganho automático **desligados**
-   (eles distorcem a nota).
-2. ~33 vezes por segundo, o **YIN** estima a frequência fundamental em uma janela de
-   ~50 ms, com interpolação parabólica e correção de oitava (o Mi grave costuma chegar
-   ao microfone do celular com o 2º harmônico mais forte que a fundamental).
+1. O áudio do microfone passa por filtros ajustados ao instrumento (violão: 45 Hz–1,4 kHz;
+   violino: 120 Hz–3 kHz; ukulele: 120 Hz–2,5 kHz), com cancelamento de eco, supressão de
+   ruído e ganho automático **desligados** (eles distorcem a nota).
+2. ~33 vezes por segundo, o **YIN** estima a frequência fundamental com interpolação
+   parabólica e correção de oitava. A faixa de busca é limitada ao instrumento: o 2º
+   harmônico de uma corda aguda fica fora da faixa e não pode ser confundido com a nota,
+   e frequências de outro instrumento são ignoradas. Energia mínima, limiar e suavização
+   também mudam por instrumento (o violino, por exemplo, amortece o vibrato do arco).
 3. O **motor** só aceita uma nota nova após leituras consistentes, descarta leituras
    isoladas, aplica mediana + suavização adaptativa e só troca de zona quando ela se
    mantém por um instante — o ponteiro não treme e a nota não fica pulando.

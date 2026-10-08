@@ -1,12 +1,13 @@
 /** Tela principal: o afinador. */
 import { h, setText } from '../dom.js';
-import { icons } from '../icons.js';
+import { icons, instrumentIcons } from '../icons.js';
 import { Gauge } from '../components/gauge.js';
 import { StringSelector } from '../components/string-selector.js';
 import { Status, Zone } from '../../core/tuner-engine.js';
 import { formatCents, formatHz } from '../../core/music.js';
-import { getTuning, resolveStrings } from '../../core/tunings.js';
-import { settings } from '../../state/settings.js';
+import { resolveStrings } from '../../core/tunings.js';
+import { getTuning } from '../../core/instruments/index.js';
+import { currentInstrument, currentProfile, settings, updateProfile } from '../../state/settings.js';
 
 const TEXT_INTERVAL_MS = 90; // números mudam no máximo ~11×/s para serem legíveis
 
@@ -19,21 +20,22 @@ const ZONE_COPY = {
 };
 
 function statusCopy(snap, mode, selected) {
+  const waiting = {
+    label: 'Aguardando som…',
+    hint: mode === 'manual' ? `Toque a ${selected.number}ª corda` : 'Toque qualquer corda solta',
+  };
   switch (snap.status) {
     case Status.ACTIVE:
     case Status.HOLD:
-      return ZONE_COPY[snap.zone];
+      return ZONE_COPY[snap.zone] ?? waiting;
     case Status.WEAK:
-      return { label: 'Sinal muito fraco', hint: 'Aproxime o violão do microfone' };
+      return { label: 'Sinal muito fraco', hint: 'Aproxime o instrumento do microfone' };
     case Status.UNSTABLE:
       return { label: 'Sinal instável', hint: 'Toque uma corda por vez, em um lugar silencioso' };
     case Status.AMBIGUOUS:
       return { label: 'Toque a corda novamente', hint: 'Não deu para identificar qual corda soou' };
     default:
-      return {
-        label: 'Aguardando som…',
-        hint: mode === 'manual' ? `Toque a ${selected.number}ª corda` : 'Toque qualquer corda solta',
-      };
+      return waiting;
   }
 }
 
@@ -41,12 +43,22 @@ export function tunerScreen(router) {
   const { session } = router.ctx;
   const gauge = new Gauge();
 
-  // Cabeçalho
+  // Cabeçalho: instrumento → afinação
+  const instrumentArt = h('span', { class: 'instrument-chip-art', 'aria-hidden': 'true' });
+  const instrumentName = h('span', { class: 'chip-title' });
+  const instrumentChip = h(
+    'button',
+    { type: 'button', class: 'tuning-chip instrument-chip', onClick: () => router.push('instruments') },
+    instrumentArt,
+    instrumentName,
+    h('span', { class: 'chip-icon', html: icons.chevronDown }),
+  );
+
   const tuningName = h('span', { class: 'chip-title' });
   const tuningNotes = h('span', { class: 'chip-sub' });
   const tuningChip = h(
     'button',
-    { type: 'button', class: 'tuning-chip', onClick: () => router.push('tunings') },
+    { type: 'button', class: 'tuning-link', onClick: () => router.push('tunings') },
     h('span', { class: 'chip-text' }, tuningName, tuningNotes),
     h('span', { class: 'chip-icon', html: icons.chevronDown }),
   );
@@ -90,11 +102,11 @@ export function tunerScreen(router) {
   const caption = h('span', { class: 'strings-caption' });
   const autoBtn = h('button', { type: 'button', class: 'auto-toggle', 'aria-label': 'Detecção automática da corda' }, 'Auto');
   autoBtn.addEventListener('click', () => {
-    const { mode } = settings.get();
-    settings.set({ mode: mode === 'auto' ? 'manual' : 'auto' });
+    const { mode } = currentProfile();
+    updateProfile({ mode: mode === 'auto' ? 'manual' : 'auto' });
   });
   const selector = new StringSelector({
-    onSelect: (index) => settings.set({ mode: 'manual', stringIndex: index }),
+    onSelect: (index) => updateProfile({ mode: 'manual', stringIndex: index }),
   });
 
   // Ativação do áudio quando o navegador exige um toque.
@@ -112,7 +124,8 @@ export function tunerScreen(router) {
   const el = h(
     'section',
     { class: 'tuner', 'aria-label': 'Afinador' },
-    h('header', { class: 'topbar' }, tuningChip, settingsBtn),
+    h('header', { class: 'topbar' }, instrumentChip, settingsBtn),
+    h('div', { class: 'tuning-bar' }, tuningChip),
     h(
       'main',
       { class: 'tuner-main' },
@@ -135,19 +148,32 @@ export function tunerScreen(router) {
   let lastKey = '';
 
   function renderChrome() {
-    const s = settings.get();
-    const tuning = getTuning(s.tuningId);
+    const instrument = currentInstrument();
+    const profile = currentProfile();
+    const s = { ...settings.get(), ...profile };
+    const tuning = getTuning(instrument.id, profile.tuningId);
     const strings = resolveStrings(tuning, s.a4);
+
+    if (instrumentArt.dataset.id !== instrument.id) {
+      instrumentArt.dataset.id = instrument.id;
+      instrumentArt.innerHTML = instrumentIcons[instrument.id];
+    }
+    setText(instrumentName, instrument.name);
+    instrumentChip.setAttribute('aria-label', `Instrumento: ${instrument.name}. Trocar instrumento`);
+    el.dataset.instrument = instrument.id;
+
     setText(tuningName, tuning.name);
     setText(tuningNotes, strings.map((x) => x.letter + x.accidental).join(' '));
-    tuningChip.setAttribute('aria-label', `Afinação: ${tuning.name}. Alterar afinação`);
+    tuningChip.setAttribute('aria-label', `Afinação: ${tuning.name}, ${strings.length} cordas. Alterar afinação`);
     autoBtn.setAttribute('aria-pressed', String(s.mode === 'auto'));
     gauge.setTolerance(s.tolerance);
-    return { s, strings };
+    return { s, strings, instrument, tuning };
   }
 
   function render(snap) {
-    const { s, strings } = renderChrome();
+    const { s, strings, instrument, tuning } = renderChrome();
+    // Leitura de outro instrumento/afinação (logo após a troca): descarta.
+    if (snap && (snap.instrumentId !== instrument.id || snap.tuningId !== tuning.id)) snap = null;
     const mode = s.mode;
     const selected = strings[s.stringIndex];
     const reading = snap && (snap.status === Status.ACTIVE || snap.status === Status.HOLD);

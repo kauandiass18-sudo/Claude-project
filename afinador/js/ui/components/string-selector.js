@@ -41,6 +41,7 @@ export class StringSelector {
 
   build(strings) {
     this.el.replaceChildren();
+    this.el.style.setProperty('--count', strings.length);
     this.buttons = strings.map((string, index) => {
       const button = h(
         'button',

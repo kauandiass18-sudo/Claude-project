@@ -21,7 +21,7 @@ export function permissionScreen(router, { pending = false } = {}) {
       { class: 'onboarding-body' },
       h('div', { class: 'icon-badge', html: icons.mic }),
       h('h1', { class: 'onboarding-title', id: 'perm-title' }, 'Permita o acesso ao microfone'),
-      h('p', { class: 'onboarding-text' }, 'O microfone é usado apenas para detectar a frequência das cordas do seu violão.'),
+      h('p', { class: 'onboarding-text' }, 'O microfone é usado apenas para detectar a frequência das cordas do seu instrumento.'),
       h(
         'p',
         { class: 'privacy-note' },

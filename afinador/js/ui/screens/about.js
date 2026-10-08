@@ -22,14 +22,14 @@ export function aboutScreen(router) {
       { class: 'about-hero' },
       h('div', { class: 'brand-mark brand-mark-sm', html: logoMark }),
       h('p', { class: 'about-name' }, 'Afina'),
-      h('p', { class: 'about-version' }, `Afinador de violão · Versão ${APP_VERSION}`),
+      h('p', { class: 'about-version' }, `Afinador de cordas · Versão ${APP_VERSION}`),
     ),
     h(
       'ul',
       { class: 'group' },
       fact(icons.shield, 'Privacidade', 'O microfone é usado apenas para medir a frequência das cordas. Nenhum áudio é gravado, salvo ou enviado.'),
       fact(icons.offline, 'Funciona sem internet', 'Depois de aberto uma vez, o afinador funciona offline. Toda a análise acontece no aparelho.'),
-      fact(icons.wave, 'Precisão', 'Detecção da frequência fundamental pelo algoritmo YIN, com precisão abaixo de 1 cent.'),
+      fact(icons.wave, 'Precisão', 'Detecção da frequência fundamental pelo algoritmo YIN, com parâmetros próprios para violão, violino e ukulele e precisão abaixo de 1 cent.'),
     ),
     h('p', { class: 'group-footer' }, 'Sem anúncios, sem cadastro e sem rastreamento.'),
   );

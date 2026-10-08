@@ -25,6 +25,12 @@ export async function queryMicPermission() {
   }
 }
 
+function fftSizeFor(bufferSize) {
+  let size = 2048;
+  while (size < bufferSize && size < 32768) size *= 2;
+  return size;
+}
+
 export class Microphone {
   constructor() {
     this.ctx = null;
@@ -32,6 +38,20 @@ export class Microphone {
     this.nodes = [];
     this.analyser = null;
     this.buffer = null;
+    this.band = { highpass: 45, lowpass: 1400, bufferSize: 4096 };
+  }
+
+  /** Ajusta filtros e tamanho da janela ao instrumento (também com o microfone aberto). */
+  configure({ highpass, lowpass, bufferSize }) {
+    this.band = { highpass, lowpass, bufferSize };
+    if (!this.analyser) return;
+    this.highpass.frequency.value = highpass;
+    this.lowpass.frequency.value = lowpass;
+    const fftSize = fftSizeFor(bufferSize);
+    if (this.analyser.fftSize !== fftSize) {
+      this.analyser.fftSize = fftSize;
+      this.buffer = new Float32Array(fftSize);
+    }
   }
 
   get running() {
@@ -57,7 +77,7 @@ export class Microphone {
    * Abre o microfone e prepara a cadeia de análise.
    * @param {number} bufferSize número mínimo de amostras por análise
    */
-  async start(bufferSize) {
+  async start(bufferSize = this.band.bufferSize) {
     if (this.stream) return;
     if (!window.isSecureContext) throw new MicError('insecure');
     if (!navigator.mediaDevices?.getUserMedia) throw new MicError('unsupported');
@@ -85,17 +105,16 @@ export class Microphone {
     this.stream = stream;
     const source = ctx.createMediaStreamSource(stream);
 
-    // Remove ruído de baixa frequência (vento, manuseio) e chiado agudo.
+    // Remove ruído abaixo e acima da faixa do instrumento (vento, manuseio, chiado).
     const highpass = ctx.createBiquadFilter();
     highpass.type = 'highpass';
-    highpass.frequency.value = 45;
+    highpass.frequency.value = this.band.highpass;
     const lowpass = ctx.createBiquadFilter();
     lowpass.type = 'lowpass';
-    lowpass.frequency.value = 1400;
+    lowpass.frequency.value = this.band.lowpass;
 
     const analyser = ctx.createAnalyser();
-    let fftSize = 2048;
-    while (fftSize < bufferSize && fftSize < 32768) fftSize *= 2;
+    const fftSize = fftSizeFor(bufferSize);
     analyser.fftSize = fftSize;
     analyser.smoothingTimeConstant = 0;
 
@@ -106,6 +125,8 @@ export class Microphone {
     source.connect(highpass).connect(lowpass).connect(analyser).connect(mute).connect(ctx.destination);
     this.nodes = [source, highpass, lowpass, analyser, mute];
     this.analyser = analyser;
+    this.highpass = highpass;
+    this.lowpass = lowpass;
     this.buffer = new Float32Array(fftSize);
 
     // Se o microfone for desconectado ou revogado, encerra a captura.

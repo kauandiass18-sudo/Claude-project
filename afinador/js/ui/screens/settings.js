@@ -1,11 +1,12 @@
 /** Configurações. */
 import { h, setText } from '../dom.js';
-import { icons } from '../icons.js';
+import { icons, instrumentIcons } from '../icons.js';
 import { page } from './page.js';
 import { segmented, stepper, toggle } from '../components/controls.js';
-import { getTuning, tuningSummary } from '../../core/tunings.js';
+import { tuningSummary } from '../../core/tunings.js';
+import { getTuning } from '../../core/instruments/index.js';
 import { A4_MAX, A4_MIN, DEFAULT_A4 } from '../../core/music.js';
-import { settings, TOLERANCE_OPTIONS } from '../../state/settings.js';
+import { currentInstrument, currentProfile, settings, TOLERANCE_OPTIONS, updateProfile } from '../../state/settings.js';
 import { APP_VERSION } from '../../version.js';
 
 function row(title, control, { sub, id } = {}) {
@@ -43,12 +44,19 @@ function navRow(title, valueEl, onClick) {
 export function settingsScreen(router) {
   const s = settings.get();
 
+  const instrumentValue = h('span', { class: 'row-value' });
+  const instrumentArt = h('span', { class: 'row-instrument-art', 'aria-hidden': 'true' });
   const tuningValue = h('span', { class: 'row-value' });
-  const renderTuning = () => {
-    const tuning = getTuning(settings.get().tuningId);
+  const profileTitle = h('h2', { class: 'group-title' });
+  const renderInstrument = () => {
+    const instrument = currentInstrument();
+    const tuning = getTuning(instrument.id, currentProfile().tuningId);
+    instrumentArt.innerHTML = instrumentIcons[instrument.id];
+    setText(instrumentValue, instrument.name);
     setText(tuningValue, `${tuning.name} — ${tuningSummary(tuning)}`);
+    setText(profileTitle, instrument.name);
+    mode.set(currentProfile().mode);
   };
-  renderTuning();
 
   const calibration = stepper({
     label: 'calibração',
@@ -70,12 +78,12 @@ export function settingsScreen(router) {
 
   const mode = segmented({
     label: 'Modo',
-    value: s.mode,
+    value: currentProfile().mode,
     options: [
       { value: 'auto', label: 'Automático' },
       { value: 'manual', label: 'Manual' },
     ],
-    onChange: (value) => settings.set({ mode: value }),
+    onChange: (value) => updateProfile({ mode: value }),
   });
 
   const tolerance = segmented({
@@ -109,16 +117,41 @@ export function settingsScreen(router) {
 
   const sound = toggle({ label: 'Som de confirmação', value: s.confirmSound, onChange: (on) => settings.set({ confirmSound: on }) });
 
+  renderInstrument();
+
   const el = page(
     router,
     { title: 'Configurações' },
-    h('h2', { class: 'group-title' }, 'Afinador'),
+    h('h2', { class: 'group-title' }, 'Instrumento'),
+    h(
+      'ul',
+      { class: 'group' },
+      h(
+        'li',
+        {},
+        h(
+          'button',
+          { type: 'button', class: 'row row-nav', onClick: () => router.push('instruments') },
+          instrumentArt,
+          h('span', { class: 'row-title' }, 'Trocar instrumento'),
+          instrumentValue,
+          h('span', { class: 'row-chevron', html: icons.chevron, 'aria-hidden': 'true' }),
+        ),
+      ),
+    ),
+    profileTitle,
     h(
       'ul',
       { class: 'group' },
       navRow('Afinação', tuningValue, () => router.push('tunings')),
-      stackedRow('Calibração', h('div', { class: 'row-control' }, calibration.el, resetCal), 'Frequência de referência do Lá 4'),
       stackedRow('Modo', mode.el, 'Automático identifica a corda tocada'),
+    ),
+    h('p', { class: 'group-footer' }, 'Afinação e modo ficam salvos separadamente para cada instrumento.'),
+    h('h2', { class: 'group-title' }, 'Afinador'),
+    h(
+      'ul',
+      { class: 'group' },
+      stackedRow('Calibração', h('div', { class: 'row-control' }, calibration.el, resetCal), 'Frequência de referência do Lá 4'),
       stackedRow('Precisão', tolerance.el, 'Margem para considerar a corda afinada'),
       stackedRow('Sensibilidade', sensitivity.el, 'Use Baixa em ambientes barulhentos'),
     ),
@@ -140,8 +173,7 @@ export function settingsScreen(router) {
   return {
     el,
     enter() {
-      renderTuning();
-      mode.set(settings.get().mode);
+      renderInstrument();
     },
   };
 }
