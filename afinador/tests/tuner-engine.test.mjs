@@ -121,7 +121,7 @@ test('silêncio, sinal fraco e ruído', () => {
   const e = new TunerEngine({ mode: 'auto', sensitivity: 'medium' });
   const s = { t: 0 };
   assert.equal(feed(e, null, 5, s, { rms: 0 }).status, Status.IDLE);
-  assert.equal(feed(e, null, 40, s, { rms: 0.003 }).status, Status.WEAK);
+  assert.equal(feed(e, null, 40, s, { rms: 0.0015 }).status, Status.WEAK);
   assert.equal(feed(e, null, 40, s, { rms: 0.08 }).status, Status.UNSTABLE);
 });
 

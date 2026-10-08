@@ -1,6 +1,6 @@
 {
   "name": "afina",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "Afinador de violão, violino e ukulele em PWA, sem dependências.",
   "type": "module",

@@ -2,7 +2,7 @@
  * Service worker: guarda o aplicativo no aparelho para funcionar offline.
  * Ao publicar mudanças, aumente CACHE_VERSION.
  */
-const CACHE_VERSION = 'afina-v1.1.0';
+const CACHE_VERSION = 'afina-v1.1.1';
 
 const ASSETS = [
   './',

@@ -32,10 +32,12 @@ export const Zone = Object.freeze({
 });
 
 /** Limiares por sensibilidade: energia mínima (RMS) e clareza mínima do YIN. */
+// Microfones de celular, sem ganho automático, captam o instrumento bem baixo
+// (−40 a −55 dBFS na sustentação); a clareza do YIN separa nota de ruído.
 export const SENSITIVITY = Object.freeze({
-  low: { rms: 0.012, clarity: 0.9 },
-  medium: { rms: 0.005, clarity: 0.86 },
-  high: { rms: 0.0022, clarity: 0.82 },
+  low: { rms: 0.007, clarity: 0.9 },
+  medium: { rms: 0.0025, clarity: 0.85 },
+  high: { rms: 0.0012, clarity: 0.82 },
 });
 
 
