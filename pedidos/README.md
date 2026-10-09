@@ -8,8 +8,15 @@ ideia**, a mensagem chega no **seu** WhatsApp e o WhatsApp do cliente
 Feito só com **HTML, CSS e JavaScript puro**. Não precisa de build: é só subir
 a pasta para qualquer hospedagem (GitHub Pages, Netlify, Vercel, Hostinger…).
 
+## Prévia
+
+| Computador | Celular | Após o envio |
+|---|---|---|
+| ![](previa/computador-pagina.png) | ![](previa/celular-pagina.png) | ![](previa/celular-sucesso.png) |
+
 ```
 pedidos/
+├── previa/        Capturas de tela da página
 ├── index.html      Estrutura da página (hero + formulário + sucesso)
 ├── css/style.css   Visual (cores, fontes, animações)
 └── js/
