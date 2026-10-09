@@ -4,7 +4,7 @@
 
 window.CONFIG = {
   /* Seu WhatsApp com DDI + DDD, só números. Ex.: 5511999999999 */
-  meuWhatsApp: "5511999999999",
+  meuWhatsApp: "5569992691749",
 
   /* Como a mensagem chega até você:
      - "callmebot": envio silencioso, direto no seu WhatsApp, sem abrir nada

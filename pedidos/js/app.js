@@ -209,8 +209,12 @@
   function enviar(dados) {
     var mensagem = montarMensagem(dados);
 
+    // Sem apikey o CallMeBot não entrega nada, mas o "no-cors" não deixa
+    // perceber o erro. Nesse caso usamos o link para não perder o pedido.
+    var temApiKey = CONFIG.callmebotApiKey && CONFIG.callmebotApiKey !== "COLOQUE_SUA_APIKEY_AQUI";
+
     switch (CONFIG.modoEnvio) {
-      case "callmebot": return enviarCallMeBot(mensagem);
+      case "callmebot": return temApiKey ? enviarCallMeBot(mensagem) : enviarPorLink(mensagem);
       case "webhook":   return enviarWebhook(dados, mensagem);
       default:          return enviarPorLink(mensagem);
     }
