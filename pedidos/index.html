@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Seu site sob medida | Solicite o seu</title>
+  <meta name="description" content="Conte sua ideia em poucos passos e receba um site moderno, rápido e feito sob medida para o seu negócio.">
+  <meta name="theme-color" content="#0b0b0c">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Vamos criar o site perfeito para o seu negócio">
+  <meta property="og:description" content="Conte sua ideia em poucos passos e receba um site moderno, rápido e feito sob medida.">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0c'/%3E%3Cpath d='M18 40l14-18 14 18' fill='none' stroke='%23c9a96e' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Ativa as animações de entrada só quando o JavaScript está disponível -->
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <!-- Brilho de fundo decorativo -->
+  <div class="glow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <span class="brand"><span class="brand__mark" aria-hidden="true"></span>Studio</span>
+    <a class="topbar__link" href="#pedido">Solicitar orçamento</a>
+  </header>
+
+  <main>
+    <!-- ============================ HERO ============================ -->
+    <section class="hero">
+      <p class="eyebrow reveal">Sites sob medida</p>
+      <h1 class="hero__title reveal">
+        Vamos criar o site <em>perfeito</em> para o seu negócio
+      </h1>
+      <p class="hero__subtitle reveal">
+        Sem reuniões longas, sem formulários cansativos. Conte em poucas linhas
+        o que você imagina — eu cuido do resto e retorno pelo seu WhatsApp.
+      </p>
+
+      <ul class="hero__steps reveal" aria-label="Como funciona">
+        <li><span>01</span>Conte sua ideia</li>
+        <li><span>02</span>Receba uma proposta</li>
+        <li><span>03</span>Seu site no ar</li>
+      </ul>
+
+      <a class="scroll-cue reveal" href="#pedido" aria-label="Ir para o formulário">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ========================== FORMULÁRIO ========================== -->
+    <section class="form-section" id="pedido">
+      <div class="card reveal">
+        <div class="card__head">
+          <h2>Conte sobre o seu projeto</h2>
+          <p>Leva menos de dois minutos.</p>
+        </div>
+
+        <form id="form-pedido" class="form" novalidate>
+          <!-- Tipo de negócio -->
+          <div class="field">
+            <label class="field__label" for="tipo">
+              <span class="field__num">01</span>
+              Tipo de estabelecimento / O que é o seu negócio?
+            </label>
+            <div class="select">
+              <select id="tipo" name="tipo" required>
+                <option value="" disabled selected>Selecione uma opção</option>
+                <option>Restaurante</option>
+                <option>Bar</option>
+                <option>Lanchonete</option>
+                <option>Clínica</option>
+                <option>Consultório</option>
+                <option>Loja Física</option>
+                <option>E-commerce</option>
+                <option>Salão de Beleza</option>
+                <option>Barbearia</option>
+                <option>Academia</option>
+                <option>Escritório</option>
+                <option>Advocacia</option>
+                <option>Imobiliária</option>
+                <option>Escola</option>
+                <option>Curso</option>
+                <option>Eventos</option>
+                <option>Personal Trainer</option>
+                <option value="Outro">Outro</option>
+              </select>
+            </div>
+
+            <!-- Aparece só quando "Outro" é escolhido -->
+            <div class="field__other" id="outro-wrap" hidden>
+              <input class="input" type="text" id="outro" name="outro"
+                     maxlength="80" placeholder="Qual é o seu negócio?" autocomplete="off">
+            </div>
+            <p class="field__error" id="tipo-erro" role="alert"></p>
+          </div>
+
+          <!-- Ideia -->
+          <div class="field">
+            <label class="field__label" for="ideia">
+              <span class="field__num">02</span>
+              Descreva sua ideia
+            </label>
+            <textarea class="input input--area" id="ideia" name="ideia" rows="7"
+                      maxlength="2000" required
+                      placeholder="Conte-me como você imagina o site: estilo, cores, seções que deseja, referências, o que é mais importante para você..."></textarea>
+            <div class="field__meta">
+              <p class="field__error" id="ideia-erro" role="alert"></p>
+              <span class="counter" id="contador">0 / 2000</span>
+            </div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="field">
+            <label class="field__label" for="whatsapp">
+              <span class="field__num">03</span>
+              Seu WhatsApp
+            </label>
+            <input class="input" type="tel" id="whatsapp" name="whatsapp"
+                   inputmode="numeric" autocomplete="tel-national"
+                   placeholder="(XX) XXXXX-XXXX" maxlength="15" required>
+            <p class="field__error" id="whatsapp-erro" role="alert"></p>
+          </div>
+
+          <!-- Anti-spam: campo invisível que só robôs preenchem -->
+          <div class="hp" aria-hidden="true">
+            <label for="empresa">Não preencha</label>
+            <input type="text" id="empresa" name="empresa" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="btn" type="submit" id="btn-enviar">
+            <span class="btn__label">Enviar minha ideia</span>
+            <span class="btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="btn__spinner" aria-hidden="true"></span>
+          </button>
+
+          <p class="form__note">
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            Seus dados são usados apenas para responder ao seu pedido.
+          </p>
+          <p class="form__error" id="form-erro" role="alert"></p>
+        </form>
+
+        <!-- Sucesso -->
+        <div class="success" id="sucesso" hidden tabindex="-1">
+          <div class="success__badge" aria-hidden="true">
+            <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
+          </div>
+          <h2>Ideia recebida!</h2>
+          <p>Obrigado por compartilhar seu projeto. Vou analisar com carinho e
+             falar com você pelo WhatsApp <strong id="sucesso-numero"></strong> em breve.</p>
+          <button class="btn btn--ghost" type="button" id="btn-novo">Enviar outra ideia</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="ano"></span> Studio · Sites sob medida</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
