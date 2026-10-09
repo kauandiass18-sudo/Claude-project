@@ -24,6 +24,11 @@
 
   document.getElementById("ano").textContent = new Date().getFullYear();
 
+  /* Botão "Tire sua dúvida aqui": abre uma conversa com o seu número */
+  document.getElementById("btn-duvida").href =
+    "https://wa.me/" + CONFIG.meuWhatsApp + "?text=" +
+    encodeURIComponent("Olá! Tenho uma dúvida sobre a criação de um site.");
+
   /* ---------------------------------------------------------------------
      Animações de entrada
      --------------------------------------------------------------------- */

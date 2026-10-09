@@ -416,6 +416,50 @@ main, .topbar, .footer { position: relative; z-index: 1; }
 }
 @keyframes draw { to { stroke-dashoffset: 0; } }
 
+/* --------------------- Atalho de dúvidas (WhatsApp) --------------------- */
+.help {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 36px;
+}
+.help__text {
+  color: var(--muted);
+  font: italic 300 17px var(--serif);
+}
+.help__arrow {
+  width: 48px;
+  height: 24px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: nudge 2.4s var(--ease) infinite;
+}
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50%      { transform: translateX(5px); }
+}
+.help__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 10px 24px -10px rgba(37, 211, 102, 0.7);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.help__btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 14px 30px -10px rgba(37, 211, 102, 0.85);
+}
+.help__btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
 /* ------------------------------ Rodapé ------------------------------ */
 .footer {
   padding: 32px 20px 40px;
