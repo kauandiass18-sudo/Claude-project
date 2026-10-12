@@ -18,9 +18,8 @@ a pasta para qualquer hospedagem (GitHub Pages, Netlify, Vercel, Hostinger…).
 pedidos/
 ├── previa/        Capturas de tela da página
 ├── img/
-│   ├── og-image.jpg  Imagem que aparece ao compartilhar o link
-│   └── portfolio/    Prints dos trabalhos mostrados na seção "Trabalhos"
-├── index.html      Página: topo, trabalhos, como funciona, formulário,
+│   └── og-image.jpg  Imagem que aparece ao compartilhar o link
+├── index.html      Página: topo, como funciona, formulário,
 │                   dúvidas frequentes e rodapé
 ├── css/style.css   Visual (cores, fontes, animações)
 └── js/
@@ -139,10 +138,6 @@ texto, edite a função `montarMensagem` em `js/app.js`.
   imagem `img/og-image.jpg`.
 - **Rodapé:** preencha `instagram` e `cidade` em `js/config.js`. Vazios, eles
   não aparecem.
-- **Trabalhos:** cada card fica no `index.html`, na seção `id="trabalhos"`.
-  Os prints ficam em `img/portfolio/` (formato de celular, 390 × 780).
-  Os links apontam para as pastas vizinhas deste repositório (`../obaraki/`
-  etc.); se os sites estiverem em outro endereço, troque o `href`.
 - **Dúvidas frequentes:** as respostas ficam no `index.html`, na seção
   `id="duvidas"`. Revise para que digam exatamente como você trabalha.
 - **Imagem de compartilhamento:** quando tiver domínio, troque `og:image` no
