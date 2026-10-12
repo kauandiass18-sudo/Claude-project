@@ -1,9 +1,9 @@
-# Pedidos de site · Formulário para o WhatsApp
+# Pedidos de site · Formulário de captura
 
-Página de captura de pedidos de criação de sites. O cliente escolhe o tipo de
-negócio, descreve a ideia e informa o WhatsApp. Ao tocar em **Enviar minha
-ideia**, a mensagem chega no **seu** WhatsApp e o WhatsApp do cliente
-**não** é aberto.
+Página de captura de pedidos de criação de sites. O cliente informa o nome,
+escolhe o tipo de negócio, descreve a ideia e informa o WhatsApp. Ao tocar em
+**Enviar minha ideia**, o pedido vai para uma **planilha do Google Sheets** e
+você recebe um **e-mail de aviso**, sem abrir o WhatsApp do cliente.
 
 Feito só com **HTML, CSS e JavaScript puro**. Não precisa de build: é só subir
 a pasta para qualquer hospedagem (GitHub Pages, Netlify, Vercel, Hostinger…).
@@ -22,6 +22,7 @@ pedidos/
 ├── index.html      Página: topo, como funciona, formulário,
 │                   dúvidas frequentes e rodapé
 ├── css/style.css   Visual (cores, fontes, animações)
+├── google-apps-script.gs  Código que grava os pedidos na planilha
 └── js/
     ├── config.js   ← É AQUI QUE VOCÊ EDITA (seu número e forma de envio)
     └── app.js      Máscara, validação, montagem e envio da mensagem
@@ -34,18 +35,62 @@ pedidos/
 Links como `wa.me/55119...?text=...` (e o `window.open` do WhatsApp Web)
 sempre abrem o **WhatsApp de quem clicou**, e é essa pessoa que precisa tocar
 em "Enviar". Para a mensagem chegar sem abrir nada para o cliente, outro
-serviço precisa enviá-la por você. Por isso o site tem três modos, escolhidos
-em `js/config.js`:
+serviço precisa recebê-la por você. Por isso o site tem quatro modos,
+escolhidos em `js/config.js`:
 
 | Modo | Abre o WhatsApp do cliente? | Configuração |
 |------|-----------------------------|--------------|
-| `"callmebot"` (padrão) | **Não** | 2 minutos, grátis |
+| `"planilha"` (padrão) | **Não** | 5 minutos, grátis |
+| `"callmebot"` | **Não** | Chave do CallMeBot |
 | `"webhook"` | **Não** | Precisa de um endpoint seu |
 | `"link"` | Sim (plano B) | Nenhuma |
 
 ---
 
-## 1. Configurar o CallMeBot (recomendado, grátis)
+## 1. Google Sheets (padrão, grátis)
+
+Cada pedido vira uma linha na planilha (data, nome, negócio, já tem site,
+prazo, ideia, WhatsApp e link para responder) e você recebe um e-mail na sua
+conta Google. Ative as notificações do app Gmail no celular para ser avisado
+na hora.
+
+1. Entre em [sheets.new](https://sheets.new) com sua conta Google para criar
+   uma planilha nova. Dê um nome, por exemplo "Pedidos de site".
+2. No menu, abra **Extensões › Apps Script**.
+3. Apague o código que aparece e cole todo o conteúdo de
+   `google-apps-script.gs`. Clique no ícone de salvar.
+4. No topo do editor, escolha a função **testar** e clique em **Executar**.
+   O Google pede autorização: clique em **Revisar permissões**, escolha sua
+   conta, depois em **Avançado › Acessar (não seguro)** e **Permitir**. Isso
+   aparece porque o script é seu e ainda não foi verificado pelo Google.
+   Confira: deve surgir a aba "Pedidos" com uma linha de teste e chegar um
+   e-mail. Pode apagar essa linha depois.
+5. Clique em **Implantar › Nova implantação**. Na engrenagem, escolha
+   **App da Web** e preencha:
+   - **Executar como:** Eu
+   - **Quem pode acessar:** Qualquer pessoa
+6. Clique em **Implantar** e copie o **URL do app da Web** (termina em
+   `/exec`).
+7. Cole esse endereço em `js/config.js`:
+
+```js
+modoEnvio: "planilha",
+planilhaUrl: "https://script.google.com/macros/s/AKfy.../exec",
+```
+
+Para testar, abra o endereço `/exec` no navegador: deve aparecer
+`"Recebedor de pedidos funcionando."`. Depois envie um pedido pelo site.
+
+> **Mudou o código do Apps Script?** Vá em **Implantar › Gerenciar
+> implantações**, edite a implantação atual e escolha **Nova versão**. Assim
+> o endereço `/exec` continua o mesmo.
+
+No início de `google-apps-script.gs` você pode desligar o e-mail
+(`AVISAR_POR_EMAIL = false`) ou, se tiver uma chave do CallMeBot que funcione
+para mensagens, preencher `CALLMEBOT_TELEFONE` e `CALLMEBOT_APIKEY` para
+receber o aviso também no WhatsApp.
+
+## 2. CallMeBot (aviso direto no WhatsApp)
 
 O [CallMeBot](https://www.callmebot.com/blog/free-api-whatsapp-messages/) é um
 serviço gratuito que manda mensagens de WhatsApp **para o seu próprio número**.
@@ -73,7 +118,7 @@ Pronto: cada pedido chega no seu WhatsApp, enviado pelo número do CallMeBot.
 > começar a receber spam, peça uma nova chave ao CallMeBot ou use o modo
 > webhook.
 
-## 2. Modo webhook (servidor próprio, Z-API, n8n, Make…)
+## 3. Modo webhook (servidor próprio, Z-API, n8n, Make…)
 
 Com `modoEnvio: "webhook"` e `webhookUrl` preenchido, o site faz um `POST` com
 este JSON:
@@ -98,7 +143,7 @@ Seu endpoint envia `mensagem` para `destino` pelo provedor que você usar
 Ele precisa aceitar requisições do domínio do site (CORS). Use esse modo se
 quiser esconder as chaves do provedor.
 
-## 3. Modo link (plano B)
+## 4. Modo link (plano B)
 
 Com `modoEnvio: "link"`, o site abre o WhatsApp do cliente numa nova aba com a
 mensagem pronta. Não exige configuração, mas o cliente ainda precisa tocar em

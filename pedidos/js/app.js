@@ -266,6 +266,21 @@
     });
   }
 
+  // Google Sheets: o Apps Script grava o pedido numa planilha e avisa você.
+  // O corpo vai como text/plain para o navegador não fazer a checagem
+  // prévia de CORS, que o Apps Script não responde.
+  function enviarPlanilha(dados) {
+    return fetch(CONFIG.planilhaUrl, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ dados: dados })
+    }).then(function (resposta) {
+      return resposta.json();
+    }).then(function (retorno) {
+      if (!retorno.ok) throw new Error(retorno.erro || "Planilha recusou o pedido");
+    });
+  }
+
   // Plano B: abre o WhatsApp do cliente com a mensagem pronta.
   function enviarPorLink(mensagem) {
     var url = "https://wa.me/" + CONFIG.meuWhatsApp + "?text=" + encodeURIComponent(mensagem);
@@ -281,6 +296,7 @@
     var temApiKey = CONFIG.callmebotApiKey && CONFIG.callmebotApiKey !== "COLOQUE_SUA_APIKEY_AQUI";
 
     switch (CONFIG.modoEnvio) {
+      case "planilha":  return CONFIG.planilhaUrl ? enviarPlanilha(dados) : enviarPorLink(mensagem);
       case "callmebot": return temApiKey ? enviarCallMeBot(mensagem) : enviarPorLink(mensagem);
       case "webhook":   return enviarWebhook(dados, mensagem);
       default:          return enviarPorLink(mensagem);
