@@ -22,5 +22,9 @@ window.CONFIG = {
   webhookUrl: "",
 
   /* Tempo mínimo (em segundos) entre dois envios do mesmo navegador. */
-  intervaloEntreEnvios: 60
+  intervaloEntreEnvios: 60,
+
+  /* Rodapé: deixe vazio ("") para não mostrar. */
+  instagram: "",   // ex.: "seuperfil" (sem o @)
+  cidade: ""       // ex.: "Porto Velho · RO"
 };

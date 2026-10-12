@@ -17,7 +17,11 @@ a pasta para qualquer hospedagem (GitHub Pages, Netlify, Vercel, Hostinger…).
 ```
 pedidos/
 ├── previa/        Capturas de tela da página
-├── index.html      Estrutura da página (hero + formulário + sucesso)
+├── img/
+│   ├── og-image.jpg  Imagem que aparece ao compartilhar o link
+│   └── portfolio/    Prints dos trabalhos mostrados na seção "Trabalhos"
+├── index.html      Página: topo, trabalhos, como funciona, formulário,
+│                   dúvidas frequentes e rodapé
 ├── css/style.css   Visual (cores, fontes, animações)
 └── js/
     ├── config.js   ← É AQUI QUE VOCÊ EDITA (seu número e forma de envio)
@@ -108,7 +112,9 @@ mensagem pronta. Não exige configuração, mas o cliente ainda precisa tocar em
 ```
 ✨ *NOVO PEDIDO DE SITE*
 
+👤 *Cliente:* Ana Paula
 🏢 *Negócio:* Restaurante
+⏱️ *Prazo:* O quanto antes
 
 💡 *Ideia do cliente:*
 Quero um site elegante, com cardápio e reservas...
@@ -119,7 +125,8 @@ Quero um site elegante, com cardápio e reservas...
 _Recebido em 09/10/2026 às 14:32_
 ```
 
-Toque no link "Responder" para abrir a conversa com o cliente. Para mudar o
+As linhas "Já tem site" e "Prazo" só aparecem quando o cliente responde
+essas perguntas opcionais. Toque no link "Responder" para abrir a conversa com o cliente. Para mudar o
 texto, edite a função `montarMensagem` em `js/app.js`.
 
 ## Outros detalhes
@@ -128,6 +135,17 @@ texto, edite a função `montarMensagem` em `js/app.js`.
   para fixo. Se o cliente colar o número com `+55`, o DDI é removido.
 - **Anti-spam:** um campo invisível pega robôs, e o mesmo navegador só pode
   enviar de novo depois de `intervaloEntreEnvios` segundos (padrão: 60).
-- **Nome da marca:** troque "Studio" no `index.html` (topo e rodapé).
+- **Nome da marca:** troque "Studio" no `index.html` (topo e rodapé) e na
+  imagem `img/og-image.jpg`.
+- **Rodapé:** preencha `instagram` e `cidade` em `js/config.js`. Vazios, eles
+  não aparecem.
+- **Trabalhos:** cada card fica no `index.html`, na seção `id="trabalhos"`.
+  Os prints ficam em `img/portfolio/` (formato de celular, 390 × 780).
+  Os links apontam para as pastas vizinhas deste repositório (`../obaraki/`
+  etc.); se os sites estiverem em outro endereço, troque o `href`.
+- **Dúvidas frequentes:** as respostas ficam no `index.html`, na seção
+  `id="duvidas"`. Revise para que digam exatamente como você trabalha.
+- **Imagem de compartilhamento:** quando tiver domínio, troque `og:image` no
+  `index.html` pelo endereço completo da imagem.
 - **Cores:** ficam nas variáveis do início de `css/style.css`. O dourado é
   `--gold`. Para um azul discreto, use algo como `#7c9cc9`.

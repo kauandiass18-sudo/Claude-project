@@ -7,7 +7,8 @@
   var CONFIG = window.CONFIG || {};
 
   var form = document.getElementById("form-pedido");
-  var tipo = document.getElementById("tipo");
+  var nome = document.getElementById("nome");
+  var tipo = document.getElementById("tipo");   // grupo de opções (chips)
   var outroWrap = document.getElementById("outro-wrap");
   var outro = document.getElementById("outro");
   var ideia = document.getElementById("ideia");
@@ -24,10 +25,48 @@
 
   document.getElementById("ano").textContent = new Date().getFullYear();
 
-  /* Botão "Tire sua dúvida aqui": abre uma conversa com o seu número */
-  document.getElementById("btn-duvida").href =
-    "https://wa.me/" + CONFIG.meuWhatsApp + "?text=" +
+  /* Botões de WhatsApp: abrem uma conversa com o seu número */
+  var linkDuvida = "https://wa.me/" + CONFIG.meuWhatsApp + "?text=" +
     encodeURIComponent("Olá! Tenho uma dúvida sobre a criação de um site.");
+  document.querySelectorAll(".js-whatsapp").forEach(function (a) { a.href = linkDuvida; });
+
+  /* Rodapé: Instagram e cidade, se configurados */
+  if (CONFIG.instagram) {
+    var insta = document.getElementById("footer-instagram");
+    insta.querySelector("a").href = "https://instagram.com/" + CONFIG.instagram.replace(/^@/, "");
+    insta.hidden = false;
+  }
+  if (CONFIG.cidade) {
+    var cidade = document.getElementById("footer-cidade");
+    cidade.textContent = CONFIG.cidade;
+    cidade.hidden = false;
+  }
+
+  /* ---------------------------------------------------------------------
+     Botão flutuante do WhatsApp: aparece depois do topo e some quando o
+     atalho "Tire sua dúvida aqui" está na tela, para não ficar repetido.
+     --------------------------------------------------------------------- */
+  var flutuante = document.getElementById("float-wa");
+  var heroVisivel = true;
+  var ajudaVisivel = false;
+
+  function atualizarFlutuante() {
+    flutuante.classList.toggle("is-shown", !heroVisivel && !ajudaVisivel);
+  }
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (e) {
+      heroVisivel = e[0].isIntersecting;
+      atualizarFlutuante();
+    }).observe(document.querySelector(".hero"));
+
+    new IntersectionObserver(function (e) {
+      ajudaVisivel = e[0].isIntersecting;
+      atualizarFlutuante();
+    }).observe(document.getElementById("ajuda"));
+  } else {
+    flutuante.classList.add("is-shown");
+  }
 
   /* ---------------------------------------------------------------------
      Animações de entrada
@@ -55,13 +94,19 @@
   /* ---------------------------------------------------------------------
      Campo "Outro"
      --------------------------------------------------------------------- */
+  function valorMarcado(nomeCampo) {
+    var marcado = form.querySelector('input[name="' + nomeCampo + '"]:checked');
+    return marcado ? marcado.value : "";
+  }
+
   tipo.addEventListener("change", function () {
-    var ehOutro = tipo.value === "Outro";
+    var ehOutro = valorMarcado("tipo") === "Outro";
     outroWrap.hidden = !ehOutro;
     if (ehOutro) outro.focus();
     limparErro("tipo");
   });
   outro.addEventListener("input", function () { limparErro("tipo"); });
+  nome.addEventListener("input", function () { limparErro("nome"); });
 
   /* ---------------------------------------------------------------------
      Contador de caracteres da ideia
@@ -120,11 +165,17 @@
 
   function validar() {
     var primeiroInvalido = null;
+    var tipoEscolhido = valorMarcado("tipo");
 
-    if (!tipo.value) {
+    if (nome.value.trim().length < 2) {
+      mostrarErro("nome", "Informe seu nome.");
+      primeiroInvalido = primeiroInvalido || nome;
+    }
+
+    if (!tipoEscolhido) {
       mostrarErro("tipo", "Escolha o tipo do seu negócio.");
-      primeiroInvalido = primeiroInvalido || tipo;
-    } else if (tipo.value === "Outro" && outro.value.trim().length < 2) {
+      primeiroInvalido = primeiroInvalido || tipo.querySelector("input");
+    } else if (tipoEscolhido === "Outro" && outro.value.trim().length < 2) {
       mostrarErro("tipo", "Conte qual é o seu negócio.");
       primeiroInvalido = primeiroInvalido || outro;
     }
@@ -147,12 +198,16 @@
      Montagem da mensagem
      --------------------------------------------------------------------- */
   function montarDados() {
-    var negocio = tipo.value === "Outro" ? "Outro — " + outro.value.trim() : tipo.value;
+    var tipoEscolhido = valorMarcado("tipo");
+    var negocio = tipoEscolhido === "Outro" ? "Outro — " + outro.value.trim() : tipoEscolhido;
     var telefone = whatsapp.value;
     var agora = new Date();
 
     return {
+      nome: nome.value.trim(),
       negocio: negocio,
+      temSite: valorMarcado("temSite"),
+      prazo: valorMarcado("prazo"),
       ideia: ideia.value.trim(),
       whatsapp: telefone,
       whatsappLink: "https://wa.me/55" + soDigitos(telefone),
@@ -162,10 +217,17 @@
   }
 
   function montarMensagem(d) {
-    return [
+    var linhas = [
       "✨ *NOVO PEDIDO DE SITE*",
       "",
-      "🏢 *Negócio:* " + d.negocio,
+      "👤 *Cliente:* " + d.nome,
+      "🏢 *Negócio:* " + d.negocio
+    ];
+    // Campos opcionais só entram quando preenchidos
+    if (d.temSite) linhas.push("🌐 *Já tem site:* " + d.temSite);
+    if (d.prazo) linhas.push("⏱️ *Prazo:* " + d.prazo);
+
+    return linhas.concat([
       "",
       "💡 *Ideia do cliente:*",
       d.ideia,
@@ -174,7 +236,7 @@
       "💬 Responder: " + d.whatsappLink,
       "",
       "_Recebido em " + d.data + " às " + d.hora + "_"
-    ].join("\n");
+    ]).join("\n");
   }
 
   /* ---------------------------------------------------------------------
@@ -245,8 +307,10 @@
   /* ---------------------------------------------------------------------
      Submissão do formulário
      --------------------------------------------------------------------- */
-  function mostrarSucesso(telefone) {
-    sucessoNumero.textContent = telefone;
+  function mostrarSucesso(dados) {
+    var primeiroNome = dados.nome.split(/\s+/)[0];
+    document.getElementById("sucesso-titulo").textContent = "Ideia recebida, " + primeiroNome + "!";
+    sucessoNumero.textContent = dados.whatsapp;
     form.hidden = true;
     sucesso.hidden = false;
     sucesso.focus({ preventScroll: true });
@@ -263,7 +327,7 @@
 
     // Robô preencheu o campo invisível: finge sucesso e não envia nada.
     if (honeypot.value) {
-      mostrarSucesso(dados.whatsapp);
+      mostrarSucesso(dados);
       return;
     }
 
@@ -279,7 +343,7 @@
     enviar(dados)
       .then(function () {
         registrarEnvio();
-        mostrarSucesso(dados.whatsapp);
+        mostrarSucesso(dados);
       })
       .catch(function () {
         formErro.textContent = "Não foi possível enviar agora. Verifique sua conexão e tente novamente.";
@@ -297,6 +361,6 @@
     contador.textContent = "0 / " + ideia.maxLength;
     sucesso.hidden = true;
     form.hidden = false;
-    tipo.focus();
+    nome.focus();
   });
 })();
