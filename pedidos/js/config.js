@@ -16,7 +16,7 @@ window.CONFIG = {
                     função serverless, Z-API, n8n, Make, etc.
      - "link":      plano B. Abre o WhatsApp do cliente com a mensagem pronta
                     para ele tocar em "Enviar". Não precisa de configuração. */
-  modoEnvio: "planilha",
+  modoEnvio: "link",
 
   /* Endereço do App da Web do Google Apps Script (termina em /exec).
      Enquanto estiver vazio, o site abre o WhatsApp do cliente (plano B). */
