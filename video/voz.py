@@ -1,6 +1,6 @@
 """Narração do mascote (voz neural masculina pt-BR do Kokoro, licença Apache 2.0).
 
-Requer: pip install kokoro-onnx e espeak-ng instalado. Os arquivos do modelo
+Requer: pip install kokoro-onnx pyworld scipy e espeak-ng instalado. Os arquivos do modelo
 (~350 MB) são baixados na primeira vez para video/modelos/ (fora do git).
 """
 import os
@@ -65,29 +65,38 @@ def humanizar(x):
     return y + 0.13 * sala
 
 
-def entonar_pergunta(x, dur=0.5, subida=8.0):
-    """Redesenha a curva de tom pra soar como pergunta (tom subindo no final).
+def ajustar_voz(x, pergunta=False, tom=2.0, piso=110.0, ar=0.6,
+               dur_pergunta=0.5, subida=8.0):
+    """Ajusta a voz com o vocoder WORLD (muda o tom sem mudar duração nem timbre).
 
-    O modelo de voz termina tudo descendo, como afirmação. Aqui o tom dos
-    últimos `dur` segundos sobe até `subida` semitons acima do tom médio da
-    frase, usando o vocoder WORLD (muda o tom sem mudar a duração).
+    - tira a rouquidão: sobe o tom geral `tom` semitons, não deixa a voz afundar
+      abaixo de `piso` Hz (o grave arrastado que soa rouco) e reduz o sopro (`ar`);
+    - em perguntas, o modelo termina descendo como afirmação: os últimos
+      `dur_pergunta` segundos sobem até `subida` semitons acima do tom médio.
     """
     import pyworld as pw
     f0, sp, ap = pw.wav2world(np.ascontiguousarray(x, dtype=np.float64), SR)
-    passo = 0.005  # o WORLD analisa de 5 em 5 ms
     voz_ativa = np.nonzero(f0 > 0)[0]
     if len(voz_ativa) < 10:
         return x
-    base = np.median(f0[voz_ativa[: int(len(voz_ativa) * 0.6)]])
-    ultimo = voz_ativa[-1]
-    ini = max(0, ultimo - int(dur / passo))
-    alvo = base * 2 ** (subida / 12)
-    partida = f0[ini] if f0[ini] > 0 else base
-    for i in range(ini, ultimo + 1):
-        if f0[i] > 0:
-            k = (i - ini) / max(1, ultimo - ini)
-            k = k * k * (3 - 2 * k)  # curva suave
-            f0[i] = partida * (alvo / partida) ** k
+    v = f0 > 0
+    f0[v] *= 2 ** (tom / 12)
+    f0[v] = np.where(f0[v] < piso, piso - (piso - f0[v]) * 0.25, f0[v])
+    ap[v] *= ar
+
+    if pergunta:
+        passo = 0.005  # o WORLD analisa de 5 em 5 ms
+        base = np.median(f0[voz_ativa[: int(len(voz_ativa) * 0.6)]])
+        ultimo = voz_ativa[-1]
+        ini = max(0, ultimo - int(dur_pergunta / passo))
+        alvo = base * 2 ** (subida / 12)
+        partida = f0[ini] if f0[ini] > 0 else base
+        for i in range(ini, ultimo + 1):
+            if f0[i] > 0:
+                k = (i - ini) / max(1, ultimo - ini)
+                k = k * k * (3 - 2 * k)  # curva suave
+                f0[i] = partida * (alvo / partida) ** k
+
     y = pw.synthesize(f0, sp, ap, SR)
     return y[: len(x)] if len(y) >= len(x) else np.pad(y, (0, len(x) - len(y)))
 
@@ -96,8 +105,10 @@ def sintetizar(texto, voz=VOZ, velocidade=1.08):
     x, sr = modelo().create(texto, voice=voz, speed=velocidade, lang="pt-br")
     x = np.asarray(x, dtype=float)
     # reamostra pra 44.1 kHz
-    n = int(len(x) * SR / sr)
-    x = np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x)
+    from math import gcd
+    from scipy.signal import resample_poly
+    g = gcd(SR, sr)
+    x = resample_poly(x, SR // g, sr // g)
     # tira silêncio das pontas
     ativo = np.nonzero(np.abs(x) > 0.01)[0]
     return x[ativo[0]:ativo[-1] + 1] if len(ativo) else x
@@ -112,9 +123,7 @@ def preparar(real_de, pausas, intervalo=0.25):
     fim_anterior = -intervalo
     for t_anim, velocidade, texto in FALAS:
         x = sintetizar(texto, velocidade=velocidade)
-        if texto.rstrip().endswith("?"):
-            x = entonar_pergunta(x)
-        x = humanizar(x)
+        x = humanizar(ajustar_voz(x, pergunta=texto.rstrip().endswith("?")))
         falta = fim_anterior + intervalo - real_de(t_anim)
         if falta > 0:
             pausas.append((t_anim - 0.001, falta))
