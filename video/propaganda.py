@@ -149,10 +149,11 @@ def narracao():
 
 
 @lru_cache(maxsize=None)
-def sprite(boca, piscando, acenando, pernas, escuro, virado=False):
+def sprite(boca, piscando, acenando, pernas, escuro, virado=False, olhar=(0, 0)):
     from PIL import ImageFilter, ImageOps
     sombra = (45, 45, 45) if escuro else (214, 208, 196)
-    im = mascote.desenhar(boca, piscando, px=8, acenando=acenando, pernas=pernas, sombra=sombra)
+    im = mascote.desenhar(boca, piscando, px=8, acenando=acenando, pernas=pernas, sombra=sombra,
+                          olhar=olhar)
     if virado:  # olhando pra esquerda
         im = ImageOps.mirror(im)
     if escuro:  # contorno claro pra não sumir no fundo preto
@@ -197,6 +198,31 @@ def posicao_mascote(tr):
     return x, False, virado
 
 
+def alvo_do_olhar(t):
+    """Ponto da tela (x, y) com as letras/coisa mais importante da cena no momento t."""
+    if t < 3:
+        return 400, 800          # "Seu cliente procurou você no Google"
+    if t < 6.5:
+        return (540, 900) if t < 4.4 else (420, 300)   # celular, depois "Não achou nada"
+    if t < 11.5:
+        return (540, 900) if t < 9.5 else (450, 1480)  # site sendo montado, depois a lista
+    return 450, 750              # "Bora colocar seu negócio na internet?"
+
+
+def direcao_olhar(tr, x, y):
+    """De vez em quando olha pras letras da cena; no resto do tempo olha pra frente."""
+    t = interno(tr)
+    inicio_cena = max(real_de(s) for s in (0, 3, 6.5, 11.5) if real_de(s) <= tr)
+    olhando = tr - inicio_cena < 1.3 or (tr % 3.2) < 1.3
+    if not olhando:
+        return 0, 0
+    ax, ay = alvo_do_olhar(t)
+    vx, vy = ax - (x + 104), ay - (y + 90)
+    dx = -1 if vx < -120 else 1 if vx > 120 else 0
+    dy = -1 if vy < -150 else 1 if vy > 150 else 0
+    return dx, dy
+
+
 def desenhar_mascote(c, tr, escuro):
     _, agenda, env = narracao()
     k = int(tr * FPS)
@@ -212,10 +238,13 @@ def desenhar_mascote(c, tr, escuro):
     else:
         pernas = "parado"
         y = MASC_Y + math.sin(tr * 3) * 4
-        virado = False  # parado, olha pra frente
+        virado = False  # parado, de frente
     if v > 0.1:  # quica de leve enquanto fala
         y -= v * 6
-    c.alpha_composite(sprite(boca, piscando, acenando, pernas, escuro, virado), (int(x), int(y)))
+    # andando olha pra frente do caminho (o desenho espelhado já vira o olhar)
+    olhar = (1, 0) if andando else direcao_olhar(tr, x, y)
+    c.alpha_composite(sprite(boca, piscando, acenando, pernas, escuro, virado, olhar),
+                      (int(x), int(y)))
 
 
 # ---------- cenas ----------

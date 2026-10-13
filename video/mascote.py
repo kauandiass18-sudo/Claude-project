@@ -56,13 +56,15 @@ BRACO_ACENA = [(19, 9), (20, 9), (20, 8), (21, 7), (21, 6), (22, 5), (21, 5), (2
 
 
 def desenhar(boca="fechada", piscando=False, px=24, acenando=False, pernas="parado",
-             sombra=SOMBRA):
+             sombra=SOMBRA, olhar=(0, 0)):
+    """olhar = (dx, dy) de -1 a 1: pra onde as pupilas apontam dentro dos óculos."""
     grade = [list(l) for l in BASE + PERNAS[pernas]]
+    # as pupilas são desenhadas por cima no fim, pra poderem andar meio pixel
+    for y in range(4, 8):
+        for x in range(20):
+            if grade[y][x] == "E":
+                grade[y][x] = "L"
     if piscando:
-        for y in (5, 6):
-            for x in range(20):
-                if grade[y][x] == "E":
-                    grade[y][x] = "L"
         for x in (4, 5, 6, 7, 12, 13, 14, 15):
             grade[6][x] = "K"
     for i, linha in enumerate(BOCAS[boca]):
@@ -84,6 +86,12 @@ def desenhar(boca="fechada", piscando=False, px=24, acenando=False, pernas="para
         p(x + 0.5, y + 0.5, sombra)
     for x, y, cor in pixels:
         p(x, y, cor)
+    if not piscando:
+        # pupilas 2x2 que andam até meio pixel pra cada lado, sem encostar no aro
+        dx, dy = olhar
+        for cx in (5, 13):
+            x0, y0 = (cx + 0.5 * dx + ox) * px, (5 + 0.5 * dy + oy) * px
+            d.rectangle([x0, y0, x0 + 2 * px - 1, y0 + 2 * px - 1], fill=TINTA + (255,))
     return im
 
 
