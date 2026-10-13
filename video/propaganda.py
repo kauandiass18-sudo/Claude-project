@@ -11,7 +11,7 @@ from functools import lru_cache
 
 from PIL import Image, ImageDraw, ImageFont
 
-W, H, FPS = 1080, 1920, 30
+W, H, FPS = 1080, 1920, 60
 DUR_ANIM = 15.0  # duração da animação "crua"
 LENTO = 1.2      # deixa todas as animações um pouco mais calmas
 # pausas pra leitura: (momento da animação, segundos parado)
@@ -97,6 +97,13 @@ def linha(c, text, x, y, size, p, color=TINTA, weight="Black"):
     c.alpha_composite(vis, (int(x), int(y + off)))
 
 
+def linha_partes(c, partes, x, y, size, p, weight="Black"):
+    """Igual a linha(), mas cada parte pode ter uma cor."""
+    for txt, cor in partes:
+        linha(c, txt, x, y, size, p, color=cor, weight=weight)
+        x += font(weight, size).getlength(txt)
+
+
 def texto(c, text, x, y, size, alpha=1.0, color=TINTA, weight="Bold", centro=False):
     if alpha <= 0:
         return
@@ -141,6 +148,7 @@ def celular(c, cx, cy, w, h, desenhar):
     L = layer()
     d = ImageDraw.Draw(L)
     x0, y0, x1, y1 = cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2
+    d.rounded_rectangle([x0 + 16, y0 + 16, x1 + 16, y1 + 16], radius=72, fill=(214, 208, 196, 255))
     d.rounded_rectangle([x0, y0, x1, y1], radius=72, fill=TINTA + (255,))
     sx0, sy0, sx1, sy1 = x0 + 18, y0 + 18, x1 - 18, y1 - 18
     d.rounded_rectangle([sx0, sy0, sx1, sy1], radius=56, fill=(255, 255, 255, 255))
@@ -183,7 +191,7 @@ def cena2(c, t):
     celular(c, W / 2, 1020 + sobe, 600, 1120, tela)
 
     # saída: tudo desce e entra a frase do concorrente
-    linha(c, "Não achou nada.", MX, 250, 96, prog(lt, 1.5, 0.4))
+    linha_partes(c, [("Não achou ", TINTA), ("nada.", LARANJA)], MX, 250, 96, prog(lt, 1.5, 0.4))
     p = prog(lt, 2.2, 0.35)
     if p > 0:
         L = layer()
@@ -197,6 +205,13 @@ def cena3(c, t):
     """6.5–11.5s: site sendo montado + o que vem nele."""
     lt = t - 6.5
     linha(c, "Eu faço o site", MX, 230, 104, prog(lt, 0.0, 0.4))
+    p = ease(prog(lt, 0.55, 0.35))
+    if p > 0:  # sublinhado laranja em "seu negócio"
+        x0 = MX + font("Black", 104).getlength("do ")
+        x1 = MX + font("Black", 104).getlength("do seu negócio")
+        L = layer()
+        ImageDraw.Draw(L).rectangle([x0, 478, x0 + (x1 - x0) * p, 494], fill=LARANJA + (255,))
+        c.alpha_composite(L)
     linha(c, "do seu negócio.", MX, 360, 104, prog(lt, 0.15, 0.4))
 
     L = layer()
@@ -327,7 +342,10 @@ def cena4(c, t, arroba):
     p = ease(prog(lt, 1.1, 0.4))
     if p > 0:
         L = layer()
-        ImageDraw.Draw(L).rectangle([MX, 1120, MX + 640 * p, 1230], fill=PAPEL + (255,))
+        d = ImageDraw.Draw(L)
+        sh = 14 * ease(prog(lt, 1.4, 0.3))
+        d.rectangle([MX + sh, 1120 + sh, MX + 640 * p + sh, 1230 + sh], fill=LARANJA + (255,))
+        d.rectangle([MX, 1120, MX + 640 * p, 1230], fill=PAPEL + (255,))
         c.alpha_composite(L)
         if p > 0.9:
             texto(c, "Me chama no direct", MX + 36, 1142, 54, color=TINTA, weight="Black")
@@ -379,7 +397,13 @@ def frame(tr, arroba):
                         S = with_alpha(S, 1 - p)
                         c.alpha_composite(S, (0, -int(260 * p)))
                         break
-                c.alpha_composite(S)
+                dx = dy = 0
+                if cena is cena2 and 5.2 <= t < 5.6:
+                    k = 1 - (t - 5.2) / 0.4
+                    dx = int(math.sin(t * 90) * 14 * k)
+                    dy = int(math.cos(t * 70) * 8 * k)
+                c.alpha_composite(S, (dx, dy)) if dx >= 0 and dy >= 0 else \
+                    c.alpha_composite(S.crop((max(0, -dx), max(0, -dy), W, H)), (max(0, dx), max(0, dy)))
                 break
         c.alpha_composite(grao(0))
         # cortina escura entrando de baixo pra cena final
@@ -471,6 +495,30 @@ def gerar_audio(caminho):
         if k % 2 == 0:
             add(t0, baixo(notas[(k // 4) % 4], b * 1.8), 0.16 * forte)
         k += 1
+
+    def pad(freqs, dur):
+        tt = np.arange(int(dur * SR)) / SR
+        e = np.minimum(tt / 0.4, 1) * np.minimum((dur - tt) / 0.5, 1)
+        x = sum(np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(2 * np.pi * 2 * f * tt + 0.5)
+                + 0.5 * np.sin(2 * np.pi * f * 1.004 * tt) for f in freqs)
+        return x * e / len(freqs)
+
+    acordes = [(220, 261.6, 329.6), (220, 261.6, 329.6), (261.6, 329.6, 392), (196, 246.9, 293.7)]
+    k = 0
+    while k * 4 * b < DUR - 0.4:
+        add(k * 4 * b, pad(acordes[k % 4], 4 * b + 0.3), 0.07)
+        k += 1
+
+    def subida(dur):
+        tt = np.arange(int(dur * SR)) / SR
+        x = rng.standard_normal(len(tt))
+        y = np.zeros_like(x)
+        a = 0.01 + 0.4 * (tt / dur) ** 2
+        for i in range(1, len(x)):
+            y[i] = y[i - 1] + a[i] * (x[i] - y[i - 1])
+        return y * (tt / dur) ** 2
+
+    add(real_de(11.5) - 1.4, subida(1.4), 0.5)
 
     for t0 in (2.75, 6.25, 11.1):
         add(real_de(t0), whoosh(), 0.35)
