@@ -65,20 +65,31 @@ def humanizar(x):
     return y + 0.13 * sala
 
 
-def entonar_pergunta(x, dur=0.55, subida=1.3):
-    """Faz o final da frase subir de tom, como numa pergunta de verdade.
+def entonar_pergunta(x, dur=0.5, subida=8.0):
+    """Redesenha a curva de tom pra soar como pergunta (tom subindo no final).
 
-    Os últimos `dur` segundos são tocados cada vez mais rápido (até `subida`x),
-    o que sobe o tom suavemente na última palavra.
+    O modelo de voz termina tudo descendo, como afirmação. Aqui o tom dos
+    últimos `dur` segundos sobe até `subida` semitons acima do tom médio da
+    frase, usando o vocoder WORLD (muda o tom sem mudar a duração).
     """
-    n = min(len(x), int(dur * SR))
-    corpo, fim = x[:-n], x[-n:]
-    k = np.linspace(0, 1, n)
-    taxa = 1 + (subida - 1) * k ** 1.5
-    pos = np.cumsum(taxa)
-    pos = pos[pos < n - 1]
-    fim = np.interp(pos, np.arange(n), fim)
-    return np.concatenate([corpo, fim])
+    import pyworld as pw
+    f0, sp, ap = pw.wav2world(np.ascontiguousarray(x, dtype=np.float64), SR)
+    passo = 0.005  # o WORLD analisa de 5 em 5 ms
+    voz_ativa = np.nonzero(f0 > 0)[0]
+    if len(voz_ativa) < 10:
+        return x
+    base = np.median(f0[voz_ativa[: int(len(voz_ativa) * 0.6)]])
+    ultimo = voz_ativa[-1]
+    ini = max(0, ultimo - int(dur / passo))
+    alvo = base * 2 ** (subida / 12)
+    partida = f0[ini] if f0[ini] > 0 else base
+    for i in range(ini, ultimo + 1):
+        if f0[i] > 0:
+            k = (i - ini) / max(1, ultimo - ini)
+            k = k * k * (3 - 2 * k)  # curva suave
+            f0[i] = partida * (alvo / partida) ** k
+    y = pw.synthesize(f0, sp, ap, SR)
+    return y[: len(x)] if len(y) >= len(x) else np.pad(y, (0, len(x) - len(y)))
 
 
 def sintetizar(texto, voz=VOZ, velocidade=1.08):
