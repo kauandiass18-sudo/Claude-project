@@ -41,7 +41,7 @@ FALAS = [
     (7.3, 1.1, "Eu faço o site do seu negócio, do jeitinho que você imaginar."),
     (8.6, 1.05, "Aí o cliente clica aqui..."),
     (9.45, 1.1, "Opa! Cliente novo!"),
-    (9.9, 1.1, "Seu negócio aparece no Gúgou, e o cliente te chama direto no Zap."),
+    (9.9, 1.1, "Seu negócio aparece no Gúgou, e o cliente te chama direto no uótsápi."),
     (11.15, 1.08, "Bora colocar seu negócio na internet?"),
     (12.7, 1.1, "É só me chamar no dirétchi, ou no link da bio. Te espero lá!"),
 ]

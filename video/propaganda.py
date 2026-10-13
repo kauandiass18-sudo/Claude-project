@@ -335,7 +335,7 @@ def cena3(c, t):
 
     c.alpha_composite(with_alpha(L, entra), (0, int((1 - entra) * 120)))
 
-    itens = ["Aparece no Google", "Fica perfeito no celular", "Cliente te chama no Zap"]
+    itens = ["Aparece no Google", "Fica perfeito no celular", "Cliente te chama no WhatsApp"]
     for i, txt in enumerate(itens):
         p = prog(lt, 3.1 + i * 0.35, 0.35)
         if p <= 0:
