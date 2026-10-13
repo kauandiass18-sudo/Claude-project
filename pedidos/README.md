@@ -189,7 +189,8 @@ essas perguntas opcionais. Para mudar o texto, edite a função
   não aparecem.
 - **Dúvidas frequentes:** as respostas ficam no `index.html`, na seção
   `id="duvidas"`. Revise para que digam exatamente como você trabalha.
-- **Imagem de compartilhamento:** quando tiver domínio, troque `og:image` no
-  `index.html` pelo endereço completo da imagem.
+- **Imagem de compartilhamento:** `og:url` e `og:image` no `index.html`
+  apontam para o endereço do GitHub Pages. Se mudar o endereço (por exemplo,
+  para um domínio próprio), troque os dois.
 - **Cores:** ficam nas variáveis do início de `css/style.css`. O dourado é
   `--gold`. Para um azul discreto, use algo como `#7c9cc9`.
