@@ -47,8 +47,23 @@ FALAS = [
 ]
 
 
+def _pico(f, ganho_db, q, sr=SR):
+    """Coeficientes de um filtro de pico (equalizador), receita RBJ."""
+    a = 10 ** (ganho_db / 40)
+    w = 2 * np.pi * f / sr
+    alfa = np.sin(w) / (2 * q)
+    b = np.array([1 + alfa * a, -2 * np.cos(w), 1 - alfa * a])
+    d = np.array([1 + alfa / a, -2 * np.cos(w), 1 - alfa / a])
+    return b / d[0], d / d[0]
+
+
 def humanizar(x):
-    """Tira o som "seco" de computador: corta graves embolados e põe um ambiente leve."""
+    """Tira o som "seco" de computador: corta graves embolados, suaviza a aspereza
+    dos agudos e põe um ambiente leve."""
+    from scipy.signal import butter, lfilter
+    x = lfilter(*_pico(3200, -4.0, 1.0), x)   # aspereza
+    x = lfilter(*_pico(7000, -3.0, 1.2), x)   # chiado
+    x = lfilter(*butter(2, 11000 / (SR / 2)), x)
     # passa-alta simples (~90 Hz)
     a = np.exp(-2 * np.pi * 90 / SR)
     y = np.zeros_like(x)
@@ -65,12 +80,27 @@ def humanizar(x):
     return y + 0.13 * sala
 
 
-def ajustar_voz(x, pergunta=False, tom=2.0, piso=110.0, ar=0.6,
-               dur_pergunta=0.5, subida=8.0):
+def suavizar_tom(f0, janela=7):
+    """Tira as tremidinhas rápidas do tom (o que deixa a voz áspera), sílaba por sílaba."""
+    f0 = f0.copy()
+    v = f0 > 0
+    bordas = np.flatnonzero(np.diff(np.r_[0, v.astype(int), 0]))
+    nucleo = np.ones(janela) / janela
+    for ini, fim in zip(bordas[::2], bordas[1::2]):
+        if fim - ini > janela:
+            log = np.log(f0[ini:fim])
+            pad = np.pad(log, janela // 2, mode="edge")
+            f0[ini:fim] = np.exp(np.convolve(pad, nucleo, mode="valid"))
+    return f0
+
+
+def ajustar_voz(x, pergunta=False, tom=2.0, piso=112.0, ar=0.35,
+                dur_pergunta=0.5, subida=8.0):
     """Ajusta a voz com o vocoder WORLD (muda o tom sem mudar duração nem timbre).
 
-    - tira a rouquidão: sobe o tom geral `tom` semitons, não deixa a voz afundar
-      abaixo de `piso` Hz (o grave arrastado que soa rouco) e reduz o sopro (`ar`);
+    - deixa a voz lisa: suaviza as tremidinhas do tom, sobe o tom geral `tom`
+      semitons, não deixa a voz afundar abaixo de `piso` Hz (o grave arrastado
+      que soa rouco) e reduz o sopro (`ar`);
     - em perguntas, o modelo termina descendo como afirmação: os últimos
       `dur_pergunta` segundos sobem até `subida` semitons acima do tom médio.
     """
@@ -80,8 +110,9 @@ def ajustar_voz(x, pergunta=False, tom=2.0, piso=110.0, ar=0.6,
     if len(voz_ativa) < 10:
         return x
     v = f0 > 0
+    f0 = suavizar_tom(f0)
     f0[v] *= 2 ** (tom / 12)
-    f0[v] = np.where(f0[v] < piso, piso - (piso - f0[v]) * 0.25, f0[v])
+    f0[v] = np.where(f0[v] < piso, piso - (piso - f0[v]) * 0.1, f0[v])
     ap[v] *= ar
 
     if pergunta:
