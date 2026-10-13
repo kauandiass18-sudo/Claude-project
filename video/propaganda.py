@@ -1,6 +1,6 @@
 """Reels 9:16 (1080x1920, 15s) divulgando criação de sites.
 
-Uso: python3 propaganda.py [--arroba @seuarroba]
+Uso: python3 propaganda.py [--arroba @klyvantar.studio07]
 Gera propaganda.mp4 na mesma pasta.
 """
 import argparse
@@ -179,7 +179,7 @@ def caminhada():
         (0.0, 1.0, W + 40, 850),
         (real_de(3.0) + 0.1, 1.7, 850, 30),
         (real_de(6.5) + 0.1, 1.7, 30, 850),
-        (real_de(11.5) + 0.7, 0.9, 850, 720),
+        (real_de(11.5) + 0.7, 0.6, 850, 800),
     ]
 
 
@@ -471,7 +471,7 @@ def cena4(c, t, arroba):
         if p > 0.9:
             texto(c, "Me chama no direct", MX + 36, 1142, 54, color=TINTA, weight="Black")
 
-    texto(c, arroba, MX, 1300, 76, alpha=ease(prog(lt, 1.5, 0.4)), color=PAPEL, weight="Black")
+    texto(c, arroba, MX, 1305, 64, alpha=ease(prog(lt, 1.5, 0.4)), color=PAPEL, weight="Black")
     p = ease(prog(lt, 1.8, 0.4))
     if p > 0:
         texto(c, "ou no link da bio", MX, 1400, 48, alpha=p, color=CINZA, weight="SemiBold")
@@ -685,7 +685,7 @@ def gerar_audio(caminho):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--arroba", default="@seuarroba")
+    ap.add_argument("--arroba", default="@klyvantar.studio07")
     ap.add_argument("--out", default=os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                                   "propaganda.mp4"))
     ap.add_argument("--preview", type=float, nargs="*", help="só salva PNGs nesses segundos")
