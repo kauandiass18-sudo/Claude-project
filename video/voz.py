@@ -1,6 +1,8 @@
-"""Narração do mascote (voz sintética masculina, espeak-ng + MBROLA br3).
+"""Narração do mascote (voz neural masculina pt-BR do Piper, "edresson").
 
-Requer: apt-get install espeak-ng mbrola mbrola-br3
+Requer: pip install piper-tts. O modelo (~60 MB) é baixado na primeira vez
+para video/modelos/ (fora do git). Voz treinada no TTS-Portuguese-Corpus
+(Edresson Casanova), licença CC BY 4.0.
 """
 import os
 import subprocess
@@ -8,6 +10,21 @@ import tempfile
 import wave
 
 import numpy as np
+
+PASTA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "modelos")
+MODELO = os.path.join(PASTA, "pt-br-edresson-low.onnx")
+URL = "https://github.com/rhasspy/piper/releases/download/v0.0.2/voice-pt-br-edresson-low.tar.gz"
+
+
+def baixar_modelo():
+    if os.path.exists(MODELO):
+        return
+    os.makedirs(PASTA, exist_ok=True)
+    tgz = os.path.join(PASTA, "voz.tar.gz")
+    subprocess.run(["curl", "-sSL", "-o", tgz, URL], check=True)
+    subprocess.run(["tar", "-xzf", tgz, "-C", PASTA], check=True)
+    os.remove(tgz)
+
 
 SR = 44100
 
@@ -19,7 +36,7 @@ FALAS = [
     (5.3, "Foi pro concorrente!"),
     (6.6, "Eu faço o site do seu negócio."),
     (9.45, "Opa! Cliente novo!"),
-    (9.9, "Aparece no Gúgou, fica perfeito no celular, e o cliente te chama no Zap."),
+    (9.9, "Aparece no Gúgou, e o cliente te chama no Zap."),
     (11.6, "Bora colocar seu negócio na internet?"),
     (12.7, "Me chama no dirétchi!"),
 ]
@@ -28,8 +45,10 @@ FALAS = [
 def sintetizar(texto):
     with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
         caminho = f.name
-    subprocess.run(["espeak-ng", "-v", "mb-br3", "-s", "160", "-w", caminho, texto],
-                   check=True, stderr=subprocess.DEVNULL)
+    baixar_modelo()
+    subprocess.run(["piper", "-m", MODELO, "-f", caminho, "--length-scale", "0.95",
+                    "--sentence-silence", "0.15"],
+                   input=texto.encode(), check=True, stderr=subprocess.DEVNULL)
     with wave.open(caminho) as w:
         sr = w.getframerate()
         x = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(float) / 32768
