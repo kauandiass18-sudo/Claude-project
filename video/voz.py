@@ -32,18 +32,18 @@ SR = 44100
 
 # (momento da animação em que a fala começa, velocidade, texto escrito do jeito que deve soar)
 FALAS = [
-    (0.0, 1.08, "Ei, você! Seu cliente procurou você no Gúgou..."),
-    (1.65, 1.05, "E aí, ele achou?"),
-    (3.3, 1.12, "Olha só, ele digitou o nome da sua empresa..."),
-    (4.5, 1.0, "E não achou nada."),
-    (5.3, 1.1, "Aí ele foi direto pro concorrente!"),
-    (6.2, 1.12, "Mas calma, que eu resolvo isso pra você."),
-    (7.3, 1.1, "Eu faço o site do seu negócio, do jeitinho que você imaginar."),
-    (8.6, 1.05, "Aí o cliente clica aqui..."),
-    (9.45, 1.1, "Opa! Cliente novo!"),
-    (9.9, 1.1, "Seu negócio aparece no Gúgou, fica perfeito no celular, e o cliente te chama direto no uótsápi."),
-    (11.15, 1.08, "Bora colocar seu negócio na internet?"),
-    (12.7, 1.1, "É só me chamar no dirétchi, ou no link da bio. Te espero lá!"),
+    (0.0, 1.11, "Ei, você! Seu cliente procurou você no Gúgou..."),
+    (1.65, 1.08, "E aí, ele achou?"),
+    (3.3, 1.15, "Olha só, ele digitou o nome da sua empresa..."),
+    (4.5, 1.03, "E não achou nada."),
+    (5.3, 1.13, "Aí ele foi direto pro concorrente!"),
+    (6.2, 1.15, "Mas calma, que eu resolvo isso pra você."),
+    (7.3, 1.13, "Eu faço o site do seu negócio, do jeitinho que você imaginar."),
+    (8.6, 1.08, "Aí o cliente clica aqui..."),
+    (9.45, 1.13, "Opa! Cliente novo!"),
+    (9.9, 1.13, "Seu negócio aparece no Gúgou, fica perfeito no celular, e o cliente te chama direto no uótsápi."),
+    (11.15, 1.11, "Bora colocar seu negócio na internet?"),
+    (12.7, 1.13, "É só me chamar no dirétchi, ou no link da bio. Te espero lá!"),
 ]
 
 
@@ -61,8 +61,8 @@ def humanizar(x):
     """Tira o som "seco" de computador: corta graves embolados, suaviza a aspereza
     dos agudos e põe um ambiente leve."""
     from scipy.signal import butter, lfilter
-    x = lfilter(*_pico(3200, -4.0, 1.0), x)   # aspereza
-    x = lfilter(*_pico(7000, -3.0, 1.2), x)   # chiado
+    x = lfilter(*_pico(3200, -2.0, 1.0), x)   # aspereza
+    x = lfilter(*_pico(7000, -1.5, 1.2), x)   # chiado
     x = lfilter(*butter(2, 11000 / (SR / 2)), x)
     # passa-alta simples (~90 Hz)
     a = np.exp(-2 * np.pi * 90 / SR)
@@ -77,7 +77,7 @@ def humanizar(x):
     ir /= np.abs(ir).sum()
     sala = np.convolve(y, ir)[: len(y)]
     sala *= np.abs(y).max() / (np.abs(sala).max() + 1e-9)
-    return y + 0.13 * sala
+    return y + 0.07 * sala
 
 
 def suavizar_tom(f0, janela=7):
@@ -103,8 +103,18 @@ def encorpar(sp, fator):
     return np.exp(np.array([np.interp(origem, np.arange(n), quadro) for quadro in log]))
 
 
-# Ajuste usado no vídeo: voz mais grossa e encorpada, mas sem rouquidão.
-AJUSTE = dict(tom=-2.0, formante=0.92, piso=88.0, ar=0.15)
+def so_no_final(x, ajustada, dur=0.7, transicao=0.08):
+    """Usa a versão ajustada só no fim da frase e a voz original no resto.
+
+    Reprocessar a frase inteira no vocoder deixa a voz robótica; assim só a
+    última palavra (onde a pergunta precisa subir) passa por ele.
+    """
+    n, t = min(len(x), int(dur * SR)), int(transicao * SR)
+    ini = len(x) - n
+    mistura = np.zeros(len(x))
+    mistura[ini:ini + t] = np.linspace(0, 1, t)
+    mistura[ini + t:] = 1
+    return x * (1 - mistura) + ajustada * mistura
 
 
 def ajustar_voz(x, pergunta=False, tom=2.0, piso=112.0, ar=0.35, formante=1.0,
@@ -169,7 +179,10 @@ def preparar(real_de, pausas, intervalo=0.25):
     fim_anterior = -intervalo
     for t_anim, velocidade, texto in FALAS:
         x = sintetizar(texto, velocidade=velocidade)
-        x = humanizar(ajustar_voz(x, pergunta=texto.rstrip().endswith("?"), **AJUSTE))
+        if texto.rstrip().endswith("?"):
+            # só a pergunta passa pelo vocoder, e só na última palavra
+            x = so_no_final(x, ajustar_voz(x, pergunta=True, tom=0, piso=0, ar=1.0))
+        x = humanizar(x)
         falta = fim_anterior + intervalo - real_de(t_anim)
         if falta > 0:
             pausas.append((t_anim - 0.001, falta))
