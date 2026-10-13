@@ -30,21 +30,42 @@ def modelo():
 
 SR = 44100
 
-# (momento da animação em que a fala começa, texto escrito do jeito que deve soar)
+# (momento da animação em que a fala começa, velocidade, texto escrito do jeito que deve soar)
 FALAS = [
-    (0.0, "Ei, você! Seu cliente procurou você no Gúgou."),
-    (4.5, "Não achou nada."),
-    (5.3, "Foi pro concorrente!"),
-    (6.6, "Eu faço o site do seu negócio."),
-    (9.45, "Opa! Cliente novo!"),
-    (9.9, "Aparece no Gúgou, e o cliente te chama no Zap."),
-    (11.6, "Bora colocar seu negócio na internet?"),
-    (12.7, "Me chama no dirétchi!"),
+    (0.0, 1.08, "Ei, você! Seu cliente procurou você no Gúgou..."),
+    (3.3, 1.12, "Olha só, ele digitou o nome da sua empresa..."),
+    (4.5, 1.0, "E não achou nada."),
+    (5.3, 1.1, "Aí ele foi direto pro concorrente!"),
+    (6.2, 1.12, "Mas calma, que eu resolvo isso pra você."),
+    (7.3, 1.1, "Eu faço o site do seu negócio, do jeitinho que você imaginar."),
+    (8.6, 1.05, "Aí o cliente clica aqui..."),
+    (9.45, 1.1, "Opa! Cliente novo!"),
+    (9.9, 1.1, "Seu negócio aparece no Gúgou, e o cliente te chama direto no Zap."),
+    (11.15, 1.08, "Bora colocar seu negócio na internet?"),
+    (12.7, 1.1, "É só me chamar no dirétchi, ou no link da bio. Te espero lá!"),
 ]
 
 
-def sintetizar(texto, voz=VOZ):
-    x, sr = modelo().create(texto, voice=voz, speed=1.0, lang="pt-br")
+def humanizar(x):
+    """Tira o som "seco" de computador: corta graves embolados e põe um ambiente leve."""
+    # passa-alta simples (~90 Hz)
+    a = np.exp(-2 * np.pi * 90 / SR)
+    y = np.zeros_like(x)
+    for i in range(1, len(x)):
+        y[i] = a * (y[i - 1] + x[i] - x[i - 1])
+    # sala pequena: ruído com decaimento curto
+    rng = np.random.default_rng(3)
+    n = int(0.28 * SR)
+    ir = rng.standard_normal(n) * np.exp(-np.arange(n) / (0.06 * SR))
+    ir[: int(0.012 * SR)] = 0  # pré-atraso
+    ir /= np.abs(ir).sum()
+    sala = np.convolve(y, ir)[: len(y)]
+    sala *= np.abs(y).max() / (np.abs(sala).max() + 1e-9)
+    return y + 0.13 * sala
+
+
+def sintetizar(texto, voz=VOZ, velocidade=1.08):
+    x, sr = modelo().create(texto, voice=voz, speed=velocidade, lang="pt-br")
     x = np.asarray(x, dtype=float)
     # reamostra pra 44.1 kHz
     n = int(len(x) * SR / sr)
@@ -54,19 +75,34 @@ def sintetizar(texto, voz=VOZ):
     return x[ativo[0]:ativo[-1] + 1] if len(ativo) else x
 
 
-def gerar_narracao(real_de, duracao):
+def preparar(real_de, pausas, intervalo=0.25):
+    """Gera as falas e acrescenta pausas na animação onde a voz precisa de mais tempo.
+
+    Assim a imagem espera o mascote terminar de falar antes de seguir.
+    """
+    falas = []
+    fim_anterior = -intervalo
+    for t_anim, velocidade, texto in FALAS:
+        x = humanizar(sintetizar(texto, velocidade=velocidade))
+        falta = fim_anterior + intervalo - real_de(t_anim)
+        if falta > 0:
+            pausas.append((t_anim - 0.001, falta))
+            pausas.sort()
+        fim_anterior = real_de(t_anim) + len(x) / SR
+        falas.append((t_anim, x, texto))
+    return falas, fim_anterior
+
+
+def gerar_narracao(real_de, duracao, falas):
     """Retorna (sinal, [(inicio, fim, texto)]) já posicionado no tempo real."""
     sinal = np.zeros(int(duracao * SR))
     agenda = []
-    fim_anterior = 0.0
-    for t_anim, texto in FALAS:
-        x = sintetizar(texto)
-        ini = max(real_de(t_anim), fim_anterior + 0.15)
+    for t_anim, x, texto in falas:
+        ini = real_de(t_anim)
         i = int(ini * SR)
         j = min(len(sinal), i + len(x))
         sinal[i:j] += x[: j - i]
-        fim_anterior = ini + len(x) / SR
-        agenda.append((ini, fim_anterior, texto))
+        agenda.append((ini, ini + len(x) / SR, texto))
     return sinal, agenda
 
 

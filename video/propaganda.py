@@ -16,8 +16,10 @@ import mascote
 W, H, FPS = 1080, 1920, 60
 DUR_ANIM = 15.0  # duração da animação "crua"
 LENTO = 1.2      # deixa todas as animações um pouco mais calmas
-# pausas pra leitura: (momento da animação, segundos parado)
-PAUSAS = [(2.0, 0.8), (5.9, 1.8), (8.9, 1.5), (10.9, 3.2), (13.8, 3.5)]
+# pausas pra leitura: (momento da animação, segundos parado). A narração
+# acrescenta outras onde a fala precisa de mais tempo (ver voz.preparar).
+PAUSAS = [(2.0, 0.3), (5.9, 0.5), (8.9, 0.3), (10.9, 0.8), (13.8, 0.5)]
+FOLGA_FINAL = 2.0  # segundos de tela final depois da última fala
 
 
 def real_de(ti):
@@ -38,6 +40,12 @@ def interno(tr):
     return prev + (tr - acc) / LENTO
 
 
+import voz  # noqa: E402
+
+FALAS, _fim_fala = voz.preparar(real_de, PAUSAS)
+if real_de(DUR_ANIM) - _fim_fala < FOLGA_FINAL:
+    PAUSAS.append((13.9, FOLGA_FINAL - (real_de(DUR_ANIM) - _fim_fala)))
+    PAUSAS.sort()
 DUR = real_de(DUR_ANIM)
 FONT_DIR = "/usr/share/fonts/opentype/inter"
 MX = 90  # margem lateral
@@ -135,8 +143,7 @@ _NARR = None
 def narracao():
     global _NARR
     if _NARR is None:
-        import voz
-        sinal, agenda = voz.gerar_narracao(real_de, DUR)
+        sinal, agenda = voz.gerar_narracao(real_de, DUR, FALAS)
         _NARR = (sinal, agenda, voz.envelope(sinal, FPS))
     return _NARR
 
