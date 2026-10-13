@@ -12,13 +12,12 @@
   var outroWrap = document.getElementById("outro-wrap");
   var outro = document.getElementById("outro");
   var ideia = document.getElementById("ideia");
-  var whatsapp = document.getElementById("whatsapp");
   var honeypot = document.getElementById("empresa");
   var contador = document.getElementById("contador");
   var botao = document.getElementById("btn-enviar");
   var formErro = document.getElementById("form-erro");
   var sucesso = document.getElementById("sucesso");
-  var sucessoNumero = document.getElementById("sucesso-numero");
+  var sucessoTexto = document.getElementById("sucesso-texto");
   var botaoNovo = document.getElementById("btn-novo");
 
   var CHAVE_ULTIMO_ENVIO = "pedidos:ultimoEnvio";
@@ -117,37 +116,6 @@
   });
 
   /* ---------------------------------------------------------------------
-     Máscara de telefone brasileiro: (11) 99999-9999 ou (11) 3333-4444
-     --------------------------------------------------------------------- */
-  function soDigitos(texto) {
-    return texto.replace(/\D/g, "");
-  }
-
-  function mascararTelefone(valor) {
-    var d = soDigitos(valor);
-    // Remove o DDI 55 se a pessoa colar o número completo
-    if (d.length > 11 && d.indexOf("55") === 0) d = d.slice(2);
-    d = d.slice(0, 11);
-
-    if (d.length === 0) return "";
-    if (d.length <= 2) return "(" + d;
-    if (d.length <= 6) return "(" + d.slice(0, 2) + ") " + d.slice(2);
-    if (d.length <= 10) return "(" + d.slice(0, 2) + ") " + d.slice(2, 6) + "-" + d.slice(6);
-    return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
-  }
-
-  whatsapp.addEventListener("input", function () {
-    whatsapp.value = mascararTelefone(whatsapp.value);
-    limparErro("whatsapp");
-  });
-
-  function telefoneValido(valor) {
-    var d = soDigitos(valor);
-    if (d.length === 11) return d.charAt(2) === "9"; // celular
-    return d.length === 10;                          // fixo
-  }
-
-  /* ---------------------------------------------------------------------
      Validação
      --------------------------------------------------------------------- */
   function mostrarErro(campo, mensagem) {
@@ -185,11 +153,6 @@
       primeiroInvalido = primeiroInvalido || ideia;
     }
 
-    if (!telefoneValido(whatsapp.value)) {
-      mostrarErro("whatsapp", "Informe um WhatsApp válido com DDD.");
-      primeiroInvalido = primeiroInvalido || whatsapp;
-    }
-
     if (primeiroInvalido) primeiroInvalido.focus();
     return !primeiroInvalido;
   }
@@ -200,7 +163,6 @@
   function montarDados() {
     var tipoEscolhido = valorMarcado("tipo");
     var negocio = tipoEscolhido === "Outro" ? "Outro — " + outro.value.trim() : tipoEscolhido;
-    var telefone = whatsapp.value;
     var agora = new Date();
 
     return {
@@ -209,8 +171,6 @@
       temSite: valorMarcado("temSite"),
       prazo: valorMarcado("prazo"),
       ideia: ideia.value.trim(),
-      whatsapp: telefone,
-      whatsappLink: "https://wa.me/55" + soDigitos(telefone),
       data: agora.toLocaleDateString("pt-BR"),
       hora: agora.toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })
     };
@@ -231,9 +191,6 @@
       "",
       "💡 *Ideia do cliente:*",
       d.ideia,
-      "",
-      "📱 *WhatsApp:* " + d.whatsapp,
-      "💬 Responder: " + d.whatsappLink,
       "",
       "_Recebido em " + d.data + " às " + d.hora + "_"
     ]).join("\n");
@@ -282,7 +239,10 @@
   }
 
   // Plano B: abre o WhatsApp do cliente com a mensagem pronta.
+  var abriuWhatsApp = false;
+
   function enviarPorLink(mensagem) {
+    abriuWhatsApp = true;
     var url = "https://wa.me/" + CONFIG.meuWhatsApp + "?text=" + encodeURIComponent(mensagem);
     window.open(url, "_blank", "noopener");
     return Promise.resolve();
@@ -325,8 +285,12 @@
      --------------------------------------------------------------------- */
   function mostrarSucesso(dados) {
     var primeiroNome = dados.nome.split(/\s+/)[0];
-    document.getElementById("sucesso-titulo").textContent = "Ideia recebida, " + primeiroNome + "!";
-    sucessoNumero.textContent = dados.whatsapp;
+    // Pelo link, o pedido só chega depois que o cliente toca em "Enviar"
+    document.getElementById("sucesso-titulo").textContent =
+      (abriuWhatsApp ? "Quase lá, " : "Ideia recebida, ") + primeiroNome + "!";
+    sucessoTexto.textContent = abriuWhatsApp
+      ? "Agora é só tocar em \u201cEnviar\u201d na conversa que abriu no WhatsApp. Assim que sua ideia chegar, eu te respondo por lá."
+      : "Obrigado por compartilhar seu projeto. Vou analisar com carinho e te respondo pelo WhatsApp em breve.";
     form.hidden = true;
     sucesso.hidden = false;
     sucesso.focus({ preventScroll: true });

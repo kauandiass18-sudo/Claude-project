@@ -151,15 +151,6 @@
             </ul>
           </div>
 
-          <!-- WhatsApp -->
-          <div class="field">
-            <label class="field__label" for="whatsapp">Seu WhatsApp</label>
-            <input class="input" type="tel" id="whatsapp" name="whatsapp"
-                   inputmode="numeric" autocomplete="tel-national"
-                   placeholder="(XX) XXXXX-XXXX" maxlength="15" required>
-            <p class="field__error" id="whatsapp-erro" role="alert"></p>
-          </div>
-
           <!-- Opcionais -->
           <div class="optional">
             <fieldset class="field">
@@ -207,8 +198,8 @@
             <svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg>
           </div>
           <h2 id="sucesso-titulo">Ideia recebida!</h2>
-          <p>Obrigado por compartilhar seu projeto. Vou analisar com carinho e
-             falar com você pelo WhatsApp <strong id="sucesso-numero"></strong> em breve.</p>
+          <p id="sucesso-texto">Obrigado por compartilhar seu projeto. Vou analisar com
+             carinho e te respondo pelo WhatsApp em breve.</p>
           <button class="btn btn--ghost" type="button" id="btn-novo">Enviar outra ideia</button>
         </div>
       </div>
@@ -244,7 +235,7 @@
         </details>
         <details>
           <summary>Como vou receber a resposta?</summary>
-          <p>Pelo WhatsApp que você informar no formulário. Se preferir falar antes de preencher, use o botão do WhatsApp logo abaixo.</p>
+          <p>Pelo WhatsApp. Ao enviar o formulário, sua ideia chega para mim por lá e eu te respondo na mesma conversa. Se preferir falar antes de preencher, use o botão do WhatsApp logo abaixo.</p>
         </details>
       </div>
 

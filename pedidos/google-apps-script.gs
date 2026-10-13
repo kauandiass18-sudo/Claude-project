@@ -38,11 +38,11 @@ function doPost(e) {
       whatsapp: campo(dados.whatsapp, 20)
     };
 
-    if (!pedido.nome || !pedido.ideia || !pedido.whatsapp) {
+    if (!pedido.nome || !pedido.ideia) {
       return resposta({ ok: false, erro: "Campos obrigatórios em branco" });
     }
 
-    var link = "https://wa.me/55" + pedido.whatsapp.replace(/\D/g, "");
+    var link = pedido.whatsapp ? "https://wa.me/55" + pedido.whatsapp.replace(/\D/g, "") : "";
 
     // Trava para dois pedidos simultâneos não se sobrescreverem
     var trava = LockService.getScriptLock();
@@ -132,7 +132,9 @@ function montarTexto(p, link) {
   ];
   if (p.temSite) linhas.push("Já tem site: " + p.temSite);
   if (p.prazo) linhas.push("Prazo: " + p.prazo);
-  return linhas.concat(["", "Ideia:", p.ideia, "", "WhatsApp: " + p.whatsapp, "Responder: " + link]).join("\n");
+  linhas = linhas.concat(["", "Ideia:", p.ideia]);
+  if (p.whatsapp) linhas.push("", "WhatsApp: " + p.whatsapp, "Responder: " + link);
+  return linhas.join("\n");
 }
 
 function resposta(objeto) {

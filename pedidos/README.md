@@ -1,9 +1,14 @@
 # Pedidos de site · Formulário de captura
 
 Página de captura de pedidos de criação de sites. O cliente informa o nome,
-escolhe o tipo de negócio, descreve a ideia e informa o WhatsApp. Ao tocar em
-**Enviar minha ideia**, o pedido vai para uma **planilha do Google Sheets** e
-você recebe um **e-mail de aviso**, sem abrir o WhatsApp do cliente.
+escolhe o tipo de negócio e descreve a ideia. Ao tocar em **Enviar minha
+ideia**, o WhatsApp dele abre com a mensagem pronta para o seu número, e ele
+só precisa tocar em "Enviar". Como a conversa já vem do WhatsApp do cliente,
+o formulário não pede o número dele.
+
+Também dá para receber os pedidos sem abrir o WhatsApp do cliente (planilha
+do Google Sheets, CallMeBot ou webhook). Nesses modos, recoloque o campo
+"Seu WhatsApp" no formulário, senão você fica sem como responder.
 
 Feito só com **HTML, CSS e JavaScript puro**. Não precisa de build: é só subir
 a pasta para qualquer hospedagem (GitHub Pages, Netlify, Vercel, Hostinger…).
@@ -40,14 +45,14 @@ escolhidos em `js/config.js`:
 
 | Modo | Abre o WhatsApp do cliente? | Configuração |
 |------|-----------------------------|--------------|
-| `"planilha"` (padrão) | **Não** | 5 minutos, grátis |
+| `"planilha"` | **Não** | 5 minutos, grátis |
 | `"callmebot"` | **Não** | Chave do CallMeBot |
 | `"webhook"` | **Não** | Precisa de um endpoint seu |
-| `"link"` | Sim (plano B) | Nenhuma |
+| `"link"` (em uso) | Sim | Nenhuma |
 
 ---
 
-## 1. Google Sheets (padrão, grátis)
+## 1. Google Sheets (grátis)
 
 Cada pedido vira uma linha na planilha (data, nome, negócio, já tem site,
 prazo, ideia, WhatsApp e link para responder) e você recebe um e-mail na sua
@@ -135,8 +140,6 @@ este JSON:
   "dados": {
     "negocio": "Restaurante",
     "ideia": "Quero um site...",
-    "whatsapp": "(11) 98765-4321",
-    "whatsappLink": "https://wa.me/5511987654321",
     "data": "09/10/2026",
     "hora": "14:32"
   }
@@ -148,11 +151,12 @@ Seu endpoint envia `mensagem` para `destino` pelo provedor que você usar
 Ele precisa aceitar requisições do domínio do site (CORS). Use esse modo se
 quiser esconder as chaves do provedor.
 
-## 4. Modo link (plano B)
+## 4. Modo link (em uso)
 
 Com `modoEnvio: "link"`, o site abre o WhatsApp do cliente numa nova aba com a
-mensagem pronta. Não exige configuração, mas o cliente ainda precisa tocar em
-"Enviar".
+mensagem pronta para o seu número. Não exige configuração, mas o cliente
+precisa tocar em "Enviar". A tela de sucesso lembra disso a ele. Os outros
+modos também caem aqui enquanto não estiverem configurados.
 
 ---
 
@@ -168,20 +172,15 @@ mensagem pronta. Não exige configuração, mas o cliente ainda precisa tocar em
 💡 *Ideia do cliente:*
 Quero um site elegante, com cardápio e reservas...
 
-📱 *WhatsApp:* (11) 98765-4321
-💬 Responder: https://wa.me/5511987654321
-
 _Recebido em 09/10/2026 às 14:32_
 ```
 
 As linhas "Já tem site" e "Prazo" só aparecem quando o cliente responde
-essas perguntas opcionais. Toque no link "Responder" para abrir a conversa com o cliente. Para mudar o
-texto, edite a função `montarMensagem` em `js/app.js`.
+essas perguntas opcionais. Para mudar o texto, edite a função
+`montarMensagem` em `js/app.js`.
 
 ## Outros detalhes
 
-- **Máscara de telefone:** `(11) 98765-4321` para celular e `(11) 3333-4444`
-  para fixo. Se o cliente colar o número com `+55`, o DDI é removido.
 - **Anti-spam:** um campo invisível pega robôs, e o mesmo navegador só pode
   enviar de novo depois de `intervaloEntreEnvios` segundos (padrão: 60).
 - **Nome da marca:** troque "Studio" no `index.html` (topo e rodapé) e na
