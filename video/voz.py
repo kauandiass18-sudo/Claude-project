@@ -65,6 +65,22 @@ def humanizar(x):
     return y + 0.13 * sala
 
 
+def entonar_pergunta(x, dur=0.55, subida=1.3):
+    """Faz o final da frase subir de tom, como numa pergunta de verdade.
+
+    Os últimos `dur` segundos são tocados cada vez mais rápido (até `subida`x),
+    o que sobe o tom suavemente na última palavra.
+    """
+    n = min(len(x), int(dur * SR))
+    corpo, fim = x[:-n], x[-n:]
+    k = np.linspace(0, 1, n)
+    taxa = 1 + (subida - 1) * k ** 1.5
+    pos = np.cumsum(taxa)
+    pos = pos[pos < n - 1]
+    fim = np.interp(pos, np.arange(n), fim)
+    return np.concatenate([corpo, fim])
+
+
 def sintetizar(texto, voz=VOZ, velocidade=1.08):
     x, sr = modelo().create(texto, voice=voz, speed=velocidade, lang="pt-br")
     x = np.asarray(x, dtype=float)
@@ -84,7 +100,10 @@ def preparar(real_de, pausas, intervalo=0.25):
     falas = []
     fim_anterior = -intervalo
     for t_anim, velocidade, texto in FALAS:
-        x = humanizar(sintetizar(texto, velocidade=velocidade))
+        x = sintetizar(texto, velocidade=velocidade)
+        if texto.rstrip().endswith("?"):
+            x = entonar_pergunta(x)
+        x = humanizar(x)
         falta = fim_anterior + intervalo - real_de(t_anim)
         if falta > 0:
             pausas.append((t_anim - 0.001, falta))
