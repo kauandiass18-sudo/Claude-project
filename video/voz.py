@@ -1,29 +1,31 @@
-"""Narração do mascote (voz neural masculina pt-BR do Piper, "edresson").
+"""Narração do mascote (voz neural masculina pt-BR do Kokoro, licença Apache 2.0).
 
-Requer: pip install piper-tts. O modelo (~60 MB) é baixado na primeira vez
-para video/modelos/ (fora do git). Voz treinada no TTS-Portuguese-Corpus
-(Edresson Casanova), licença CC BY 4.0.
+Requer: pip install kokoro-onnx e espeak-ng instalado. Os arquivos do modelo
+(~350 MB) são baixados na primeira vez para video/modelos/ (fora do git).
 """
 import os
 import subprocess
-import tempfile
-import wave
 
 import numpy as np
 
 PASTA = os.path.join(os.path.dirname(os.path.abspath(__file__)), "modelos")
-MODELO = os.path.join(PASTA, "pt-br-edresson-low.onnx")
-URL = "https://github.com/rhasspy/piper/releases/download/v0.0.2/voice-pt-br-edresson-low.tar.gz"
+URL = "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/"
+ARQUIVOS = ["kokoro-v1.0.onnx", "voices-v1.0.bin"]
+VOZ = "pm_alex"  # outra opção masculina: "pm_santa"
+_kokoro = None
 
 
-def baixar_modelo():
-    if os.path.exists(MODELO):
-        return
-    os.makedirs(PASTA, exist_ok=True)
-    tgz = os.path.join(PASTA, "voz.tar.gz")
-    subprocess.run(["curl", "-sSL", "-o", tgz, URL], check=True)
-    subprocess.run(["tar", "-xzf", tgz, "-C", PASTA], check=True)
-    os.remove(tgz)
+def modelo():
+    global _kokoro
+    if _kokoro is None:
+        from kokoro_onnx import Kokoro
+        os.makedirs(PASTA, exist_ok=True)
+        for nome in ARQUIVOS:
+            destino = os.path.join(PASTA, nome)
+            if not os.path.exists(destino):
+                subprocess.run(["curl", "-sSL", "-o", destino, URL + nome], check=True)
+        _kokoro = Kokoro(*[os.path.join(PASTA, n) for n in ARQUIVOS])
+    return _kokoro
 
 
 SR = 44100
@@ -42,17 +44,9 @@ FALAS = [
 ]
 
 
-def sintetizar(texto):
-    with tempfile.NamedTemporaryFile(suffix=".wav", delete=False) as f:
-        caminho = f.name
-    baixar_modelo()
-    subprocess.run(["piper", "-m", MODELO, "-f", caminho, "--length-scale", "0.95",
-                    "--sentence-silence", "0.15"],
-                   input=texto.encode(), check=True, stderr=subprocess.DEVNULL)
-    with wave.open(caminho) as w:
-        sr = w.getframerate()
-        x = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(float) / 32768
-    os.remove(caminho)
+def sintetizar(texto, voz=VOZ):
+    x, sr = modelo().create(texto, voice=voz, speed=1.0, lang="pt-br")
+    x = np.asarray(x, dtype=float)
     # reamostra pra 44.1 kHz
     n = int(len(x) * SR / sr)
     x = np.interp(np.linspace(0, len(x) - 1, n), np.arange(len(x)), x)
