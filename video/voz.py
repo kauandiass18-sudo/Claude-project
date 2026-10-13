@@ -33,7 +33,7 @@ SR = 44100
 # (momento da animação em que a fala começa, velocidade, texto escrito do jeito que deve soar)
 FALAS = [
     (0.0, 1.11, "Ei, você! Seu cliente procurou você no Gúgou..."),
-    (1.65, 1.08, "E aí, ele achou?"),
+    (1.65, 1.08, "E aí, ele achôu?"),
     (3.3, 1.15, "Olha só, ele digitou o nome da sua empresa..."),
     (4.5, 1.03, "E não achou nada."),
     (5.3, 1.13, "Aí ele foi direto pro concorrente!"),
@@ -165,9 +165,16 @@ def sintetizar(texto, voz=VOZ, velocidade=1.08):
     from scipy.signal import resample_poly
     g = gcd(SR, sr)
     x = resample_poly(x, SR // g, sr // g)
-    # tira silêncio das pontas
-    ativo = np.nonzero(np.abs(x) > 0.01)[0]
-    return x[ativo[0]:ativo[-1] + 1] if len(ativo) else x
+    # tira silêncio das pontas, com folga pra não cortar finais baixinhos
+    # (o "u" de "achou" é fraco e sumia com um corte mais justo)
+    ativo = np.nonzero(np.abs(x) > 0.003)[0]
+    if not len(ativo):
+        return x
+    folga = int(0.04 * SR)
+    x = x[max(0, ativo[0] - folga):ativo[-1] + folga]
+    rampa = int(0.01 * SR)
+    x[-rampa:] *= np.linspace(1, 0, rampa)
+    return x
 
 
 def preparar(real_de, pausas, intervalo=0.25):
