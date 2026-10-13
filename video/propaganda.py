@@ -11,7 +11,32 @@ from functools import lru_cache
 
 from PIL import Image, ImageDraw, ImageFont
 
-W, H, FPS, DUR = 1080, 1920, 30, 15.0
+W, H, FPS = 1080, 1920, 30
+DUR_ANIM = 15.0  # duração da animação "crua"
+LENTO = 1.2      # deixa todas as animações um pouco mais calmas
+# pausas pra leitura: (momento da animação, segundos parado)
+PAUSAS = [(2.0, 1.5), (5.9, 1.8), (8.9, 1.0), (10.9, 2.0), (13.8, 2.5)]
+
+
+def real_de(ti):
+    """Tempo da animação -> tempo real do vídeo."""
+    return ti * LENTO + sum(h for p, h in PAUSAS if p < ti)
+
+
+def interno(tr):
+    """Tempo real do vídeo -> tempo da animação (congela nas pausas)."""
+    acc, prev = 0.0, 0.0
+    for p, h in PAUSAS:
+        fim_seg = acc + (p - prev) * LENTO
+        if tr < fim_seg:
+            return prev + (tr - acc) / LENTO
+        if tr < fim_seg + h:
+            return p
+        acc, prev = fim_seg + h, p
+    return prev + (tr - acc) / LENTO
+
+
+DUR = real_de(DUR_ANIM)
 FONT_DIR = "/usr/share/fonts/opentype/inter"
 MX = 90  # margem lateral
 
@@ -332,7 +357,8 @@ def grao(i):
 CENAS = [(0, 3, cena1), (3, 6.5, cena2), (6.5, 11.5, cena3)]
 
 
-def frame(t, arroba):
+def frame(tr, arroba):
+    t = interno(tr)
     if t < 11.5:
         c = fundo(PAPEL)
         marca(c, arroba, CINZA)
@@ -341,7 +367,7 @@ def frame(t, arroba):
                 S = layer()
                 cena(S, t)
                 # zoom lento durante a cena
-                z = 1 + 0.03 * (t - ini) / (fim - ini)
+                z = 1 + 0.03 * (tr - real_de(ini)) / (real_de(fim) - real_de(ini))
                 if z > 1.001:
                     zw, zh = int(W * z), int(H * z)
                     S = S.resize((zw, zh), Image.BILINEAR).crop(
@@ -367,7 +393,7 @@ def frame(t, arroba):
         marca(c, arroba, CINZA)
         cena4(c, t, arroba)
         c.alpha_composite(grao(0))
-    f = prog(t, DUR - 0.3, 0.3)
+    f = prog(tr, DUR - 0.4, 0.4)
     if f > 0:
         c.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, int(255 * f))))
     return c.convert("RGB")
@@ -439,7 +465,7 @@ def gerar_audio(caminho):
     k = 0
     while k * b < DUR - 0.4:
         t0 = k * b
-        forte = 1.0 if t0 >= 11.5 else 0.7
+        forte = 1.0 if t0 >= real_de(11.5) else 0.7
         add(t0, kick(), 0.55 * forte)
         add(t0 + b / 2, hat(), 0.18 * forte)
         if k % 2 == 0:
@@ -447,15 +473,15 @@ def gerar_audio(caminho):
         k += 1
 
     for t0 in (2.75, 6.25, 11.1):
-        add(t0, whoosh(), 0.35)
+        add(real_de(t0), whoosh(), 0.35)
     # digitação
     for i in range(11):
-        add(3 + 0.45 + i * 0.8 / 11, tecla(), 0.5)
-    add(4.35, pop(420), 0.35)          # nenhum resultado
-    add(5.2, kick(), 0.6)              # foi pro concorrente
-    add(6.5 + 2.7, tecla(), 0.9)       # clique
-    add(6.5 + 2.95, ding(), 0.3)       # notificação
-    add(11.5 + 1.1, pop(700), 0.35)    # botão final
+        add(real_de(3 + 0.45 + i * 0.8 / 11), tecla(), 0.5)
+    add(real_de(4.35), pop(420), 0.35)          # nenhum resultado
+    add(real_de(5.2), kick(), 0.6)              # foi pro concorrente
+    add(real_de(6.5 + 2.7), tecla(), 0.9)       # clique
+    add(real_de(6.5 + 2.95), ding(), 0.3)       # notificação
+    add(real_de(11.5 + 1.1), pop(700), 0.35)    # botão final
 
     # fade out e normaliza
     fo = int(0.5 * SR)
