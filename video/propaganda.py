@@ -149,10 +149,12 @@ def narracao():
 
 
 @lru_cache(maxsize=None)
-def sprite(boca, piscando, acenando, pernas, escuro):
-    from PIL import ImageFilter
+def sprite(boca, piscando, acenando, pernas, escuro, virado=False):
+    from PIL import ImageFilter, ImageOps
     sombra = (45, 45, 45) if escuro else (214, 208, 196)
     im = mascote.desenhar(boca, piscando, px=8, acenando=acenando, pernas=pernas, sombra=sombra)
+    if virado:  # olhando pra esquerda
+        im = ImageOps.mirror(im)
     if escuro:  # contorno claro pra não sumir no fundo preto
         borda = im.getchannel("A").filter(ImageFilter.MaxFilter(9))
         fundo_borda = Image.new("RGBA", im.size, PAPEL + (255,))
@@ -162,7 +164,37 @@ def sprite(boca, piscando, acenando, pernas, escuro):
     return im
 
 
-MASC_X, MASC_Y = 850, 1330
+MASC_Y = 1330
+PASSO = 0.125  # segundos por passo
+
+
+def caminhada():
+    """Trajetos do mascote: (início real, duração, x de saída, x de chegada).
+
+    Ele vai pros cantos livres de cada cena: direita na abertura, esquerda do
+    celular na cena 2, direita de novo no site e uns passos pro botão no final.
+    """
+    return [
+        (0.0, 1.0, W + 40, 850),
+        (real_de(3.0) + 0.1, 1.7, 850, 30),
+        (real_de(6.5) + 0.1, 1.7, 30, 850),
+        (real_de(11.5) + 0.7, 0.9, 850, 720),
+    ]
+
+
+def posicao_mascote(tr):
+    """Retorna (x, andando, virado_pra_esquerda) no instante tr."""
+    x, virado = W + 40, True
+    for ini, dur, de, para in caminhada():
+        if tr < ini:
+            break
+        virado = para < de
+        if tr < ini + dur:
+            k = (tr - ini) / dur
+            k = k * k * (3 - 2 * k)  # acelera e freia suave
+            return lerp(de, para, k), True, virado
+        x = para
+    return x, False, virado
 
 
 def desenhar_mascote(c, tr, escuro):
@@ -171,20 +203,19 @@ def desenhar_mascote(c, tr, escuro):
     v = env[k] if k < len(env) else 0
     boca = "aberta" if v > 0.35 else "meio" if v > 0.1 else "fechada"
     piscando = (tr % 3.3) < 0.13
-    # acena no "Ei, você!" e no "Me chama"
-    acenando = tr < agenda[0][0] + 1.0 or tr >= agenda[-1][0]
-    # entra andando pela direita
-    p = prog(tr, 0.0, 0.9)
-    x = lerp(W + 40, MASC_X, ease(p))
-    if p < 1:
-        pernas = "passo1" if int(tr * 8) % 2 == 0 else "passo2"
-        y = MASC_Y - abs(math.sin(tr * 8 * math.pi / 2)) * 10
+    x, andando, virado = posicao_mascote(tr)
+    # acena no "Ei, você!" e no "Me chama" (mas não enquanto anda)
+    acenando = not andando and (tr < agenda[0][0] + 1.0 or tr >= agenda[-1][0])
+    if andando:
+        pernas = "passo1" if int(tr / PASSO) % 2 == 0 else "passo2"
+        y = MASC_Y - abs(math.sin(tr / PASSO * math.pi)) * 10
     else:
         pernas = "parado"
         y = MASC_Y + math.sin(tr * 3) * 4
+        virado = False  # parado, olha pra frente
     if v > 0.1:  # quica de leve enquanto fala
         y -= v * 6
-    c.alpha_composite(sprite(boca, piscando, acenando, pernas, escuro), (int(x), int(y)))
+    c.alpha_composite(sprite(boca, piscando, acenando, pernas, escuro, virado), (int(x), int(y)))
 
 
 # ---------- cenas ----------
@@ -582,6 +613,13 @@ def gerar_audio(caminho):
         return y * (tt / dur) ** 2
 
     add(real_de(11.5) - 1.4, subida(1.4), 0.5)
+
+    # passinhos enquanto o mascote anda
+    for ini, dur, _de, _para in caminhada():
+        t0 = ini + PASSO / 2
+        while t0 < ini + dur:
+            add(t0, tecla(), 0.18)
+            t0 += PASSO
 
     for t0 in (2.75, 6.25, 11.1):
         add(real_de(t0), whoosh(), 0.35)
