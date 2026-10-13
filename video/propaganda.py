@@ -213,8 +213,10 @@ def cena3(c, t):
     # botão de WhatsApp
     a = aparece(1.6)
     if a > 0:
+        clicado = 2.7 <= lt < 2.9
+        cor_bt = (20, 160, 75) if clicado else VERDE_ZAP
         d.rounded_rectangle([ix0 + 36, y + 255, ix0 + 36 + 330 * a, y + 310], radius=28,
-                            fill=VERDE_ZAP + (255,))
+                            fill=cor_bt + (255,))
         if a > 0.95:
             bt = text_img("Chamar no WhatsApp", "Bold", 26, (255, 255, 255))
             L.alpha_composite(bt, (ix0 + 36 + 165 - bt.width // 2, y + 282 - bt.height // 2))
@@ -234,7 +236,7 @@ def cena3(c, t):
 
     itens = ["Aparece no Google", "Fica perfeito no celular", "Cliente te chama no Zap"]
     for i, txt in enumerate(itens):
-        p = prog(lt, 2.5 + i * 0.4, 0.35)
+        p = prog(lt, 3.1 + i * 0.35, 0.35)
         if p <= 0:
             continue
         yy = 1360 + i * 120
@@ -242,6 +244,52 @@ def cena3(c, t):
         ImageDraw.Draw(Q).rectangle([MX, yy + 22, MX + 28 * ease(p), yy + 50], fill=LARANJA + (255,))
         c.alpha_composite(Q)
         linha(c, txt, MX + 56, yy, 58, p, weight="Bold")
+
+    cursor(c, lt)
+    notificacao(c, lt)
+
+
+def cursor(c, lt):
+    p = prog(lt, 2.0, 0.6)
+    if p <= 0 or lt > 3.3:
+        return
+    x = lerp(860, 340, ease(p))
+    y = lerp(1500, 948, ease(p))
+    k = 0.85 if 2.7 <= lt < 2.85 else 1.0
+    L = layer()
+    d = ImageDraw.Draw(L)
+    if lt >= 2.7:  # onda do clique
+        r = 20 + 90 * prog(lt, 2.7, 0.4)
+        d.ellipse([x - r, y - r, x + r, y + r], outline=TINTA + (int(200 * (1 - prog(lt, 2.7, 0.4))),),
+                  width=5)
+    pts = [(0, 0), (0, 64), (16, 50), (28, 76), (40, 70), (28, 46), (48, 46)]
+    d.polygon([(x + px * k * 1.1, y + py * k * 1.1) for px, py in pts],
+              fill=TINTA + (255,), outline=(255, 255, 255, 255))
+    a = 1 - prog(lt, 3.0, 0.3)
+    c.alpha_composite(with_alpha(L, a))
+
+
+def notificacao(c, lt):
+    p = ease(prog(lt, 2.95, 0.4))
+    if p <= 0:
+        return
+    top = lerp(-240, 150, p)
+    L = layer()
+    d = ImageDraw.Draw(L)
+    x0, x1 = 50, W - 50
+    d.rounded_rectangle([x0 + 8, top + 14, x1 + 8, top + 214], radius=40, fill=(0, 0, 0, 40))
+    d.rounded_rectangle([x0, top, x1, top + 200], radius=40, fill=(255, 255, 255, 255),
+                        outline=(225, 222, 215, 255), width=2)
+    ix, iy = x0 + 36, top + 50
+    d.rounded_rectangle([ix, iy, ix + 100, iy + 100], radius=26, fill=VERDE_ZAP + (255,))
+    d.ellipse([ix + 22, iy + 22, ix + 78, iy + 74], outline=(255, 255, 255, 255), width=7)
+    d.polygon([(ix + 26, iy + 64), (ix + 20, iy + 84), (ix + 42, iy + 74)], fill=(255, 255, 255, 255))
+    tx = ix + 136
+    for txt, wgt, sz, cor, dy in [("WHATSAPP  ·  agora", "SemiBold", 26, CINZA, 30),
+                                  ("Cliente novo", "Bold", 40, TINTA, 66),
+                                  ("Oi! Vi seu site, quero um orçamento.", "Regular", 34, (60, 60, 60), 120)]:
+        L.alpha_composite(text_img(txt, wgt, sz, cor), (int(tx), int(top + dy)))
+    c.alpha_composite(L)
 
 
 def cena4(c, t, arroba):
@@ -272,16 +320,42 @@ def cena4(c, t, arroba):
         c.alpha_composite(L)
 
 
+@lru_cache(maxsize=None)
+def grao(i):
+    import numpy as np
+    rng = np.random.default_rng(i)
+    v = rng.integers(0, 256, (H, W), dtype=np.uint8)
+    a = np.full((H, W), 14, dtype=np.uint8)
+    return Image.fromarray(np.dstack([v, v, v, a]), "RGBA")
+
+
+CENAS = [(0, 3, cena1), (3, 6.5, cena2), (6.5, 11.5, cena3)]
+
+
 def frame(t, arroba):
     if t < 11.5:
         c = fundo(PAPEL)
-        if t < 3:
-            cena1(c, t)
-        elif t < 6.5:
-            cena2(c, t)
-        else:
-            cena3(c, t)
         marca(c, arroba, CINZA)
+        for ini, fim, cena in CENAS:
+            if ini <= t < fim:
+                S = layer()
+                cena(S, t)
+                # zoom lento durante a cena
+                z = 1 + 0.03 * (t - ini) / (fim - ini)
+                if z > 1.001:
+                    zw, zh = int(W * z), int(H * z)
+                    S = S.resize((zw, zh), Image.BILINEAR).crop(
+                        ((zw - W) // 2, (zh - H) // 2, (zw - W) // 2 + W, (zh - H) // 2 + H))
+                # saída: sobe e some (menos a última, que sai com a cortina)
+                if cena is not cena3:
+                    p = ease(prog(t, fim - 0.3, 0.3))
+                    if p > 0:
+                        S = with_alpha(S, 1 - p)
+                        c.alpha_composite(S, (0, -int(260 * p)))
+                        break
+                c.alpha_composite(S)
+                break
+        c.alpha_composite(grao(0))
         # cortina escura entrando de baixo pra cena final
         p = ease(prog(t, 11.15, 0.35))
         if p > 0:
@@ -290,12 +364,110 @@ def frame(t, arroba):
             c.alpha_composite(L)
     else:
         c = fundo(TINTA)
-        cena4(c, t, arroba)
         marca(c, arroba, CINZA)
+        cena4(c, t, arroba)
+        c.alpha_composite(grao(0))
     f = prog(t, DUR - 0.3, 0.3)
     if f > 0:
         c.alpha_composite(Image.new("RGBA", (W, H), (0, 0, 0, int(255 * f))))
     return c.convert("RGB")
+
+
+# ---------- áudio ----------
+SR = 44100
+
+
+def gerar_audio(caminho):
+    import wave
+    import numpy as np
+
+    n = int(DUR * SR)
+    mix = np.zeros(n)
+    rng = np.random.default_rng(7)
+
+    def add(t0, sinal, vol):
+        i = int(t0 * SR)
+        j = min(n, i + len(sinal))
+        if i < n:
+            mix[i:j] += sinal[: j - i] * vol
+
+    def env(dur, ataque=0.003, decai=8.0):
+        tt = np.arange(int(dur * SR)) / SR
+        return np.minimum(tt / ataque, 1) * np.exp(-tt * decai), tt
+
+    def kick():
+        e, tt = env(0.35, 0.002, 9)
+        freq = 50 + 90 * np.exp(-tt * 30)
+        return np.sin(2 * np.pi * np.cumsum(freq) / SR) * e
+
+    def hat():
+        e, _ = env(0.05, 0.001, 70)
+        x = rng.standard_normal(len(e))
+        return np.diff(x, prepend=0) * e
+
+    def tecla():
+        e, _ = env(0.035, 0.0005, 120)
+        x = rng.standard_normal(len(e))
+        return np.diff(x, prepend=0) * e
+
+    def pop(f=600):
+        e, tt = env(0.12, 0.001, 30)
+        return np.sin(2 * np.pi * f * tt * (1 + 0.6 * np.exp(-tt * 40))) * e
+
+    def whoosh(dur=0.45):
+        tt = np.arange(int(dur * SR)) / SR
+        x = rng.standard_normal(len(tt))
+        # passa-baixa simples com corte subindo
+        y = np.zeros_like(x)
+        a = 0.02 + 0.25 * (tt / dur)
+        for k in range(1, len(x)):
+            y[k] = y[k - 1] + a[k] * (x[k] - y[k - 1])
+        return y * np.sin(np.pi * tt / dur) ** 2
+
+    def ding():
+        e, tt = env(0.6, 0.002, 6)
+        return (np.sin(2 * np.pi * 1318 * tt) + 0.6 * np.sin(2 * np.pi * 1760 * tt)) * e
+
+    def baixo(f, dur):
+        e, tt = env(dur, 0.01, 3)
+        return np.tanh(2 * np.sin(2 * np.pi * f * tt)) * e
+
+    # batida: 120 bpm, entra leve e cresce no final
+    bpm = 120
+    b = 60 / bpm
+    notas = [55, 55, 65.4, 49]
+    k = 0
+    while k * b < DUR - 0.4:
+        t0 = k * b
+        forte = 1.0 if t0 >= 11.5 else 0.7
+        add(t0, kick(), 0.55 * forte)
+        add(t0 + b / 2, hat(), 0.18 * forte)
+        if k % 2 == 0:
+            add(t0, baixo(notas[(k // 4) % 4], b * 1.8), 0.16 * forte)
+        k += 1
+
+    for t0 in (2.75, 6.25, 11.1):
+        add(t0, whoosh(), 0.35)
+    # digitação
+    for i in range(11):
+        add(3 + 0.45 + i * 0.8 / 11, tecla(), 0.5)
+    add(4.35, pop(420), 0.35)          # nenhum resultado
+    add(5.2, kick(), 0.6)              # foi pro concorrente
+    add(6.5 + 2.7, tecla(), 0.9)       # clique
+    add(6.5 + 2.95, ding(), 0.3)       # notificação
+    add(11.5 + 1.1, pop(700), 0.35)    # botão final
+
+    # fade out e normaliza
+    fo = int(0.5 * SR)
+    mix[-fo:] *= np.linspace(1, 0, fo)
+    mix = mix / (np.abs(mix).max() + 1e-9)
+    mix = np.tanh(mix * 3) / np.tanh(3) * 0.8
+    pcm = (mix * 32767).astype(np.int16)
+    with wave.open(caminho, "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(SR)
+        w.writeframes(pcm.tobytes())
 
 
 def main():
@@ -311,10 +483,12 @@ def main():
             frame(s, args.arroba).save(f"preview_{s:05.2f}.png")
         return
 
+    wav = os.path.splitext(args.out)[0] + "_audio.wav"
+    gerar_audio(wav)
     ff = subprocess.Popen(
         ["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
          "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
-         "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo", "-shortest",
+         "-i", wav, "-shortest",
          "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
          "-c:a", "aac", "-movflags", "+faststart", args.out],
         stdin=subprocess.PIPE)
@@ -325,6 +499,7 @@ def main():
             print(f"{i}/{total}", flush=True)
     ff.stdin.close()
     ff.wait()
+    os.remove(wav)
     print("ok:", args.out)
 
 
