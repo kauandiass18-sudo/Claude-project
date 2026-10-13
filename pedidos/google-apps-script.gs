@@ -1,9 +1,11 @@
 /* =========================================================================
    Pedidos de site → Google Sheets
    -------------------------------------------------------------------------
-   Cole este código em Extensões › Apps Script da sua planilha e publique
-   como "App da Web" (passo a passo no README). Cada pedido enviado pelo
-   site vira uma linha na aba "Pedidos" e você recebe um e-mail de aviso.
+   Cole este código em Extensões › Apps Script de uma planilha ou num
+   projeto novo em script.new, e publique como "App da Web" (passo a passo
+   no README). Cada pedido enviado pelo site vira uma linha na aba "Pedidos"
+   e você recebe um e-mail de aviso. Se o código não estiver ligado a uma
+   planilha, ele cria a planilha "Pedidos de site" no seu Google Drive.
    ========================================================================= */
 
 /* Avisar por e-mail a cada pedido novo? (vai para o e-mail da sua conta Google) */
@@ -60,7 +62,7 @@ function doPost(e) {
       MailApp.sendEmail({
         to: Session.getEffectiveUser().getEmail(),
         subject: "Novo pedido de site: " + pedido.nome + " (" + pedido.negocio + ")",
-        body: texto + "\n\nPlanilha: " + SpreadsheetApp.getActiveSpreadsheet().getUrl()
+        body: texto + "\n\nPlanilha: " + planilha().getUrl()
       });
     }
 
@@ -83,19 +85,36 @@ function doGet() {
   return resposta({ ok: true, mensagem: "Recebedor de pedidos funcionando." });
 }
 
-/* Rode esta função uma vez pelo editor para autorizar e-mail e planilha */
+/* Rode esta função uma vez pelo editor para autorizar e-mail e planilha.
+   O endereço da planilha aparece no "Registro de execução". */
 function testar() {
+  Logger.log("Planilha: " + planilha().getUrl());
   doPost({ postData: { contents: JSON.stringify({ dados: {
     nome: "Teste", negocio: "Restaurante", ideia: "Pedido de teste do site.",
     whatsapp: "(69) 99999-9999"
   } }) } });
 }
 
+/* Planilha onde os pedidos ficam: a planilha do script, se houver;
+   senão, uma planilha "Pedidos de site" criada no seu Drive na 1ª vez. */
+function planilha() {
+  var ativa = SpreadsheetApp.getActiveSpreadsheet();
+  if (ativa) return ativa;
+
+  var props = PropertiesService.getScriptProperties();
+  var id = props.getProperty("PLANILHA_ID");
+  if (id) return SpreadsheetApp.openById(id);
+
+  var nova = SpreadsheetApp.create("Pedidos de site");
+  props.setProperty("PLANILHA_ID", nova.getId());
+  return nova;
+}
+
 function aba() {
-  var planilha = SpreadsheetApp.getActiveSpreadsheet();
-  var folha = planilha.getSheetByName(ABA);
+  var arquivo = planilha();
+  var folha = arquivo.getSheetByName(ABA);
   if (!folha) {
-    folha = planilha.insertSheet(ABA);
+    folha = arquivo.insertSheet(ABA);
     folha.appendRow(CABECALHO);
     folha.getRange(1, 1, 1, CABECALHO.length).setFontWeight("bold");
     folha.setFrozenRows(1);

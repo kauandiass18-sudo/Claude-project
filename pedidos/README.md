@@ -54,17 +54,22 @@ prazo, ideia, WhatsApp e link para responder) e você recebe um e-mail na sua
 conta Google. Ative as notificações do app Gmail no celular para ser avisado
 na hora.
 
-1. Entre em [sheets.new](https://sheets.new) com sua conta Google para criar
-   uma planilha nova. Dê um nome, por exemplo "Pedidos de site".
-2. No menu, abra **Extensões › Apps Script**.
+1. Entre em [script.new](https://script.new) com sua conta Google. Abre um
+   projeto novo do Apps Script. No celular, peça a versão para computador
+   no menu do navegador.
+2. Dê um nome ao projeto, por exemplo "Pedidos de site".
 3. Apague o código que aparece e cole todo o conteúdo de
    `google-apps-script.gs`. Clique no ícone de salvar.
+
+   O script cria sozinho a planilha "Pedidos de site" no seu Drive. Se
+   preferir usar uma planilha que já existe, abra-a no computador e cole o
+   código em **Extensões › Apps Script**.
 4. No topo do editor, escolha a função **testar** e clique em **Executar**.
    O Google pede autorização: clique em **Revisar permissões**, escolha sua
    conta, depois em **Avançado › Acessar (não seguro)** e **Permitir**. Isso
    aparece porque o script é seu e ainda não foi verificado pelo Google.
-   Confira: deve surgir a aba "Pedidos" com uma linha de teste e chegar um
-   e-mail. Pode apagar essa linha depois.
+   Confira: deve aparecer no Drive a planilha "Pedidos de site", com uma
+   linha de teste na aba "Pedidos", e chegar um e-mail. Pode apagar essa linha depois.
 5. Clique em **Implantar › Nova implantação**. Na engrenagem, escolha
    **App da Web** e preencha:
    - **Executar como:** Eu
