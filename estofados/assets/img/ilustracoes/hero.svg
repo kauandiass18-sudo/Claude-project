@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Ilustração de sala de estar contemporânea com sofá">
+  <defs>
+    <linearGradient id="luz" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="parede" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F4F9FD"/>
+      <stop offset="1" stop-color="#EAF3FA"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="#102A43" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- parede e piso -->
+    <rect x="0" y="0" width="800" height="722" fill="url(#parede)" stroke="none"/>
+    <rect x="0" y="722" width="800" height="278" fill="#E6EFF6" stroke="none"/>
+    <path d="M0 722H800" stroke="#B9C9D6"/>
+    <path d="M0 708H800" stroke="#DCE5EC"/>
+
+    <!-- janela -->
+    <path d="M78 600V190a122 122 0 0 1 244 0V600Z" fill="#FFFFFF"/>
+    <path d="M200 70V600M78 330H322" stroke="#9FB3C3"/>
+    <path d="M90 600V192a110 110 0 0 1 220 0V600" stroke="#DCE5EC"/>
+    <path d="M66 600H334" />
+    <path d="M78 600 0 1000H420L322 600Z" fill="url(#luz)" stroke="none" opacity=".55"/>
+    <!-- cortina -->
+    <path d="M44 60C52 220 34 400 50 706M58 60C68 240 50 420 64 706M30 60C38 260 22 470 36 706" stroke="#B9C9D6" stroke-width="1.2"/>
+    <path d="M22 60H346" stroke="#9FB3C3"/>
+
+    <!-- quadro -->
+    <rect x="470" y="160" width="236" height="176" fill="#FFFFFF"/>
+    <rect x="492" y="182" width="192" height="132" stroke="#DCE5EC"/>
+    <path d="M508 300C548 228 618 214 668 300Z" fill="#D6E7F4" stroke="none"/>
+    <path d="M508 300C548 228 618 214 668 300"/>
+    <circle cx="628" cy="226" r="14" fill="#FFFFFF"/>
+    <path d="M508 300H668"/>
+
+    <!-- planta -->
+    <path d="M44 520C30 470 34 420 62 380C70 430 66 482 52 524Z" fill="#FFFFFF"/>
+    <path d="M58 560C78 498 110 470 150 456C138 510 104 548 64 566Z" fill="#E3EDF4"/>
+    <path d="M50 600C24 560 6 530 0 488C40 504 60 548 62 598Z" fill="#FFFFFF"/>
+    <path d="M60 702C64 600 70 470 62 380M60 690C52 620 50 560 46 520M62 660C80 580 110 500 150 456M62 700C60 660 58 620 50 600"/>
+    <path d="M22 700H104L94 790H32Z" fill="#FFFFFF"/>
+    <path d="M28 742H98" stroke="#DCE5EC"/>
+
+    <!-- luminária e mesa lateral -->
+    <g transform="translate(10 0)">
+    <path d="M708 548H778L796 610H690Z" fill="#FFFFFF"/>
+    <path d="M743 610V664"/>
+    <ellipse cx="745" cy="668" rx="52" ry="8" fill="#FFFFFF"/>
+    <path d="M745 676V790M716 790H774"/>
+    </g>
+
+    <!-- tapete -->
+    <path d="M96 772H704L780 958H20Z" fill="#F7FBFE" stroke="#B9C9D6"/>
+    <path d="M112 786H688L752 942H48Z" stroke="#DCE5EC"/>
+
+    <g transform="translate(400 790) scale(.94) translate(-400 -790)">
+    <!-- sombra -->
+    <ellipse cx="400" cy="788" rx="330" ry="15" fill="#C9D9E5" stroke="none" opacity=".6"/>
+
+    <!-- sofá -->
+    <rect x="122" y="512" width="556" height="150" rx="34" fill="#FFFFFF"/>
+    <rect x="166" y="532" width="232" height="132" rx="24" fill="#FBFDFE"/>
+    <rect x="402" y="532" width="232" height="132" rx="24" fill="#FBFDFE"/>
+    <path d="M200 552C250 546 320 546 368 552M436 552C486 546 556 546 604 552" stroke="#DCE5EC"/>
+    <rect x="160" y="650" width="242" height="64" rx="16" fill="#FFFFFF"/>
+    <rect x="398" y="650" width="242" height="64" rx="16" fill="#FFFFFF"/>
+    <path d="M176 664H386M414 664H624" stroke="#DCE5EC"/>
+    <rect x="96" y="590" width="80" height="168" rx="32" fill="#FFFFFF"/>
+    <rect x="624" y="590" width="80" height="168" rx="32" fill="#FFFFFF"/>
+    <path d="M114 612C124 604 148 604 158 612M642 612C652 604 676 604 686 612" stroke="#DCE5EC"/>
+    <rect x="160" y="712" width="480" height="46" rx="10" fill="#FFFFFF"/>
+    <path d="M128 758 134 790M672 758 666 790M196 758 200 784M604 758 600 784" stroke-width="2.4"/>
+
+    <!-- almofadas -->
+    <path d="M186 600C182 572 196 560 220 566L284 580C306 586 312 600 306 626L296 664C292 690 276 696 254 690L196 676C176 670 170 656 176 634Z" fill="#CFE2F1"/>
+    <path d="M200 590 290 612M196 622 282 642" stroke="#A9C8E0" stroke-width="1.2"/>
+    <path d="M500 600C498 576 512 566 534 568L596 574C618 578 624 590 622 612L618 652C616 676 602 684 580 682L522 676C502 674 494 662 496 642Z" fill="#FFFFFF"/>
+
+    <!-- manta no braço -->
+    <path d="M620 590C640 584 668 588 692 600L700 690C690 700 668 702 648 698L640 640C636 616 630 600 620 590Z" fill="#DCE5EC"/>
+    <path d="M652 610 660 690M672 606 680 692" stroke="#B9C9D6" stroke-width="1.2"/>
+
+    </g>
+
+    <!-- mesa de centro -->
+    <ellipse cx="400" cy="868" rx="170" ry="28" fill="#FFFFFF"/>
+    <path d="M230 868V880C230 896 306 910 400 910C494 910 570 896 570 880V868" fill="#FFFFFF"/>
+    <path d="M290 904 286 946M510 904 514 946M400 910V950"/>
+    <rect x="318" y="842" width="96" height="12" rx="2" fill="#FFFFFF"/>
+    <rect x="326" y="832" width="80" height="10" rx="2" fill="#D6E7F4"/>
+    <path d="M470 856C462 820 470 796 482 780H494C506 796 514 820 506 856Z" fill="#FFFFFF"/>
+    <path d="M488 780C486 750 476 730 460 716M488 780C494 748 506 732 522 724" stroke-width="1.2"/>
+  </g>
+</svg>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de ambiente sofisticado com poltrona junto à janela">
+  <defs>
+    <linearGradient id="l" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <g fill="none" stroke="#102A43" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect width="1200" height="540" fill="#EEF5FB" stroke="none"/>
+    <rect y="540" width="1200" height="160" fill="#E3EDF4" stroke="none"/>
+    <path d="M0 540H1200" stroke="#B9C9D6"/>
+    <rect x="640" y="70" width="420" height="440" fill="#FFFFFF"/>
+    <path d="M780 70V510M920 70V510M640 290H1060" stroke="#B9C9D6"/>
+    <path d="M640 510 520 700H1200L1060 510Z" fill="url(#l)" stroke="none" opacity=".6"/>
+    <path d="M610 60C618 240 600 420 616 548M624 60C634 260 616 440 630 548" stroke="#B9C9D6" stroke-width="1.2"/>
+    <path d="M590 56H1100" stroke="#9FB3C3"/>
+    <!-- poltrona -->
+    <ellipse cx="900" cy="620" rx="170" ry="12" fill="#C9D9E5" stroke="none" opacity=".6"/>
+    <path d="M770 380c0-50 30-80 80-80h100c50 0 80 30 80 80v150H770Z" fill="#FFFFFF"/>
+    <rect x="744" y="440" width="66" height="150" rx="30" fill="#FFFFFF"/>
+    <rect x="990" y="440" width="66" height="150" rx="30" fill="#FFFFFF"/>
+    <rect x="800" y="520" width="200" height="56" rx="16" fill="#FFFFFF"/>
+    <path d="M770 590 762 628M1030 590 1038 628" stroke-width="2.2"/>
+    <path d="M830 450c-2-22 12-32 32-28l70 12c18 4 24 14 20 34l-8 40c-4 18-16 24-34 20l-62-12c-18-4-22-14-20-30Z" fill="#CFE2F1"/>
+    <!-- banqueta -->
+    <rect x="1080" y="560" width="110" height="44" rx="14" fill="#FFFFFF"/>
+    <path d="M1092 604v30M1178 604v30" stroke-width="2.2"/>
+    <!-- vaso -->
+    <path d="M1110 560c-6-34 2-64 14-80h14c12 16 20 46 14 80" fill="#FFFFFF"/>
+    <path d="M1130 480c-4-40-20-70-42-90M1132 480c6-36 24-60 48-74" stroke-width="1.1"/>
+  </g>
+</svg>

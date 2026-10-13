@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração de tecido de estofado em close">
+  <defs>
+    <pattern id="trama" width="10" height="10" patternUnits="userSpaceOnUse">
+      <rect width="10" height="10" fill="#E9F1F8"/>
+      <rect x="0" y="0" width="5" height="5" fill="#DCE8F2"/>
+      <rect x="5" y="5" width="5" height="5" fill="#DCE8F2"/>
+      <path d="M0 2.5h5M5 7.5h5" stroke="#F6FAFD" stroke-width=".8"/>
+      <path d="M7.5 0v5M2.5 5v5" stroke="#CFDFEC" stroke-width=".8"/>
+    </pattern>
+    <radialGradient id="luz" cx=".3" cy=".2" r="1"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".6" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#102A43" stop-opacity=".12"/></radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#trama)"/>
+  <!-- almofadas: costuras -->
+  <path d="M0 330C300 300 900 300 1200 330V800H0Z" fill="url(#trama)"/>
+  <path d="M0 330C300 300 900 300 1200 330" fill="none" stroke="#9FB6C9" stroke-width="3"/>
+  <path d="M0 342C300 312 900 312 1200 342" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="10 8" opacity=".9"/>
+  <path d="M600 316V800" fill="none" stroke="#9FB6C9" stroke-width="3"/>
+  <path d="M612 320V800" fill="none" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="10 8" opacity=".9"/>
+  <path d="M0 318C300 288 900 288 1200 318" fill="none" stroke="#102A43" stroke-opacity=".08" stroke-width="18"/>
+  <rect width="1200" height="800" fill="url(#luz)"/>
+</svg>

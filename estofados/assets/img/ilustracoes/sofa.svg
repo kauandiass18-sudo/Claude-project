@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustração de poltrona e sofá">
+  <g fill="none" stroke="#102A43" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect width="800" height="440" fill="#F1F7FC" stroke="none"/>
+    <rect y="440" width="800" height="160" fill="#E6EFF6" stroke="none"/>
+    <path d="M0 440H800" stroke="#B9C9D6"/>
+    <!-- arandela -->
+    <path d="M588 120h40M608 120v40" /><path d="M590 160h36l10 34h-56Z" fill="#FFFFFF"/>
+    <!-- poltrona -->
+    <ellipse cx="300" cy="512" rx="190" ry="12" fill="#C9D9E5" stroke="none" opacity=".6"/>
+    <path d="M160 220C160 180 190 160 230 160H370C410 160 440 180 440 220V400H160Z" fill="#FFFFFF"/>
+    <path d="M190 250C186 214 206 196 236 196H364C394 196 414 214 410 250" stroke="#DCE5EC"/>
+    <rect x="132" y="300" width="70" height="170" rx="30" fill="#FFFFFF"/>
+    <rect x="398" y="300" width="70" height="170" rx="30" fill="#FFFFFF"/>
+    <rect x="196" y="380" width="208" height="58" rx="16" fill="#FFFFFF"/>
+    <rect x="196" y="434" width="208" height="38" rx="8" fill="#FFFFFF"/>
+    <path d="M158 470 150 512M442 470 450 512M220 472 218 500M380 472 382 500" stroke-width="2.2"/>
+    <path d="M230 300C226 276 240 266 262 270L340 282C360 286 366 298 362 320L354 366C350 386 336 392 314 388L244 376C226 372 220 360 222 342Z" fill="#CFE2F1"/>
+    <path d="M244 296 346 314M238 330 340 348" stroke="#A9C8E0" stroke-width="1.1"/>
+    <!-- mesa lateral -->
+    <ellipse cx="600" cy="400" rx="70" ry="12" fill="#FFFFFF"/>
+    <path d="M600 412V500M560 500H640"/>
+    <rect x="562" y="372" width="64" height="16" rx="2" fill="#FFFFFF"/>
+    <path d="M596 372c-4-30 4-52 18-66h10c14 14 22 36 18 66" fill="#FFFFFF" transform="translate(-30 0)"/>
+  </g>
+</svg>
