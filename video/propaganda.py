@@ -17,7 +17,7 @@ W, H, FPS = 1080, 1920, 60
 DUR_ANIM = 15.0  # duração da animação "crua"
 LENTO = 1.2      # deixa todas as animações um pouco mais calmas
 # pausas pra leitura: (momento da animação, segundos parado)
-PAUSAS = [(2.0, 1.5), (5.9, 1.8), (8.9, 1.5), (10.9, 3.2), (13.8, 3.5)]
+PAUSAS = [(2.0, 0.8), (5.9, 1.8), (8.9, 1.5), (10.9, 3.2), (13.8, 3.5)]
 
 
 def real_de(ti):
@@ -194,8 +194,6 @@ def cena1(c, t):
                                     fill=LARANJA + (255,))
         c.alpha_composite(L)
     linha(c, "no Google.", MX, 880, 128, prog(t, 0.45, 0.45))
-    texto(c, "E aí, achou?", MX, 1130, 64, alpha=ease(prog(t, 1.6, 0.4)),
-          color=CINZA, weight="SemiBold")
 
 
 def celular(c, cx, cy, w, h, desenhar):
