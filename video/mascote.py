@@ -27,9 +27,19 @@ BASE = [
     ".KKKKKKKKKKKKKKKKKK.",
     ".KOOOOOOOOOOOOOOOOK.",
     ".KKKKKKKKKKKKKKKKKK.",
-    "........KKKK........",
-    "......KKKKKKKK......",
 ]
+
+PERNAS = {
+    "parado": ["......KK....KK......",
+               "......KK....KK......",
+               ".....OOO....OOO....."],
+    "passo1": ["......KK....KK......",
+               ".....OOO....KK......",
+               "............OOO....."],
+    "passo2": ["......KK....KK......",
+               "......KK...OOO......",
+               ".....OOO............"],
+}
 
 LINHA_BOCA = 10
 BOCAS = {
@@ -45,8 +55,9 @@ BRACO_DIR = [(19, 9), (20, 9), (20, 10), (20, 11), (20, 12), (21, 12), (20, 13),
 BRACO_ACENA = [(19, 9), (20, 9), (20, 8), (21, 7), (21, 6), (22, 5), (21, 5), (22, 4), (21, 4)]
 
 
-def desenhar(boca="fechada", piscando=False, px=24, acenando=False):
-    grade = [list(l) for l in BASE]
+def desenhar(boca="fechada", piscando=False, px=24, acenando=False, pernas="parado",
+             sombra=SOMBRA):
+    grade = [list(l) for l in BASE + PERNAS[pernas]]
     if piscando:
         for y in (5, 6):
             for x in range(20):
@@ -70,7 +81,7 @@ def desenhar(boca="fechada", piscando=False, px=24, acenando=False):
         d.rectangle([x0, y0, x0 + px - 1, y0 + px - 1], fill=cor + (255,))
 
     for x, y, _ in pixels:  # sombra chapada
-        p(x + 0.5, y + 0.5, SOMBRA)
+        p(x + 0.5, y + 0.5, sombra)
     for x, y, cor in pixels:
         p(x, y, cor)
     return im
@@ -79,8 +90,8 @@ def desenhar(boca="fechada", piscando=False, px=24, acenando=False):
 if __name__ == "__main__":
     import sys
     out = sys.argv[1] if len(sys.argv) > 1 else "mascote.png"
-    quadros = [desenhar("fechada"), desenhar("aberta", acenando=True),
-               desenhar("meio", piscando=True)]
+    quadros = [desenhar("fechada"), desenhar("aberta", acenando=True, pernas="passo1"),
+               desenhar("meio", piscando=True, pernas="passo2")]
     W = sum(q.width for q in quadros) + 120
     folha = Image.new("RGBA", (W + 120, quadros[0].height + 160), PAPEL + (255,))
     x = 60

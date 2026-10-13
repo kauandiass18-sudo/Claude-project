@@ -11,11 +11,13 @@ from functools import lru_cache
 
 from PIL import Image, ImageDraw, ImageFont
 
+import mascote
+
 W, H, FPS = 1080, 1920, 60
 DUR_ANIM = 15.0  # duração da animação "crua"
 LENTO = 1.2      # deixa todas as animações um pouco mais calmas
 # pausas pra leitura: (momento da animação, segundos parado)
-PAUSAS = [(2.0, 1.5), (5.9, 1.8), (8.9, 1.0), (10.9, 2.0), (13.8, 2.5)]
+PAUSAS = [(2.0, 1.5), (5.9, 1.8), (8.9, 1.0), (10.9, 2.6), (13.8, 2.5)]
 
 
 def real_de(ti):
@@ -124,6 +126,58 @@ def fundo(cor):
 def marca(c, arroba, cor):
     """@ fixo no canto, como em post de criador."""
     texto(c, arroba, MX, 110, 36, color=cor, weight="SemiBold")
+
+
+# ---------- narração + mascote ----------
+_NARR = None
+
+
+def narracao():
+    global _NARR
+    if _NARR is None:
+        import voz
+        sinal, agenda = voz.gerar_narracao(real_de, DUR)
+        _NARR = (sinal, agenda, voz.envelope(sinal, FPS))
+    return _NARR
+
+
+@lru_cache(maxsize=None)
+def sprite(boca, piscando, acenando, pernas, escuro):
+    from PIL import ImageFilter
+    sombra = (45, 45, 45) if escuro else (214, 208, 196)
+    im = mascote.desenhar(boca, piscando, px=8, acenando=acenando, pernas=pernas, sombra=sombra)
+    if escuro:  # contorno claro pra não sumir no fundo preto
+        borda = im.getchannel("A").filter(ImageFilter.MaxFilter(9))
+        fundo_borda = Image.new("RGBA", im.size, PAPEL + (255,))
+        fundo_borda.putalpha(borda)
+        fundo_borda.alpha_composite(im)
+        im = fundo_borda
+    return im
+
+
+MASC_X, MASC_Y = 850, 1330
+
+
+def desenhar_mascote(c, tr, escuro):
+    _, agenda, env = narracao()
+    k = int(tr * FPS)
+    v = env[k] if k < len(env) else 0
+    boca = "aberta" if v > 0.35 else "meio" if v > 0.1 else "fechada"
+    piscando = (tr % 3.3) < 0.13
+    # acena no "Ei, você!" e no "Me chama"
+    acenando = tr < agenda[0][0] + 1.0 or tr >= agenda[-1][0]
+    # entra andando pela direita
+    p = prog(tr, 0.0, 0.9)
+    x = lerp(W + 40, MASC_X, ease(p))
+    if p < 1:
+        pernas = "passo1" if int(tr * 8) % 2 == 0 else "passo2"
+        y = MASC_Y - abs(math.sin(tr * 8 * math.pi / 2)) * 10
+    else:
+        pernas = "parado"
+        y = MASC_Y + math.sin(tr * 3) * 4
+    if v > 0.1:  # quica de leve enquanto fala
+        y -= v * 6
+    c.alpha_composite(sprite(boca, piscando, acenando, pernas, escuro), (int(x), int(y)))
 
 
 # ---------- cenas ----------
@@ -405,6 +459,7 @@ def frame(tr, arroba):
                 c.alpha_composite(S, (dx, dy)) if dx >= 0 and dy >= 0 else \
                     c.alpha_composite(S.crop((max(0, -dx), max(0, -dy), W, H)), (max(0, dx), max(0, dy)))
                 break
+        desenhar_mascote(c, tr, False)
         c.alpha_composite(grao(0))
         # cortina escura entrando de baixo pra cena final
         p = ease(prog(t, 11.15, 0.35))
@@ -416,6 +471,7 @@ def frame(tr, arroba):
         c = fundo(TINTA)
         marca(c, arroba, CINZA)
         cena4(c, t, arroba)
+        desenhar_mascote(c, tr, True)
         c.alpha_composite(grao(0))
     f = prog(tr, DUR - 0.4, 0.4)
     if f > 0:
@@ -531,11 +587,20 @@ def gerar_audio(caminho):
     add(real_de(6.5 + 2.95), ding(), 0.3)       # notificação
     add(real_de(11.5 + 1.1), pop(700), 0.35)    # botão final
 
+    musica = np.tanh(mix / (np.abs(mix).max() + 1e-9) * 3) / np.tanh(3)
+    voz_sinal, agenda, _ = narracao()
+    voz_sinal = voz_sinal[:n] / (np.abs(voz_sinal).max() + 1e-9)
+    falando = np.zeros(n)
+    for ini, fim, _txt in agenda:
+        falando[int(ini * SR):int(fim * SR)] = 1
+    rampa = np.ones(int(0.15 * SR)) / int(0.15 * SR)
+    falando = np.convolve(falando, rampa, mode="same")
+    mix = musica * 0.3 * (1 - 0.55 * falando) + voz_sinal[:n] * 0.85
+
     # fade out e normaliza
     fo = int(0.5 * SR)
     mix[-fo:] *= np.linspace(1, 0, fo)
-    mix = mix / (np.abs(mix).max() + 1e-9)
-    mix = np.tanh(mix * 3) / np.tanh(3) * 0.8
+    mix = mix / (np.abs(mix).max() + 1e-9) * 0.9
     pcm = (mix * 32767).astype(np.int16)
     with wave.open(caminho, "wb") as w:
         w.setnchannels(1)
