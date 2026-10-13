@@ -201,6 +201,8 @@ def cena1(c, t):
                                     fill=LARANJA + (255,))
         c.alpha_composite(L)
     linha(c, "no Google.", MX, 880, 128, prog(t, 0.45, 0.45))
+    texto(c, "E aí, ele achou?", MX, 1130, 64, alpha=ease(prog(t, 1.6, 0.4)),
+          color=CINZA, weight="SemiBold")
 
 
 def celular(c, cx, cy, w, h, desenhar):

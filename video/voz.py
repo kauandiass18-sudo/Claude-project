@@ -33,6 +33,7 @@ SR = 44100
 # (momento da animação em que a fala começa, velocidade, texto escrito do jeito que deve soar)
 FALAS = [
     (0.0, 1.08, "Ei, você! Seu cliente procurou você no Gúgou..."),
+    (1.65, 1.05, "E aí, ele achou?"),
     (3.3, 1.12, "Olha só, ele digitou o nome da sua empresa..."),
     (4.5, 1.0, "E não achou nada."),
     (5.3, 1.1, "Aí ele foi direto pro concorrente!"),
