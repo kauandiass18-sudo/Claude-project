@@ -94,7 +94,20 @@ def suavizar_tom(f0, janela=7):
     return f0
 
 
-def ajustar_voz(x, pergunta=False, tom=2.0, piso=112.0, ar=0.35,
+def encorpar(sp, fator):
+    """Desloca os formantes (a "caixa de ressonância" da voz). fator < 1 = voz mais
+    encorpada/grossa, como de alguém maior, sem precisar afundar o tom."""
+    n = sp.shape[1]
+    origem = np.clip(np.arange(n) / fator, 0, n - 1)
+    log = np.log(sp + 1e-12)
+    return np.exp(np.array([np.interp(origem, np.arange(n), quadro) for quadro in log]))
+
+
+# Ajuste usado no vídeo: voz mais grossa e encorpada, mas sem rouquidão.
+AJUSTE = dict(tom=-2.0, formante=0.92, piso=88.0, ar=0.15)
+
+
+def ajustar_voz(x, pergunta=False, tom=2.0, piso=112.0, ar=0.35, formante=1.0,
                 dur_pergunta=0.5, subida=8.0):
     """Ajusta a voz com o vocoder WORLD (muda o tom sem mudar duração nem timbre).
 
@@ -114,6 +127,8 @@ def ajustar_voz(x, pergunta=False, tom=2.0, piso=112.0, ar=0.35,
     f0[v] *= 2 ** (tom / 12)
     f0[v] = np.where(f0[v] < piso, piso - (piso - f0[v]) * 0.1, f0[v])
     ap[v] *= ar
+    if formante != 1.0:
+        sp = encorpar(sp, formante)
 
     if pergunta:
         passo = 0.005  # o WORLD analisa de 5 em 5 ms
@@ -154,7 +169,7 @@ def preparar(real_de, pausas, intervalo=0.25):
     fim_anterior = -intervalo
     for t_anim, velocidade, texto in FALAS:
         x = sintetizar(texto, velocidade=velocidade)
-        x = humanizar(ajustar_voz(x, pergunta=texto.rstrip().endswith("?")))
+        x = humanizar(ajustar_voz(x, pergunta=texto.rstrip().endswith("?"), **AJUSTE))
         falta = fim_anterior + intervalo - real_de(t_anim)
         if falta > 0:
             pausas.append((t_anim - 0.001, falta))
