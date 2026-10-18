@@ -102,17 +102,6 @@
     if (nota) nota.textContent = SITE.notaPlanos || '';
   }
 
-  /* ---------- Sobre ---------- */
-  function montarSobre() {
-    var dl = $('[data-sobre]');
-    if (!dl) return;
-    var itens = SITE.sobre || [];
-    if (!itens.length) { dl.hidden = true; return; }
-    dl.innerHTML = itens.map(function (item) {
-      return '<div><dt>' + escapar(item.rotulo) + '</dt><dd>' + numeroAnimado(item) + '</dd></div>';
-    }).join('');
-  }
-
   /* ---------- Fundador ---------- */
   function montarFundador() {
     var f = SITE.fundador || {};
@@ -334,22 +323,6 @@
     });
   }
 
-  /* ---------- Profundidade na composição do hero ---------- */
-  function paralaxe() {
-    var visual = $('[data-parallax]');
-    if (!visual || reduzMovimento || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-    $$('[data-profundidade]', visual).forEach(function (c) { c.style.setProperty('--p', c.getAttribute('data-profundidade')); });
-    var quadro = null;
-    window.addEventListener('pointermove', function (e) {
-      if (quadro) return;
-      quadro = requestAnimationFrame(function () {
-        quadro = null;
-        visual.style.setProperty('--mx', ((e.clientX / window.innerWidth) - .5) * 2);
-        visual.style.setProperty('--my', ((e.clientY / window.innerHeight) - .5) * 2);
-      });
-    }, { passive: true });
-  }
-
   /* ---------- Rodapé e metadados ---------- */
   function rodape() {
     var ano = $('[data-ano]');
@@ -369,7 +342,6 @@
   /* ---------- Início ---------- */
   montarIndicadores();
   montarPlanos();
-  montarSobre();
   montarFundador();
   montarDepoimentos();
   montarGaleria();
@@ -377,7 +349,6 @@
   rodape();
   revelar();
   brilho();
-  paralaxe();
   observarSecoes();
   aoRolar();
   window.addEventListener('scroll', aoRolar, { passive: true });

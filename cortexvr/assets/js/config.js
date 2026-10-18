@@ -98,15 +98,6 @@ window.SITE = {
   ],
   notaPlanos: 'Antes de contratar, confirme pelo WhatsApp o escopo, os prazos, o formato dos vídeos, o número de revisões e as condições de pagamento.',
 
-  /* ---------- Indicadores institucionais (seção Sobre) ----------
-     PENDENTE: confirmar a validade antes de publicar. */
-  sobre: [
-    { valor: 100, sufixo: '+', rotulo: 'Projetos' },
-    { valor: 3,   sufixo: '+', rotulo: 'Anos de experiência' },
-    { valor: 98,  sufixo: '%', rotulo: 'Satisfação' },
-    { valor: 24,  sufixo: 'h', rotulo: 'Suporte via WhatsApp' }
-  ],
-
   /* ---------- Fundador ----------
      PENDENTE: foto real do Lucas. Coloque em assets/img/ (vertical 4:5,
      cerca de 1200 px de altura) e informe o caminho. Vazio = monograma. */

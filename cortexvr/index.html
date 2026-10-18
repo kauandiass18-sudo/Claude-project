@@ -109,43 +109,18 @@
           <p class="hero__frase revelar" style="--d:4">Criatividade, estratégia e tecnologia trabalhando a favor da sua marca.</p>
         </div>
 
-        <!-- Composição visual: núcleo + camadas que representam vídeo, design e marca -->
-        <div class="hero__visual" aria-hidden="true" data-parallax>
-          <div class="orbita orbita--1"></div>
-          <div class="orbita orbita--2"><span class="orbita__no"></span></div>
-          <div class="orbita orbita--3"><span class="orbita__no"></span></div>
-          <div class="nucleo">
-            <svg viewBox="0 0 32 32"><use href="#i-marca"/></svg>
-          </div>
-
-          <div class="camada camada--video" data-profundidade="18">
-            <div class="camada__topo"><span class="camada__rec"></span>Reels &middot; 0:20</div>
-            <div class="camada__tela">
-              <span class="camada__play"><svg><use href="#i-play"/></svg></span>
+        <!-- Um celular com um Reels: o trabalho principal é vídeo -->
+        <div class="hero__visual revelar" style="--d:2" aria-hidden="true">
+          <div class="celular">
+            <div class="celular__tela">
+              <span class="celular__tag">Reels</span>
+              <span class="celular__play"><svg><use href="#i-play"/></svg></span>
+              <div class="celular__legenda">
+                <strong>Sua marca em destaque</strong>
+                <span>Vídeo para redes sociais &middot; 0:20</span>
+              </div>
+              <div class="celular__progresso"><span></span></div>
             </div>
-            <div class="camada__linha"><span></span></div>
-          </div>
-
-          <div class="camada camada--arte" data-profundidade="-14">
-            <div class="camada__topo">Post &middot; 1080&times;1350</div>
-            <div class="camada__arte">
-              <span class="camada__bloco camada__bloco--a"></span>
-              <span class="camada__bloco camada__bloco--b"></span>
-              <span class="camada__bloco camada__bloco--c"></span>
-            </div>
-          </div>
-
-          <div class="camada camada--logo" data-profundidade="10">
-            <svg viewBox="0 0 32 32"><use href="#i-marca"/></svg>
-            <div>
-              <strong>Logo</strong>
-              <span>Conceito &middot; v3</span>
-            </div>
-          </div>
-
-          <div class="camada camada--dado" data-profundidade="-8">
-            <span class="camada__barras"><i></i><i></i><i></i><i></i><i></i></span>
-            <span>Estratégia</span>
           </div>
         </div>
       </div>
@@ -172,74 +147,38 @@
 
         <div class="servicos__grade">
           <article class="servico revelar" data-brilho>
-            <div class="servico__topo">
-              <span class="servico__icone" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2.5"/><path d="m10.5 8.5 4 2-4 2v-4Z"/><path d="M3 20.5h18"/><path d="M8 20.5v-1.5"/></svg>
-              </span>
-              <span class="servico__numero">01</span>
-            </div>
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2.5"/><path d="m10.5 8.5 4 2-4 2v-4Z"/><path d="M3 20.5h18"/><path d="M8 20.5v-1.5"/></svg>
+            </span>
             <h3 class="servico__titulo">Vídeos para redes sociais</h3>
             <p class="servico__descricao">Vídeos rápidos, objetivos e criativos para divulgar empresas, produtos e serviços com uma comunicação visual que prende a atenção.</p>
-            <ul class="servico__lista">
-              <li>Conteúdo publicitário</li>
-              <li>Vídeos para redes sociais</li>
-              <li>Edição e ritmo visual</li>
-              <li>Comunicação adaptada ao objetivo do cliente</li>
-            </ul>
             <a class="link-seta" href="#contato" data-wa="videos" target="_blank" rel="noopener">Solicitar vídeo <svg aria-hidden="true"><use href="#i-seta"/></svg></a>
           </article>
 
           <article class="servico revelar" style="--d:1" data-brilho>
-            <div class="servico__topo">
-              <span class="servico__icone" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="13" height="13" rx="2.5"/><path d="M8 21h10.5a2.5 2.5 0 0 0 2.5-2.5V8"/><path d="m3.5 13 3.5-3.5 3 3 2-2 3.5 3.5"/><circle cx="11.5" cy="7" r="1.2"/></svg>
-              </span>
-              <span class="servico__numero">02</span>
-            </div>
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="13" height="13" rx="2.5"/><path d="M8 21h10.5a2.5 2.5 0 0 0 2.5-2.5V8"/><path d="m3.5 13 3.5-3.5 3 3 2-2 3.5 3.5"/><circle cx="11.5" cy="7" r="1.2"/></svg>
+            </span>
             <h3 class="servico__titulo">Artes digitais</h3>
             <p class="servico__descricao">Criação de posts, banners e materiais visuais para fortalecer a comunicação online da sua empresa com consistência e profissionalismo.</p>
-            <ul class="servico__lista">
-              <li>Posts para redes sociais</li>
-              <li>Banners promocionais</li>
-              <li>Divulgação de produtos</li>
-              <li>Materiais de comunicação visual</li>
-            </ul>
             <a class="link-seta" href="#contato" data-wa="artes" target="_blank" rel="noopener">Solicitar arte <svg aria-hidden="true"><use href="#i-seta"/></svg></a>
           </article>
 
           <article class="servico revelar" data-brilho>
-            <div class="servico__topo">
-              <span class="servico__icone" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17"/><path d="M12 7.5a4.5 4.5 0 1 0 4.5 4.5"/></svg>
-              </span>
-              <span class="servico__numero">03</span>
-            </div>
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M3.5 12h17"/><path d="M12 7.5a4.5 4.5 0 1 0 4.5 4.5"/></svg>
+            </span>
             <h3 class="servico__titulo">Criação de logos</h3>
             <p class="servico__descricao">Criação de logotipos para empresas, projetos e profissionais que desejam construir uma apresentação visual mais forte, coerente e memorável.</p>
-            <ul class="servico__lista">
-              <li>Desenvolvimento visual</li>
-              <li>Conceito de marca</li>
-              <li>Aplicações digitais</li>
-              <li>Apresentação profissional</li>
-            </ul>
             <a class="link-seta" href="#contato" data-wa="logo" target="_blank" rel="noopener">Criar minha logo <svg aria-hidden="true"><use href="#i-seta"/></svg></a>
           </article>
 
           <article class="servico revelar" style="--d:1" data-brilho>
-            <div class="servico__topo">
-              <span class="servico__icone" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="5.5" r="2"/><circle cx="16" cy="16" r="2"/><path d="M7.4 17.8 14 16.4M17.5 7.4 16.4 14"/><path d="M3.5 9V3.5H9"/></svg>
-              </span>
-              <span class="servico__numero">04</span>
-            </div>
+            <span class="servico__icone" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="5.5" r="2"/><circle cx="16" cy="16" r="2"/><path d="M7.4 17.8 14 16.4M17.5 7.4 16.4 14"/><path d="M3.5 9V3.5H9"/></svg>
+            </span>
             <h3 class="servico__titulo">Estratégia de conteúdo</h3>
             <p class="servico__descricao">Ideias, roteiros e direcionamento estratégico para melhorar a divulgação dos produtos e serviços da sua empresa nas redes sociais.</p>
-            <ul class="servico__lista">
-              <li>Ideias de conteúdo</li>
-              <li>Roteiros criativos</li>
-              <li>Direcionamento de comunicação</li>
-              <li>Planejamento de publicações conforme o pacote contratado</li>
-            </ul>
             <a class="link-seta" href="#contato" data-wa="estrategia" target="_blank" rel="noopener">Quero uma estratégia <svg aria-hidden="true"><use href="#i-seta"/></svg></a>
           </article>
         </div>
@@ -283,35 +222,35 @@
 
         <ol class="diferenciais__lista">
           <li class="diferencial revelar">
-            <span class="diferencial__numero">01</span>
+            <span class="diferencial__icone" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
             <div>
               <h3>Visual moderno e profissional</h3>
               <p>Uma apresentação visual planejada para valorizar a imagem da empresa.</p>
             </div>
           </li>
           <li class="diferencial revelar">
-            <span class="diferencial__numero">02</span>
+            <span class="diferencial__icone" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
             <div>
               <h3>Conteúdo direto e eficaz</h3>
               <p>Materiais criativos com uma comunicação clara e adequada ao objetivo de cada projeto.</p>
             </div>
           </li>
           <li class="diferencial revelar">
-            <span class="diferencial__numero">03</span>
+            <span class="diferencial__icone" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
             <div>
               <h3>Preço acessível</h3>
               <p>Qualidade visual profissional com opções para diferentes necessidades e orçamentos.</p>
             </div>
           </li>
           <li class="diferencial revelar">
-            <span class="diferencial__numero">04</span>
+            <span class="diferencial__icone" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
             <div>
               <h3>Atendimento pelo WhatsApp</h3>
               <p>Contato simples e direto para esclarecer dúvidas, solicitar serviços e conversar sobre projetos.</p>
             </div>
           </li>
           <li class="diferencial revelar">
-            <span class="diferencial__numero">05</span>
+            <span class="diferencial__icone" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
             <div>
               <h3>Criação com estratégia, não só estética</h3>
               <p>Cada conteúdo deve ter uma finalidade definida, seja apresentar um produto, divulgar um serviço ou fortalecer o posicionamento da marca.</p>
@@ -342,7 +281,7 @@
       </div>
     </section>
 
-    <!-- ============================== SOBRE ============================== -->
+    <!-- ============================== SOBRE E FUNDADOR ============================== -->
     <section class="secao sobre" id="sobre" aria-labelledby="sobre-titulo">
       <div class="container sobre__inner">
         <div class="sobre__texto">
@@ -355,35 +294,19 @@
           </div>
         </div>
 
-        <div class="sobre__painel revelar" style="--d:2">
-          <div class="sobre__marca" aria-hidden="true">
-            <svg viewBox="0 0 32 32"><use href="#i-marca"/></svg>
+        <figure class="fundador revelar" style="--d:2" aria-label="A visão por trás da CORTEX.VR">
+          <div class="fundador__retrato" data-fundador-retrato>
+            <div class="fundador__monograma" aria-hidden="true"><span>L</span></div>
           </div>
-          <dl class="sobre__numeros" data-sobre></dl>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================== FUNDADOR ============================== -->
-    <section class="secao fundador" aria-labelledby="fundador-titulo">
-      <div class="container fundador__inner">
-        <figure class="fundador__retrato revelar" data-fundador-retrato>
-          <div class="fundador__monograma" aria-hidden="true">
-            <span>L</span>
+          <div>
+            <p class="fundador__rotulo">A visão por trás da CORTEX.VR</p>
+            <blockquote class="fundador__citacao"><p data-fundador-frase></p></blockquote>
+            <figcaption class="fundador__assinatura">
+              <strong data-fundador-nome></strong>
+              <span data-fundador-cargo></span>
+            </figcaption>
           </div>
         </figure>
-
-        <div class="fundador__texto">
-          <p class="rotulo revelar">Fundador</p>
-          <h2 class="secao__titulo revelar" id="fundador-titulo" style="--d:1">A visão por trás da CORTEX.VR.</h2>
-          <blockquote class="fundador__citacao revelar" style="--d:2">
-            <p data-fundador-frase></p>
-          </blockquote>
-          <p class="fundador__assinatura revelar" style="--d:3">
-            <strong data-fundador-nome></strong>
-            <span data-fundador-cargo></span>
-          </p>
-        </div>
       </div>
     </section>
 

@@ -14,7 +14,6 @@ Os dados comerciais ficam todos num único arquivo: **`assets/js/config.js`**.
 | Perfil do Instagram (endereço completo) | `config.js` → `instagram` | Vazio = o link não aparece no rodapé |
 | Foto real do Lucas (vertical 4:5) | `config.js` → `fundador.foto` | Vazio = monograma “L” |
 | Confirmar os indicadores (4M+, 100+, 98%, 3x, 24h) | `config.js` → `indicadores` | Informados pela empresa; confirme quais podem ser divulgados |
-| Confirmar os números da seção Sobre (100+, 3+ anos, 98%, 24h) | `config.js` → `sobre` | Idem |
 | Autorização do Dionatan Santos (Soryx) para o depoimento | `config.js` → `depoimentos` | Exibido com o selo em texto “Parceiro verificado”, como informado. Para tirar o selo, use `parceiroVerificado: false` |
 | Vídeos reais para o mostruário | `config.js` → `portfolio` | Vazio = a seção fica escondida |
 | Domínio do site (link canônico e compartilhamento) | `config.js` → `dominio` | Opcional |
@@ -26,7 +25,7 @@ Os dados comerciais ficam todos num único arquivo: **`assets/js/config.js`**.
 - **Planos**: nome, preço, indicação, itens, texto do botão e qual fica em
   destaque (`destaque: true` + `selo`).
 - **Serviços avulsos**: nome, preço e `aPartirDe` (mostra “a partir de”).
-- **Indicadores**, números da seção Sobre e as observações que aparecem embaixo.
+- **Indicadores** e a observação que aparece embaixo deles.
 - **Mostruário**: cada peça tem `titulo`, `categoria` (`videos`, `artes`,
   `logos`, `produtos`), `formato` (`alto`, `largo` ou `''`), `video`,
   `imagem` (capa opcional) e `descricao`.
@@ -53,6 +52,13 @@ O vídeo inteiro só carrega quando a pessoa toca no card.
 A grade fica completa (sem buracos) quando a soma dos espaços fecha
 múltiplos de 4 colunas: `alto` e `largo` ocupam 2 espaços, os demais ocupam 1.
 
+## Cor do site
+
+A cor de destaque fica num bloco só, no topo de `assets/css/style.css`
+(`--acento`, `--acento-claro` e os demais tokens com `acento`). Para trocar,
+mude esse bloco; o resto do site acompanha. Se a cor nova for clara (como
+dourado), use `--texto-acento: #08090D` para o texto dos botões ficar legível.
+
 ## Serviços, diferenciais e textos
 
 Os quatro serviços, os cinco diferenciais e os textos das seções estão no
@@ -62,7 +68,7 @@ Os quatro serviços, os cinco diferenciais e os textos das seções estão no
 
 ```
 cortexvr/
-├── index.html                   Página principal (12 seções)
+├── index.html                   Página principal
 ├── politica-de-privacidade.html
 ├── termos-de-uso.html
 └── assets/
