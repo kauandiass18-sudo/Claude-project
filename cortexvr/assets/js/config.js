@@ -117,38 +117,22 @@ window.SITE = {
     frase: 'Acredito que toda marca tem uma história única. Meu trabalho é contar essa história de um jeito que o mundo pare para ouvir.'
   },
 
-  /* ---------- Mostruário criativo ----------
-     As peças abaixo são DEMONSTRAÇÕES CONCEITUAIS criadas para o site,
-     e aparecem identificadas assim. Para mostrar um trabalho real:
-       - coloque a imagem em assets/img/portfolio/
-       - troque  conceito: true  por  conceito: false
-       - para vídeo, informe  video: 'assets/video/arquivo.mp4'  (MP4 H.264,
-         até ~8 MB) e use a imagem como capa.
+  /* ---------- Mostruário (vídeos) ----------
+     Enquanto a lista estiver vazia, a seção não aparece no site.
+     Para incluir um vídeo REAL (com autorização do cliente, se for o caso):
+       1. coloque o arquivo em assets/video/ (MP4, até ~8 MB cada)
+       2. copie o modelo abaixo para dentro dos colchetes e ajuste
+     O card mostra o primeiro quadro do vídeo. Para usar uma capa própria,
+     coloque a imagem em assets/img/portfolio/ e informe em  imagem.
      categoria: 'videos' | 'artes' | 'logos' | 'produtos'
-     formato:   'alto' | 'largo' | '' — varia a composição da grade. */
-  portfolio: [
-    { titulo: 'Reels de lançamento', categoria: 'videos', formato: 'alto',
-      imagem: 'assets/img/portfolio/reels-lancamento.jpg', video: '', conceito: true,
-      descricao: 'Vídeo vertical curto para apresentar um produto novo: abertura forte, produto em destaque e chamada clara no final.' },
-    { titulo: 'Campanha de produto', categoria: 'produtos', formato: 'largo',
-      imagem: 'assets/img/portfolio/campanha-produto.jpg', video: '', conceito: true,
-      descricao: 'Peça publicitária com luz controlada e composição limpa, pensada para valorizar o produto em anúncios e no feed.' },
-    { titulo: 'Vídeo de bastidores', categoria: 'videos', formato: 'alto',
-      imagem: 'assets/img/portfolio/bastidores.jpg', video: '', conceito: true,
-      descricao: 'Formato vertical que mostra o processo por trás do produto, com cortes ritmados e legendas.' },
-    { titulo: 'Post promocional', categoria: 'artes', formato: '',
-      imagem: 'assets/img/portfolio/post-promocional.jpg', video: '', conceito: true,
-      descricao: 'Arte para redes sociais com hierarquia direta: oferta, benefício e contato, legíveis em poucos segundos.' },
-    { titulo: 'Estudo de monograma', categoria: 'logos', formato: '',
-      imagem: 'assets/img/portfolio/estudo-logo.jpg', video: '', conceito: true,
-      descricao: 'Construção geométrica de um símbolo, com grid de proporções e versões para fundo claro e escuro.' },
-    { titulo: 'Carrossel informativo', categoria: 'artes', formato: 'largo',
-      imagem: 'assets/img/portfolio/carrossel.jpg', video: '', conceito: true,
-      descricao: 'Sequência de cards para explicar um serviço passo a passo, mantendo a identidade visual em todas as telas.' },
-    { titulo: 'Logo em aplicação', categoria: 'logos', formato: 'largo',
-      imagem: 'assets/img/portfolio/logo-aplicacao.jpg', video: '', conceito: true,
-      descricao: 'Logotipo aplicado em perfil de rede social, cartão e ícone, para testar leitura em tamanhos diferentes.' }
-  ],
+     formato:   'alto' (vertical, tipo Reels) | 'largo' | ''
+
+     Modelo:
+     { titulo: 'Reels para loja de roupas', categoria: 'videos', formato: 'alto',
+       video: 'assets/video/loja-roupas.mp4', imagem: '',
+       descricao: 'Vídeo curto para divulgar a nova coleção nas redes sociais.' },
+  */
+  portfolio: [],
 
   /* ---------- Depoimentos ----------
      PENDENTE: confirmar a autorização de divulgação com o Dionatan Santos.

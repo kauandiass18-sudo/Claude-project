@@ -165,7 +165,9 @@
       var classe = 'peca revelar' + (p.formato ? ' peca--' + p.formato : '');
       return '<li class="' + classe + '" data-categoria="' + escapar(p.categoria) + '" style="--d:' + (i % 4) + '">' +
         '<button type="button" class="peca__botao" data-peca="' + i + '" aria-label="Ampliar: ' + escapar(p.titulo) + (p.conceito ? ' (demonstração conceitual)' : '') + '">' +
-          '<img src="' + escapar(p.imagem) + '" alt="" loading="lazy" decoding="async">' +
+          (p.imagem
+            ? '<img src="' + escapar(p.imagem) + '" alt="" loading="lazy" decoding="async">'
+            : '<video src="' + escapar(p.video) + '#t=0.1" muted playsinline preload="metadata" aria-hidden="true"></video>') +
           (p.video ? '<span class="peca__play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>' : '') +
           (p.conceito ? '<span class="etiqueta-conceito" title="Demonstração conceitual">Conceito</span>' : '') +
           '<span class="peca__info"><span><span class="peca__titulo">' + escapar(p.titulo) + '</span>' +
@@ -211,7 +213,7 @@
     var midia = $('[data-visualizador-midia]', visualizador);
     if (p.video) {
       midia.innerHTML = '<video controls playsinline preload="metadata"' + (p.imagem ? ' poster="' + escapar(p.imagem) + '"' : '') + '>' +
-        '<source src="' + escapar(p.video) + '" type="video/mp4"></video>';
+        '<source src="' + escapar(p.video) + '"></video>';
     } else {
       midia.innerHTML = '<img src="' + escapar(p.imagem) + '" alt="' + escapar(p.titulo + (p.conceito ? ' — demonstração conceitual' : '')) + '">';
     }

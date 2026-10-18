@@ -16,7 +16,7 @@ Os dados comerciais ficam todos num único arquivo: **`assets/js/config.js`**.
 | Confirmar os indicadores (4M+, 100+, 98%, 3x, 24h) | `config.js` → `indicadores` | Informados pela empresa; confirme quais podem ser divulgados |
 | Confirmar os números da seção Sobre (100+, 3+ anos, 98%, 24h) | `config.js` → `sobre` | Idem |
 | Autorização do Dionatan Santos (Soryx) para o depoimento | `config.js` → `depoimentos` | Exibido com o selo em texto “Parceiro verificado”, como informado. Para tirar o selo, use `parceiroVerificado: false` |
-| Trocar as peças conceituais por trabalhos reais | `config.js` → `portfolio` | 7 demonstrações, todas identificadas como conceituais |
+| Vídeos reais para o mostruário | `config.js` → `portfolio` | Vazio = a seção fica escondida |
 | Domínio do site (link canônico e compartilhamento) | `config.js` → `dominio` | Opcional |
 
 ## O que dá para editar no `config.js`
@@ -28,22 +28,27 @@ Os dados comerciais ficam todos num único arquivo: **`assets/js/config.js`**.
 - **Serviços avulsos**: nome, preço e `aPartirDe` (mostra “a partir de”).
 - **Indicadores**, números da seção Sobre e as observações que aparecem embaixo.
 - **Mostruário**: cada peça tem `titulo`, `categoria` (`videos`, `artes`,
-  `logos`, `produtos`), `formato` (`alto`, `largo` ou `''`), `imagem`,
-  `video`, `descricao` e `conceito`.
+  `logos`, `produtos`), `formato` (`alto`, `largo` ou `''`), `video`,
+  `imagem` (capa opcional) e `descricao`.
 - **Depoimentos**: copie o bloco para incluir outros. Só use depoimentos reais
   e autorizados.
 
 Quando uma lista fica vazia, a seção correspondente some sozinha (depoimentos,
 mostruário, indicadores).
 
-### Mostruário: como colocar um trabalho real
+### Mostruário: como colocar os vídeos
 
-1. Salve a imagem em `assets/img/portfolio/` (`.jpg` ou `.webp`, até ~1600 px
-   no lado maior e ~300 KB).
-2. No item do `portfolio`, troque `imagem` e mude `conceito` para `false`.
-3. Para vídeo: coloque o arquivo em `assets/video/` (MP4 H.264, até ~8 MB) e
-   informe em `video`. A imagem vira a capa. O vídeo só carrega quando a pessoa
-   abre a peça.
+A seção fica escondida enquanto a lista `portfolio` estiver vazia.
+
+1. Salve o vídeo em `assets/video/` (MP4, até ~8 MB; vídeos verticais de
+   Reels funcionam melhor com `formato: 'alto'`).
+2. Copie o modelo que está no `config.js` para dentro de `portfolio: [ ]` e
+   preencha título, arquivo e descrição. Mostre vídeos de clientes só com
+   autorização.
+3. O card usa o primeiro quadro do vídeo como capa. Para escolher outra capa,
+   salve uma imagem em `assets/img/portfolio/` e informe em `imagem`.
+
+O vídeo inteiro só carrega quando a pessoa toca no card.
 
 A grade fica completa (sem buracos) quando a soma dos espaços fecha
 múltiplos de 4 colunas: `alto` e `largo` ocupam 2 espaços, os demais ocupam 1.
