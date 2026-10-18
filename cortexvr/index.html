@@ -107,17 +107,21 @@
           </div>
         </div>
 
-        <!-- Um celular com um Reels: o trabalho principal é vídeo -->
-        <div class="hero__visual revelar" style="--d:2" aria-hidden="true">
+        <!-- Celular do topo. Para tocar um vídeo nele, preencha "videoTopo" em assets/js/config.js -->
+        <div class="hero__visual revelar" style="--d:2">
           <div class="celular">
-            <div class="celular__tela">
-              <span class="celular__tag">Reels</span>
-              <span class="celular__play"><svg><use href="#i-play"/></svg></span>
-              <div class="celular__legenda">
+            <div class="celular__tela" data-video-topo>
+              <span class="celular__tag" aria-hidden="true">Reels</span>
+              <span class="celular__play" aria-hidden="true"><svg><use href="#i-play"/></svg></span>
+              <div class="celular__legenda" aria-hidden="true">
                 <strong>Sua marca em destaque</strong>
                 <span>Vídeo para redes sociais &middot; 0:20</span>
               </div>
-              <div class="celular__progresso"><span></span></div>
+              <div class="celular__progresso" aria-hidden="true"><span></span></div>
+              <button class="celular__som" type="button" aria-pressed="false" aria-label="Ativar som do vídeo" data-video-som hidden>
+                <svg class="celular__som-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4v-5Z" fill="currentColor"/><path d="m16 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+                <svg class="celular__som-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4v-5Z" fill="currentColor"/><path d="M15.5 9a4.5 4.5 0 0 1 0 6M18 6.5a8 8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </button>
             </div>
           </div>
         </div>

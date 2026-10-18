@@ -108,6 +108,17 @@ window.SITE = {
     frase: 'Acredito que toda marca tem uma história única. Meu trabalho é contar essa história de um jeito que o mundo pare para ouvir.'
   },
 
+  /* ---------- Vídeo no celular do topo ----------
+     Coloque o vídeo em assets/video/ (vertical 9:16, MP4, de preferência
+     até ~5 MB e 15 a 30 segundos) e informe o caminho em  arquivo.
+     Ele toca sozinho, sem som e em repetição; o visitante pode ativar o som.
+     capa (opcional): imagem mostrada enquanto o vídeo carrega.
+     Vazio = o celular mostra a ilustração de Reels. */
+  videoTopo: {
+    arquivo: '',     // ex.: 'assets/video/topo.mp4'
+    capa: ''         // ex.: 'assets/img/topo-capa.jpg'
+  },
+
   /* ---------- Mostruário (vídeos) ----------
      Enquanto a lista estiver vazia, a seção não aparece no site.
      Para incluir um vídeo REAL (com autorização do cliente, se for o caso):

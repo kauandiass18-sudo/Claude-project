@@ -340,6 +340,22 @@ ul, ol { padding: 0; list-style: none; }
 .celular__legenda span { font-size: .78rem; color: rgba(255, 255, 255, .7); }
 .celular__progresso { position: absolute; left: 18px; right: 18px; bottom: 22px; height: 3px; border-radius: 2px; background: rgba(255, 255, 255, .22); overflow: hidden; }
 .celular__progresso span { display: block; height: 100%; background: #fff; animation: progresso 8s linear infinite; }
+.celular__video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.celular__tela.tem-video .celular__play,
+.celular__tela.tem-video .celular__legenda,
+.celular__tela.tem-video .celular__progresso { display: none; }
+.celular__tela.tem-video .celular__tag { z-index: 1; }
+.celular__som {
+  position: absolute; right: 14px; bottom: 16px; z-index: 1;
+  width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid rgba(255, 255, 255, .3); background: rgba(8, 9, 13, .55); color: #fff; cursor: pointer;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  transition: background-color .3s;
+}
+.celular__som:hover { background: rgba(8, 9, 13, .8); }
+.celular__som svg { width: 20px; height: 20px; }
+.celular__som[aria-pressed="false"] .celular__som-on,
+.celular__som[aria-pressed="true"] .celular__som-off { display: none; }
 
 @media (min-width: 1024px) {
   .hero__inner { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 40px; }
@@ -352,7 +368,8 @@ ul, ol { padding: 0; list-style: none; }
   .hero__titulo { font-size: clamp(2.35rem, 10.6vw, 3rem); line-height: 1.02; }
   .hero__acoes .btn { width: 100%; }
   .hero__inner { gap: 48px; }
-  .hero__visual { display: none; }
+  .celular { width: min(240px, 64vw); border-radius: 36px; }
+  .celular__tela { border-radius: 28px; }
 }
 
 /* ---------- 5. Indicadores ---------- */

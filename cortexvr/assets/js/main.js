@@ -115,6 +115,40 @@
     }
   }
 
+  /* ---------- Vídeo no celular do topo ---------- */
+  function montarVideoTopo() {
+    var tela = $('[data-video-topo]');
+    var v = SITE.videoTopo || {};
+    if (!tela || !v.arquivo) return;
+    var video = document.createElement('video');
+    video.className = 'celular__video';
+    video.src = v.arquivo;
+    if (v.capa) video.poster = v.capa;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.preload = 'metadata';
+    video.setAttribute('aria-label', 'Vídeo de exemplo da CORTEX.VR');
+    tela.insertBefore(video, tela.firstChild);
+    tela.classList.add('tem-video');
+    // Com "reduzir movimento" ativado, o vídeo não começa sozinho
+    if (!reduzMovimento) {
+      var tocar = video.play();
+      if (tocar && tocar.catch) tocar.catch(function () {});
+    }
+
+    var som = $('[data-video-som]', tela);
+    som.hidden = false;
+    som.addEventListener('click', function () {
+      var ligar = video.muted;
+      video.muted = !ligar;
+      if (ligar && video.paused) video.play();
+      som.setAttribute('aria-pressed', String(ligar));
+      som.setAttribute('aria-label', ligar ? 'Desativar som do vídeo' : 'Ativar som do vídeo');
+    });
+  }
+
   /* ---------- Depoimentos ---------- */
   function montarDepoimentos() {
     var area = $('[data-depoimentos]');
@@ -343,6 +377,7 @@
   montarIndicadores();
   montarPlanos();
   montarFundador();
+  montarVideoTopo();
   montarDepoimentos();
   montarGaleria();
   aplicarWhatsApp(document);

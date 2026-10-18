@@ -12,6 +12,7 @@ Os dados comerciais ficam todos num único arquivo: **`assets/js/config.js`**.
 |---|---|---|
 | **Número do WhatsApp** (só números: 55 + DDD + número) | `config.js` → `whatsapp` | **Vazio.** Os botões abrem o WhatsApp com a mensagem pronta, mas sem destinatário. O console do navegador avisa enquanto estiver vazio. |
 | Perfil do Instagram (endereço completo) | `config.js` → `instagram` | Vazio = o link não aparece no rodapé |
+| Vídeo do celular no topo (vertical 9:16, MP4) | `config.js` → `videoTopo` | Vazio = ilustração de Reels |
 | Foto real do Lucas (vertical 4:5) | `config.js` → `fundador.foto` | Vazio = monograma “L” |
 | Confirmar os indicadores (4M+, 100+, 98%, 3x, 24h) | `config.js` → `indicadores` | Informados pela empresa; confirme quais podem ser divulgados |
 | Autorização do Dionatan Santos (Soryx) para o depoimento | `config.js` → `depoimentos` | Exibido com o selo em texto “Parceiro verificado”, como informado. Para tirar o selo, use `parceiroVerificado: false` |
