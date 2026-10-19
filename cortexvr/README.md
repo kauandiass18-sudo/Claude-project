@@ -53,12 +53,16 @@ O vídeo inteiro só carrega quando a pessoa toca no card.
 A grade fica completa (sem buracos) quando a soma dos espaços fecha
 múltiplos de 4 colunas: `alto` e `largo` ocupam 2 espaços, os demais ocupam 1.
 
-## Cor do site
+## Visual
+
+Fundo preto quente, texto em branco suave e dourado só nos detalhes. Os
+títulos usam Manrope com uma palavra em itálico (Cormorant Garamond), marcada
+com `<em>` no `index.html`. As duas fontes estão em `assets/fonts/` (licença OFL).
 
 A cor de destaque fica num bloco só, no topo de `assets/css/style.css`
-(`--acento`, `--acento-claro` e os demais tokens com `acento`). Para trocar,
-mude esse bloco; o resto do site acompanha. Se a cor nova for clara (como
-dourado), use `--texto-acento: #08090D` para o texto dos botões ficar legível.
+(`--acento`, `--acento-claro`, `--acento-hover`, `--acento-rgb`). Para trocar,
+mude esse bloco; o resto do site acompanha. Com uma cor escura de destaque,
+troque também `--texto-acento` para `#FFFFFF`.
 
 ## Serviços, diferenciais e textos
 
@@ -76,7 +80,7 @@ cortexvr/
     ├── js/config.js             ← dados comerciais (edite aqui)
     ├── js/main.js               Monta as seções a partir do config e cuida das interações
     ├── css/style.css            Identidade visual (cores em :root, seções numeradas)
-    ├── fonts/                   Manrope (licença OFL)
+    ├── fonts/                   Manrope e Cormorant Garamond (licença OFL)
     └── img/                     Favicon, ícone, imagem de compartilhamento e portfólio
 ```
 

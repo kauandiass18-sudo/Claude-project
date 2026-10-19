@@ -42,9 +42,9 @@
     return Number(valor).toLocaleString('pt-BR', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
   }
 
-  function numeroAnimado(item) {
+  function formatarNumero(item) {
     return (item.prefixo ? escapar(item.prefixo) : '') +
-      '<span data-contar="' + Number(item.valor) + '">' + Number(item.valor) + '</span>' +
+      Number(item.valor) +
       (item.sufixo ? '<small>' + escapar(item.sufixo) + '</small>' : '');
   }
 
@@ -57,7 +57,7 @@
     lista.style.setProperty('--colunas', itens.length);
     lista.innerHTML = itens.map(function (item, i) {
       return '<li class="indicador revelar" style="--d:' + i + '">' +
-        '<span class="indicador__valor">' + numeroAnimado(item) + '</span>' +
+        '<span class="indicador__valor">' + formatarNumero(item) + '</span>' +
         '<span class="indicador__rotulo">' + escapar(item.rotulo) + '</span></li>';
     }).join('');
     var nota = $('[data-nota-indicadores]');
@@ -77,9 +77,9 @@
             '<span class="plano__valor">' + preco(p.preco) + '</span>' +
             '<span class="plano__periodo">' + escapar(p.periodo || '') + '</span></p>' +
           '<ul class="plano__itens">' + (p.itens || []).map(function (t) {
-            return '<li><svg aria-hidden="true"><use href="#i-check"/></svg>' + escapar(t) + '</li>';
+            return '<li>' + escapar(t) + '</li>';
           }).join('') + '</ul>' +
-          '<a class="btn btn--bloco ' + (p.destaque ? 'btn--primario' : 'btn--contorno') + '" data-wa="plano" data-wa-texto="' + escapar(p.mensagem) + '" target="_blank" rel="noopener">' +
+          '<a class="btn btn--bloco ' + (p.destaque ? 'btn--primario' : 'btn--linha') + '" data-wa="plano" data-wa-texto="' + escapar(p.mensagem) + '" target="_blank" rel="noopener">' +
             escapar(p.botao || 'Quero este plano') + '</a>' +
         '</article>';
       }).join('');
@@ -157,15 +157,13 @@
     if (!itens.length) { area.closest('section').hidden = true; esconderLinksPara('#feedbacks'); return; }
     if (itens.length > 1) area.classList.add('depoimentos--varios');
     area.innerHTML = itens.map(function (d, i) {
-      var iniciais = String(d.nome || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function (p) { return p[0]; }).join('').toUpperCase();
-      var cargo = [d.cargo, d.empresa].filter(Boolean).join(' — ');
+      var cargo = [d.cargo, d.empresa].filter(Boolean).join(', ');
       return '<figure class="depoimento revelar" style="--d:' + i + '">' +
-        '<svg class="depoimento__aspas" viewBox="0 0 44 44" aria-hidden="true"><path fill="currentColor" d="M18 10C9.7 12.6 5 18.6 5 27v7h13V21h-6.5c.6-3.6 2.9-6.2 7.4-7.8L18 10Zm21 0c-8.3 2.6-13 8.6-13 17v7h13V21h-6.5c.6-3.6 2.9-6.2 7.4-7.8L39 10Z"/></svg>' +
         '<blockquote class="depoimento__texto"><p>' + escapar(d.texto) + '</p></blockquote>' +
         '<figcaption class="depoimento__autor">' +
-          '<span class="depoimento__avatar" aria-hidden="true">' + (d.foto ? '<img src="' + escapar(d.foto) + '" alt="" loading="lazy">' : escapar(iniciais)) + '</span>' +
-          '<span><span class="depoimento__nome">' + escapar(d.nome) + '</span>' +
-          '<span class="depoimento__cargo">' + escapar(cargo) + '</span></span>' +
+          (d.foto ? '<span class="depoimento__avatar"><img src="' + escapar(d.foto) + '" alt="" loading="lazy"></span>' : '') +
+          '<span class="depoimento__nome">' + escapar(d.nome) + '</span>' +
+          '<span class="depoimento__cargo">' + escapar(cargo) + '</span>' +
           (d.parceiroVerificado ? '<span class="depoimento__verificado">Parceiro verificado</span>' : '') +
         '</figcaption></figure>';
     }).join('');
@@ -313,21 +311,7 @@
     Object.keys(mapa).forEach(function (id) { var s = document.getElementById(id); if (s) obs.observe(s); });
   }
 
-  /* ---------- Revelar e contadores ---------- */
-  function contar(el) {
-    var alvo = Number(el.getAttribute('data-contar'));
-    if (reduzMovimento || !alvo) return;
-    var inicio = null, duracao = 1400;
-    function passo(t) {
-      if (!inicio) inicio = t;
-      var p = Math.min((t - inicio) / duracao, 1);
-      el.textContent = Math.round(alvo * (1 - Math.pow(1 - p, 3)));
-      if (p < 1) requestAnimationFrame(passo);
-    }
-    el.textContent = '0';
-    requestAnimationFrame(passo);
-  }
-
+  /* ---------- Revelar ao rolar ---------- */
   function revelar() {
     var elementos = $$('.revelar');
     if (!('IntersectionObserver' in window) || reduzMovimento) {
@@ -338,23 +322,10 @@
       entradas.forEach(function (en) {
         if (!en.isIntersecting) return;
         en.target.classList.add('is-visivel');
-        $$('[data-contar]', en.target).forEach(contar);
         obs.unobserve(en.target);
       });
     }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
     elementos.forEach(function (el) { obs.observe(el); });
-  }
-
-  /* ---------- Brilho que acompanha o cursor nos cards ---------- */
-  function brilho() {
-    $$('[data-brilho]').forEach(function (card) {
-      card.addEventListener('pointermove', function (e) {
-        if (e.pointerType !== 'mouse') return;
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--x', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--y', (e.clientY - r.top) + 'px');
-      });
-    });
   }
 
   /* ---------- Rodapé e metadados ---------- */
@@ -383,7 +354,6 @@
   aplicarWhatsApp(document);
   rodape();
   revelar();
-  brilho();
   observarSecoes();
   aoRolar();
   window.addEventListener('scroll', aoRolar, { passive: true });
