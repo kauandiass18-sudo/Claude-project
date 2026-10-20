@@ -1,10 +1,22 @@
 # Casa Ivete · Massas e Pães Artesanais
 
-Site comercial da Casa Ivete, com cardápio, montagem de pedido e envio pelo
-WhatsApp. Feito em HTML, CSS e JavaScript puro: não tem build nem
-dependências. Basta publicar a pasta.
+Página de vendas da Casa Ivete para o cliente encomendar salgados, pães,
+bolos e cucas e finalizar pelo WhatsApp. Feita em HTML, CSS e JavaScript
+puro: não tem build nem dependências. Basta publicar a pasta.
 
-## Como funciona o pedido
+## Roteiro da página
+
+1. **Abertura:** promessa, botão "Montar minha encomenda" e cidades atendidas.
+2. **Como funciona:** três passos (escolher, contar os detalhes, confirmar no WhatsApp).
+3. **Cardápio:** filtros por categoria e botão "Adicionar à encomenda" em cada produto.
+4. **Encomendas para ocasiões:** festas e reuniões, com mensagem própria no WhatsApp.
+5. **Detalhes e essência:** texturas dos produtos e o cuidado da marca.
+6. **Entregas e dúvidas:** respondem às objeções antes do contato.
+7. **Chamada final:** volta para o cardápio.
+
+No celular, uma barra no rodapé convida a ver o cardápio e, depois do primeiro item, mostra a encomenda.
+
+## Como funciona a encomenda
 
 1. O cliente escolhe os produtos no cardápio (direto no cartão ou no detalhe, com quantidade e observação).
 2. Revisa os itens na gaveta do pedido (quantidade, remoção, subtotal).

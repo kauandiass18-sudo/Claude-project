@@ -161,6 +161,7 @@ button { cursor: pointer; }
 .topo__acoes { display: flex; align-items: center; gap: .5rem; }
 .btn--pedido { --bd: var(--cacau); min-height: 44px; padding: .6rem 1.15rem; font-size: .88rem; }
 .btn--pedido:hover { --bg: var(--cacau); --fg: var(--creme); }
+.rotulo-curto { display: none; }
 .contador {
   display: inline-grid; place-items: center; min-width: 1.4rem; height: 1.4rem; padding: 0 .35rem;
   background: var(--caramelo); color: var(--branco); border-radius: 999px; font-size: .72rem; font-weight: 600;
@@ -178,6 +179,13 @@ button { cursor: pointer; }
 @media (max-width: 899px) {
   :root { --topo-h: 64px; }
   .menu-btn { display: block; }
+  .topo__inner { gap: .5rem; }
+  .topo__acoes { gap: .25rem; flex: none; }
+  .marca { min-width: 0; }
+  .btn--pedido { padding: .5rem .95rem; gap: .45rem; }
+  .rotulo-longo { display: none; }
+  .rotulo-curto { display: inline; }
+  .menu-btn { width: 40px; }
   .marca__nome { font-size: 1.4rem; }
   .marca__assinatura { font-size: .5rem; letter-spacing: .16em; }
   .nav {
@@ -258,6 +266,28 @@ button { cursor: pointer; }
   .categoria__rodape { flex-direction: column; gap: .15rem; height: auto; padding-top: .7rem; }
   .categoria__nome { font-size: 1.15rem; }
 }
+
+/* Como funciona ------------------------------------------ */
+.passos { padding-top: 0; }
+.passos__lista { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); counter-reset: passo; }
+.passos__lista li { border-top: 1px solid var(--linha-forte); padding-top: 1.4rem; }
+.passos__num { display: block; font: italic 400 1.1rem/1 var(--serif); color: var(--caramelo-texto); margin-bottom: 1.1rem; }
+.passos__titulo { margin: 0 0 .6rem; font: 400 1.6rem/1.15 var(--serif); color: var(--cacau); }
+.passos__lista p { margin: 0; color: var(--grafite-suave); max-width: 32ch; }
+@media (max-width: 759px) {
+  .passos__lista { grid-template-columns: 1fr; gap: 0; }
+  .passos__lista li { display: grid; grid-template-columns: 3rem 1fr; column-gap: .5rem; padding: 1.25rem 0; }
+  .passos__num { grid-row: span 2; margin: .3rem 0 0; }
+  .passos__titulo { font-size: 1.4rem; }
+}
+
+/* Chamada final ------------------------------------------ */
+.cta-final { padding-top: calc(var(--secao) * .4); }
+.cta-final__inner { text-align: center; display: flex; flex-direction: column; align-items: center; }
+.cta-final .titulo--grande { max-width: 16ch; }
+.cta-final__texto { margin: 1.3rem 0 2.2rem; font-size: 1.1rem; color: var(--grafite-suave); max-width: 40ch; }
+.cta-final__botoes { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+@media (max-width: 559px) { .cta-final__botoes { flex-direction: column; align-self: stretch; } }
 
 /* Cardápio ----------------------------------------------- */
 .cardapio { background: var(--branco); border-block: 1px solid var(--linha); }
@@ -457,7 +487,7 @@ a.btn-add { text-decoration: none; display: inline-flex; align-items: center; }
 .barra-pedido.is-pulso .barra-pedido__btn { animation: pulso-barra .5s var(--ease); }
 @keyframes pulso-barra { 40% { transform: scale(1.02); } }
 @media (min-width: 900px) { .barra-pedido { display: none !important; } }
-body.tem-barra .rodape { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
+@media (max-width: 899px) { body.tem-barra .rodape { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); } }
 
 /* Diálogos ----------------------------------------------- */
 dialog { border: 0; padding: 0; color: var(--grafite); max-width: none; max-height: none; }
@@ -474,7 +504,7 @@ body.sem-rolagem { overflow: hidden; }
 .fechar:hover { background: var(--creme-2); }
 
 .modal { width: min(980px, calc(100% - 2rem)); background: var(--branco); border-radius: var(--raio-g); margin: auto; overflow: hidden; }
-.modal__corpo { display: grid; grid-template-columns: 1fr 1fr; position: relative; max-height: min(88vh, 760px); }
+.modal__corpo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); position: relative; max-height: min(88vh, 760px); }
 .modal__foto { margin: 0; background: var(--creme-2); }
 .modal__foto img { width: 100%; height: 100%; object-fit: cover; }
 .modal__info { padding: clamp(1.5rem, 4vw, 3rem); overflow-y: auto; }
@@ -486,12 +516,13 @@ body.sem-rolagem { overflow: hidden; }
 .modal__detalhes dt { color: var(--grafite-suave); }
 .modal__detalhes dd { margin: 0; text-align: right; }
 .modal__acoes { display: flex; gap: .75rem; margin-top: 1.5rem; }
+.modal__acoes .btn { flex: 1; min-width: 0; white-space: normal; text-align: center; }
 .modal__indisponivel { margin: 1.25rem 0 0; font-size: .92rem; color: var(--grafite-suave); }
 .modal__indisponivel a { color: var(--cacau); }
 @media (max-width: 759px) {
   .modal { width: 100%; margin: auto 0 0; border-radius: var(--raio-g) var(--raio-g) 0 0; max-height: 94dvh; }
   dialog.modal[open] { animation: folha-in .38s var(--ease); }
-  .modal__corpo { grid-template-columns: 1fr; max-height: 94dvh; overflow-y: auto; }
+  .modal__corpo { grid-template-columns: minmax(0, 1fr); max-height: 94dvh; overflow-y: auto; }
   .modal__foto img { aspect-ratio: 4 / 3; height: auto; }
   .modal__info { overflow: visible; padding-bottom: calc(1.5rem + env(safe-area-inset-bottom)); }
 }

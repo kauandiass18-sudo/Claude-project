@@ -53,7 +53,7 @@
 
   /* ---------- mensagens prontas ---------- */
   var MENSAGENS = {
-    geral: "Olá! Vim pelo site da Casa Ivete e gostaria de fazer um pedido.",
+    geral: "Olá! Vim pelo site da Casa Ivete e gostaria de fazer uma encomenda.",
     encomenda: "Olá! Vim pelo site da Casa Ivete e gostaria de consultar as opções de encomenda.\n\nOcasião:\nData desejada:\nQuantidade aproximada de pessoas:\n",
     entrega: "Olá! Gostaria de consultar as condições de entrega da Casa Ivete para o meu endereço.",
     doces: "Olá! Gostaria de saber quais doces e especialidades a Casa Ivete tem disponíveis."
@@ -85,7 +85,8 @@
   document.addEventListener("keydown", function (e) { if (e.key === "Escape" && nav.classList.contains("is-aberto")) { menu(false); menuBtn.focus(); } });
 
   /* ---------- categorias ---------- */
-  $("[data-categorias]").innerHTML = CAT.categorias.map(function (c, i) {
+  var gradeCategorias = $("[data-categorias]");
+  if (gradeCategorias) gradeCategorias.innerHTML = CAT.categorias.map(function (c, i) {
     return '<li data-revelar><a class="categoria" href="#cardapio" data-ir-categoria="' + esc(c.id) + '">' +
       '<div class="categoria__img">' + imagem(c.imagem, c.imagemAlt, i === 0 ? "(min-width: 900px) 40vw, 100vw" : "(min-width: 900px) 25vw, 50vw", ' loading="lazy"') + "</div>" +
       '<div class="categoria__rodape"><span class="categoria__nome">' + esc(c.nome) + '</span><span class="categoria__ver">Ver produtos</span></div></a></li>';
@@ -120,7 +121,7 @@
     var cat = categoriasPorId[p.categoria];
     var selo = !p.disponivel ? "Indisponível no momento" : p.encomenda ? "Sob encomenda" : "";
     var botao = p.disponivel
-      ? '<button type="button" class="btn-add" data-add="' + esc(p.id) + '">Adicionar ao pedido</button>'
+      ? '<button type="button" class="btn-add" data-add="' + esc(p.id) + '">Adicionar à encomenda</button>'
       : '<a class="btn-add" href="' + whatsUrl("Olá! Gostaria de saber quando o produto \"" + p.nome + "\" estará disponível.") + '" target="_blank" rel="noopener">Consultar</a>';
     return '<li><article class="produto' + (p.disponivel ? "" : " is-indisponivel") + '">' +
       '<button type="button" class="produto__img" data-abrir="' + esc(p.id) + '" aria-label="Ver detalhes de ' + esc(p.nome) + '">' +
@@ -154,7 +155,7 @@
       if (p.variacoes && p.variacoes.length) { abrirProduto(p.id); return; }
       adicionar(p.id, 1, {}, "");
       add.classList.add("is-ok"); add.textContent = "Adicionado";
-      setTimeout(function () { add.classList.remove("is-ok"); add.textContent = "Adicionar ao pedido"; }, 1600);
+      setTimeout(function () { add.classList.remove("is-ok"); add.textContent = "Adicionar à encomenda"; }, 1600);
     }
   });
 
@@ -237,7 +238,7 @@
     if (ex) ex.qtd = Math.min(999, ex.qtd + qtd);
     else pedido.push({ key: k, id: id, qtd: qtd, variacoes: vars || {}, obs: obs || "" });
     salvar(); renderPedido();
-    aviso(produtosPorId[id].nome + " adicionado ao pedido");
+    aviso(produtosPorId[id].nome + " adicionado à encomenda");
     pulso($("[data-contador]")); pulso($("[data-barra]"));
   }
 
@@ -315,20 +316,26 @@
     continuar.disabled = vazio || c.indisponiveis > 0;
     var nota = $(".totais__nota", dlgPedido);
     if (!nota) { nota = document.createElement("p"); nota.className = "totais__nota"; $("[data-totais]").after(nota); }
-    nota.textContent = c.indisponiveis ? "Há itens indisponíveis no pedido." : c.totalConhecido ? "" : "Valores não cadastrados são confirmados pelo atendimento no WhatsApp.";
+    nota.textContent = c.indisponiveis ? "Há itens indisponíveis na encomenda." : c.totalConhecido ? "" : "Valores não cadastrados são confirmados pelo atendimento no WhatsApp.";
     nota.hidden = !nota.textContent;
     atualizarBarra();
     if (etapaAtual > 1 && vazio && etapaAtual < 4) irPara(1);
   }
 
+  var heroVisivel = true, cardapioVisivel = false;
   function atualizarBarra() {
     var barra = $("[data-barra]"); var n = qtdTotal();
-    var mostrar = n > 0 && !dlgPedido.open && !modal.open;
+    var convite = n === 0 && !heroVisivel && !cardapioVisivel;
+    var mostrar = (n > 0 || convite) && !dlgPedido.open && !modal.open;
     barra.hidden = !mostrar;
-    document.body.classList.toggle("tem-barra", n > 0);
-    if (n > 0) {
+    document.body.classList.toggle("tem-barra", true);
+    $("[data-barra-acao]").textContent = n > 0 ? "Ver encomenda" : "Ver cardápio";
+    if (n === 0) {
+      $("[data-barra-qtd]").textContent = "Encomende pelo site";
+      $("[data-barra-valor]").textContent = "Salgados, pães, bolos e cucas";
+    } else {
       var c = calcular();
-      $("[data-barra-qtd]").textContent = plural(n, "item", "itens") + " no pedido";
+      $("[data-barra-qtd]").textContent = plural(n, "item", "itens") + " na encomenda";
       $("[data-barra-valor]").textContent = c.totalConhecido ? brl(c.total) : c.semPreco === 0 && c.subtotal > 0 ? brl(c.subtotal) + " + entrega" : "Valores a confirmar";
     }
   }
@@ -338,7 +345,7 @@
     var item = pedido.filter(function (i) { return i.key === li.getAttribute("data-item"); })[0]; if (!item) return;
     if (e.target.closest("[data-item-remover]")) {
       pedido = pedido.filter(function (i) { return i !== item; });
-      aviso(produtosPorId[item.id].nome + " removido do pedido");
+      aviso(produtosPorId[item.id].nome + " removido da encomenda");
     } else if (e.target.closest("[data-item-menos]")) {
       if (item.qtd <= 1) return; item.qtd--;
     } else if (e.target.closest("[data-item-mais]")) {
@@ -360,7 +367,12 @@
     irPara(1);
     abrirDialogo(dlgPedido);
   }
-  $$("[data-abrir-pedido]").forEach(function (b) { b.addEventListener("click", abrirPedido); });
+  $$("[data-abrir-pedido]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      if (b.closest("[data-barra]") && qtdTotal() === 0) { document.getElementById("cardapio").scrollIntoView(); return; }
+      abrirPedido();
+    });
+  });
   $("[data-ir-cardapio]").addEventListener("click", function () {
     fecharDialogo(dlgPedido); document.getElementById("cardapio").scrollIntoView();
   });
@@ -394,7 +406,7 @@
   $("[data-recebimento]").innerHTML = opcoesRec.map(function (o) {
     return '<label class="opcao' + (opcoesRec.length === 1 ? " opcao--estatica" : "") + '"><input type="radio" name="recebimento" value="' + o.v + '"' + (dados.recebimento === o.v ? " checked" : "") + ' required>' +
       '<span class="opcao__texto">' + o.t + "<small>" + esc(o.d) + "</small></span></label>";
-  }).join("") + (!rec.retirada ? '<p class="opcao__texto"><small>Prefere retirar? <a href="' + whatsUrl("Olá! Gostaria de saber se é possível retirar meu pedido na Casa Ivete.") + '" target="_blank" rel="noopener">Consulte pelo WhatsApp</a>.</small></p>' : "");
+  }).join("") + (!rec.retirada ? '<p class="opcao__texto"><small>Prefere retirar? <a href="' + whatsUrl("Olá! Gostaria de saber se é possível retirar minha encomenda na Casa Ivete.") + '" target="_blank" rel="noopener">Consulte pelo WhatsApp</a>.</small></p>' : "");
 
   var sel = $("[data-select-cidade]");
   sel.innerHTML = '<option value="">Selecione</option>' + CFG.cidades.map(function (c) { return "<option>" + esc(c) + "</option>"; }).join("") + '<option value="Outra">Outra localidade (consultar)</option>';
@@ -450,7 +462,7 @@
   /* ---------- revisão e mensagem ---------- */
   function mensagemPedido() {
     var c = calcular();
-    var linhas = ["Olá! Gostaria de fazer um pedido na Casa Ivete.", "", "Meu pedido:"];
+    var linhas = ["Olá! Gostaria de fazer uma encomenda na Casa Ivete.", "", "Minha encomenda:"];
     pedido.forEach(function (i) {
       var p = produtosPorId[i.id];
       var l = "• " + p.nome + " — " + i.qtd;
@@ -467,9 +479,9 @@
       linhas.push("Cidade: " + (dados.cidade === "Outra" ? "outra localidade (a confirmar)" : dados.cidade));
       linhas.push("Endereço: " + (dados.endereco || "").trim());
     }
-    if (dados.data) linhas.push("Data desejada: " + dataBR(dados.data));
+    if (dados.data) linhas.push("Para quando: " + dataBR(dados.data));
     if ((dados.obs || "").trim()) linhas.push("Observações: " + dados.obs.trim());
-    linhas.push("", "Poderiam confirmar a disponibilidade e os detalhes do pedido, por favor?");
+    linhas.push("", "Poderiam confirmar a disponibilidade e os detalhes da encomenda, por favor?");
     return linhas.join("\n").replace(/\u00a0/g, " ");
   }
 
@@ -484,7 +496,7 @@
     $("[data-revisao]").innerHTML =
       '<div class="revisao__bloco"><p class="revisao__titulo">Itens <button type="button" class="revisao__editar" data-ir="1">Editar</button></p><ul class="revisao__lista">' + itens + '</ul><dl class="totais" style="margin-top:.8rem">' + totaisHTML(c) + "</dl></div>" +
       '<div class="revisao__bloco"><p class="revisao__titulo">Seus dados <button type="button" class="revisao__editar" data-ir="2">Editar</button></p><p style="margin:0">' + esc(dados.nome) + "<br>" + receb +
-      (dados.data ? "<br>Data desejada: " + dataBR(dados.data) : "") + (dados.obs ? "<br>Obs.: " + esc(dados.obs) : "") + "</p></div>" +
+      (dados.data ? "<br>Para quando: " + dataBR(dados.data) : "") + (dados.obs ? "<br>Obs.: " + esc(dados.obs) : "") + "</p></div>" +
       '<div class="revisao__bloco"><p class="revisao__titulo">Mensagem que será enviada</p><pre class="revisao__mensagem">' + esc(msg) + "</pre></div>";
     $$("[data-ir]", dlgPedido).forEach(function (b) { b.addEventListener("click", function () { irPara(+b.getAttribute("data-ir")); }); });
     var url = whatsUrl(msg);
@@ -541,9 +553,9 @@
   /* ---------- perguntas frequentes ---------- */
   var w = function (txt, msg) { return '<a href="' + whatsUrl(msg || MENSAGENS.geral) + '" target="_blank" rel="noopener">' + txt + "</a>"; };
   var faq = [
-    ["Como faço meu pedido?", "Escolha os produtos no cardápio, adicione ao pedido e informe seus dados. O site abre o WhatsApp com a mensagem pronta; depois de enviada, a equipe da Casa Ivete confirma disponibilidade, valores e entrega."],
+    ["Como faço minha encomenda?", "Escolha os produtos no cardápio, adicione à encomenda e informe seus dados. O site abre o WhatsApp com a mensagem pronta; depois de enviada, a equipe da Casa Ivete confirma disponibilidade, valores e entrega."],
     ["Vocês entregam na minha cidade?", "Atendemos " + CFG.cidades.join(" e ") + ". Para confirmar o seu endereço, " + w("fale com a gente pelo WhatsApp", MENSAGENS.entrega) + "."],
-    ["Posso fazer encomendas?", "Sim. Conte a ocasião, a data e a quantidade aproximada e " + w("consulte as opções de encomenda", MENSAGENS.encomenda) + "." +
+    ["Posso encomendar para uma festa ou evento?", "Sim. Conte a ocasião, a data e a quantidade aproximada e " + w("consulte as opções de encomenda", MENSAGENS.encomenda) + "." +
       (CFG.encomendas.antecedencia ? " Antecedência: " + esc(CFG.encomendas.antecedencia) + "." : "")],
     ["Como consulto os preços e a disponibilidade?", CAT.produtos.some(function (p) { return temPreco(p.preco); })
       ? "Os valores cadastrados aparecem no cardápio. A disponibilidade do dia é confirmada pelo atendimento no WhatsApp."
@@ -551,9 +563,9 @@
     ["Quais são as formas de pagamento?", CFG.pagamento.length
       ? "Aceitamos: " + CFG.pagamento.map(esc).join(", ") + ". O pagamento é combinado no atendimento; o site não cobra nenhum valor."
       : "As formas de pagamento são informadas no atendimento pelo WhatsApp. O site não realiza cobranças."],
-    ["Posso retirar meu pedido?", rec.retirada
+    ["Posso retirar minha encomenda?", rec.retirada
       ? "Sim. " + (rec.localRetirada ? "Local de retirada: " + esc(rec.localRetirada) + "." : "O local é informado no atendimento.")
-      : w("Consulte a possibilidade de retirada pelo WhatsApp", "Olá! Gostaria de saber se é possível retirar meu pedido na Casa Ivete.") + "."]
+      : w("Consulte a possibilidade de retirada pelo WhatsApp", "Olá! Gostaria de saber se é possível retirar minha encomenda na Casa Ivete.") + "."]
   ];
   $("[data-faq]").innerHTML = faq.map(function (f) {
     return '<details class="pergunta"><summary>' + esc(f[0]) + '</summary><div class="pergunta__resposta"><p>' + f[1] + "</p></div></details>";
@@ -567,7 +579,16 @@
         if (en.isIntersecting) links.forEach(function (a) { a.setAttribute("aria-current", String(a.getAttribute("href") === "#" + en.target.id)); });
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
-    ["inicio", "cardapio", "essencia", "entregas", "contato"].forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+    ["cardapio", "como-funciona", "encomendas", "entregas", "duvidas"].forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+
+    var vis = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (en) {
+        if (en.target.id === "inicio") heroVisivel = en.isIntersecting;
+        if (en.target.id === "cardapio") cardapioVisivel = en.isIntersecting;
+      });
+      atualizarBarra();
+    });
+    vis.observe(document.getElementById("inicio")); vis.observe(document.getElementById("cardapio"));
 
     var rev = new IntersectionObserver(function (entradas) {
       entradas.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add("is-visivel"); rev.unobserve(en.target); } });
