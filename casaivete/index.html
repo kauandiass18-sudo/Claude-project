@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Casa Ivete | Massas e Pães Artesanais</title>
+  <meta name="description" content="Conheça os pães, salgados, bolos, cucas e outras delícias artesanais da Casa Ivete. Consulte o cardápio e faça seu pedido pelo WhatsApp.">
+  <meta name="theme-color" content="#F5F0E6">
+  <link rel="canonical" href="./">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Casa Ivete">
+  <meta property="og:title" content="Casa Ivete | Massas e Pães Artesanais">
+  <meta property="og:description" content="Pães, salgados, bolos e cucas artesanais. Consulte o cardápio e faça seu pedido pelo WhatsApp.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/eb-garamond-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/dm-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/ilustracoes/hero.webp" as="image" imagesrcset="assets/img/ilustracoes/hero-sm.webp 600w, assets/img/ilustracoes/hero.webp 1000w" imagesizes="(min-width: 900px) 48vw, 100vw">
+  <link rel="stylesheet" href="assets/css/casaivete.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Casa Ivete",
+    "description": "Massas e pães artesanais: salgados, pães, bolos caseiros, cucas e doces.",
+    "telephone": "+55 49 99918-4930",
+    "areaServed": [
+      { "@type": "City", "name": "Chapecó, SC" },
+      { "@type": "City", "name": "Faxinal dos Guedes, SC" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo" data-topo>
+    <div class="topo__inner wrap">
+      <a class="marca" href="#inicio" aria-label="Casa Ivete — início" data-marca>
+        <span class="marca__nome">Casa Ivete</span>
+        <span class="marca__assinatura">Massas e Pães Artesanais</span>
+      </a>
+
+      <nav class="nav" id="menu" aria-label="Principal" data-nav>
+        <ul class="nav__lista">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#cardapio">Cardápio</a></li>
+          <li><a href="#essencia">Nossa essência</a></li>
+          <li><a href="#entregas">Entregas</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="topo__acoes">
+        <button class="btn btn--pedido" type="button" data-abrir-pedido>
+          <span>Fazer pedido</span>
+          <span class="contador" data-contador hidden>0</span>
+        </button>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-btn>
+          <span class="sr">Abrir menu</span>
+          <span class="menu-btn__linhas" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="hero__inner wrap">
+        <div class="hero__texto">
+          <p class="sobretitulo" data-revelar>Feito com cuidado, servido com carinho</p>
+          <h1 id="hero-titulo" class="hero__titulo" data-revelar>O sabor de casa, <em>em cada detalhe.</em></h1>
+          <p class="hero__descricao" data-revelar>Pães, massas, salgados, bolos e cucas artesanais preparados para levar mais sabor aos seus momentos.</p>
+          <div class="hero__botoes" data-revelar>
+            <a class="btn btn--primario" href="#cardapio">Explorar nosso cardápio</a>
+            <a class="btn btn--texto" href="#" data-whats="geral" target="_blank" rel="noopener">Fazer um pedido pelo WhatsApp</a>
+          </div>
+          <p class="hero__local" data-revelar>Entregas em Chapecó e Faxinal dos Guedes.</p>
+        </div>
+        <figure class="hero__foto">
+          <img src="assets/img/ilustracoes/hero.webp"
+               srcset="assets/img/ilustracoes/hero-sm.webp 600w, assets/img/ilustracoes/hero.webp 1000w"
+               sizes="(min-width: 900px) 48vw, 100vw"
+               width="1000" height="1200"
+               alt="Pães artesanais dourados sobre uma tábua de madeira, ao lado de espigas de trigo"
+               fetchpriority="high">
+        </figure>
+      </div>
+    </section>
+
+    <!-- CATEGORIAS -->
+    <section class="secao categorias" aria-labelledby="cat-titulo">
+      <div class="wrap">
+        <header class="secao__cabeca" data-revelar>
+          <h2 id="cat-titulo" class="titulo">Encontre seu próximo favorito.</h2>
+          <p class="subtitulo">Da primeira mordida ao último pedacinho.</p>
+        </header>
+        <ul class="categorias__grade" data-categorias></ul>
+      </div>
+    </section>
+
+    <!-- CARDÁPIO -->
+    <section class="secao cardapio" id="cardapio" aria-labelledby="cardapio-titulo">
+      <div class="wrap">
+        <header class="secao__cabeca secao__cabeca--linha" data-revelar>
+          <div>
+            <h2 id="cardapio-titulo" class="titulo">Feitos para dar vontade.</h2>
+            <p class="subtitulo">Conheça nossas opções artesanais e escolha as suas favoritas.</p>
+          </div>
+        </header>
+
+        <div class="filtros" role="group" aria-label="Filtrar por categoria" data-filtros></div>
+        <p class="sr" aria-live="polite" data-filtro-status></p>
+
+        <ul class="produtos" data-produtos></ul>
+        <div class="vazio" data-vazio hidden>
+          <p class="vazio__titulo">As opções desta categoria são preparadas conforme a disponibilidade.</p>
+          <p>Fale com a gente para saber o que temos hoje.</p>
+          <a class="btn btn--secundario" href="#" data-whats="doces" target="_blank" rel="noopener">Consultar pelo WhatsApp</a>
+        </div>
+
+        <noscript>
+          <p class="aviso">Para montar seu pedido, ative o JavaScript ou fale com a gente pelo WhatsApp: <a href="https://wa.me/5549999184930">(49) 99918-4930</a>.</p>
+        </noscript>
+
+        <p class="cardapio__nota" data-nota-imagens hidden>Imagens ilustrativas. Valores, sabores e disponibilidade são confirmados no atendimento.</p>
+      </div>
+    </section>
+
+    <!-- DESEJO -->
+    <section class="secao desejo" aria-labelledby="desejo-titulo">
+      <div class="wrap">
+        <h2 id="desejo-titulo" class="titulo titulo--grande" data-revelar>Tem coisa que a gente reconhece no primeiro olhar.</h2>
+        <div class="desejo__grade">
+          <figure class="desejo__item desejo__item--alto" data-revelar>
+            <img src="assets/img/ilustracoes/pao-corte.webp" srcset="assets/img/ilustracoes/pao-corte-sm.webp 420w, assets/img/ilustracoes/pao-corte.webp 800w" sizes="(min-width: 900px) 55vw, 100vw" width="800" height="1000" loading="lazy" decoding="async" alt="Pão artesanal cortado ao meio, com o miolo à mostra">
+            <figcaption>A crosta e o miolo</figcaption>
+          </figure>
+          <figure class="desejo__item" data-revelar>
+            <img src="assets/img/ilustracoes/salgado-detalhe.webp" srcset="assets/img/ilustracoes/salgado-detalhe-sm.webp 420w, assets/img/ilustracoes/salgado-detalhe.webp 800w" sizes="(min-width: 900px) 35vw, 50vw" width="800" height="1000" loading="lazy" decoding="async" alt="Detalhe da superfície dourada de um salgado">
+            <figcaption>A casquinha dourada</figcaption>
+          </figure>
+          <figure class="desejo__item" data-revelar>
+            <img src="assets/img/ilustracoes/cuca-detalhe.webp" srcset="assets/img/ilustracoes/cuca-detalhe-sm.webp 420w, assets/img/ilustracoes/cuca-detalhe.webp 800w" sizes="(min-width: 900px) 35vw, 50vw" width="800" height="1000" loading="lazy" decoding="async" alt="Detalhe da farofa e da massa de uma cuca">
+            <figcaption>A farofa da cuca</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESSÊNCIA -->
+    <section class="secao essencia" id="essencia" aria-labelledby="essencia-titulo">
+      <div class="wrap essencia__inner">
+        <figure class="essencia__foto" data-revelar>
+          <img src="assets/img/ilustracoes/cuca.webp" srcset="assets/img/ilustracoes/cuca-sm.webp 420w, assets/img/ilustracoes/cuca.webp 800w" sizes="(min-width: 900px) 40vw, 100vw" width="800" height="1000" loading="lazy" decoding="async" alt="Cuca artesanal com farofa dourada sobre tábua de madeira">
+        </figure>
+        <div class="essencia__texto" data-revelar>
+          <p class="sobretitulo">Nossa essência</p>
+          <h2 id="essencia-titulo" class="titulo">Mais do que receitas, cuidado em cada preparo.</h2>
+          <div class="essencia__corpo" data-essencia></div>
+          <a class="link-seta" href="#cardapio">Conheça o cardápio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENCOMENDAS -->
+    <section class="secao encomendas" aria-labelledby="encomendas-titulo">
+      <div class="wrap encomendas__inner">
+        <div class="encomendas__texto" data-revelar>
+          <p class="sobretitulo">Encomendas</p>
+          <h2 id="encomendas-titulo" class="titulo">Sua ocasião merece algo especial.</h2>
+          <p class="encomendas__descricao">Consulte nossas opções de salgados, pães e produtos artesanais para compartilhar com quem você gosta.</p>
+          <dl class="infos" data-infos-encomenda hidden></dl>
+          <a class="btn btn--primario" href="#" data-whats="encomenda" target="_blank" rel="noopener">Consultar encomendas</a>
+        </div>
+        <figure class="encomendas__foto" data-revelar>
+          <img src="assets/img/ilustracoes/mini-salgados.webp" srcset="assets/img/ilustracoes/mini-salgados-sm.webp 420w, assets/img/ilustracoes/mini-salgados.webp 800w" sizes="(min-width: 900px) 38vw, 100vw" width="800" height="1000" loading="lazy" decoding="async" alt="Mini salgados organizados em forminhas sobre uma bandeja">
+        </figure>
+      </div>
+    </section>
+
+    <!-- ENTREGAS -->
+    <section class="secao entregas" id="entregas" aria-labelledby="entregas-titulo">
+      <div class="wrap">
+        <header class="secao__cabeca" data-revelar>
+          <h2 id="entregas-titulo" class="titulo">O sabor da Casa Ivete, mais perto de você.</h2>
+        </header>
+        <div class="entregas__grade">
+          <ul class="cidades" data-cidades data-revelar></ul>
+          <div class="entregas__info" data-revelar>
+            <dl class="infos" data-infos-entrega hidden></dl>
+            <p class="entregas__consulta" data-entrega-consulta>Regiões atendidas, taxas, horários e prazos são informados no atendimento. Fale com a gente antes de fazer o seu pedido.</p>
+            <a class="btn btn--secundario" href="#" data-whats="entrega" target="_blank" rel="noopener">Consultar condições de entrega</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="secao faq" aria-labelledby="faq-titulo">
+      <div class="wrap faq__inner">
+        <header class="faq__cabeca" data-revelar>
+          <h2 id="faq-titulo" class="titulo">Perguntas frequentes</h2>
+          <p class="subtitulo">Não encontrou o que procurava? <a href="#" data-whats="geral" target="_blank" rel="noopener">Fale com a gente pelo WhatsApp.</a></p>
+        </header>
+        <div class="faq__lista" data-faq></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape" id="contato">
+    <div class="wrap">
+      <p class="rodape__mensagem">Casa Ivete. <em>Sabor artesanal para fazer parte dos seus momentos.</em></p>
+      <div class="rodape__grade">
+        <div class="rodape__marca">
+          <span class="marca__nome">Casa Ivete</span>
+          <span class="marca__assinatura">Massas e Pães Artesanais</span>
+        </div>
+        <nav aria-label="Rodapé">
+          <h3 class="rodape__titulo">Navegue</h3>
+          <ul>
+            <li><a href="#cardapio">Cardápio</a></li>
+            <li><a href="#essencia">Nossa essência</a></li>
+            <li><a href="#entregas">Entregas</a></li>
+            <li><a href="privacidade.html">Política de privacidade</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h3 class="rodape__titulo">Contato</h3>
+          <ul data-rodape-contato>
+            <li><a href="#" data-whats="geral" target="_blank" rel="noopener">WhatsApp <span data-whats-numero>(49) 99918-4930</span></a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="rodape__titulo">Atendemos</h3>
+          <ul data-rodape-cidades></ul>
+        </div>
+      </div>
+      <p class="rodape__direitos">© <span data-ano>2026</span> Casa Ivete. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Barra do pedido (celular) -->
+  <div class="barra-pedido" data-barra hidden>
+    <button type="button" class="barra-pedido__btn" data-abrir-pedido>
+      <span class="barra-pedido__resumo"><strong data-barra-qtd>0 itens</strong><span data-barra-valor></span></span>
+      <span class="barra-pedido__acao">Ver pedido</span>
+    </button>
+  </div>
+
+  <!-- Detalhe do produto -->
+  <dialog class="modal" data-modal aria-labelledby="modal-nome">
+    <div class="modal__corpo">
+      <button class="fechar" type="button" data-fechar aria-label="Fechar"><span aria-hidden="true"></span></button>
+      <figure class="modal__foto"><img data-modal-img alt="" width="800" height="1000"></figure>
+      <form class="modal__info" data-modal-form novalidate>
+        <p class="sobretitulo" data-modal-cat></p>
+        <h2 class="modal__nome" id="modal-nome" data-modal-nome></h2>
+        <p class="modal__descricao" data-modal-desc></p>
+        <dl class="modal__detalhes" data-modal-detalhes></dl>
+        <div data-modal-variacoes></div>
+        <label class="campo">
+          <span class="campo__rotulo">Observação para este item <span class="opcional">(opcional)</span></span>
+          <input type="text" name="obs" maxlength="140" placeholder="Ex.: sabores, tamanho, quantidade para a ocasião" data-modal-obs>
+        </label>
+        <div class="modal__acoes">
+          <div class="qtd" data-qtd>
+            <button type="button" data-qtd-menos aria-label="Diminuir quantidade">−</button>
+            <input type="number" inputmode="numeric" min="1" max="999" value="1" aria-label="Quantidade" data-qtd-valor>
+            <button type="button" data-qtd-mais aria-label="Aumentar quantidade">+</button>
+          </div>
+          <button class="btn btn--primario btn--largo" type="submit" data-modal-add>Adicionar ao pedido</button>
+        </div>
+        <p class="modal__indisponivel" data-modal-indisp hidden>Este produto está indisponível no momento. <a href="#" target="_blank" rel="noopener" data-modal-whats>Consultar pelo WhatsApp</a></p>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Pedido -->
+  <dialog class="pedido" data-pedido aria-labelledby="pedido-titulo">
+    <div class="pedido__painel">
+      <header class="pedido__topo">
+        <h2 class="pedido__titulo" id="pedido-titulo">Seu pedido</h2>
+        <button class="fechar" type="button" data-fechar aria-label="Fechar pedido"><span aria-hidden="true"></span></button>
+      </header>
+      <ol class="etapas" aria-label="Etapas do pedido" data-etapas>
+        <li data-etapa-ind="1"><span>1</span> Itens</li>
+        <li data-etapa-ind="2"><span>2</span> Seus dados</li>
+        <li data-etapa-ind="3"><span>3</span> Enviar</li>
+      </ol>
+
+      <!-- Etapa 1 -->
+      <section class="pedido__etapa" data-etapa="1">
+        <ul class="itens" data-itens></ul>
+        <div class="pedido__vazio" data-pedido-vazio hidden>
+          <p class="vazio__titulo">Seu pedido ainda está vazio.</p>
+          <p>Escolha suas delícias no cardápio e elas aparecerão aqui.</p>
+          <button class="btn btn--secundario" type="button" data-ir-cardapio>Ver o cardápio</button>
+        </div>
+        <div class="pedido__rodape" data-rodape-itens>
+          <dl class="totais" data-totais></dl>
+          <button class="btn btn--primario btn--largo" type="button" data-avancar="2">Continuar</button>
+        </div>
+      </section>
+
+      <!-- Etapa 2 -->
+      <section class="pedido__etapa" data-etapa="2" hidden>
+        <form class="form" data-form novalidate>
+          <label class="campo">
+            <span class="campo__rotulo">Seu nome</span>
+            <input type="text" name="nome" autocomplete="name" required minlength="2" maxlength="80" aria-describedby="erro-nome">
+            <span class="campo__erro" id="erro-nome"></span>
+          </label>
+
+          <fieldset class="campo">
+            <legend class="campo__rotulo">Forma de recebimento</legend>
+            <div class="opcoes" data-recebimento></div>
+            <span class="campo__erro" id="erro-recebimento"></span>
+          </fieldset>
+
+          <div data-campos-entrega>
+            <label class="campo">
+              <span class="campo__rotulo">Cidade</span>
+              <select name="cidade" required aria-describedby="erro-cidade" data-select-cidade></select>
+              <span class="campo__erro" id="erro-cidade"></span>
+            </label>
+            <label class="campo">
+              <span class="campo__rotulo">Endereço para entrega</span>
+              <input type="text" name="endereco" autocomplete="street-address" maxlength="160" placeholder="Rua, número, bairro e complemento" aria-describedby="erro-endereco">
+              <span class="campo__erro" id="erro-endereco"></span>
+            </label>
+          </div>
+
+          <label class="campo">
+            <span class="campo__rotulo">Data desejada <span class="opcional">(opcional)</span></span>
+            <input type="date" name="data" aria-describedby="erro-data" data-input-data>
+            <span class="campo__erro" id="erro-data"></span>
+          </label>
+
+          <label class="campo">
+            <span class="campo__rotulo">Observações <span class="opcional">(opcional)</span></span>
+            <textarea name="obs" rows="3" maxlength="400" placeholder="Horário preferido, ponto de referência, detalhes da encomenda…"></textarea>
+          </label>
+
+          <div class="pedido__rodape">
+            <div class="pedido__navegacao">
+              <button class="btn btn--texto" type="button" data-voltar="1">Voltar</button>
+              <button class="btn btn--primario" type="submit">Revisar pedido</button>
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <!-- Etapa 3 -->
+      <section class="pedido__etapa" data-etapa="3" hidden>
+        <div data-revisao></div>
+        <div class="pedido__rodape">
+          <p class="pedido__aviso">Ao continuar, o WhatsApp abre com a mensagem pronta. O pedido é confirmado pela equipe da Casa Ivete, que retorna com disponibilidade, valores e entrega.</p>
+          <div class="pedido__navegacao">
+            <button class="btn btn--texto" type="button" data-voltar="2">Voltar</button>
+            <a class="btn btn--whats" href="#" target="_blank" rel="noopener" data-enviar>Enviar pelo WhatsApp</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Enviado -->
+      <section class="pedido__etapa pedido__enviado" data-etapa="4" hidden>
+        <p class="sobretitulo">Mensagem preparada</p>
+        <h3 class="titulo titulo--medio">Agora é só enviar no WhatsApp.</h3>
+        <p>Abrimos uma conversa com o seu pedido já escrito. Depois de enviar, a equipe da Casa Ivete confirma a disponibilidade e os detalhes com você.</p>
+        <p class="pedido__dica">O WhatsApp não abriu? <a href="#" target="_blank" rel="noopener" data-enviar-novamente>Tente novamente</a>.</p>
+        <div class="pedido__navegacao">
+          <button class="btn btn--texto" type="button" data-limpar>Começar um novo pedido</button>
+          <button class="btn btn--secundario" type="button" data-fechar>Voltar ao site</button>
+        </div>
+      </section>
+    </div>
+  </dialog>
+
+  <div class="aviso-toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/catalogo.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
