@@ -1,0 +1,12 @@
+# Configuração das funções para o Supabase CLI (supabase functions deploy).
+# O webhook do Mercado Pago é chamado pelo provedor, sem login: por isso não exige JWT.
+# A segurança vem da reconsulta do pagamento na API do Mercado Pago.
+
+[functions.checkout]
+verify_jwt = true
+
+[functions.frete]
+verify_jwt = true
+
+[functions.mp-webhook]
+verify_jwt = false

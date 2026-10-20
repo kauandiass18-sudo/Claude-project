@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin.html
+Disallow: /checkout.html
+Disallow: /pedido.html
+Disallow: /conta.html
