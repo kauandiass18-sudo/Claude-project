@@ -80,11 +80,8 @@
     else el.hidden = true;
   });
 
-  if (!cfg.imagensIlustrativas) {
-    document.querySelectorAll("[data-aviso-imagens]").forEach(function (el) { el.hidden = true; });
-  }
-  if (!cfg.depoimentosDeExemplo) {
-    document.querySelectorAll("[data-aviso-depoimentos]").forEach(function (el) { el.hidden = true; });
+  if (!cfg.imagensIlustrativas && !cfg.depoimentosDeExemplo) {
+    document.querySelectorAll("[data-aviso-previa]").forEach(function (el) { el.hidden = true; });
   }
 
   var ano = document.querySelector("[data-ano]");

@@ -4,9 +4,9 @@ Landing page da Pizzaria do Surf. O cliente escolhe a pizza e o pedido termina
 no WhatsApp. Feita em HTML, CSS e JavaScript puro: não tem build nem
 dependências. Basta publicar a pasta.
 
-Visual: modo escuro gourmet (fundo `#121212`, texto branco, destaques em dourado
-`#F59E0B`), títulos em Montserrat, textos em Inter e palavras de destaque em
-Playfair Display itálico.
+Visual: modo escuro (fundo `#121212`, texto branco, destaques em dourado
+`#F59E0B`) com uma única família tipográfica, Archivo: larga e pesada nos
+títulos, normal nos textos.
 
 ## Roteiro da página
 
@@ -34,7 +34,7 @@ Para incluir um sabor, copie um `<li class="card">` dentro da categoria certa e 
 
 **As imagens atuais são ilustrações provisórias**, geradas para esta
 apresentação. Não são fotos dos produtos reais. Enquanto
-`imagensIlustrativas: true` estiver em `config.js`, a página mostra o aviso "Imagens ilustrativas".
+`imagensIlustrativas` ou `depoimentosDeExemplo` estiverem `true` em `config.js`, o rodapé mostra um aviso discreto de prévia.
 
 Para usar as fotos oficiais, troque os arquivos em `assets/img/ilustracoes/`
 mantendo os mesmos nomes (`pizza-do-surf.webp`, `pizza-do-surf-sm.webp` etc.).
