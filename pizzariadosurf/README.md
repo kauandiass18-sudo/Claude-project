@@ -11,12 +11,11 @@ Playfair Display itálico.
 ## Roteiro da página
 
 1. **Abertura:** promessa, botão "Fazer pedido agora no WhatsApp", "Ver cardápio completo" e selos de confiança.
-2. **Os queridinhos do cardápio:** Pizza do Surf, A Moda do Pizzaiolo, Nordestina e Nutella com Morango, cada uma com o botão "Quero esta".
+2. **Cardápio por categoria:** abas **Salgadas** (Pizza do Surf, A Moda do Pizzaiolo, Nordestina e Meio a Meio Salgada), **Doces** (Nutella com Morango e Meio a Meio Doce) e **Beirutes** (Misto, Calabresa, Carne Seca e Peito de Peru). Cada item tem o botão "Quero esta".
 3. **Diferenciais:** massa e forno, ingredientes premium, entrega rápida.
-4. **Monte do seu jeito:** meio a meio salgada, meio a meio doce ou beirutes. A opção escolhida já vai escrita na mensagem do WhatsApp.
-5. **Avaliações:** três depoimentos com 5 estrelas.
-6. **Dúvidas frequentes:** perguntas em sanfona (uma aberta por vez).
-7. **Chamada final** e **rodapé** com horário, endereço e redes.
+4. **Avaliações:** três depoimentos com 5 estrelas.
+5. **Dúvidas frequentes:** perguntas em sanfona (uma aberta por vez).
+6. **Chamada final** e **rodapé** com horário, endereço e redes.
 
 No celular, depois que a pessoa passa da abertura, aparece uma barra fixa com o botão do WhatsApp.
 
@@ -29,6 +28,7 @@ No celular, depois que a pessoa passa da abertura, aparece uma barra fixa com o 
 | `assets/css/style.css` | Cores (no topo, em `:root`), tipografia e layout |
 
 Cada botão "Quero esta" tem `data-pedido="Nome da pizza"`: é esse nome que vai na mensagem do WhatsApp.
+Para incluir um sabor, copie um `<li class="card">` dentro da categoria certa e atualize o número na aba.
 
 ## Imagens
 

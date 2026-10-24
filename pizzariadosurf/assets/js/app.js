@@ -19,7 +19,8 @@
   function mensagemDoBotao(el) {
     var item = el.getAttribute("data-pedido");
     if (!item) return cfg.mensagemPadrao;
-    return "Olá, Pizzaria do Surf! Quero pedir: " + item + ".";
+    // Itens que terminam com ": " pedem que o cliente complete (ex.: sabores do meio a meio).
+    return "Olá, Pizzaria do Surf! Quero pedir: " + item + (/:\s$/.test(item) ? "" : ".");
   }
 
   document.querySelectorAll("[data-whatsapp]").forEach(function (el) {
@@ -37,22 +38,26 @@
     });
   }
 
-  // ---------- Monte do seu jeito ----------
-  var montar = document.querySelector("[data-montar]");
-  var botaoMontar = document.querySelector("[data-montar-enviar]");
-  function atualizarMontagem() {
-    var escolhida = montar.querySelector("input:checked");
-    var nome = escolhida ? escolhida.value : "";
-    botaoMontar.href = linkWhatsApp(
-      "Olá, Pizzaria do Surf! Quero montar minha pizza: " + nome + ". Os sabores que eu quero são: "
-    );
+  // ---------- Categorias do cardápio ----------
+  var abas = Array.prototype.slice.call(document.querySelectorAll("[data-abas] [role=tab]"));
+  function abrirAba(aba, focar) {
+    abas.forEach(function (outra) {
+      var ativa = outra === aba;
+      outra.setAttribute("aria-selected", String(ativa));
+      outra.tabIndex = ativa ? 0 : -1;
+      document.getElementById(outra.getAttribute("aria-controls")).hidden = !ativa;
+    });
+    if (focar) aba.focus();
   }
-  if (montar && botaoMontar) {
-    botaoMontar.target = "_blank";
-    botaoMontar.rel = "noopener";
-    montar.addEventListener("change", atualizarMontagem);
-    atualizarMontagem();
-  }
+  abas.forEach(function (aba, i) {
+    aba.addEventListener("click", function () { abrirAba(aba); });
+    aba.addEventListener("keydown", function (e) {
+      var passo = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (!passo) return;
+      e.preventDefault();
+      abrirAba(abas[(i + passo + abas.length) % abas.length], true);
+    });
+  });
 
   // ---------- Rodapé: horários, endereço e redes ----------
   function preencherLista(seletor, itens) {
