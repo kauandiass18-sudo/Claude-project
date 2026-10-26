@@ -72,19 +72,23 @@
 
   /* ---------- Botão "Feche uma parceria comigo" ----------
      Leva ao linkParceria de data/perfil.js (WhatsApp, e-mail ou site).
-     Sem link, o botão fica escondido: nada de botão que não leva a lugar nenhum. */
+     Sem link, o botão aparece avisando "Contato em breve" (e o toque não
+     sai da página), no mesmo estilo das lojas que ainda não têm produtos. */
   const botaoParceria = document.querySelector("[data-link-parceria]");
   if (botaoParceria) {
     const url = linkSeguro(perfil.linkParceria, { permitirMailto: true });
     if (url) {
       botaoParceria.href = url;
-      botaoParceria.hidden = false;
       if (!url.startsWith("mailto:")) {
         botaoParceria.target = "_blank";
         botaoParceria.rel = "noopener";
       }
     } else {
-      botaoParceria.hidden = true;
+      botaoParceria.removeAttribute("href");
+      botaoParceria.setAttribute("aria-disabled", "true");
+      botaoParceria.classList.add("botao-marca--embreve");
+      const sub = botaoParceria.querySelector(".botao-marca__sub");
+      if (sub) sub.textContent = "Em breve · contato para parcerias";
     }
   }
 

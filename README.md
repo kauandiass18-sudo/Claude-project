@@ -246,8 +246,8 @@ Ybera” (e “Me siga no Instagram”, se o Instagram estiver preenchido em
 `data/perfil.js`).
 
 O botão **“Feche uma parceria comigo”** leva ao `linkParceria` de
-`data/perfil.js`. Enquanto ele estiver vazio, o botão aparece mas não sai da
-página.
+`data/perfil.js`. Enquanto ele estiver vazio, o botão aparece com
+“Em breve · contato para parcerias” e o toque não sai da página.
 
 ---
 

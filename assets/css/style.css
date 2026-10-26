@@ -444,6 +444,9 @@ h1, h2, h3, h4, p { margin: 0; }
 .botao-marca--embreve .botao-marca__texto { font-size: 16.5px; }
 .botao-marca--embreve .botao-marca__sub { color: var(--ouro); }
 @media (hover: hover) { .botao-marca--embreve:hover { box-shadow: none; } }
+/* Sem link ainda: sem seta, porque o toque não leva a outra página */
+.botao-marca[aria-disabled="true"] { cursor: default; }
+.botao-marca[aria-disabled="true"] .botao-marca__seta { visibility: hidden; }
 
 /* Parceria: branco com filete dourado e a foto dela */
 .botao-marca--parceria { border-color: var(--ouro-fino); }

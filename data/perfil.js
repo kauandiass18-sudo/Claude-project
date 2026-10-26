@@ -36,7 +36,7 @@ window.PERFIL = {
   // Link do botão "Feche sua parceria aqui" (acima do Mercado Livre).
   // Pode ser WhatsApp ("https://wa.me/55DDDNUMERO"), e-mail
   // ("mailto:voce@exemplo.com") ou qualquer link https://.
-  // Vazio = o botão fica escondido até você colocar o link.
+  // Vazio = o botão aparece com "Em breve" até você colocar o link.
   linkParceria: "",
 
   // Texto exibido no rodapé de todas as páginas.
