@@ -111,9 +111,11 @@ function lerPrecos(html) {
     }
   }
   if (!precoPix) return null;
-  let antigo = riscado ?? normal;
-  if (antigo && antigo <= precoPix) antigo = null;
-  return { preco: precoPix, precoAntigo: antigo };
+  // precoAntigo: só o preço riscado de verdade (promoção da loja).
+  // precoCartao: o preço normal, no cartão (o do Pix tem desconto).
+  const antigo = riscado && riscado > precoPix ? riscado : null;
+  const noCartao = normal && normal > precoPix ? normal : null;
+  return { preco: precoPix, precoAntigo: antigo, precoCartao: noCartao };
 }
 
 // ---------- Uma página de produto ----------
@@ -350,6 +352,7 @@ async function gerar() {
       p.foto ? `      imagem: ${aspas("assets/img/produtos/ybera/" + p.foto)},` : null,
       `      affiliateUrl: ${aspas(p.url)},`,
       p.precoAntigo ? `      precoAntigo: ${aspas(paraReais(p.precoAntigo))},` : null,
+      p.precoCartao ? `      precoCartao: ${aspas(paraReais(p.precoCartao))},` : null,
       `      preco: ${aspas(paraReais(p.preco))},`,
       p.esgotado ? `      esgotado: true,` : null,
       p.maisVendido ? `      maisVendido: ${p.maisVendido},` : null,

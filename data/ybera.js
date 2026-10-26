@@ -66,7 +66,13 @@ window.LOJAS.ybera = {
 
   // Nome curto de cada categoria nos botões de filtro (opcional).
   // Sem nome aqui, aparece o nome inteiro da categoria.
-  rotulosCategorias: {},
+  rotulosCategorias: {
+    "Progressiva e Pós-Progressiva": "Progressiva",
+    "Cronogramas Capilares": "Cronogramas",
+    "Finalizadores": "Finalizadores",
+    "Equipamentos Profissionais": "Equipamentos",
+    "Shampoo": "Shampoo"
+  },
 
   // Ícone de cada categoria.
   // Ícones: liso, gota, raiz, coracao, ondas, brilho, cachos, sol, escudo, frasco, caixa, escova.
@@ -85,7 +91,7 @@ window.LOJAS.ybera = {
   // com o preço antigo riscado e o selo "-10%".
   rotuloPrecoNormal: "no cartão",
   descontoMinimoSelo: 10,
-  notaPrecos: "Preços conferidos todos os dias na loja da Ybera. O valor final é o da loja.",
+  notaPrecos: "Preços de referência do site oficial da Ybera, sujeitos a mudança. O valor final é sempre o da loja.",
 
   produtos: [
     // Lista gerada sozinha a partir da loja (scripts/catalogo-ybera.mjs).

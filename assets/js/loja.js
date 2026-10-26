@@ -54,7 +54,8 @@
         return null;
       }
       const categoria = typeof p.categoria === "string" ? p.categoria.trim() : "";
-      const texto = (v) => (typeof v === "string" ? v.trim() : "");
+      // Limpa espaços antes de pontuação vindos da loja ("Profundo ." → "Profundo.")
+      const texto = (v) => (typeof v === "string" ? v.replace(/\s+([.,;:!?])/g, "$1").trim() : "");
       const id = (url.match(/-(\d+)(?:[/?#]|$)/) || [])[1] || "";
       return {
         nome,
@@ -66,6 +67,7 @@
         destaque: p.destaque === true,
         preco: texto(p.preco),
         precoAntigo: texto(p.precoAntigo),
+        precoCartao: texto(p.precoCartao),
         oQueE: texto(p.oQueE),
         esgotado: p.esgotado === true,
         // Posição no ranking "Mais vendidos" da loja (1 = o que mais vende)
@@ -223,8 +225,13 @@
 
   function criarPreco(produto) {
     if (!produto.preco) return null;
-    const promocao = produto.precoAntigo && ehPromocao(produto);
-    const normal = produto.precoAntigo && !promocao && loja.rotuloPrecoNormal;
+    // Dados novos trazem o preço no cartão separado (precoCartao) e só o
+    // riscado de verdade em precoAntigo. Nos antigos, precoAntigo podia ser
+    // o preço no cartão: aí só desconto grande conta como promoção.
+    const dadosNovos = Boolean(produto.precoCartao);
+    const promocao = Boolean(produto.precoAntigo) && (dadosNovos || ehPromocao(produto));
+    const cartao = dadosNovos ? produto.precoCartao : promocao ? "" : produto.precoAntigo;
+    const normal = cartao && loja.rotuloPrecoNormal;
     return el("span", { class: "card__preco" }, [
       promocao
         ? el("s", { class: "card__preco-antigo" }, [el("span", { class: "sr-only", text: "de " }), produto.precoAntigo])
@@ -235,7 +242,7 @@
       ]),
       loja.rotuloPreco ? el("span", { class: "card__preco-rotulo", text: loja.rotuloPreco }) : null,
       normal
-        ? el("span", { class: "card__preco-normal", text: `ou ${produto.precoAntigo} ${loja.rotuloPrecoNormal}` })
+        ? el("span", { class: "card__preco-normal", text: `ou ${cartao} ${loja.rotuloPrecoNormal}` })
         : null
     ]);
   }
@@ -469,7 +476,8 @@
       return i === -1 ? Infinity : i;
     };
     grupos.sort((a, b) => posicao(a) - posicao(b));
-    const comTitulo = !estado.categoria && grupos.length > 1;
+    // Na seleção de mais vendidos, o título da categoria aparece mesmo filtrando
+    const comTitulo = (!estado.categoria && grupos.length > 1) || (porCategoria && grupos.length > 0);
 
     lista.replaceChildren(
       ...grupos.map((g) => {
@@ -487,7 +495,7 @@
           el("h4", { class: "grupo__titulo" }, [
             icone ? el("span", { class: "grupo__icone", html: icone }) : null,
             el("span", { class: "grupo__nome", text: g }),
-            el("span", { class: "grupo__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
+            porCategoria ? null : el("span", { class: "grupo__qtd", text: `${n} ${n === 1 ? "produto" : "produtos"}` })
           ]),
           descricao,
           el("ul", { class: classeLista }, itens)

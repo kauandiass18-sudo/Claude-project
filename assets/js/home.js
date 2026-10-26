@@ -72,20 +72,34 @@
 
   /* ---------- Botão "Feche uma parceria comigo" ----------
      Leva ao linkParceria de data/perfil.js (WhatsApp, e-mail ou site).
-     Enquanto o link estiver vazio, o botão aparece mas não sai da página. */
+     Sem link, o botão fica escondido: nada de botão que não leva a lugar nenhum. */
   const botaoParceria = document.querySelector("[data-link-parceria]");
   if (botaoParceria) {
     const url = linkSeguro(perfil.linkParceria, { permitirMailto: true });
     if (url) {
       botaoParceria.href = url;
+      botaoParceria.hidden = false;
       if (!url.startsWith("mailto:")) {
         botaoParceria.target = "_blank";
         botaoParceria.rel = "noopener";
       }
     } else {
-      botaoParceria.addEventListener("click", (e) => e.preventDefault());
+      botaoParceria.hidden = true;
     }
   }
+
+  /* ---------- Lojas ainda sem produtos ----------
+     O botão continua (a página da loja explica e leva à Ybera), mas avisa
+     "Em breve" em vez de prometer achadinhos que ainda não estão lá. */
+  const lojas = window.LOJAS || {};
+  document.querySelectorAll("[data-botao-loja]").forEach((botao) => {
+    const dados = lojas[botao.dataset.botaoLoja];
+    const vazia = !dados || !Array.isArray(dados.produtos) || !dados.produtos.length;
+    if (!vazia) return;
+    botao.classList.add("botao-marca--embreve");
+    const sub = botao.querySelector(".botao-marca__sub");
+    if (sub) sub.textContent = "Em breve · seleção em preparação";
+  });
 
   /* ---------- Redes sociais (texto em versalete) ---------- */
   const lista = document.querySelector("[data-perfil-redes]");

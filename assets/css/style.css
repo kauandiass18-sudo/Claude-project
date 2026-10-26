@@ -434,6 +434,17 @@ h1, h2, h3, h4, p { margin: 0; }
   .botao-marca--principal:hover .botao-marca__seta { color: var(--ouro); }
 }
 
+/* Loja ainda sem produtos: o botão fica, mais discreto, avisando "Em breve" */
+.botao-marca--embreve {
+  min-height: 64px;
+  background: transparent;
+  border-color: var(--linha);
+}
+.botao-marca--embreve .botao-marca__icone { background: transparent; color: var(--texto-suave); }
+.botao-marca--embreve .botao-marca__texto { font-size: 16.5px; }
+.botao-marca--embreve .botao-marca__sub { color: var(--ouro); }
+@media (hover: hover) { .botao-marca--embreve:hover { box-shadow: none; } }
+
 /* Parceria: branco com filete dourado e a foto dela */
 .botao-marca--parceria { border-color: var(--ouro-fino); }
 .botao-marca--parceria .botao-marca__icone { border-color: var(--ouro); padding: 2px; }
@@ -461,21 +472,6 @@ h1, h2, h3, h4, p { margin: 0; }
   font-size: 15.5px;
   color: var(--texto-suave);
   text-wrap: pretty;
-}
-.chamada__guia {
-  margin-top: 18px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: .2em;
-  text-transform: uppercase;
-  color: var(--ouro);
-}
-.chamada__guia::after {
-  content: "";
-  display: block;
-  width: 1px; height: 18px;
-  margin: 8px auto 0;
-  background: var(--ouro-fino);
 }
 
 /* ---------- Selos de confiança ---------- */
@@ -1129,8 +1125,16 @@ h1, h2, h3, h4, p { margin: 0; }
 .loja__subtitulo { margin: 12px auto 0; max-width: 32ch; font-size: 15px; color: var(--texto-suave); text-wrap: balance; }
 
 /* Subpágina Ybera: chamada própria, sem o "Achadinhos de cabelo" */
-.loja__hero--ybera { padding: 32px 20px 24px; }
-.loja__hero--ybera .loja__titulo { font-size: clamp(26px, 7.2vw, 32px); }
+/* Sem moldura: o título respira direto no fundo, como abertura de página */
+.loja__hero--ybera {
+  padding: 8px 0 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+}
+.loja__hero--ybera .loja__titulo { font-size: clamp(28px, 7.6vw, 36px); }
+.loja__hero--ybera .loja__subtitulo { max-width: 36ch; }
+.loja__hero--ybera .selos { margin-top: 16px; }
 .loja__hero--ybera .loja__titulo::before { content: none; }
 .loja__sobre {
   margin-bottom: 12px;
@@ -1211,6 +1215,10 @@ h1, h2, h3, h4, p { margin: 0; }
   .pagina-loja { --largura: 760px; }
   .pagina-loja .grupo__lista { grid-template-columns: 1fr 1fr; }
   .pagina-loja .lista--vitrine { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .chips { flex-wrap: wrap; justify-content: center; overflow: visible; margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; }
+  /* No computador, título da categoria alinhado à grade de produtos */
+  .grupo__titulo { margin-left: 0; margin-right: 0; padding-left: 0; padding-right: 0; }
+  .loja__hero--ybera .loja__titulo { max-width: 18ch; margin-inline: auto; }
   .lista--vitrine { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .card--destaque { width: 172px; }
   .arco { width: 160px; height: 206px; }

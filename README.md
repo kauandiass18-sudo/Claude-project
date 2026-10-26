@@ -142,6 +142,7 @@ produtos: [
 | `imagem`       | recomendado | Caminho da foto no projeto ou link `https://` da imagem.                 |
 | `preco`        | não         | Preço atual, ex.: `"R$ 283,01"`. Aparece com o rótulo "no Pix".          |
 | `precoAntigo`  | não         | Preço antigo, ex.: `"R$ 339,90"`. Aparece riscado, e o selo dourado de desconto (ex.: `-17%`) é calculado sozinho. |
+| `precoCartao`  | não         | Preço no cartão, ex.: `"R$ 339,90"`. Aparece como "ou R$ 339,90 no cartão" (Ybera: preenchido sozinho). |
 | `oQueE`        | não         | Frase curta sobre o que é o produto, abaixo do nome.                     |
 | `esgotado`     | não         | `true` esconde o produto (ou mostra com selo, se `mostrarEsgotados`).    |
 | `destaque`     | não         | `true` dá preferência ao produto quando a categoria tem poucos campeões. |
@@ -171,9 +172,10 @@ fica no console do navegador (F12).
 >   WebP (umas 6 vezes mais leves). O mesmo script anota em
 >   `data/ybera-fotos.js` as fotos que não têm fundo branco: elas vão para o
 >   fim de cada categoria, que começa pelas fotos mais limpas.
-> - Preço: o valor grande é o do Pix; o preço maior da loja aparece como
->   "ou R$ X no cartão", sem riscar. Só desconto de 10% ou mais
->   (`descontoMinimoSelo`) vira promoção, com preço riscado e selo "-10%".
+> - Preço: o valor grande é o do Pix; o preço no cartão aparece embaixo, como
+>   "ou R$ X no cartão" (`precoCartao`). Só o preço que a loja mostra riscado
+>   (promoção de verdade) aparece riscado (`precoAntigo`), e o selo "-10%" só
+>   aparece a partir de `descontoMinimoSelo`.
 > - Produtos com certas palavras no nome ficam escondidos com
 >   `ocultarProdutosCom`, em `data/ybera.js` (hoje: Black Diva).
 > - Categorias inteiras podem ser escondidas em `ocultarCategorias`, em
