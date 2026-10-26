@@ -102,7 +102,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150264.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-500g-ybera-fashion-gold-150264",
-      precoAntigo: "R$ 339,90",
+      precoCartao: "R$ 339,90",
       preco: "R$ 322,91",
       maisVendido: 2,
       destaque: true
@@ -113,7 +113,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151084.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-progressiva-150g-shampoo-300ml-mascara-250g-ybera-fashion-gold-151084",
-      precoAntigo: "R$ 284,90",
+      precoCartao: "R$ 284,90",
       preco: "R$ 270,66",
       destaque: true
     },
@@ -123,7 +123,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151305.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-liso-perfeito-ybera-fashion-gold-151305",
-      precoAntigo: "R$ 324,90",
+      precoCartao: "R$ 324,90",
       preco: "R$ 308,66",
       destaque: true
     },
@@ -133,7 +133,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151312.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-kids-menino-ybera-fashion-kids-151312",
-      precoAntigo: "R$ 249,90",
+      precoCartao: "R$ 249,90",
       preco: "R$ 237,41",
       destaque: true
     },
@@ -143,7 +143,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151316.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-kids-menina-ybera-fashion-kids-151316",
-      precoAntigo: "R$ 249,90",
+      precoCartao: "R$ 249,90",
       preco: "R$ 237,41",
       maisVendido: 7,
       destaque: true
@@ -154,7 +154,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151299.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-loiro-perfeito-ybera-fashion-gold-151299",
-      precoAntigo: "R$ 299,90",
+      precoCartao: "R$ 299,90",
       preco: "R$ 284,91",
       destaque: true
     },
@@ -164,7 +164,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150314.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-tonico-150ml-ybera-fashion-gold-150314",
-      precoAntigo: "R$ 349,90",
+      precoCartao: "R$ 349,90",
       preco: "R$ 332,41",
       destaque: true
     },
@@ -174,7 +174,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150262.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-300g-shampoo-pos-progressiva-300ml-mascara-2-em-1-250g-ybera-fashion-gold-150262",
-      precoAntigo: "R$ 449,90",
+      precoCartao: "R$ 449,90",
       preco: "R$ 427,41",
       destaque: true
     },
@@ -184,7 +184,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151484.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-90-capsulas-softgel-tonico-150ml-ybera-fashion-gold-151484",
-      precoAntigo: "R$ 349,90",
+      precoCartao: "R$ 349,90",
       preco: "R$ 332,41",
       destaque: true
     },
@@ -194,7 +194,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150795.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-300g-ybera-fashion-gold-150795",
-      precoAntigo: "R$ 257,90",
+      precoCartao: "R$ 257,90",
       preco: "R$ 245,01",
       destaque: true
     },
@@ -204,7 +204,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150293.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-manutencao-pos-progressiva-shampoo-300ml-mascara-2-em-1-250g-ybera-fashion-gold-150293",
-      precoAntigo: "R$ 205,90",
+      precoCartao: "R$ 205,90",
       preco: "R$ 195,61",
       destaque: true
     },
@@ -214,7 +214,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150308.webp",
       affiliateUrl: "https://www.ybera.com/produto/tonico-antiqueda-100timetros-150ml-ybera-fashion-gold-150308",
-      precoAntigo: "R$ 127,90",
+      precoCartao: "R$ 127,90",
       preco: "R$ 121,51",
       destaque: true
     },
@@ -224,7 +224,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151480.webp",
       affiliateUrl: "https://www.ybera.com/produto/90-capsulas-100timetros-softgel-cabelo-pele-e-unhas-ybera-fashion-gold-151480",
-      precoAntigo: "R$ 239,90",
+      precoCartao: "R$ 239,90",
       preco: "R$ 227,91",
       destaque: true
     },
@@ -234,7 +234,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151083.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-150g-ybera-fashion-gold-151083",
-      precoAntigo: "R$ 99,90",
+      precoCartao: "R$ 99,90",
       preco: "R$ 94,91",
       maisVendido: 1,
       destaque: false
@@ -245,7 +245,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151064.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-1kg-fashion-gold-151064",
-      precoAntigo: "R$ 497,90",
+      precoCartao: "R$ 497,90",
       preco: "R$ 473,01",
       destaque: false
     },
@@ -255,7 +255,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151557.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-1kg-fashion-gold-151557",
-      precoAntigo: "R$ 397,90",
+      precoCartao: "R$ 397,90",
       preco: "R$ 378,01",
       destaque: false
     },
@@ -265,7 +265,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151608.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cronograma-liso-perfeito-escova-progressiva-300g-shampoo-pos-progressiva-300ml-mascara-2-em-1-250g-ybera-fashion-gold-151608",
-      precoAntigo: "R$ 734,90",
+      precoCartao: "R$ 734,90",
       preco: "R$ 698,16",
       destaque: false
     },
@@ -275,7 +275,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151606.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cronograma-liso-perfeito-shampoo-pos-progressiva-500ml-ybera-fashion-gold-151606",
-      precoAntigo: "R$ 387,90",
+      precoCartao: "R$ 387,90",
       preco: "R$ 368,51",
       destaque: false
     },
@@ -285,7 +285,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151523.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-150g-shampoo-300ml-mascara-250g-oleo-de-mirra-15ml-ybera-fashion-gold-151523",
-      precoAntigo: "R$ 370,90",
+      precoCartao: "R$ 370,90",
       preco: "R$ 352,36",
       destaque: false
     },
@@ -295,7 +295,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150261.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-500g-shampoo-pos-progressiva-500ml-mascara-2-em-1-500g-ybera-fashion-gold-150261",
-      precoAntigo: "R$ 577,90",
+      precoCartao: "R$ 577,90",
       preco: "R$ 549,01",
       destaque: false
     },
@@ -305,7 +305,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151550.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-mascara-resistencia-absoluta-250g-mascara-liso-encorpado-250g-mascara-blindagem-polidora-250g-ybera-fashion-gold-151550",
-      precoAntigo: "R$ 299,90",
+      precoCartao: "R$ 299,90",
       preco: "R$ 284,91",
       destaque: false
     },
@@ -315,7 +315,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150294.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-manutencao-pos-progressiva-shampoo-500ml-mascara-2-em-1-500g-ybera-fashion-gold-150294",
-      precoAntigo: "R$ 254,90",
+      precoCartao: "R$ 254,90",
       preco: "R$ 242,16",
       maisVendido: 5,
       destaque: false
@@ -326,7 +326,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150601.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-educadora-1kg-terra-coco-150601",
-      precoAntigo: "R$ 247,90",
+      precoCartao: "R$ 247,90",
       preco: "R$ 235,51",
       destaque: false
     },
@@ -336,7 +336,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151516.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-hidratacao-liso-encorpado-liso-perfeito-250g-ybera-fashion-gold-151516",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -346,7 +346,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151515.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-nutricao-blindagem-polidora-liso-perfeito-250g-ybera-fashion-gold-151515",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -356,7 +356,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151213.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-pos-progressiva-ph-control-200g-ybera-151213",
-      precoAntigo: "R$ 137,90",
+      precoCartao: "R$ 137,90",
       preco: "R$ 131,01",
       destaque: false
     },
@@ -366,7 +366,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151517.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-resistencia-absoluta-liso-perfeito-250g-ybera-fashion-gold-151517",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -376,7 +376,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151440.webp",
       affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-kids-menina-ybera-fashion-kids-151440",
-      precoAntigo: "R$ 377,70",
+      precoCartao: "R$ 377,70",
       preco: "R$ 358,82",
       destaque: false
     },
@@ -386,7 +386,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151443.webp",
       affiliateUrl: "https://www.ybera.com/produto/6-unidades-kit-cronograma-liso-perfeito-ybera-fashion-gold-151443",
-      precoAntigo: "R$ 815,40",
+      precoCartao: "R$ 815,40",
       preco: "R$ 774,63",
       destaque: false
     },
@@ -396,7 +396,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151439.webp",
       affiliateUrl: "https://www.ybera.com/produto/6-unidades-kit-kids-menina-ybera-fashion-kids-151439",
-      precoAntigo: "R$ 707,40",
+      precoCartao: "R$ 707,40",
       preco: "R$ 672,03",
       destaque: false
     },
@@ -406,7 +406,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151315.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-premium-kids-menina-ybera-fashion-kids-151315",
-      precoAntigo: "R$ 389,90",
+      precoCartao: "R$ 389,90",
       preco: "R$ 370,41",
       destaque: false
     },
@@ -416,7 +416,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151324.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-cacho-perfeito-ybera-fashion-gold-151324",
-      precoAntigo: "R$ 299,90",
+      precoCartao: "R$ 299,90",
       preco: "R$ 284,91",
       destaque: false
     },
@@ -426,7 +426,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-150618.webp",
       affiliateUrl: "https://www.ybera.com/produto/etapa-1-medula-250g-cronograma-capilar-fashion-gold-150618",
-      precoAntigo: "R$ 117,90",
+      precoCartao: "R$ 117,90",
       preco: "R$ 112,01",
       destaque: false
     },
@@ -436,7 +436,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-150617.webp",
       affiliateUrl: "https://www.ybera.com/produto/etapa-2-cortex-250g-cronograma-capilar-fashion-gold-150617",
-      precoAntigo: "R$ 117,90",
+      precoCartao: "R$ 117,90",
       preco: "R$ 112,01",
       destaque: false
     },
@@ -446,7 +446,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-150616.webp",
       affiliateUrl: "https://www.ybera.com/produto/etapa-3-cuticula-250g-cronograma-capilar-fashion-gold-150616",
-      precoAntigo: "R$ 117,90",
+      precoCartao: "R$ 117,90",
       preco: "R$ 112,01",
       destaque: false
     },
@@ -456,7 +456,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151300.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cronograma-loiro-perfeito-shampoo-luminoso-500ml-ybera-fashion-gold-151300",
-      precoAntigo: "R$ 387,90",
+      precoCartao: "R$ 387,90",
       preco: "R$ 368,51",
       destaque: false
     },
@@ -466,7 +466,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151548.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-mascara-reconstrucao-250g-mascara-nutricao-250g-mascara-hidratacao-250g-ybera-fashion-gold-151548",
-      precoAntigo: "R$ 299,90",
+      precoCartao: "R$ 299,90",
       preco: "R$ 284,91",
       destaque: false
     },
@@ -476,7 +476,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151314.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-kids-menina-shampoo-brilho-300ml-ybera-fashion-kids-151314",
-      precoAntigo: "R$ 313,90",
+      precoCartao: "R$ 313,90",
       preco: "R$ 298,21",
       destaque: false
     },
@@ -486,7 +486,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151600.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-mascaras-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151600",
-      precoAntigo: "R$ 444,90",
+      precoCartao: "R$ 444,90",
       preco: "R$ 422,66",
       maisVendido: 11,
       destaque: false
@@ -497,7 +497,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151510.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-hidratacao-cuidados-profundos-250g-ybera-fashion-gold-151510",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -507,7 +507,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151509.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-nutricao-cuidados-profundos-250g-ybera-fashion-gold-151509",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -517,7 +517,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151508.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-cuidados-profundos-250g-ybera-fashion-gold-151508",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -527,7 +527,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151304.webp",
       affiliateUrl: "https://www.ybera.com/produto/top-coat-liso-perfeito-150ml-ybera-fashion-gold-151304",
-      precoAntigo: "R$ 99,90",
+      precoCartao: "R$ 99,90",
       preco: "R$ 94,91",
       destaque: false
     },
@@ -537,7 +537,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151545.webp",
       affiliateUrl: "https://www.ybera.com/produto/12-unidades-oleo-de-mirra-reparador-15ml-ybera-paris-151545",
-      precoAntigo: "R$ 958,80",
+      precoCartao: "R$ 958,80",
       preco: "R$ 910,86",
       destaque: false
     },
@@ -547,7 +547,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151448.webp",
       affiliateUrl: "https://www.ybera.com/produto/6-unidades-oleo-de-mirra-reparador-15ml-ybera-paris-151448",
-      precoAntigo: "R$ 234,00",
+      precoCartao: "R$ 234,00",
       preco: "R$ 222,30",
       destaque: false
     },
@@ -557,7 +557,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151329.webp",
       affiliateUrl: "https://www.ybera.com/produto/creme-para-pentear-cacho-perfeito-500g-ybera-fashion-gold-151329",
-      precoAntigo: "R$ 129,90",
+      precoCartao: "R$ 129,90",
       preco: "R$ 123,41",
       destaque: false
     },
@@ -567,7 +567,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151091.webp",
       affiliateUrl: "https://www.ybera.com/produto/elixir-de-coco-60ml-ybera-terra-coco-151091",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -577,7 +577,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151076.webp",
       affiliateUrl: "https://www.ybera.com/produto/finalizador-exo-cromatech-quarta-camada-150ml-ybera-paris-151076",
-      precoAntigo: "R$ 147,90",
+      precoCartao: "R$ 147,90",
       preco: "R$ 140,51",
       destaque: false
     },
@@ -587,7 +587,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151671.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-3-oleo-de-mirra-reparador-15ml-ybera-151671",
-      precoAntigo: "R$ 239,70",
+      precoCartao: "R$ 239,70",
       preco: "R$ 227,72",
       destaque: false
     },
@@ -597,7 +597,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151618.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-30-capsulas-antiqueda-capilar-oleo-de-mirra-15ml-tonico-antiqueda-150ml-ybera-fashion-gold-151618",
-      precoAntigo: "R$ 292,90",
+      precoCartao: "R$ 292,90",
       preco: "R$ 278,26",
       destaque: false
     },
@@ -607,7 +607,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151619.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-creme-de-pentear-500g-leave-in-300ml-oleo-reparador-150ml-ybera-fashion-gold-151619",
-      precoAntigo: "R$ 408,90",
+      precoCartao: "R$ 408,90",
       preco: "R$ 388,46",
       destaque: false
     },
@@ -617,7 +617,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151040.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-leave-in-universal-250g-oleo-de-mirra-reparador-90ml-refil-ybera-151040",
-      precoAntigo: "R$ 311,90",
+      precoCartao: "R$ 311,90",
       preco: "R$ 296,31",
       destaque: false
     },
@@ -627,7 +627,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151576.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-soro-vello-90ml-oleo-de-mirra-reparador-refil-90ml-ybera-151576",
-      precoAntigo: "R$ 425,90",
+      precoCartao: "R$ 425,90",
       preco: "R$ 404,61",
       destaque: false
     },
@@ -637,7 +637,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151328.webp",
       affiliateUrl: "https://www.ybera.com/produto/leave-in-cacho-perfeito-300ml-ybera-fashion-gold-151328",
-      precoAntigo: "R$ 129,90",
+      precoCartao: "R$ 129,90",
       preco: "R$ 123,41",
       destaque: false
     },
@@ -647,7 +647,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151317.webp",
       affiliateUrl: "https://www.ybera.com/produto/leave-in-desembaracante-150ml-ybera-fashion-kids-151317",
-      precoAntigo: "R$ 79,90",
+      precoCartao: "R$ 79,90",
       preco: "R$ 75,91",
       maisVendido: 9,
       destaque: false
@@ -658,7 +658,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151298.webp",
       affiliateUrl: "https://www.ybera.com/produto/leave-in-loiro-perfeito-150ml-ybera-fashion-gold-151298",
-      precoAntigo: "R$ 99,90",
+      precoCartao: "R$ 99,90",
       preco: "R$ 94,91",
       destaque: false
     },
@@ -668,7 +668,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150953.webp",
       affiliateUrl: "https://www.ybera.com/produto/leave-in-universal-250g-ybera-150953",
-      precoAntigo: "R$ 129,90",
+      precoCartao: "R$ 129,90",
       preco: "R$ 123,41",
       maisVendido: 6,
       destaque: false
@@ -679,7 +679,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150605.webp",
       affiliateUrl: "https://www.ybera.com/produto/liquido-ativador-propionico-500ml-black-diva-150605",
-      precoAntigo: "R$ 329,90",
+      precoCartao: "R$ 329,90",
       preco: "R$ 313,41",
       destaque: false
     },
@@ -689,7 +689,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151160.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-detox-purificante-200g-ybera-151160",
-      precoAntigo: "R$ 147,90",
+      precoCartao: "R$ 147,90",
       preco: "R$ 140,51",
       destaque: false
     },
@@ -699,7 +699,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150961.webp",
       affiliateUrl: "https://www.ybera.com/produto/membrana-termoprotetora-trh-biotech-lifes-flower-150ml-ybera-150961",
-      precoAntigo: "R$ 209,90",
+      precoCartao: "R$ 209,90",
       preco: "R$ 199,41",
       destaque: false
     },
@@ -709,7 +709,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151265.webp",
       affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-15ml-ybera-151265",
-      precoAntigo: "R$ 79,90",
+      precoCartao: "R$ 79,90",
       preco: "R$ 75,91",
       maisVendido: 3,
       destaque: false
@@ -720,7 +720,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150935.webp",
       affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-refil-90ml-ybera-150935",
-      precoAntigo: "R$ 197,90",
+      precoCartao: "R$ 197,90",
       preco: "R$ 188,01",
       destaque: false
     },
@@ -730,7 +730,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151325.webp",
       affiliateUrl: "https://www.ybera.com/produto/oleo-reparador-nutre-cacho-perfeito-150ml-ybera-fashion-gold-151325",
-      precoAntigo: "R$ 169,90",
+      precoCartao: "R$ 169,90",
       preco: "R$ 161,41",
       destaque: false
     },
@@ -740,7 +740,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150524.webp",
       affiliateUrl: "https://www.ybera.com/produto/spray-bb-cream-300ml-ybera-capulana-150524",
-      precoAntigo: "R$ 117,90",
+      precoCartao: "R$ 117,90",
       preco: "R$ 112,01",
       destaque: false
     },
@@ -750,7 +750,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151051.webp",
       affiliateUrl: "https://www.ybera.com/produto/spray-fruto-brilhante-stemcell-discovery-150ml-ybera-paris-151051",
-      precoAntigo: "R$ 147,90",
+      precoCartao: "R$ 147,90",
       preco: "R$ 140,51",
       destaque: false
     },
@@ -760,7 +760,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151348.webp",
       affiliateUrl: "https://www.ybera.com/produto/summer-protecao-universal-250ml-ybera-151348",
-      precoAntigo: "R$ 237,90",
+      precoCartao: "R$ 237,90",
       preco: "R$ 226,01",
       maisVendido: 12,
       destaque: false
@@ -771,7 +771,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150951.webp",
       affiliateUrl: "https://www.ybera.com/produto/thermic-gloss-c360-universal-90ml-ybera-150951",
-      precoAntigo: "R$ 209,90",
+      precoCartao: "R$ 209,90",
       preco: "R$ 199,41",
       maisVendido: 10,
       destaque: false
@@ -782,7 +782,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150627.webp",
       affiliateUrl: "https://www.ybera.com/produto/avental-ybera-paris-150627",
-      precoAntigo: "R$ 97,90",
+      precoCartao: "R$ 97,90",
       preco: "R$ 93,01",
       destaque: false
     },
@@ -792,7 +792,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150538.webp",
       affiliateUrl: "https://www.ybera.com/produto/capa-de-corte-ybera-paris-150538",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       destaque: false
     },
@@ -802,7 +802,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150541.webp",
       affiliateUrl: "https://www.ybera.com/produto/cumbuca-ybera-paris-150541",
-      precoAntigo: "R$ 14,90",
+      precoCartao: "R$ 14,90",
       preco: "R$ 14,16",
       destaque: false
     },
@@ -812,7 +812,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150629.webp",
       affiliateUrl: "https://www.ybera.com/produto/pincel-profissional-tamanho-g-ybera-paris-150629",
-      precoAntigo: "R$ 14,90",
+      precoCartao: "R$ 14,90",
       preco: "R$ 14,16",
       destaque: false
     },
@@ -822,7 +822,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150854.webp",
       affiliateUrl: "https://www.ybera.com/produto/secador-stylist-essence-air-fashion-gold-150854",
-      precoAntigo: "R$ 1.397,90",
+      precoCartao: "R$ 1.397,90",
       preco: "R$ 1.328,01",
       destaque: false
     },
@@ -832,7 +832,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150539.webp",
       affiliateUrl: "https://www.ybera.com/produto/touca-metal-quente-preta-150539",
-      precoAntigo: "R$ 37,90",
+      precoCartao: "R$ 37,90",
       preco: "R$ 36,01",
       destaque: false
     },
@@ -842,7 +842,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151602.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-1-coquetel-selante-potencializador-1kg-1-shampoo-isotonico-1l-terra-coco-151602",
-      precoAntigo: "R$ 489,80",
+      precoCartao: "R$ 489,80",
       preco: "R$ 465,31",
       destaque: false
     },
@@ -852,7 +852,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150703.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-ybera-fashion-gold-150703",
-      precoAntigo: "R$ 227,90",
+      precoCartao: "R$ 227,90",
       preco: "R$ 216,51",
       destaque: false
     },
@@ -862,7 +862,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151623.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-30-capsulas-softgel-ybera-fashion-gold-151623",
-      precoAntigo: "R$ 334,80",
+      precoCartao: "R$ 334,80",
       preco: "R$ 318,06",
       destaque: false
     },
@@ -872,7 +872,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151617.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-tonico-150ml-90-capsulas-ybera-fashion-gold-151617",
-      precoAntigo: "R$ 577,90",
+      precoCartao: "R$ 577,90",
       preco: "R$ 549,01",
       destaque: false
     },
@@ -882,7 +882,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151676.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-botulinica-shampoo-250ml-reconstrutor-200g-ybera-151676",
-      precoAntigo: "R$ 259,90",
+      precoCartao: "R$ 259,90",
       preco: "R$ 246,91",
       destaque: false
     },
@@ -892,7 +892,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150330.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cocada-capilar-shampoo-isotonico-1l-mascara-toda-de-coco-1kg-ybera-terra-coco-150330",
-      precoAntigo: "R$ 359,90",
+      precoCartao: "R$ 359,90",
       preco: "R$ 341,91",
       destaque: false
     },
@@ -902,7 +902,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150682.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cocada-capilar-shampoo-isotonico-1l-mascara-toda-de-coco-1kg-elixir-de-coco-60ml-ybera-terra-coco-150682",
-      precoAntigo: "R$ 473,90",
+      precoCartao: "R$ 473,90",
       preco: "R$ 450,21",
       destaque: false
     },
@@ -912,7 +912,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151117.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-detox-purificante-shampoo-250ml-mascara-200g-ybera-151117",
-      precoAntigo: "R$ 254,90",
+      precoCartao: "R$ 254,90",
       preco: "R$ 242,16",
       destaque: false
     },
@@ -922,7 +922,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150921.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-essencia-brasileira-elixir-do-pantanal-shampoo-1kg-condicionador-1kg-ybera-150921",
-      precoAntigo: "R$ 617,80",
+      precoCartao: "R$ 617,80",
       preco: "R$ 586,91",
       destaque: false
     },
@@ -932,7 +932,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150941.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-genoma-shampoo-250ml-mascara-200g-ybera-150941",
-      precoAntigo: "R$ 279,90",
+      precoCartao: "R$ 279,90",
       preco: "R$ 265,91",
       destaque: false
     },
@@ -942,7 +942,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151303.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-shampoo-liso-perfeito-500ml-fashion-gold-151303",
-      precoAntigo: "R$ 387,90",
+      precoCartao: "R$ 387,90",
       preco: "R$ 368,51",
       destaque: false
     },
@@ -952,7 +952,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151409.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-shampoo-500ml-top-coat-150ml-ybera-fashion-gold-151409",
-      precoAntigo: "R$ 207,80",
+      precoCartao: "R$ 207,80",
       preco: "R$ 197,41",
       destaque: false
     },
@@ -962,7 +962,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151205.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-pro-geno-genoma-shampoo-500ml-mascara-500g-ybera-151205",
-      precoAntigo: "R$ 357,90",
+      precoCartao: "R$ 357,90",
       preco: "R$ 340,01",
       destaque: false
     },
@@ -972,7 +972,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150904.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-ybera-150904",
-      precoAntigo: "R$ 302,90",
+      precoCartao: "R$ 302,90",
       preco: "R$ 287,76",
       destaque: false
     },
@@ -982,7 +982,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150903.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-soro-90ml-ybera-150903",
-      precoAntigo: "R$ 539,90",
+      precoCartao: "R$ 539,90",
       preco: "R$ 512,91",
       destaque: false
     },
@@ -992,7 +992,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150923.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-da-floresta-essencia-brasileira-1kg-ybera-paris-150923",
-      precoAntigo: "R$ 617,80",
+      precoCartao: "R$ 617,80",
       preco: "R$ 586,91",
       maisVendido: 13,
       destaque: false
@@ -1003,7 +1003,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151206.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-mascara-selador-pro-geno-genoma-500ml-500g-ybera-paris-151206",
-      precoAntigo: "R$ 559,90",
+      precoCartao: "R$ 559,90",
       preco: "R$ 531,91",
       destaque: false
     },
@@ -1013,7 +1013,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151306.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-alinhador-liso-perfeito-500ml-ybera-fashion-gold-151306",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       destaque: false
     },
@@ -1023,7 +1023,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150307.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-antiqueda-100timetros-300ml-ybera-fashion-gold-150307",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1033,7 +1033,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151055.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-bio-stemcell-1l-discovery-ybera-paris-151055",
-      precoAntigo: "R$ 219,90",
+      precoCartao: "R$ 219,90",
       preco: "R$ 208,91",
       destaque: false
     },
@@ -1043,7 +1043,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151054.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-bio-stemcell-discovery-500ml-ybera-paris-151054",
-      precoAntigo: "R$ 137,90",
+      precoCartao: "R$ 137,90",
       preco: "R$ 131,01",
       destaque: false
     },
@@ -1053,7 +1053,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151356.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-botulinica-anti-age-biotox-1l-ybera-151356",
-      precoAntigo: "R$ 177,90",
+      precoCartao: "R$ 177,90",
       preco: "R$ 169,01",
       destaque: false
     },
@@ -1063,7 +1063,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151621.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-botulinica-anti-age-biotox-250ml-ybera-151621",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1073,7 +1073,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151553.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-botulinica-anti-age-biotox-500ml-ybera-151553",
-      precoAntigo: "R$ 117,90",
+      precoCartao: "R$ 117,90",
       preco: "R$ 112,01",
       destaque: false
     },
@@ -1083,7 +1083,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151318.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-brilho-300ml-ybera-fashion-kids-151318",
-      precoAntigo: "R$ 79,90",
+      precoCartao: "R$ 79,90",
       preco: "R$ 75,91",
       destaque: false
     },
@@ -1093,7 +1093,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151327.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-curvaturas-cacho-perfeito-500ml-ybera-fashion-gold-151327",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       destaque: false
     },
@@ -1103,7 +1103,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151159.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-detox-purificante-250ml-ybera-151159",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1113,7 +1113,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150916.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-da-floresta-essencia-brasileira-1l-ybera-paris-150916",
-      precoAntigo: "R$ 277,90",
+      precoCartao: "R$ 277,90",
       preco: "R$ 264,01",
       maisVendido: 16,
       destaque: false
@@ -1124,7 +1124,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150918.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-cerrado-essencia-brasileira-1l-ybera-paris-150918",
-      precoAntigo: "R$ 277,90",
+      precoCartao: "R$ 277,90",
       preco: "R$ 264,01",
       maisVendido: 15,
       destaque: false
@@ -1135,7 +1135,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150920.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-pantanal-essencia-brasileira-1l-ybera-paris-150920",
-      precoAntigo: "R$ 277,90",
+      precoCartao: "R$ 277,90",
       preco: "R$ 264,01",
       maisVendido: 17,
       destaque: false
@@ -1146,7 +1146,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150928.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-essencia-brasileira-elixir-da-floresta-250ml-ybera-150928",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       maisVendido: 14,
       destaque: false
@@ -1157,7 +1157,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150346.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-isotonico-sulfato-free-1l-ybera-terra-coco-150346",
-      precoAntigo: "R$ 169,90",
+      precoCartao: "R$ 169,90",
       preco: "R$ 161,41",
       destaque: false
     },
@@ -1167,7 +1167,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150962.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-lifes-flower-trh-biotech-250ml-ybera-150962",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1177,7 +1177,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151297.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-luminoso-loiro-perfeito-500ml-ybera-fashion-gold-151297",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       destaque: false
     },
@@ -1187,7 +1187,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150938.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-pro-geno-genoma-250ml-ybera-150938",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1197,7 +1197,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150945.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-pro-geno-genoma-500ml-ybera-150945",
-      precoAntigo: "R$ 137,90",
+      precoCartao: "R$ 137,90",
       preco: "R$ 131,01",
       destaque: false
     },
@@ -1207,7 +1207,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150354.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-protect-control-300ml-ybera-fashion-gold-150354",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       destaque: false
     },
@@ -1217,7 +1217,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150355.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-protect-control-500ml-ybera-fashion-gold-150355",
-      precoAntigo: "R$ 127,90",
+      precoCartao: "R$ 127,90",
       preco: "R$ 121,51",
       destaque: false
     },
@@ -1227,7 +1227,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150908.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-vello-alfa-lactobaby-250ml-ybera-150908",
-      precoAntigo: "R$ 147,90",
+      precoCartao: "R$ 147,90",
       preco: "R$ 140,51",
       destaque: false
     },
@@ -1237,7 +1237,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151481.webp",
       affiliateUrl: "https://www.ybera.com/produto/30-capsulas-100timetros-softgel-cabelo-pele-e-unhas-ybera-fashion-gold-151481",
-      precoAntigo: "R$ 99,90",
+      precoCartao: "R$ 99,90",
       preco: "R$ 94,91",
       destaque: false
     },
@@ -1247,7 +1247,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151554.webp",
       affiliateUrl: "https://www.ybera.com/produto/ativo-botulinico-biotox-500g-ybera-151554",
-      precoAntigo: "R$ 209,90",
+      precoCartao: "R$ 209,90",
       preco: "R$ 199,41",
       destaque: false
     },
@@ -1257,7 +1257,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150606.webp",
       affiliateUrl: "https://www.ybera.com/produto/base-emoliente-500g-black-diva-150606",
-      precoAntigo: "R$ 268,90",
+      precoCartao: "R$ 268,90",
       preco: "R$ 255,46",
       destaque: false
     },
@@ -1267,7 +1267,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150968.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-discovery-stemcell-1kg-ybera-paris-150968",
-      precoAntigo: "R$ 595,90",
+      precoCartao: "R$ 595,90",
       preco: "R$ 566,11",
       destaque: false
     },
@@ -1277,7 +1277,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151224.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-essencia-brasileira-1kg-ybera-paris-151224",
-      precoAntigo: "R$ 1.343,40",
+      precoCartao: "R$ 1.343,40",
       preco: "R$ 1.276,23",
       destaque: false
     },
@@ -1287,7 +1287,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151322.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-premium-cachos-perfeitos-ybera-fashion-gold-151322",
-      precoAntigo: "R$ 815,60",
+      precoCartao: "R$ 815,60",
       preco: "R$ 774,82",
       destaque: false
     },
@@ -1297,7 +1297,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151025.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-profissional-discovery-stemcell-500g-ybera-paris-151025",
-      precoAntigo: "R$ 407,90",
+      precoCartao: "R$ 407,90",
       preco: "R$ 387,51",
       destaque: false
     },
@@ -1307,7 +1307,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150306.webp",
       affiliateUrl: "https://www.ybera.com/produto/condicionador-antiqueda-100timetros-300g-ybera-fashion-gold-150306",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       maisVendido: 8,
       destaque: false
@@ -1318,7 +1318,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150915.webp",
       affiliateUrl: "https://www.ybera.com/produto/condicionador-elixir-da-floresta-essencia-brasileira-1kg-ybera-paris-150915",
-      precoAntigo: "R$ 377,90",
+      precoCartao: "R$ 377,90",
       preco: "R$ 359,01",
       maisVendido: 20,
       destaque: false
@@ -1329,7 +1329,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150917.webp",
       affiliateUrl: "https://www.ybera.com/produto/condicionador-elixir-do-cerrado-essencia-brasileira-1kg-ybera-paris-150917",
-      precoAntigo: "R$ 377,90",
+      precoCartao: "R$ 377,90",
       preco: "R$ 359,01",
       maisVendido: 18,
       destaque: false
@@ -1340,7 +1340,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150919.webp",
       affiliateUrl: "https://www.ybera.com/produto/condicionador-elixir-do-pantanal-essencia-brasileira-1kg-ybera-paris-150919",
-      precoAntigo: "R$ 377,90",
+      precoCartao: "R$ 377,90",
       preco: "R$ 359,01",
       maisVendido: 19,
       destaque: false
@@ -1351,7 +1351,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150942.webp",
       affiliateUrl: "https://www.ybera.com/produto/fio-liquido-pro-geno-genoma-500ml-ybera-150942",
-      precoAntigo: "R$ 407,90",
+      precoCartao: "R$ 407,90",
       preco: "R$ 387,51",
       destaque: false
     },
@@ -1361,7 +1361,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151483.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-30-capsulas-softgel-tonico-150ml-ybera-fashion-gold-151483",
-      precoAntigo: "R$ 216,90",
+      precoCartao: "R$ 216,90",
       preco: "R$ 206,06",
       destaque: false
     },
@@ -1371,7 +1371,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151255.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-botulinico-biotox-500g-ybera-151255",
-      precoAntigo: "R$ 535,70",
+      precoCartao: "R$ 535,70",
       preco: "R$ 508,92",
       destaque: false
     },
@@ -1381,7 +1381,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151549.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-mascara-antifrizz-250g-mascara-forca-e-antiquebra-250g-mascara-maciez-intensa-250g-ybera-fashion-gold-151549",
-      precoAntigo: "R$ 299,90",
+      precoCartao: "R$ 299,90",
       preco: "R$ 284,91",
       destaque: false
     },
@@ -1390,7 +1390,7 @@ window.LOJAS.ybera = {
       oQueE: "Kit Cacho Perfeito Completo com Oil Savana Africana, Spray BB Cream e Shampoo Suave 1L Capulana .",
       categoria: "Outros",
       affiliateUrl: "https://www.ybera.com/produto/kit-cachos-absolutos-ybera-fashion-gold-copia-151672",
-      precoAntigo: "R$ 745,60",
+      precoCartao: "R$ 745,60",
       preco: "R$ 708,32",
       destaque: false
     },
@@ -1400,7 +1400,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150946.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-completo-genoma-500ml-ybera-paris-150946",
-      precoAntigo: "R$ 981,60",
+      precoCartao: "R$ 981,60",
       preco: "R$ 932,52",
       destaque: false
     },
@@ -1410,7 +1410,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151551.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-loiro-perfeito-mascara-estrutural-250g-mascara-equilibrio-250g-mascara-lavanda-250g-ybera-fashion-gold-151551",
-      precoAntigo: "R$ 299,90",
+      precoCartao: "R$ 299,90",
       preco: "R$ 284,91",
       destaque: false
     },
@@ -1420,7 +1420,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150612.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-relaxamento-acido-black-diva-150612",
-      precoAntigo: "R$ 665,80",
+      precoCartao: "R$ 665,80",
       preco: "R$ 632,51",
       destaque: false
     },
@@ -1430,7 +1430,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151538.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-soro-vello-90ml-30-capsulas-100timetros-softgel-ybera-151538",
-      precoAntigo: "R$ 332,90",
+      precoCartao: "R$ 332,90",
       preco: "R$ 316,26",
       destaque: false
     },
@@ -1440,7 +1440,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150386.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-2-em-1-protect-control-250g-ybera-fashion-gold-150386",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       destaque: false
     },
@@ -1450,7 +1450,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150387.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-2-em-1-protect-control-500g-ybera-fashion-gold-150387",
-      precoAntigo: "R$ 139,90",
+      precoCartao: "R$ 139,90",
       preco: "R$ 132,91",
       destaque: false
     },
@@ -1460,7 +1460,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151519.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-hidratacao-equilibrio-loiro-perfeito-250g-ybera-fashion-gold-151519",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1470,7 +1470,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151512.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-hidratacao-maciez-intensa-cacho-perfeito-250g-ybera-fashion-gold-151512",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1480,7 +1480,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151514.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-nutricao-antifrizz-cacho-perfeito-250g-ybera-fashion-gold-151514",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1490,7 +1490,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151518.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-nutricao-lavanda-loiro-perfeito-250g-ybera-fashion-gold-151518",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1500,7 +1500,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150937.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-pro-geno-genoma-200g-ybera-150937",
-      precoAntigo: "R$ 169,90",
+      precoCartao: "R$ 169,90",
       preco: "R$ 161,41",
       destaque: false
     },
@@ -1510,7 +1510,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150943.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-pro-geno-genoma-500g-ybera-150943",
-      precoAntigo: "R$ 237,90",
+      precoCartao: "R$ 237,90",
       preco: "R$ 226,01",
       destaque: false
     },
@@ -1520,7 +1520,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151520.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-estrutural-250g-loiro-perfeito-ybera-fashion-gold-151520",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1530,7 +1530,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151513.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-forca-e-antiquebra-cacho-perfeito-250g-ybera-fashion-gold-151513",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1540,7 +1540,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150334.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-toda-de-coco-1kg-ybera-terra-coco-150334",
-      precoAntigo: "R$ 233,90",
+      precoCartao: "R$ 233,90",
       preco: "R$ 222,21",
       destaque: false
     },
@@ -1550,7 +1550,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150906.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-vello-alfa-lactobaby-200g-ybera-150906",
-      precoAntigo: "R$ 169,90",
+      precoCartao: "R$ 169,90",
       preco: "R$ 161,41",
       destaque: false
     },
@@ -1560,7 +1560,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151203.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-vello-alfa-lactobaby-500g-ybera-151203",
-      precoAntigo: "R$ 299,90",
+      precoCartao: "R$ 299,90",
       preco: "R$ 284,91",
       destaque: false
     },
@@ -1570,7 +1570,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151578.webp",
       affiliateUrl: "https://www.ybera.com/produto/memorifios-stemcell-discovery-1kg-ybera-151578",
-      precoAntigo: "R$ 397,90",
+      precoCartao: "R$ 397,90",
       preco: "R$ 378,01",
       destaque: false
     },
@@ -1580,7 +1580,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151052.webp",
       affiliateUrl: "https://www.ybera.com/produto/memorifios-stemcell-discovery-500g-ybera-paris-151052",
-      precoAntigo: "R$ 207,90",
+      precoCartao: "R$ 207,90",
       preco: "R$ 197,51",
       destaque: false
     },
@@ -1590,7 +1590,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150872.webp",
       affiliateUrl: "https://www.ybera.com/produto/mirra-duocare-250g-ybera-150872",
-      precoAntigo: "R$ 187,90",
+      precoCartao: "R$ 187,90",
       preco: "R$ 178,51",
       destaque: false
     },
@@ -1600,7 +1600,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151355.webp",
       affiliateUrl: "https://www.ybera.com/produto/reconstrutor-botulinica-inteligente-biotox-1kg-ybera-151355",
-      precoAntigo: "R$ 377,90",
+      precoCartao: "R$ 377,90",
       preco: "R$ 359,01",
       destaque: false
     },
@@ -1610,7 +1610,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151620.webp",
       affiliateUrl: "https://www.ybera.com/produto/reconstrutor-botulinica-inteligente-biotox-200g-ybera-151620",
-      precoAntigo: "R$ 139,90",
+      precoCartao: "R$ 139,90",
       preco: "R$ 132,91",
       destaque: false
     },
@@ -1620,7 +1620,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151555.webp",
       affiliateUrl: "https://www.ybera.com/produto/reconstrutor-botulinica-inteligente-biotox-500g-ybera-151555",
-      precoAntigo: "R$ 207,90",
+      precoCartao: "R$ 207,90",
       preco: "R$ 197,51",
       destaque: false
     },
@@ -1630,7 +1630,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151077.webp",
       affiliateUrl: "https://www.ybera.com/produto/reconstrutor-exo-cromatech-quarta-camada-200g-ybera-paris-151077",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       destaque: false
     },
@@ -1640,7 +1640,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150944.webp",
       affiliateUrl: "https://www.ybera.com/produto/selador-pro-geno-genoma-500g-ybera-150944",
-      precoAntigo: "R$ 197,90",
+      precoCartao: "R$ 197,90",
       preco: "R$ 188,01",
       destaque: false
     },
@@ -1650,7 +1650,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150911.webp",
       affiliateUrl: "https://www.ybera.com/produto/selante-potencializador-kerafive-22-®-1-kg-ybera-paris-150911",
-      precoAntigo: "R$ 297,90",
+      precoCartao: "R$ 297,90",
       preco: "R$ 283,01",
       destaque: false
     },
@@ -1660,7 +1660,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151572.webp",
       affiliateUrl: "https://www.ybera.com/produto/selante-potencializador-kerafive-22-®-1-kg-ybera-paris-151572",
-      precoAntigo: "R$ 397,90",
+      precoCartao: "R$ 397,90",
       preco: "R$ 378,01",
       destaque: false
     },
@@ -1670,7 +1670,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150907.webp",
       affiliateUrl: "https://www.ybera.com/produto/soro-vello-alfa-lactobaby-ybera-150907",
-      precoAntigo: "R$ 249,90",
+      precoCartao: "R$ 249,90",
       preco: "R$ 237,41",
       maisVendido: 4,
       destaque: false
@@ -1681,7 +1681,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151333.webp",
       affiliateUrl: "https://www.ybera.com/produto/cronograma-capilar-cuidados-profundos-ybera-fashion-gold-151333",
-      precoAntigo: "R$ 299,90",
+      precoCartao: "R$ 299,90",
       preco: "R$ 284,91",
       esgotado: true,
       destaque: true
@@ -1692,7 +1692,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151583.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-1kg-gloss-c360-universal-90ml-ybera-paris-151583",
-      precoAntigo: "R$ 246,90",
+      precoCartao: "R$ 246,90",
       preco: "R$ 234,56",
       esgotado: true,
       destaque: false
@@ -1703,7 +1703,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151579.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-1kg-kit-manutencao-500g-fashion-gold-151579",
-      precoAntigo: "R$ 765,70",
+      precoCartao: "R$ 765,70",
       preco: "R$ 727,42",
       esgotado: true,
       destaque: false
@@ -1714,7 +1714,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151587.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-1kg-leave-in-universal-250g-ybera-paris-151587",
-      precoAntigo: "R$ 627,80",
+      precoCartao: "R$ 627,80",
       preco: "R$ 596,41",
       esgotado: true,
       destaque: false
@@ -1725,7 +1725,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151582.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-500g-gloss-c360-universal-90ml-ybera-paris-151582",
-      precoAntigo: "R$ 246,90",
+      precoCartao: "R$ 246,90",
       preco: "R$ 234,56",
       esgotado: true,
       destaque: false
@@ -1736,7 +1736,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151218.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-completo-discovery-ybera-paris-151218",
-      precoAntigo: "R$ 559,90",
+      precoCartao: "R$ 559,90",
       preco: "R$ 531,91",
       esgotado: true,
       destaque: false
@@ -1747,7 +1747,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151235.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-1kg-shampoo-pos-progressiva-1l-mascara-2-em-1-1kg-ybera-fashion-gold-151235",
-      precoAntigo: "R$ 647,70",
+      precoCartao: "R$ 647,70",
       preco: "R$ 615,32",
       esgotado: true,
       destaque: false
@@ -1758,7 +1758,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151046.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-300g-oleo-de-mirra-90ml-ybera-fashion-gold-151046",
-      precoAntigo: "R$ 499,90",
+      precoCartao: "R$ 499,90",
       preco: "R$ 474,91",
       esgotado: true,
       destaque: false
@@ -1769,7 +1769,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150317.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-300g-shampoo-pos-progressiva-300ml-mascara-2-em-1-250g-protect-poo-300g-ybera-fashion-gold-150317",
-      precoAntigo: "R$ 563,90",
+      precoCartao: "R$ 563,90",
       preco: "R$ 535,71",
       esgotado: true,
       destaque: false
@@ -1780,7 +1780,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151047.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-500g-oleo-de-mirra-90ml-ybera-fashion-gold-151047",
-      precoAntigo: "R$ 577,90",
+      precoCartao: "R$ 577,90",
       preco: "R$ 549,01",
       esgotado: true,
       destaque: false
@@ -1791,7 +1791,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150318.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-500g-shampoo-pos-progressiva-500ml-mascara-2-em-1-500g-protect-poo-500g-ybera-fashion-gold-150318",
-      precoAntigo: "R$ 717,90",
+      precoCartao: "R$ 717,90",
       preco: "R$ 682,01",
       esgotado: true,
       destaque: false
@@ -1802,7 +1802,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150327.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-manutencao-completa-pos-progressiva-pre-shampoo-300ml-shampoo-300ml-mascara-2-em-1-250g-ybera-fashion-gold-150327",
-      precoAntigo: "R$ 318,90",
+      precoCartao: "R$ 318,90",
       preco: "R$ 302,96",
       esgotado: true,
       destaque: false
@@ -1813,7 +1813,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150328.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-manutencao-completa-pos-progressiva-pre-shampoo-500ml-shampoo-500ml-mascara-2-em-1-500g-ybera-fashion-gold-150328",
-      precoAntigo: "R$ 394,90",
+      precoCartao: "R$ 394,90",
       preco: "R$ 375,16",
       esgotado: true,
       destaque: false
@@ -1824,7 +1824,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151168.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-manutencao-pos-progressiva-1kg-fashion-gold-151168",
-      precoAntigo: "R$ 439,90",
+      precoCartao: "R$ 439,90",
       preco: "R$ 417,91",
       esgotado: true,
       destaque: false
@@ -1835,7 +1835,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151215.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-discovery-bio-stemcell-200g-ybera-paris-151215",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       esgotado: true,
       destaque: false
@@ -1846,7 +1846,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150599.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-educadora-500g-terra-coco-150599",
-      precoAntigo: "R$ 159,90",
+      precoCartao: "R$ 159,90",
       preco: "R$ 151,91",
       esgotado: true,
       destaque: false
@@ -1857,7 +1857,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150602.webp",
       affiliateUrl: "https://www.ybera.com/produto/sabao-de-coco-liquido-capilar-1l-terra-coco-150602",
-      precoAntigo: "R$ 92,90",
+      precoCartao: "R$ 92,90",
       preco: "R$ 88,26",
       esgotado: true,
       destaque: false
@@ -1868,7 +1868,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-150600.webp",
       affiliateUrl: "https://www.ybera.com/produto/sabao-de-coco-liquido-capilar-500ml-terra-coco-150600",
-      precoAntigo: "R$ 62,90",
+      precoCartao: "R$ 62,90",
       preco: "R$ 59,76",
       esgotado: true,
       destaque: false
@@ -1879,7 +1879,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151212.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-pos-progressiva-ph-control-250ml-ybera-151212",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
       destaque: false
@@ -1890,7 +1890,7 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151211.webp",
       affiliateUrl: "https://www.ybera.com/produto/spray-neutralizador-de-odores-pos-progressiva-ph-control-90ml-ybera-151211",
-      precoAntigo: "R$ 117,90",
+      precoCartao: "R$ 117,90",
       preco: "R$ 112,01",
       esgotado: true,
       destaque: false
@@ -1901,7 +1901,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151438.webp",
       affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151438",
-      precoAntigo: "R$ 437,70",
+      precoCartao: "R$ 437,70",
       preco: "R$ 415,82",
       esgotado: true,
       destaque: false
@@ -1912,7 +1912,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151437.webp",
       affiliateUrl: "https://www.ybera.com/produto/6-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151437",
-      precoAntigo: "R$ 815,40",
+      precoCartao: "R$ 815,40",
       preco: "R$ 774,63",
       esgotado: true,
       destaque: false
@@ -1923,7 +1923,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151341.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341",
-      precoAntigo: "R$ 379,90",
+      precoCartao: "R$ 379,90",
       preco: "R$ 360,91",
       esgotado: true,
       maisVendido: 23,
@@ -1935,7 +1935,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151594.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-mascaras-liso-perfeito-shampoo-liso-perfeito-500ml-ybera-fashion-gold-151594",
-      precoAntigo: "R$ 444,90",
+      precoCartao: "R$ 444,90",
       preco: "R$ 422,66",
       esgotado: true,
       destaque: false
@@ -1946,7 +1946,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151336.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-300ml-ybera-fashion-gold-151336",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
       destaque: false
@@ -1957,7 +1957,7 @@ window.LOJAS.ybera = {
       categoria: "Cronogramas Capilares",
       imagem: "assets/img/produtos/ybera/ybera-151335.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-500ml-ybera-fashion-gold-151335",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
       maisVendido: 22,
@@ -1969,7 +1969,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150528.webp",
       affiliateUrl: "https://www.ybera.com/produto/ativador-harmonizador-de-cachos-500g-capulana-150528",
-      precoAntigo: "R$ 97,90",
+      precoCartao: "R$ 97,90",
       preco: "R$ 93,01",
       esgotado: true,
       destaque: false
@@ -1980,7 +1980,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150680.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-finalizadores-terra-coco-150680",
-      precoAntigo: "R$ 447,90",
+      precoCartao: "R$ 447,90",
       preco: "R$ 425,51",
       esgotado: true,
       destaque: false
@@ -1991,7 +1991,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150683.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-shampoo-1l-mascara-1kg-elixir-de-coco-60ml-soro-de-coco-500ml-leave-in-vegetal-500ml-terra-coco-150683",
-      precoAntigo: "R$ 709,90",
+      precoCartao: "R$ 709,90",
       preco: "R$ 674,41",
       esgotado: true,
       destaque: false
@@ -2002,7 +2002,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150523.webp",
       affiliateUrl: "https://www.ybera.com/produto/creme-de-pentear-300ml-capulana-150523",
-      precoAntigo: "R$ 129,90",
+      precoCartao: "R$ 129,90",
       preco: "R$ 123,41",
       esgotado: true,
       destaque: false
@@ -2013,7 +2013,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151075.webp",
       affiliateUrl: "https://www.ybera.com/produto/finalizador-exo-cromatech-quarta-camada-500ml-ybera-paris-151075",
-      precoAntigo: "R$ 379,90",
+      precoCartao: "R$ 379,90",
       preco: "R$ 360,91",
       esgotado: true,
       destaque: false
@@ -2024,7 +2024,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150954.webp",
       affiliateUrl: "https://www.ybera.com/produto/finishing-spray-c360-universal-150ml-ybera-150954",
-      precoAntigo: "R$ 197,90",
+      precoCartao: "R$ 197,90",
       preco: "R$ 188,01",
       esgotado: true,
       destaque: false
@@ -2035,7 +2035,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151036.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-leave-in-universal-250g-oleo-de-mirra-reparador-60ml-ybera-151036",
-      precoAntigo: "R$ 340,90",
+      precoCartao: "R$ 340,90",
       preco: "R$ 323,86",
       esgotado: true,
       destaque: false
@@ -2046,7 +2046,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151035.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-leave-in-universal-250g-oleo-de-mirra-reparador-90ml-ybera-151035",
-      precoAntigo: "R$ 378,90",
+      precoCartao: "R$ 378,90",
       preco: "R$ 359,96",
       esgotado: true,
       destaque: false
@@ -2057,7 +2057,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151263.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-mirra-duocare-250g-oleo-de-mirra-15ml-ybera-151263",
-      precoAntigo: "R$ 254,90",
+      precoCartao: "R$ 254,90",
       preco: "R$ 242,16",
       esgotado: true,
       destaque: false
@@ -2068,7 +2068,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151186.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-mirra-duocare-250g-oleo-de-mirra-90ml-ybera-151186",
-      precoAntigo: "R$ 433,90",
+      precoCartao: "R$ 433,90",
       preco: "R$ 412,21",
       esgotado: true,
       destaque: false
@@ -2079,7 +2079,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151264.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-mirra-shampoo-mirracura-250ml-mascara-mirracura-200g-oleo-de-mirra-15ml-ybera-151264",
-      precoAntigo: "R$ 292,90",
+      precoCartao: "R$ 292,90",
       preco: "R$ 278,26",
       esgotado: true,
       destaque: false
@@ -2090,7 +2090,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151261.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-mirracura-250g-com-oleo-de-mirra-15ml-ybera-paris-151261",
-      precoAntigo: "R$ 463,90",
+      precoCartao: "R$ 463,90",
       preco: "R$ 440,71",
       esgotado: true,
       destaque: false
@@ -2101,7 +2101,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150879.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-mirracura-com-oleo-de-mirra-60ml-ybera-paris-150879",
-      precoAntigo: "R$ 597,90",
+      precoCartao: "R$ 597,90",
       preco: "R$ 568,01",
       esgotado: true,
       destaque: false
@@ -2112,7 +2112,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150878.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-mirracura-com-oleo-de-mirra-90ml-ybera-paris-150878",
-      precoAntigo: "R$ 606,90",
+      precoCartao: "R$ 606,90",
       preco: "R$ 576,56",
       esgotado: true,
       destaque: false
@@ -2123,7 +2123,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151221.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-ph-control-shampoo-250ml-mascara-200g-spray-90ml-ybera-151221",
-      precoAntigo: "R$ 345,90",
+      precoCartao: "R$ 345,90",
       preco: "R$ 328,61",
       esgotado: true,
       destaque: false
@@ -2134,7 +2134,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150380.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-tratamento-cocada-capilar-1kg-terra-coco-150380",
-      precoAntigo: "R$ 609,90",
+      precoCartao: "R$ 609,90",
       preco: "R$ 579,41",
       esgotado: true,
       destaque: false
@@ -2145,7 +2145,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150383.webp",
       affiliateUrl: "https://www.ybera.com/produto/leave-in-vegetal-500ml-terra-coco-150383",
-      precoAntigo: "R$ 169,90",
+      precoCartao: "R$ 169,90",
       preco: "R$ 161,41",
       esgotado: true,
       destaque: false
@@ -2156,7 +2156,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150684.webp",
       affiliateUrl: "https://www.ybera.com/produto/leave-in-vegetal-500ml-elixir-de-coco-60ml-terra-coco-150684",
-      precoAntigo: "R$ 279,90",
+      precoCartao: "R$ 279,90",
       preco: "R$ 265,91",
       esgotado: true,
       destaque: false
@@ -2167,7 +2167,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150384.webp",
       affiliateUrl: "https://www.ybera.com/produto/leite-de-coco-contra-frizz-300-ml-terra-coco-150384",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
       destaque: false
@@ -2178,7 +2178,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150912.webp",
       affiliateUrl: "https://www.ybera.com/produto/matizador-termoativado-color-crystal-90ml-ybera-paris-150912",
-      precoAntigo: "R$ 169,90",
+      precoCartao: "R$ 169,90",
       preco: "R$ 161,41",
       esgotado: true,
       destaque: false
@@ -2189,7 +2189,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150625.webp",
       affiliateUrl: "https://www.ybera.com/produto/membrana-termoprotetora-trehalose-lifes-flower-250ml-ybera-paris-150625",
-      precoAntigo: "R$ 83,90",
+      precoCartao: "R$ 83,90",
       preco: "R$ 79,71",
       esgotado: true,
       destaque: false
@@ -2200,7 +2200,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150526.webp",
       affiliateUrl: "https://www.ybera.com/produto/oleo-capilar-savana-africana-150ml-ybera-capulana-150526",
-      precoAntigo: "R$ 169,90",
+      precoCartao: "R$ 169,90",
       preco: "R$ 161,41",
       esgotado: true,
       destaque: false
@@ -2211,7 +2211,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150875.webp",
       affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-60ml-ybera-150875",
-      precoAntigo: "R$ 227,90",
+      precoCartao: "R$ 227,90",
       preco: "R$ 216,51",
       esgotado: true,
       destaque: false
@@ -2222,7 +2222,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150876.webp",
       affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-90ml-ybera-150876",
-      precoAntigo: "R$ 267,90",
+      precoCartao: "R$ 267,90",
       preco: "R$ 254,51",
       esgotado: true,
       maisVendido: 21,
@@ -2234,7 +2234,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150358.webp",
       affiliateUrl: "https://www.ybera.com/produto/protetor-termico-spray-memory150ml-fashion-gold-150358",
-      precoAntigo: "R$ 219,90",
+      precoCartao: "R$ 219,90",
       preco: "R$ 208,91",
       esgotado: true,
       destaque: false
@@ -2245,7 +2245,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151216.webp",
       affiliateUrl: "https://www.ybera.com/produto/serum-discovery-tricomplex-90ml-ybera-151216",
-      precoAntigo: "R$ 339,90",
+      precoCartao: "R$ 339,90",
       preco: "R$ 322,91",
       esgotado: true,
       destaque: false
@@ -2256,7 +2256,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150356.webp",
       affiliateUrl: "https://www.ybera.com/produto/soro-de-coco-500ml-ybera-terra-coco-150356",
-      precoAntigo: "R$ 147,90",
+      precoCartao: "R$ 147,90",
       preco: "R$ 140,51",
       esgotado: true,
       destaque: false
@@ -2267,7 +2267,7 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-150963.webp",
       affiliateUrl: "https://www.ybera.com/produto/splendor-oil-trh-biotech-lifes-flower-90ml-ybera-150963",
-      precoAntigo: "R$ 277,90",
+      precoCartao: "R$ 277,90",
       preco: "R$ 264,01",
       esgotado: true,
       destaque: false
@@ -2278,7 +2278,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150698.webp",
       affiliateUrl: "https://www.ybera.com/produto/creme-de-cetim-150g-touca-de-cetim-fashion-gold-150698",
-      precoAntigo: "R$ 244,90",
+      precoCartao: "R$ 244,90",
       preco: "R$ 232,66",
       esgotado: true,
       destaque: false
@@ -2289,7 +2289,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150855.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-escovas-profissionais-stylist-fashion-gold-150855",
-      precoAntigo: "R$ 507,90",
+      precoCartao: "R$ 507,90",
       preco: "R$ 482,51",
       esgotado: true,
       destaque: false
@@ -2300,7 +2300,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150546.webp",
       affiliateUrl: "https://www.ybera.com/produto/pente-ybera-paris-150546",
-      precoAntigo: "R$ 12,90",
+      precoCartao: "R$ 12,90",
       preco: "R$ 12,26",
       esgotado: true,
       destaque: false
@@ -2311,7 +2311,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-151398.webp",
       affiliateUrl: "https://www.ybera.com/produto/prancha-alisadora-escova-progressiva-500g-kit-manutencao-pos-progressiva-500ml-500gr-fashion-gold-151398",
-      precoAntigo: "R$ 1.355,60",
+      precoCartao: "R$ 1.355,60",
       preco: "R$ 1.287,82",
       esgotado: true,
       destaque: false
@@ -2322,7 +2322,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150801.webp",
       affiliateUrl: "https://www.ybera.com/produto/prancha-alisadora-stylist-escova-progressiva-1kg-fashion-gold-150801",
-      precoAntigo: "R$ 1.895,80",
+      precoCartao: "R$ 1.895,80",
       preco: "R$ 1.801,01",
       esgotado: true,
       destaque: false
@@ -2333,7 +2333,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150802.webp",
       affiliateUrl: "https://www.ybera.com/produto/prancha-de-cabelo-alisadora-stylist-blacktitan-ultra-150802",
-      precoAntigo: "R$ 747,90",
+      precoCartao: "R$ 747,90",
       preco: "R$ 710,51",
       esgotado: true,
       maisVendido: 24,
@@ -2345,7 +2345,7 @@ window.LOJAS.ybera = {
       categoria: "Equipamentos Profissionais",
       imagem: "assets/img/produtos/ybera/ybera-150679.webp",
       affiliateUrl: "https://www.ybera.com/produto/touca-de-cetim-ybera-fashion-gold-150679",
-      precoAntigo: "R$ 69,90",
+      precoCartao: "R$ 69,90",
       preco: "R$ 66,41",
       esgotado: true,
       destaque: false
@@ -2356,7 +2356,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150687.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-shampoo-300ml-mascara-polpa-de-coco-verde-200g-elixir-de-coco-60ml-terra-coco-150687",
-      precoAntigo: "R$ 314,90",
+      precoCartao: "R$ 314,90",
       preco: "R$ 299,16",
       esgotado: true,
       destaque: false
@@ -2367,7 +2367,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151323.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-shampoo-curvaturas-cacho-perfeito-500ml-–-ybera-fashion-gold-151323",
-      precoAntigo: "R$ 385,80",
+      precoCartao: "R$ 385,80",
       preco: "R$ 366,51",
       esgotado: true,
       destaque: false
@@ -2378,7 +2378,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150379.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cocada-capilar-shampoo-isotonico-500ml-mascara-toda-de-coco-500g-ybera-terra-coco-150379",
-      precoAntigo: "R$ 189,90",
+      precoCartao: "R$ 189,90",
       preco: "R$ 180,41",
       esgotado: true,
       destaque: false
@@ -2389,7 +2389,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151219.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-discovery-bio-stemcell-shampoo-250ml-mascara-200g-ybera-151219",
-      precoAntigo: "R$ 229,90",
+      precoCartao: "R$ 229,90",
       preco: "R$ 218,41",
       esgotado: true,
       destaque: false
@@ -2400,7 +2400,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150964.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-lifes-flower-shampoo-250ml-mascara-200g-ybera-150964",
-      precoAntigo: "R$ 299,90",
+      precoCartao: "R$ 299,90",
       preco: "R$ 284,91",
       esgotado: true,
       destaque: false
@@ -2411,7 +2411,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150877.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-mirra-shampoo-mirracura-250ml-mascara-mirracura-200g-ybera-150877",
-      precoAntigo: "R$ 208,90",
+      precoCartao: "R$ 208,90",
       preco: "R$ 198,46",
       esgotado: true,
       destaque: false
@@ -2422,7 +2422,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151220.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-ph-control-shampoo-250ml-mascara-200g-ybera-151220",
-      precoAntigo: "R$ 233,90",
+      precoCartao: "R$ 233,90",
       preco: "R$ 222,21",
       esgotado: true,
       destaque: false
@@ -2433,7 +2433,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151080.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-purple-alfa-cys-shampoo-250ml-mascara-200g-ybera-151080",
-      precoAntigo: "R$ 255,80",
+      precoCartao: "R$ 255,80",
       preco: "R$ 243,01",
       esgotado: true,
       destaque: false
@@ -2444,7 +2444,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151071.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-quarta-camada-shampoo-250ml-reconstrutor-200g-ybera-151071",
-      precoAntigo: "R$ 217,70",
+      precoCartao: "R$ 217,70",
       preco: "R$ 206,82",
       esgotado: true,
       destaque: false
@@ -2455,7 +2455,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151069.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-quarta-camada-shampoo-500ml-reconstrutor-500g-ybera-151069",
-      precoAntigo: "R$ 355,90",
+      precoCartao: "R$ 355,90",
       preco: "R$ 338,11",
       esgotado: true,
       destaque: false
@@ -2466,7 +2466,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151204.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-shampoo-vello-500ml-mascara-vello-500g-ybera-151204",
-      precoAntigo: "R$ 527,90",
+      precoCartao: "R$ 527,90",
       preco: "R$ 501,51",
       esgotado: true,
       destaque: false
@@ -2477,7 +2477,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150902.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-soro-90ml-pre-limpeza-250ml-colostro-250ml-ybera-150902",
-      precoAntigo: "R$ 869,90",
+      precoCartao: "R$ 869,90",
       preco: "R$ 826,41",
       esgotado: true,
       destaque: false
@@ -2488,7 +2488,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150338.webp",
       affiliateUrl: "https://www.ybera.com/produto/pre-shampoo-protect-poo-300g-ybera-fashion-gold-150338",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       esgotado: true,
       destaque: false
@@ -2499,7 +2499,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150339.webp",
       affiliateUrl: "https://www.ybera.com/produto/pre-shampoo-protect-poo-500g-ybera-fashion-gold-150339",
-      precoAntigo: "R$ 147,90",
+      precoCartao: "R$ 147,90",
       preco: "R$ 140,51",
       esgotado: true,
       destaque: false
@@ -2510,7 +2510,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150926.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-da-floresta-essencia-brasileira-250ml-ybera-paris-150926",
-      precoAntigo: "R$ 219,90",
+      precoCartao: "R$ 219,90",
       preco: "R$ 208,91",
       esgotado: true,
       destaque: false
@@ -2521,7 +2521,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150922.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-cerrado-essencia-brasileira-1kg-ybera-paris-150922",
-      precoAntigo: "R$ 617,80",
+      precoCartao: "R$ 617,80",
       preco: "R$ 586,91",
       esgotado: true,
       destaque: false
@@ -2532,7 +2532,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150924.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-cerrado-essencia-brasileira-250ml-ybera-paris-150924",
-      precoAntigo: "R$ 219,90",
+      precoCartao: "R$ 219,90",
       preco: "R$ 208,91",
       esgotado: true,
       destaque: false
@@ -2543,7 +2543,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150925.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-pantanal-essencia-brasileira-250ml-ybera-paris-150925",
-      precoAntigo: "R$ 219,90",
+      precoCartao: "R$ 219,90",
       preco: "R$ 208,91",
       esgotado: true,
       destaque: false
@@ -2554,7 +2554,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150342.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-terra-coco-150342",
-      precoAntigo: "R$ 97,90",
+      precoCartao: "R$ 97,90",
       preco: "R$ 93,01",
       esgotado: true,
       destaque: false
@@ -2565,7 +2565,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151090.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-condicionador-coco-verde-300g-terra-coco-151090",
-      precoAntigo: "R$ 189,90",
+      precoCartao: "R$ 189,90",
       preco: "R$ 180,41",
       esgotado: true,
       destaque: false
@@ -2576,7 +2576,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150689.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-coco-verde-300ml-mascara-polpa-de-coco-verde-200g-terra-coco-150689",
-      precoAntigo: "R$ 197,90",
+      precoCartao: "R$ 197,90",
       preco: "R$ 188,01",
       esgotado: true,
       destaque: false
@@ -2587,7 +2587,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151326.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-curvaturas-1l-cacho-perfeito-ybera-fashion-gold-151326",
-      precoAntigo: "R$ 149,90",
+      precoCartao: "R$ 149,90",
       preco: "R$ 142,41",
       esgotado: true,
       destaque: false
@@ -2598,7 +2598,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150544.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-de-coco-300ml-acai-terra-coco-150544",
-      precoAntigo: "R$ 47,90",
+      precoCartao: "R$ 47,90",
       preco: "R$ 45,51",
       esgotado: true,
       destaque: false
@@ -2609,7 +2609,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151214.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-discovery-bio-stemcell-250ml-ybera-151214",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       esgotado: true,
       destaque: false
@@ -2620,7 +2620,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150929.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-elixir-do-pantanal-essencia-brasileira-250ml-ybera-paris-150929",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
       destaque: false
@@ -2631,7 +2631,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150930.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-essencia-brasileira-elixir-do-cerrado-250ml-ybera-150930",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
       destaque: false
@@ -2642,7 +2642,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151073.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-exo-cromatech-quarta-camada-250ml-ybera-paris-151073",
-      precoAntigo: "R$ 97,90",
+      precoCartao: "R$ 97,90",
       preco: "R$ 93,01",
       esgotado: true,
       destaque: false
@@ -2653,7 +2653,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150543.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-light-poo-500ml-black-diva-150543",
-      precoAntigo: "R$ 157,90",
+      precoCartao: "R$ 157,90",
       preco: "R$ 150,01",
       esgotado: true,
       destaque: false
@@ -2664,7 +2664,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-150874.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-mirracura-250ml-ybera-150874",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
       destaque: false
@@ -2675,7 +2675,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151086.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-mirracura-500ml-ybera-151086",
-      precoAntigo: "R$ 157,90",
+      precoCartao: "R$ 157,90",
       preco: "R$ 150,01",
       esgotado: true,
       destaque: false
@@ -2686,7 +2686,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151085.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-mirracura-500ml-mascara-mirracura-500g-ybera-151085",
-      precoAntigo: "R$ 347,90",
+      precoCartao: "R$ 347,90",
       preco: "R$ 330,51",
       esgotado: true,
       destaque: false
@@ -2697,7 +2697,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151078.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-purple-plex-alfa-cys-250ml-ybera-151078",
-      precoAntigo: "R$ 117,90",
+      precoCartao: "R$ 117,90",
       preco: "R$ 112,01",
       esgotado: true,
       destaque: false
@@ -2708,7 +2708,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151072.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-quarta-camada-exo-cromatech-500ml-ybera-151072",
-      precoAntigo: "R$ 147,90",
+      precoCartao: "R$ 147,90",
       preco: "R$ 140,51",
       esgotado: true,
       destaque: false
@@ -2719,7 +2719,7 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151202.webp",
       affiliateUrl: "https://www.ybera.com/produto/shampoo-vello-alfa-lactobaby-500ml-ybera-151202",
-      precoAntigo: "R$ 237,90",
+      precoCartao: "R$ 237,90",
       preco: "R$ 226,01",
       esgotado: true,
       destaque: false
@@ -2730,7 +2730,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150952.webp",
       affiliateUrl: "https://www.ybera.com/produto/acidificante-capilar-alfa-cys-universal-250ml-ybera-paris-150952",
-      precoAntigo: "R$ 237,90",
+      precoCartao: "R$ 237,90",
       preco: "R$ 226,01",
       esgotado: true,
       destaque: false
@@ -2741,7 +2741,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150310.webp",
       affiliateUrl: "https://www.ybera.com/produto/agua-de-coco-capilar-300ml-ybera-terra-coco-150310",
-      precoAntigo: "R$ 97,90",
+      precoCartao: "R$ 97,90",
       preco: "R$ 93,01",
       esgotado: true,
       destaque: false
@@ -2752,7 +2752,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151388.webp",
       affiliateUrl: "https://www.ybera.com/produto/ativo-botulinico-biotox-1kg-ybera-151388",
-      precoAntigo: "R$ 397,90",
+      precoCartao: "R$ 397,90",
       preco: "R$ 378,01",
       esgotado: true,
       destaque: false
@@ -2763,7 +2763,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150905.webp",
       affiliateUrl: "https://www.ybera.com/produto/colostro-vello-alfa-lactobaby-250ml-ybera-paris-150905",
-      precoAntigo: "R$ 207,90",
+      precoCartao: "R$ 207,90",
       preco: "R$ 197,51",
       esgotado: true,
       destaque: false
@@ -2774,7 +2774,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151292.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-2-kits-linha-completa-quarta-camada-500ml-500g-ybera-paris-151292",
-      precoAntigo: "R$ 1.471,40",
+      precoCartao: "R$ 1.471,40",
       preco: "R$ 1.397,83",
       esgotado: true,
       destaque: false
@@ -2785,7 +2785,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150701.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-embaixador-150701",
-      precoAntigo: "R$ 5.150,20",
+      precoCartao: "R$ 5.150,20",
       preco: "R$ 4.892,69",
       esgotado: true,
       destaque: false
@@ -2796,7 +2796,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150965.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-linha-completa-lifes-flower-ybera-paris-150965",
-      precoAntigo: "R$ 784,90",
+      precoCartao: "R$ 784,90",
       preco: "R$ 745,66",
       esgotado: true,
       destaque: false
@@ -2807,7 +2807,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150325.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-manutencao-coco-verde-300g-200g-terra-coco-150325",
-      precoAntigo: "R$ 289,90",
+      precoCartao: "R$ 289,90",
       preco: "R$ 275,41",
       esgotado: true,
       destaque: false
@@ -2818,7 +2818,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150940.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-manutencao-genoma-ybera-paris-150940",
-      precoAntigo: "R$ 430,86",
+      precoCartao: "R$ 430,86",
       preco: "R$ 409,32",
       esgotado: true,
       destaque: false
@@ -2829,7 +2829,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151182.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-material-de-apoio-151182",
-      precoAntigo: "R$ 257,70",
+      precoCartao: "R$ 257,70",
       preco: "R$ 244,82",
       esgotado: true,
       destaque: false
@@ -2840,7 +2840,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150628.webp",
       affiliateUrl: "https://www.ybera.com/produto/combo-pro-150628",
-      precoAntigo: "R$ 6.622,90",
+      precoCartao: "R$ 6.622,90",
       preco: "R$ 6.291,76",
       esgotado: true,
       destaque: false
@@ -2851,7 +2851,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150363.webp",
       affiliateUrl: "https://www.ybera.com/produto/condicionador-coco-verde-300g-terra-coco-150363",
-      precoAntigo: "R$ 97,90",
+      precoCartao: "R$ 97,90",
       preco: "R$ 93,01",
       esgotado: true,
       destaque: false
@@ -2862,7 +2862,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150932.webp",
       affiliateUrl: "https://www.ybera.com/produto/condicionador-elixir-da-floresta-essencia-brasileira-250ml-ybera-paris-150932",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       esgotado: true,
       destaque: false
@@ -2873,7 +2873,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150931.webp",
       affiliateUrl: "https://www.ybera.com/produto/condicionador-elixir-do-cerrado-essencia-brasileira-250ml-ybera-paris-150931",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       esgotado: true,
       destaque: false
@@ -2884,7 +2884,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150927.webp",
       affiliateUrl: "https://www.ybera.com/produto/condicionador-elixir-do-pantanal-essencia-brasileira-250ml-ybera-paris-150927",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       esgotado: true,
       destaque: false
@@ -2895,7 +2895,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150549.webp",
       affiliateUrl: "https://www.ybera.com/produto/copo-medidor-100ml-150549",
-      precoAntigo: "R$ 4,90",
+      precoCartao: "R$ 4,90",
       preco: "R$ 4,66",
       esgotado: true,
       destaque: false
@@ -2906,7 +2906,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150604.webp",
       affiliateUrl: "https://www.ybera.com/produto/cowash-black-diva-500g-150604",
-      precoAntigo: "R$ 157,90",
+      precoCartao: "R$ 157,90",
       preco: "R$ 150,01",
       esgotado: true,
       destaque: false
@@ -2917,7 +2917,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150459.webp",
       affiliateUrl: "https://www.ybera.com/produto/creme-de-cetim-150g-fashion-gold-150459",
-      precoAntigo: "R$ 147,90",
+      precoCartao: "R$ 147,90",
       preco: "R$ 140,51",
       esgotado: true,
       destaque: false
@@ -2928,7 +2928,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150548.webp",
       affiliateUrl: "https://www.ybera.com/produto/dosador-graduado-50ml-transparente-150548",
-      precoAntigo: "R$ 3,90",
+      precoCartao: "R$ 3,90",
       preco: "R$ 3,71",
       esgotado: true,
       destaque: false
@@ -2939,7 +2939,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150594.webp",
       affiliateUrl: "https://www.ybera.com/produto/fio-liquido-genoma-500ml-ybera-paris-150594",
-      precoAntigo: "R$ 297,90",
+      precoCartao: "R$ 297,90",
       preco: "R$ 283,01",
       esgotado: true,
       destaque: false
@@ -2950,7 +2950,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151592.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-basico-material-de-apoio-profissional-151592",
-      precoAntigo: "R$ 150,60",
+      precoCartao: "R$ 150,60",
       preco: "R$ 143,07",
       esgotado: true,
       destaque: false
@@ -2961,7 +2961,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151070.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-linha-completa-quarta-camada-250ml-200g-ybera-paris-151070",
-      precoAntigo: "R$ 365,90",
+      precoCartao: "R$ 365,90",
       preco: "R$ 347,61",
       esgotado: true,
       destaque: false
@@ -2972,7 +2972,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151068.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-linha-completa-quarta-camada-500ml-500g-ybera-paris-151068",
-      precoAntigo: "R$ 735,90",
+      precoCartao: "R$ 735,90",
       preco: "R$ 699,11",
       esgotado: true,
       destaque: false
@@ -2983,7 +2983,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151593.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-plus-material-de-apoio-profissional-151593",
-      precoAntigo: "R$ 286,40",
+      precoCartao: "R$ 286,40",
       preco: "R$ 272,08",
       esgotado: true,
       destaque: false
@@ -2994,7 +2994,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150536.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-2-em-1-capulana-1kg-150536",
-      precoAntigo: "R$ 157,90",
+      precoCartao: "R$ 157,90",
       preco: "R$ 150,01",
       esgotado: true,
       destaque: false
@@ -3005,7 +3005,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150534.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-2-em-1-capulana-500g-ybera-capulana-150534",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
       destaque: false
@@ -3016,7 +3016,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150873.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-mirracura-200g-ybera-150873",
-      precoAntigo: "R$ 119,90",
+      precoCartao: "R$ 119,90",
       preco: "R$ 113,91",
       esgotado: true,
       destaque: false
@@ -3027,7 +3027,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151087.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-mirracura-500g-ybera-151087",
-      precoAntigo: "R$ 197,90",
+      precoCartao: "R$ 197,90",
       preco: "R$ 188,01",
       esgotado: true,
       destaque: false
@@ -3038,7 +3038,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150547.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-polpa-de-coco-200g-acai-terra-coco-150547",
-      precoAntigo: "R$ 62,90",
+      precoCartao: "R$ 62,90",
       preco: "R$ 59,76",
       esgotado: true,
       destaque: false
@@ -3049,7 +3049,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150333.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-polpa-de-coco-verde-200g-terra-coco-150333",
-      precoAntigo: "R$ 107,90",
+      precoCartao: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
       destaque: false
@@ -3060,7 +3060,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150960.webp",
       affiliateUrl: "https://www.ybera.com/produto/mascara-trh-biotech-lifes-flower-200g-ybera-paris-150960",
-      precoAntigo: "R$ 187,90",
+      precoCartao: "R$ 187,90",
       preco: "R$ 178,51",
       esgotado: true,
       destaque: false
@@ -3071,7 +3071,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150630.webp",
       affiliateUrl: "https://www.ybera.com/produto/plaquete-para-mechas-grande-ybera-paris-150630",
-      precoAntigo: "R$ 57,90",
+      precoCartao: "R$ 57,90",
       preco: "R$ 55,01",
       esgotado: true,
       destaque: false
@@ -3082,7 +3082,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150603.webp",
       affiliateUrl: "https://www.ybera.com/produto/power-mask-500g-black-diva-150603",
-      precoAntigo: "R$ 157,90",
+      precoCartao: "R$ 157,90",
       preco: "R$ 150,01",
       esgotado: true,
       destaque: false
@@ -3093,7 +3093,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150909.webp",
       affiliateUrl: "https://www.ybera.com/produto/pre-limpeza-vello-alfa-lactobaby-250ml-ybera-150909",
-      precoAntigo: "R$ 169,90",
+      precoCartao: "R$ 169,90",
       preco: "R$ 161,41",
       esgotado: true,
       destaque: false
@@ -3104,7 +3104,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-151074.webp",
       affiliateUrl: "https://www.ybera.com/produto/reconstrutor-exo-cromatech-quarta-camada-500g-ybera-paris-151074",
-      precoAntigo: "R$ 207,90",
+      precoCartao: "R$ 207,90",
       preco: "R$ 197,51",
       esgotado: true,
       destaque: false
@@ -3115,7 +3115,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150939.webp",
       affiliateUrl: "https://www.ybera.com/produto/selador-cuticular-pro-geno-genoma-250g-ybera-paris-150939",
-      precoAntigo: "R$ 187,90",
+      precoCartao: "R$ 187,90",
       preco: "R$ 178,51",
       esgotado: true,
       destaque: false
@@ -3126,7 +3126,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150593.webp",
       affiliateUrl: "https://www.ybera.com/produto/selador-ortho-reconstrutor-de-cuticulas-e-pontas-genoma-500g-ybera-paris-150593",
-      precoAntigo: "R$ 129,90",
+      precoCartao: "R$ 129,90",
       preco: "R$ 123,41",
       esgotado: true,
       destaque: false
@@ -3137,7 +3137,7 @@ window.LOJAS.ybera = {
       categoria: "Outros",
       imagem: "assets/img/produtos/ybera/ybera-150542.webp",
       affiliateUrl: "https://www.ybera.com/produto/sublime-500g-black-diva-150542",
-      precoAntigo: "R$ 139,90",
+      precoCartao: "R$ 139,90",
       preco: "R$ 132,91",
       esgotado: true,
       destaque: false
