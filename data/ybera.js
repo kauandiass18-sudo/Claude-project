@@ -245,8 +245,8 @@ window.LOJAS.ybera = {
       categoria: "Progressiva e Pós-Progressiva",
       imagem: "assets/img/produtos/ybera/ybera-151064.webp",
       affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-1kg-fashion-gold-151064",
-      precoAntigo: "R$ 257,90",
-      preco: "R$ 245,01",
+      precoAntigo: "R$ 497,90",
+      preco: "R$ 473,01",
       destaque: false
     },
     {
@@ -280,13 +280,13 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Escova Progressiva 300g + Shampoo Pós-Progressiva 300ml + Máscara 2 em 1 250g + Protect Poo 300g",
-      oQueE: "Você encontrou a solução para alisar os seus cabelos de forma segura, sem precisar se preocupar com o mau odor ou se irá danificar o seu cabelo.",
+      nome: "Kit Escova Progressiva 150g + Shampoo 300ml + Máscara 250g + Óleo de Mirra 15ml",
+      oQueE: "Alisamento Profissional com Cuidado Diário Inteligente .",
       categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-150317.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-300g-shampoo-pos-progressiva-300ml-mascara-2-em-1-250g-protect-poo-300g-ybera-fashion-gold-150317",
-      precoAntigo: "R$ 563,90",
-      preco: "R$ 535,71",
+      imagem: "assets/img/produtos/ybera/ybera-151523.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-150g-shampoo-300ml-mascara-250g-oleo-de-mirra-15ml-ybera-fashion-gold-151523",
+      precoAntigo: "R$ 370,90",
+      preco: "R$ 352,36",
       destaque: false
     },
     {
@@ -307,16 +307,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-liso-perfeito-mascara-resistencia-absoluta-250g-mascara-liso-encorpado-250g-mascara-blindagem-polidora-250g-ybera-fashion-gold-151550",
       precoAntigo: "R$ 299,90",
       preco: "R$ 284,91",
-      destaque: false
-    },
-    {
-      nome: "Kit Manutenção Completa Pós-Progressiva - Pré-Shampoo 300ml + Shampoo 300ml + Máscara 2 em 1 250g",
-      oQueE: "Prolongue os resultados da sua progressiva com o Combo de Manutenção Fashion Gold.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-150327.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-manutencao-completa-pos-progressiva-pre-shampoo-300ml-shampoo-300ml-mascara-2-em-1-250g-ybera-fashion-gold-150327",
-      precoAntigo: "R$ 318,90",
-      preco: "R$ 302,96",
       destaque: false
     },
     {
@@ -378,16 +368,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-resistencia-absoluta-liso-perfeito-250g-ybera-fashion-gold-151517",
       precoAntigo: "R$ 119,90",
       preco: "R$ 113,91",
-      destaque: false
-    },
-    {
-      nome: "3 Unidades - Kit Cronograma Capilar Cuidados Profundos - Fashion Gold",
-      oQueE: "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151438.webp",
-      affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151438",
-      precoAntigo: "R$ 437,70",
-      preco: "R$ 415,82",
       destaque: false
     },
     {
@@ -471,6 +451,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit Cronograma Loiro Perfeito + Shampoo Luminoso 500ml",
+      oQueE: "Kit Loiro Perfeito + Shampoo Luminoso 500ml . O protocolo completo para um loiro forte, frio e luminoso por muito mais tempo.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151300.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cronograma-loiro-perfeito-shampoo-luminoso-500ml-ybera-fashion-gold-151300",
+      precoAntigo: "R$ 387,90",
+      preco: "R$ 368,51",
+      destaque: false
+    },
+    {
       nome: "Kit Cuidados Profundos - Máscara Reconstrução 250g + Máscara Nutrição 250g + Máscara Hidratação 250g",
       oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
       categoria: "Cronogramas Capilares",
@@ -478,17 +468,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-mascara-reconstrucao-250g-mascara-nutricao-250g-mascara-hidratacao-250g-ybera-fashion-gold-151548",
       precoAntigo: "R$ 299,90",
       preco: "R$ 284,91",
-      destaque: false
-    },
-    {
-      nome: "Kit Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
-      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151341.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341",
-      precoAntigo: "R$ 379,90",
-      preco: "R$ 360,91",
-      maisVendido: 8,
       destaque: false
     },
     {
@@ -502,46 +481,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Kids Menino + Kit Kids Menina",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para transformar o cuidado com os cabelos das crianças em um momento divertido, suave e cheio de amor.",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151562.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-kids-menina-ybera-fashion-kids-151562",
-      precoAntigo: "R$ 499,80",
-      preco: "R$ 474,81",
-      destaque: false
-    },
-    {
-      nome: "Kit Kids Menino + Kit Máscaras Cuidados Profundos",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151567.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-mascaras-cuidados-profundos-ybera-fashion-gold-151567",
-      precoAntigo: "R$ 549,80",
-      preco: "R$ 522,31",
-      destaque: false
-    },
-    {
-      nome: "Kit Kids Menino + Kit Máscaras Liso Perfeito",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151569.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-mascaras-liso-perfeito-ybera-fashion-gold-151569",
-      precoAntigo: "R$ 549,80",
-      preco: "R$ 522,31",
-      destaque: false
-    },
-    {
-      nome: "Kit Kids Menino + Kit Máscaras Loiro Perfeito",
-      oQueE: "O Kit Fashion Gold Kids foi desenvolvido especialmente para cuidar dos cabelos das crianças com toda a segurança e eficácia que o couro cabeludo infantil…",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151570.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-kids-menino-kit-mascaras-loiro-perfeito-ybera-fashion-gold-151570",
-      precoAntigo: "R$ 549,80",
-      preco: "R$ 522,31",
-      destaque: false
-    },
-    {
       nome: "Kit Máscaras Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
       oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
       categoria: "Cronogramas Capilares",
@@ -549,7 +488,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-mascaras-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151600",
       precoAntigo: "R$ 444,90",
       preco: "R$ 422,66",
-      maisVendido: 12,
+      maisVendido: 11,
       destaque: false
     },
     {
@@ -580,17 +519,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/mascara-reconstrucao-cuidados-profundos-250g-ybera-fashion-gold-151508",
       precoAntigo: "R$ 119,90",
       preco: "R$ 113,91",
-      destaque: false
-    },
-    {
-      nome: "Shampoo Multifunção Cuidados Profundos 500ml",
-      oQueE: "O Shampoo Multifunção Cuidados Profundos é o primeiro passo para um ritual completo de reconstrução, nutrição e hidratação dos fios .",
-      categoria: "Cronogramas Capilares",
-      imagem: "assets/img/produtos/ybera/ybera-151335.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-500ml-ybera-fashion-gold-151335",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
-      maisVendido: 4,
       destaque: false
     },
     {
@@ -654,12 +582,22 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit 3 Óleo De Mirra Reparador 15ml",
+      oQueE: "Óleo de Mirra Hidratante Milagroso 15ml da Ybera, um verdadeiro tesouro da natureza para seus cabelos!",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-151671.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-3-oleo-de-mirra-reparador-15ml-ybera-151671",
+      precoAntigo: "R$ 239,70",
+      preco: "R$ 227,72",
+      destaque: false
+    },
+    {
       nome: "Kit 30 Cápsulas Antiqueda Capilar + Óleo de Mirra 15ml + Tônico Antiqueda 150ml",
       oQueE: "Uma rotina completa de cuidados para fortalecer e revitalizar os cabelos de dentro para fora.",
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151618.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-30-capsulas-antiqueda-capilar-oleo-de-mirra-15ml-tonico-antiqueda-150ml-ybera-fashion-gold-151618",
-      precoAntigo: "R$ 307,70",
+      precoAntigo: "R$ 292,90",
       preco: "R$ 278,26",
       destaque: false
     },
@@ -669,8 +607,28 @@ window.LOJAS.ybera = {
       categoria: "Finalizadores",
       imagem: "assets/img/produtos/ybera/ybera-151619.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-cacho-perfeito-creme-de-pentear-500g-leave-in-300ml-oleo-reparador-150ml-ybera-fashion-gold-151619",
-      precoAntigo: "R$ 429,70",
+      precoAntigo: "R$ 408,90",
       preco: "R$ 388,46",
+      destaque: false
+    },
+    {
+      nome: "Kit Leave-in Universal 250g + Óleo de Mirra Reparador 90ml Refil",
+      oQueE: "Kit Óleo de Mirra + Leave-in Universal . Tenha cabelos nutridos, protegidos e com brilho incrível todos os dias.",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-151040.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-leave-in-universal-250g-oleo-de-mirra-reparador-90ml-refil-ybera-151040",
+      precoAntigo: "R$ 311,90",
+      preco: "R$ 296,31",
+      destaque: false
+    },
+    {
+      nome: "Kit Soro Vello 90ml + Óleo de Mirra Reparador Refil 90ml",
+      oQueE: "Se você sofre com queda capilar severa, entradas que afetam sua autoestima e fios finos ou quebradiços, este kit traz a solução definitiva, tratando da raiz…",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-151576.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-soro-vello-90ml-oleo-de-mirra-reparador-refil-90ml-ybera-151576",
+      precoAntigo: "R$ 425,90",
+      preco: "R$ 404,61",
       destaque: false
     },
     {
@@ -691,7 +649,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/leave-in-desembaracante-150ml-ybera-fashion-kids-151317",
       precoAntigo: "R$ 79,90",
       preco: "R$ 75,91",
-      maisVendido: 10,
+      maisVendido: 9,
       destaque: false
     },
     {
@@ -713,16 +671,6 @@ window.LOJAS.ybera = {
       precoAntigo: "R$ 129,90",
       preco: "R$ 123,41",
       maisVendido: 6,
-      destaque: false
-    },
-    {
-      nome: "Leite de Coco Contra Frizz 300 ml - Terra Coco",
-      oQueE: "O Leite de Coco Redutor de Frizz é um finalizador sem enxágue, ideal para uso pré e pós-química.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150384.webp",
-      affiliateUrl: "https://www.ybera.com/produto/leite-de-coco-contra-frizz-300-ml-terra-coco-150384",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
       destaque: false
     },
     {
@@ -767,6 +715,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Óleo de Mirra Reparador Refil 90ml",
+      oQueE: "Óleo de Mirra Hidratante Milagroso 90ml da Ybera , um verdadeiro tesouro da natureza para seus cabelos!",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-150935.webp",
+      affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-refil-90ml-ybera-150935",
+      precoAntigo: "R$ 197,90",
+      preco: "R$ 188,01",
+      destaque: false
+    },
+    {
       nome: "Óleo Reparador Nutre Cacho Perfeito 150ml",
       oQueE: "O Óleo Reparador Cacho Perfeito Ybera Fashion Gold foi desenvolvido para nutrir profundamente os cabelos cacheados, eliminando o frizz e realçando o brilho…",
       categoria: "Finalizadores",
@@ -774,26 +732,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/oleo-reparador-nutre-cacho-perfeito-150ml-ybera-fashion-gold-151325",
       precoAntigo: "R$ 169,90",
       preco: "R$ 161,41",
-      destaque: false
-    },
-    {
-      nome: "Protetor Térmico Spray Memory150ml - Fashion Gold",
-      oQueE: "Spray Memory Protect & Control 150ml . Proteção Térmica Inteligente com Efeito Memória .",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150358.webp",
-      affiliateUrl: "https://www.ybera.com/produto/protetor-termico-spray-memory150ml-fashion-gold-150358",
-      precoAntigo: "R$ 219,90",
-      preco: "R$ 208,91",
-      destaque: false
-    },
-    {
-      nome: "Soro de Coco 500ml",
-      oQueE: "O Soro de Coco foi especialmente desenvolvido para cabelos quebradiços.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150356.webp",
-      affiliateUrl: "https://www.ybera.com/produto/soro-de-coco-500ml-ybera-terra-coco-150356",
-      precoAntigo: "R$ 147,90",
-      preco: "R$ 140,51",
       destaque: false
     },
     {
@@ -824,7 +762,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/summer-protecao-universal-250ml-ybera-151348",
       precoAntigo: "R$ 237,90",
       preco: "R$ 226,01",
-      maisVendido: 13,
+      maisVendido: 12,
       destaque: false
     },
     {
@@ -835,7 +773,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/thermic-gloss-c360-universal-90ml-ybera-150951",
       precoAntigo: "R$ 209,90",
       preco: "R$ 199,41",
-      maisVendido: 11,
+      maisVendido: 10,
       destaque: false
     },
     {
@@ -889,16 +827,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Touca de Cetim",
-      oQueE: "Touca de Cetim Ybera Fashion Gold. Proteção inteligente para potencializar seus resultados.",
-      categoria: "Equipamentos Profissionais",
-      imagem: "assets/img/produtos/ybera/ybera-150679.webp",
-      affiliateUrl: "https://www.ybera.com/produto/touca-de-cetim-ybera-fashion-gold-150679",
-      precoAntigo: "R$ 69,90",
-      preco: "R$ 66,41",
-      destaque: false
-    },
-    {
       nome: "Touca Metal Quente Preta",
       oQueE: "Touca luxo preta para hidratação capilar e procedimentos químicos.",
       categoria: "Equipamentos Profissionais",
@@ -944,18 +872,18 @@ window.LOJAS.ybera = {
       categoria: "Shampoo",
       imagem: "assets/img/produtos/ybera/ybera-151617.webp",
       affiliateUrl: "https://www.ybera.com/produto/kit-antiqueda-100timetros-shampoo-300ml-condicionador-300g-tonico-150ml-90-capsulas-ybera-fashion-gold-151617",
-      precoAntigo: "R$ 607,60",
+      precoAntigo: "R$ 577,90",
       preco: "R$ 549,01",
       destaque: false
     },
     {
-      nome: "Kit Botulínica - Shampoo Anti Age Biotox 250ml + Reconstrutor 500g",
+      nome: "Kit Botulínica - Shampoo 250ml + Reconstrutor 200g",
       oQueE: "A dupla completa para reverter os sinais do tempo nos fios.",
       categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151622.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-botulinica-shampoo-anti-age-biotox-250ml-reconstrutor-500g-ybera-151622",
-      precoAntigo: "R$ 259,80",
-      preco: "R$ 246,81",
+      imagem: "assets/img/produtos/ybera/ybera-151676.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-botulinica-shampoo-250ml-reconstrutor-200g-ybera-151676",
+      precoAntigo: "R$ 259,90",
+      preco: "R$ 246,91",
       destaque: false
     },
     {
@@ -999,6 +927,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit Genoma - Shampoo 250ml + Máscara 200g",
+      oQueE: "Cabelos danificados precisam de mais do que uma hidratação comum – eles precisam de um tratamento que realmente devolva a força, a maciez e o brilho…",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-150941.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-genoma-shampoo-250ml-mascara-200g-ybera-150941",
+      precoAntigo: "R$ 279,90",
+      preco: "R$ 265,91",
+      destaque: false
+    },
+    {
       nome: "Kit Liso Perfeito + Shampoo Liso Perfeito 500ml - Fashion Gold",
       oQueE: "Revele a beleza de um liso disciplinado, alinhado, hidratado e livre de frizz com o cuidado completo da Ybera Fashion Gold.",
       categoria: "Shampoo",
@@ -1029,16 +967,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Shampoo Vello 500ml + Máscara Vello 500g",
-      oQueE: "Kit shampoo e máscara Alfa-Lactobaby em formato econômico.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151204.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-shampoo-vello-500ml-mascara-vello-500g-ybera-151204",
-      precoAntigo: "R$ 527,90",
-      preco: "R$ 501,51",
-      destaque: false
-    },
-    {
       nome: "Kit Vello Alfa-Lactobaby - Shampoo 250ml + Máscara 250g",
       oQueE: "O Shampoo Alfa-Lactobaby® é ideal para estimular o crescimento capilar.",
       categoria: "Shampoo",
@@ -1049,13 +977,24 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Pré-Shampoo Protect Poo 300g",
-      oQueE: "Protect Poo Pré-Shampoo Fashion Gold 300g . Cuidado preventivo que preserva a saúde dos fios.",
+      nome: "Kit Vello Alfa-Lactobaby - Shampoo 250ml + Máscara 250g + Soro 90ml",
+      oQueE: "O Shampoo Alfa-Lactobaby® é ideal para estimular o crescimento capilar.",
       categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150338.webp",
-      affiliateUrl: "https://www.ybera.com/produto/pre-shampoo-protect-poo-300g-ybera-fashion-gold-150338",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
+      imagem: "assets/img/produtos/ybera/ybera-150903.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-soro-90ml-ybera-150903",
+      precoAntigo: "R$ 539,90",
+      preco: "R$ 512,91",
+      destaque: false
+    },
+    {
+      nome: "Shampoo + Condicionador Elixir da Floresta Essência Brasileira 1Kg",
+      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-150923.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-da-floresta-essencia-brasileira-1kg-ybera-paris-150923",
+      precoAntigo: "R$ 617,80",
+      preco: "R$ 586,91",
+      maisVendido: 13,
       destaque: false
     },
     {
@@ -1066,6 +1005,16 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-mascara-selador-pro-geno-genoma-500ml-500g-ybera-paris-151206",
       precoAntigo: "R$ 559,90",
       preco: "R$ 531,91",
+      destaque: false
+    },
+    {
+      nome: "Shampoo Alinhador Liso Perfeito 500ml",
+      oQueE: "Shampoo Alinhador 500ml . Limpeza inteligente que trata, equilibra e disciplina os fios desde a primeira lavagem.",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-151306.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-alinhador-liso-perfeito-500ml-ybera-fashion-gold-151306",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
       destaque: false
     },
     {
@@ -1283,16 +1232,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Shampoo Vello Alfa-Lactobaby 500ml",
-      oQueE: "Shampoo Alfa-Lactobaby estimula crescimento capilar, fortalece folículos e reduz queda.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151202.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-vello-alfa-lactobaby-500ml-ybera-151202",
-      precoAntigo: "R$ 237,90",
-      preco: "R$ 226,01",
-      destaque: false
-    },
-    {
       nome: "30 Cápsulas 100Tímetros Softgel Cabelo, Pele e Unhas",
       oQueE: "100timetros 30 cápsulas softgel - Cabelo, Pele e Unhas . O 100timetros 30 cápsulas representa o início do ciclo de transformação.",
       categoria: "Outros",
@@ -1370,7 +1309,7 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/condicionador-antiqueda-100timetros-300g-ybera-fashion-gold-150306",
       precoAntigo: "R$ 119,90",
       preco: "R$ 113,91",
-      maisVendido: 9,
+      maisVendido: 8,
       destaque: false
     },
     {
@@ -1447,6 +1386,25 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit Cachos Absolutos - Ybera Fashion Gold (cópia)",
+      oQueE: "Kit Cacho Perfeito Completo com Oil Savana Africana, Spray BB Cream e Shampoo Suave 1L Capulana .",
+      categoria: "Outros",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cachos-absolutos-ybera-fashion-gold-copia-151672",
+      precoAntigo: "R$ 745,60",
+      preco: "R$ 708,32",
+      destaque: false
+    },
+    {
+      nome: "Kit Completo Genoma 500ml",
+      oQueE: "Se você se deparou com um cabelo já passou por tantas químicas e danos que parece sem solução, quebrando facilmente, sem brilho e sem vida, é porque ele…",
+      categoria: "Outros",
+      imagem: "assets/img/produtos/ybera/ybera-150946.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-completo-genoma-500ml-ybera-paris-150946",
+      precoAntigo: "R$ 981,60",
+      preco: "R$ 932,52",
+      destaque: false
+    },
+    {
       nome: "Kit Loiro Perfeito - Máscara Estrutural 250g + Máscara Equilíbrio 250g + Máscara Lavanda 250g",
       oQueE: "Kit de Máscaras Cronograma Capilar Loiro Perfeito Revele a beleza de um loiro iluminado, saudável e sofisticado.",
       categoria: "Outros",
@@ -1464,6 +1422,16 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-relaxamento-acido-black-diva-150612",
       precoAntigo: "R$ 665,80",
       preco: "R$ 632,51",
+      destaque: false
+    },
+    {
+      nome: "Kit Soro Vello 90ml + 30 Cápsulas 100Tímetros Softgel",
+      oQueE: "Kit Contra Queda Capilar . Combata a queda dos fios com a combinação perfeita do Soro Vital Alfa-Lactobaby® Vello e do 100timetros 30 Cápsulas.",
+      categoria: "Outros",
+      imagem: "assets/img/produtos/ybera/ybera-151538.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-soro-vello-90ml-30-capsulas-100timetros-softgel-ybera-151538",
+      precoAntigo: "R$ 332,90",
+      preco: "R$ 316,26",
       destaque: false
     },
     {
@@ -1524,6 +1492,16 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/mascara-nutricao-lavanda-loiro-perfeito-250g-ybera-fashion-gold-151518",
       precoAntigo: "R$ 119,90",
       preco: "R$ 113,91",
+      destaque: false
+    },
+    {
+      nome: "Máscara Pro-Geno Genoma 200g",
+      oQueE: "Você olha no espelho e percebe que seu cabelo perdeu completamente a vitalidade?",
+      categoria: "Outros",
+      imagem: "assets/img/produtos/ybera/ybera-150937.webp",
+      affiliateUrl: "https://www.ybera.com/produto/mascara-pro-geno-genoma-200g-ybera-150937",
+      precoAntigo: "R$ 169,90",
+      preco: "R$ 161,41",
       destaque: false
     },
     {
@@ -1647,6 +1625,16 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Reconstrutor Exo CromaTech Quarta Camada 200g",
+      oQueE: "O Reconstrutor Exo Cromatech® é um tratamento intensivo que nutre profundamente os fios e prepara a fibra capilar para a formação da quarta camada protetora.",
+      categoria: "Outros",
+      imagem: "assets/img/produtos/ybera/ybera-151077.webp",
+      affiliateUrl: "https://www.ybera.com/produto/reconstrutor-exo-cromatech-quarta-camada-200g-ybera-paris-151077",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      destaque: false
+    },
+    {
       nome: "Selador Pro-Geno Genoma 500g",
       oQueE: "Você trata seus cabelos, hidrata, faz reconstruções, mas sente que os fios continuam porosos e frágeis?",
       categoria: "Outros",
@@ -1677,6 +1665,17 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Soro Vello Alfa-Lactobaby",
+      oQueE: "Resolva de uma vez por todas a sua queda capilar e tenha cabelos fortes, brilhantes e sem falhas.",
+      categoria: "Outros",
+      imagem: "assets/img/produtos/ybera/ybera-150907.webp",
+      affiliateUrl: "https://www.ybera.com/produto/soro-vello-alfa-lactobaby-ybera-150907",
+      precoAntigo: "R$ 249,90",
+      preco: "R$ 237,41",
+      maisVendido: 4,
+      destaque: false
+    },
+    {
       nome: "Cronograma Capilar Cuidados Profundos",
       oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
       categoria: "Cronogramas Capilares",
@@ -1686,28 +1685,6 @@ window.LOJAS.ybera = {
       preco: "R$ 284,91",
       esgotado: true,
       destaque: true
-    },
-    {
-      nome: "Escova Progressiva 150g + Gloss C360 Universal 90ml",
-      oQueE: "Kit essencial com escova progressiva sem formol e gloss universal.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151580.webp",
-      affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-150g-gloss-c360-universal-90ml-ybera-paris-151580",
-      precoAntigo: "R$ 159,90",
-      preco: "R$ 151,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Escova Progressiva 150g + Leave-in Universal 250g",
-      oQueE: "Progressiva Fashion Gold com leave-in nutritivo. Ideal para iniciar o tratamento: alisamento suave, proteção térmica e fácil manutenção.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151584.webp",
-      affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-150g-leave-in-universal-250g-ybera-paris-151584",
-      precoAntigo: "R$ 229,80",
-      preco: "R$ 218,31",
-      esgotado: true,
-      destaque: false
     },
     {
       nome: "Escova Progressiva 1Kg + Gloss C360 Universal 90ml",
@@ -1743,28 +1720,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Escova Progressiva 300g + Gloss C360 Universal 90ml",
-      oQueE: "Progressiva sem formol em formato maior com gloss universal. Rendimento estendido para tratamento completo com alisamento e brilho intenso.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151581.webp",
-      affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-300g-gloss-c360-universal-90ml-ybera-paris-151581",
-      precoAntigo: "R$ 246,90",
-      preco: "R$ 234,56",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Escova Progressiva 300g + Leave-in Universal 250g",
-      oQueE: "Progressiva de média cobertura associada a leave-in protetor. Para cabelos com resistência moderada e frizz desafiador.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151585.webp",
-      affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-300g-leave-in-universal-250g-ybera-paris-151585",
-      precoAntigo: "R$ 387,80",
-      preco: "R$ 368,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Escova Progressiva 500g + Gloss C360 Universal 90ml",
       oQueE: "Kit profissional com escova progressiva formato econômico e gloss universal.",
       categoria: "Progressiva e Pós-Progressiva",
@@ -1776,17 +1731,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Escova Progressiva 500g + Leave-in Universal 250g",
-      oQueE: "Progressiva concentrada com leave-in para cabelos muito cacheados ou ondulados.",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151586.webp",
-      affiliateUrl: "https://www.ybera.com/produto/escova-progressiva-500g-leave-in-universal-250g-ybera-paris-151586",
-      precoAntigo: "R$ 469,80",
-      preco: "R$ 446,31",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Kit Completo Discovery",
       oQueE: "Inspirada na ciência e no poder da natureza, a linha Discovery da Ybera Paris oferece um tratamento inovador que promove disciplina prolongada, ajuste…",
       categoria: "Progressiva e Pós-Progressiva",
@@ -1794,17 +1738,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-completo-discovery-ybera-paris-151218",
       precoAntigo: "R$ 559,90",
       preco: "R$ 531,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Escova Progressiva 150g + Shampoo 300ml + Máscara 250g + Óleo de Mirra 15ml",
-      oQueE: "Alisamento Profissional com Cuidado Diário Inteligente .",
-      categoria: "Progressiva e Pós-Progressiva",
-      imagem: "assets/img/produtos/ybera/ybera-151523.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-150g-shampoo-300ml-mascara-250g-oleo-de-mirra-15ml-ybera-fashion-gold-151523",
-      precoAntigo: "R$ 370,90",
-      preco: "R$ 352,36",
       esgotado: true,
       destaque: false
     },
@@ -1831,6 +1764,17 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Kit Escova Progressiva 300g + Shampoo Pós-Progressiva 300ml + Máscara 2 em 1 250g + Protect Poo 300g",
+      oQueE: "Você encontrou a solução para alisar os seus cabelos de forma segura, sem precisar se preocupar com o mau odor ou se irá danificar o seu cabelo.",
+      categoria: "Progressiva e Pós-Progressiva",
+      imagem: "assets/img/produtos/ybera/ybera-150317.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-300g-shampoo-pos-progressiva-300ml-mascara-2-em-1-250g-protect-poo-300g-ybera-fashion-gold-150317",
+      precoAntigo: "R$ 563,90",
+      preco: "R$ 535,71",
+      esgotado: true,
+      destaque: false
+    },
+    {
       nome: "Kit Escova Progressiva 500g + Óleo de Mirra 90ml",
       oQueE: "Você encontrou a solução para alisar os seus cabelos de forma segura, sem precisar se preocupar com o mau odor ou se irá danificar o seu cabelo.",
       categoria: "Progressiva e Pós-Progressiva",
@@ -1849,6 +1793,17 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-escova-progressiva-500g-shampoo-pos-progressiva-500ml-mascara-2-em-1-500g-protect-poo-500g-ybera-fashion-gold-150318",
       precoAntigo: "R$ 717,90",
       preco: "R$ 682,01",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Manutenção Completa Pós-Progressiva - Pré-Shampoo 300ml + Shampoo 300ml + Máscara 2 em 1 250g",
+      oQueE: "Prolongue os resultados da sua progressiva com o Combo de Manutenção Fashion Gold.",
+      categoria: "Progressiva e Pós-Progressiva",
+      imagem: "assets/img/produtos/ybera/ybera-150327.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-manutencao-completa-pos-progressiva-pre-shampoo-300ml-shampoo-300ml-mascara-2-em-1-250g-ybera-fashion-gold-150327",
+      precoAntigo: "R$ 318,90",
+      preco: "R$ 302,96",
       esgotado: true,
       destaque: false
     },
@@ -1941,6 +1896,17 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "3 Unidades - Kit Cronograma Capilar Cuidados Profundos - Fashion Gold",
+      oQueE: "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151438.webp",
+      affiliateUrl: "https://www.ybera.com/produto/3-unidades-kit-cronograma-capilar-cuidados-profundos-fashion-gold-151438",
+      precoAntigo: "R$ 437,70",
+      preco: "R$ 415,82",
+      esgotado: true,
+      destaque: false
+    },
+    {
       nome: "6 Unidades - Kit Cronograma Capilar Cuidados Profundos - Fashion Gold",
       oQueE: "Kit Cronograma - Cuidados Profundos. O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
       categoria: "Cronogramas Capilares",
@@ -1949,6 +1915,18 @@ window.LOJAS.ybera = {
       precoAntigo: "R$ 815,40",
       preco: "R$ 774,63",
       esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Kit Cuidados Profundos + Shampoo 500ml Cuidados Profundos",
+      oQueE: "O Kit Ybera Fashion Gold Cuidados Profundos é a revolução completa do cronograma capilar em um só conjunto.",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151341.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-cuidados-profundos-shampoo-500ml-cuidados-profundos-ybera-fashion-gold-151341",
+      precoAntigo: "R$ 379,90",
+      preco: "R$ 360,91",
+      esgotado: true,
+      maisVendido: 23,
       destaque: false
     },
     {
@@ -1971,6 +1949,18 @@ window.LOJAS.ybera = {
       precoAntigo: "R$ 107,90",
       preco: "R$ 102,51",
       esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Shampoo Multifunção Cuidados Profundos 500ml",
+      oQueE: "O Shampoo Multifunção Cuidados Profundos é o primeiro passo para um ritual completo de reconstrução, nutrição e hidratação dos fios .",
+      categoria: "Cronogramas Capilares",
+      imagem: "assets/img/produtos/ybera/ybera-151335.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-multifuncao-cuidados-profundos-500ml-ybera-fashion-gold-151335",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      esgotado: true,
+      maisVendido: 22,
       destaque: false
     },
     {
@@ -2058,17 +2048,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-leave-in-universal-250g-oleo-de-mirra-reparador-90ml-ybera-151035",
       precoAntigo: "R$ 378,90",
       preco: "R$ 359,96",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Leave-in Universal 250g + Óleo de Mirra Reparador 90ml Refil",
-      oQueE: "Kit Óleo de Mirra + Leave-in Universal . Tenha cabelos nutridos, protegidos e com brilho incrível todos os dias.",
-      categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-151040.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-leave-in-universal-250g-oleo-de-mirra-reparador-90ml-refil-ybera-151040",
-      precoAntigo: "R$ 311,90",
-      preco: "R$ 296,31",
       esgotado: true,
       destaque: false
     },
@@ -2183,6 +2162,17 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Leite de Coco Contra Frizz 300 ml - Terra Coco",
+      oQueE: "O Leite de Coco Redutor de Frizz é um finalizador sem enxágue, ideal para uso pré e pós-química.",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-150384.webp",
+      affiliateUrl: "https://www.ybera.com/produto/leite-de-coco-contra-frizz-300-ml-terra-coco-150384",
+      precoAntigo: "R$ 107,90",
+      preco: "R$ 102,51",
+      esgotado: true,
+      destaque: false
+    },
+    {
       nome: "Matizador Termoativado Color Crystal 90ml",
       oQueE: "Todo cabeleireiro sabe o desafio que é alisar cabelos loiros sem alterar a cor.",
       categoria: "Finalizadores",
@@ -2235,17 +2225,17 @@ window.LOJAS.ybera = {
       precoAntigo: "R$ 267,90",
       preco: "R$ 254,51",
       esgotado: true,
-      maisVendido: 22,
+      maisVendido: 21,
       destaque: false
     },
     {
-      nome: "Óleo de Mirra Reparador Refil 90ml",
-      oQueE: "Óleo de Mirra Hidratante Milagroso 90ml da Ybera , um verdadeiro tesouro da natureza para seus cabelos!",
+      nome: "Protetor Térmico Spray Memory150ml - Fashion Gold",
+      oQueE: "Spray Memory Protect & Control 150ml . Proteção Térmica Inteligente com Efeito Memória .",
       categoria: "Finalizadores",
-      imagem: "assets/img/produtos/ybera/ybera-150935.webp",
-      affiliateUrl: "https://www.ybera.com/produto/oleo-de-mirra-reparador-refil-90ml-ybera-150935",
-      precoAntigo: "R$ 197,90",
-      preco: "R$ 188,01",
+      imagem: "assets/img/produtos/ybera/ybera-150358.webp",
+      affiliateUrl: "https://www.ybera.com/produto/protetor-termico-spray-memory150ml-fashion-gold-150358",
+      precoAntigo: "R$ 219,90",
+      preco: "R$ 208,91",
       esgotado: true,
       destaque: false
     },
@@ -2257,6 +2247,17 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/serum-discovery-tricomplex-90ml-ybera-151216",
       precoAntigo: "R$ 339,90",
       preco: "R$ 322,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
+      nome: "Soro de Coco 500ml",
+      oQueE: "O Soro de Coco foi especialmente desenvolvido para cabelos quebradiços.",
+      categoria: "Finalizadores",
+      imagem: "assets/img/produtos/ybera/ybera-150356.webp",
+      affiliateUrl: "https://www.ybera.com/produto/soro-de-coco-500ml-ybera-terra-coco-150356",
+      precoAntigo: "R$ 147,90",
+      preco: "R$ 140,51",
       esgotado: true,
       destaque: false
     },
@@ -2335,7 +2336,18 @@ window.LOJAS.ybera = {
       precoAntigo: "R$ 747,90",
       preco: "R$ 710,51",
       esgotado: true,
-      maisVendido: 23,
+      maisVendido: 24,
+      destaque: false
+    },
+    {
+      nome: "Touca de Cetim",
+      oQueE: "Touca de Cetim Ybera Fashion Gold. Proteção inteligente para potencializar seus resultados.",
+      categoria: "Equipamentos Profissionais",
+      imagem: "assets/img/produtos/ybera/ybera-150679.webp",
+      affiliateUrl: "https://www.ybera.com/produto/touca-de-cetim-ybera-fashion-gold-150679",
+      precoAntigo: "R$ 69,90",
+      preco: "R$ 66,41",
+      esgotado: true,
       destaque: false
     },
     {
@@ -2379,17 +2391,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/kit-discovery-bio-stemcell-shampoo-250ml-mascara-200g-ybera-151219",
       precoAntigo: "R$ 229,90",
       preco: "R$ 218,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Kit Genoma - Shampoo 250ml + Máscara 200g",
-      oQueE: "Cabelos danificados precisam de mais do que uma hidratação comum – eles precisam de um tratamento que realmente devolva a força, a maciez e o brilho…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150941.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-genoma-shampoo-250ml-mascara-200g-ybera-150941",
-      precoAntigo: "R$ 279,90",
-      preco: "R$ 265,91",
       esgotado: true,
       destaque: false
     },
@@ -2460,13 +2461,13 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Vello Alfa-Lactobaby - Shampoo 250ml + Máscara 250g + Soro 90ml",
-      oQueE: "O Shampoo Alfa-Lactobaby® é ideal para estimular o crescimento capilar.",
+      nome: "Kit Shampoo Vello 500ml + Máscara Vello 500g",
+      oQueE: "Kit shampoo e máscara Alfa-Lactobaby em formato econômico.",
       categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150903.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-vello-alfa-lactobaby-shampoo-250ml-mascara-250g-soro-90ml-ybera-150903",
-      precoAntigo: "R$ 539,90",
-      preco: "R$ 512,91",
+      imagem: "assets/img/produtos/ybera/ybera-151204.webp",
+      affiliateUrl: "https://www.ybera.com/produto/kit-shampoo-vello-500ml-mascara-vello-500g-ybera-151204",
+      precoAntigo: "R$ 527,90",
+      preco: "R$ 501,51",
       esgotado: true,
       destaque: false
     },
@@ -2482,6 +2483,17 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Pré-Shampoo Protect Poo 300g",
+      oQueE: "Protect Poo Pré-Shampoo Fashion Gold 300g . Cuidado preventivo que preserva a saúde dos fios.",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-150338.webp",
+      affiliateUrl: "https://www.ybera.com/produto/pre-shampoo-protect-poo-300g-ybera-fashion-gold-150338",
+      precoAntigo: "R$ 119,90",
+      preco: "R$ 113,91",
+      esgotado: true,
+      destaque: false
+    },
+    {
       nome: "Pré-Shampoo Protect Poo 500g",
       oQueE: "Protect Poo Pré-Shampoo Fashion Gold 500g. Cuidado preventivo que preserva a hidratação dos fios.",
       categoria: "Shampoo",
@@ -2489,17 +2501,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/pre-shampoo-protect-poo-500g-ybera-fashion-gold-150339",
       precoAntigo: "R$ 147,90",
       preco: "R$ 140,51",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo + Condicionador Elixir da Floresta Essência Brasileira 1Kg",
-      oQueE: "O Shampoo Elixir da Floresta foi criado para cabelos frágeis e quebradiços, combinando o poder do guaraná, do óleo de açaí e da manteiga de cupuaçu em uma…",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-150923.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-da-floresta-essencia-brasileira-1kg-ybera-paris-150923",
-      precoAntigo: "R$ 617,80",
-      preco: "R$ 586,91",
       esgotado: true,
       destaque: false
     },
@@ -2544,17 +2545,6 @@ window.LOJAS.ybera = {
       affiliateUrl: "https://www.ybera.com/produto/shampoo-condicionador-elixir-do-pantanal-essencia-brasileira-250ml-ybera-paris-150925",
       precoAntigo: "R$ 219,90",
       preco: "R$ 208,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Shampoo Alinhador Liso Perfeito 500ml",
-      oQueE: "Shampoo Alinhador 500ml . Limpeza inteligente que trata, equilibra e disciplina os fios desde a primeira lavagem.",
-      categoria: "Shampoo",
-      imagem: "assets/img/produtos/ybera/ybera-151306.webp",
-      affiliateUrl: "https://www.ybera.com/produto/shampoo-alinhador-liso-perfeito-500ml-ybera-fashion-gold-151306",
-      precoAntigo: "R$ 107,90",
-      preco: "R$ 102,51",
       esgotado: true,
       destaque: false
     },
@@ -2724,6 +2714,17 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
+      nome: "Shampoo Vello Alfa-Lactobaby 500ml",
+      oQueE: "Shampoo Alfa-Lactobaby estimula crescimento capilar, fortalece folículos e reduz queda.",
+      categoria: "Shampoo",
+      imagem: "assets/img/produtos/ybera/ybera-151202.webp",
+      affiliateUrl: "https://www.ybera.com/produto/shampoo-vello-alfa-lactobaby-500ml-ybera-151202",
+      precoAntigo: "R$ 237,90",
+      preco: "R$ 226,01",
+      esgotado: true,
+      destaque: false
+    },
+    {
       nome: "Acidificante Capilar Alfa-Cys Universal 250ml",
       oQueE: "Você sente seu cabelo poroso, com frizz e texturas diferentes entre a raiz e as pontas?",
       categoria: "Outros",
@@ -2853,7 +2854,6 @@ window.LOJAS.ybera = {
       precoAntigo: "R$ 97,90",
       preco: "R$ 93,01",
       esgotado: true,
-      maisVendido: 24,
       destaque: false
     },
     {
@@ -2989,17 +2989,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Kit Soro Vello 90ml + 30 Cápsulas 100Tímetros Softgel",
-      oQueE: "Kit Contra Queda Capilar . Combata a queda dos fios com a combinação perfeita do Soro Vital Alfa-Lactobaby® Vello e do 100timetros 30 Cápsulas.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151538.webp",
-      affiliateUrl: "https://www.ybera.com/produto/kit-soro-vello-90ml-30-capsulas-100timetros-softgel-ybera-151538",
-      precoAntigo: "R$ 332,90",
-      preco: "R$ 316,26",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Máscara 2 em 1 Capulana 1kg",
       oQueE: "Se você tem cabelos crespos, cacheados ou está em transição, você sabe o quanto é desafiador mantê-los saudáveis e bonitos.",
       categoria: "Outros",
@@ -3066,17 +3055,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Máscara Pro-Geno Genoma 200g",
-      oQueE: "Você olha no espelho e percebe que seu cabelo perdeu completamente a vitalidade?",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-150937.webp",
-      affiliateUrl: "https://www.ybera.com/produto/mascara-pro-geno-genoma-200g-ybera-150937",
-      precoAntigo: "R$ 169,90",
-      preco: "R$ 161,41",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Máscara TRH Biotech Life's Flower 200g",
       oQueE: "Seus fios estão tão ressecados que parecem quebradiços e sem vida?",
       categoria: "Outros",
@@ -3121,17 +3099,6 @@ window.LOJAS.ybera = {
       destaque: false
     },
     {
-      nome: "Reconstrutor Exo CromaTech Quarta Camada 200g",
-      oQueE: "O Reconstrutor Exo Cromatech® é um tratamento intensivo que nutre profundamente os fios e prepara a fibra capilar para a formação da quarta camada protetora.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-151077.webp",
-      affiliateUrl: "https://www.ybera.com/produto/reconstrutor-exo-cromatech-quarta-camada-200g-ybera-paris-151077",
-      precoAntigo: "R$ 119,90",
-      preco: "R$ 113,91",
-      esgotado: true,
-      destaque: false
-    },
-    {
       nome: "Reconstrutor Exo CromaTech Quarta Camada 500g",
       oQueE: "O Reconstrutor Exo Cromatech® é um tratamento intensivo que nutre profundamente os fios e prepara a fibra capilar para a formação da quarta camada protetora.",
       categoria: "Outros",
@@ -3162,18 +3129,6 @@ window.LOJAS.ybera = {
       precoAntigo: "R$ 129,90",
       preco: "R$ 123,41",
       esgotado: true,
-      destaque: false
-    },
-    {
-      nome: "Soro Vello Alfa-Lactobaby",
-      oQueE: "Resolva de uma vez por todas a sua queda capilar e tenha cabelos fortes, brilhantes e sem falhas.",
-      categoria: "Outros",
-      imagem: "assets/img/produtos/ybera/ybera-150907.webp",
-      affiliateUrl: "https://www.ybera.com/produto/soro-vello-alfa-lactobaby-ybera-150907",
-      precoAntigo: "R$ 249,90",
-      preco: "R$ 237,41",
-      esgotado: true,
-      maisVendido: 21,
       destaque: false
     },
     {
