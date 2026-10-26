@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Política de Privacidade | Tratamento de água para o agronegócio</title>
+  <meta name="description" content="Como tratamos os dados pessoais enviados pelo formulário de solicitação de avaliação técnica e pelo WhatsApp.">
+  <meta name="theme-color" content="#173F32">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="topo topo--rolado">
+    <div class="topo__barra container">
+      <a class="marca" href="index.html" data-marca aria-label="Voltar à página inicial">
+        <span class="marca__vaga" aria-hidden="true">Logotipo</span>
+      </a>
+      <a class="link-seta" href="index.html#contato">Solicitar avaliação técnica<svg class="icone" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </header>
+
+  <main id="conteudo" class="documento">
+    <div class="container">
+      <article class="documento__corpo">
+        <h1>Política de Privacidade</h1>
+        <p class="documento__data">Última atualização: <span data-atualizacao>outubro de 2026</span></p>
+        <p class="documento__aviso" data-previa hidden>Modelo para revisão. Antes da publicação, a empresa deve confirmar estas informações com a sua assessoria jurídica e completar os dados de contato em <code>config.js</code>.</p>
+
+        <h2>1. Quem é responsável pelos dados</h2>
+        <p>Esta política se aplica aos dados enviados por esta página. O controlador dos dados é <strong data-controlador>a empresa responsável por este site</strong><span data-cnpj></span>. Dúvidas e solicitações sobre dados pessoais podem ser enviadas para <span data-contato-privacidade>os canais de contato informados na página</span>.</p>
+
+        <h2>2. Quais dados coletamos</h2>
+        <p>Ao preencher o formulário de solicitação de avaliação técnica, você informa:</p>
+        <ul>
+          <li>nome, empresa ou propriedade, cidade e estado;</li>
+          <li>telefone ou WhatsApp;</li>
+          <li>tipo de operação, necessidade em relação à água e, se quiser, uma descrição livre.</li>
+        </ul>
+        <p>Se você escolher o WhatsApp, a conversa acontece no aplicativo e também está sujeita à política de privacidade do WhatsApp.</p>
+
+        <h2>3. Para que usamos os dados</h2>
+        <p>Usamos os dados somente para responder à sua solicitação, entender a necessidade de água da sua operação, preparar uma eventual proposta comercial e manter o histórico desse atendimento. Não vendemos dados pessoais e não os usamos para envio de publicidade sem o seu consentimento.</p>
+
+        <h2>4. Base legal</h2>
+        <p>O tratamento se baseia na execução de procedimentos preliminares relacionados a um contrato, a pedido do titular (art. 7º, V, da Lei nº 13.709/2018, a LGPD), e no legítimo interesse em responder ao contato iniciado por você (art. 7º, IX).</p>
+
+        <h2>5. Compartilhamento</h2>
+        <p>Os dados podem ser processados por fornecedores que viabilizam o funcionamento do site e do atendimento, como hospedagem, serviço de recebimento de formulários e sistema de gestão de clientes, sempre para as finalidades descritas aqui. Também podem ser compartilhados quando houver obrigação legal ou ordem de autoridade competente.</p>
+
+        <h2>6. Por quanto tempo guardamos</h2>
+        <p>Os dados são mantidos pelo tempo necessário para o atendimento e para eventual relação comercial, ou pelo prazo exigido por obrigações legais. Depois disso, são eliminados ou anonimizados.</p>
+
+        <h2>7. Seus direitos</h2>
+        <p>Você pode solicitar, a qualquer momento, a confirmação do tratamento, o acesso, a correção, a anonimização ou a eliminação dos seus dados, além das demais garantias previstas no art. 18 da LGPD. Basta entrar em contato pelos canais indicados no item 1.</p>
+
+        <h2>8. Cookies e medição</h2>
+        <p>Esta página não usa cookies próprios de publicidade. Caso ferramentas de medição de acesso sejam ativadas, elas registram apenas eventos de navegação, como cliques nos botões de contato, sem incluir os dados digitados no formulário. Se essas ferramentas usarem cookies, esta política será atualizada e, quando exigido, seu consentimento será solicitado.</p>
+
+        <h2>9. Segurança</h2>
+        <p>Os dados são transmitidos por conexão criptografada (HTTPS) e acessados apenas por pessoas envolvidas no atendimento.</p>
+
+        <h2>10. Alterações</h2>
+        <p>Esta política pode ser atualizada. A data da última revisão aparece no topo desta página.</p>
+
+        <p style="margin-top:40px"><a href="index.html">Voltar à página inicial</a></p>
+      </article>
+    </div>
+  </main>
+
+  <script src="assets/js/config.js"></script>
+  <script>
+    (function () {
+      var cfg = window.AGUA_CONFIG || {};
+      var e = cfg.empresa || {};
+      var c = cfg.contato || {};
+      function el(s) { return document.querySelector(s); }
+      var nome = (e.razaoSocial || e.nome || "").trim();
+      if (nome) el("[data-controlador]").textContent = nome;
+      if ((e.cnpj || "").trim()) el("[data-cnpj]").textContent = ", CNPJ " + e.cnpj.trim();
+      if ((c.email || "").trim()) {
+        var a = document.createElement("a");
+        a.href = "mailto:" + c.email.trim();
+        a.textContent = c.email.trim();
+        el("[data-contato-privacidade]").replaceChildren(a);
+      }
+      if (e.logo) {
+        var img = document.createElement("img");
+        img.src = e.logo; img.alt = (e.nome || "Logotipo"); img.height = 36;
+        el("[data-marca]").replaceChildren(img);
+      } else if ((e.nome || "").trim()) {
+        var s = document.createElement("span");
+        s.className = "marca__nome"; s.textContent = e.nome.trim();
+        el("[data-marca]").replaceChildren(s);
+      }
+      if (cfg.modoPrevia) el("[data-previa]").hidden = false;
+    })();
+  </script>
+</body>
+</html>
