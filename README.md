@@ -106,11 +106,11 @@ window.PERFIL = {
 
 ## 2. Adicionar produtos
 
-- **Ybera Paris**: os produtos aparecem direto na **página inicial**, abaixo dos
-  botões de achadinhos, na ordem da lista e com a categoria em dourado. Ao
-  tocar no produto, o cliente vai direto para o link de afiliado.
-- **Mercado Livre e Shopee**: os produtos aparecem nas páginas de achadinhos,
-  abertas pelos botões da página inicial.
+- **Ybera Paris**: a lista se atualiza sozinha (veja abaixo) e os mais vendidos
+  aparecem na **Loja Ybera** (`ybera.html`). Ao tocar no produto, o cliente vai
+  direto para o link de afiliado.
+- **Mercado Livre, Shopee e Shein**: os produtos aparecem nas páginas de
+  achadinhos, abertas pelos botões da página inicial.
 
 Cada loja tem seu arquivo em `data/`. Dentro dele há uma lista `produtos: [ ]`.
 Cada produto é um bloco entre `{ }`, separado do próximo por **vírgula**:
@@ -300,13 +300,14 @@ Regras do sistema:
 - **Dourado é joia:** fios, ícones, "no Pix", desconto, setas e hover. Nunca
   preenche áreas grandes nem usa degradê.
 - **Botão principal:** fundo grafite, texto branco, detalhe dourado
-  ("Feche sua parceria aqui" e "Conhecer a loja oficial").
+  ("Loja Ybera Paris" e "Ver a loja completa").
 - **Botões secundários:** fundo branco, texto grafite, borda fina (lojas,
-  "Ver todos", "Todas as categorias").
+  parceria, filtros de categoria). Loja sem produtos: botão sem fundo, com
+  "Em breve" em dourado.
 - **Cards de produto:** brancos, borda discreta, sombra suave, foto grande,
   nome em até 3 linhas, preço em Bodoni e uma setinha dourada no canto da foto.
   Iguais em todas as páginas.
-- **Caixa-alta** só no menu e nos contadores ("20 produtos"); o resto do texto
+- **Caixa-alta** só em rótulos curtos ("Loja Ybera Paris"); o resto do texto
   é normal, para ler fácil.
 - **Toque:** tudo que se toca tem pelo menos 44px de altura.
 - **Movimento:** as peças sobem 24px e aparecem em 0,7s, sem quique. Cards
