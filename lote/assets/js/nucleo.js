@@ -67,6 +67,7 @@
   if (tipo.titulos && familiaSegura.test(tipo.titulos)) raizDoc.style.setProperty('--fonte-titulo', tipo.titulos);
   if (tipo.texto && familiaSegura.test(tipo.texto)) raizDoc.style.setProperty('--fonte-texto', tipo.texto);
   if (tipo.mono && familiaSegura.test(tipo.mono)) raizDoc.style.setProperty('--fonte-mono', tipo.mono);
+  if (tipo.marcador && familiaSegura.test(tipo.marcador)) raizDoc.style.setProperty('--fonte-marcador', tipo.marcador);
   if (tipo.googleFonts && /^family=[\w+:;@,.&=%-]+$/.test(tipo.googleFonts.replace(/\.\./g, '.'))) {
     var fonte = document.createElement('link');
     fonte.rel = 'stylesheet';

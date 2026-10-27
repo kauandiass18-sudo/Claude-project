@@ -34,8 +34,8 @@ window.MARCA = {
 
   // ---------------------------------------------------------------
   // PALETA
-  // Fundo escuro, peças sobre placas cinza-concreto e uma única cor
-  // de ação (destaque), usada nos botões que levam à Shopee.
+  // Fundo escuro com granulado, peças sobre placas cinza-concreto e
+  // uma única cor de ação (destaque), usada nos botões que levam à Shopee.
   // ---------------------------------------------------------------
   cores: {
     fundo: "#0D0D0C",
@@ -45,20 +45,23 @@ window.MARCA = {
     textoSecundario: "#B4B0A8",
     textoSuave: "#8A867F",
     linha: "#2B2B28",
-    destaque: "#4B3BFF",
-    destaqueHover: "#3A2BEB",
-    textoSobreDestaque: "#FFFFFF"
+    destaque: "#C8FF1F",         // verde-limão: botões que levam à Shopee
+    destaqueHover: "#B6EE00",
+    textoSobreDestaque: "#0D0D0C"
   },
 
   // ---------------------------------------------------------------
   // TIPOGRAFIA (Google Fonts)
   // Títulos: Archivo superestreita e pesada. Etiquetas: monoespaçada.
+  // Anotações e adesivos: letra de marcador.
   // ---------------------------------------------------------------
   tipografia: {
-    googleFonts: "family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&display=swap",
+    googleFonts: "family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Permanent+Marker&display=swap",
     titulos: "\"Archivo\", \"Arial Narrow\", \"Helvetica Neue\", Arial, sans-serif",
     texto: "\"Archivo\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
-    mono: "\"JetBrains Mono\", ui-monospace, \"SFMono-Regular\", Menlo, monospace"
+    mono: "\"JetBrains Mono\", ui-monospace, \"SFMono-Regular\", Menlo, monospace",
+    // Letra de marcador das anotações e adesivos
+    marcador: "\"Permanent Marker\", \"Comic Sans MS\", cursive"
   },
 
   // ---------------------------------------------------------------
@@ -89,8 +92,21 @@ window.MARCA = {
       linkSecundario: "catalogo.html?categoria=calcas-cargo"
     },
 
-    // Faixa corrida abaixo da primeira dobra (vazia = usa categorias e tecidos)
+    // Faixas cruzadas abaixo da primeira dobra (vazia = usa categorias e tecidos)
     faixa: [],
+    faixa2: ["Drop 01", "Escolhido peça por peça", "Compra na Shopee", "Tamanhos informados"],
+    // Texto do selo redondo que gira na primeira dobra
+    selo: "Drop 01 · Streetwear · Cargo · Oversized ·",
+    // Anotações em letra de marcador ("" esconde)
+    anotacoes: {
+      hero: "a peça da vez",
+      categorias: "escolhe aí",
+      lote: "passa pro lado",
+      combinacoes: "look pronto",
+      tamanhos: "cor e tamanho você escolhe lá"
+    },
+    // Adesivo "novo" nas peças adicionadas há até X dias (0 desliga)
+    diasNovo: 7,
 
     secoes: {
       categoriasTitulo: "Categorias",

@@ -52,6 +52,57 @@
     return el;
   };
 
+  // ---------------------------------------------------------------
+  // Elementos decorativos: anotação de marcador, fita, selo
+  // ---------------------------------------------------------------
+  var SETAS = {
+    direita: 'M3 18 C 14 6, 28 4, 42 14 M34 6 L43 14 L33 20',
+    baixo: 'M8 3 C 2 12, 10 22, 26 26 M18 20 L27 26 L19 30',
+    esquerda: 'M43 18 C 32 6, 18 4, 4 14 M12 6 L3 14 L13 20'
+  };
+  /** Anotação em letra de marcador com seta desenhada. Decorativa. */
+  V.rabisco = function (texto, direcao, classe) {
+    if (!texto) return null;
+    var el = h('span', { class: 'rabisco' + (classe ? ' ' + classe : ''), 'aria-hidden': 'true' });
+    var seta = '<svg viewBox="0 0 46 32" aria-hidden="true" focusable="false"><path d="' + (SETAS[direcao] || SETAS.direita) + '"/></svg>';
+    if (direcao === 'esquerda') { el.insertAdjacentHTML('beforeend', seta); el.appendChild(document.createTextNode(texto)); }
+    else { el.appendChild(document.createTextNode(texto)); el.insertAdjacentHTML('beforeend', seta); }
+    return el;
+  };
+  V.fitas = function () {
+    return [h('span', { class: 'fita fita--a', 'aria-hidden': 'true' }), h('span', { class: 'fita fita--b', 'aria-hidden': 'true' })];
+  };
+  /** Selo redondo com texto em volta, girando. */
+  V.selo = function (texto, centro) {
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '0 0 100 100');
+    svg.setAttribute('aria-hidden', 'true');
+    var id = 'circulo-' + Math.random().toString(36).slice(2, 8);
+    var path = document.createElementNS(ns, 'path');
+    path.setAttribute('id', id);
+    path.setAttribute('d', 'M50 50 m-40 0 a40 40 0 1 1 80 0 a40 40 0 1 1 -80 0');
+    path.setAttribute('fill', 'none');
+    var text = document.createElementNS(ns, 'text');
+    var tp = document.createElementNS(ns, 'textPath');
+    tp.setAttribute('href', '#' + id);
+    tp.textContent = texto.length < 24 ? texto + ' ' + texto : texto;
+    tp.setAttribute('textLength', '248');
+    tp.setAttribute('lengthAdjust', 'spacing');
+    text.appendChild(tp);
+    svg.appendChild(path);
+    svg.appendChild(text);
+    return h('span', { class: 'selo', 'aria-hidden': 'true' }, [svg, h('span', { class: 'selo__centro' }, centro || '')]);
+  };
+  /** A peça entrou no catálogo há poucos dias? (usa a data cadastrada) */
+  V.ehNovo = function (p) {
+    var dias = T.diasNovo;
+    if (!dias || !p.adicionadoEm) return false;
+    var base = /^\d{4}-\d{2}-\d{2}/.test((window.CATALOGO || {}).atualizadoEm || '') ? new Date(window.CATALOGO.atualizadoEm + 'T12:00:00') : new Date();
+    var d = (base - new Date(p.adicionadoEm + 'T12:00:00')) / 86400000;
+    return d >= 0 && d <= dias;
+  };
+
   /** Ajusta o tamanho da fonte para o texto ocupar exatamente a largura do pai. */
   V.ajustarLargura = function (el, minimo) {
     if (!el) return;
@@ -276,7 +327,9 @@
     } else {
       midia.appendChild(V.semFoto('Foto em breve'));
     }
+    midia.appendChild(h('a', { class: 'cartao__midia-link', href: V.url.produto(p.id), tabindex: '-1', 'aria-hidden': 'true' }));
     midia.appendChild(h('span', { class: 'cartao__codigo', 'aria-hidden': 'true' }, V.codigo(p)));
+    if (V.ehNovo(p) && p.disponibilidade !== 'esgotado') midia.appendChild(h('span', { class: 'adesivo-novo' }, 'novo!'));
 
     var etiquetas = [];
     if (p.demo) etiquetas.push(h('span', { class: 'etiqueta etiqueta--contorno' }, 'Exemplo'));
@@ -685,8 +738,31 @@
   };
 
   // ---------------------------------------------------------------
+  // Ponto que segue o cursor (só com mouse e sem movimento reduzido)
+  // ---------------------------------------------------------------
+  function montarCursor() {
+    if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches || V.movimentoReduzido()) return;
+    var ponto = h('span', { class: 'cursor-ponto oculto', 'aria-hidden': 'true' });
+    document.body.appendChild(ponto);
+    var x = 0, y = 0, px = 0, py = 0, ativo = false;
+    function quadro() {
+      px += (x - px) * 0.35; py += (y - py) * 0.35;
+      ponto.style.transform = 'translate3d(' + px.toFixed(1) + 'px,' + py.toFixed(1) + 'px,0)';
+      if (Math.abs(x - px) > .2 || Math.abs(y - py) > .2) requestAnimationFrame(quadro); else ativo = false;
+    }
+    document.addEventListener('mousemove', function (e) {
+      x = e.clientX; y = e.clientY;
+      ponto.classList.remove('oculto');
+      ponto.classList.toggle('grande', !!(e.target.closest && e.target.closest('a, button, [role="button"], summary, label, select')));
+      if (!ativo) { ativo = true; requestAnimationFrame(quadro); }
+    }, { passive: true });
+    document.addEventListener('mouseleave', function () { ponto.classList.add('oculto'); });
+  }
+
+  // ---------------------------------------------------------------
   // Inicialização comum
   // ---------------------------------------------------------------
+  montarCursor();
   montarFaixaExemplos();
   montarCabecalho();
   montarRodape();

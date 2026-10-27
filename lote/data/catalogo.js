@@ -317,7 +317,7 @@ window.CATALOGO = {
         "caqui",
         "bege"
       ],
-      "adicionadoEm": "2026-10-18",
+      "adicionadoEm": "2026-10-09",
       "demo": true
     },
     {
@@ -559,7 +559,7 @@ window.CATALOGO = {
         "básica",
         "algodão"
       ],
-      "adicionadoEm": "2026-10-23",
+      "adicionadoEm": "2026-10-14",
       "demo": true
     },
     {
@@ -637,7 +637,7 @@ window.CATALOGO = {
         "pesada",
         "heavyweight"
       ],
-      "adicionadoEm": "2026-10-21",
+      "adicionadoEm": "2026-10-12",
       "demo": true
     },
     {
@@ -852,7 +852,7 @@ window.CATALOGO = {
         "sarja",
         "jaqueta"
       ],
-      "adicionadoEm": "2026-10-22",
+      "adicionadoEm": "2026-10-16",
       "demo": true
     },
     {
@@ -1007,7 +1007,7 @@ window.CATALOGO = {
         "ripstop",
         "verão"
       ],
-      "adicionadoEm": "2026-10-19",
+      "adicionadoEm": "2026-10-11",
       "demo": true
     },
     {

@@ -118,6 +118,7 @@
   var blocoTamanhos = p.tamanhos.length ? h('div', { class: 'escolha' }, [
     h('div', { class: 'escolha__topo' }, [h('span', { class: 'rotulo' }, 'Tamanhos'), h('span', { class: 'rotulo' }, 'Última conferência')]),
     h('ul', { class: 'tamanhos', 'aria-label': 'Tamanhos disponíveis' }, p.tamanhos.map(function (t) { return h('li', { class: 'tamanho' }, t); })),
+    V.rabisco((T.anotacoes || {}).tamanhos, 'baixo'),
     h('p', { class: 'produto__nota' }, 'Cor e tamanho são escolhidos na Shopee. ' + (T.avisoMedidas || ''))
   ]) : null;
 

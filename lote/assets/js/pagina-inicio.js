@@ -68,6 +68,19 @@
     var foto = null;
     placa.appendChild(progresso);
     placa.appendChild(codigo);
+    V.fitas().forEach(function (f) { placa.appendChild(f); });
+    var palco = placa.parentNode;
+    if (T.selo) {
+      var selo = V.selo(T.selo, '');
+      V.anexar(selo.querySelector('.selo__centro'), [String(cat.produtos.length).padStart(2, '0'), h('small', null, cat.produtos.length === 1 ? 'peça' : 'peças')]);
+      // No computador o selo fica por cima do título; no celular, preso na placa
+      var mqSelo = window.matchMedia('(min-width: 760px)');
+      var posicionarSelo = function () { (mqSelo.matches ? palco : placa).appendChild(selo); };
+      posicionarSelo();
+      if (mqSelo.addEventListener) mqSelo.addEventListener('change', posicionarSelo);
+    }
+    var anot = V.rabisco((T.anotacoes || {}).hero, 'esquerda', 'hero__anotacao');
+    if (anot) palco.appendChild(anot);
     placa.appendChild(h('span', { class: 'hero__placa-legenda' }, [legendaNome, legendaPreco]));
 
     var atual = -1, timer = null, CICLO = 4200;
@@ -126,34 +139,42 @@
     }
   }
 
-  // Faixa corrida: acelera com a rolagem e inverte ao subir
+  // Faixas cruzadas: aceleram com a rolagem e invertem ao subir
   function montarFaixa() {
-    var trilho = document.querySelector('[data-faixa]');
     var itens = (T.faixa && T.faixa.length) ? T.faixa.slice() : [];
     if (!itens.length) {
       cat.categorias.forEach(function (c) { itens.push(c.nome); });
       cat.produtos.forEach(function (p) { if (p.tecido && itens.indexOf(p.tecido.split(' ')[0]) === -1 && itens.length < 9) itens.push(p.tecido.split(' ')[0]); });
       cat.produtos.forEach(function (p) { if (p.modelagem && itens.indexOf(p.modelagem) === -1 && itens.length < 12) itens.push(p.modelagem); });
     }
-    if (!itens.length) { trilho.closest('.faixa-envoltorio').hidden = true; return; }
+    var segunda = (T.faixa2 && T.faixa2.length) ? T.faixa2 : itens;
+    var bloco = document.querySelector('[data-faixas]');
+    if (!itens.length) { bloco.hidden = true; return; }
+    [[document.querySelector('[data-faixa="1"]'), itens, -1, 60], [document.querySelector('[data-faixa="2"]'), segunda, 1, 40]].forEach(function (cfg) {
+      if (cfg[0]) animarFaixa(cfg[0], cfg[1], cfg[2], cfg[3]);
+    });
+  }
+  function animarFaixa(trilho, itens, sentido, velocidade) {
     function grupo() { return h('div', { class: 'faixa__grupo' }, itens.map(function (t) { return h('span', { class: 'faixa__item' }, t); })); }
     trilho.appendChild(grupo());
     trilho.appendChild(grupo());
+    trilho.appendChild(grupo());
     if (V.movimentoReduzido()) return;
-    var x = 0, direcao = -1, extra = 0, ultimoY = window.scrollY, antes = performance.now();
+    var x = 0, direcao = sentido, extra = 0, ultimoY = window.scrollY, antes = performance.now();
     var largura = trilho.firstChild.getBoundingClientRect().width;
-    window.addEventListener('resize', function () { largura = trilho.firstChild.getBoundingClientRect().width; });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { largura = trilho.firstChild.getBoundingClientRect().width; });
+    var medir = function () { largura = trilho.firstChild.getBoundingClientRect().width; };
+    window.addEventListener('resize', medir);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(medir);
     window.addEventListener('scroll', function () {
       var d = window.scrollY - ultimoY;
       ultimoY = window.scrollY;
-      if (Math.abs(d) > 1) direcao = d > 0 ? -1 : 1;
+      if (Math.abs(d) > 1) direcao = d > 0 ? sentido : -sentido;
       extra = Math.min(extra + Math.abs(d) * 0.6, 900);
     }, { passive: true });
     function quadro(t) {
       var dt = Math.min(64, t - antes); antes = t;
       extra *= 0.92;
-      x += direcao * (60 + extra) * dt / 1000;
+      x += direcao * (velocidade + extra) * dt / 1000;
       if (x <= -largura) x += largura;
       if (x > 0) x -= largura;
       trilho.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)';
@@ -166,12 +187,12 @@
   // Seções
   // ---------------------------------------------------------------
   var numero = 0;
-  function cabecalho(titulo, texto, link, extra) {
+  function cabecalho(titulo, texto, link, extra, anotacao, direcao) {
     numero++;
     return [
       h('div', { class: 'secao__indice mono revelar' }, [h('span', null, '(' + String(numero).padStart(2, '0') + ') ' + titulo.replace(/\*/g, '')), extra ? h('span', null, extra) : null]),
       h('div', { class: 'secao__cabecalho revelar' }, [
-        h('div', null, [h('h2', { class: 'titulo-secao' }, V.tituloComEnfase(titulo)), texto ? h('p', { class: 'texto-apoio' }, texto) : null]),
+        h('div', null, [h('h2', { class: 'titulo-secao' }, V.tituloComEnfase(titulo)), V.rabisco(anotacao, direcao || 'baixo'), texto ? h('p', { class: 'texto-apoio' }, texto) : null]),
         link || null
       ])
     ];
@@ -228,7 +249,7 @@
           if (Math.abs(tx - cx) > .5 || Math.abs(ty - cy) > .5) requestAnimationFrame(seguir); else rodando = false;
         };
       }
-      secoes.appendChild(secao('categorias', cabecalho(S.categoriasTitulo || 'Categorias', null, linkSeta('Ver tudo', V.url.pagina('catalogo.html')), String(cat.categorias.length).padStart(2, '0')).concat([lista])));
+      secoes.appendChild(secao('categorias', cabecalho(S.categoriasTitulo || 'Categorias', null, linkSeta('Ver tudo', V.url.pagina('catalogo.html')), String(cat.categorias.length).padStart(2, '0'), (T.anotacoes || {}).categorias, 'baixo').concat([lista])));
     }
 
     // O lote: destaques em rolagem horizontal fixada
@@ -250,7 +271,8 @@
             return h('a', { class: 'combinacao__peca revelar', href: V.url.produto(p.id), style: { '--atraso': j * 90 + 'ms' } }, [
               h('span', { class: 'cartao__midia' }, [
                 p.imagens.length ? V.foto(p.imagens[0], { alt: '', sizes: '(min-width: 960px) 16vw, 46vw', preferirPequena: true }) : V.semFoto(''),
-                h('span', { class: 'cartao__codigo' }, V.codigo(p))
+                h('span', { class: 'cartao__codigo' }, V.codigo(p)),
+                j % 2 ? null : h('span', { class: 'fita fita--a', 'aria-hidden': 'true' })
               ]),
               h('span', { class: 'cartao__nome' }, p.nome),
               h('span', { class: 'mono' }, p.preco !== null ? V.formatarPreco(p.preco) : 'Preço na Shopee')
@@ -258,7 +280,7 @@
           }))
         ]);
       });
-      secoes.appendChild(secao('combinacoes', cabecalho(S.combinacoesTitulo || 'Combinações', S.combinacoesTexto, null, String(cat.selecoes.length).padStart(2, '0')).concat(blocos)));
+      secoes.appendChild(secao('combinacoes', cabecalho(S.combinacoesTitulo || 'Combinações', S.combinacoesTexto, null, String(cat.selecoes.length).padStart(2, '0'), (T.anotacoes || {}).combinacoes, 'baixo').concat(blocos)));
     }
 
     // Novidades
@@ -300,7 +322,7 @@
     var barra = h('div', { class: 'lote__barra', 'aria-hidden': 'true' }, h('i'));
     var trilho = h('div', { class: 'lote__trilho', role: 'region', 'aria-label': S.loteTitulo || 'Destaques', tabindex: '0' },
       produtos.map(function (p, i) { return V.cartao(p, { indice: i, origem: 'lote', revelar: false, sizes: '(min-width: 960px) 24vw, 68vw' }); }));
-    var cab = cabecalho(S.loteTitulo || 'Destaques', S.loteTexto, null, String(produtos.length).padStart(2, '0') + (produtos.length === 1 ? ' peça' : ' peças'));
+    var cab = cabecalho(S.loteTitulo || 'Destaques', S.loteTexto, null, String(produtos.length).padStart(2, '0') + (produtos.length === 1 ? ' peça' : ' peças'), (T.anotacoes || {}).lote, 'direita');
     var fixo = h('div', { class: 'lote__fixo' }, h('div', { class: 'conteiner' }, cab.concat([trilho, h('div', { class: 'lote__topo', style: { 'margin-top': '20px', 'margin-bottom': '0' } }, [contador, linkSeta('Ver todas as peças', V.url.pagina('catalogo.html'))]), barra])));
     var sec = h('section', { class: 'secao lote', id: 'lote', 'aria-labelledby': 'lote-titulo' }, fixo);
     fixo.querySelector('h2').id = 'lote-titulo';
