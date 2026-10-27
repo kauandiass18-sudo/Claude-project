@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Seleta · Produtos da Shopee escolhidos um a um</title>
+  <meta name="description" content="Produtos da Shopee escolhidos um a um, com fotos, informações claras e link direto para cada página.">
+  <meta name="theme-color" content="#F5F3EF">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Seleta · Produtos da Shopee escolhidos um a um">
+  <meta property="og:description" content="Produtos da Shopee escolhidos um a um, com fotos, informações claras e link direto para cada página.">
+  <link rel="icon" href="assets/img/marca/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/marca/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/marca/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/vitrine.css">
+  <script src="config/marca.js"></script>
+  <script src="assets/js/nucleo.js"></script>
+  <script src="data/catalogo.js" defer></script>
+  <script src="assets/js/interface.js" defer></script>
+  <script src="assets/js/pagina-inicio.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header data-topo class="topo"></header>
+
+  <main id="conteudo" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="conteiner hero__grade">
+        <div class="hero__texto">
+          <p class="sobretitulo entrada" style="--i:0" data-hero-sobretitulo></p>
+          <h1 id="hero-titulo" class="titulo-display entrada" style="--i:1" data-hero-titulo></h1>
+          <p class="texto-apoio entrada" style="--i:2" data-hero-texto></p>
+          <div class="hero__acoes entrada" style="--i:3">
+            <a class="botao botao--escuro botao--grande" href="catalogo.html" data-hero-principal>Explorar o catálogo</a>
+            <a class="botao botao--contorno botao--grande" href="como-funciona.html" data-hero-secundario>Como funciona</a>
+          </div>
+          <p class="hero__nota entrada" style="--i:4" data-hero-nota></p>
+        </div>
+        <div class="composicao" data-composicao aria-label="Produtos em destaque"></div>
+      </div>
+    </section>
+
+    <div data-secoes></div>
+
+    <noscript>
+      <div class="conteiner estado">
+        <h2>Ative o JavaScript para ver os produtos</h2>
+        <p>A vitrine monta o catálogo no seu navegador. Ative o JavaScript e recarregue a página.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer data-rodape class="rodape"></footer>
+</body>
+</html>
