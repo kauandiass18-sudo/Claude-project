@@ -41,6 +41,8 @@
   --fonte-texto: "Archivo", "Helvetica Neue", Arial, system-ui, sans-serif;
   --fonte-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --fonte-marcador: "Permanent Marker", "Comic Sans MS", cursive;
+  --fonte-grafite: "Sedgwick Ave Display", "Permanent Marker", cursive;
+  --rasgado: polygon(0 1.2%, 7% 0, 13% 1.4%, 21% .3%, 30% 1.6%, 38% .2%, 47% 1.1%, 55% 0, 64% 1.5%, 72% .4%, 81% 1.3%, 90% 0, 100% 1%, 99.4% 18%, 100% 37%, 99.2% 58%, 100% 79%, 99.5% 99%, 91% 98.4%, 82% 100%, 73% 98.6%, 64% 99.8%, 55% 98.2%, 46% 99.7%, 37% 98.5%, 27% 100%, 18% 98.4%, 9% 99.6%, 0 98.8%, .6% 80%, 0 61%, .7% 40%, 0 20%);
   --estreita: 62%;
   --semi: 86%;
 
@@ -85,7 +87,12 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-padding-to
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--cor-fundo);
+  background-color: var(--cor-fundo);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 12% 18%, rgba(237, 234, 227, .035), transparent 70%),
+    radial-gradient(ellipse 50% 35% at 88% 62%, rgba(200, 255, 31, .028), transparent 70%),
+    radial-gradient(ellipse 70% 30% at 40% 92%, rgba(237, 234, 227, .03), transparent 70%);
+  background-attachment: fixed;
   color: var(--cor-tinta);
   font-family: var(--fonte-texto);
   font-size: var(--t-base);
@@ -108,6 +115,7 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 [hidden] { display: none !important; }
 ::selection { background: var(--cor-destaque); color: var(--cor-destaque-tinta); }
 :focus-visible { outline: 2px solid var(--cor-destaque); outline-offset: 3px; }
+.botao--destaque:focus-visible, .chip[aria-pressed="true"]:focus-visible { outline-color: var(--cor-tinta); }
 
 .sr-only {
   position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; border: 0;
@@ -617,8 +625,16 @@ body.com-barra-fixa .aviso-flutuante { bottom: calc(96px + env(safe-area-inset-b
 /* As linhas passam por cima da placa em modo "diferença": continuam legíveis sobre a foto */
 .hero__linha { mix-blend-mode: difference; }
 .hero__linha--1 { z-index: 3; }
-.hero__linha--2 { z-index: 3; color: transparent; -webkit-text-stroke: 1.5px var(--cor-tinta); text-align: right; margin-top: .02em; }
-@media (min-width: 760px) { .hero__linha--2 { -webkit-text-stroke-width: 2px; } }
+.hero__linha--2 {
+  z-index: 4; text-align: right; margin-top: -.06em;
+  font-family: var(--fonte-grafite); font-stretch: normal; font-weight: 400; text-transform: none;
+  line-height: 1.02; letter-spacing: 0;
+  color: var(--cor-destaque);
+  mix-blend-mode: normal !important;
+  transform: rotate(-3deg);
+  text-shadow: 0 0 .08em rgba(200, 255, 31, .45), 0 0 .5em rgba(200, 255, 31, .12);
+}
+.hero__linha--2 .hero__linha-mascara { overflow: visible; }
 .hero__linha-mascara { display: block; overflow: hidden; padding-block: .04em; margin-block: -.04em; }
 .hero__linha-texto { display: inline-block; }
 .hero__linha--2 .hero__linha-mascara { text-align: right; }
@@ -1131,7 +1147,10 @@ body::after {
 .selo__centro small { font-family: var(--fonte-mono); font-stretch: normal; font-weight: 500; font-size: 9px; letter-spacing: .1em; margin-top: 3px; }
 @keyframes girar { to { transform: rotate(360deg); } }
 .hero__palco > .selo { left: calc(50% + clamp(180px, 25vw, 380px) / 2 - 64px); top: calc(50% + clamp(180px, 25vw, 380px) * .625 - 110px); transform: rotate(10deg); }
-.hero__placa .selo { right: -18px; top: -34px; width: 96px; transform: rotate(10deg); }
+@media (max-width: 759.98px) {
+  .hero__palco > .selo { position: relative; left: auto; top: auto; order: 3; align-self: flex-end; width: 96px; margin: var(--e-3) 4px -64px 0; }
+  .hero__palco .hero__placa { order: 4; }
+}
 
 /* Anotação apontando para a placa */
 .hero__anotacao { position: absolute; z-index: 5; left: calc(50% + clamp(180px, 25vw, 380px) / 2 + 16px); top: -50px; }
@@ -1212,3 +1231,87 @@ body::after {
 }
 @media print { body::after, .selo, .rabisco, .fita, .cursor-ponto { display: none !important; } }
 .cartao__codigo, .cartao__etiquetas, .adesivo-novo { pointer-events: none; }
+
+
+/* =============================================================
+   19. MURO PIXADO
+   Pixo desenhado em SVG, escorridos de tinta, lambe-lambe rasgado,
+   fita zebrada e spray que segue o mouse.
+   ============================================================= */
+.pixo { display: block; overflow: visible; color: var(--cor-tinta); }
+.pixo polyline { fill: none; stroke: currentColor; stroke-linecap: square; stroke-linejoin: miter; stroke-miterlimit: 6; }
+.js .pixo--desenhar polyline { stroke-dasharray: 160; stroke-dashoffset: 160; }
+.js.pronto .pixo--desenhar polyline, .js .revelado .pixo--desenhar polyline, .js .pixo--desenhar.revelado polyline {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.1s cubic-bezier(.5, 0, .2, 1);
+  transition-delay: calc(var(--i, 0) * 55ms + 200ms);
+}
+
+/* Tags no muro da primeira dobra */
+.hero__muro { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.hero__muro .pixo { position: absolute; opacity: .13; }
+.hero__muro .pixo--1 { left: -1%; top: 8%; width: min(46vw, 640px); transform: rotate(-4deg); }
+.hero__muro .pixo--2 { right: 2%; top: 4%; width: min(20vw, 260px); transform: rotate(6deg); opacity: .16; color: var(--cor-destaque); }
+.hero__muro .pixo--3 { left: 30%; bottom: 3%; width: min(18vw, 240px); transform: rotate(-2deg); }
+.hero__muro .pixo--4 { right: 6%; bottom: 14%; width: min(14vw, 190px); transform: rotate(-7deg); opacity: .1; }
+.hero .conteiner { position: relative; z-index: 1; }
+@media (max-width: 759.98px) {
+  .hero__muro .pixo--1 { width: 92vw; top: 12%; }
+  .hero__muro .pixo--2 { width: 34vw; top: 2%; }
+  .hero__muro .pixo--3 { width: 40vw; bottom: 20%; left: 50%; }
+  .hero__muro .pixo--4 { display: none; }
+}
+
+/* Spray que segue o mouse */
+.spray { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* Escorridos de tinta */
+.escorridos { position: absolute; left: 4%; width: 92%; top: 66%; height: .5em; overflow: visible; pointer-events: none; z-index: -1; }
+.escorridos path { fill: var(--cor-destaque); transform-box: fill-box; transform-origin: top; transform: scaleY(0); }
+.js.pronto .escorridos path, .revelado .escorridos path { animation: escorrer 2.4s cubic-bezier(.3, 0, .2, 1) forwards; animation-delay: calc(var(--d, 0ms) + 900ms); }
+@keyframes escorrer { to { transform: scaleY(1); } }
+.hero__linha--2 .hero__linha-texto { position: relative; }
+
+/* Lambe-lambe: papel rasgado nas fotos coladas */
+.hero__placa { clip-path: var(--rasgado); box-shadow: none; }
+.hero__placa::after, .combinacao__peca .cartao__midia::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, .18) 48%, transparent 56%),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, .02) 0 2px, transparent 2px 4px);
+  mix-blend-mode: multiply;
+}
+.combinacao__peca .cartao__midia { clip-path: var(--rasgado); }
+.hero__placa .fita, .combinacao__peca .fita { display: none; }
+
+/* Fita zebrada na faixa verde */
+.faixas .faixa--2 {
+  border-block: 10px solid transparent;
+  border-image: repeating-linear-gradient(-45deg, var(--cor-destaque-tinta) 0 12px, var(--cor-destaque) 12px 24px) 10;
+}
+
+/* Tags no fundo dos títulos de seção */
+.secao__cabecalho { position: relative; }
+.secao__tag { position: absolute; right: 0; top: -10px; width: min(34vw, 420px); opacity: .07; pointer-events: none; transform: rotate(-4deg); }
+@media (max-width: 759.98px) { .secao__tag { width: 60vw; top: 0; } }
+
+/* Rodapé assinado em pixo */
+.rodape__pixo { display: block; padding: var(--e-5) var(--margem) var(--e-6); color: var(--cor-destaque); }
+.rodape__pixo .pixo { color: inherit; width: min(78vw, 760px); height: auto; margin-inline: auto; transform: rotate(-4deg); }
+
+/* Categoria em hover: tag escrita na linha */
+.indice__tag { display: none; }
+@media (hover: hover) and (pointer: fine) {
+  .indice__tag { display: block; position: absolute; right: 120px; top: 50%; width: 180px; transform: translateY(-50%) rotate(-6deg); color: var(--cor-destaque-tinta); opacity: 0; transition: opacity var(--dur-2); pointer-events: none; }
+  .indice__item:hover .indice__tag { opacity: .9; }
+}
+
+/* 404 pixado */
+.pixo-404 { width: min(70vw, 520px); color: var(--cor-destaque); margin-bottom: var(--e-4); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .pixo--desenhar polyline { stroke-dashoffset: 0; }
+  .escorridos path { transform: scaleY(1); animation: none !important; }
+  .spray { display: none; }
+}
+@media (forced-colors: active) { .hero__linha--2 { color: CanvasText; text-shadow: none; } }

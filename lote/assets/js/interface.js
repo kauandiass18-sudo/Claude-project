@@ -94,6 +94,120 @@
     svg.appendChild(text);
     return h('span', { class: 'selo', 'aria-hidden': 'true' }, [svg, h('span', { class: 'selo__centro' }, centro || '')]);
   };
+  // ---------------------------------------------------------------
+  // Pixo: alfabeto de traços altos e angulosos, desenhado em SVG.
+  // Cada letra ocupa 10 × 30 unidades; os traços são linhas retas.
+  // ---------------------------------------------------------------
+  var PIXO = {
+    A: [[[0, 30], [5, 0], [10, 30]], [[1, 18], [9, 17]]],
+    B: [[[0, 31], [0, 0], [9, 4], [1, 14], [10, 20], [0, 30]]],
+    C: [[[10, 2], [0, 0], [0, 30], [11, 28]]],
+    D: [[[0, 0], [0, 31], [10, 25], [10, 6], [0, 0]]],
+    E: [[[11, 0], [0, 2], [0, 30], [11, 28]], [[0, 15], [8, 13]]],
+    F: [[[11, 0], [0, 2], [0, 32]], [[0, 15], [8, 13]]],
+    G: [[[10, 2], [0, 0], [0, 30], [10, 30], [10, 16], [4, 17]]],
+    H: [[[0, -1], [0, 31]], [[10, -1], [10, 31]], [[0, 16], [10, 14]]],
+    I: [[[5, -2], [5, 32]]],
+    J: [[[10, -1], [10, 30], [0, 26]]],
+    K: [[[0, -1], [0, 31]], [[10, 0], [0, 16], [11, 31]]],
+    L: [[[0, -3], [0, 30], [12, 30]]],
+    M: [[[0, 31], [0, 0], [5, 15], [10, 0], [10, 31]]],
+    N: [[[0, 31], [0, 0], [10, 30], [10, -1]]],
+    O: [[[5, 0], [0, 4], [0, 26], [5, 30], [10, 26], [10, 4], [5, 0]]],
+    P: [[[0, 32], [0, 0], [10, 4], [10, 12], [0, 16]]],
+    Q: [[[5, 0], [0, 4], [0, 26], [5, 30], [10, 26], [10, 4], [5, 0]], [[6, 24], [12, 32]]],
+    R: [[[0, 32], [0, 0], [10, 4], [10, 12], [1, 16], [11, 31]]],
+    S: [[[11, 2], [0, 0], [0, 14], [10, 16], [10, 30], [-1, 28]]],
+    T: [[[-2, 2], [12, 0]], [[5, 0], [5, 32]]],
+    U: [[[0, -1], [0, 30], [10, 30], [10, -1]]],
+    V: [[[0, -1], [5, 31], [10, -1]]],
+    W: [[[0, -1], [2, 31], [5, 14], [8, 31], [10, -1]]],
+    X: [[[0, -1], [10, 31]], [[10, -1], [0, 31]]],
+    Y: [[[0, -1], [5, 14], [10, -1]], [[5, 14], [5, 32]]],
+    Z: [[[0, 2], [11, 0], [0, 30], [11, 28]]],
+    '0': [[[5, 0], [0, 4], [0, 26], [5, 30], [10, 26], [10, 4], [5, 0]], [[0, 26], [10, 4]]],
+    '1': [[[2, 6], [6, 0], [6, 31]]],
+    '2': [[[0, 3], [10, 0], [10, 12], [0, 30], [11, 29]]],
+    '3': [[[0, 1], [10, 2], [3, 14], [10, 18], [10, 30], [0, 29]]],
+    '4': [[[8, 32], [8, 0], [0, 20], [11, 20]]],
+    '5': [[[11, 0], [0, 1], [0, 13], [10, 16], [10, 30], [0, 29]]],
+    '6': [[[10, 0], [0, 4], [0, 30], [10, 30], [10, 16], [0, 15]]],
+    '7': [[[0, 1], [11, 0], [3, 32]]],
+    '8': [[[5, 0], [0, 3], [0, 13], [10, 17], [10, 30], [0, 30], [0, 17], [10, 13], [10, 3], [5, 0]]],
+    '9': [[[10, 14], [0, 15], [0, 0], [10, 0], [10, 30], [0, 28]]]
+  };
+  /**
+   * Desenha um texto em pixo. opcoes: { traco, inclinacao, sublinhado, semente, cor }
+   * Devolve um <svg> decorativo (aria-hidden).
+   */
+  V.pixo = function (texto, opcoes) {
+    opcoes = opcoes || {};
+    var semente = opcoes.semente || 7;
+    function aleatorio() { semente = (semente * 9301 + 49297) % 233280; return semente / 233280; }
+    var letras = V.semAcentos(texto).toUpperCase().split('');
+    var x = 0, linhas = [];
+    letras.forEach(function (c) {
+      if (c === ' ') { x += 10; return; }
+      var g = PIXO[c];
+      if (!g) return;
+      var alt = 1 + (aleatorio() - .5) * 0.12;
+      g.forEach(function (traco) {
+        linhas.push(traco.map(function (pt) {
+          return [(x + pt[0] + (aleatorio() - .5) * 1.1).toFixed(1), (pt[1] * alt + (aleatorio() - .5) * 1.1).toFixed(1)].join(',');
+        }).join(' '));
+      });
+      x += 16;
+    });
+    var largura = Math.max(10, x - 6);
+    if (opcoes.sublinhado !== false) {
+      linhas.push([[-3, 35], [largura * 0.55, 34.2], [largura + 5, 36.5]].map(function (p) { return p.join(','); }).join(' '));
+      linhas.push([[largura + 1, 33], [largura + 6, 36.5], [largura + 1, 40]].map(function (p) { return p.join(','); }).join(' '));
+    }
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('viewBox', '-6 -6 ' + (largura + 16) + ' 50');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    svg.setAttribute('class', 'pixo' + (opcoes.classe ? ' ' + opcoes.classe : ''));
+    var g = document.createElementNS(ns, 'g');
+    g.setAttribute('transform', 'skewX(' + (opcoes.inclinacao === undefined ? -8 : opcoes.inclinacao) + ')');
+    linhas.forEach(function (pts, i) {
+      var l = document.createElementNS(ns, 'polyline');
+      l.setAttribute('points', pts);
+      l.setAttribute('style', '--i:' + i);
+      g.appendChild(l);
+    });
+    g.setAttribute('stroke-width', String(opcoes.traco || 2.4));
+    svg.appendChild(g);
+    return svg;
+  };
+
+  /** Escorridos de tinta sob um elemento (decorativo). */
+  V.escorrer = function (alvo, opcoes) {
+    if (!alvo) return;
+    opcoes = opcoes || {};
+    var ns = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('class', 'escorridos');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('viewBox', '0 0 100 40');
+    svg.setAttribute('preserveAspectRatio', 'none');
+    var semente = opcoes.semente || 3;
+    function aleatorio() { semente = (semente * 9301 + 49297) % 233280; return semente / 233280; }
+    var n = opcoes.quantidade || 7;
+    for (var i = 0; i < n; i++) {
+      var xx = 4 + (i + aleatorio() * .8) * (92 / n);
+      var comp = 8 + aleatorio() * 30;
+      var w = .5 + aleatorio() * .9;
+      var p = document.createElementNS(ns, 'path');
+      p.setAttribute('d', 'M' + (xx - w) + ' 0 L' + (xx - w * .6) + ' ' + comp + ' Q' + xx + ' ' + (comp + w * 2.2) + ' ' + (xx + w * .6) + ' ' + comp + ' L' + (xx + w) + ' 0 Z');
+      p.setAttribute('style', '--d:' + (i * 90 + Math.round(aleatorio() * 300)) + 'ms');
+      svg.appendChild(p);
+    }
+    alvo.appendChild(svg);
+    return svg;
+  };
+
   /** A peça entrou no catálogo há poucos dias? (usa a data cadastrada) */
   V.ehNovo = function (p) {
     var dias = T.diasNovo;
@@ -104,13 +218,13 @@
   };
 
   /** Ajusta o tamanho da fonte para o texto ocupar exatamente a largura do pai. */
-  V.ajustarLargura = function (el, minimo) {
+  V.ajustarLargura = function (el, minimo, fator) {
     if (!el) return;
     function medir() {
       el.style.fontSize = '100px';
       var largura = el.parentNode.clientWidth;
       var natural = el.getBoundingClientRect().width;
-      if (natural > 0 && largura > 0) el.style.fontSize = Math.max(minimo || 24, Math.floor(100 * largura / natural * 0.97)) + 'px';
+      if (natural > 0 && largura > 0) el.style.fontSize = Math.max(minimo || 24, Math.floor(100 * largura / natural * (fator || 0.97))) + 'px';
     }
     medir();
     if (document.fonts) {
@@ -686,7 +800,6 @@
     }).filter(Boolean);
     if (redes.length) colunas.push(h('div', null, [h('h2', { class: 'rodape__titulo rotulo' }, 'Contato'), h('ul', null, redes)]));
 
-    var gigante = h('span', { class: 'rodape__gigante', 'aria-hidden': 'true' }, M.nome || '');
     rodape.appendChild(h('div', { class: 'conteiner' }, [
       h('div', { class: 'rodape__topo' }, [
         h('div', { style: { display: 'grid', gap: '16px', 'align-content': 'start' } }, [
@@ -704,8 +817,9 @@
         h('span', null, 'Shopee é marca de seus respectivos titulares.')
       ])
     ]));
-    rodape.appendChild(h('div', { style: { overflow: 'hidden' } }, gigante));
-    V.ajustarLargura(gigante, 80);
+    // Assinatura do rodapé: o nome da marca pixado na largura toda
+    var assinatura = h('div', { class: 'rodape__pixo' }, V.pixo(M.nome || 'Vitrine', { classe: 'pixo--desenhar revelar', semente: 21, traco: 2.2 }));
+    rodape.appendChild(assinatura);
   }
 
   // ---------------------------------------------------------------

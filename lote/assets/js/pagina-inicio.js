@@ -26,9 +26,11 @@
   document.querySelector('[data-hero-titulo]').textContent = linhas.join(' ');
   linhas.forEach(function (l, i) {
     var el = document.querySelector('[data-hero-linha="' + i + '"]');
-    if (el) { el.textContent = l; V.ajustarLargura(el, 40); }
+    if (el) { el.textContent = l; V.ajustarLargura(el, 40, i === 1 ? 0.8 : 0.97); }
   });
   if (linhas.length < 2) document.querySelector('.hero__linha--2').hidden = true;
+  else V.escorrer(document.querySelector('[data-hero-linha="1"]'), { quantidade: 9, semente: 11 });
+  montarMuro();
   document.querySelector('[data-hero-texto]').textContent = hero.texto || M.descricao || '';
   var principal = document.querySelector('[data-hero-principal]');
   principal.textContent = hero.botaoPrincipal || 'Ver tudo';
@@ -73,11 +75,7 @@
     if (T.selo) {
       var selo = V.selo(T.selo, '');
       V.anexar(selo.querySelector('.selo__centro'), [String(cat.produtos.length).padStart(2, '0'), h('small', null, cat.produtos.length === 1 ? 'peça' : 'peças')]);
-      // No computador o selo fica por cima do título; no celular, preso na placa
-      var mqSelo = window.matchMedia('(min-width: 760px)');
-      var posicionarSelo = function () { (mqSelo.matches ? palco : placa).appendChild(selo); };
-      posicionarSelo();
-      if (mqSelo.addEventListener) mqSelo.addEventListener('change', posicionarSelo);
+      palco.appendChild(selo);
     }
     var anot = V.rabisco((T.anotacoes || {}).hero, 'esquerda', 'hero__anotacao');
     if (anot) palco.appendChild(anot);
@@ -139,6 +137,54 @@
     }
   }
 
+  // Muro da primeira dobra: tags pixadas e spray que segue o mouse
+  function montarMuro() {
+    var heroEl = document.querySelector('.hero');
+    var muro = h('div', { class: 'hero__muro', 'aria-hidden': 'true' });
+    var tags = [M.nome || ''].concat(T.pixos || []).filter(Boolean).slice(0, 4);
+    tags.forEach(function (t, i) {
+      muro.appendChild(V.pixo(t, { classe: 'pixo--' + (i + 1) + ' pixo--desenhar', semente: 5 + i * 13, traco: i === 0 ? 2.8 : 2.2 }));
+    });
+    heroEl.insertBefore(muro, heroEl.firstChild);
+    if (V.movimentoReduzido() || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    var canvas = h('canvas', { class: 'spray', 'aria-hidden': 'true' });
+    heroEl.insertBefore(canvas, muro.nextSibling);
+    var ctx = canvas.getContext('2d');
+    var cor = getComputedStyle(document.documentElement).getPropertyValue('--cor-destaque').trim() || '#C8FF1F';
+    var dpr = Math.min(2, window.devicePixelRatio || 1);
+    function medir() { canvas.width = heroEl.clientWidth * dpr; canvas.height = heroEl.clientHeight * dpr; ctx.scale(dpr, dpr); }
+    medir();
+    window.addEventListener('resize', medir);
+    var ultimo = null, rodando = false, ultimaTinta = 0;
+    heroEl.addEventListener('mousemove', function (e) {
+      var r = heroEl.getBoundingClientRect();
+      var x = e.clientX - r.left, y = e.clientY - r.top;
+      var de = ultimo || { x: x, y: y };
+      var passos = Math.max(1, Math.ceil(Math.hypot(x - de.x, y - de.y) / 6));
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.fillStyle = cor;
+      for (var i = 0; i < passos; i++) {
+        var px = de.x + (x - de.x) * i / passos, py = de.y + (y - de.y) * i / passos;
+        for (var k = 0; k < 9; k++) {
+          var ang = Math.random() * Math.PI * 2, raio = Math.pow(Math.random(), 1.8) * 22;
+          ctx.globalAlpha = .1 + Math.random() * .25;
+          ctx.fillRect(px + Math.cos(ang) * raio, py + Math.sin(ang) * raio, 1.6, 1.6);
+        }
+      }
+      ultimo = { x: x, y: y };
+      ultimaTinta = performance.now();
+      if (!rodando) { rodando = true; requestAnimationFrame(apagar); }
+    });
+    heroEl.addEventListener('mouseleave', function () { ultimo = null; });
+    // A tinta vai sumindo devagar
+    function apagar(t) {
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.globalAlpha = .035;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      if (t - ultimaTinta < 6000) requestAnimationFrame(apagar); else { rodando = false; ctx.clearRect(0, 0, canvas.width, canvas.height); }
+    }
+  }
+
   // Faixas cruzadas: aceleram com a rolagem e invertem ao subir
   function montarFaixa() {
     var itens = (T.faixa && T.faixa.length) ? T.faixa.slice() : [];
@@ -192,6 +238,7 @@
     return [
       h('div', { class: 'secao__indice mono revelar' }, [h('span', null, '(' + String(numero).padStart(2, '0') + ') ' + titulo.replace(/\*/g, '')), extra ? h('span', null, extra) : null]),
       h('div', { class: 'secao__cabecalho revelar' }, [
+        V.pixo(titulo.replace(/\*/g, '').split(' ')[0], { classe: 'secao__tag', semente: numero * 17 }),
         h('div', null, [h('h2', { class: 'titulo-secao' }, V.tituloComEnfase(titulo)), V.rabisco(anotacao, direcao || 'baixo'), texto ? h('p', { class: 'texto-apoio' }, texto) : null]),
         link || null
       ])
@@ -224,6 +271,7 @@
         var item = h('a', { class: 'indice__item revelar', href: V.url.catalogo({ categoria: c.id }), style: { '--atraso': i * 60 + 'ms' } }, [
           h('span', { class: 'mono rotulo' }, String(i + 1).padStart(2, '0')),
           h('span', { class: 'indice__nome' }, c.nome),
+          V.pixo(c.nome.split(' ')[0], { classe: 'indice__tag', semente: i * 31 + 3, traco: 2.6 }),
           h('span', { class: 'indice__info' }, [
             h('span', { class: 'mono' }, String(c.total).padStart(2, '0') + (c.total === 1 ? ' peça' : ' peças')),
             V.icone('seta'),

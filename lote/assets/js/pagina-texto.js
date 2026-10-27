@@ -46,6 +46,9 @@
     el.textContent = V.formatarData(el.getAttribute('data-atualizado'));
   });
 
+  var lugar404 = document.querySelector('[data-pixo-404]');
+  if (lugar404) lugar404.appendChild(V.pixo('404', { classe: 'pixo-404 pixo--desenhar', semente: 9, traco: 2.6 }));
+
   if (document.body.dataset.titulo) {
     V.definirMeta({ titulo: document.body.dataset.titulo + ' · ' + (M.nome || 'Vitrine') });
   }

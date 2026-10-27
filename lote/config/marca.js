@@ -56,12 +56,14 @@ window.MARCA = {
   // Anotações e adesivos: letra de marcador.
   // ---------------------------------------------------------------
   tipografia: {
-    googleFonts: "family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Permanent+Marker&display=swap",
+    googleFonts: "family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;500&family=Permanent+Marker&family=Sedgwick+Ave+Display&display=swap",
     titulos: "\"Archivo\", \"Arial Narrow\", \"Helvetica Neue\", Arial, sans-serif",
     texto: "\"Archivo\", \"Helvetica Neue\", Arial, system-ui, sans-serif",
     mono: "\"JetBrains Mono\", ui-monospace, \"SFMono-Regular\", Menlo, monospace",
     // Letra de marcador das anotações e adesivos
-    marcador: "\"Permanent Marker\", \"Comic Sans MS\", cursive"
+    marcador: "\"Permanent Marker\", \"Comic Sans MS\", cursive",
+    // Letra de grafite (handstyle) da segunda linha do título
+    grafite: "\"Sedgwick Ave Display\", \"Permanent Marker\", cursive"
   },
 
   // ---------------------------------------------------------------
@@ -86,7 +88,7 @@ window.MARCA = {
     hero: {
       // Cada linha ocupa a largura da tela.
       linhas: ["Bolso grande.", "Corte largo."],
-      texto: "Calças cargo, camisetas, camisas e bermudas escolhidas peça por peça na Shopee. Tecido, modelagem e tamanhos informados em cada uma.",
+      texto: "Calça cargo, camiseta e camisa pra usar na rua. Escolhidas peça por peça na Shopee, com tecido, modelagem e tamanhos informados em cada uma.",
       botaoPrincipal: "Ver o lote",
       botaoSecundario: "Calças cargo",
       linkSecundario: "catalogo.html?categoria=calcas-cargo"
@@ -95,6 +97,8 @@ window.MARCA = {
     // Faixas cruzadas abaixo da primeira dobra (vazia = usa categorias e tecidos)
     faixa: [],
     faixa2: ["Drop 01", "Escolhido peça por peça", "Compra na Shopee", "Tamanhos informados"],
+    // Tags pixadas no muro da primeira dobra (além do nome da marca)
+    pixos: ["Cargo", "Rua", "Drop"],
     // Texto do selo redondo que gira na primeira dobra
     selo: "Drop 01 · Streetwear · Cargo · Oversized ·",
     // Anotações em letra de marcador ("" esconde)
