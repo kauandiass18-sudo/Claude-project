@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Produto · LOTE</title>
+  <meta name="description" content="Fotos, descrição e link direto para o produto na Shopee.">
+  <meta name="theme-color" content="#0D0D0C">
+  <meta property="og:type" content="product">
+  <meta property="og:locale" content="pt_BR">
+  <link rel="icon" href="assets/img/marca/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/marca/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/img/marca/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/vitrine.css">
+  <script src="config/marca.js"></script>
+  <script src="assets/js/nucleo.js"></script>
+  <script src="data/catalogo.js" defer></script>
+  <script src="assets/js/interface.js" defer></script>
+  <script src="assets/js/pagina-produto.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header data-topo class="topo"></header>
+
+  <main id="conteudo" tabindex="-1">
+    <div class="conteiner produto__migalhas">
+      <nav aria-label="Você está em">
+        <ol class="migalhas" data-migalhas>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="catalogo.html">Tudo</a></li>
+        </ol>
+      </nav>
+    </div>
+    <div class="conteiner" data-produto></div>
+    <div data-extras></div>
+
+    <noscript>
+      <div class="conteiner estado">
+        <h2>Ative o JavaScript para ver o produto</h2>
+        <p>A vitrine monta a página no seu navegador. Ative o JavaScript e recarregue a página.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer data-rodape class="rodape"></footer>
+</body>
+</html>
