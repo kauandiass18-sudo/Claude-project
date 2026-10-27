@@ -23,6 +23,12 @@ rodar build. Nenhuma biblioteca externa: só as fontes do Google Fonts.
 > painel, **Produtos → Remover exemplos → Publicar**. Ou, em
 > `config/marca.js`, use `exibirExemplos: false`.
 
+## Prévia
+
+| Início | Produto | Celular |
+|---|---|---|
+| ![](previa/computador-inicio.jpg) | ![](previa/computador-produto.jpg) | ![](previa/celular.jpg) |
+
 ---
 
 ## Estrutura
