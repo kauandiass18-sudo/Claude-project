@@ -1,0 +1,39 @@
+name: Diagnóstico estilo Ybera (temporário)
+on:
+  push:
+    branches: [claude/editar-minha-curadoria-l4zjab]
+    paths: [.github/workflows/diag-estilo.yml]
+jobs:
+  ver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - name: Ler estilo
+        timeout-minutes: 5
+        shell: python
+        run: |
+          import re, urllib.request, collections
+          UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
+          def get(u):
+              return urllib.request.urlopen(urllib.request.Request(u, headers={"user-agent": UA}), timeout=30).read().decode("utf-8", "replace")
+          h = get("https://www.ybera.com/")
+          css_links = re.findall(r'href="([^"]+(?:\.css|type=css)[^"]*)"', h)
+          print("css", css_links[:10])
+          css = "".join(re.findall(r"<style[^>]*>([\s\S]*?)</style>", h))
+          for l in css_links[:6]:
+              u = l if l.startswith("http") else ("https:" + l if l.startswith("//") else "https://www.ybera.com" + l)
+              try: css += get(u.replace("&amp;", "&"))
+              except Exception as e: print("falhou", u, e)
+          print("tamanho css", len(css))
+          cores = collections.Counter(c.lower() for c in re.findall(r"#[0-9a-fA-F]{6}\b|#[0-9a-fA-F]{3}\b", css))
+          print("cores", cores.most_common(30))
+          print("rgb", collections.Counter(re.findall(r"rgba?\([^)]+\)", css)).most_common(12))
+          print("fontes", collections.Counter(re.findall(r"font-family\s*:\s*([^;}]+)", css)).most_common(12))
+          print("vars", re.findall(r"--[a-z0-9-]*(?:color|cor|primary|secondary|font|gold|dourado)[a-z0-9-]*\s*:\s*[^;}]+", css, re.I)[:60])
+          for sel in ["btn", "button", "botao"]:
+              for m in list(re.finditer(r"([^{}]*\b%s[^{}]*)\{([^}]*)\}" % sel, css))[:12]:
+                  print("SEL", m.group(1).strip()[:80], "=>", m.group(2).strip()[:220])
+          print("radius", collections.Counter(re.findall(r"border-radius\s*:\s*([^;}]+)", css)).most_common(10))
+          print("letter", collections.Counter(re.findall(r"letter-spacing\s*:\s*([^;}]+)", css)).most_common(10))
+          print("upper", css.count("uppercase"))
+          i = h.find("<header"); print("header", re.sub(r"\s+", " ", h[i:i+1500]))
