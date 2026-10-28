@@ -1124,54 +1124,159 @@ window.XN_CONFIG = {
 (function () {
   var seq = 0;
 
+  // pequenos geradores reaproveitados pelos dois lanches
+  function semente(seed) {
+    // gergelim espalhado pela cúpula do pão (posições estáveis, sem amontoar)
+    var s = "", r = seed;
+    function rnd() { r = (r * 9301 + 49297) % 233280; return r / 233280; }
+    [[42, 8, 90], [56, 6, 150], [72, 5, 170]].forEach(function (linha) {
+      var y = linha[0], n = linha[1], larg = linha[2];
+      for (var i = 0; i < n; i++) {
+        var x = 120 - larg / 2 + (i + .5) * larg / n + (rnd() - .5) * 10;
+        var yy = y + (rnd() - .5) * 8 + Math.pow((x - 120) / 90, 2) * 14;
+        var a = (x - 120) * .5 + (rnd() - .5) * 60;
+        s += '<g transform="rotate(' + a.toFixed(0) + " " + x.toFixed(1) + " " + yy.toFixed(1) + ')">' +
+          '<ellipse cx="' + (x + .8).toFixed(1) + '" cy="' + (yy + 1.3).toFixed(1) + '" rx="4.4" ry="2.3" fill="#7A3A0E" opacity=".3"/>' +
+          '<ellipse cx="' + x.toFixed(1) + '" cy="' + yy.toFixed(1) + '" rx="4.2" ry="2.2" fill="url(#SEM)"/>' +
+          '<ellipse cx="' + (x - 1.2).toFixed(1) + '" cy="' + (yy - .7).toFixed(1) + '" rx="1.6" ry=".7" fill="#fff" opacity=".8"/></g>';
+      }
+    });
+    return s;
+  }
+  function babado(x0, x1, yTopo, yBase, passo) {
+    // folha de alface: topo reto, borda de baixo em babados caindo
+    var d = "M" + x0 + " " + yTopo + " L" + x1 + " " + yTopo + " L" + x1 + " " + (yBase - 3), x = x1, i = 0;
+    while (x > x0) {
+      var nx = Math.max(x - passo, x0);
+      var fundo = yBase + (i % 3 === 0 ? 5 : i % 3 === 1 ? 1 : 3);
+      d += " Q" + ((x + nx) / 2) + " " + (fundo + 4) + " " + nx + " " + (yBase - 2);
+      x = nx; i++;
+    }
+    return d + " Z";
+  }
+  function onda(x0, x1, y, amp, passo) {
+    // borda ondulada (alface)
+    var d = "M" + x0 + " " + y, x = x0, alt = true;
+    while (x < x1) {
+      var nx = Math.min(x + passo, x1);
+      d += " Q" + (x + passo / 2) + " " + (y + (alt ? amp : -amp * .6)) + " " + nx + " " + y;
+      x = nx; alt = !alt;
+    }
+    return d;
+  }
+  function crosta(n, x0, x1, y0, y1, seed, cor, rmax, op) {
+    var s = "", r = seed;
+    function rnd() { r = (r * 9301 + 49297) % 233280; return r / 233280; }
+    for (var i = 0; i < n; i++) {
+      s += '<ellipse cx="' + (x0 + rnd() * (x1 - x0)).toFixed(1) + '" cy="' + (y0 + rnd() * (y1 - y0)).toFixed(1) + '" rx="' + (.8 + rnd() * rmax).toFixed(1) + '" ry="' + (.6 + rnd() * rmax * .6).toFixed(1) + '" fill="' + cor + '" opacity="' + op + '"/>';
+    }
+    return s;
+  }
+  function defsComuns(p) {
+    return '<linearGradient id="' + p + 'sem" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF8E6"/><stop offset="1" stop-color="#EBCF9A"/></linearGradient>' +
+      '<radialGradient id="' + p + 'pt" cx=".36" cy=".22" r=".95"><stop offset="0" stop-color="#FFD98E"/><stop offset=".3" stop-color="#F5A847"/><stop offset=".68" stop-color="#D97B24"/><stop offset="1" stop-color="#9C4C14"/></radialGradient>' +
+      '<linearGradient id="' + p + 'ptb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#B9661E" stop-opacity="0"/><stop offset="1" stop-color="#6E3209" stop-opacity=".7"/></linearGradient>' +
+      '<radialGradient id="' + p + 'brilho" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF6DD" stop-opacity=".75"/><stop offset="1" stop-color="#FFF6DD" stop-opacity="0"/></radialGradient>' +
+      '<linearGradient id="' + p + 'pb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9A050"/><stop offset=".55" stop-color="#C46F22"/><stop offset="1" stop-color="#8A430F"/></linearGradient>' +
+      '<linearGradient id="' + p + 'miolo" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FBE3B4"/><stop offset="1" stop-color="#E9B46A"/></linearGradient>' +
+      '<radialGradient id="' + p + 'cn" cx=".45" cy=".3" r=".8"><stop offset="0" stop-color="#8A4A26"/><stop offset=".55" stop-color="#5A2A12"/><stop offset="1" stop-color="#2E1206"/></radialGradient>' +
+      '<linearGradient id="' + p + 'qj" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE37A"/><stop offset=".55" stop-color="#FDBA22"/><stop offset="1" stop-color="#E7900B"/></linearGradient>' +
+      '<linearGradient id="' + p + 'tm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6A4A"/><stop offset="1" stop-color="#B8241A"/></linearGradient>' +
+      '<linearGradient id="' + p + 'al" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9BDD5A"/><stop offset="1" stop-color="#4E9A2A"/></linearGradient>' +
+      '<linearGradient id="' + p + 'al2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5DA833"/><stop offset="1" stop-color="#2F6E1A"/></linearGradient>' +
+      '<radialGradient id="' + p + 'sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>';
+  }
+
   function burger(p, camadas) {
     // camadas = true devolve cada camada num <g data-camada>, usado na montagem por scroll
     var g = function (nome, conteudo) {
       return camadas ? '<g data-camada="' + nome + '">' + conteudo + "</g>" : conteudo;
     };
-    var gergelim = "";
-    [[86, 58, -20], [112, 50, 10], [140, 54, -8], [164, 66, 24], [98, 76, 30], [128, 72, -14], [152, 84, 6], [72, 80, -30], [176, 88, 40], [118, 92, 18]].forEach(function (s) {
-      gergelim += '<ellipse cx="' + s[0] + '" cy="' + s[1] + '" rx="4.2" ry="2.2" transform="rotate(' + s[2] + " " + s[0] + " " + s[1] + ')" fill="#FFF0CC"/>';
-    });
+    var u = function (id) { return "url(#" + p + id + ")"; };
     return (
       '<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
-      "<defs>" +
-      '<linearGradient id="' + p + 'pt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7B955"/><stop offset=".55" stop-color="#E08A2E"/><stop offset="1" stop-color="#B9611C"/></linearGradient>' +
-      '<linearGradient id="' + p + 'pb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9993E"/><stop offset="1" stop-color="#A9561A"/></linearGradient>' +
-      '<linearGradient id="' + p + 'cn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6B3519"/><stop offset="1" stop-color="#341607"/></linearGradient>' +
-      '<linearGradient id="' + p + 'qj" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFD54A"/><stop offset="1" stop-color="#F5A814"/></linearGradient>' +
-      '<radialGradient id="' + p + 'sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>' +
-      "</defs>" +
-      '<ellipse cx="120" cy="182" rx="98" ry="12" fill="url(#' + p + 'sh)"/>' +
-      g("pao-base", '<path d="M38 152 Q38 178 64 179 L176 179 Q202 178 202 152 Z" fill="url(#' + p + 'pb)"/><path d="M46 158 L194 158" stroke="#FFD08A" stroke-opacity=".35" stroke-width="3" stroke-linecap="round"/>') +
-      g("salada", '<path d="M30 146 q8 -9 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 L210 156 L30 156 Z" fill="#6DB33F"/><path d="M34 150 q8 -6 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0 t16 0" fill="none" stroke="#A6E36E" stroke-width="2"/>') +
-      g("tomate", '<rect x="40" y="132" width="160" height="14" rx="7" fill="#E2412E"/><rect x="48" y="135" width="60" height="3" rx="1.5" fill="#FF8A70" opacity=".7"/>') +
-      g("carne", '<rect x="32" y="106" width="176" height="30" rx="15" fill="url(#' + p + 'cn)"/><g fill="#8A4A26" opacity=".7"><circle cx="58" cy="118" r="2"/><circle cx="84" cy="126" r="1.6"/><circle cx="112" cy="116" r="2"/><circle cx="140" cy="127" r="1.6"/><circle cx="168" cy="117" r="2"/><circle cx="190" cy="125" r="1.6"/></g>') +
-      g("queijo", '<path d="M30 100 L210 100 L206 110 Q194 110 192 124 Q190 132 185 124 L180 112 L150 112 Q146 132 139 134 Q132 132 130 112 L96 112 Q92 126 86 128 Q80 126 78 112 L44 112 Z" fill="url(#' + p + 'qj)"/>') +
-      g("pao-topo", '<path d="M34 96 Q34 30 120 28 Q206 30 206 96 Q206 106 196 106 L44 106 Q34 106 34 96 Z" fill="url(#' + p + 'pt)"/><path d="M62 52 Q90 36 128 36" fill="none" stroke="#FFE2A8" stroke-opacity=".55" stroke-width="6" stroke-linecap="round"/>' + gergelim) +
+      "<defs>" + defsComuns(p) + "</defs>" +
+      '<ellipse cx="120" cy="184" rx="100" ry="11" fill="' + u("sh") + '"/>' +
+      // pão de baixo: casca dourada + miolo tostado no corte
+      g("pao-base",
+        '<path d="M34 152 C34 168 44 181 66 182 L174 182 C196 181 206 168 206 152 Z" fill="' + u("pb") + '"/>' +
+        '<path d="M34 152 L206 152 L204 159 C170 162 70 162 36 159 Z" fill="' + u("miolo") + '"/>' +
+        '<path d="M48 170 C80 176 160 176 192 170" fill="none" stroke="#FFD08A" stroke-opacity=".25" stroke-width="3" stroke-linecap="round"/>' +
+        crosta(10, 50, 190, 162, 176, 7, "#7A3A0E", 1.4, .35)) +
+      // alface em duas camadas com nervuras
+      g("salada",
+        '<path d="' + babado(24, 216, 144, 156, 10) + '" fill="' + u("al2") + '"/>' +
+        '<path d="' + babado(30, 210, 141, 151, 12) + '" fill="' + u("al") + '"/>' +
+        '<path d="M40 146 q4 4 2 8 M66 145 q5 4 3 9 M94 146 q4 4 2 8 M122 145 q5 4 3 9 M150 146 q4 4 2 8 M178 145 q5 4 3 9" fill="none" stroke="#C8F09A" stroke-width="1.3" stroke-linecap="round" opacity=".7"/>') +
+      // duas fatias de tomate com sementes
+      g("tomate",
+        '<rect x="40" y="132" width="84" height="14" rx="7" fill="' + u("tm") + '"/>' +
+        '<rect x="116" y="134" width="86" height="13" rx="6.5" fill="' + u("tm") + '"/>' +
+        '<rect x="48" y="135" width="68" height="4" rx="2" fill="#FF9C80" opacity=".55"/>' +
+        '<rect x="124" y="137" width="70" height="3.5" rx="1.75" fill="#FF9C80" opacity=".5"/>' +
+        '<g fill="#FFD9A8" opacity=".85"><ellipse cx="66" cy="141" rx="2" ry="1.1"/><ellipse cx="82" cy="142" rx="2" ry="1.1"/><ellipse cx="100" cy="141" rx="2" ry="1.1"/><ellipse cx="146" cy="142.5" rx="2" ry="1.1"/><ellipse cx="164" cy="143" rx="2" ry="1.1"/><ellipse cx="182" cy="142" rx="2" ry="1.1"/></g>') +
+      // carne com borda irregular, crosta e brilho de suculência
+      g("carne",
+        '<path d="M36 112 C30 112 28 120 30 126 C28 133 34 140 44 139 C70 142 170 142 196 139 C206 140 212 133 210 126 C212 119 208 112 202 112 C176 106 64 106 36 112 Z" fill="' + u("cn") + '"/>' +
+        crosta(26, 40, 200, 114, 136, 11, "#2A0F04", 2.2, .55) +
+        crosta(18, 42, 198, 112, 132, 23, "#A0592E", 1.8, .45) +
+        '<path d="M50 114 C90 109 150 109 190 114" fill="none" stroke="#C98552" stroke-opacity=".45" stroke-width="3" stroke-linecap="round"/>') +
+      // queijo derretido com pontas, gotas e reflexo
+      g("queijo",
+        '<path d="M30 102 L210 102 C214 102 216 106 214 110 L206 120 C202 124 199 122 198 118 L197 126 C196 134 188 134 187 126 L185 114 L156 114 C153 126 150 138 143 138 C136 138 134 126 132 114 L98 114 C95 124 92 130 86 130 C80 130 79 124 78 114 L48 114 L38 122 C34 125 30 122 31 118 L26 108 C25 104 27 102 30 102 Z" fill="' + u("qj") + '"/>' +
+        '<path d="M40 105 C80 103 160 103 200 105" fill="none" stroke="#FFF6C8" stroke-opacity=".7" stroke-width="2.5" stroke-linecap="round"/>' +
+        '<ellipse cx="141" cy="131" rx="2.2" ry="3.5" fill="#FFF3B8" opacity=".7"/><ellipse cx="190" cy="124" rx="1.6" ry="2.6" fill="#FFF3B8" opacity=".6"/>') +
+      // pão de cima: cúpula brilhante com gergelim
+      g("pao-topo",
+        '<path d="M30 96 C30 50 70 24 120 24 C170 24 210 50 210 96 C210 106 203 109 194 109 L46 109 C37 109 30 106 30 96 Z" fill="' + u("pt") + '"/>' +
+        '<path d="M30 96 C30 106 37 109 46 109 L194 109 C203 109 210 106 210 96 C200 101 40 101 30 96 Z" fill="' + u("ptb") + '"/>' +
+        '<ellipse cx="88" cy="46" rx="42" ry="14" transform="rotate(-14 88 46)" fill="' + u("brilho") + '"/>' +
+        semente(5).replace(/url\(#SEM\)/g, u("sem"))) +
       "</svg>"
     );
   }
 
   function xis(p) {
+    var u = function (id) { return "url(#" + p + id + ")"; };
     return (
       '<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
-      "<defs>" +
-      '<linearGradient id="' + p + 'pt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3B457"/><stop offset="1" stop-color="#C46E24"/></linearGradient>' +
-      '<linearGradient id="' + p + 'pb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E1913A"/><stop offset="1" stop-color="#9F5118"/></linearGradient>' +
-      '<radialGradient id="' + p + 'sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>' +
+      "<defs>" + defsComuns(p) +
+      '<radialGradient id="' + p + 'gema" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#FFD35A"/><stop offset="1" stop-color="#F08A0C"/></radialGradient>' +
+      '<linearGradient id="' + p + 'pr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7A9A2"/><stop offset="1" stop-color="#D9716B"/></linearGradient>' +
       "</defs>" +
-      '<ellipse cx="120" cy="164" rx="110" ry="12" fill="url(#' + p + 'sh)"/>' +
-      '<path d="M16 136 Q16 156 40 157 L200 157 Q224 156 224 136 Z" fill="url(#' + p + 'pb)"/>' +
-      '<rect x="18" y="122" width="204" height="16" rx="8" fill="#5A2C14"/>' +
-      '<path d="M10 118 q9 -8 18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 t18 0 L226 128 L10 128 Z" fill="#6DB33F"/>' +
-      '<ellipse cx="74" cy="114" rx="26" ry="8" fill="#FFF7E8"/><ellipse cx="74" cy="113" rx="10" ry="5" fill="#FFB321"/>' +
-      '<rect x="112" y="108" width="54" height="10" rx="5" fill="#E2412E"/>' +
-      '<g fill="#FFD54A"><circle cx="176" cy="114" r="3"/><circle cx="186" cy="111" r="3"/><circle cx="196" cy="115" r="3"/><circle cx="104" cy="116" r="3"/></g>' +
-      '<g fill="#7FC94B"><circle cx="182" cy="118" r="3"/><circle cx="192" cy="119" r="3"/><circle cx="98" cy="112" r="3"/></g>' +
-      '<path d="M14 104 Q16 58 120 54 Q224 58 226 104 Q226 112 216 112 L24 112 Q14 112 14 104 Z" fill="url(#' + p + 'pt)"/>' +
-      '<g stroke="#7A3C12" stroke-opacity=".55" stroke-width="5" stroke-linecap="round"><path d="M50 84 L80 70"/><path d="M86 90 L126 68"/><path d="M134 92 L172 70"/><path d="M178 92 L200 80"/></g>' +
-      '<path d="M48 70 Q90 58 140 60" fill="none" stroke="#FFE2A8" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/>' +
+      '<ellipse cx="120" cy="170" rx="112" ry="11" fill="' + u("sh") + '"/>' +
+      // pão de baixo
+      '<path d="M18 144 C18 158 30 165 48 165 L192 165 C210 165 222 158 222 144 Z" fill="' + u("pb") + '"/>' +
+      '<path d="M18 144 L222 144 L220 149 C180 152 60 152 20 149 Z" fill="' + u("miolo") + '"/>' +
+      // presunto ondulado
+      '<path d="M16 136 C50 132 190 132 224 136 C226 141 222 145 214 145 C180 147 60 147 26 145 C18 145 14 141 16 136 Z" fill="' + u("pr") + '"/>' +
+      // carne
+      '<path d="M20 128 C18 120 28 116 42 117 C80 114 160 114 198 117 C212 116 222 120 220 128 C222 135 212 138 198 137 L42 137 C28 138 18 135 20 128 Z" fill="' + u("cn") + '"/>' +
+      crosta(24, 28, 212, 119, 134, 3, "#2A0F04", 1.8, .55) + crosta(14, 30, 210, 118, 130, 17, "#A0592E", 1.5, .45) +
+      // queijo escorrendo
+      '<path d="M22 114 L218 114 L214 121 C209 121 207 127 205 133 C203 138 197 137 197 131 L195 123 L120 123 C118 131 115 136 111 136 C107 136 105 131 104 123 L60 123 C58 130 55 135 51 135 C47 135 45 130 45 123 L26 123 Z" fill="' + u("qj") + '"/>' +
+      '<path d="M34 116 C80 115 160 115 206 116" stroke="#FFF6C8" stroke-opacity=".6" stroke-width="2" stroke-linecap="round" fill="none"/>' +
+      // alface em babados
+      '<path d="' + babado(12, 228, 104, 116, 10) + '" fill="' + u("al2") + '"/>' +
+      '<path d="' + babado(18, 222, 102, 112, 12) + '" fill="' + u("al") + '"/>' +
+      '<g transform="translate(0 7)">' +
+      // tomate saindo pela direita
+      '<rect x="150" y="96" width="82" height="12" rx="6" fill="' + u("tm") + '"/><rect x="158" y="98" width="62" height="3" rx="1.5" fill="#FF9C80" opacity=".6"/>' +
+      '<g fill="#FFD9A8"><ellipse cx="180" cy="104" rx="1.8" ry="1"/><ellipse cx="196" cy="104.5" rx="1.8" ry="1"/><ellipse cx="212" cy="104" rx="1.8" ry="1"/></g>' +
+      // ovo saindo pela esquerda
+      '<path d="M2 102 C2 92 22 88 46 90 C70 88 92 94 90 102 C92 108 70 110 46 109 C22 110 2 108 2 102 Z" fill="#FFF9EE"/>' +
+      '<path d="M4 104 C20 109 70 110 88 104" fill="none" stroke="#EAD3B2" stroke-width="1.5"/>' +
+      '<ellipse cx="38" cy="98" rx="13" ry="7" fill="' + u("gema") + '"/><ellipse cx="33" cy="95.5" rx="4" ry="1.8" fill="#fff" opacity=".75"/>' +
+      // milho e ervilha
+      '<g fill="#FFD54A" stroke="#E0A20E" stroke-width=".8"><circle cx="112" cy="104" r="3.2"/><circle cx="124" cy="101" r="3.2"/><circle cx="136" cy="105" r="3.2"/></g>' +
+      '<g fill="#76C043" stroke="#4E8F27" stroke-width=".8"><circle cx="118" cy="108" r="3.2"/><circle cx="130" cy="109" r="3.2"/><circle cx="100" cy="102" r="3"/></g>' +
+      "</g>" +
+      // pão de cima prensado na chapa
+      '<path d="M16 92 C18 58 58 42 120 42 C182 42 222 58 224 92 C224 100 218 102 210 102 L30 102 C22 102 16 100 16 92 Z" fill="' + u("pt") + '"/>' +
+      '<path d="M16 92 C16 100 22 102 30 102 L210 102 C218 102 224 100 224 92 C206 96 34 96 16 92 Z" fill="' + u("ptb") + '"/>' +
+      '<g stroke="#6A2E08" stroke-opacity=".55" stroke-width="6" stroke-linecap="round"><path d="M44 80 L74 60"/><path d="M82 88 L124 58"/><path d="M130 90 L172 60"/><path d="M180 88 L206 70"/></g>' +
+      '<g stroke="#FFE2A8" stroke-opacity=".28" stroke-width="2" stroke-linecap="round"><path d="M48 78 L74 60"/><path d="M86 86 L124 58"/><path d="M134 88 L172 60"/></g>' +
+      '<ellipse cx="88" cy="55" rx="48" ry="9" transform="rotate(-6 88 55)" fill="' + u("brilho") + '"/>' +
       "</svg>"
     );
   }
