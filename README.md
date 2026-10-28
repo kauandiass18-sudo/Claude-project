@@ -284,15 +284,17 @@ Depois, coloque o endereço do site na bio do Instagram ou TikTok.
 
 ## 5. Personalizar o visual
 
-O visual segue um sistema de três cores, definido no início de
-`assets/css/style.css`, em `:root`:
+O visual segue o estilo do site oficial da Ybera (mesmas fontes e a mesma
+família de cores), definido no início de `assets/css/style.css`, em `:root`:
 
 ```css
---fundo: #FAF8F5;     /* off-white: cor dominante (cerca de 70%) */
---grafite: #1C1B19;   /* textos, títulos e botão principal (cerca de 25%) */
---ouro: #8A6A3B;      /* o único dourado: só em detalhes (cerca de 5%) */
---fonte-titulo: "Bodoni Moda", ...;  /* títulos e preços */
---fonte-texto: "Jost", ...;          /* textos */
+--fundo: #ECEBF0;     /* cinza-lavanda Ybera: cor dominante */
+--branco: #FFFFFF;    /* botões, cards e cabeçalho */
+--grafite: #091413;   /* textos e títulos (o preto da Ybera) */
+--botao: #1A1A1A;     /* botão principal */
+--ouro: #8A6A3B;      /* o único dourado: só em detalhes */
+--fonte-titulo: "Syne", ...;         /* títulos e preços */
+--fonte-texto: "Nunito Sans", ...;   /* textos */
 ```
 
 Regras do sistema:
@@ -305,7 +307,7 @@ Regras do sistema:
   parceria, filtros de categoria). Loja sem produtos: botão sem fundo, com
   "Em breve" em dourado.
 - **Cards de produto:** brancos, borda discreta, sombra suave, foto grande,
-  nome em até 3 linhas, preço em Bodoni e uma setinha dourada no canto da foto.
+  nome em até 3 linhas, preço em Syne e uma setinha no canto da foto.
   Iguais em todas as páginas.
 - **Caixa-alta** só em rótulos curtos ("Loja Ybera Paris"); o resto do texto
   é normal, para ler fácil.

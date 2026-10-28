@@ -1,45 +1,47 @@
 /* =============================================================
-   SISTEMA VISUAL — Carla Dias
-   Três cores: off-white (base), grafite (estrutura) e um único
-   dourado antigo, usado como joia: só em detalhes.
-   Proporção de referência: 70% claro · 25% grafite · 5% dourado.
+   SISTEMA VISUAL — Carla Dias, no estilo da Ybera Paris
+   (mesmas fontes e a mesma família de cores do site oficial ybera.com:
+   cinza-lavanda claro de fundo, superfícies brancas, quase-preto e
+   botões em pílula; o dourado fica só nos detalhes)
+   Proporção de referência: 70% claro · 25% preto · 5% dourado.
 
    Regras do sistema
    • Cor: só os tokens abaixo. Dourado nunca preenche áreas grandes,
      não tem degradê e só existe em um tom (com transparência, quando fino).
-   • Tipo: Bodoni Moda (títulos e preços) + Jost (texto).
-   • Botões: .botao-marca--parceria e .botao-loja são o PRINCIPAL
-     (grafite); os demais são SECUNDÁRIOS (branco com borda fina).
-   • Raios: botões e campos em pílula; cards em 14px.
+   • Tipo: Syne (títulos e preços) + Nunito Sans (texto), as da Ybera.
+   • Botões: .botao-marca--principal e .botao-loja são o PRINCIPAL
+     (preto #1A1A1A); os demais são SECUNDÁRIOS (pílula branca, sombra macia).
+   • Raios: botões e campos em pílula; cards em 16px.
    • Espaço: múltiplos de 4px (8, 12, 16, 24, 32, 48, 64).
    ============================================================= */
 
 :root {
   /* Cores */
-  --fundo: #FAF8F5;          /* off-white: cor dominante */
+  --fundo: #ECEBF0;          /* cinza-lavanda Ybera: cor dominante */
   --branco: #FFFFFF;         /* cards, campos, botões secundários */
-  --area: #F4F1EC;           /* fundo da foto dos produtos */
-  --linha: #E7E2DA;          /* bordas e divisores */
-  --linha-forte: #D6D0C6;    /* bordas de botões e campos */
-  --grafite: #1C1B19;        /* textos, títulos, botão principal */
-  --grafite-2: #2B2926;      /* hover do botão principal */
-  --texto-suave: #6B665F;    /* textos de apoio */
+  --area: #F5F4F8;           /* fundo da foto dos produtos */
+  --linha: #E2E1E5;          /* bordas e divisores */
+  --linha-forte: #CFCED4;    /* bordas de botões e campos */
+  --grafite: #091413;        /* textos e títulos (o preto da Ybera) */
+  --grafite-2: #333333;      /* hover do botão principal */
+  --botao: #1A1A1A;          /* botão principal */
+  --texto-suave: #505052;    /* textos de apoio */
   --ouro: #8A6A3B;           /* o único dourado */
   --ouro-fino: rgba(138, 106, 59, .45);  /* o mesmo dourado em fios finos */
   --ouro-veu: rgba(138, 106, 59, .08);   /* o mesmo dourado como véu, no foco */
 
   /* Tipografia */
-  --fonte-titulo: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
-  --fonte-texto: "Jost", "Futura", "Avenir Next", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonte-titulo: "Syne", "Avenir Next", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fonte-texto: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
   /* Forma e espaço */
-  --raio-card: 14px;
-  --raio-foto: 10px;
+  --raio-card: 16px;
+  --raio-foto: 12px;
   --largura: 560px;
   --gutter: 20px;
   --altura-cabecalho: 60px;
-  --sombra-card: 0 1px 2px rgba(28, 27, 25, .04), 0 10px 28px -18px rgba(28, 27, 25, .22);
-  --sombra-elevada: 0 2px 4px rgba(28, 27, 25, .05), 0 18px 36px -20px rgba(28, 27, 25, .3);
+  --sombra-card: 0 1px 2px rgba(9, 20, 19, .04), 0 8px 24px -16px rgba(9, 20, 19, .16);
+  --sombra-elevada: 0 2px 4px rgba(9, 20, 19, .05), 0 16px 32px -18px rgba(9, 20, 19, .26);
 
   /* Movimento */
   --suave: cubic-bezier(0.2, 0.7, 0.2, 1);
@@ -120,7 +122,7 @@ h1, h2, h3, h4, p { margin: 0; }
   font-family: var(--fonte-texto);
   font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: .18em;
+  letter-spacing: .1em;
   text-transform: uppercase;
 }
 
@@ -154,7 +156,7 @@ h1, h2, h3, h4, p { margin: 0; }
   gap: 12px;
   min-height: var(--altura-cabecalho);
   padding: calc(8px + env(safe-area-inset-top)) var(--gutter) 8px;
-  background: rgba(250, 248, 245, .92);
+  background: rgba(255, 255, 255, .9);
   -webkit-backdrop-filter: saturate(1.2) blur(14px);
   backdrop-filter: saturate(1.2) blur(14px);
   border-bottom: 1px solid var(--linha);
@@ -168,7 +170,7 @@ h1, h2, h3, h4, p { margin: 0; }
   max-width: var(--largura);
   margin: 0 auto;
 }
-/* Marca: nome em Bodoni, com um ponto dourado como joia */
+/* Marca: nome em Syne, com um ponto dourado como joia */
 .cabecalho__marca,
 .topo__marca {
   display: inline-flex;
@@ -176,7 +178,8 @@ h1, h2, h3, h4, p { margin: 0; }
   min-height: 44px;
   gap: 3px;
   font-family: var(--fonte-titulo);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   font-size: 21px;
   letter-spacing: .01em;
   color: var(--grafite);
@@ -200,7 +203,7 @@ h1, h2, h3, h4, p { margin: 0; }
   padding: 0 2px;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: .18em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--grafite);
 }
@@ -264,7 +267,7 @@ h1, h2, h3, h4, p { margin: 0; }
   box-shadow:
     0 0 0 6px var(--branco),
     0 0 0 7px var(--ouro-fino),
-    0 24px 48px -24px rgba(28, 27, 25, .35);
+    0 24px 48px -24px rgba(9, 20, 19, .3);
 }
 .arco img {
   width: 100%; height: 100%;
@@ -279,7 +282,7 @@ h1, h2, h3, h4, p { margin: 0; }
   left: 50%; top: -16px;
   width: 20px; height: 20px;
   transform: translateX(-50%);
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23FAF8F5'/%3E%3Cpath d='M12 3c.7 5.1 3.9 8.3 9 9-5.1.7-8.3 3.9-9 9-.7-5.1-3.9-8.3-9-9 5.1-.7 8.3-3.9 9-9z' fill='%238A6A3B'/%3E%3C/svg%3E") center / contain no-repeat;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10' fill='%23ECEBF0'/%3E%3Cpath d='M12 3c.7 5.1 3.9 8.3 9 9-5.1.7-8.3 3.9-9 9-.7-5.1-3.9-8.3-9-9 5.1-.7 8.3-3.9 9-9z' fill='%238A6A3B'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 .arco--vazio { display: grid; place-items: center; background: var(--area); }
 .arco__ornamento { width: 40px; height: 40px; color: var(--ouro); }
@@ -291,7 +294,8 @@ h1, h2, h3, h4, p { margin: 0; }
   align-items: center;
   gap: 12px;
   font-family: var(--fonte-titulo);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   font-size: clamp(32px, 9vw, 40px);
   line-height: 1.05;
   letter-spacing: -.005em;
@@ -342,7 +346,7 @@ h1, h2, h3, h4, p { margin: 0; }
   min-height: 44px;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: .18em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--grafite);
 }
@@ -366,12 +370,13 @@ h1, h2, h3, h4, p { margin: 0; }
   grid-template-columns: 44px 1fr 20px;
   align-items: center;
   gap: 16px;
-  min-height: 70px;
-  padding: 12px 22px 12px 13px;
+  min-height: 72px;
+  padding: 12px 22px 12px 12px;
   border-radius: 999px;
-  border: 1px solid var(--linha-forte);
+  border: 1px solid transparent;
   background: var(--branco);
   color: var(--grafite);
+  box-shadow: var(--sombra-card);
   text-align: left;
   transition: border-color .25s, box-shadow .25s var(--suave), transform .25s var(--suave), background-color .25s;
   user-select: none;
@@ -381,23 +386,24 @@ h1, h2, h3, h4, p { margin: 0; }
   place-items: center;
   width: 44px; height: 44px;
   border-radius: 50%;
-  border: 1px solid var(--linha);
-  background: var(--fundo);
+  border: 0;
+  background: var(--area);
   color: var(--grafite);
 }
 .botao-marca__icone svg { width: 20px; height: 20px; stroke-width: 1.6; }
 .botao-marca__texto {
   font-family: var(--fonte-titulo);
-  font-weight: 600;
-  font-size: 17.5px;
-  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  font-size: 16px;
+  line-height: 1.25;
   text-wrap: balance;
 }
-.botao-marca__seta { display: grid; place-items: center; color: var(--ouro); }
+.botao-marca__seta { display: grid; place-items: center; color: var(--grafite); }
 .botao-marca__seta svg { width: 18px; height: 18px; stroke-width: 1.5; transition: transform .25s var(--suave); }
 .botao-marca:active { transform: scale(.98); }
 @media (hover: hover) {
-  .botao-marca:hover { border-color: var(--ouro-fino); box-shadow: var(--sombra-card); }
+  .botao-marca:hover { box-shadow: var(--sombra-elevada); transform: translateY(-1px); }
   .botao-marca:hover .botao-marca__seta svg { transform: translateX(3px); }
 }
 
@@ -413,15 +419,15 @@ h1, h2, h3, h4, p { margin: 0; }
 /* Principal (Loja Ybera): grafite, texto branco, detalhe dourado */
 .botao-marca--principal {
   min-height: 78px;
-  border-color: var(--grafite);
-  background: var(--grafite);
+  border-color: var(--botao);
+  background: var(--botao);
   color: var(--branco);
   box-shadow: var(--sombra-elevada);
 }
 .botao-marca--principal .botao-marca__icone {
-  border: 1px solid var(--ouro);
-  background: var(--grafite);
-  color: var(--ouro);
+  border: 0;
+  background: rgba(255, 255, 255, .1);
+  color: #D8BE8A;
 }
 .botao-marca--principal .botao-marca__sub { color: rgba(255, 255, 255, .72); }
 .botao-marca--principal .botao-marca__seta { color: var(--branco); }
@@ -431,25 +437,26 @@ h1, h2, h3, h4, p { margin: 0; }
     border-color: var(--ouro);
     box-shadow: var(--sombra-elevada);
   }
-  .botao-marca--principal:hover .botao-marca__seta { color: var(--ouro); }
+  .botao-marca--principal:hover .botao-marca__seta { color: #D8BE8A; }
 }
 
 /* Loja ainda sem produtos: o botão fica, mais discreto, avisando "Em breve" */
 .botao-marca--embreve {
   min-height: 64px;
-  background: transparent;
-  border-color: var(--linha);
+  background: rgba(255, 255, 255, .5);
+  border-color: rgba(255, 255, 255, .9);
+  box-shadow: none;
 }
-.botao-marca--embreve .botao-marca__icone { background: transparent; color: var(--texto-suave); }
-.botao-marca--embreve .botao-marca__texto { font-size: 16.5px; }
+.botao-marca--embreve .botao-marca__icone { background: var(--branco); color: var(--texto-suave); }
+.botao-marca--embreve .botao-marca__texto { font-size: 15.5px; }
 .botao-marca--embreve .botao-marca__sub { color: var(--ouro); }
-@media (hover: hover) { .botao-marca--embreve:hover { box-shadow: none; } }
+@media (hover: hover) { .botao-marca--embreve:hover { box-shadow: var(--sombra-card); } }
 /* Sem link ainda: sem seta, porque o toque não leva a outra página */
 .botao-marca[aria-disabled="true"] { cursor: default; }
 .botao-marca[aria-disabled="true"] .botao-marca__seta { visibility: hidden; }
 
 /* Parceria: branco com filete dourado e a foto dela */
-.botao-marca--parceria { border-color: var(--ouro-fino); }
+.botao-marca--parceria { border-color: var(--ouro-fino); background: var(--branco); }
 .botao-marca--parceria .botao-marca__icone { border-color: var(--ouro); padding: 2px; }
 .botao-marca__icone--foto { overflow: hidden; }
 .botao-marca__icone--foto img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
@@ -463,7 +470,8 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .chamada__titulo {
   font-family: var(--fonte-titulo);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   font-size: clamp(24px, 6.6vw, 28px);
   line-height: 1.2;
   text-wrap: balance;
@@ -502,10 +510,11 @@ h1, h2, h3, h4, p { margin: 0; }
   min-height: 54px;
   padding: 12px 28px;
   border-radius: 999px;
-  border: 1px solid var(--grafite);
-  background: var(--grafite);
+  border: 1px solid var(--botao);
+  background: var(--botao);
   color: var(--branco);
   font-size: 15px;
+  font-weight: 700;
   font-weight: 500;
   letter-spacing: .02em;
   text-align: center;
@@ -644,7 +653,8 @@ h1, h2, h3, h4, p { margin: 0; }
 .chips__titulo {
   margin-top: 56px;
   font-family: var(--fonte-titulo);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   font-size: 24px;
   line-height: 1.2;
   text-align: center;
@@ -662,7 +672,8 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .secao__titulo {
   font-family: var(--fonte-titulo);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   font-size: 24px;
   line-height: 1.2;
   color: var(--grafite);
@@ -700,7 +711,8 @@ h1, h2, h3, h4, p { margin: 0; }
   display: grid;
   gap: 2px;
   font-family: var(--fonte-titulo);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   font-size: 19px;
   line-height: 1.2;
   color: var(--grafite);
@@ -781,7 +793,7 @@ h1, h2, h3, h4, p { margin: 0; }
 .chip { flex: 0 0 auto; scroll-snap-align: start; font-size: 14px; }
 .chip__icone { width: 16px; height: 16px; color: var(--ouro); }
 .chip__icone svg { width: 100%; height: 100%; }
-.chip[aria-pressed="true"] { background: var(--grafite); border-color: var(--grafite); color: var(--branco); }
+.chip[aria-pressed="true"] { background: var(--botao); border-color: var(--botao); color: var(--branco); }
 
 /* ---------- Lista agrupada (categoria aberta ou busca) ---------- */
 .lista { display: grid; gap: 12px; }
@@ -796,7 +808,7 @@ h1, h2, h3, h4, p { margin: 0; }
   gap: 10px;
   margin: 0 calc(var(--gutter) * -1) 16px;
   padding: 12px var(--gutter);
-  background: rgba(250, 248, 245, .94);
+  background: rgba(236, 235, 240, .94);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--linha);
@@ -815,7 +827,8 @@ h1, h2, h3, h4, p { margin: 0; }
   flex: 1;
   min-width: 0;
   font-family: var(--fonte-titulo);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   font-size: 19px;
   line-height: 1.2;
 }
@@ -847,7 +860,7 @@ h1, h2, h3, h4, p { margin: 0; }
   position: relative;
   display: grid;
   background: var(--branco);
-  border: 1px solid var(--linha);
+  border: 1px solid transparent;
   border-radius: var(--raio-card);
   box-shadow: var(--sombra-card);
   color: var(--grafite);
@@ -927,7 +940,7 @@ h1, h2, h3, h4, p { margin: 0; }
   border: 1px solid var(--linha-forte);
   font-size: 9.5px;
   font-weight: 600;
-  letter-spacing: .14em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--texto-suave);
 }
@@ -937,7 +950,7 @@ h1, h2, h3, h4, p { margin: 0; }
 
 .card__nome {
   font-family: var(--fonte-texto);
-  font-weight: 500;
+  font-weight: 700;
   font-size: 14.5px;
   line-height: 1.35;
   color: var(--grafite);
@@ -957,7 +970,7 @@ h1, h2, h3, h4, p { margin: 0; }
   overflow: hidden;
 }
 
-/* Preço em destaque: valor em Bodoni grafite, "no Pix" em dourado */
+/* Preço em destaque: valor em Syne, "no Pix" em dourado */
 .card__preco {
   display: flex;
   flex-wrap: wrap;
@@ -968,7 +981,7 @@ h1, h2, h3, h4, p { margin: 0; }
   font-variant-numeric: lining-nums tabular-nums;
 }
 .card__preco-antigo { order: -1; flex-basis: 100%; color: var(--texto-suave); font-size: 12.5px; }
-.card__preco-atual { font-family: var(--fonte-titulo); font-weight: 600; font-size: 19px; color: var(--grafite); }
+.card__preco-atual { font-family: var(--fonte-titulo); font-weight: 700; letter-spacing: -0.01em; font-size: 19px; color: var(--grafite); }
 .card__preco-rotulo { font-size: 12.5px; font-weight: 500; color: var(--ouro); }
 /* "ou R$ X no cartão": informação, não promoção (sem risco) */
 .card__preco-normal { flex-basis: 100%; margin-top: 2px; font-size: 12px; line-height: 1.35; color: var(--texto-suave); }
@@ -1010,7 +1023,7 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .card--destaque .card__midia { width: 100%; aspect-ratio: 1; max-width: 100%; }
 .card--destaque .card__corpo { padding: 0 4px; }
-.card--destaque .card__nome { font-size: 13.5px; -webkit-line-clamp: 3; min-height: 4.05em; }
+.card--destaque .card__nome { font-size: 14px; -webkit-line-clamp: 3; min-height: 4.05em; }
 .card--destaque .card__preco { margin-top: auto; padding-top: 6px; }
 .card--destaque .card__preco-atual { font-size: 18px; }
 
@@ -1041,7 +1054,7 @@ h1, h2, h3, h4, p { margin: 0; }
   color: var(--ouro);
 }
 .card__ver-todos-seta svg { width: 18px; height: 18px; }
-.card__ver-todos-texto { font-family: var(--fonte-titulo); font-weight: 600; font-size: 17px; line-height: 1.2; }
+.card__ver-todos-texto { font-family: var(--fonte-titulo); font-weight: 700; letter-spacing: -0.015em; font-size: 17px; line-height: 1.2; }
 .card__ver-todos-nome { font-size: 13px; color: var(--texto-suave); }
 
 /* Card de lista (páginas de loja): foto à esquerda, texto, seta */
@@ -1073,13 +1086,13 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .vazio__icone { display: grid; place-items: center; width: 30px; height: 30px; margin: 0 auto 14px; color: var(--ouro); }
 .vazio__icone svg { width: 100%; height: 100%; stroke-width: 1.4; }
-.vazio__titulo { font-family: var(--fonte-titulo); font-weight: 600; font-size: 22px; line-height: 1.2; text-wrap: balance; }
+.vazio__titulo { font-family: var(--fonte-titulo); font-weight: 700; letter-spacing: -0.015em; font-size: 22px; line-height: 1.2; text-wrap: balance; }
 .vazio__texto { margin: 8px auto 0; max-width: 34ch; color: var(--texto-suave); font-size: 15px; text-wrap: balance; }
 .vazio__sobre {
   margin-bottom: 10px;
   font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: .2em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--ouro);
 }
@@ -1108,7 +1121,8 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .loja__titulo {
   font-family: var(--fonte-titulo);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   font-size: 34px;
   line-height: 1.1;
   color: var(--grafite);
@@ -1121,7 +1135,7 @@ h1, h2, h3, h4, p { margin: 0; }
   font-family: var(--fonte-texto);
   font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: .2em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--ouro);
 }
@@ -1143,7 +1157,7 @@ h1, h2, h3, h4, p { margin: 0; }
   margin-bottom: 12px;
   font-size: 10.5px;
   font-weight: 600;
-  letter-spacing: .2em;
+  letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--ouro);
 }
@@ -1172,7 +1186,7 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 .fecho__icone { display: grid; place-items: center; width: 28px; height: 28px; margin: 0 auto 12px; color: var(--ouro); }
 .fecho__icone svg { width: 100%; height: 100%; stroke-width: 1.4; }
-.fecho__titulo { font-family: var(--fonte-titulo); font-weight: 600; font-size: 24px; line-height: 1.2; text-wrap: balance; }
+.fecho__titulo { font-family: var(--fonte-titulo); font-weight: 700; letter-spacing: -0.015em; font-size: 24px; line-height: 1.2; text-wrap: balance; }
 .fecho__texto { margin: 10px auto 0; max-width: 34ch; font-size: 15px; color: var(--texto-suave); text-wrap: pretty; }
 .fecho .botao-loja { margin-top: 24px; }
 .fecho__voltar {
@@ -1203,7 +1217,8 @@ h1, h2, h3, h4, p { margin: 0; }
 .rodape__assinatura {
   margin-bottom: 8px;
   font-family: var(--fonte-titulo);
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: -0.015em;
   font-size: 20px;
   color: var(--grafite);
 }
