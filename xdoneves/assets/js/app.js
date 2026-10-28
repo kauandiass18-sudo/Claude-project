@@ -442,6 +442,59 @@
     }).observe(cv);
   });
 
+  /* ---------------- Fundo: bokeh de luzes desfocadas ---------------- */
+  (function () {
+    var cv = $("[data-bokeh]");
+    if (!cv) return;
+    var ctx = cv.getContext("2d"), luzes = [], w, h, rolagem = 0;
+    var cores = [[255, 170, 60], [255, 120, 30], [255, 205, 90], [230, 70, 30], [255, 150, 70]];
+    function medir() {
+      w = cv.width = Math.round(window.innerWidth * .6);
+      h = cv.height = Math.round(window.innerHeight * .6);
+      cv.style.width = "100%"; cv.style.height = "100%";
+    }
+    function nova() {
+      var prof = Math.random();
+      return {
+        x: Math.random() * w, y: Math.random() * h,
+        r: (10 + prof * 70) * (w < 400 ? .8 : 1),
+        prof: prof, c: cores[Math.floor(Math.random() * cores.length)],
+        a: .05 + (1 - prof) * .12, vx: (Math.random() - .5) * .12, vy: -.04 - Math.random() * .12,
+        f: Math.random() * 6.28
+      };
+    }
+    medir();
+    var total = window.innerWidth < 700 ? 16 : 26;
+    for (var i = 0; i < total; i++) luzes.push(nova());
+    function desenhar() {
+      ctx.clearRect(0, 0, w, h);
+      luzes.forEach(function (l) {
+        var y = ((l.y - rolagem * (.04 + l.prof * .1)) % (h + 2 * l.r) + h + 2 * l.r) % (h + 2 * l.r) - l.r;
+        var brilho = .75 + Math.sin(l.f) * .25;
+        var g = ctx.createRadialGradient(l.x, y, 0, l.x, y, l.r);
+        var c = l.c.join(",");
+        g.addColorStop(0, "rgba(" + c + "," + (l.a * .55 * brilho) + ")");
+        g.addColorStop(.82, "rgba(" + c + "," + (l.a * .75 * brilho) + ")");
+        g.addColorStop(.94, "rgba(" + c + "," + (l.a * brilho) + ")");
+        g.addColorStop(1, "rgba(" + c + ",0)");
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(l.x, y, l.r, 0, 6.283); ctx.fill();
+      });
+    }
+    function quadro() {
+      luzes.forEach(function (l) {
+        l.x += l.vx; l.y += l.vy; l.f += .012;
+        if (l.x < -l.r) l.x = w + l.r; if (l.x > w + l.r) l.x = -l.r;
+      });
+      desenhar();
+      if (!document.hidden) requestAnimationFrame(quadro);
+    }
+    window.addEventListener("resize", function () { medir(); desenhar(); });
+    window.addEventListener("scroll", function () { rolagem = window.scrollY * .6; if (reduzir) desenhar(); }, { passive: true });
+    document.addEventListener("visibilitychange", function () { if (!document.hidden && !reduzir) requestAnimationFrame(quadro); });
+    if (reduzir) desenhar(); else requestAnimationFrame(quadro);
+  })();
+
   /* ---------------- Animações (GSAP) ---------------- */
   var camadas = ["pao-base", "salada", "tomate", "carne", "queijo", "pao-topo"];
   var etapaDe = { "pao-base": 0, salada: 1, tomate: 1, carne: 2, queijo: 3, "pao-topo": 3 };
