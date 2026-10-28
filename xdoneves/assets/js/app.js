@@ -447,7 +447,7 @@
     var cv = $("[data-bokeh]");
     if (!cv) return;
     var ctx = cv.getContext("2d"), luzes = [], w, h, rolagem = 0;
-    var cores = [[255, 214, 120], [140, 220, 160], [255, 190, 90], [180, 235, 190], [255, 225, 150]];
+    var cores = [[255, 220, 140], [255, 190, 100], [255, 235, 180], [255, 170, 80], [255, 210, 120]];
     function medir() {
       w = cv.width = Math.round(window.innerWidth * .6);
       h = cv.height = Math.round(window.innerHeight * .6);
