@@ -471,6 +471,9 @@
   // parallax do banner
   gsap.to("[data-parallax]", { yPercent: 14, rotate: 8, ease: "none", scrollTrigger: { trigger: "[data-banner]", start: "top top", end: "bottom top", scrub: true } });
 
+  // estampa do fundo desliza devagar com o scroll
+  gsap.to(".ambiente__estampa", { y: -260, ease: "none", scrollTrigger: { start: 0, end: "max", scrub: true } });
+
   // contadores
   $$("[data-conta]").forEach(function (el) {
     var alvo = Number(el.getAttribute("data-conta")), milhar = el.hasAttribute("data-milhar"), o = { v: 0 };
