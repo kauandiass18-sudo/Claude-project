@@ -10,6 +10,9 @@ for js in ("config", "arte", "app"):
     html = html.replace(f'<script src="assets/js/{js}.js"></script>', "<script>\n" + src + "</script>")
 html = html.replace("assets/img/logo.webp", logo)
 html = re.sub(r"<title>.*?</title>", "<title>X do Neves</title>", html)
+# versão completa (com <!doctype>) usada dentro da moldura de celular
+(d.parent / "xdoneves-celular").mkdir(exist_ok=True)
+(d.parent / "xdoneves-celular" / "site.html").write_text(html)
 # o publicador cria o esqueleto do documento
 html = re.sub(r"<!doctype html>\s*<html[^>]*>\s*<head>\s*", "", html)
 html = html.replace("</head>", "").replace("<body>", "").replace("</body>", "").replace("</html>", "")

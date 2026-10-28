@@ -1,0 +1,210 @@
+<title>X do Neves no celular</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800;900&display=swap">
+<style>
+  /* Moldura de celular para acompanhar a página do X do Neves em tamanho real (390 × 844) */
+  :root {
+    --fundo: #1E0C06;
+    --brilho: #D8461E;
+    --corpo: #0B0B0C;
+    --aro: #3A3A3E;
+    --texto: #FFFFFF;
+    --texto-2: #F0C9B4;
+    --amarelo: #FFC21A;
+    --fonte: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0; font-family: var(--fonte); color: var(--texto); overflow: hidden;
+    background:
+      radial-gradient(700px 500px at 50% 10%, rgba(216, 70, 30, .55), transparent 70%),
+      radial-gradient(600px 400px at 50% 100%, rgba(255, 194, 26, .12), transparent 70%),
+      var(--fundo);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .palco { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding-block: 12px; }
+  .topo { text-align: center; }
+  .topo h1 { margin: 0; font-size: 18px; font-weight: 900; letter-spacing: -.01em; text-wrap: balance; }
+  .topo p { margin: 4px 0 0; font-size: 13px; color: var(--texto-2); display: inline-flex; align-items: center; gap: 8px; }
+  .ao-vivo { width: 8px; height: 8px; border-radius: 50%; background: #3DDC84; box-shadow: 0 0 0 0 rgba(61, 220, 132, .6); animation: pulso 2s infinite; }
+  @keyframes pulso { 70% { box-shadow: 0 0 0 7px rgba(61, 220, 132, 0); } 100% { box-shadow: 0 0 0 0 rgba(61, 220, 132, 0); } }
+
+  .encaixe { position: relative; flex: none; }
+  .celular {
+    position: absolute; left: 0; top: 0; width: 414px; height: 868px; transform-origin: top left;
+    border-radius: 64px; padding: 12px; background: var(--corpo);
+    box-shadow: 0 0 0 2px var(--aro), 0 0 0 5px #1A1A1C, 0 40px 90px -20px rgba(0, 0, 0, .85), inset 0 0 0 1px rgba(255, 255, 255, .08);
+  }
+  .celular::before, .celular::after { content: ""; position: absolute; width: 4px; border-radius: 2px; background: var(--aro); }
+  .celular::before { left: -7px; top: 170px; height: 64px; box-shadow: 0 84px 0 var(--aro); }
+  .celular::after { right: -7px; top: 210px; height: 100px; }
+  .tela { position: relative; width: 390px; height: 844px; border-radius: 52px; overflow: hidden; background: #D8461E; }
+  .barra-status {
+    position: absolute; inset: 0 0 auto; z-index: 3; height: 50px; display: flex; align-items: center; justify-content: space-between;
+    padding: 6px 34px 0 46px; font-size: 16px; font-weight: 800; letter-spacing: -.01em; color: #fff; pointer-events: none;
+    background: #E05424;
+  }
+  .barra-status svg { height: 13px; }
+  .icones { display: flex; align-items: center; gap: 6px; }
+  .ilha { position: absolute; top: 11px; left: 50%; transform: translateX(-50%); width: 122px; height: 35px; border-radius: 20px; background: #000; z-index: 4; }
+  .tela iframe { position: absolute; left: 0; top: 50px; width: 390px; height: 794px; border: 0; display: block; background: #D8461E; }
+  .indicador { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); width: 134px; height: 5px; border-radius: 3px; background: rgba(255, 255, 255, .85); z-index: 4; pointer-events: none; }
+
+  .controles { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .controles button {
+    font: 700 14px/1 var(--fonte); color: var(--texto); background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14);
+    height: 40px; padding: 0 16px; border-radius: 999px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .controles button:hover { background: rgba(255, 255, 255, .14); }
+  .controles button.ativo { background: var(--amarelo); color: #1E0C06; border-color: var(--amarelo); }
+  .controles button:focus-visible { outline: 2px solid var(--amarelo); outline-offset: 3px; }
+  .controles svg { width: 16px; height: 16px; }
+  .aviso { font-size: 12px; color: var(--texto-2); min-height: 16px; }
+  @media (prefers-reduced-motion: reduce) { .ao-vivo { animation: none; } }
+</style>
+
+<div class="palco">
+  <header class="topo">
+    <h1>X do Neves no celular</h1>
+    <p><i class="ao-vivo" aria-hidden="true"></i><span data-status>Ao vivo · atualiza sozinho quando eu mudo algo</span></p>
+  </header>
+
+  <div class="encaixe" data-encaixe>
+    <div class="celular" data-celular>
+      <div class="tela">
+        <div class="barra-status" aria-hidden="true">
+          <span data-hora>20:07</span>
+          <span class="icones">
+            <svg viewBox="0 0 18 12" fill="#fff"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
+            <svg viewBox="0 0 16 12" fill="#fff"><path d="M8 2.2c2.3 0 4.4.9 6 2.4l1.3-1.4A10.3 10.3 0 0 0 8 .3 10.3 10.3 0 0 0 .7 3.2L2 4.6a8.4 8.4 0 0 1 6-2.4zm0 3.7c1.3 0 2.5.5 3.4 1.3l1.3-1.4A6.8 6.8 0 0 0 8 4a6.8 6.8 0 0 0-4.7 1.8l1.3 1.4C5.5 6.4 6.7 5.9 8 5.9zm0 3.6-1.9 2 1.9 2 1.9-2z"/></svg>
+            <svg viewBox="0 0 27 12" fill="none"><rect x=".5" y=".5" width="23" height="11" rx="3.5" stroke="#fff" stroke-opacity=".5"/><rect x="2" y="2" width="17" height="8" rx="2" fill="#fff"/><path d="M25 4v4c.8-.3 1.5-1 1.5-2s-.7-1.7-1.5-2z" fill="#fff" fill-opacity=".5"/></svg>
+          </span>
+        </div>
+        <div class="ilha" aria-hidden="true"></div>
+        <iframe src="site.html" title="Página do X do Neves no celular" data-site></iframe>
+        <div class="indicador" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="controles">
+    <button type="button" id="btn-tour" data-tour>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span>Passear pela página</span>
+    </button>
+    <button type="button" id="btn-topo" data-topo>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span>Topo</span>
+    </button>
+    <button type="button" id="btn-recarregar" data-recarregar>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg><span>Recarregar</span>
+    </button>
+  </div>
+  <p class="aviso" data-aviso>Role a tela do celular com o dedo ou o mouse e toque nos botões como um cliente.</p>
+</div>
+
+<script>
+(function () {
+  var celular = document.querySelector("[data-celular]");
+  var encaixe = document.querySelector("[data-encaixe]");
+  var site = document.querySelector("[data-site]");
+  var aviso = document.querySelector("[data-aviso]");
+  var status = document.querySelector("[data-status]");
+  var W = 414, H = 868;
+
+  // encaixa o celular inteiro na tela, em qualquer tamanho de janela
+  function encaixar() {
+    var livreH = window.innerHeight - 200;
+    var livreW = document.body.clientWidth - 32;
+    var e = Math.min(1, livreH / H, livreW / W);
+    celular.style.transform = "scale(" + e + ")";
+    encaixe.style.width = W * e + "px";
+    encaixe.style.height = H * e + "px";
+  }
+  window.addEventListener("resize", encaixar);
+  encaixar();
+
+  // relógio da barra de status
+  function hora() {
+    var d = new Date();
+    document.querySelector("[data-hora]").textContent = d.getHours() + ":" + String(d.getMinutes()).padStart(2, "0");
+  }
+  hora(); setInterval(hora, 15000);
+
+  function janela() { try { return site.contentWindow; } catch (e) { return null; } }
+
+  // passeio automático: rola a página do topo ao fim, devagar
+  var passeando = false, raf = 0;
+  var btnTour = document.querySelector("[data-tour]");
+  function pararTour() {
+    passeando = false; cancelAnimationFrame(raf);
+    btnTour.classList.remove("ativo");
+    btnTour.querySelector("span").textContent = "Passear pela página";
+  }
+  btnTour.addEventListener("click", function () {
+    var w = janela();
+    if (!w) return;
+    if (passeando) { pararTour(); return; }
+    passeando = true;
+    btnTour.classList.add("ativo");
+    btnTour.querySelector("span").textContent = "Parar";
+    var ultimo = performance.now();
+    function passo(t) {
+      if (!passeando) return;
+      var dt = Math.min(50, t - ultimo); ultimo = t;
+      var doc = w.document.documentElement;
+      var fim = doc.scrollHeight - w.innerHeight;
+      if (w.scrollY >= fim - 2) { pararTour(); return; }
+      w.scrollTo(0, w.scrollY + dt * .22);
+      raf = requestAnimationFrame(passo);
+    }
+    raf = requestAnimationFrame(passo);
+  });
+  ["wheel", "touchstart"].forEach(function (ev) {
+    site.addEventListener("load", function () {
+      var w = janela();
+      if (w) w.addEventListener(ev, function () { if (passeando) pararTour(); }, { passive: true });
+    });
+  });
+
+  document.querySelector("[data-topo]").addEventListener("click", function () {
+    pararTour();
+    var w = janela();
+    if (w) w.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // recarrega mantendo a posição
+  var posicao = 0;
+  function recarregar(motivo) {
+    var w = janela();
+    posicao = w ? w.scrollY : 0;
+    pararTour();
+    site.src = "site.html?v=" + Date.now();
+    if (motivo) aviso.textContent = motivo;
+  }
+  site.addEventListener("load", function () {
+    var w = janela();
+    if (w && posicao) setTimeout(function () { w.scrollTo(0, posicao); }, 400);
+  });
+  document.querySelector("[data-recarregar]").addEventListener("click", function () { recarregar(""); });
+
+  // ao vivo: confere de tempos em tempos se a página mudou e recarrega sozinho
+  var assinatura = null;
+  function conferir() {
+    fetch("site.html", { cache: "no-store" }).then(function (r) { return r.ok ? r.text() : null; }).then(function (t) {
+      if (t == null) return;
+      var s = t.length + ":" + t.slice(-400);
+      if (assinatura && s !== assinatura) {
+        var d = new Date();
+        recarregar("Atualizei às " + d.getHours() + ":" + String(d.getMinutes()).padStart(2, "0") + ". Você já está vendo a versão nova.");
+        status.textContent = "Ao vivo · última mudança às " + d.getHours() + ":" + String(d.getMinutes()).padStart(2, "0");
+      }
+      assinatura = s;
+    }).catch(function () {});
+  }
+  conferir(); setInterval(conferir, 12000);
+})();
+</script>
