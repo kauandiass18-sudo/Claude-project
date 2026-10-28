@@ -19,6 +19,18 @@
 <body>
   <a class="pular" href="#cardapio">Pular para o cardápio</a>
 
+  <!-- Abertura animada -->
+  <div class="intro" data-intro aria-hidden="true">
+    <div class="intro__in">
+      <img class="intro__logo" src="assets/img/logo.webp" alt="" width="120" height="120">
+      <p class="intro__txt">Esquentando a chapa</p>
+      <span class="intro__barra"><i></i></span>
+    </div>
+  </div>
+
+  <!-- Progresso da leitura -->
+  <div class="progresso" aria-hidden="true"><i data-progresso></i></div>
+
   <!-- Fundo animado -->
   <div class="ambiente" aria-hidden="true">
     <img class="ambiente__foto" src="assets/img/logo.webp" alt="">
@@ -56,7 +68,7 @@
     <section class="abertura">
       <div class="abertura__txt">
         <p class="saudacao revelar">Bateu a fome? <span aria-hidden="true">👋</span></p>
-        <h1 class="titulo-mega revelar">Xis de verdade, <span class="script">feito na hora.</span></h1>
+        <h1 class="titulo-mega revelar" data-quebrar>Xis de verdade, <span class="script">feito na hora.</span></h1>
         <p class="abertura__sub revelar">14 sabores de xis, burgers artesanais, pastéis e porções. No local ou no conforto da sua casa: monte o pedido aqui e ele chega pronto no nosso WhatsApp.</p>
 
         <form class="busca revelar" role="search" data-form-busca>
@@ -83,12 +95,19 @@
         </div>
         <div class="banner__visual" data-parallax>
           <span class="banner__anel" aria-hidden="true"></span>
+          <svg class="vapor" viewBox="0 0 120 120" aria-hidden="true"><path d="M30 110c-10-16 10-26 0-42s10-26 0-42"/><path d="M60 110c-10-16 10-26 0-42s10-26 0-42"/><path d="M90 110c-10-16 10-26 0-42s10-26 0-42"/></svg>
           <img class="banner__foto" src="assets/img/logo.webp" alt="Xis do X do Neves com queijo derretido" width="344" height="344">
           <span class="flutua flutua--a" aria-hidden="true">🔥 <b>14</b> sabores</span>
           <span class="flutua flutua--b" aria-hidden="true">🛵 Delivery</span>
         </div>
       </div>
     </section>
+
+    <!-- Faixas cruzadas -->
+    <div class="faixas" aria-hidden="true">
+      <div class="faixa faixa--amarela"><div class="faixa__trilho" data-faixa="Xis|Burgers artesanais|Pastéis|Porções|Bebidas|Delivery rápido"></div></div>
+      <div class="faixa faixa--escura"><div class="faixa__trilho faixa__trilho--volta" data-faixa="Feito na hora|14 sabores de xis|Faxinal dos Guedes|Em frente ao campo|Peça pelo WhatsApp"></div></div>
+    </div>
 
     <!-- Categorias -->
     <nav class="cats" aria-label="Categorias do cardápio" data-cats></nav>
@@ -109,6 +128,7 @@
         <h2 id="t-oferta" class="oferta__titulo" data-oferta-titulo>Double Xis Bacon</h2>
         <p class="oferta__texto" data-oferta-texto></p>
         <p class="oferta__preco" data-oferta-preco></p>
+        <p class="oferta__relogio" data-relogio></p>
         <button class="btn btn--amarelo" type="button" data-oferta-btn>Quero esse
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </button>
@@ -121,7 +141,7 @@
       <div class="montagem__palco">
         <div class="montagem__txt">
           <p class="eyebrow">Feito na hora</p>
-          <h2 id="t-montagem" class="titulo-grande">Camada por camada, <span class="script">do jeito certo.</span></h2>
+          <h2 id="t-montagem" class="titulo-grande" data-quebrar>Camada por camada, <span class="script">do jeito certo.</span></h2>
           <ol class="etapas" data-etapas>
             <li data-etapa="0"><b>01</b><span><strong>Pão selado na chapa</strong><em>Macio por dentro, douradinho por fora.</em></span></li>
             <li data-etapa="1"><b>02</b><span><strong>Salada fresca do dia</strong><em>Alface crocante e tomate cortado na hora.</em></span></li>
@@ -131,6 +151,7 @@
         </div>
         <div class="montagem__visual">
           <span class="montagem__brilho" aria-hidden="true"></span>
+          <svg class="vapor vapor--montagem" data-vapor-montagem viewBox="0 0 120 120" aria-hidden="true"><path d="M30 110c-10-16 10-26 0-42s10-26 0-42"/><path d="M60 110c-10-16 10-26 0-42s10-26 0-42"/><path d="M90 110c-10-16 10-26 0-42s10-26 0-42"/></svg>
           <div class="montagem__burger" data-burger-montagem></div>
         </div>
       </div>
@@ -145,10 +166,11 @@
 
     <!-- Cardápio completo -->
     <section class="bloco cardapio" id="cardapio" aria-labelledby="t-cardapio">
+      <span class="marca-dagua" aria-hidden="true" data-dagua>Cardápio</span>
       <div class="bloco__cab bloco__cab--grande">
         <div>
           <p class="eyebrow">Cardápio</p>
-          <h2 id="t-cardapio" class="titulo-grande">Escolha o seu.</h2>
+          <h2 id="t-cardapio" class="titulo-grande" data-quebrar>Escolha o seu.</h2>
         </div>
         <p class="bloco__nota">Toque no <b>+</b> para personalizar e adicionar ao pedido.</p>
       </div>
@@ -159,8 +181,9 @@
 
     <!-- Como pedir -->
     <section class="bloco como" id="como-pedir" aria-labelledby="t-como">
+      <span class="marca-dagua" aria-hidden="true" data-dagua>Pediu, chegou</span>
       <p class="eyebrow">Como pedir</p>
-      <h2 id="t-como" class="titulo-grande">Pedido pronto em <span class="script">um minuto.</span></h2>
+      <h2 id="t-como" class="titulo-grande" data-quebrar>Pedido pronto em <span class="script">um minuto.</span></h2>
       <ol class="passos">
         <li class="passo revelar"><span class="passo__n">1</span><h3>Escolha</h3><p>Navegue pelo cardápio e toque no <b>+</b> do que der vontade.</p></li>
         <li class="passo revelar"><span class="passo__n">2</span><h3>Personalize</h3><p>Adicione bacon, ovo, cheddar ou peça pra tirar o que não curte.</p></li>
@@ -205,7 +228,7 @@
     <!-- Dúvidas -->
     <section class="bloco duvidas" id="duvidas" aria-labelledby="t-duvidas">
       <p class="eyebrow">Dúvidas</p>
-      <h2 id="t-duvidas" class="titulo-grande">Perguntas rápidas.</h2>
+      <h2 id="t-duvidas" class="titulo-grande" data-quebrar>Perguntas rápidas.</h2>
       <div class="faq" data-faq></div>
     </section>
 

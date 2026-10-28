@@ -281,6 +281,7 @@
     if (existente) existente.qtd += qtd;
     else pedido.push({ chave: chave, id: atual.id, qtd: qtd, adic: adic, obs: obs, unit: unit });
     salvar();
+    voarParaSacola($("[data-item-img]"));
     atualizarPedido(true);
     fecharFolha($('[data-folha="item"]'));
     avisar("✅ " + qtd + "× " + atual.nome + " no pedido");
@@ -495,6 +496,109 @@
     if (reduzir) desenhar(); else requestAnimationFrame(quadro);
   })();
 
+  /* ---------------- Lanche voando até a sacola ---------------- */
+  function voarParaSacola(origem) {
+    if (reduzir || !origem || !origem.animate) return;
+    var alvos = $$("[data-abrir-carrinho]").filter(function (b) { var r = b.getBoundingClientRect(); return r.width && r.top < window.innerHeight && r.bottom > 0 && getComputedStyle(b).visibility !== "hidden"; });
+    var alvo = alvos.filter(function (b) { return b.closest(".tabbar") && getComputedStyle(b.closest(".tabbar")).display !== "none"; })[0] || $(".sacola-btn");
+    var de = origem.getBoundingClientRect(), para = alvo.getBoundingClientRect();
+    var lado = Math.min(de.width, de.height) * .7;
+    var v = document.createElement("div");
+    v.className = "voando";
+    v.innerHTML = origem.innerHTML;
+    v.style.width = v.style.height = lado + "px";
+    v.style.left = de.left + (de.width - lado) / 2 + "px";
+    v.style.top = de.top + (de.height - lado) / 2 + "px";
+    document.body.appendChild(v);
+    var dx = para.left + para.width / 2 - (de.left + de.width / 2);
+    var dy = para.top + para.height / 2 - (de.top + de.height / 2);
+    v.animate([
+      { transform: "translate(0,0) scale(1) rotate(0)", opacity: 1 },
+      { transform: "translate(" + dx * .5 + "px," + (dy * .5 - 120) + "px) scale(.55) rotate(-12deg)", opacity: 1, offset: .55 },
+      { transform: "translate(" + dx + "px," + dy + "px) scale(.08) rotate(-30deg)", opacity: .6 }
+    ], { duration: 900, easing: "cubic-bezier(.5,0,.3,1)" }).onfinish = function () {
+      v.remove();
+      if (alvo.animate) alvo.animate([{ transform: "scale(1)" }, { transform: "scale(1.25)" }, { transform: "scale(1)" }], { duration: 380, easing: "ease-out" });
+    };
+  }
+
+  /* ---------------- Faixas cruzadas ---------------- */
+  $$("[data-faixa]").forEach(function (t) {
+    var itens = t.getAttribute("data-faixa").split("|").map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("");
+    t.innerHTML = itens + itens + itens + itens;
+  });
+
+  /* ---------------- Barra de progresso ---------------- */
+  var barraProg = $("[data-progresso]");
+  function progresso() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    barraProg.style.transform = "scaleX(" + (max > 0 ? Math.min(1, window.scrollY / max) : 0) + ")";
+  }
+  window.addEventListener("scroll", progresso, { passive: true });
+  progresso();
+
+  /* ---------------- Relógio da oferta de terça ---------------- */
+  var relogio = $("[data-relogio]");
+  function doisDig(n) { return String(n).padStart(2, "0"); }
+  function atualizarRelogio() {
+    var agora = new Date(), dia = agora.getDay();
+    if (dia === 2) {
+      var fim = new Date(agora); fim.setHours(23, 59, 59, 999);
+      var seg = Math.max(0, Math.floor((fim - agora) / 1000));
+      relogio.textContent = "Só hoje · termina em " + doisDig(Math.floor(seg / 3600)) + ":" + doisDig(Math.floor(seg % 3600 / 60)) + ":" + doisDig(seg % 60);
+    } else {
+      var faltam = (2 - dia + 7) % 7;
+      relogio.textContent = faltam === 1 ? "Volta amanhã" : "Volta em " + faltam + " dias";
+    }
+  }
+  atualizarRelogio(); setInterval(atualizarRelogio, 1000);
+
+  /* ---------------- Inclinação 3D e reflexo (mouse) ---------------- */
+  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !reduzir) {
+    document.addEventListener("pointermove", function (e) {
+      var c = e.target.closest && e.target.closest(".prod, .banner, .oferta");
+      if (!c) return;
+      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      var forca = c.classList.contains("prod") ? 10 : 4;
+      c.style.transform = "perspective(900px) rotateX(" + ((.5 - y) * forca) + "deg) rotateY(" + ((x - .5) * forca) + "deg) translateY(-4px)";
+      c.style.setProperty("--mx", x * 100 + "%");
+      c.style.setProperty("--my", y * 100 + "%");
+    });
+    document.addEventListener("pointerout", function (e) {
+      var c = e.target.closest && e.target.closest(".prod, .banner, .oferta");
+      if (c && !c.contains(e.relatedTarget)) c.style.transform = "";
+    });
+  }
+
+  /* ---------------- Abertura animada ---------------- */
+  var intro = $("[data-intro]");
+  var inicioIntro = performance.now();
+  function tirarIntro() {
+    if (!intro || intro.classList.contains("saiu")) return;
+    var espera = Math.max(0, 1150 - (performance.now() - inicioIntro));
+    setTimeout(function () { intro.classList.add("saiu"); setTimeout(function () { intro.remove(); }, 700); }, espera);
+  }
+  if (reduzir) { if (intro) intro.remove(); }
+  else if (document.readyState === "complete") tirarIntro();
+  else { window.addEventListener("load", tirarIntro); setTimeout(tirarIntro, 2600); }
+
+  /* ---------------- Quebra de títulos em palavras ---------------- */
+  function quebrar(el) {
+    Array.prototype.slice.call(el.childNodes).forEach(function (n) {
+      if (n.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (pedaco) {
+          if (!pedaco) return;
+          if (/^\s+$/.test(pedaco)) { frag.appendChild(document.createTextNode(" ")); return; }
+          var w = document.createElement("span"); w.className = "palavra";
+          var i = document.createElement("span"); i.textContent = pedaco;
+          w.appendChild(i); frag.appendChild(w);
+        });
+        n.parentNode.replaceChild(frag, n);
+      } else if (n.nodeType === 1 && n.tagName !== "BR") quebrar(n);
+    });
+  }
+
   /* ---------------- Animações (GSAP) ---------------- */
   var camadas = ["pao-base", "salada", "tomate", "carne", "queijo", "pao-topo"];
   var etapaDe = { "pao-base": 0, salada: 1, tomate: 1, carne: 2, queijo: 3, "pao-topo": 3 };
@@ -509,10 +613,25 @@
   var gsap = window.gsap;
   gsap.registerPlugin(window.ScrollTrigger);
 
-  // entrada da abertura
-  gsap.to(".abertura .revelar", { opacity: 1, y: 0, duration: .9, ease: "power3.out", stagger: .1, delay: .1 });
-  gsap.from(".banner__foto", { scale: .6, rotate: -25, opacity: 0, duration: 1.3, ease: "back.out(1.4)", delay: .35 });
-  gsap.from(".cat", { opacity: 0, y: 20, duration: .6, stagger: .06, ease: "power2.out", delay: .6 });
+  // entrada da abertura (depois da tela de carregamento)
+  var atraso = intro ? 1.25 : .1;
+  $$("[data-quebrar]").forEach(quebrar);
+  gsap.to(".abertura .revelar", { opacity: 1, y: 0, duration: .9, ease: "power3.out", stagger: .1, delay: atraso });
+  gsap.from(".abertura .palavra > span", { yPercent: 110, rotate: 4, duration: 1, ease: "power4.out", stagger: .06, delay: atraso });
+  gsap.from(".banner__foto", { scale: .6, rotate: -25, opacity: 0, duration: 1.3, ease: "back.out(1.4)", delay: atraso + .25 });
+  gsap.from(".cat", { opacity: 0, y: 20, duration: .6, stagger: .06, ease: "power2.out", delay: atraso + .5 });
+  gsap.from(".faixa", { xPercent: function (i) { return i ? 30 : -30; }, opacity: 0, duration: 1.2, ease: "power3.out", delay: atraso + .3 });
+
+  // títulos das seções: palavras sobem quando aparecem
+  $$("[data-quebrar]").forEach(function (t) {
+    if (t.closest(".abertura")) return;
+    gsap.from(t.querySelectorAll(".palavra > span"), { yPercent: 110, rotate: 3, duration: .9, ease: "power4.out", stagger: .05, scrollTrigger: { trigger: t, start: "top 88%" } });
+  });
+
+  // marca d'água desliza na horizontal
+  $$("[data-dagua]").forEach(function (m) {
+    gsap.fromTo(m, { xPercent: 4 }, { xPercent: -28, ease: "none", scrollTrigger: { trigger: m.parentNode, start: "top bottom", end: "bottom top", scrub: true } });
+  });
 
   // revelar no scroll
   $$(".revelar").forEach(function (el) {
@@ -546,6 +665,7 @@
         var t = tl.time(), n = -1;
         camadas.forEach(function (c, i) { if (t >= i * .9 + .5) n = Math.max(n, etapaDe[c]); });
         marcarEtapa(n);
+        $("[data-vapor-montagem]").classList.toggle("on", st.progress > .85);
       }
     }
   });
