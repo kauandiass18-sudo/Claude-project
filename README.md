@@ -15,11 +15,6 @@ Site de **link na bio** pensado para celular, com cara de salão de cabelo.
    em estilo vitrine (dois cards lado a lado, cada um dizendo o que o produto
    faz), uma frase sobre o que cada categoria faz (`descricoesCategorias`, em
    `data/ybera.js`) e o botão **"Ver a loja completa"** com o link de parceira.
-   No alto da Loja Ybera, um produto flutua inclinado (hoje a Escova
-   Progressiva 500g): é link para o produto e mostra nome, preço e o selo
-   "Mais vendido" quando ele está no ranking. Para trocar, rode a tarefa
-   *Recortar foto do produto em destaque* (aba Actions → Run workflow → número
-   do produto) e mude `produtoDestaque` em `data/ybera.js`.
 3. **Mercado Livre, Shopee e Shein:** páginas de achadinhos. Enquanto estiverem
    sem produtos, mostram "Em breve" e um botão para a Loja Ybera.
 
