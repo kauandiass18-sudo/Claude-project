@@ -47,7 +47,14 @@ jobs:
           print("foto original:", len(dados), "bytes")
           sem_fundo = remove(dados, session=new_session("isnet-general-use"))
           im = Image.open(io.BytesIO(sem_fundo)).convert("RGBA")
-          im = im.crop(im.getbbox())
+          # Corta pelo que é visível de verdade (ignora sombra quase transparente)
+          alfa = im.getchannel("A")
+          alfa = alfa.point(lambda v: 0 if v < 24 else v)
+          im.putalpha(alfa)
+          caixa = alfa.point(lambda v: 255 if v > 80 else 0).getbbox()
+          folga = 12
+          caixa = (max(caixa[0] - folga, 0), max(caixa[1] - folga, 0), min(caixa[2] + folga, im.width), min(caixa[3] + folga, im.height))
+          im = im.crop(caixa)
           im.thumbnail((1000, 1000), Image.LANCZOS)
           os.makedirs("assets/img/destaque", exist_ok=True)
           destino = f"assets/img/destaque/ybera-{pid}.webp"
