@@ -429,6 +429,18 @@ h1, h2, h3, h4, p { margin: 0; }
   background: rgba(255, 255, 255, .1);
   color: #D8BE8A;
 }
+/* Círculo branco com "YBERA" em preto, no botão da Loja Ybera */
+.botao-marca--principal { grid-template-columns: 54px 1fr 20px; padding-left: 10px; }
+.botao-marca--principal .botao-marca__icone--ybera {
+  width: 54px; height: 54px;
+  background: var(--branco);
+  color: var(--grafite);
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 10.5px;
+  letter-spacing: 0;
+  line-height: 1;
+}
 .botao-marca--principal .botao-marca__sub { color: rgba(255, 255, 255, .72); }
 .botao-marca--principal .botao-marca__seta { color: var(--branco); }
 @media (hover: hover) {
