@@ -23,7 +23,7 @@ permissions:
 jobs:
   recortar:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
     env:
       PRODUTO: ${{ github.event.inputs.produto || '150264' }}
     steps:
@@ -42,36 +42,61 @@ jobs:
           pid = os.environ["PRODUTO"].strip()
           cat = json.load(open("data/ybera-catalogo.json", encoding="utf-8"))
           prod = next(p for p in cat["produtos"] if p["id"] == pid)
-          url = re.sub(r"\?.*$", "", prod["imagem"]) + "?w=1400&h=1400"
           ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
-          dados = urllib.request.urlopen(urllib.request.Request(url, headers={"user-agent": ua}), timeout=60).read()
-          print("foto original:", len(dados), "bytes")
-          sem_fundo = remove(dados, session=new_session("isnet-general-use"))
-          im = Image.open(io.BytesIO(sem_fundo)).convert("RGBA")
-          # Segurança: se o fundo não saiu (quase tudo opaco), não salva nada
-          opacos = sum(1 for v in im.getchannel("A").getdata() if v > 200) / (im.width * im.height)
-          print("parte opaca:", round(opacos, 2))
-          if opacos > 0.6:
-              raise SystemExit("o fundo não foi removido direito; nada foi salvo")
+          base = re.sub(r"\?.*$", "", prod["imagem"])
+          # Pega a maior versão da foto que a loja tiver
+          melhor = None
+          for lado in (4000, 3000, 2400, 2000, 1400):
+              try:
+                  bruto = urllib.request.urlopen(urllib.request.Request(f"{base}?w={lado}&h={lado}", headers={"user-agent": ua}), timeout=60).read()
+                  tam = Image.open(io.BytesIO(bruto)).size
+                  print(f"pedido {lado}px → recebido {tam}, {len(bruto)} bytes")
+                  if not melhor or tam[0] > melhor[1][0]:
+                      melhor = (bruto, tam)
+              except Exception as e:
+                  print(f"pedido {lado}px falhou: {e}")
+          dados, tam = melhor
+          print("usando foto de", tam)
+          # Tira o fundo: tenta o recortador mais caprichado primeiro
+          im = None
+          for modelo in ("birefnet-general", "isnet-general-use", "u2net"):
+              try:
+                  teste = Image.open(io.BytesIO(remove(dados, session=new_session(modelo)))).convert("RGBA")
+              except Exception as e:
+                  print(modelo, "falhou:", e)
+                  continue
+              opacos = sum(1 for v in teste.getchannel("A").getdata() if v > 200) / (teste.width * teste.height)
+              print(modelo, "parte opaca:", round(opacos, 3))
+              if 0.04 < opacos < 0.5:
+                  im = teste
+                  print("recorte escolhido:", modelo)
+                  break
+          if im is None:
+              raise SystemExit("nenhum recorte tirou o fundo direito; nada foi salvo")
           # Corta pelo que é visível de verdade (ignora sombra quase transparente)
           alfa = im.getchannel("A")
           alfa = alfa.point(lambda v: 0 if v < 24 else v)
           im.putalpha(alfa)
           caixa = alfa.point(lambda v: 255 if v > 80 else 0).getbbox()
-          folga = 12
+          folga = 16
           caixa = (max(caixa[0] - folga, 0), max(caixa[1] - folga, 0), min(caixa[2] + folga, im.width), min(caixa[3] + folga, im.height))
           im = im.crop(caixa)
-          # Acabamento: um pouco mais de contraste, cor e nitidez
+          print("produto recortado:", im.size)
+          # Tamanho final: 2000px de altura (nítido mesmo em celular de tela fina)
           from PIL import ImageEnhance, ImageFilter
+          if im.height < 2000:
+              fator = 2000 / im.height
+              im = im.resize((round(im.width * fator), 2000), Image.LANCZOS)
+          else:
+              im.thumbnail((4000, 2000), Image.LANCZOS)
+          # Acabamento leve (as cores ficam por conta do site): nitidez e contraste
           rgb, a = im.convert("RGB"), im.getchannel("A")
-          rgb = ImageEnhance.Contrast(rgb).enhance(1.08)
-          rgb = ImageEnhance.Color(rgb).enhance(1.12)
-          rgb = rgb.filter(ImageFilter.UnsharpMask(radius=2, percent=60, threshold=2))
+          rgb = ImageEnhance.Contrast(rgb).enhance(1.05)
+          rgb = rgb.filter(ImageFilter.UnsharpMask(radius=2.4, percent=90, threshold=2))
           im = Image.merge("RGBA", (*rgb.split(), a))
-          im.thumbnail((1600, 1600), Image.LANCZOS)
           os.makedirs("assets/img/destaque", exist_ok=True)
           destino = f"assets/img/destaque/ybera-{pid}.webp"
-          im.save(destino, "WEBP", quality=88, method=6)
+          im.save(destino, "WEBP", quality=92, method=6, alpha_quality=100)
           print("salvo:", destino, im.size, os.path.getsize(destino), "bytes")
       - name: Salvar
         run: |
