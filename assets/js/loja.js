@@ -698,6 +698,17 @@
     }
   }
 
+  /* ---------- Produto flutuando no fundo ----------
+     Só decoração: fica atrás de todo o conteúdo e não recebe toques. */
+  const fundoProduto = $("[data-fundo-produto]");
+  const fotoFundo = imagemSegura((loja.produtoFundo || {}).imagem);
+  if (fundoProduto && fotoFundo) {
+    const img = el("img", { src: fotoFundo, alt: "", decoding: "async" });
+    img.addEventListener("load", () => { fundoProduto.hidden = false; }, { once: true });
+    img.addEventListener("error", () => fundoProduto.remove(), { once: true });
+    fundoProduto.replaceChildren(img);
+  }
+
   renderCategorias();
   renderDestaques();
   renderLista();

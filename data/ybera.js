@@ -64,6 +64,13 @@ window.LOJAS.ybera = {
   // "Mais vendidos" da loja da Ybera (atualizado todo dia).
   produtosPorCategoria: 6,
 
+  // Produto que flutua no fundo da Loja Ybera, atrás de tudo (só decoração).
+  // A foto sem fundo é feita pela tarefa .github/workflows/recorte-destaque.yml
+  // (aba Actions → Run workflow → número do produto). Vazio = sem produto no fundo.
+  produtoFundo: {
+    imagem: "assets/img/destaque/ybera-150264.webp"
+  },
+
   // Nome curto de cada categoria nos botões de filtro (opcional).
   // Sem nome aqui, aparece o nome inteiro da categoria.
   rotulosCategorias: {

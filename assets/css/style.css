@@ -76,6 +76,34 @@ body {
   flex-direction: column;
 }
 
+/* Produto flutuando no fundo da Loja Ybera: atrás de tudo, inclinado,
+   subindo e descendo devagar. No celular aparece pela lateral direita,
+   atrás dos cards; no computador ocupa a margem livre ao lado. */
+.fundo-produto {
+  position: fixed;
+  top: calc(var(--altura-cabecalho) + 4vh);
+  right: -18vw;
+  z-index: -1;
+  height: 78vh;
+  height: 78svh;
+  pointer-events: none;
+  opacity: .55;
+  animation: fundo-flutuar 9s ease-in-out infinite;
+}
+.fundo-produto img {
+  width: auto;
+  height: 100%;
+  max-width: none;
+  filter: drop-shadow(0 40px 40px rgba(9, 20, 19, .16));
+}
+@keyframes fundo-flutuar {
+  0%, 100% { transform: translateY(0) rotate(-14deg); }
+  50%      { transform: translateY(-18px) rotate(-11deg); }
+}
+@media (min-width: 768px) {
+  .fundo-produto { right: max(2vw, calc(50% - 380px - 320px)); opacity: .9; height: 82vh; }
+}
+
 /* Fios de cabelo do fundo (assets/js/fios.js): textura, não cor */
 .fios {
   position: fixed;
@@ -1256,6 +1284,7 @@ h1, h2, h3, h4, p { margin: 0; }
 
 /* ---------- Acessibilidade: menos movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
+  .fundo-produto { animation: none !important; transform: rotate(-14deg); }
   *, *::before, *::after {
     animation-duration: .01ms !important;
     animation-delay: 0ms !important;
