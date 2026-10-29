@@ -76,32 +76,42 @@ body {
   flex-direction: column;
 }
 
-/* Produto flutuando no fundo da Loja Ybera: atrás de tudo, inclinado,
-   subindo e descendo devagar. No celular aparece pela lateral direita,
-   atrás dos cards; no computador ocupa a margem livre ao lado. */
+/* Produto flutuando no fundo da Loja Ybera: atrás de tudo, centralizado
+   no meio do catálogo, inclinado, subindo e descendo devagar. */
 .fundo-produto {
   position: fixed;
-  top: calc(var(--altura-cabecalho) + 4vh);
-  right: -18vw;
+  top: calc(var(--altura-cabecalho) + 7vh);
+  left: 0;
+  right: 0;
   z-index: -1;
-  height: 78vh;
-  height: 78svh;
+  display: flex;
+  justify-content: center;
+  height: 76vh;
+  height: 76svh;
   pointer-events: none;
-  opacity: .55;
-  animation: fundo-flutuar 9s ease-in-out infinite;
 }
 .fundo-produto img {
   width: auto;
   height: 100%;
   max-width: none;
-  filter: drop-shadow(0 40px 40px rgba(9, 20, 19, .16));
+  /* cor mais forte: mais saturação e contraste */
+  filter: saturate(1.45) contrast(1.12) drop-shadow(0 40px 40px rgba(9, 20, 19, .2));
+  animation: fundo-flutuar 9s ease-in-out infinite;
 }
 @keyframes fundo-flutuar {
   0%, 100% { transform: translateY(0) rotate(-14deg); }
   50%      { transform: translateY(-18px) rotate(-11deg); }
 }
 @media (min-width: 768px) {
-  .fundo-produto { right: max(5vw, calc(50% - 380px - 330px)); opacity: .9; height: 74vh; }
+  .fundo-produto { height: 80vh; }
+}
+/* Textos soltos por cima do produto do fundo: um halo da cor do fundo
+   mantém a leitura mesmo em cima do rótulo dourado */
+.tema-ybera .loja__hero,
+.tema-ybera .chips__titulo,
+.tema-ybera .grupo__descricao,
+.tema-ybera .nota-precos {
+  text-shadow: 0 0 2px var(--fundo), 0 0 10px var(--fundo), 0 0 18px var(--fundo);
 }
 
 /* Fios de cabelo do fundo (assets/js/fios.js): textura, não cor */
@@ -1284,7 +1294,7 @@ h1, h2, h3, h4, p { margin: 0; }
 
 /* ---------- Acessibilidade: menos movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
-  .fundo-produto { animation: none !important; transform: rotate(-14deg); }
+  .fundo-produto img { animation: none !important; transform: rotate(-14deg); }
   *, *::before, *::after {
     animation-duration: .01ms !important;
     animation-delay: 0ms !important;
