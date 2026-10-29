@@ -31,7 +31,7 @@
     gravar: function (k, v) { try { localStorage.setItem("xn-" + k, JSON.stringify(v)); } catch (e) { /* sem armazenamento */ } }
   };
 
-  var icoMais = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  var icoMais = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
   var icoCoracao = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-8.8-8.6C1.8 8 4 4.8 7.2 4.8c1.9 0 3.3 1 4.8 2.8 1.5-1.8 2.9-2.8 4.8-2.8 3.2 0 5.4 3.2 4 6.6C19 15.6 12 20 12 20z"/></svg>';
 
   /* ---------------- Favoritos ---------------- */
@@ -52,8 +52,10 @@
   $("[data-rodape-endereco]").textContent = loja.endereco + " (" + loja.referencia.toLowerCase() + ") · " + loja.cidade;
   $("[data-insta-user]").textContent = loja.instagramUser;
   $("[data-seguidores]").textContent = loja.seguidores;
-  $("[data-instagram]").href = loja.instagram;
-  $("[data-mapa]").href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(C.loja.nomeCompleto + ", " + loja.endereco + ", Faxinal dos Guedes, SC");
+  $$("[data-instagram]").forEach(function (a) { a.href = loja.instagram; });
+  var linkMapa = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(C.loja.nomeCompleto + ", " + loja.endereco + ", Faxinal dos Guedes, SC");
+  $$("[data-mapa]").forEach(function (a) { a.href = linkMapa; });
+  $("[data-rodape-horarios]").innerHTML = loja.horarios.map(function (h) { return "<span>" + esc(h) + "</span>"; }).join("");
   $("[data-ano]").textContent = new Date().getFullYear();
   if (C.previa) $("[data-aviso-previa]").hidden = false;
 
@@ -174,7 +176,7 @@
   var toastT;
   function avisar(msg) {
     var t = $("[data-toast]");
-    t.textContent = msg;
+    t.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>' + esc(msg);
     t.classList.add("on");
     clearTimeout(toastT);
     toastT = setTimeout(function () { t.classList.remove("on"); }, 2200);
@@ -240,6 +242,7 @@
     }).join("");
     $("[data-item-obs]").value = "";
     atualizarTotalItem();
+    desenharJunto(p);
     abrirFolha("item");
     $('[data-folha="item"] .folha__painel').scrollTop = 0;
   }
@@ -248,7 +251,7 @@
     if (fav) {
       e.stopPropagation();
       var on = alternarFav(fav.getAttribute("data-fav-id"));
-      avisar(on ? "❤️ Salvo nos favoritos" : "Removido dos favoritos");
+      avisar(on ? "Salvo nos favoritos" : "Removido dos favoritos");
       return;
     }
     var b = e.target.closest("[data-abrir-item]");
@@ -284,7 +287,7 @@
     voarParaSacola($("[data-item-img]"));
     atualizarPedido(true);
     fecharFolha($('[data-folha="item"]'));
-    avisar("✅ " + qtd + "× " + atual.nome + " no pedido");
+    avisar(qtd + "× " + atual.nome + " adicionado ao pedido");
   });
 
   function atualizarPedido(pulou) {
@@ -367,7 +370,7 @@
       return;
     }
     aviso.hidden = true;
-    var linhas = ["Olá, X do Neves! 🍔 Quero fazer um pedido:", ""];
+    var linhas = ["Olá, X do Neves! Quero fazer um pedido:", ""];
     pedido.forEach(function (l) {
       var p = porId[l.id];
       linhas.push("• " + l.qtd + "x " + p.nome + " — " + real(l.unit * l.qtd));
@@ -414,10 +417,10 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     function nova(inicio) {
-      return { x: w * (.35 + Math.random() * .65), y: inicio ? Math.random() * h : h + 10, r: .6 + Math.random() * 2.2, v: .25 + Math.random() * .9, d: (Math.random() - .5) * .5, f: Math.random() * 6.28, a: .4 + Math.random() * .6 };
+      return { x: w * (.35 + Math.random() * .65), y: inicio ? Math.random() * h : h + 10, r: .5 + Math.random() * 1.5, v: .25 + Math.random() * .9, d: (Math.random() - .5) * .5, f: Math.random() * 6.28, a: .4 + Math.random() * .6 };
     }
     medir();
-    for (var i = 0; i < 46; i++) parts.push(nova(true));
+    for (var i = 0; i < 28; i++) parts.push(nova(true));
     function quadro() {
       if (!visivel) return;
       ctx.clearRect(0, 0, w, h);
@@ -443,58 +446,30 @@
     }).observe(cv);
   });
 
-  /* ---------------- Fundo: bokeh de luzes desfocadas ---------------- */
-  (function () {
-    var cv = $("[data-bokeh]");
-    if (!cv) return;
-    var ctx = cv.getContext("2d"), luzes = [], w, h, rolagem = 0;
-    var cores = [[255, 220, 140], [255, 190, 100], [255, 235, 180], [255, 170, 80], [255, 210, 120]];
-    function medir() {
-      w = cv.width = Math.round(window.innerWidth * .6);
-      h = cv.height = Math.round(window.innerHeight * .6);
-      cv.style.width = "100%"; cv.style.height = "100%";
-    }
-    function nova() {
-      var prof = Math.random();
-      return {
-        x: Math.random() * w, y: Math.random() * h,
-        r: (10 + prof * 70) * (w < 400 ? .8 : 1),
-        prof: prof, c: cores[Math.floor(Math.random() * cores.length)],
-        a: .05 + (1 - prof) * .12, vx: (Math.random() - .5) * .12, vy: -.04 - Math.random() * .12,
-        f: Math.random() * 6.28
-      };
-    }
-    medir();
-    var total = window.innerWidth < 700 ? 16 : 26;
-    for (var i = 0; i < total; i++) luzes.push(nova());
-    function desenhar() {
-      ctx.clearRect(0, 0, w, h);
-      luzes.forEach(function (l) {
-        var y = ((l.y - rolagem * (.04 + l.prof * .1)) % (h + 2 * l.r) + h + 2 * l.r) % (h + 2 * l.r) - l.r;
-        var brilho = .75 + Math.sin(l.f) * .25;
-        var g = ctx.createRadialGradient(l.x, y, 0, l.x, y, l.r);
-        var c = l.c.join(",");
-        g.addColorStop(0, "rgba(" + c + "," + (l.a * .55 * brilho) + ")");
-        g.addColorStop(.82, "rgba(" + c + "," + (l.a * .75 * brilho) + ")");
-        g.addColorStop(.94, "rgba(" + c + "," + (l.a * brilho) + ")");
-        g.addColorStop(1, "rgba(" + c + ",0)");
-        ctx.fillStyle = g;
-        ctx.beginPath(); ctx.arc(l.x, y, l.r, 0, 6.283); ctx.fill();
-      });
-    }
-    function quadro() {
-      luzes.forEach(function (l) {
-        l.x += l.vx; l.y += l.vy; l.f += .012;
-        if (l.x < -l.r) l.x = w + l.r; if (l.x > w + l.r) l.x = -l.r;
-      });
-      desenhar();
-      if (!document.hidden) requestAnimationFrame(quadro);
-    }
-    window.addEventListener("resize", function () { medir(); desenhar(); });
-    window.addEventListener("scroll", function () { rolagem = window.scrollY * .6; if (reduzir) desenhar(); }, { passive: true });
-    document.addEventListener("visibilitychange", function () { if (!document.hidden && !reduzir) requestAnimationFrame(quadro); });
-    if (reduzir) desenhar(); else requestAnimationFrame(quadro);
-  })();
+  /* ---------------- Peça junto (sugestões na tela do item) ---------------- */
+  function desenharJunto(p) {
+    var ids = p.cat === "porcoes" || p.cat === "bebidas" ? ["x-bacon", "pastel-carne"] : ["batata", "refri-lata"];
+    ids = ids.filter(function (id) { return porId[id] && id !== p.id; });
+    $("[data-junto]").hidden = !ids.length;
+    $("[data-junto-lista]").innerHTML = ids.map(function (id) {
+      var s = porId[id];
+      return '<button type="button" class="junto__item" data-junto-add="' + id + '"><span class="junto__img">' + imagem(s) + '</span><span class="junto__txt"><strong>' + esc(s.nome) + '</strong><span>+ ' + real(s.preco) + "</span></span></button>";
+    }).join("");
+  }
+  $("[data-junto-lista]").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-junto-add]");
+    if (!b) return;
+    var s = porId[b.getAttribute("data-junto-add")];
+    var chave = [s.id, "", ""].join("~");
+    var existente = pedido.filter(function (l) { return l.chave === chave; })[0];
+    if (existente) existente.qtd += 1;
+    else pedido.push({ chave: chave, id: s.id, qtd: 1, adic: [], obs: "", unit: s.preco });
+    salvar();
+    voarParaSacola(b.querySelector(".junto__img"));
+    atualizarPedido(true);
+    b.classList.add("ok");
+    avisar(s.nome + " adicionado ao pedido");
+  });
 
   /* ---------------- Lanche voando até a sacola ---------------- */
   function voarParaSacola(origem) {
@@ -553,29 +528,12 @@
   }
   atualizarRelogio(); setInterval(atualizarRelogio, 1000);
 
-  /* ---------------- Inclinação 3D e reflexo (mouse) ---------------- */
-  if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !reduzir) {
-    document.addEventListener("pointermove", function (e) {
-      var c = e.target.closest && e.target.closest(".prod, .banner, .oferta");
-      if (!c) return;
-      var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-      var forca = c.classList.contains("prod") ? 10 : 4;
-      c.style.transform = "perspective(900px) rotateX(" + ((.5 - y) * forca) + "deg) rotateY(" + ((x - .5) * forca) + "deg) translateY(-4px)";
-      c.style.setProperty("--mx", x * 100 + "%");
-      c.style.setProperty("--my", y * 100 + "%");
-    });
-    document.addEventListener("pointerout", function (e) {
-      var c = e.target.closest && e.target.closest(".prod, .banner, .oferta");
-      if (c && !c.contains(e.relatedTarget)) c.style.transform = "";
-    });
-  }
-
   /* ---------------- Abertura animada ---------------- */
   var intro = $("[data-intro]");
   var inicioIntro = performance.now();
   function tirarIntro() {
     if (!intro || intro.classList.contains("saiu")) return;
-    var espera = Math.max(0, 1150 - (performance.now() - inicioIntro));
+    var espera = Math.max(0, 950 - (performance.now() - inicioIntro));
     setTimeout(function () { intro.classList.add("saiu"); setTimeout(function () { intro.remove(); }, 700); }, espera);
   }
   if (reduzir) { if (intro) intro.remove(); }
@@ -614,37 +572,30 @@
   gsap.registerPlugin(window.ScrollTrigger);
 
   // entrada da abertura (depois da tela de carregamento)
-  var atraso = intro ? 1.25 : .1;
+  var atraso = intro ? 1.05 : .1;
   $$("[data-quebrar]").forEach(quebrar);
-  gsap.to(".abertura .revelar", { opacity: 1, y: 0, duration: .9, ease: "power3.out", stagger: .1, delay: atraso });
-  gsap.from(".abertura .palavra > span", { yPercent: 110, rotate: 4, duration: 1, ease: "power4.out", stagger: .06, delay: atraso });
-  gsap.from(".banner__foto", { scale: .6, rotate: -25, opacity: 0, duration: 1.3, ease: "back.out(1.4)", delay: atraso + .25 });
-  gsap.from(".cat", { opacity: 0, y: 20, duration: .6, stagger: .06, ease: "power2.out", delay: atraso + .5 });
-  gsap.from(".faixa", { xPercent: function (i) { return i ? 30 : -30; }, opacity: 0, duration: 1.2, ease: "power3.out", delay: atraso + .3 });
+  gsap.to(".abertura .revelar", { opacity: 1, y: 0, duration: .8, ease: "power3.out", stagger: .08, delay: atraso });
+  gsap.from(".abertura .palavra > span", { yPercent: 105, duration: .9, ease: "power4.out", stagger: .05, delay: atraso });
+  gsap.from(".banner__foto", { scale: .94, opacity: 0, duration: 1.1, ease: "expo.out", delay: atraso + .2 });
+  gsap.from(".cat", { opacity: 0, y: 12, duration: .6, stagger: .04, ease: "power3.out", delay: atraso + .45 });
+  gsap.from(".faixa", { opacity: 0, duration: 1, ease: "power2.out", delay: atraso + .3 });
 
   // títulos das seções: palavras sobem quando aparecem
   $$("[data-quebrar]").forEach(function (t) {
     if (t.closest(".abertura")) return;
-    gsap.from(t.querySelectorAll(".palavra > span"), { yPercent: 110, rotate: 3, duration: .9, ease: "power4.out", stagger: .05, scrollTrigger: { trigger: t, start: "top 88%" } });
+    gsap.from(t.querySelectorAll(".palavra > span"), { yPercent: 105, duration: .85, ease: "power4.out", stagger: .04, scrollTrigger: { trigger: t, start: "top 88%" } });
   });
 
-  // marca d'água desliza na horizontal
-  $$("[data-dagua]").forEach(function (m) {
-    gsap.fromTo(m, { xPercent: 4 }, { xPercent: -28, ease: "none", scrollTrigger: { trigger: m.parentNode, start: "top bottom", end: "bottom top", scrub: true } });
-  });
 
   // revelar no scroll
   $$(".revelar").forEach(function (el) {
     if (el.closest(".abertura")) return;
     gsap.to(el, { opacity: 1, y: 0, duration: .9, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } });
   });
-  gsap.from(".trilho .prod", { opacity: 0, y: 30, duration: .7, stagger: .07, ease: "power2.out", scrollTrigger: { trigger: ".trilho", start: "top 90%" } });
+  gsap.from(".trilho .prod", { opacity: 0, y: 16, duration: .7, stagger: .05, ease: "power3.out", scrollTrigger: { trigger: ".trilho", start: "top 90%" } });
 
   // parallax do banner
-  gsap.to("[data-parallax]", { yPercent: 14, rotate: 8, ease: "none", scrollTrigger: { trigger: "[data-banner]", start: "top top", end: "bottom top", scrub: true } });
-
-  // estampa do fundo desliza devagar com o scroll
-  gsap.to(".ambiente__estampa", { y: -260, ease: "none", scrollTrigger: { start: 0, end: "max", scrub: true } });
+  gsap.to("[data-parallax]", { yPercent: 6, ease: "none", scrollTrigger: { trigger: "[data-banner]", start: "top top", end: "bottom top", scrub: true } });
 
   // contadores
   $$("[data-conta]").forEach(function (el) {
@@ -671,8 +622,8 @@
   });
   camadas.forEach(function (c, i) {
     var el = svg.querySelector('[data-camada="' + c + '"]');
-    tl.fromTo(el, { y: -260 - i * 30, opacity: 0, rotate: i % 2 ? 6 : -6, transformOrigin: "50% 50%" },
-      { y: 0, opacity: 1, rotate: 0, duration: 1, ease: "back.out(1.6)" }, i * .9);
+    tl.fromTo(el, { y: -180 - i * 20, opacity: 0, rotate: i % 2 ? 2.5 : -2.5, transformOrigin: "50% 50%" },
+      { y: 0, opacity: 1, rotate: 0, duration: 1, ease: "power3.out" }, i * .9);
   });
-  tl.to(svg, { scale: 1.06, duration: .6, ease: "power1.inOut" }, ">");
+  tl.to(svg, { scale: 1.03, duration: .6, ease: "power1.inOut" }, ">");
 })();

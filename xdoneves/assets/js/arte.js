@@ -163,66 +163,118 @@
   }
 
   function pastel(p) {
-    var bolhas = "";
-    [[78, 92, 7], [104, 80, 5], [150, 96, 8], [124, 112, 6], [170, 118, 5], [88, 124, 5], [140, 132, 4]].forEach(function (b) {
-      bolhas += '<circle cx="' + b[0] + '" cy="' + b[1] + '" r="' + b[2] + '" fill="#FFE2A0" opacity=".55"/><circle cx="' + (b[0] - b[2] / 3) + '" cy="' + (b[1] - b[2] / 3) + '" r="' + b[2] / 3 + '" fill="#FFF6DE" opacity=".8"/>';
-    });
+    var u = function (id) { return "url(#" + p + id + ")"; };
+    var bolhas = "", r = 13;
+    function rnd() { r = (r * 9301 + 49297) % 233280; return r / 233280; }
+    for (var i = 0; i < 16; i++) {
+      var x = 50 + rnd() * 140, y = 64 + rnd() * 80, raio = 2.5 + rnd() * 6;
+      bolhas += '<ellipse cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" rx="' + raio.toFixed(1) + '" ry="' + (raio * .8).toFixed(1) + '" fill="' + u("bo") + '"/>' +
+        '<ellipse cx="' + (x - raio * .3).toFixed(1) + '" cy="' + (y - raio * .35).toFixed(1) + '" rx="' + (raio * .35).toFixed(1) + '" ry="' + (raio * .22).toFixed(1) + '" fill="#FFF8E4" opacity=".85"/>';
+    }
+    var dobra = "";
+    for (var k = 0; k < 15; k++) dobra += '<path d="M' + (40 + k * 11) + ' 152 l4 10" />';
     return (
       '<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
       "<defs>" +
-      '<linearGradient id="' + p + 'ps" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8C766"/><stop offset=".6" stop-color="#E59A38"/><stop offset="1" stop-color="#BF6A1E"/></linearGradient>' +
-      '<radialGradient id="' + p + 'sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>' +
+      '<linearGradient id="' + p + 'ps" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FCD27A"/><stop offset=".45" stop-color="#F0A846"/><stop offset="1" stop-color="#C7701F"/></linearGradient>' +
+      '<radialGradient id="' + p + 'bo" cx=".4" cy=".35" r=".7"><stop offset="0" stop-color="#FFE9B4"/><stop offset="1" stop-color="#E9A24A"/></radialGradient>' +
+      '<radialGradient id="' + p + 'br" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FFF6DD" stop-opacity=".7"/><stop offset="1" stop-color="#FFF6DD" stop-opacity="0"/></radialGradient>' +
+      '<radialGradient id="' + p + 'sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>' +
       "</defs>" +
-      '<ellipse cx="122" cy="174" rx="96" ry="12" fill="url(#' + p + 'sh)"/>' +
-      '<g transform="rotate(-8 120 112)">' +
-      '<rect x="32" y="52" width="176" height="114" rx="22" fill="url(#' + p + 'ps)"/>' +
-      '<rect x="42" y="62" width="156" height="94" rx="16" fill="none" stroke="#A9581A" stroke-opacity=".55" stroke-width="5" stroke-dasharray="2 7" stroke-linecap="round"/>' +
+      '<ellipse cx="122" cy="178" rx="104" ry="11" fill="' + u("sh") + '"/>' +
+      '<g transform="rotate(-6 120 112)">' +
+      // sombra da espessura
+      '<path d="M30 70 C30 54 40 48 56 48 L184 48 C200 48 210 54 210 70 L212 152 C212 166 202 172 188 172 L52 172 C38 172 28 166 28 152 Z" fill="#A85A18"/>' +
+      '<path d="M30 64 C30 50 40 44 56 44 L184 44 C200 44 210 50 210 64 L210 146 C210 160 200 166 186 166 L54 166 C40 166 30 160 30 146 Z" fill="' + u("ps") + '"/>' +
+      // borda prensada com garfo
+      '<g stroke="#B9651C" stroke-width="2.4" stroke-linecap="round" opacity=".8">' + dobra + "</g>" +
+      '<path d="M38 62 L38 150 M202 62 L202 150" stroke="#B9651C" stroke-width="2.4" stroke-dasharray="1 9" stroke-linecap="round" opacity=".8"/>' +
       bolhas +
-      '<path d="M54 70 Q100 60 150 64" fill="none" stroke="#FFF0C8" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/>' +
-      "</g></svg>"
+      '<ellipse cx="96" cy="66" rx="58" ry="12" fill="' + u("br") + '"/>' +
+      "</g>" +
+      "</svg>"
     );
   }
 
   function porcao(p) {
+    var u = function (id) { return "url(#" + p + id + ")"; };
     var batatas = "";
-    [[78, 46, -12], [92, 34, -6], [106, 40, -2], [120, 28, 3], [134, 38, 7], [148, 32, 11], [160, 46, 15], [100, 56, -9], [128, 50, 0], [154, 58, 9], [86, 62, -14], [140, 60, 4]].forEach(function (b, i) {
-      batatas += '<rect x="' + b[0] + '" y="' + b[1] + '" width="13" height="96" rx="4" transform="rotate(' + b[2] + " " + (b[0] + 6) + ' 140)" fill="url(#' + p + (i % 2 ? "b1" : "b2") + ')"/>';
+    [[74, 40, -16, 1], [88, 26, -9, 0], [101, 34, -4, 1], [114, 18, 1, 0], [127, 30, 5, 1], [140, 22, 9, 0], [151, 36, 10, 1], [160, 46, 11, 0], [96, 52, -11, 0], [120, 44, -1, 1], [146, 50, 7, 0], [82, 60, -18, 1], [152, 62, 9, 1]].forEach(function (b) {
+      var cx = b[0] + 6.5;
+      batatas += '<g transform="rotate(' + b[2] + " " + cx + ' 150)">' +
+        '<rect x="' + b[0] + '" y="' + b[1] + '" width="13" height="110" rx="3.5" fill="' + u(b[3] ? "b1" : "b2") + '"/>' +
+        '<rect x="' + (b[0] + 2) + '" y="' + (b[1] + 2) + '" width="3" height="100" rx="1.5" fill="#FFF3C4" opacity=".55"/>' +
+        '<rect x="' + b[0] + '" y="' + b[1] + '" width="13" height="7" rx="3" fill="#D98E1C" opacity=".6"/></g>';
     });
     return (
       '<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
       "<defs>" +
-      '<linearGradient id="' + p + 'b1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFD25C"/><stop offset="1" stop-color="#F0A92B"/></linearGradient>' +
-      '<linearGradient id="' + p + 'b2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFE07A"/><stop offset="1" stop-color="#E9A12A"/></linearGradient>' +
-      '<linearGradient id="' + p + 'cx" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FF6A2A"/><stop offset="1" stop-color="#C2300F"/></linearGradient>' +
-      '<radialGradient id="' + p + 'sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>' +
+      '<linearGradient id="' + p + 'b1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFD866"/><stop offset="1" stop-color="#EFA528"/></linearGradient>' +
+      '<linearGradient id="' + p + 'b2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFE68A"/><stop offset="1" stop-color="#F2B23A"/></linearGradient>' +
+      '<linearGradient id="' + p + 'cx" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#B8260F"/><stop offset=".35" stop-color="#E8401C"/><stop offset=".7" stop-color="#F25A2A"/><stop offset="1" stop-color="#B8260F"/></linearGradient>' +
+      '<linearGradient id="' + p + 'cxi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7A1608"/><stop offset="1" stop-color="#B8260F"/></linearGradient>' +
+      '<radialGradient id="' + p + 'sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>' +
       "</defs>" +
-      '<ellipse cx="120" cy="184" rx="70" ry="10" fill="url(#' + p + 'sh)"/>' +
+      '<ellipse cx="120" cy="186" rx="74" ry="10" fill="' + u("sh") + '"/>' +
+      // fundo interno da caixa
+      '<path d="M58 92 Q120 76 182 92 L176 106 Q120 92 64 106 Z" fill="' + u("cxi") + '"/>' +
       batatas +
-      '<path d="M62 96 Q120 120 178 96 L162 182 L78 182 Z" fill="url(#' + p + 'cx)"/>' +
-      '<path d="M62 96 Q120 120 178 96" fill="none" stroke="#FF9A62" stroke-width="3"/>' +
-      '<text x="120" y="158" text-anchor="middle" font-family="Archivo, Arial Black, sans-serif" font-weight="900" font-size="30" fill="#FFC531">X</text>' +
+      // frente da caixa com aba curva
+      '<path d="M58 96 Q90 120 120 104 Q150 120 182 96 L164 184 L76 184 Z" fill="' + u("cx") + '"/>' +
+      '<path d="M58 96 Q90 120 120 104 Q150 120 182 96" fill="none" stroke="#FF8A5A" stroke-width="3" stroke-linejoin="round"/>' +
+      '<path d="M78 120 L86 178" stroke="#fff" stroke-opacity=".18" stroke-width="6" stroke-linecap="round"/>' +
+      '<circle cx="120" cy="146" r="20" fill="#FFC21A"/><circle cx="120" cy="146" r="20" fill="none" stroke="#1E0C06" stroke-opacity=".25" stroke-width="2"/>' +
+      '<path d="M111 137 L129 155 M129 137 L111 155" stroke="#1E0C06" stroke-width="5" stroke-linecap="round"/>' +
       "</svg>"
     );
   }
 
   function bebida(p) {
+    var u = function (id) { return "url(#" + p + id + ")"; };
+    var bolhas = "", r = 29;
+    function rnd() { r = (r * 9301 + 49297) % 233280; return r / 233280; }
+    for (var i = 0; i < 14; i++) bolhas += '<circle cx="' + (94 + rnd() * 52).toFixed(1) + '" cy="' + (96 + rnd() * 76).toFixed(1) + '" r="' + (.8 + rnd() * 1.8).toFixed(1) + '" fill="#FFE2C4" opacity=".55"/>';
     return (
       '<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
       "<defs>" +
-      '<linearGradient id="' + p + 'lq" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7A3A16"/><stop offset="1" stop-color="#2A0F05"/></linearGradient>' +
-      '<radialGradient id="' + p + 'sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".55"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>' +
+      '<linearGradient id="' + p + 'lq" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2A0E04"/><stop offset=".45" stop-color="#6A2A0E"/><stop offset=".7" stop-color="#4A1A08"/><stop offset="1" stop-color="#1E0802"/></linearGradient>' +
+      '<linearGradient id="' + p + 'vd" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".3" stop-color="#fff" stop-opacity=".06"/><stop offset=".8" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#fff" stop-opacity=".22"/></linearGradient>' +
+      '<linearGradient id="' + p + 'gl" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#CFE8FF" stop-opacity=".45"/></linearGradient>' +
+      '<radialGradient id="' + p + 'sh" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#000" stop-opacity=".6"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>' +
       "</defs>" +
-      '<ellipse cx="120" cy="184" rx="56" ry="9" fill="url(#' + p + 'sh)"/>' +
-      '<rect x="128" y="10" width="10" height="90" rx="5" transform="rotate(14 133 55)" fill="#FF7A1A"/>' +
-      '<path d="M78 46 L162 46 L152 180 L88 180 Z" fill="#fff" fill-opacity=".08" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>' +
-      '<path d="M82 66 L158 66 L151 176 L89 176 Z" fill="url(#' + p + 'lq)"/>' +
-      '<g fill="#fff" fill-opacity=".28" stroke="#fff" stroke-opacity=".5"><rect x="92" y="62" width="24" height="22" rx="5" transform="rotate(-10 104 73)"/><rect x="120" y="70" width="24" height="22" rx="5" transform="rotate(12 132 81)"/></g>' +
-      '<rect x="80" y="62" width="80" height="6" rx="3" fill="#C9875A" opacity=".8"/>' +
-      '<path d="M94 92 L98 168" stroke="#fff" stroke-opacity=".35" stroke-width="4" stroke-linecap="round"/>' +
-      '<g fill="#fff" opacity=".5"><circle cx="138" cy="120" r="2"/><circle cx="130" cy="140" r="1.6"/><circle cx="142" cy="156" r="2"/><circle cx="118" cy="110" r="1.4"/></g>' +
+      '<ellipse cx="120" cy="186" rx="58" ry="9" fill="' + u("sh") + '"/>' +
+      // canudo listrado
+      '<g transform="rotate(14 136 60)"><rect x="130" y="4" width="12" height="104" rx="6" fill="#fff"/><path d="M130 14 l12 -6 M130 30 l12 -6 M130 46 l12 -6 M130 62 l12 -6 M130 78 l12 -6 M130 94 l12 -6" stroke="#E8401C" stroke-width="5"/></g>' +
+      // líquido
+      '<path d="M82 70 L158 70 L150 178 Q120 186 90 178 Z" fill="' + u("lq") + '"/>' +
+      bolhas +
+      // espuma
+      '<path d="M82 70 Q92 62 102 69 Q112 62 122 69 Q132 62 142 69 Q150 63 158 70 L157 76 Q120 80 83 76 Z" fill="#E9C9A8" opacity=".9"/>' +
+      // gelo
+      '<g><rect x="90" y="62" width="28" height="26" rx="6" transform="rotate(-12 104 75)" fill="' + u("gl") + '" opacity=".75"/><rect x="118" y="66" width="28" height="26" rx="6" transform="rotate(10 132 79)" fill="' + u("gl") + '" opacity=".65"/><rect x="104" y="88" width="24" height="22" rx="5" transform="rotate(4 116 99)" fill="' + u("gl") + '" opacity=".35"/></g>' +
+      // copo de vidro
+      '<path d="M76 40 L164 40 L152 180 Q120 190 88 180 Z" fill="' + u("vd") + '" stroke="#fff" stroke-opacity=".5" stroke-width="2"/>' +
+      '<ellipse cx="120" cy="40" rx="44" ry="5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2"/>' +
+      '<path d="M86 52 L95 172" stroke="#fff" stroke-opacity=".45" stroke-width="5" stroke-linecap="round"/>' +
+      // gotas de condensação
+      '<g fill="#fff" opacity=".7"><ellipse cx="140" cy="118" rx="1.6" ry="2.4"/><ellipse cx="146" cy="138" rx="1.4" ry="2.1"/><ellipse cx="132" cy="158" rx="1.6" ry="2.4"/><ellipse cx="100" cy="132" rx="1.2" ry="1.8"/></g>' +
+      // rodela de limão na borda
+      '<g transform="translate(150 38)"><circle r="15" fill="#B9E05A"/><circle r="12" fill="#E8F7B0"/><path d="M0 -11 L0 11 M-11 0 L11 0 M-8 -8 L8 8 M8 -8 L-8 8" stroke="#B9E05A" stroke-width="1.6"/></g>' +
       "</svg>"
     );
   }
+
+
+  // ingredientes soltos que flutuam pela abertura
+  var ingredientes = {
+    tomate: '<svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="27" fill="#D9301E"/><circle cx="30" cy="30" r="22" fill="#F0573C"/><g fill="#C9261A"><path d="M30 10 Q36 20 30 30 Q24 20 30 10Z"/><path d="M48 36 Q37 37 30 30 Q40 26 48 36Z"/><path d="M12 36 Q20 26 30 30 Q23 37 12 36Z"/></g><g fill="#FFD9A8"><ellipse cx="30" cy="19" rx="2" ry="3"/><ellipse cx="40" cy="33" rx="3" ry="2" transform="rotate(30 40 33)"/><ellipse cx="20" cy="33" rx="3" ry="2" transform="rotate(-30 20 33)"/></g><ellipse cx="22" cy="16" rx="7" ry="3" fill="#fff" opacity=".35" transform="rotate(-30 22 16)"/></svg>',
+    alface: '<svg viewBox="0 0 70 56"><path d="M6 30 C2 16 16 4 30 8 C40 0 58 4 62 16 C70 22 66 40 56 44 C50 54 30 54 22 48 C10 50 2 42 6 30Z" fill="#5DAA33"/><path d="M10 30 C8 20 18 10 30 13 C40 6 54 10 57 19 C63 24 60 37 52 40 C46 48 31 48 24 43 C14 45 7 38 10 30Z" fill="#8FD154"/><path d="M14 40 Q34 28 56 18 M30 32 L28 18 M40 27 L46 40 M22 36 L16 26" stroke="#C8F09A" stroke-width="2" fill="none" stroke-linecap="round"/></svg>',
+    queijo: '<svg viewBox="0 0 64 60"><path d="M4 8 L60 6 L58 34 C56 40 52 40 51 34 L50 30 L40 30 C38 44 34 52 30 52 C26 52 24 44 24 32 L14 32 C13 38 10 40 8 36 Z" fill="#FDBA22"/><path d="M4 8 L60 6 L59 12 L5 14 Z" fill="#FFE37A"/><circle cx="20" cy="20" r="3" fill="#E7900B" opacity=".6"/><circle cx="44" cy="18" r="2.4" fill="#E7900B" opacity=".6"/></svg>',
+    cebola: '<svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="25" fill="none" stroke="#F4E6F0" stroke-width="7"/><circle cx="30" cy="30" r="25" fill="none" stroke="#C9A2C4" stroke-width="2" opacity=".6"/><circle cx="30" cy="30" r="15" fill="none" stroke="#EDD9EA" stroke-width="5"/></svg>',
+    batata: '<svg viewBox="0 0 24 80"><rect x="4" y="2" width="16" height="76" rx="4" fill="#F5B530"/><rect x="7" y="5" width="4" height="68" rx="2" fill="#FFF0B0" opacity=".7"/></svg>',
+    gergelim: '<svg viewBox="0 0 20 12"><ellipse cx="10" cy="6" rx="9" ry="5" fill="#FFF3D6"/><ellipse cx="7" cy="4" rx="3" ry="1.4" fill="#fff"/></svg>',
+    picles: '<svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="#5E8A2A"/><circle cx="28" cy="28" r="19" fill="#A9CF5A"/><g fill="#E9F5C4"><circle cx="28" cy="18" r="3"/><circle cx="37" cy="31" r="3"/><circle cx="19" cy="31" r="3"/></g></svg>'
+  };
 
   var desenhos = { burger: burger, xis: xis, pastel: pastel, porcao: porcao, bebida: bebida };
 
@@ -242,6 +294,7 @@
       var fn = desenhos[tipo] || burger;
       return fn("a" + seq, camadas);
     },
-    icone: function (tipo) { return icones[tipo] || icones.todos; }
+    icone: function (tipo) { return icones[tipo] || icones.todos; },
+    ingrediente: function (tipo) { return ingredientes[tipo] || ""; }
   };
 })();
