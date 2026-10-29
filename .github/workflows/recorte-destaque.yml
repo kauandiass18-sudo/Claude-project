@@ -37,7 +37,8 @@ jobs:
           pip install --quiet torch torchvision --index-url https://download.pytorch.org/whl/cpu
           pip install --quiet basicsr realesrgan
           # conserto conhecido do basicsr com o torchvision novo
-          f=$(python -c "import basicsr, os; print(os.path.join(os.path.dirname(basicsr.__file__), 'data', 'degradations.py'))")
+          f=$(python -c "import site, os; print(os.path.join(site.getsitepackages()[0], 'basicsr', 'data', 'degradations.py'))")
+          echo "consertando $f"
           sed -i 's/torchvision.transforms.functional_tensor/torchvision.transforms.functional/' "$f"
       - name: Baixar, recortar e ampliar
         shell: python
