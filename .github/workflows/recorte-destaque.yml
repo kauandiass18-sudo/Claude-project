@@ -42,12 +42,17 @@ jobs:
           pid = os.environ["PRODUTO"].strip()
           cat = json.load(open("data/ybera-catalogo.json", encoding="utf-8"))
           prod = next(p for p in cat["produtos"] if p["id"] == pid)
-          url = re.sub(r"\?.*$", "", prod["imagem"]) + "?w=2000&h=2000"
+          url = re.sub(r"\?.*$", "", prod["imagem"]) + "?w=1400&h=1400"
           ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0 Safari/537.36"
           dados = urllib.request.urlopen(urllib.request.Request(url, headers={"user-agent": ua}), timeout=60).read()
           print("foto original:", len(dados), "bytes")
           sem_fundo = remove(dados, session=new_session("isnet-general-use"))
           im = Image.open(io.BytesIO(sem_fundo)).convert("RGBA")
+          # Segurança: se o fundo não saiu (quase tudo opaco), não salva nada
+          opacos = sum(1 for v in im.getchannel("A").getdata() if v > 200) / (im.width * im.height)
+          print("parte opaca:", round(opacos, 2))
+          if opacos > 0.6:
+              raise SystemExit("o fundo não foi removido direito; nada foi salvo")
           # Corta pelo que é visível de verdade (ignora sombra quase transparente)
           alfa = im.getchannel("A")
           alfa = alfa.point(lambda v: 0 if v < 24 else v)
