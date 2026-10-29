@@ -1153,6 +1153,97 @@ h1, h2, h3, h4, p { margin: 0; }
 .loja__hero--ybera .loja__subtitulo { max-width: 36ch; }
 .loja__hero--ybera .selos { margin-top: 16px; }
 .loja__hero--ybera .loja__titulo::before { content: none; }
+/* ---------- Produto em destaque flutuando (Loja Ybera) ----------
+   Foto sem fundo, inclinada, com sombra no "chão" e um halo branco
+   suave atrás. Sobe e desce devagar; parado para quem reduz animações. */
+.flutuante-palco {
+  display: grid;
+  place-items: center;
+  margin: 0 auto 28px;
+}
+.flutuante {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  width: min(300px, 82vw);
+  padding-top: 8px;
+  color: var(--grafite);
+  -webkit-tap-highlight-color: transparent;
+}
+.flutuante__brilho {
+  position: absolute;
+  top: 0; left: 50%;
+  width: 250px; height: 250px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .95), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.flutuante__foto {
+  position: relative;
+  width: auto;
+  height: 250px;
+  object-fit: contain;
+  transform: rotate(-12deg);
+  transform-origin: 50% 60%;
+  filter: drop-shadow(0 18px 22px rgba(9, 20, 19, .18));
+  animation: flutuar 6s ease-in-out infinite;
+  will-change: transform;
+}
+.flutuante__sombra {
+  position: absolute;
+  top: 250px; left: 50%;
+  width: 130px; height: 18px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(9, 20, 19, .22), rgba(9, 20, 19, 0));
+  animation: sombra-flutuar 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.flutuante__selo {
+  position: absolute;
+  top: 22px; left: calc(50% + 44px);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--botao);
+  color: var(--branco);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  box-shadow: var(--sombra-card);
+}
+.flutuante__selo span { display: grid; width: 12px; height: 12px; color: #D8BE8A; }
+.flutuante__selo svg { width: 100%; height: 100%; fill: currentColor; stroke: none; }
+.flutuante__legenda {
+  position: relative;
+  display: grid;
+  gap: 2px;
+  margin-top: 24px;
+  text-align: center;
+}
+.flutuante__nome { font-size: 13.5px; font-weight: 700; color: var(--texto-suave); }
+.flutuante__preco { font-family: var(--fonte-titulo); font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
+.flutuante__preco small { font-family: var(--fonte-texto); font-size: 12.5px; font-weight: 600; color: var(--ouro); letter-spacing: 0; }
+@media (hover: hover) {
+  .flutuante:hover .flutuante__nome { text-decoration: underline; text-decoration-color: var(--ouro-fino); text-underline-offset: 3px; }
+}
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0) rotate(-12deg); }
+  50%      { transform: translateY(-12px) rotate(-9deg); }
+}
+@keyframes sombra-flutuar {
+  0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+  50%      { transform: translateX(-50%) scale(.82); opacity: .7; }
+}
+@media (min-width: 768px) {
+  .flutuante__foto { height: 300px; }
+  .flutuante__sombra { top: 300px; }
+  .flutuante__brilho { width: 300px; height: 300px; }
+}
+
 .loja__sobre {
   margin-bottom: 12px;
   font-size: 10.5px;
@@ -1244,6 +1335,7 @@ h1, h2, h3, h4, p { margin: 0; }
 
 /* ---------- Acessibilidade: menos movimento ---------- */
 @media (prefers-reduced-motion: reduce) {
+  .flutuante__foto, .flutuante__sombra { animation: none !important; }
   *, *::before, *::after {
     animation-duration: .01ms !important;
     animation-delay: 0ms !important;

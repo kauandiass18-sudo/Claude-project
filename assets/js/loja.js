@@ -698,6 +698,44 @@
     }
   }
 
+  /* ---------- Produto flutuando na abertura ----------
+     Foto sem fundo, inclinada, subindo e descendo devagar. É um link para
+     o produto; some se o produto esgotar ou se a foto não carregar. */
+  const palco = $("[data-produto-flutuante]");
+  const cfgDestaque = loja.produtoDestaque || {};
+  if (palco && cfgDestaque.id) {
+    const produto = produtos.find((p) => p.id === String(cfgDestaque.id)) ||
+      (loja.produtos || [])
+        .map((p) => ({ p, url: linkSeguro(p && p.affiliateUrl) }))
+        .filter(({ p, url }) => url && p.esgotado !== true && url.includes(`-${cfgDestaque.id}`))
+        .map(({ p, url }) => ({ nome: String(p.nome || "").trim(), url: aplicarParametrosAfiliado(url, loja), preco: p.preco || "", maisVendido: p.maisVendido }))[0];
+    const foto = imagemSegura(cfgDestaque.imagem);
+    if (produto && foto) {
+      const img = el("img", { class: "flutuante__foto", src: foto, alt: "", width: "420", height: "640", decoding: "async", fetchpriority: "high" });
+      img.addEventListener("error", () => { palco.hidden = true; }, { once: true });
+      const ranking = Number.isFinite(produto.maisVendido) && produto.maisVendido > 0;
+      palco.replaceChildren(
+        el("a", {
+          class: "flutuante",
+          href: produto.url,
+          target: "_blank",
+          rel: "sponsored noopener",
+          "aria-label": `${produto.nome}${produto.preco ? `, ${produto.preco} ${loja.rotuloPreco || ""}` : ""} (abre a loja em nova aba)`
+        }, [
+          el("span", { class: "flutuante__brilho", "aria-hidden": "true" }),
+          el("span", { class: "flutuante__sombra", "aria-hidden": "true" }),
+          img,
+          ranking ? el("span", { class: "flutuante__selo", "aria-hidden": "true" }, [el("span", { html: ICONES.estrela }), "Mais vendido"]) : null,
+          el("span", { class: "flutuante__legenda", "aria-hidden": "true" }, [
+            el("span", { class: "flutuante__nome", text: produto.nome }),
+            produto.preco ? el("span", { class: "flutuante__preco" }, [produto.preco, loja.rotuloPreco ? el("small", { text: ` ${loja.rotuloPreco}` }) : null]) : null
+          ])
+        ])
+      );
+      palco.hidden = false;
+    }
+  }
+
   renderCategorias();
   renderDestaques();
   renderLista();
