@@ -7,7 +7,7 @@ Site de **link na bio** pensado para celular, com cara de salão de cabelo.
 1. **Página inicial (link na bio):** foto, nome, uma chamada curta
    ("Cabelo de salão, sem sair de casa.") e os botões:
    - **Loja Ybera Paris** (botão principal) → subpágina com os mais vendidos;
-   - **Achadinhos do Mercado Livre**, **da Shopee** e **da Shein**;
+   - **Achadinhos do Mercado Livre** e **da Shopee**;
    - **Feche uma parceria comigo** (link em `linkParceria`, em `data/perfil.js`).
 2. **Loja Ybera (`ybera.html`):** só as 5 categorias que mais vendem
    (Progressiva e Pós-Progressiva, Cronogramas Capilares, Finalizadores,
@@ -15,7 +15,7 @@ Site de **link na bio** pensado para celular, com cara de salão de cabelo.
    em estilo vitrine (dois cards lado a lado, cada um dizendo o que o produto
    faz), uma frase sobre o que cada categoria faz (`descricoesCategorias`, em
    `data/ybera.js`) e o botão **"Ver a loja completa"** com o link de parceira.
-3. **Mercado Livre, Shopee e Shein:** páginas de achadinhos. Enquanto estiverem
+3. **Mercado Livre e Shopee:** páginas de achadinhos. Enquanto estiverem
    sem produtos, mostram "Em breve" e um botão para a Loja Ybera.
 
 Não tem carrinho, checkout nem pagamento: ao tocar em um produto, a pessoa vai
@@ -33,14 +33,12 @@ rodar build.
 ├── ybera.html            Loja Ybera: os mais vendidos por categoria
 ├── mercado-livre.html    Achadinhos do Mercado Livre
 ├── shopee.html           Achadinhos da Shopee
-├── shein.html            Achadinhos da Shein
 │
 ├── data/                 ← É AQUI QUE VOCÊ EDITA
 │   ├── perfil.js         Nome, frases, foto, redes sociais e link de parceria
 │   ├── ybera.js          Produtos da Ybera Paris (atualizados sozinhos)
 │   ├── mercado-livre.js  Produtos do Mercado Livre
-│   ├── shopee.js         Produtos da Shopee
-│   └── shein.js          Produtos da Shein
+│   └── shopee.js         Produtos da Shopee
 │
 └── assets/
     ├── css/style.css     Visual (cores, fontes, cards, animações)
@@ -54,8 +52,7 @@ rodar build.
         └── produtos/
             ├── ybera/
             ├── mercado-livre/
-            ├── shopee/
-            └── shein/
+            └── shopee/
 ```
 
 Os textos de venda (chamada, botões e selos) ficam direto no `index.html` e no
@@ -109,7 +106,7 @@ window.PERFIL = {
 - **Ybera Paris**: a lista se atualiza sozinha (veja abaixo) e os mais vendidos
   aparecem na **Loja Ybera** (`ybera.html`). Ao tocar no produto, o cliente vai
   direto para o link de afiliado.
-- **Mercado Livre, Shopee e Shein**: os produtos aparecem nas páginas de
+- **Mercado Livre e Shopee**: os produtos aparecem nas páginas de
   achadinhos, abertas pelos botões da página inicial.
 
 Cada loja tem seu arquivo em `data/`. Dentro dele há uma lista `produtos: [ ]`.
@@ -239,7 +236,7 @@ vazio, então o botão fica oculto até você colocar o link da sua vitrine.
 
 ### Loja sem produtos
 
-Os botões do Mercado Livre, da Shopee e da Shein aparecem sempre na página
+Os botões do Mercado Livre e da Shopee aparecem sempre na página
 inicial. Enquanto a lista de uma delas estiver vazia, a página da loja mostra um
 bloco só, “Em breve…”, com o botão “Enquanto isso, veja os mais vendidos da
 Ybera” (e “Me siga no Instagram”, se o Instagram estiver preenchido em
