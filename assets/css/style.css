@@ -101,7 +101,7 @@ body {
   50%      { transform: translateY(-18px) rotate(-11deg); }
 }
 @media (min-width: 768px) {
-  .fundo-produto { right: max(2vw, calc(50% - 380px - 320px)); opacity: .9; height: 82vh; }
+  .fundo-produto { right: max(5vw, calc(50% - 380px - 330px)); opacity: .9; height: 74vh; }
 }
 
 /* Fios de cabelo do fundo (assets/js/fios.js): textura, não cor */
