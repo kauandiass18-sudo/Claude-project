@@ -26,7 +26,7 @@
     A.isAdmin().then(function (ok) { if (ok) boot(); else login(); }).catch(function () { login(); });
   }
 
-  function logo() { return '<span class="logo"><span class="logo__name">Mais <i>Bella</i></span><span class="logo__sub">Semijoias</span></span>'; }
+  function logo() { return '<span class="logo"><img class="logo__mark" src="assets/img/logo-mb.png" alt="" width="462" height="102"><span class="logo__word">Mais Bella Semijoias</span></span>'; }
 
   function login(err) {
     if (!S.live) {
@@ -565,7 +565,7 @@
       sf("hours", "Horário de atendimento", { ph: "Segunda a sexta, 9h às 18h" }) + "</div>" +
       '<div class="panel"><h2>Mensagens automáticas do WhatsApp</h2><p>Preenchidas para a cliente, que decide se envia.</p>' +
       sf("wa.general", "Dúvidas gerais", { type: "textarea", rows: 2 }) + sf("wa.product", "Dúvida sobre uma peça (o nome e o link são adicionados)", { type: "textarea", rows: 2 }) + sf("wa.rings", "Alianças e personalização", { type: "textarea", rows: 2 }) + "</div>" +
-      '<div class="panel"><h2>Identidade</h2>' + sf("logoUrl", "Logotipo (opcional)", { type: "image", ratio: "3/1", hint: "PNG ou SVG com fundo transparente. Sem logotipo, o site usa a versão tipográfica." }) +
+      '<div class="panel"><h2>Identidade</h2>' + sf("logoUrl", "Logotipo (opcional)", { type: "image", ratio: "3/1", hint: "PNG ou SVG com fundo transparente. Vazio, o site usa a logo oficial da Mais Bella já aplicada." }) +
       sf("tagline", "Frase do rodapé") + "</div>" +
       '<div class="panel"><h2>Dados legais</h2><p>Exigidos pelo Decreto 7.962/2013 para lojas online.</p>' +
       '<div class="fg-2">' + sf("legal.company", "Razão social") + sf("legal.cnpj", "CNPJ") + "</div>" + sf("legal.address", "Endereço") + "</div>";

@@ -3,8 +3,8 @@
   "short_name": "Mais Bella",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#faf7f4",
-  "theme_color": "#faf7f4",
+  "background_color": "#fcf8f7",
+  "theme_color": "#fcf8f7",
   "icons": [
     { "src": "assets/img/icon-512.png", "sizes": "512x512", "type": "image/png" },
     { "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }

@@ -130,9 +130,13 @@
     { href: "sobre.html", label: "A Mais Bella", key: "sobre" }
   ];
 
+  // Assinatura "mb" com a pedra, extraída da logo oficial, e o nome em versaletes.
+  var LOGO = '<a class="logo" href="index.html" aria-label="Mais Bella Semijoias, página inicial">' +
+    '<img class="logo__mark" src="assets/img/logo-mb.png" alt="" width="462" height="102"><span class="logo__word">Mais Bella Semijoias</span></a>';
+
   function logoHtml(s) {
-    if (s.logoUrl) return '<a class="logo" href="index.html" aria-label="Mais Bella Semijoias, página inicial"><img src="' + esc(s.logoUrl) + '" alt="Mais Bella Semijoias"></a>';
-    return '<a class="logo" href="index.html" aria-label="Mais Bella Semijoias, página inicial"><span class="logo__name">Mais <i>Bella</i></span><span class="logo__sub">Semijoias</span></a>';
+    if (s.logoUrl) return '<a class="logo" href="index.html" aria-label="Mais Bella Semijoias, página inicial"><img class="logo__custom" src="' + esc(s.logoUrl) + '" alt="Mais Bella Semijoias"></a>';
+    return LOGO;
   }
 
   function currentNavKey() {
@@ -205,7 +209,7 @@
       '<footer class="footer">' +
       '<div class="wrap">' +
       '<div class="footer__top">' +
-      '<div class="footer__brand">' + logoHtml(s) +
+      '<div class="footer__brand"><img class="footer__seal" src="' + esc(s.logoUrl || "assets/img/logo-circular.png") + '" alt="Mais Bella Semijoias" width="545" height="545" loading="lazy">' +
       '<p class="tagline">' + esc(s.tagline) + "</p>" +
       (s.hours ? '<p class="small">' + esc(s.hours) + "</p>" : "") +
       "</div>" +

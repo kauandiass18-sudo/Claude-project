@@ -7,8 +7,8 @@ body.admin { background: var(--pearl-2); font-size: 14px; }
 .adm { display: grid; min-height: 100vh; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto 1fr; }
 body.admin { overflow-x: hidden; }
 .adm-top { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; gap: 1rem; padding: 0.7rem 1rem; background: var(--pearl); border-bottom: 1px solid var(--line); }
-.adm-top .logo__name { font-size: 1.3rem; }
-.adm-top .logo__sub { font-size: 0.42rem; }
+.adm-top .logo__mark { height: 24px; }
+.adm-top .logo__word { font-size: 0.5rem; }
 .adm-top__right { margin-left: auto; display: flex; gap: 0.5rem; align-items: center; }
 .adm-top .badge { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.35rem 0.6rem; background: var(--blush); }
 .adm-nav { display: flex; gap: 0.3rem; overflow-x: auto; padding: 0.6rem 1rem; background: var(--pearl); border-bottom: 1px solid var(--line); scrollbar-width: none; position: sticky; top: 57px; z-index: 39; }
