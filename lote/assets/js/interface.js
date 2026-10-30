@@ -458,7 +458,7 @@
       h(tagTitulo, { class: 'cartao__nome' }, h('a', { class: 'cartao__link', href: V.url.produto(p.id) }, p.nome)),
       h('div', { class: 'cartao__linha' }, [V.preco(p, true), V.amostras(p)]),
       p.tamanhos.length ? h('p', { class: 'cartao__tamanhos' }, [h('span', { class: 'sr-only' }, 'Tamanhos: '), p.tamanhos.join(' ')]) : null,
-      h('div', { class: 'cartao__acao' }, V.botaoShopee(p, { classe: 'botao--compacto', compacto: true, texto: T.botaoCard || 'Ver na Shopee', origem: opcoes.origem || 'card' })),
+      h('div', { class: 'cartao__acao' }, V.botaoShopee(p, { classe: 'botao--compacto', compacto: true, texto: p.textoBotao || T.botaoCard || 'Ver na Shopee', origem: opcoes.origem || 'card' })),
       V.avisoAdmin(p)
     ]);
 

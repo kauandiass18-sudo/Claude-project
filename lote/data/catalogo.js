@@ -14,7 +14,7 @@
 
 window.CATALOGO = {
   "versao": 2,
-  "atualizadoEm": "2026-10-27",
+  "atualizadoEm": "2026-10-30",
   "categorias": [
     {
       "id": "calcas-cargo",
@@ -72,6 +72,37 @@ window.CATALOGO = {
     }
   ],
   "produtos": [
+    {
+      "id": "calca-shopee-01",
+      "codigo": "",
+      "nome": "Calça cargo",
+      "categoria": "calcas-cargo",
+      "imagens": [],
+      "cores": [],
+      "tamanhos": [],
+      "modelagem": "",
+      "tecido": "",
+      "medidas": null,
+      "descricaoCurta": "",
+      "descricao": "",
+      "caracteristicas": [],
+      "especificacoes": [],
+      "preco": null,
+      "precoAnterior": null,
+      "precoConferidoEm": "",
+      "avaliacao": null,
+      "linkAfiliado": "https://s.shopee.com.br/AKbldp07lD",
+      "textoBotao": "Compre aqui",
+      "disponibilidade": "",
+      "destaque": true,
+      "publicado": true,
+      "palavrasChave": [
+        "calça",
+        "cargo"
+      ],
+      "adicionadoEm": "2026-10-30",
+      "demo": false
+    },
     {
       "id": "calca-cargo-ripstop-baggy",
       "codigo": "LT-001",
