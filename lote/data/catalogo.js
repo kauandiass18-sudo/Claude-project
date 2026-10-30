@@ -22,6 +22,11 @@ window.CATALOGO = {
       "descricao": "Ripstop, sarja e nylon. Do corte reto ao baggy."
     },
     {
+      "id": "calcas",
+      "nome": "Calças",
+      "descricao": "Moletom, wide leg e outras calças além da cargo."
+    },
+    {
       "id": "camisetas",
       "nome": "Camisetas",
       "descricao": "Oversized, boxy e manga longa em malha de algodão."
@@ -176,21 +181,34 @@ window.CATALOGO = {
     {
       "id": "calca-shopee-01",
       "codigo": "",
-      "nome": "Calça cargo",
-      "categoria": "calcas-cargo",
-      "imagens": [],
-      "cores": [],
+      "nome": "Calça de moletom wide leg",
+      "categoria": "calcas",
+      "imagens": [
+        {
+          "src": "assets/img/produtos/calca-moletom-wide-leg-vinho-1200.webp",
+          "pequena": "assets/img/produtos/calca-moletom-wide-leg-vinho-600.webp",
+          "alt": "Calça de moletom wide leg vinho com escrita branca na perna",
+          "cheia": true
+        }
+      ],
+      "cores": [
+        {
+          "nome": "Vinho",
+          "hex": "#7E1A24",
+          "imagem": 0
+        }
+      ],
       "tamanhos": [],
-      "modelagem": "",
-      "tecido": "",
+      "modelagem": "Wide leg",
+      "tecido": "Moletom",
       "medidas": null,
       "descricaoCurta": "",
       "descricao": "",
       "caracteristicas": [],
       "especificacoes": [],
-      "preco": null,
+      "preco": 65.9,
       "precoAnterior": null,
-      "precoConferidoEm": "",
+      "precoConferidoEm": "2026-10-30",
       "avaliacao": null,
       "linkAfiliado": "https://s.shopee.com.br/AKbldp07lD",
       "textoBotao": "Compre aqui",
@@ -199,7 +217,10 @@ window.CATALOGO = {
       "publicado": true,
       "palavrasChave": [
         "calça",
-        "cargo"
+        "moletom",
+        "wide leg",
+        "baggy",
+        "vinho"
       ],
       "adicionadoEm": "2026-10-30",
       "demo": false
