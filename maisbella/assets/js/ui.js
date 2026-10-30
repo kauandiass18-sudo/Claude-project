@@ -423,6 +423,7 @@
         var added = S.toggleFav(t.getAttribute("data-fav"));
         $$('[data-fav="' + t.getAttribute("data-fav") + '"]').forEach(function (b) {
           b.setAttribute("aria-pressed", added);
+          b.classList.remove("pop"); void b.offsetWidth; if (added) b.classList.add("pop");
           b.setAttribute("aria-label", (added ? "Remover dos favoritos" : "Adicionar aos favoritos"));
         });
         toast(added ? "Peça adicionada aos favoritos." : "Peça removida dos favoritos.", added ? { href: "colecao.html?lista=favoritos", label: "Ver favoritos" } : null);

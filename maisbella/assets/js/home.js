@@ -26,7 +26,7 @@
 
   function applyTexts(s) {
     var h = s.hero;
-    U.$("[data-hero-title]").innerHTML = U.safeHtml(h.title);
+    animateTitle(U.$("[data-hero-title]"), U.safeHtml(h.title));
     U.$("[data-hero-text]").textContent = h.text;
     U.$("[data-hero-primary]").textContent = h.primary;
     U.$("[data-hero-secondary]").textContent = h.secondary;
@@ -46,6 +46,30 @@
     U.$("[data-gift-text]").textContent = g.text;
     U.$("[data-gift-btn]").textContent = g.button;
     if (g.image) U.$("[data-gift-img]").src = g.image;
+  }
+
+  // Cada palavra do título sobe em sequência; o trecho em <em> (caligrafia)
+  // se "escreve" da esquerda para a direita, com dois brilhos delicados.
+  var SPARK = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>';
+  function animateTitle(el, html) {
+    el.innerHTML = html;
+    var i = 0;
+    Array.prototype.slice.call(el.childNodes).forEach(function (n) {
+      if (n.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          var w = document.createElement("span");
+          w.className = "w"; w.textContent = part; w.style.animationDelay = (0.15 + i++ * 0.09) + "s";
+          frag.appendChild(w);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeName === "EM") {
+        n.style.animationDelay = (0.25 + i * 0.09) + "s";
+        n.insertAdjacentHTML("beforeend", '<span class="sparkle sparkle--a">' + SPARK + '</span><span class="sparkle sparkle--b">' + SPARK + "</span>");
+      }
+    });
   }
 
   function renderCats() {
