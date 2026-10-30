@@ -148,7 +148,7 @@ maisbella/
 │   ├── js/ui.js              cabeçalho, menu, busca, sacola, rodapé, WhatsApp
 │   ├── js/home.js · colecao.js · produto.js · checkout.js · pedido.js · conta.js · pagina.js · admin.js
 │   ├── vendor/supabase.js    cliente oficial do Supabase (carregado só com a loja ativa)
-│   ├── fonts/                Cormorant Garamond e Manrope (SIL Open Font License)
+│   ├── fonts/                Bodoni Moda, Jost, Marcellus e Pinyon Script (SIL Open Font License)
 │   └── img/                  ícones, renderizações de demonstração
 └── supabase/
     ├── schema.sql            tabelas, regras de acesso (RLS), estoque, cupons
