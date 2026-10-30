@@ -270,6 +270,7 @@
         src: V.resolver(item.src),
         pequena: item.pequena ? V.resolver(item.pequena) : '',
         alt: (item.alt && String(item.alt).trim()) || nome,
+        cheia: !!item.cheia,
         original: item
       };
     }).filter(Boolean);

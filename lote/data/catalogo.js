@@ -35,6 +35,11 @@ window.CATALOGO = {
       "id": "bermudas",
       "nome": "Bermudas",
       "descricao": "Cargo no joelho para os dias quentes."
+    },
+    {
+      "id": "conjuntos",
+      "nome": "Conjuntos",
+      "descricao": "Peças que vêm juntas, prontas pra usar."
     }
   ],
   "selecoes": [
@@ -72,6 +77,54 @@ window.CATALOGO = {
     }
   ],
   "produtos": [
+    {
+      "id": "conjunto-top-short-vinho",
+      "codigo": "",
+      "nome": "Conjunto feminino top tomara que caia e short",
+      "categoria": "conjuntos",
+      "imagens": [
+        {
+          "src": "assets/img/produtos/conjunto-top-short-vinho-1200.webp",
+          "pequena": "assets/img/produtos/conjunto-top-short-vinho-600.webp",
+          "alt": "Conjunto vinho de top tomara que caia e short com estampa de flor branca",
+          "cheia": true
+        }
+      ],
+      "cores": [
+        {
+          "nome": "Vinho",
+          "hex": "#8E1420",
+          "imagem": 0
+        }
+      ],
+      "tamanhos": [],
+      "modelagem": "",
+      "tecido": "",
+      "medidas": null,
+      "descricaoCurta": "",
+      "descricao": "",
+      "caracteristicas": [],
+      "especificacoes": [],
+      "preco": 59.9,
+      "precoAnterior": null,
+      "precoConferidoEm": "2026-10-30",
+      "avaliacao": null,
+      "linkAfiliado": "https://s.shopee.com.br/60SmUEslaB",
+      "textoBotao": "Compre aqui",
+      "disponibilidade": "",
+      "destaque": true,
+      "publicado": true,
+      "palavrasChave": [
+        "conjunto",
+        "feminino",
+        "top",
+        "short",
+        "tomara que caia",
+        "vinho"
+      ],
+      "adicionadoEm": "2026-10-30",
+      "demo": false
+    },
     {
       "id": "calca-shopee-01",
       "codigo": "",

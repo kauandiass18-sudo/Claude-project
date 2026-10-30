@@ -115,7 +115,7 @@
     var base = produtoVazio();
     var r = Object.assign(base, p || {});
     r.imagens = (Array.isArray(r.imagens) ? r.imagens : r.imagens ? [r.imagens] : []).map(function (i) {
-      return typeof i === 'string' ? { src: i, pequena: '', alt: '' } : { src: i.src || '', pequena: i.pequena || '', alt: i.alt || '' };
+      return typeof i === 'string' ? { src: i, pequena: '', alt: '', cheia: false } : { src: i.src || '', pequena: i.pequena || '', alt: i.alt || '', cheia: !!i.cheia };
     }).filter(function (i) { return i.src; });
     ['caracteristicas', 'palavrasChave'].forEach(function (k) {
       if (typeof r[k] === 'string') r[k] = r[k].split(/\n|,/).map(function (s) { return s.trim(); }).filter(Boolean);
@@ -228,7 +228,7 @@
     limpo.produtos = limpo.produtos.map(function (p) {
       return {
         id: p.id, codigo: p.codigo, nome: p.nome.trim(), categoria: p.categoria,
-        imagens: p.imagens.map(function (i) { var o = { src: i.src }; if (i.pequena) o.pequena = i.pequena; o.alt = i.alt || ''; return o; }),
+        imagens: p.imagens.map(function (i) { var o = { src: i.src }; if (i.pequena) o.pequena = i.pequena; o.alt = i.alt || ''; if (i.cheia) o.cheia = true; return o; }),
         cores: p.cores.map(function (c) { return { nome: c.nome, hex: c.hex, imagem: c.imagem }; }),
         tamanhos: p.tamanhos, modelagem: p.modelagem, tecido: p.tecido, medidas: p.medidas,
         descricaoCurta: p.descricaoCurta.trim(), descricao: p.descricao.trim(),
@@ -896,6 +896,8 @@
       p.imagens.forEach(function (img, i) {
         var alt = h('input', { type: 'text', value: img.alt, placeholder: 'Descrição da foto', 'aria-label': 'Texto alternativo da foto ' + (i + 1) });
         alt.addEventListener('input', function () { img.alt = alt.value; mudou(); });
+        var cheia = h('input', { type: 'checkbox', checked: !!img.cheia });
+        cheia.addEventListener('change', function () { img.cheia = cheia.checked; mudou(); });
         var esquerda = botaoMini('chevronEsq', 'Mover para a esquerda', function () { p.imagens.splice(i - 1, 0, p.imagens.splice(i, 1)[0]); renderFotos(); mudou(); }, { disabled: i === 0 });
         var direita = botaoMini('chevron', 'Mover para a direita', function () { p.imagens.splice(i + 1, 0, p.imagens.splice(i, 1)[0]); renderFotos(); mudou(); }, { disabled: i === p.imagens.length - 1 });
         var remover = botaoMini('fechar', 'Remover foto', function () { p.imagens.splice(i, 1); renderFotos(); mudou(); }, { class: 'adm-botao-mini adm-botao-mini--perigo' });
@@ -908,6 +910,7 @@
             estado.uploads[img.src] ? h('span', { class: 'etiqueta adm-foto__novo' }, 'Nova') : null
           ]),
           alt,
+          h('label', { class: 'adm-marcar', style: { 'font-size': '12px', 'min-height': '24px' } }, [cheia, h('span', null, 'Preencher a placa (foto com fundo)')]),
           h('div', { class: 'adm-foto__acoes' }, [h('span', null, [esquerda, direita]), remover])
         ]));
       });

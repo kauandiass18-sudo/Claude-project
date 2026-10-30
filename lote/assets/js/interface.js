@@ -303,7 +303,7 @@
   V.foto = function (imagem, opcoes) {
     opcoes = opcoes || {};
     var img = document.createElement('img');
-    img.className = 'foto' + (opcoes.classe ? ' ' + opcoes.classe : '');
+    img.className = 'foto' + (imagem.cheia ? ' foto--cheia' : '') + (opcoes.classe ? ' ' + opcoes.classe : '');
     img.alt = opcoes.alt !== undefined ? opcoes.alt : imagem.alt;
     img.decoding = 'async';
     if (opcoes.prioridade) { img.setAttribute('fetchpriority', 'high'); img.loading = 'eager'; }

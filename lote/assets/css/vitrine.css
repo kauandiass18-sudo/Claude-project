@@ -1315,3 +1315,8 @@ body::after {
   .spray { display: none; }
 }
 @media (forced-colors: active) { .hero__linha--2 { color: CanvasText; text-shadow: none; } }
+
+/* Foto com fundo próprio (cenário, modelo): preenche a placa inteira */
+.foto.foto--cheia { object-fit: cover; padding: 0 !important; mix-blend-mode: normal; }
+.hero__placa-legenda { left: 6px; right: 6px; bottom: 6px; padding: 5px 6px 4px; background: var(--cor-poco); }
+.hero__placa-codigo { padding: 2px 5px; background: var(--cor-poco-tinta); color: var(--cor-poco); }
