@@ -78,6 +78,54 @@ window.CATALOGO = {
   ],
   "produtos": [
     {
+      "id": "camisa-polo-tokyo-branca",
+      "codigo": "",
+      "nome": "Camisa polo unissex Tokyo",
+      "categoria": "camisas",
+      "imagens": [
+        {
+          "src": "assets/img/produtos/camisa-polo-tokyo-branca-1200.webp",
+          "pequena": "assets/img/produtos/camisa-polo-tokyo-branca-600.webp",
+          "alt": "Camisa polo branca com dois ideogramas japoneses grandes em vinho na frente",
+          "cheia": true
+        }
+      ],
+      "cores": [
+        {
+          "nome": "Branca",
+          "hex": "#F2F2F0",
+          "imagem": 0
+        }
+      ],
+      "tamanhos": [],
+      "modelagem": "",
+      "tecido": "",
+      "medidas": null,
+      "descricaoCurta": "",
+      "descricao": "",
+      "caracteristicas": [],
+      "especificacoes": [],
+      "preco": 65.52,
+      "precoAnterior": null,
+      "precoConferidoEm": "2026-10-30",
+      "avaliacao": null,
+      "linkAfiliado": "https://s.shopee.com.br/7KyA4oK3j5",
+      "textoBotao": "Compre aqui",
+      "disponibilidade": "",
+      "destaque": true,
+      "publicado": true,
+      "palavrasChave": [
+        "polo",
+        "camisa",
+        "unissex",
+        "tokyo",
+        "japonês",
+        "branca"
+      ],
+      "adicionadoEm": "2026-10-30",
+      "demo": false
+    },
+    {
       "id": "conjunto-top-short-vinho",
       "codigo": "",
       "nome": "Conjunto feminino top tomara que caia e short",
