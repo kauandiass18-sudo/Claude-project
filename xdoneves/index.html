@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>X do Neves · Xis, burgers e pastéis</title>
+  <meta name="description" content="Lanchonete X do Neves em Faxinal dos Guedes: 14 sabores de xis, burgers artesanais, pastéis e porções. Peça pelo WhatsApp e receba em casa.">
+  <meta name="theme-color" content="#B9461F">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="X do Neves · Xis de verdade, feito na hora">
+  <meta property="og:description" content="14 sabores de xis, burgers artesanais, pastéis e porções. Delivery rápido pelo WhatsApp.">
+  <meta property="og:image" content="assets/img/logo.webp">
+  <link rel="icon" href="assets/img/logo.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Instrument+Serif:ital@1&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="pular" href="#cardapio">Pular para o cardápio</a>
+
+  <!-- Abertura animada -->
+  <div class="intro" data-intro aria-hidden="true">
+    <div class="intro__in">
+      <img class="intro__logo" src="assets/img/logo.webp" alt="" width="120" height="120">
+      <p class="intro__txt">Esquentando a chapa</p>
+      <span class="intro__barra"><i></i></span>
+    </div>
+  </div>
+
+  <!-- Progresso da leitura -->
+  <div class="progresso" aria-hidden="true"><i data-progresso></i></div>
+
+  <!-- Fundo animado -->
+  <div class="ambiente" aria-hidden="true">
+    <span class="ambiente__luz ambiente__luz--1"></span>
+    <span class="ambiente__luz ambiente__luz--2"></span>
+    <span class="ambiente__grao"></span>
+  </div>
+
+  <!-- Barra superior -->
+  <header class="topo" data-topo>
+    <div class="topo__in">
+      <a class="marca" href="#inicio" aria-label="X do Neves, início">
+        <img src="assets/img/logo.webp" alt="" width="44" height="44">
+        <span class="marca__txt"><strong>X do Neves</strong><small><i class="ponto" data-status-ponto></i><span data-status>Lanchonete</span></small></span>
+      </a>
+      <nav class="topo__nav" aria-label="Seções">
+        <a href="#cardapio">Cardápio</a>
+        <a href="#como-pedir">Como pedir</a>
+        <a href="#onde">Onde estamos</a>
+        <a href="#duvidas">Dúvidas</a>
+      </nav>
+      <button class="sacola-btn" type="button" data-abrir-carrinho aria-label="Abrir pedido">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="contador" data-contador hidden>0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <!-- Abertura -->
+    <section class="abertura">
+      <div class="abertura__txt">
+        <p class="rotulo revelar">Lanchonete em Faxinal dos Guedes</p>
+        <h1 class="titulo-mega revelar" data-quebrar>Xis de verdade, <em class="destaque">feito na hora.</em></h1>
+        <p class="abertura__sub revelar">14 sabores de xis, burgers artesanais, pastéis e porções. No local ou no conforto da sua casa: monte o pedido aqui e ele chega pronto no nosso WhatsApp.</p>
+
+        <form class="busca revelar" role="search" data-form-busca>
+          <label class="sr-only" for="busca">Buscar no cardápio</label>
+          <svg class="busca__lupa" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="busca" type="search" placeholder="Buscar xis, burger, pastel..." autocomplete="off" enterkeyhint="search" data-busca>
+          <span class="busca__div" aria-hidden="true"></span>
+          <a class="busca__filtro" href="#cardapio" aria-label="Ver categorias">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>
+          </a>
+        </form>
+
+        <ul class="fatos revelar" aria-label="Destaques">
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 11.5C3 8.5 7 7 12 7s9 1.5 9.5 4.5z"/><path d="M2 14c1.7-.9 3.3-.9 5 0s3.3.9 5 0 3.3-.9 5 0 3.3.9 5 0"/><path d="M3 16.5h18c0 1.4-1 2.5-2.5 2.5h-13C4 19 3 17.9 3 16.5z"/></svg>14 sabores de xis</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 17h6l-2-7H9"/><path d="M15 10h3l2 4"/></svg>Delivery</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>Retirada no local</li>
+        </ul>
+      </div>
+
+      <!-- Banner principal -->
+      <div class="banner revelar" data-banner>
+        <canvas class="brasas" data-brasas aria-hidden="true"></canvas>
+        <div class="banner__txt">
+          <p class="banner__rotulo">Saindo da chapa</p>
+          <p class="banner__titulo">Da nossa chapa <em class="destaque">pra sua mesa.</em></p>
+          <p class="banner__pills"><span>Quente</span><i></i><span>Caprichado</span><i></i><span>Rápido</span></p>
+          <a class="btn btn--amarelo" href="#cardapio">Pedir agora
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="banner__visual" data-parallax>
+          <svg class="vapor" viewBox="0 0 120 120" aria-hidden="true"><path d="M30 110c-10-16 10-26 0-42s10-26 0-42"/><path d="M60 110c-10-16 10-26 0-42s10-26 0-42"/><path d="M90 110c-10-16 10-26 0-42s10-26 0-42"/></svg>
+          <img class="banner__foto" src="assets/img/logo.webp" alt="Xis do X do Neves com queijo derretido" width="344" height="344">
+        </div>
+      </div>
+    </section>
+
+    <!-- Faixas cruzadas -->
+    <div class="faixas" aria-hidden="true">
+      <div class="faixa faixa--amarela"><div class="faixa__trilho" data-faixa="Xis|Burgers artesanais|Pastéis|Porções|Bebidas|Delivery rápido"></div></div>
+      <div class="faixa faixa--escura"><div class="faixa__trilho faixa__trilho--volta" data-faixa="Feito na hora|14 sabores de xis|Faxinal dos Guedes|Em frente ao campo|Peça pelo WhatsApp"></div></div>
+    </div>
+
+    <!-- Categorias -->
+    <nav class="cats" aria-label="Categorias do cardápio" data-cats></nav>
+
+    <!-- Mais pedidos -->
+    <section class="bloco" aria-labelledby="t-populares">
+      <div class="bloco__cab">
+        <h2 id="t-populares" class="bloco__titulo">Mais pedidos</h2>
+        <a class="ver-tudo" href="#cardapio">Ver tudo <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="trilho" data-populares></div>
+    </section>
+
+    <!-- Oferta -->
+    <section class="oferta revelar" aria-labelledby="t-oferta" data-oferta>
+      <div class="oferta__txt">
+        <p class="oferta__fita" data-oferta-selo>Imperdível de terça</p>
+        <h2 id="t-oferta" class="oferta__titulo" data-oferta-titulo>Double Xis Bacon</h2>
+        <p class="oferta__texto" data-oferta-texto></p>
+        <p class="oferta__preco" data-oferta-preco></p>
+        <p class="oferta__relogio" data-relogio></p>
+        <button class="btn btn--amarelo" type="button" data-oferta-btn>Quero esse
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+      <div class="oferta__visual" data-oferta-visual aria-hidden="true"></div>
+    </section>
+
+    <!-- Montagem por scroll -->
+    <section class="montagem" aria-labelledby="t-montagem" data-montagem>
+      <div class="montagem__palco">
+        <div class="montagem__txt">
+          <p class="eyebrow">Feito na hora</p>
+          <h2 id="t-montagem" class="titulo-grande" data-quebrar>Camada por camada, <em class="destaque">do jeito certo.</em></h2>
+          <ol class="etapas" data-etapas>
+            <li data-etapa="0"><b>01</b><span><strong>Pão selado na chapa</strong><em>Macio por dentro, douradinho por fora.</em></span></li>
+            <li data-etapa="1"><b>02</b><span><strong>Salada fresca do dia</strong><em>Alface crocante e tomate cortado na hora.</em></span></li>
+            <li data-etapa="2"><b>03</b><span><strong>Carne suculenta</strong><em>Grelhada no ponto, sem pressa e sem economia.</em></span></li>
+            <li data-etapa="3"><b>04</b><span><strong>Queijo derretendo</strong><em>Por cima de tudo, escorrendo pelas bordas.</em></span></li>
+          </ol>
+        </div>
+        <div class="montagem__visual">
+          <span class="montagem__brilho" aria-hidden="true"></span>
+          <svg class="vapor vapor--montagem" data-vapor-montagem viewBox="0 0 120 120" aria-hidden="true"><path d="M30 110c-10-16 10-26 0-42s10-26 0-42"/><path d="M60 110c-10-16 10-26 0-42s10-26 0-42"/><path d="M90 110c-10-16 10-26 0-42s10-26 0-42"/></svg>
+          <div class="montagem__burger" data-burger-montagem></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Números -->
+    <section class="numeros" aria-label="X do Neves em números">
+      <div class="numero revelar"><strong data-conta="14">14</strong><span>sabores de xis</span></div>
+      <div class="numero revelar"><strong data-conta="2740" data-milhar>2.740</strong><span>seguidores no Instagram</span></div>
+      <div class="numero revelar"><strong>5 em 1</strong><span>xis, burgers, pastéis, porções e bebidas</span></div>
+    </section>
+
+    <!-- Cardápio completo -->
+    <section class="bloco cardapio" id="cardapio" aria-labelledby="t-cardapio">
+      <div class="bloco__cab bloco__cab--grande">
+        <div>
+          <p class="eyebrow">Cardápio</p>
+          <h2 id="t-cardapio" class="titulo-grande" data-quebrar>Escolha o seu.</h2>
+        </div>
+        <p class="bloco__nota">Toque no <b>+</b> para personalizar e adicionar ao pedido.</p>
+      </div>
+      <div class="abas" role="tablist" aria-label="Categorias" data-abas></div>
+      <p class="sem-resultado" data-sem-resultado hidden>Nada encontrado com esse nome. Tente “bacon” ou “frango”.</p>
+      <div class="lista" data-lista></div>
+    </section>
+
+    <!-- Como pedir -->
+    <section class="bloco como" id="como-pedir" aria-labelledby="t-como">
+      <p class="eyebrow">Como pedir</p>
+      <h2 id="t-como" class="titulo-grande" data-quebrar>Pedido pronto em <em class="destaque">um minuto.</em></h2>
+      <ol class="passos">
+        <li class="passo revelar"><span class="passo__n">1</span><h3>Escolha</h3><p>Navegue pelo cardápio e toque no <b>+</b> do que der vontade.</p></li>
+        <li class="passo revelar"><span class="passo__n">2</span><h3>Personalize</h3><p>Adicione bacon, ovo, cheddar ou peça pra tirar o que não curte.</p></li>
+        <li class="passo revelar"><span class="passo__n">3</span><h3>Envie no WhatsApp</h3><p>O pedido chega montado pra gente, com endereço e pagamento. É só confirmar.</p></li>
+      </ol>
+      <div class="modos">
+        <div class="modo revelar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M9 17h6l-2-7H9"/><path d="M15 10h3l2 4"/><path d="M5 10h4"/></svg>
+          <div><h3>Delivery rápido</h3><p>No conforto da sua casa, quentinho como saiu da chapa.</p></div>
+        </div>
+        <div class="modo revelar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg>
+          <div><h3>No local</h3><p>Venha comer com a gente, em frente ao campo municipal.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Onde estamos + Instagram -->
+    <section class="bloco onde" id="onde" aria-labelledby="t-onde">
+      <div class="onde__card revelar">
+        <p class="eyebrow">Onde estamos</p>
+        <h2 id="t-onde" class="titulo-medio" data-endereco>Rua São Pedro, Centro</h2>
+        <p class="onde__ref" data-referencia></p>
+        <ul class="onde__info">
+          <li data-horarios></li>
+        </ul>
+        <div class="onde__btns">
+          <a class="btn btn--amarelo" href="#" target="_blank" rel="noopener" data-mapa>Como chegar</a>
+          <a class="btn btn--vidro" href="#" target="_blank" rel="noopener" data-whatsapp>Falar no WhatsApp</a>
+        </div>
+      </div>
+      <a class="insta revelar" href="#" target="_blank" rel="noopener" data-instagram>
+        <img src="assets/img/logo.webp" alt="" width="72" height="72">
+        <span class="insta__user" data-insta-user>@xdoneves</span>
+        <span class="insta__num"><strong data-seguidores>2.740</strong> seguidores acompanhando as novidades</span>
+        <span class="insta__cta">Seguir no Instagram
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </span>
+      </a>
+    </section>
+
+    <!-- Dúvidas -->
+    <section class="bloco duvidas" id="duvidas" aria-labelledby="t-duvidas">
+      <p class="eyebrow">Dúvidas</p>
+      <h2 id="t-duvidas" class="titulo-grande" data-quebrar>Perguntas rápidas.</h2>
+      <div class="faq" data-faq></div>
+    </section>
+
+    <!-- Chamada final -->
+    <section class="final revelar">
+      <canvas class="brasas" data-brasas aria-hidden="true"></canvas>
+      <p class="final__rotulo"><em class="destaque">Tá com fome?</em></p>
+      <h2 class="final__titulo">O seu xis tá a um toque de distância.</h2>
+      <a class="btn btn--amarelo btn--grande" href="#cardapio">Montar meu pedido
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape__grade">
+      <div class="rodape__marca">
+        <img src="assets/img/logo.webp" alt="" width="64" height="64">
+        <p><strong>Lanchonete X do Neves</strong><span data-rodape-endereco></span></p>
+      </div>
+      <div class="rodape__col">
+        <h3>Horário</h3>
+        <p data-rodape-horarios></p>
+      </div>
+      <div class="rodape__col">
+        <h3>Fale com a gente</h3>
+        <p class="rodape__links">
+          <a href="#" target="_blank" rel="noopener" data-whatsapp>WhatsApp</a>
+          <a href="#" target="_blank" rel="noopener" data-instagram>Instagram</a>
+          <a href="#" target="_blank" rel="noopener" data-mapa>Como chegar</a>
+        </p>
+      </div>
+    </div>
+    <p class="rodape__gigante" aria-hidden="true">X do Neves</p>
+    <div class="rodape__base">
+      <p class="rodape__copy">© <span data-ano></span> Lanchonete X do Neves · Faxinal dos Guedes</p>
+      <a class="rodape__topo" href="#inicio">Voltar ao topo
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </a>
+    </div>
+    <p class="rodape__aviso" data-aviso-previa hidden>Prévia: preços e imagens ilustrativos até a versão final do cardápio.</p>
+  </footer>
+
+  <!-- Navegação inferior (celular) -->
+  <nav class="tabbar" aria-label="Navegação rápida">
+    <a href="#inicio" class="ativo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 3 10v10a1 1 0 0 0 1 1h5v-6h6v6h5a1 1 0 0 0 1-1V10z"/></svg><span>Início</span></a>
+    <a href="#cardapio"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg><span>Cardápio</span></a>
+    <button type="button" data-abrir-carrinho><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h12l-1 12H7z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Pedido</span><i class="contador" data-contador hidden>0</i></button>
+    <a href="#onde"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Endereço</span></a>
+  </nav>
+
+  <!-- Barra do pedido -->
+  <button class="barra-pedido" type="button" data-abrir-carrinho data-barra-pedido hidden>
+    <span class="barra-pedido__qtd" data-barra-qtd>1</span>
+    <span class="barra-pedido__txt">Ver pedido</span>
+    <span class="barra-pedido__total" data-barra-total>R$ 0,00</span>
+  </button>
+
+  <!-- Detalhe do item -->
+  <div class="folha" data-folha="item" hidden>
+    <div class="folha__fundo" data-fechar></div>
+    <div class="folha__painel folha__painel--item" role="dialog" aria-modal="true" aria-labelledby="item-nome">
+      <div class="item__topo">
+        <button class="redondo" type="button" data-fechar aria-label="Fechar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="redondo redondo--fav" type="button" data-fav aria-label="Favoritar" aria-pressed="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.2 3.4 4.5 7 4.5c2 0 3.5 1.1 5 3 1.5-1.9 3-3 5-3 3.6 0 6 3.7 4.5 7.3C19.5 16.4 12 21 12 21z"/></svg></button>
+      </div>
+      <div class="item__img" data-item-img></div>
+      <div class="item__corpo">
+        <div class="item__cab">
+          <span class="selo" data-item-tag hidden></span>
+          <h2 id="item-nome" class="item__nome" data-item-nome></h2>
+          <div class="item__linha"><span class="item__cat" data-item-cat></span><strong class="item__preco" data-item-preco></strong></div>
+          <p class="item__desc" data-item-desc></p>
+        </div>
+        <div class="item__adic" data-item-adic-bloco>
+          <h3>Turbine o seu</h3>
+          <div data-item-adic></div>
+        </div>
+        <div class="junto" data-junto>
+          <h3>Peça junto</h3>
+          <div class="junto__lista" data-junto-lista></div>
+        </div>
+        <label class="item__obs">
+          <span>Observação</span>
+          <textarea rows="2" placeholder="Ex.: sem ervilha, bem passado..." data-item-obs></textarea>
+        </label>
+      </div>
+      <div class="item__rodape">
+        <div class="qtd">
+          <button type="button" data-qtd="-1" aria-label="Diminuir">−</button>
+          <output data-item-qtd>1</output>
+          <button type="button" data-qtd="1" aria-label="Aumentar">+</button>
+        </div>
+        <button class="btn btn--laranja btn--add" type="button" data-item-add><span>Adicionar</span><b data-item-total>R$ 0,00</b></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carrinho -->
+  <div class="folha" data-folha="carrinho" hidden>
+    <div class="folha__fundo" data-fechar></div>
+    <div class="folha__painel folha__painel--carrinho" role="dialog" aria-modal="true" aria-labelledby="t-carrinho">
+      <div class="carrinho__cab">
+        <h2 id="t-carrinho">Seu pedido</h2>
+        <button class="redondo" type="button" data-fechar aria-label="Fechar"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </div>
+      <div class="carrinho__vazio" data-carrinho-vazio>
+        <div class="carrinho__vazio-img" data-vazio-img></div>
+        <p><strong>Sua sacola está vazia</strong>Que tal começar por um X-Bacon?</p>
+        <a class="btn btn--amarelo" href="#cardapio" data-fechar>Ver cardápio</a>
+      </div>
+      <div class="carrinho__corpo" data-carrinho-corpo>
+        <ul class="carrinho__itens" data-carrinho-itens></ul>
+
+        <fieldset class="segmento">
+          <legend class="sr-only">Como quer receber</legend>
+          <label><input type="radio" name="entrega" value="entrega" checked data-entrega><span>Entrega</span></label>
+          <label><input type="radio" name="entrega" value="retirada" data-entrega><span>Retirar no local</span></label>
+        </fieldset>
+
+        <div class="campos">
+          <label class="campo"><span>Seu nome</span><input type="text" autocomplete="name" data-campo="nome" placeholder="Como podemos te chamar?"></label>
+          <label class="campo" data-campo-endereco><span>Endereço de entrega</span><input type="text" autocomplete="street-address" data-campo="endereco" placeholder="Rua, número, bairro e referência"></label>
+          <div class="campo">
+            <span>Pagamento</span>
+            <div class="chips" data-pagamentos></div>
+          </div>
+          <label class="campo" data-campo-troco hidden><span>Troco para quanto?</span><input type="text" inputmode="decimal" data-campo="troco" placeholder="Ex.: R$ 100"></label>
+        </div>
+
+        <dl class="totais">
+          <div><dt>Subtotal</dt><dd data-subtotal>R$ 0,00</dd></div>
+          <div data-linha-taxa><dt>Entrega</dt><dd data-taxa>R$ 0,00</dd></div>
+          <div class="totais__total"><dt>Total</dt><dd data-total>R$ 0,00</dd></div>
+        </dl>
+        <p class="aviso-campos" data-aviso-campos hidden></p>
+      </div>
+      <div class="carrinho__rodape" data-carrinho-rodape>
+        <a class="btn btn--whats" href="#" target="_blank" rel="noopener" data-enviar>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.4-.2z"/></svg>
+          <span>Enviar pedido no WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/arte.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

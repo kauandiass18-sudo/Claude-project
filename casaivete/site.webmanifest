@@ -1,0 +1,9 @@
+{
+  "name": "Casa Ivete — Massas e Pães Artesanais",
+  "short_name": "Casa Ivete",
+  "start_url": "./",
+  "display": "browser",
+  "background_color": "#F5F0E6",
+  "theme_color": "#F5F0E6",
+  "icons": [{ "src": "assets/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }]
+}
