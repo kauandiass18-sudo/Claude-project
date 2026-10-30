@@ -43,9 +43,8 @@
       { id: "piscinas", nome: "Piscinas de Cheddar", ordem: 1, ativo: true, estilo: "destaque", foto: IMG + "destaque-piscinas.webp" },
       { id: "mini-burgers", nome: "Mini Burgers", ordem: 2, ativo: true, estilo: "normal", foto: IMG + "destaque-mini-burgers.webp" },
       { id: "lanches", nome: "Lanches", ordem: 3, ativo: true, estilo: "normal", foto: IMG + "destaque-lanches.webp" },
-      { id: "promocoes", nome: "Promoções", ordem: 4, ativo: true, estilo: "normal", foto: IMG + "destaque-promocoes.webp" },
-      { id: "porcoes", nome: "Porções", ordem: 5, ativo: true, estilo: "normal", foto: IMG + "destaque-porcoes.webp" },
-      { id: "bebidas", nome: "Bebidas", ordem: 6, ativo: true, estilo: "normal", foto: "" }
+      { id: "porcoes", nome: "Porções", ordem: 4, ativo: true, estilo: "normal", foto: IMG + "destaque-porcoes.webp" },
+      { id: "bebidas", nome: "Bebidas", ordem: 5, ativo: true, estilo: "normal", foto: "" }
     ],
 
     produtos: [
@@ -75,7 +74,7 @@
         foto: IMG + "piscina-de-cheddar.webp",
         produtoId: "piscina-de-cheddar",
         selo: "",
-        ativo: true,
+        ativo: false,                   // repetia o destaque do topo; ligue no painel quando houver oferta
         ordem: 1
       }
     ]

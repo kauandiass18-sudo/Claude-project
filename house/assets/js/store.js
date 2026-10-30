@@ -9,7 +9,7 @@
 (function () {
   var cfg = window.HOUSE_CONFIG || {};
   var LIVE = !!(cfg.supabaseUrl && cfg.supabaseAnonKey);
-  var K = { demo: "house_demo_v1", sacola: "house_sacola_v1", cliente: "house_cliente_v1", sessao: "house_demo_sessao" };
+  var K = { demo: "house_demo_v2", sacola: "house_sacola_v1", cliente: "house_cliente_v1", sessao: "house_demo_sessao" };
   var SENHA_DEMO = "house66";
   var memoria = {};
 

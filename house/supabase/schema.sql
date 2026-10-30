@@ -236,9 +236,8 @@ insert into public.categorias (id, nome, ordem, estilo, foto) values
   ('piscinas', 'Piscinas de Cheddar', 1, 'destaque', 'assets/img/destaque-piscinas.webp'),
   ('mini-burgers', 'Mini Burgers', 2, 'normal', 'assets/img/destaque-mini-burgers.webp'),
   ('lanches', 'Lanches', 3, 'normal', 'assets/img/destaque-lanches.webp'),
-  ('promocoes', 'Promoções', 4, 'normal', 'assets/img/destaque-promocoes.webp'),
-  ('porcoes', 'Porções', 5, 'normal', 'assets/img/destaque-porcoes.webp'),
-  ('bebidas', 'Bebidas', 6, 'normal', '')
+  ('porcoes', 'Porções', 4, 'normal', 'assets/img/destaque-porcoes.webp'),
+  ('bebidas', 'Bebidas', 5, 'normal', '')
 on conflict (id) do nothing;
 
 with piscina as (
@@ -249,8 +248,8 @@ with piscina as (
    where not exists (select 1 from public.produtos where nome = 'Piscina de Cheddar')
   returning id
 )
-insert into public.promocoes (titulo, texto, preco, a_partir_de, foto, produto_id, ordem)
+insert into public.promocoes (titulo, texto, preco, a_partir_de, foto, produto_id, ordem, ativo)
 select 'Piscinas de Cheddar',
        'Cansado de comer sempre a mesma coisa? Fuja da rotina com as nossas piscinas de cheddar artesanal.',
-       94.99, true, 'assets/img/piscina-de-cheddar.webp', id, 1
+       94.99, true, 'assets/img/piscina-de-cheddar.webp', id, 1, false
   from piscina;

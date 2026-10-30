@@ -128,32 +128,6 @@
       </ul>
     </section>
 
-    <!-- PISCINAS DE CHEDDAR -->
-    <section class="piscina" id="piscinas" aria-labelledby="piscina-titulo" data-piscina-secao>
-      <div class="piscina__in">
-        <div class="piscina__foto" data-revelar-foto>
-          <img data-piscina-img src="assets/img/piscina-de-cheddar.webp" width="828" height="973" loading="lazy"
-            alt="Vista de cima da piscina de cheddar: hambúrgueres em volta, batata frita e bacon picado no centro">
-        </div>
-        <div class="piscina__texto">
-          <p class="sobretitulo">Especialidade da casa</p>
-          <h2 id="piscina-titulo" class="titulo-secao">Piscina de <em>cheddar</em></h2>
-          <p class="piscina__lead" data-piscina-desc>Hambúrgueres no pão, batata frita e bacon, tudo coberto de cheddar artesanal e servido na mesma bandeja.</p>
-          <ul class="bandeja" aria-label="O que vai na bandeja">
-            <li><span class="bandeja__qtd">Hambúrgueres</span><span>no pão, lado a lado</span></li>
-            <li><span class="bandeja__qtd">Batata frita</span><span>por cima de tudo</span></li>
-            <li><span class="bandeja__qtd">Bacon</span><span>picado e crocante</span></li>
-            <li><span class="bandeja__qtd">Cheddar</span><span>artesanal, em abundância</span></li>
-          </ul>
-          <div class="piscina__compra">
-            <p class="preco-grande" data-piscina-preco><small>a partir de</small> R$ 94,99</p>
-            <button type="button" class="btn btn--vermelho btn--grande" data-pedir-piscina>Pedir minha piscina <svg aria-hidden="true"><use href="#i-seta"/></svg></button>
-          </div>
-          <div class="piscina__outras" data-piscina-outras hidden></div>
-        </div>
-      </div>
-    </section>
-
     <!-- CARDÁPIO -->
     <section class="cardapio" id="cardapio" aria-labelledby="cardapio-titulo">
       <div class="cardapio__topo">
@@ -163,6 +137,11 @@
       <nav class="chips" aria-label="Categorias do cardápio" data-chips></nav>
       <div class="cardapio__lista" data-cardapio>
         <p class="carregando">Carregando o cardápio…</p>
+      </div>
+      <div class="outros" data-outros hidden>
+        <div class="outros__fotos" data-outros-fotos aria-hidden="true"></div>
+        <p><strong>Também tem <span data-outros-nomes></span>.</strong>Esses itens ainda não estão no site. Peça as opções do dia pelo WhatsApp.</p>
+        <a class="btn btn--contorno" data-outros-link href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whats"/></svg>Ver opções</a>
       </div>
     </section>
 
@@ -198,11 +177,6 @@
           <p class="sobretitulo">Sobre a House</p>
           <h2 id="sobre-titulo" class="titulo-secao">Lanche farto, <em>do jeito que dá vontade.</em></h2>
           <p>A House Hamburgueria 66 é de Colombo e faz lanche pra quem chega com fome de verdade: hambúrguer caprichado, porção pra dividir e cheddar sem economia. No Instagram, a casa se apresenta como “o melhor piscinão de cheddar em Colombo”. A bandeja aí em cima mostra por quê.</p>
-          <ul class="valores">
-            <li><strong>Sabor</strong><span>Lanche pra matar a fome com vontade.</span></li>
-            <li><strong>Qualidade</strong><span>Cheddar artesanal nas piscinas da casa.</span></li>
-            <li><strong>Porções generosas</strong><span>Bandeja cheia, pra comer bem ou dividir.</span></li>
-          </ul>
           <a class="link-insta" data-instagram href="https://www.instagram.com/house_hamburgueria66/" target="_blank" rel="noopener">
             <img src="assets/img/instagram-lanche.webp" width="274" height="306" loading="lazy" alt="">
             <span><small>Siga no Instagram</small><strong data-instagram-user>@house_hamburgueria66</strong></span>

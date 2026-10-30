@@ -109,39 +109,6 @@
     $("[data-hero-preco]").innerHTML = (p.aPartirDe ? "<small>a partir de</small> " : "") + fmt(p.preco);
   }
 
-  // ------------------------------------------------------------ piscinas
-  function categoriaPiscina() {
-    return dados.categorias.filter(function (c) { return c.id === "piscinas"; })[0]
-      || dados.categorias.filter(function (c) { return c.estilo === "destaque"; })[0] || null;
-  }
-  function aplicarPiscina() {
-    var secao = $("[data-piscina-secao]");
-    var cat = categoriaPiscina();
-    var lista = cat ? dados.produtos.filter(function (p) { return p.categoria === cat.id; }) : [];
-    if (!lista.length) { secao.hidden = true; return; }
-    secao.hidden = false;
-    var principal = lista.filter(function (p) { return p.destaque && p.foto; })[0] || lista[0];
-    if (principal.foto && principal.foto.indexOf("piscina-de-cheddar") === -1) {
-      $("[data-piscina-img]").src = principal.foto;
-      $("[data-piscina-img]").alt = principal.nome;
-    }
-    if (principal.descricao) $("[data-piscina-desc]").textContent = principal.descricao;
-    var preco = $("[data-piscina-preco]");
-    preco.innerHTML = principal.preco == null ? "Consulte o valor" : (principal.aPartirDe ? "<small>a partir de</small> " : "") + fmt(principal.preco);
-    var btn = $("[data-pedir-piscina]");
-    btn.onclick = function () { pedir(principal, btn); };
-
-    var outras = lista.filter(function (p) { return p !== principal; });
-    var box = $("[data-piscina-outras]");
-    box.hidden = !outras.length;
-    box.innerHTML = outras.map(function (p) {
-      return '<button type="button" class="outra" data-abrir="' + esc(p.id) + '">' +
-        (p.foto ? '<img src="' + esc(p.foto) + '" alt="" loading="lazy">' : '<span class="sem-foto" aria-hidden="true"></span>') +
-        "<span><strong>" + esc(p.nome) + "</strong>" + (p.preco == null ? "Consultar valor" : (p.aPartirDe ? "a partir de " : "") + fmt(p.preco)) + "</span>" +
-        '<svg aria-hidden="true"><use href="#i-seta"/></svg></button>';
-    }).join("");
-  }
-
   // ------------------------------------------------------------ cardápio
   function cardHTML(p, destaque) {
     var acao;
@@ -161,30 +128,40 @@
   }
 
   function renderCardapio() {
-    var cats = dados.categorias;
+    var comItens = [], vazias = [];
+    dados.categorias.forEach(function (c) {
+      var itens = dados.produtos.filter(function (p) { return p.categoria === c.id; });
+      if (itens.length) comItens.push({ c: c, itens: itens }); else vazias.push(c);
+    });
+
+    // filtros só quando há mais de uma categoria com produtos
     var chips = $("[data-chips]");
-    chips.innerHTML = '<div class="chips__trilho">' + cats.map(function (c) {
+    chips.hidden = comItens.length < 2;
+    chips.innerHTML = '<div class="chips__trilho">' + comItens.map(function (g) {
+      var c = g.c;
       var avatar = c.foto ? '<img src="' + esc(c.foto) + '" alt="" width="32" height="32" loading="lazy">' : '<span class="chip__inicial" aria-hidden="true">' + esc(c.nome.charAt(0)) + "</span>";
       return '<a class="chip" href="#cat-' + esc(c.id) + '" data-chip="' + esc(c.id) + '">' + avatar + esc(c.nome) + "</a>";
     }).join("") + "</div>";
 
-    var html = cats.map(function (c) {
-      var itens = dados.produtos.filter(function (p) { return p.categoria === c.id; });
-      var corpo;
-      if (itens.length) {
-        corpo = '<ul class="grade">' + itens.map(function (p) { return cardHTML(p, c.estilo === "destaque"); }).join("") + "</ul>";
-      } else {
-        var wl = linkWhats("Olá, House! Quero ver as opções de " + c.nome + ".");
-        corpo = '<div class="vazio-cat revelar">' + (c.foto ? '<img src="' + esc(c.foto) + '" alt="" loading="lazy">' : "") +
-          "<p><strong>" + esc(c.nome) + " ainda não estão no cardápio online.</strong>Peça as opções do dia direto no WhatsApp.</p>" +
-          (wl ? '<a class="btn btn--contorno" href="' + esc(wl) + '" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whats"/></svg>Perguntar</a>' : "") + "</div>";
-      }
+    $("[data-cardapio]").innerHTML = comItens.map(function (g) {
+      var c = g.c;
       return '<section class="categoria" id="cat-' + esc(c.id) + '" aria-labelledby="t-' + esc(c.id) + '" data-categoria="' + esc(c.id) + '">' +
-        '<div class="categoria__topo"><h3 class="categoria__nome" id="t-' + esc(c.id) + '">' + esc(c.nome) + "</h3>" +
-        (itens.length ? '<span class="categoria__qtd">' + itens.length + (itens.length === 1 ? " item" : " itens") + "</span>" : "") + "</div>" +
-        corpo + "</section>";
-    }).join("");
-    $("[data-cardapio]").innerHTML = html || '<p class="carregando">O cardápio está sendo atualizado. Chame a House no WhatsApp.</p>';
+        '<div class="categoria__topo"><h3 class="categoria__nome" id="t-' + esc(c.id) + '">' + esc(c.nome) + "</h3></div>" +
+        '<ul class="grade">' + g.itens.map(function (p) { return cardHTML(p, c.estilo === "destaque"); }).join("") + "</ul></section>";
+    }).join("") || '<p class="carregando">O cardápio está sendo atualizado. Chame a House no WhatsApp.</p>';
+
+    // categorias ainda sem produtos: um aviso só, no fim
+    var outros = $("[data-outros]");
+    var wl = linkWhats("Olá, House! Quero ver as opções de " + vazias.map(function (c) { return c.nome; }).join(", ") + ".");
+    outros.hidden = !vazias.length || !wl;
+    if (!outros.hidden) {
+      var nomes = vazias.map(function (c) { return c.nome.toLowerCase(); });
+      $("[data-outros-nomes]").textContent = nomes.length > 1 ? nomes.slice(0, -1).join(", ") + " e " + nomes[nomes.length - 1] : nomes[0];
+      $("[data-outros-fotos]").innerHTML = vazias.filter(function (c) { return c.foto; }).slice(0, 4).map(function (c) {
+        return '<img src="' + esc(c.foto) + '" alt="" width="44" height="44" loading="lazy">';
+      }).join("");
+      $("[data-outros-link]").href = wl;
+    }
     observarCategorias();
   }
 
@@ -271,7 +248,6 @@
   function efeitosScroll() {
     if (reduzido) return;
     var heroImg = $("[data-hero-img]"), heroFoto = $("[data-hero-foto]");
-    var pisc = $("[data-revelar-foto]");
     var pedido = false;
     function quadro() {
       pedido = false;
@@ -280,12 +256,6 @@
       if (r.bottom > 0 && r.top < vh) {
         var prog = Math.min(1, window.scrollY / vh);
         heroImg.style.transform = prog > 0 ? "translateY(" + (prog * 60).toFixed(1) + "px) scale(" + (1 + prog * 0.08).toFixed(3) + ")" : "";
-      }
-      if (pisc && !pisc.closest("[hidden]")) {
-        var rp = pisc.getBoundingClientRect();
-        var p = Math.max(0, Math.min(1, (vh - rp.top) / (vh * 0.85)));
-        pisc.style.setProperty("--recorte", ((1 - p) * 9).toFixed(2) + "%");
-        pisc.style.setProperty("--escala", (1.14 - p * 0.14).toFixed(3));
       }
     }
     function pedir() { if (!pedido) { pedido = true; requestAnimationFrame(quadro); } }
@@ -803,7 +773,6 @@
     Sacola.conciliar(dados.produtos);
     aplicarLoja();
     aplicarHero();
-    aplicarPiscina();
     renderCardapio();
     renderPromocoes();
     renderExtras();
