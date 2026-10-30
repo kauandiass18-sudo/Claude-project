@@ -358,6 +358,11 @@
       '<h3 class="card__name"><a href="' + url + '">' + esc(p.name) + "</a></h3>" +
       '<div class="card__price">' + (out ? '<span class="muted">Esgotado</span>' : (sale ? "<s>" + S.fmt(p.compare_at_price) + "</s>" : "") + '<span class="price">' + S.fmt(p.price) + "</span>") + "</div>" +
       (inst && !out ? '<div class="card__inst">' + esc(inst.text) + "</div>" : "") +
+      // Em telas de toque não existe hover: o botão fica sempre visível abaixo do preço.
+      '<div class="card__cta">' +
+      (out || needsChoice ? '<a class="btn btn--ghost btn--xs" href="' + url + '">' + (out ? "Ver peça" : "Ver opções") + "</a>"
+        : '<button class="btn btn--ghost btn--xs" type="button" data-quick-add="' + esc(p.id) + '">' + icon("bag", "icon--sm") + " Adicionar</button>") +
+      "</div>" +
       "</div></article>"
     );
   }

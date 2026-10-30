@@ -46,6 +46,7 @@
   --pearl-3: #f3e3e2;
   --blush: #f3dcdb;
   --blush-2: #f9ecea;
+  --nude: #f5eee9;              /* neutro quente para equilibrar o rosa */
   --rose: #df9aa0;              /* coral suave da pedra da logo, usado em detalhes */
   --rose-ink: #a35a62;          /* versão com contraste AA para textos pequenos */
   --ink: #3b2f30;               /* marrom da assinatura "mb" */
@@ -339,12 +340,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 
 /* ------------------------------------------------------------- hero */
 .hero { position: relative; background: var(--pearl-3); overflow: hidden; }
-.hero__media { position: relative; height: min(68vh, 560px); overflow: hidden; }
+.hero__media { position: relative; height: min(54svh, 470px); overflow: hidden; }
 .hero__media picture, .hero__media img { width: 100%; height: 100%; }
 .hero__media img { object-fit: cover; object-position: 50% 62%; transform: scale(1.06); animation: heroIn 2.4s var(--ease-out) forwards; }
 @keyframes heroIn { to { transform: scale(1); } }
 .hero__content {
-  position: relative; background: var(--pearl); padding: 2.4rem var(--gutter) 3.2rem; display: grid; gap: 1.25rem;
+  position: relative; background: var(--pearl); padding: 1.9rem var(--gutter) 2.8rem; display: grid; gap: 1.05rem;
 }
 .hero__title { max-width: 11ch; }
 .hero__text { max-width: 30rem; color: var(--ink-2); font-size: 1rem; line-height: 1.75; }
@@ -377,7 +378,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .tabs .chip { scroll-snap-align: start; }
 
 .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.2rem 0.9rem; }
-.card { position: relative; display: grid; gap: 0.95rem; align-content: start; }
+.card { position: relative; display: flex; flex-direction: column; gap: 0.95rem; }
 .card__media { position: relative; display: block; aspect-ratio: 4 / 5; overflow: hidden; background: var(--pearl-3); }
 .card__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.8s var(--ease), transform 1.4s var(--ease-out); }
 .card__media .alt { opacity: 0; }
@@ -402,13 +403,18 @@ ul { margin: 0; padding: 0; list-style: none; }
   .card:hover .card__quick, .card:focus-within .card__quick { opacity: 1; transform: none; }
   .card__quick .btn { width: 100%; min-height: 46px; --b-bg: rgba(252, 248, 247, 0.94); --b-fg: var(--ink); --b-bd: transparent; backdrop-filter: blur(6px); }
 }
-.card__body { display: grid; gap: 0.3rem; }
+.card__body { display: flex; flex-direction: column; gap: 0.3rem; flex: 1; }
 .card__mat { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-ink); }
 .card__name { font-family: var(--serif); font-size: clamp(1rem, 1.35vw, 1.15rem); font-weight: 400; line-height: 1.3; }
 .card__name a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
 .card__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.15rem 0.6rem; margin-top: 0.2rem; font-size: 0.86rem; font-weight: 500; font-variant-numeric: tabular-nums; }
 .card__price s { color: var(--warm); font-weight: 400; font-size: 0.78rem; }
 .card__inst { font-size: 0.72rem; color: var(--warm-ink); }
+.card__cta { position: relative; z-index: 2; margin-top: auto; padding-top: 0.7rem; }
+.card__cta .btn { width: 100%; }
+.btn--xs { min-height: 38px; padding: 0 0.9rem; font-size: 0.6rem; letter-spacing: 0.16em; gap: 0.45rem; }
+.btn--xs .icon { width: 14px; height: 14px; }
+@media (hover: hover) and (min-width: 900px) { .card__cta { display: none; } }
 
 .price { font-variant-numeric: tabular-nums; }
 
@@ -434,11 +440,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .essence__main img { width: 100%; height: 100%; object-fit: cover; }
 .essence__detail {
   position: absolute; right: -0.5rem; bottom: -2.2rem; width: 42%; aspect-ratio: 1; overflow: hidden;
-  border: 8px solid var(--pearl); background: var(--pearl-3);
+  border: 8px solid var(--nude); background: var(--pearl-3);
 }
 .essence__detail img { width: 100%; height: 100%; object-fit: cover; }
 .essence__text { display: grid; gap: 1.4rem; padding-top: 1.5rem; }
 .essence__text .body { display: grid; gap: 1.1rem; color: var(--ink-2); max-width: 32rem; line-height: 1.85; }
+.essence__seal { width: 96px; height: 96px; }
 .essence__sig { font-family: var(--script); font-size: 2.6rem; line-height: 1; color: var(--rose-ink); }
 
 /* ------------------------------------------------------------- presentes */
@@ -468,7 +475,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 .insta__grid a:hover img { transform: scale(1.05); opacity: 0.9; }
 
 /* ------------------------------------------------------------- rodapé */
-.footer { background: var(--blush); color: var(--ink-2); padding: clamp(3.5rem, 8vw, 6rem) 0 1.75rem; font-size: 0.86rem; }
+.footer { background: var(--nude); color: var(--ink-2); padding: clamp(3.5rem, 8vw, 6rem) 0 1.75rem; font-size: 0.86rem; }
 .footer a { transition: color 0.3s; }
 .footer a:hover { color: var(--rose-ink); }
 .footer__top { display: grid; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--line-2); }
