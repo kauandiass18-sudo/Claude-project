@@ -13,6 +13,9 @@
     :root {
       --white: #f6f5f1;
       --dark: #151917;
+      --dark-rgb: 21, 25, 23;
+      --forest: #1c2420;
+      --glow: rgba(214, 160, 96, .12);
       --muted: rgba(246, 245, 241, .72);
       --line: rgba(246, 245, 241, .32);
       --pad-x: clamp(24px, 5vw, 78px);
@@ -44,6 +47,21 @@
 
     .hero::before,
     .hero__backdrop { display: none; }
+
+    /* Base do hero se dissolve no verde-escuro da seção seguinte */
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      inset: auto 0 0;
+      height: 34%;
+      pointer-events: none;
+      background: linear-gradient(to bottom,
+        rgba(var(--dark-rgb), 0) 0%,
+        rgba(var(--dark-rgb), .35) 45%,
+        rgba(var(--dark-rgb), .8) 80%,
+        var(--dark) 100%);
+    }
 
     /* ---------- Header ---------- */
     .hero__header {
@@ -321,16 +339,18 @@
       --arc-radius: 82em;
       --grid-columns: 4;
       --grid-gutter: 1rem;
-      --card-text: #f7f4ee;
-      --shade-mid: rgba(0, 0, 0, .30);
-      --shade-strong: rgba(0, 0, 0, .85);
+      --card-text: var(--white);
+      --shade-mid: rgba(var(--dark-rgb), .25);
+      --shade-strong: rgba(var(--dark-rgb), .9);
 
       position: relative;
       height: 100svh;
       min-height: 100svh;
       overflow: hidden;
       isolation: isolate;
-      background: var(--dark);
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 78%, var(--glow), transparent 70%),
+        linear-gradient(to bottom, var(--dark) 0%, var(--forest) 55%, var(--dark) 100%);
       font-size: clamp(1.125rem, 1.05rem + .2vw, 1.25rem);
     }
 
@@ -424,7 +444,7 @@
       width: var(--card-size);
       overflow: hidden;
       border-radius: var(--card-radius);
-      background: #222825;
+      background: var(--forest);
       transform: rotate(calc(var(--arc-step) * (var(--card-index) - 1)));
       transform-origin: 50% var(--arc-radius);
     }
@@ -435,7 +455,7 @@
       z-index: 1;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(to bottom, var(--shade-mid) 20%, rgba(0, 0, 0, .48) 52%, var(--shade-strong) 100%);
+      background: linear-gradient(to bottom, var(--shade-mid) 20%, rgba(var(--dark-rgb), .5) 52%, var(--shade-strong) 100%);
     }
 
     .radial-card img {
