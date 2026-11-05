@@ -561,23 +561,6 @@
       margin-inline: auto;
     }
 
-    .info__head {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, .9fr);
-      align-items: center;
-      gap: clamp(24px, 4vw, 56px);
-    }
-
-    .info__tablet {
-      display: block;
-      width: 100%;
-      max-width: 620px;
-      height: auto;
-      justify-self: end;
-      margin-block: -40px;
-      filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .45));
-    }
-
     .info__eyebrow {
       margin: 0 0 18px;
       color: var(--muted);
@@ -772,9 +755,7 @@
       .facts li:nth-child(3) { padding-left: 0; border-left: 0; }
       .facts li:nth-child(n + 3) { border-top: 1px solid var(--line); }
       .leisure,
-      .contact__inner,
-      .info__head { grid-template-columns: minmax(0, 1fr); }
-      .info__tablet { justify-self: center; max-width: 520px; margin-block: 0; }
+      .contact__inner { grid-template-columns: minmax(0, 1fr); }
     }
 
     @media (max-width: 640px) {
@@ -837,13 +818,10 @@
 
   <section class="info" id="condominio" aria-labelledby="condominio-title">
     <div class="info__inner">
-      <header class="info__head">
-        <div>
+      <header>
         <p class="info__eyebrow">Condomínio Campos do Conde · Campina Grande – PB</p>
         <h2 class="info__title" id="condominio-title">Realize seu projeto no <em>Campos do Conde.</em></h2>
         <p class="info__text">Lotes prontos para construir, cercados de natureza e com lazer completo para a sua família.</p>
-        </div>
-        <img class="info__tablet" src="assets/img/tablet-site.webp" width="1276" height="1083" loading="lazy" decoding="async" alt="Tablet mostrando um site de arquitetura com o título Construímos valor">
       </header>
 
       <ul class="facts" aria-label="Condições do Campos do Conde">
