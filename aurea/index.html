@@ -547,6 +547,223 @@
       transform: none;
       transform-origin: center;
     }
+    /* ---------- Campos do Conde e contato ---------- */
+    .info {
+      position: relative;
+      padding: clamp(72px, 12vh, 140px) clamp(24px, 5vw, 78px);
+      background: var(--dark);
+    }
+
+    .info__inner {
+      display: grid;
+      gap: clamp(40px, 6vw, 72px);
+      width: min(100%, 1240px);
+      margin-inline: auto;
+    }
+
+    .info__eyebrow {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .info__title {
+      margin: 0;
+      font-size: clamp(38px, 5.4vw, 78px);
+      font-weight: 500;
+      letter-spacing: -.05em;
+      line-height: .95;
+      text-wrap: balance;
+    }
+
+    .info__title em {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      letter-spacing: -.04em;
+    }
+
+    .info__text {
+      max-width: 34ch;
+      margin: 22px 0 0;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: clamp(19px, 1.8vw, 26px);
+      line-height: 1.15;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .facts li {
+      display: grid;
+      align-content: start;
+      gap: 10px;
+      padding: 28px 24px 28px 0;
+    }
+
+    .facts li + li {
+      padding-left: 24px;
+      border-left: 1px solid var(--line);
+    }
+
+    .facts strong {
+      font-size: clamp(34px, 4vw, 56px);
+      font-weight: 500;
+      letter-spacing: -.05em;
+      line-height: 1;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .facts strong small {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: .5em;
+      letter-spacing: -.02em;
+    }
+
+    .facts span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .leisure {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      gap: 24px;
+      align-items: baseline;
+      padding-top: 28px;
+      border-top: 1px solid var(--line);
+    }
+
+    .leisure h3 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(22px, 2.2vw, 30px);
+    }
+
+    .leisure ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .leisure li {
+      padding: 9px 16px;
+      border: 1px solid rgba(246, 245, 241, .45);
+      border-radius: 999px;
+      font-size: 12px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .info__note {
+      margin: -24px 0 0;
+      color: rgba(246, 245, 241, .55);
+      font-size: 12px;
+    }
+
+    .contact {
+      background: linear-gradient(to bottom, var(--dark), var(--forest));
+    }
+
+    .contact__inner {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      align-items: end;
+    }
+
+    .contact__details {
+      display: grid;
+      gap: 26px;
+      margin: 0;
+    }
+
+    .contact__list { display: grid; gap: 26px; margin: 0; }
+    .contact__list div { display: grid; gap: 6px; }
+
+    .contact__list dt {
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .contact__list dd {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .contact__button {
+      justify-self: start;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 999px;
+      background: var(--white);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .contact__button:hover,
+    .contact__button:focus-visible {
+      background: transparent;
+      color: var(--white);
+      box-shadow: inset 0 0 0 1px var(--white);
+    }
+
+    .site-footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      width: min(100%, 1240px);
+      margin-inline: auto;
+    }
+
+    .site-footer {
+      padding: 22px clamp(24px, 5vw, 78px) 28px;
+      background: var(--forest);
+      border-top: 1px solid rgba(246, 245, 241, .14);
+      color: rgba(246, 245, 241, .55);
+      font-size: 11px;
+      letter-spacing: .06em;
+    }
+
+    @media (max-width: 860px) {
+      .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .facts li:nth-child(3) { padding-left: 0; border-left: 0; }
+      .facts li:nth-child(n + 3) { border-top: 1px solid var(--line); }
+      .leisure,
+      .contact__inner { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    @media (max-width: 640px) {
+      .facts li { padding: 22px 14px 22px 0; }
+      .facts strong { font-size: 30px; }
+      .facts li + li { padding-left: 14px; }
+      .facts li:nth-child(3) { padding-left: 0; }
+    }
   </style>
 </head>
 <body>
@@ -588,8 +805,8 @@
     <div class="portfolio__cluster">
       <div class="portfolio__intro">
         <div class="portfolio__copy">
-          <h2 class="portfolio__title" id="portfolio-title">Arquitetura <em>atemporal.</em></h2>
-          <p class="portfolio__lead">Projetamos residências e marcos urbanos onde inovação, biofilia e sofisticação convergem.</p>
+          <h2 class="portfolio__title" id="portfolio-title">Viva cercado pela <em>natureza.</em></h2>
+          <p class="portfolio__lead">Condomínio Campos do Conde, em Campina Grande: qualidade de vida, natureza e lazer em um só lugar.</p>
         </div>
       </div>
 
@@ -598,7 +815,61 @@
       </div>
     </div>
   </section>
+
+  <section class="info" id="condominio" aria-labelledby="condominio-title">
+    <div class="info__inner">
+      <header>
+        <p class="info__eyebrow">Condomínio Campos do Conde · Campina Grande – PB</p>
+        <h2 class="info__title" id="condominio-title">Realize seu projeto no <em>Campos do Conde.</em></h2>
+        <p class="info__text">Lotes prontos para construir, cercados de natureza e com lazer completo para a sua família.</p>
+      </header>
+
+      <ul class="facts" aria-label="Condições do Campos do Conde">
+        <li><strong>12 × 30 <small>m</small></strong><span>Lotes de 360 m²</span></li>
+        <li><strong>Pronto</strong><span>Para construir</span></li>
+        <li><strong>72<small>x</small></strong><span>Parcelamento em até 72x sem juros</span></li>
+        <li><strong>20<small>%</small></strong><span>Desconto de até 20% à vista</span></li>
+      </ul>
+      <p class="info__note">Parcelamento e desconto são condições da campanha Black November. Confirme a disponibilidade com a Habitar.</p>
+
+      <div class="leisure">
+        <h3>Lazer completo</h3>
+        <ul>
+          <li>Piscina</li>
+          <li>Academia</li>
+          <li>Quadra poliesportiva</li>
+          <li>Playground</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="info contact" id="contato" aria-labelledby="contato-title">
+    <div class="info__inner contact__inner">
+      <div>
+        <p class="info__eyebrow">Habitar Imobiliária</p>
+        <h2 class="info__title" id="contato-title">Fale com a <em>Habitar.</em></h2>
+        <p class="info__text">Negócios imobiliários em Campina Grande. A satisfação do cliente é o nosso compromisso.</p>
+      </div>
+
+      <div class="contact__details">
+      <dl class="contact__list">
+        <div><dt>Onde estamos</dt><dd>Campina Grande – PB</dd></div>
+        <div><dt>Registro</dt><dd>CRECI 708-J</dd></div>
+        <div><dt>Outros empreendimentos</dt><dd>Jardins da Serra · Village Sudoeste · Trend Residence · Nações Ville · Teriva Lago dos Ipês</dd></div>
+      </dl>
+        <a class="contact__button" href="https://www.instagram.com/habitarimobiliaria/" target="_blank" rel="noopener">Falar pelo Instagram <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
   </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <span>Habitar Imobiliária · CRECI 708-J</span>
+      <span>Campina Grande – PB</span>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
