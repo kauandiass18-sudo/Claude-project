@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aurea Residences | Viver é escolher o extraordinário</title>
+  <meta name="description" content="Residências contemporâneas desenhadas para aproximar você da natureza, do conforto e de tudo o que realmente importa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Manrope:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap">
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dalwymbky/image/upload/v1785342846/hero1_obujcd.jpg">
+  <style>
+    :root {
+      --white: #f6f5f1;
+      --dark: #151917;
+      --muted: rgba(246, 245, 241, .72);
+      --line: rgba(246, 245, 241, .32);
+      --pad-x: clamp(24px, 5vw, 78px);
+      --hero-img: url("https://res.cloudinary.com/dalwymbky/image/upload/v1785342846/hero1_obujcd.jpg");
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--dark);
+      color: var(--white);
+      font-family: Manrope, sans-serif;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100svh;
+      background: var(--hero-img) center center / cover no-repeat;
+    }
+
+    .hero::before,
+    .hero__backdrop { display: none; }
+
+    /* ---------- Header ---------- */
+    .hero__header {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 28px var(--pad-x);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .brand__mark {
+      display: grid;
+      place-items: center;
+      width: 29px;
+      height: 29px;
+      flex: none;
+      border: 1px solid rgba(246, 245, 241, .85);
+      border-radius: 50%;
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .brand__name {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      line-height: .9;
+    }
+
+    .brand__name small {
+      display: block;
+      margin-top: 5px;
+      font-size: 7px;
+      font-weight: 500;
+      letter-spacing: .24em;
+      color: var(--muted);
+    }
+
+    .hero__nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(21px, 3vw, 46px);
+    }
+
+    .hero__nav a {
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .25s ease;
+    }
+
+    .hero__nav a:hover,
+    .hero__nav a:focus-visible { color: var(--white); }
+
+    .menu-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      width: 30px;
+      height: 30px;
+      padding: 7px 4px;
+      background: transparent;
+      border: 1px solid rgba(246, 245, 241, .35);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 13px;
+      height: 1px;
+      background: var(--white);
+    }
+
+    /* ---------- Content overlay ---------- */
+    .hero__content {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero__title {
+      position: absolute;
+      top: 13%;
+      left: 50%;
+      width: min(1080px, 94vw);
+      margin: 0;
+      transform: translateX(-50%);
+      text-align: center;
+      text-transform: uppercase;
+      font-family: Manrope, sans-serif;
+      font-weight: 500;
+      font-size: clamp(44px, 6.5vw, 96px);
+      letter-spacing: -.065em;
+      line-height: .88;
+      white-space: nowrap;
+      animation: headline-rise .85s ease-out .15s both;
+    }
+
+    .hero__title em {
+      font-family: "Playfair Display", serif;
+      font-weight: 500;
+      font-size: .83em;
+      letter-spacing: -.07em;
+      text-transform: none;
+      white-space: nowrap;
+    }
+
+    .hero__subtitle {
+      position: absolute;
+      left: var(--pad-x);
+      bottom: clamp(64px, 9vh, 92px);
+      max-width: 570px;
+      margin: 0;
+      color: var(--white);
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-weight: 500;
+      font-size: clamp(19px, 2vw, 28px);
+      line-height: 1.03;
+      animation: text-rise .85s ease-out .45s both;
+    }
+
+    /* ---------- Footer / selector ---------- */
+    .hero__footer {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      margin-top: auto;
+      display: flex;
+      padding: 0 var(--pad-x) 28px;
+    }
+
+    .hero__scroll { display: none; }
+
+    .bg-switch {
+      position: absolute;
+      right: clamp(42px, 8vw, 120px);
+      bottom: clamp(96px, 17vh, 150px);
+      z-index: 3;
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid rgba(246, 245, 241, .45);
+      border-radius: 999px;
+      background: rgba(15, 20, 18, .18);
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+
+    .bg-switch button {
+      min-width: 35px;
+      padding: 5px 8px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(246, 245, 241, .65);
+      font-family: Manrope, sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      cursor: pointer;
+      transition: background .25s ease, color .25s ease;
+    }
+
+    .bg-switch button.is-active,
+    .bg-switch button:hover {
+      background: var(--white);
+      color: var(--dark);
+    }
+
+    /* ---------- Motion ---------- */
+    @keyframes headline-rise {
+      from { opacity: 0; transform: translate(-50%, 28px); }
+      to   { opacity: 1; transform: translate(-50%, 0); }
+    }
+
+    @keyframes text-rise {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero__title,
+      .hero__subtitle { animation: none; }
+    }
+
+    /* ---------- Mobile ---------- */
+    @media (max-width: 640px) {
+      .hero { background-position: 61% center; }
+
+      .hero__header { padding-top: 22px; }
+
+      .hero__nav a { display: none; }
+
+      .hero__title {
+        top: 21%;
+        width: calc(100vw - 20px);
+        font-size: clamp(38px, 11.8vw, 48px);
+      }
+
+      .hero__subtitle {
+        left: 24px;
+        bottom: 66px;
+        max-width: 82vw;
+        font-size: 21px;
+      }
+
+      .hero__footer { padding-bottom: 21px; }
+
+      .bg-switch { bottom: 170px; }
+
+      .bg-switch button {
+        min-width: 32px;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main id="inicio" class="hero">
+    <div class="hero__backdrop" aria-hidden="true"></div>
+
+    <header class="hero__header">
+      <a class="brand" href="#inicio" aria-label="Aurea Residences — início">
+        <span class="brand__mark" aria-hidden="true">A</span>
+        <span class="brand__name">Aurea<small>Residences</small></span>
+      </a>
+
+      <nav class="hero__nav" aria-label="Navegação principal">
+        <a href="#projeto">O projeto</a>
+        <a href="#contato">Contato</a>
+        <button class="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </nav>
+    </header>
+
+    <section class="hero__content" aria-labelledby="hero-title">
+      <h1 class="hero__title" id="hero-title">Seu espaço para<br><em>viver o essencial.</em></h1>
+      <p class="hero__subtitle">Residências contemporâneas desenhadas para aproximar você da natureza, do conforto e de tudo o que realmente importa.</p>
+    </section>
+
+    <footer class="hero__footer">
+      <div class="bg-switch" role="group" aria-label="Iluminação da residência">
+        <button type="button" class="is-active" aria-pressed="true"
+          data-bg="https://res.cloudinary.com/dalwymbky/image/upload/v1785342846/hero1_obujcd.jpg">ON</button>
+        <button type="button" aria-pressed="false"
+          data-bg="https://res.cloudinary.com/dalwymbky/image/upload/v1785342846/hero2_uohnmg.jpg">OFF</button>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var hero = document.querySelector('.hero');
+      var buttons = document.querySelectorAll('.bg-switch button');
+
+      buttons.forEach(function (btn) { new Image().src = btn.dataset.bg; });
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          hero.style.backgroundImage = 'url("' + btn.dataset.bg + '")';
+          buttons.forEach(function (b) {
+            var active = b === btn;
+            b.classList.toggle('is-active', active);
+            b.setAttribute('aria-pressed', String(active));
+          });
+        });
+      });
+
+      var menuBtn = document.querySelector('.menu-btn');
+      menuBtn.addEventListener('click', function () {
+        var open = menuBtn.getAttribute('aria-expanded') !== 'true';
+        menuBtn.setAttribute('aria-expanded', String(open));
+        document.body.classList.toggle('menu-open', open);
+      });
+    })();
+  </script>
+</body>
+</html>
