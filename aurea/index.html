@@ -482,6 +482,14 @@
       text-wrap: balance;
     }
 
+    /* Celular: texto encostado à esquerda, menor, e cards um pouco menores */
+    @media (max-width: 47.99rem) {
+      .portfolio { --page-margin: 24px; --card-size: 17rem; }
+      .portfolio__copy { grid-column: full-start / full-end; }
+      .portfolio__title { font-size: 2.75rem; }
+      .portfolio__lead { max-width: 30ch; margin-top: 1rem; font-size: 1.125rem; line-height: 1.3; }
+    }
+
     @media (min-width: 48rem) {
       .portfolio { --grid-columns: 8; --arc-radius: 90em; }
       .portfolio::after { height: 8rem; }
