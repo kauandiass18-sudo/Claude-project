@@ -250,6 +250,39 @@
     @media (max-width: 640px) {
       .hero { background-position: 61% center; }
 
+      /* Celular: foto inteira no meio, sobre a mesma foto desfocada */
+      .hero::before,
+      .hero__backdrop {
+        content: "";
+        display: block;
+        position: absolute;
+        inset: 0;
+        background: var(--hero-img) no-repeat;
+        pointer-events: none;
+      }
+
+      .hero::before {
+        z-index: -2;
+        inset: -40px;
+        background-size: cover;
+        background-position: 61% center;
+        filter: blur(18px) brightness(.62) saturate(.9);
+      }
+
+      .hero__backdrop {
+        z-index: -1;
+        inset: auto;
+        top: 54%;
+        left: -9%;
+        width: 118%;
+        aspect-ratio: 1376 / 768;
+        transform: translateY(-50%);
+        background-size: cover;
+        background-position: center;
+        -webkit-mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+        mask-image: linear-gradient(to bottom, transparent, #000 16%, #000 84%, transparent);
+      }
+
       .hero__header { padding-top: 22px; }
 
       .hero__nav a { display: none; }
@@ -322,7 +355,7 @@
 
       buttons.forEach(function (btn) {
         btn.addEventListener('click', function () {
-          hero.style.backgroundImage = 'url("' + btn.dataset.bg + '")';
+          hero.style.setProperty('--hero-img', 'url("' + btn.dataset.bg + '")');
           buttons.forEach(function (b) {
             var active = b === btn;
             b.classList.toggle('is-active', active);
