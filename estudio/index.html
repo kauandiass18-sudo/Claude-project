@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/bodoni-moda-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="stylesheet" href="assets/css/estudio.css">
@@ -76,6 +76,8 @@
     <!-- ============ HERO ============ -->
     <section class="hero" id="topo" aria-labelledby="hero-titulo">
       <div class="hero__glow" aria-hidden="true"></div>
+      <div class="hero__rays" aria-hidden="true"></div>
+      <div class="hero__dust" aria-hidden="true"></div>
       <svg class="hero__arcs" viewBox="0 0 800 800" aria-hidden="true">
         <circle cx="400" cy="400" r="398"/><circle cx="400" cy="400" r="300"/><circle cx="400" cy="400" r="200"/>
       </svg>
@@ -84,6 +86,7 @@
         <div class="hero__copy">
           <p class="eyebrow hero__in" style="--d:0" data-hero-eyebrow>Estúdio de experiências digitais</p>
           <h1 class="display" id="hero-titulo" data-split>Seu negócio merece uma presença digital <em>à altura.</em></h1>
+          <svg class="hero__swash" viewBox="0 0 420 40" aria-hidden="true"><defs><linearGradient id="ouro" x1="0" x2="1"><stop offset="0" stop-color="#C8792C" stop-opacity="0"/><stop offset=".35" stop-color="#F4D9A0"/><stop offset="1" stop-color="#C8792C"/></linearGradient></defs><path d="M2 30 C 90 6, 190 40, 290 22 S 390 8, 404 18"/><path class="star" d="M404 6 L406.2 15.8 L416 18 L406.2 20.2 L404 30 L401.8 20.2 L392 18 L401.8 15.8 Z"/></svg>
           <p class="hero__lead hero__in" style="--d:4">Criamos sites, lojas virtuais e páginas de vendas que apresentam seu negócio com profissionalismo, valorizam sua marca e facilitam a conexão com seus clientes.</p>
           <div class="hero__ctas hero__in" style="--d:5">
             <a class="btn btn--amber" href="#experiencias">Conhecer projetos <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -91,16 +94,17 @@
           </div>
         </div>
 
-        <div class="stage hero__in" style="--d:3" data-stage aria-label="Composição com demonstrações conceituais de sites" role="img">
-          <figure class="screen screen--back" data-frame data-demo-id="clinica" data-w="1280" data-auto="38">
+        <div class="stage hero__in" style="--d:3" data-stage>
+          <div class="stage__index" data-hero-index hidden><p>Conceitos</p></div>
+          <figure aria-hidden="true" class="screen screen--back" data-frame data-demo-id="clinica" data-w="1280" data-auto="38">
             <div class="screen__bar"><i></i><i></i><i></i><span data-frame-label></span></div>
             <div class="screen__view"><div class="screen__mover"><div class="screen__page" data-frame-page></div></div></div>
           </figure>
-          <figure class="screen screen--front" data-frame data-demo-id="pizzaria" data-w="1280" data-auto="30" data-hero-front>
+          <figure aria-hidden="true" class="screen screen--front" data-frame data-demo-id="pizzaria" data-w="1280" data-auto="30" data-hero-front>
             <div class="screen__bar"><i></i><i></i><i></i><span data-frame-label></span></div>
             <div class="screen__view"><div class="screen__mover"><div class="screen__page" data-frame-page></div></div></div>
           </figure>
-          <figure class="phone" data-frame data-demo-id="moda" data-w="390" data-auto="26" data-hero-phone>
+          <figure aria-hidden="true" class="phone" data-frame data-demo-id="moda" data-w="390" data-auto="26" data-hero-phone>
             <div class="phone__notch"></div>
             <div class="screen__view"><div class="screen__mover"><div class="screen__page" data-frame-page></div></div></div>
           </figure>

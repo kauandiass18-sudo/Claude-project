@@ -129,29 +129,70 @@
     return el;
   }
 
-  // Hero
+  // Hero: telas de demonstração com índice vertical que alterna os conceitos
   (function hero() {
-    var frente = demoInicial || D.porId("pizzaria");
-    var celular = demoInicial || D.porId("hamburgueria");
-    var fundo = D.porId("clinica");
+    var ciclo, fundo;
     if (demoInicial) {
-      var irmao = D.lista.filter(function (d) { return d.cat === demoInicial.cat && d.id !== demoInicial.id; })[0];
-      fundo = irmao || (demoInicial.id === "clinica" ? D.porId("pizzaria") : D.porId("clinica"));
+      ciclo = [demoInicial].concat(D.lista.filter(function (d) { return d.cat === demoInicial.cat && d.id !== demoInicial.id; })).slice(0, 3);
+      fundo = demoInicial.cat === "saude" ? D.porId("pizzaria") : D.porId("clinica");
+    } else {
+      ciclo = [D.porId("pizzaria"), D.porId("hamburgueria"), D.porId("restaurante")];
+      fundo = D.porId("clinica");
     }
+
+    var frames = {};
     $$("[data-frame]").forEach(function (f) {
-      var demo = f.hasAttribute("data-hero-front") ? frente : f.hasAttribute("data-hero-phone") ? celular : fundo;
+      var tipo = f.hasAttribute("data-hero-front") ? "frente" : f.hasAttribute("data-hero-phone") ? "celular" : "fundo";
       var base = parseInt(f.getAttribute("data-w"), 10);
-      var page = $("[data-frame-page]", f);
-      var view = $(".screen__view", f);
-      preencher(page, demo, base > 500 ? 520 : 400);
-      var label = $("[data-frame-label]", f);
-      if (label) label.textContent = "Conceito · " + demo.segmento;
-      registrar(view, page, base);
-      if (!reduz) {
-        view.style.setProperty("--dur", f.getAttribute("data-auto") + "s");
-        view.classList.add("is-auto");
-      }
+      var fr = { el: f, base: base, page: $("[data-frame-page]", f), view: $(".screen__view", f), label: $("[data-frame-label]", f) };
+      frames[tipo] = fr;
+      registrar(fr.view, fr.page, base);
+      if (!reduz) { fr.view.style.setProperty("--dur", f.getAttribute("data-auto") + "s"); fr.view.classList.add("is-auto"); }
     });
+
+    function pintar(fr, demo) {
+      preencher(fr.page, demo, fr.base > 500 ? 520 : 400);
+      if (fr.label) fr.label.textContent = "Conceito · " + demo.segmento;
+      encaixar(fr.view, fr.page, fr.base);
+    }
+    pintar(frames.fundo, fundo);
+
+    var idx = 0, timer = null, pausado = false;
+    var indice = $("[data-hero-index]");
+    function mostrar(n, animar) {
+      idx = (n + ciclo.length) % ciclo.length;
+      var demo = ciclo[idx];
+      $$("button", indice).forEach(function (b, k) { b.classList.toggle("is-on", k === idx); b.setAttribute("aria-pressed", k === idx ? "true" : "false"); });
+      var alvos = [frames.frente, frames.celular];
+      if (!animar || reduz) { alvos.forEach(function (fr) { pintar(fr, demo); }); return; }
+      alvos.forEach(function (fr) { fr.el.classList.add("is-fading"); });
+      setTimeout(function () {
+        alvos.forEach(function (fr) { pintar(fr, demo); fr.el.classList.remove("is-fading"); });
+      }, 450);
+    }
+
+    function reiniciar() {
+      clearInterval(timer);
+      if (reduz || ciclo.length < 2) return;
+      timer = setInterval(function () { if (!pausado && !doc.hidden) mostrar(idx + 1, true); }, 7000);
+    }
+
+    if (ciclo.length > 1) {
+      indice.insertAdjacentHTML("beforeend", ciclo.map(function (d, k) {
+        return '<button type="button" aria-pressed="false" aria-label="Mostrar o conceito de ' + d.segmento.toLowerCase() + ' nas telas"><b>0' + (k + 1) + '</b><span>' + d.segmento + '</span></button>';
+      }).join(""));
+      indice.hidden = false;
+      $$("button", indice).forEach(function (b, k) {
+        b.addEventListener("click", function () { if (k !== idx) mostrar(k, true); reiniciar(); });
+      });
+    }
+    var stage = $("[data-stage]");
+    stage.addEventListener("mouseenter", function () { pausado = true; });
+    stage.addEventListener("mouseleave", function () { pausado = false; });
+    stage.addEventListener("focusin", function () { pausado = true; });
+    stage.addEventListener("focusout", function () { pausado = false; });
+    mostrar(0, false);
+    reiniciar();
   })();
 
   /* ------------------------------------------------------------
