@@ -234,8 +234,8 @@
         text: "Semijoias escolhidas para iluminar sua essência e acompanhar os momentos que merecem ser lembrados.",
         primary: "Descobrir coleção",
         secondary: "Explorar novidades",
-        image: "assets/img/editorial/hero.webp",
-        imageMobile: "assets/img/editorial/hero-mobile.webp"
+        image: "assets/img/editorial/hero-foto.webp",
+        imageMobile: "assets/img/editorial/hero-foto-mobile.webp"
       },
       essence: {
         title: "Mais do que acessórios. <em>Expressões de quem você é.</em>",
