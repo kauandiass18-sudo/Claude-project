@@ -1,6 +1,6 @@
 // Cria o pedido com preços do banco (nunca confia nos valores do navegador),
 // reserva o estoque e, se configurado, gera a cobrança no Mercado Pago.
-import { admin, cors, json, loadSettings, melhorEnvioQuote, mp, round2, ShipMethod } from "../_shared/core.ts";
+import { admin, cors, json, loadSettings, localDelivery, melhorEnvioQuote, mp, round2, ShipMethod } from "../_shared/core.ts";
 
 type Item = { id: string; qty: number; options?: Record<string, string>; custom?: Record<string, string> };
 
@@ -111,7 +111,10 @@ Deno.serve(async (req) => {
     const fixed = (settings.shipping.methods ?? []) as ShipMethod[];
     if (body.shippingId) {
       const sid = String(body.shippingId);
-      if (sid.startsWith("me-")) {
+      if (sid.startsWith("local-")) {
+        const local = localDelivery(settings.shipping.local, address.city, address.state);
+        shipping = local && local.id === sid ? local : null;
+      } else if (sid.startsWith("me-")) {
         const quotes = settings.shipping.melhorEnvio
           ? await melhorEnvioQuote(settings.shipping.originCep, address.cep, items)
           : [];
@@ -121,7 +124,7 @@ Deno.serve(async (req) => {
         if (m) shipping = { id: m.id, name: m.name, days: m.days, price: m.freeAbove && subtotal >= m.freeAbove ? 0 : round2(m.price) };
       }
       if (!shipping) return json({ error: "Forma de entrega indisponível. Escolha novamente." }, 400);
-    } else if (fixed.length || settings.shipping.melhorEnvio) {
+    } else if (fixed.length || settings.shipping.melhorEnvio || localDelivery(settings.shipping.local, address.city, address.state)) {
       return json({ error: "Escolha a forma de entrega." }, 400);
     } else if (method !== "whatsapp") {
       return json({ error: "Frete indisponível para pagamento online." }, 400);

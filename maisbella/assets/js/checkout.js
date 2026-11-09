@@ -190,11 +190,19 @@
           document.getElementById("city").value = a.city || "";
           document.getElementById("state").value = a.state || "";
           (a.street ? document.getElementById("number") : document.getElementById("street")).focus();
-        }).catch(function (err) { setErr("cep", err.message === "CEP não encontrado" ? "CEP não encontrado. Confira os números." : ""); });
-        quote(v);
+          quote(v);
+        }).catch(function (err) { setErr("cep", err.message === "CEP não encontrado" ? "CEP não encontrado. Confira os números." : ""); quote(v); });
       }
     }
     cep.addEventListener("input", onCep);
+    // a taxa de entrega local depende da cidade: recalcula quando ela é digitada ou corrigida
+    var placeTimer = null;
+    ["city", "state"].forEach(function (id) {
+      document.getElementById(id).addEventListener("input", function () {
+        clearTimeout(placeTimer);
+        placeTimer = setTimeout(function () { var c = val("cep").replace(/\D/g, ""); if (c.length === 8) quote(c); }, 450);
+      });
+    });
     if (cep.value) onCep();
     var gift = U.$("[data-gift]");
     if (gift) gift.addEventListener("change", function () { data.giftWrap = gift.checked; U.$("[data-gift-msg]").hidden = !gift.checked; summary(); });
@@ -220,16 +228,19 @@
   function quote(cep) {
     var wrap = U.$("[data-ship-wrap]");
     wrap.innerHTML = '<span class="label" style="font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase">Forma de entrega</span><div class="skeleton" style="height:64px"></div>';
-    S.quoteShipping(cep, items).then(function (list) {
+    S.quoteShipping(cep, items, val("city"), val("state")).then(function (list) {
       methods = list;
       if (!list.length) {
         wrap.innerHTML = '<div class="notice">' + U.icon("info", "icon--sm") + "<span>O frete para o seu endereço será calculado pela loja e informado antes do pagamento.</span></div>";
         data.shippingId = null; data.ship = null; summary(); return;
       }
+      // mantém a escolha da cliente; sem escolha dela, sugere a primeira (a entrega local, quando houver)
+      var keep = data.shipTouched && list.some(function (m) { return m.id === data.shippingId; });
+      var chosen = keep ? data.shippingId : list[0].id;
       wrap.innerHTML = '<span class="label" style="font-size:.66rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase">Forma de entrega</span>' +
-        list.map(function (m, i) {
-          return '<label class="radio-card"><input type="radio" name="ship" value="' + U.esc(m.id) + '"' + (m.id === data.shippingId || (!data.shippingId && i === 0) ? " checked" : "") + ">" +
-            '<span class="radio-card__main"><strong>' + U.esc(m.name) + "</strong><span>" + U.esc(m.days || "") + (m.freeAbove && !m.free ? " · grátis acima de " + S.fmt(m.freeAbove) : "") + "</span></span>" +
+        list.map(function (m) {
+          return '<label class="radio-card"><input type="radio" name="ship" value="' + U.esc(m.id) + '"' + (m.id === chosen ? " checked" : "") + ">" +
+            '<span class="radio-card__main"><strong>' + U.esc(m.name) + "</strong><span>" + U.esc(m.days || "") + (m.local ? " · taxa de entrega da cidade" : "") + (m.freeAbove && !m.free ? " · grátis acima de " + S.fmt(m.freeAbove) : "") + "</span></span>" +
             '<span class="radio-card__price">' + (m.price ? S.fmt(m.price) : "Grátis") + "</span></label>";
         }).join("");
       var pick = function () {
@@ -239,7 +250,7 @@
         var er = U.$("[data-ship-err]"); if (er) er.remove();
         summary();
       };
-      U.$$('input[name="ship"]').forEach(function (r) { r.addEventListener("change", pick); });
+      U.$$('input[name="ship"]').forEach(function (r) { r.addEventListener("change", function () { data.shipTouched = true; pick(); }); });
       pick();
     });
   }

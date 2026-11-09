@@ -23,11 +23,26 @@ export const round2 = (n: number) => Math.round((Number(n) || 0) * 100) / 100;
 const DEFAULTS = {
   installments: { enabled: false, max: 3, minInstallment: 50 },
   payments: { pix: false, card: false, whatsapp: true, pixDiscount: 0 },
-  shipping: { methods: [] as ShipMethod[], freeAbove: 0, melhorEnvio: false, originCep: "" },
+  shipping: { methods: [] as ShipMethod[], local: [] as LocalCity[], freeAbove: 0, melhorEnvio: false, originCep: "" },
   giftWrap: { enabled: false, price: 0, label: "Embalagem para presente" },
 };
 
 export type ShipMethod = { id: string; name: string; price: number; days?: string; freeAbove?: number };
+export type LocalCity = { city: string; state?: string; price: number; days?: string };
+
+const norm = (s: unknown) => String(s ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+const slugify = (s: string) => norm(s).replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+
+// Mesma regra do site (assets/js/store.js): taxa fixa por cidade atendida pela loja.
+export function localDelivery(list: LocalCity[], city: string, state: string): ShipMethod | null {
+  const c = norm(city), uf = norm(state);
+  if (!c) return null;
+  const hit = (list ?? []).find((l) => {
+    const lc = norm(l.city);
+    return lc && (lc === c || lc.startsWith(c + " ")) && (!l.state || !uf || norm(l.state) === uf);
+  });
+  return hit ? { id: "local-" + slugify(hit.city), name: "Entrega em " + hit.city, days: hit.days ?? "", price: round2(hit.price) } : null;
+}
 export type Settings = typeof DEFAULTS & Record<string, unknown>;
 
 export async function loadSettings(sb: SupabaseClient): Promise<Settings> {

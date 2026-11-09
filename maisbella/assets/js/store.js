@@ -10,7 +10,7 @@
   var cfg = window.MB_CONFIG || {};
   var LIVE = !!(cfg.supabaseUrl && cfg.supabaseAnonKey);
   var LS = {
-    db: "mb_demo_db_v2",
+    db: "mb_demo_db_v3",
     cart: "mb_cart_v1",
     fav: "mb_fav_v1",
     myOrders: "mb_my_orders_v1",
@@ -257,13 +257,27 @@
   }
 
   // ---------------------------------------------------------------- frete
-  function quoteShipping(cep, items) {
+  // Entrega local: taxa fixa por cidade, cadastrada no painel. "Faxinal" também
+  // encontra "Faxinal dos Guedes", pois a cidade pode ser digitada abreviada.
+  function localDelivery(s, city, state) {
+    var c = norm(city).trim(), uf = norm(state).trim();
+    if (!c) return null;
+    var hit = (s.shipping.local || []).filter(function (l) {
+      var lc = norm(l.city).trim();
+      return lc && (lc === c || lc.indexOf(c + " ") === 0) && (!l.state || !uf || norm(l.state) === uf);
+    })[0];
+    return hit ? { id: "local-" + slugify(hit.city), name: "Entrega em " + hit.city, days: hit.days || "", price: round2(hit.price), local: true } : null;
+  }
+
+  function quoteShipping(cep, items, city, state) {
     return getSettings().then(function (s) {
       var subtotal = cartSubtotal(items);
       var methods = (s.shipping.methods || []).map(function (m) {
         var free = m.freeAbove && subtotal >= m.freeAbove;
         return { id: m.id, name: m.name, days: m.days, price: free ? 0 : round2(m.price), free: !!free, freeAbove: m.freeAbove || 0 };
       });
+      var local = localDelivery(s, city, state);
+      if (local) methods.unshift(local);
       if (!LIVE || !s.shipping.melhorEnvio) return methods;
       return sb().then(function (c) {
         return c.functions.invoke("frete", { body: { cep: cep, items: items.map(function (i) { return { id: i.id, qty: i.qty }; }) } });
@@ -346,7 +360,8 @@
         var p = byId[i.id]; if (!p) throw new Error("Uma peça da sacola não está mais disponível.");
         return { id: p.id, slug: p.slug, name: p.name, price: p.price, qty: i.qty, options: i.options, custom: i.custom, image: p.images[0] };
       });
-      var ship = (s.shipping.methods || []).filter(function (m) { return m.id === payload.shippingId; })[0];
+      var local = localDelivery(s, payload.address && payload.address.city, payload.address && payload.address.state);
+      var ship = local && local.id === payload.shippingId ? local : (s.shipping.methods || []).filter(function (m) { return m.id === payload.shippingId; })[0];
       var sub = cartSubtotal(items);
       var shipQ = ship ? { id: ship.id, name: ship.name, days: ship.days, price: ship.freeAbove && sub >= ship.freeAbove ? 0 : ship.price } : null;
       var coupon = payload.coupon ? evalCoupon((demoDb().coupons || []).filter(function (c) { return c.code === payload.coupon; })[0], sub) : null;
@@ -536,7 +551,7 @@
     getCart: getCart, addToCart: addToCart, updateQty: updateQty, removeFromCart: removeFromCart, clearCart: clearCart,
     cartCount: cartCount, cartSubtotal: cartSubtotal, refreshCart: refreshCart,
     getFav: getFav, toggleFav: toggleFav,
-    quoteShipping: quoteShipping, lookupCep: lookupCep, checkCoupon: checkCoupon, computeTotals: computeTotals,
+    quoteShipping: quoteShipping, localDelivery: localDelivery, lookupCep: lookupCep, checkCoupon: checkCoupon, computeTotals: computeTotals,
     placeOrder: placeOrder, getOrder: getOrder, myLocalOrders: myLocalOrders,
     getUser: getUser, signIn: signIn, signUp: signUp, signOut: signOut, resetPassword: resetPassword, updatePassword: updatePassword, myOrders: myOrders,
     sb: sb, admin: admin, bust: bust

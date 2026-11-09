@@ -587,6 +587,8 @@
       '<div class="panel"><h2>Entrega</h2><p>Opções fixas exibidas no checkout. Para cálculo automático pelos Correios e transportadoras, ative o Melhor Envio (requer token no servidor).</p>' +
       '<div class="repeat" data-ship></div><button class="btn btn--ghost btn--sm" type="button" data-add-ship style="justify-self:start">' + icon("plus", "icon--sm") + " Adicionar forma de entrega</button>" +
       sf("shipping.melhorEnvio", "Calcular frete pelo Melhor Envio", { type: "switch" }) + sf("shipping.originCep", "CEP de origem dos envios") + "</div>" +
+      '<div class="panel"><h2>Entrega local por cidade</h2><p>Quando a cliente informa um endereço numa destas cidades, o checkout mostra a entrega da própria loja com a taxa definida aqui.</p>' +
+      '<div class="repeat" data-local></div><button class="btn btn--ghost btn--sm" type="button" data-add-local style="justify-self:start">' + icon("plus", "icon--sm") + " Adicionar cidade</button></div>" +
       '<div class="panel"><h2>Presentes e encomendas</h2>' + sf("giftWrap.enabled", "Oferecer embalagem para presente", { type: "switch" }) +
       '<div class="fg-2">' + sf("giftWrap.label", "Nome da opção") + sf("giftWrap.price", "Valor (R$, 0 = sem custo)", { type: "number" }) + "</div>" +
       sf("personalizedLeadTime", "Prazo de produção de peças personalizadas", { hint: "Aparece nas peças com gravação. Ex.: Produção em até 7 dias úteis após o pagamento." }) + "</div>";
@@ -612,6 +614,27 @@
     box.addEventListener("click", function (e) { var r = e.target.closest("[data-rm]"); if (r) { d.shipping.methods.splice(+r.closest("[data-i]").getAttribute("data-i"), 1); draw(); setDirty(); } });
     U.$("[data-add-ship]", main).addEventListener("click", function () { d.shipping.methods = d.shipping.methods || []; d.shipping.methods.push({ id: "entrega-" + (d.shipping.methods.length + 1), name: "", price: 0, days: "", freeAbove: 0 }); draw(); setDirty(); });
     draw();
+
+    var lbox = U.$("[data-local]", main);
+    function drawLocal() {
+      lbox.innerHTML = (d.shipping.local || []).map(function (l, i) {
+        return '<div class="repeat__row repeat__row--ship" data-li="' + i + '">' +
+          '<div class="field"><label>Cidade</label><input class="input" data-k="city" value="' + esc(l.city) + '" placeholder="Xanxerê"></div>' +
+          '<div class="field"><label>UF</label><input class="input" data-k="state" maxlength="2" value="' + esc(l.state || "") + '" placeholder="SC" style="text-transform:uppercase"></div>' +
+          '<div class="field"><label>Taxa (R$)</label><input class="input" type="number" step="0.01" min="0" data-k="price" value="' + esc(l.price) + '"></div>' +
+          '<div class="field"><label>Prazo ou observação</label><input class="input" data-k="days" value="' + esc(l.days || "") + '" placeholder="Entrega em até 2 dias úteis"></div>' +
+          '<button class="icon-btn icon-btn--danger" type="button" data-rm aria-label="Remover cidade">' + icon("close", "icon--sm") + "</button></div>";
+      }).join("") || '<p class="muted small">Nenhuma cidade com entrega local.</p>';
+    }
+    lbox.addEventListener("input", function (e) {
+      var row = e.target.closest("[data-li]"); if (!row) return;
+      var l = d.shipping.local[+row.getAttribute("data-li")], k = e.target.getAttribute("data-k");
+      l[k] = k === "price" ? (parseFloat(e.target.value) || 0) : k === "state" ? e.target.value.toUpperCase() : e.target.value;
+      setDirty();
+    });
+    lbox.addEventListener("click", function (e) { var r = e.target.closest("[data-rm]"); if (r) { d.shipping.local.splice(+r.closest("[data-li]").getAttribute("data-li"), 1); drawLocal(); setDirty(); } });
+    U.$("[data-add-local]", main).addEventListener("click", function () { d.shipping.local = d.shipping.local || []; d.shipping.local.push({ city: "", state: "SC", price: 0, days: "" }); drawLocal(); setDirty(); });
+    drawLocal();
   }
 
   // ---------------------------------------------------------------- páginas

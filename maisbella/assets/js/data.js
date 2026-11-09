@@ -258,7 +258,8 @@
       ],
       installments: { enabled: false, max: 3, minInstallment: 50 },
       payments: { pix: false, card: false, whatsapp: true, pixDiscount: 0 },
-      shipping: { methods: [], freeAbove: 0, melhorEnvio: false, originCep: "" },
+      // local: entrega própria da loja em cidades específicas, com taxa por cidade
+      shipping: { methods: [], local: [], freeAbove: 0, melhorEnvio: false, originCep: "" },
       giftWrap: { enabled: false, price: 0, label: "Embalagem para presente" },
       personalizedLeadTime: "",
       wa: {
@@ -280,6 +281,11 @@
   demoSettings.shipping.methods = [
     { id: "padrao", name: "Entrega padrão", price: 19.9, days: "5 a 9 dias úteis", freeAbove: 399 },
     { id: "expressa", name: "Entrega expressa", price: 34.9, days: "2 a 4 dias úteis", freeAbove: 0 }
+  ];
+  // Taxas de exemplo: a loja define os valores reais em Pagamento e entrega.
+  demoSettings.shipping.local = [
+    { city: "Xanxerê", state: "SC", price: 10, days: "Entrega pela própria loja" },
+    { city: "Faxinal dos Guedes", state: "SC", price: 15, days: "Entrega pela própria loja" }
   ];
   demoSettings.giftWrap = { enabled: true, price: 0, label: "Embalagem para presente" };
   demoSettings.personalizedLeadTime = "Produção sob encomenda: prazo informado pela loja.";
