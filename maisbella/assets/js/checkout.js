@@ -66,7 +66,7 @@
       field("email", "E-mail", 'type="email" autocomplete="email" inputmode="email" required') +
       field("phone", "Celular com DDD", 'type="tel" autocomplete="tel-national" inputmode="tel" placeholder="(11) 90000-0000" required') +
       "</div>" +
-      field("cpf", "CPF", 'inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" required') +
+      field("cpf", "CPF (11 números)", 'inputmode="numeric" autocomplete="off" placeholder="000.000.000-00" required') +
       '<p class="small muted" style="margin-top:-.4rem">O CPF é necessário para a nota fiscal e para o pagamento.</p>' +
       '<button class="btn btn--block" type="submit">Continuar para entrega</button></form>';
   }
@@ -154,6 +154,16 @@
     return true;
   }
 
+  // Mensagem que explica o que corrigir. Oito números costumam ser um CEP
+  // digitado no campo errado: o CEP é pedido só na etapa de entrega.
+  function cpfMessage(v) {
+    var d = v.replace(/\D/g, "");
+    if (!d) return "Informe o seu CPF.";
+    if (d.length === 8) return "Isso parece um CEP. O CEP é pedido na próxima etapa, em Entrega; aqui vai o CPF, com 11 números.";
+    if (d.length < 11) return "O CPF tem 11 números. Falta" + (11 - d.length > 1 ? "m " : " ") + (11 - d.length) + ".";
+    return validCpf(d) ? "" : "Este CPF não é válido. Confira os números.";
+  }
+
   function bindContact() {
     var phone = document.getElementById("phone"), cpf = document.getElementById("cpf");
     phone.addEventListener("input", function () { phone.value = maskPhone(phone.value); });
@@ -164,7 +174,7 @@
       ok = setErr("name", val("name").split(/\s+/).length < 2 ? "Informe nome e sobrenome." : "") && ok;
       ok = setErr("email", /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val("email")) ? "" : "Informe um e-mail válido.") && ok;
       ok = setErr("phone", val("phone").replace(/\D/g, "").length >= 10 ? "" : "Informe o celular com DDD.") && ok;
-      ok = setErr("cpf", validCpf(val("cpf")) ? "" : "CPF inválido.") && ok;
+      ok = setErr("cpf", cpfMessage(val("cpf"))) && ok;
       if (!ok) { var bad = U.$('[data-form="1"] [aria-invalid="true"]'); if (bad) bad.focus(); return; }
       data.customer = { name: val("name"), email: val("email").toLowerCase(), phone: val("phone"), cpf: val("cpf") };
       persist();
