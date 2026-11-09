@@ -10,7 +10,7 @@
   var cfg = window.MB_CONFIG || {};
   var LIVE = !!(cfg.supabaseUrl && cfg.supabaseAnonKey);
   var LS = {
-    db: "mb_demo_db_v3",
+    db: "mb_demo_db_v4",
     cart: "mb_cart_v1",
     fav: "mb_fav_v1",
     myOrders: "mb_my_orders_v1",

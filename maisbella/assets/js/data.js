@@ -285,7 +285,10 @@
   // Taxas de exemplo: a loja define os valores reais em Pagamento e entrega.
   demoSettings.shipping.local = [
     { city: "Xanxerê", state: "SC", price: 10, days: "Entrega pela própria loja" },
-    { city: "Faxinal dos Guedes", state: "SC", price: 15, days: "Entrega pela própria loja" }
+    { city: "Faxinal dos Guedes", state: "SC", price: 15, days: "Entrega pela própria loja" },
+    { city: "Xaxim", state: "SC", price: 15, days: "Entrega pela própria loja" },
+    { city: "Ponte Serrada", state: "SC", price: 20, days: "Entrega pela própria loja" },
+    { city: "Vargeão", state: "SC", price: 20, days: "Entrega pela própria loja" }
   ];
   demoSettings.giftWrap = { enabled: true, price: 0, label: "Embalagem para presente" };
   demoSettings.personalizedLeadTime = "Produção sob encomenda: prazo informado pela loja.";
