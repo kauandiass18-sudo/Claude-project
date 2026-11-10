@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fino Sabor · Churrascaria e Pizzaria em Xanxerê</title>
+  <meta name="description" content="Fino Sabor, churrascaria e pizzaria em Xanxerê. Almoço todos os dias, rodízio de pizza de terça a domingo e cardápio completo com pedido pelo WhatsApp.">
+  <meta name="theme-color" content="#4B090B">
+  <link rel="canonical" href="https://kauandiass18-sudo.github.io/Claude-project/finosabor/">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Fino Sabor · Churrascaria e Pizzaria">
+  <meta property="og:description" content="Uma experiência de sabor em cada detalhe. Churrasco na brasa, rodízio de pizza e pedidos pelo WhatsApp.">
+  <meta property="og:url" content="https://kauandiass18-sudo.github.io/Claude-project/finosabor/">
+  <meta property="og:image" content="https://kauandiass18-sudo.github.io/Claude-project/finosabor/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Fino Sabor · Churrascaria e Pizzaria",
+    "servesCuisine": ["Churrasco", "Pizza"],
+    "address": { "@type": "PostalAddress", "streetAddress": "Rua Nereu Ramos, 626", "addressLocality": "Xanxerê", "addressRegion": "SC", "addressCountry": "BR" },
+    "url": "https://kauandiass18-sudo.github.io/Claude-project/finosabor/",
+    "sameAs": ["https://instagram.com/finosaborxanxere"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#cardapio">Pular para o cardápio</a>
+
+  <!-- Navegação -->
+  <header class="nav" data-nav>
+    <div class="wrap nav__in">
+      <a href="#inicio" class="marca" aria-label="Fino Sabor, início">
+        <img class="marca__simbolo" src="assets/img/simbolo-bordo.png" alt="" width="128" height="202">
+        <span class="marca__nome">Fino Sabor<small>Churrascaria e Pizzaria</small></span>
+      </a>
+      <nav class="nav__links" aria-label="Seções do site" data-links>
+        <a href="#inicio">Início</a>
+        <a href="#pizzas">Pizzas</a>
+        <a href="#churrascaria">Churrascaria</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#sobre">Sobre nós</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="nav__acoes">
+        <button class="btn btn--vinho btn-pedido" type="button" data-abrir-pedido aria-label="Abrir meu pedido">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          <span class="btn-pedido__texto">Meu pedido</span>
+          <span class="btn-pedido__n" data-contador>0</span>
+        </button>
+        <button class="hamb" type="button" data-hamb aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu-mobile" data-menu-mobile aria-hidden="true">
+    <a href="#inicio" style="transition-delay:.15s">Início</a>
+    <a href="#pizzas" style="transition-delay:.2s"><em>Pizzas</em></a>
+    <a href="#churrascaria" style="transition-delay:.25s">Churrascaria</a>
+    <a href="#cardapio" style="transition-delay:.3s">Cardápio</a>
+    <a href="#sobre" style="transition-delay:.35s">Sobre nós</a>
+    <a href="#contato" style="transition-delay:.4s">Contato</a>
+    <div class="menu-mobile__rodape">
+      <span data-txt-endereco></span>
+      <button class="btn btn--ouro btn--pequeno" type="button" data-abrir-pedido>Fazer meu pedido</button>
+    </div>
+    <img class="menu-mobile__simbolo" src="assets/img/simbolo-dourado.png" alt="">
+  </div>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="inicio">
+      <canvas class="hero__particulas" data-particulas aria-hidden="true"></canvas>
+      <img class="hero__marca-dagua" src="assets/img/simbolo-bordo.png" alt="" aria-hidden="true">
+      <div class="wrap hero__in">
+        <div class="hero__conteudo">
+          <div class="hero__logo aparece" style="--d:.1s">
+            <img src="assets/img/simbolo-bordo.png" alt="Símbolo Fino Sabor" width="128" height="202">
+            <span>Churrascaria <br>e Pizzaria</span>
+          </div>
+          <h1 class="titulo hero__titulo" data-split>Uma experiência de <em>sabor</em> em cada detalhe.</h1>
+          <p class="texto hero__texto aparece" style="--d:.8s">Da tradição do churrasco ao sabor irresistível das nossas pizzas. Descubra uma experiência gastronômica feita para quem aprecia qualidade.</p>
+          <div class="hero__acoes aparece" style="--d:.95s">
+            <a class="btn btn--vinho" href="#cardapio">Explorar cardápio</a>
+            <button class="btn btn--contorno" type="button" data-abrir-pedido>
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>
+              Fazer meu pedido
+            </button>
+          </div>
+          <div class="hero__info aparece" style="--d:1.1s">
+            <div><strong data-txt-almoco>Almoço</strong>todos os dias, a partir das 11h30</div>
+            <div><strong>Jantar</strong>terça a domingo, a partir das 19h30</div>
+            <div><strong>Xanxerê</strong>Rua Nereu Ramos, 626 · Centro</div>
+          </div>
+        </div>
+
+        <div class="hero__visual" data-tilt>
+          <figure class="hero__foto hero__foto--principal" data-tilt-camada="12">
+            <img data-foto="hero-pizza" alt="Pizza artesanal saindo do forno" width="900" height="1000" fetchpriority="high">
+          </figure>
+          <figure class="hero__foto hero__foto--secundaria" data-tilt-camada="-8">
+            <img data-foto="hero-churrasco" alt="Corte de carne na brasa" width="600" height="600" loading="lazy">
+          </figure>
+          <div class="hero__selo" data-tilt-camada="18">
+            <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg></i>
+            <span>Rodízio de pizza<small>de terça a domingo</small></span>
+          </div>
+          <svg class="hero__anel" viewBox="0 0 150 150" aria-hidden="true">
+            <defs><path id="circ" d="M75,75 m-56,0 a56,56 0 1,1 112,0 a56,56 0 1,1 -112,0"/></defs>
+            <text><textPath href="#circ">Churrasco na brasa · Pizza artesanal · </textPath></text>
+          </svg>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">Role</div>
+    </section>
+
+    <!-- Faixa -->
+    <div class="faixa" aria-hidden="true">
+      <div class="faixa__trilho" data-faixa>
+        <span>Churrasco na brasa</span><span>Rodízio de pizza</span><span>Almoço todos os dias</span><span>Pizzas doces</span><span>Xanxerê · SC</span>
+      </div>
+    </div>
+
+    <!-- Rodízio e horários -->
+    <section class="rodizio" aria-labelledby="rodizio-titulo">
+      <div class="wrap rodizio__grid">
+        <article class="rodizio__card moldura reveal" data-rodizio>
+          <span class="canto"></span>
+          <img class="rodizio__foto" src="assets/img/simbolo-branco.png" alt="" aria-hidden="true">
+          <p class="selo">Noite de pizza</p>
+          <h3 id="rodizio-titulo"><span data-rodizio-titulo>Rodízio</span> de <em>Pizza</em></h3>
+          <p class="rodizio__dias" data-rodizio-dias></p>
+          <div class="rodizio__precos" data-rodizio-precos></div>
+          <button class="btn btn--ouro" type="button" data-wa-msg="Olá! Gostaria de reservar uma mesa para o rodízio de pizza.">Reservar pelo WhatsApp</button>
+          <p class="rodizio__obs" data-rodizio-obs></p>
+        </article>
+        <div class="horarios" data-horarios></div>
+      </div>
+    </section>
+
+    <!-- Experiência -->
+    <section class="experiencia" id="pizzas">
+      <div class="wrap experiencia__topo">
+        <p class="selo selo--centro selo--claro reveal">Dois mundos, uma casa</p>
+        <h2 class="titulo titulo--claro reveal" style="--d:.1s">A brasa e o forno, <em>lado a lado.</em></h2>
+        <p class="texto texto--claro reveal" style="--d:.2s">Churrascaria no almoço, pizzaria à noite. Dois jeitos de celebrar o sabor no mesmo endereço.</p>
+      </div>
+      <div class="diptico reveal-grupo">
+        <article class="painel painel--pizza">
+          <img data-foto="painel-pizza" alt="Pizza com queijo derretido e manjericão" loading="lazy">
+          <div class="painel__corpo">
+            <p class="selo">Pizzaria</p>
+            <h3>Pizzas</h3>
+            <p>Uma combinação de ingredientes selecionados e sabores que tornam cada momento especial.</p>
+            <a class="btn btn--contorno-claro" href="#cardapio" data-ir-categoria="tradicionais">Conhecer as pizzas</a>
+          </div>
+        </article>
+        <article class="painel painel--churrasco" id="churrascaria">
+          <img data-foto="painel-churrasco" alt="Cortes de carne na churrasqueira" loading="lazy">
+          <div class="painel__corpo">
+            <p class="selo">Churrascaria</p>
+            <h3>Churrasco</h3>
+            <p>Sabores marcantes, tradição e qualidade em uma experiência feita para apreciar.</p>
+            <a class="btn btn--contorno-claro" href="#sobre">Conhecer a churrascaria</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Cardápio -->
+    <section class="cardapio" id="cardapio" aria-labelledby="cardapio-titulo">
+      <div class="wrap">
+        <div class="cardapio__topo">
+          <img class="simbolo reveal" src="assets/img/simbolo-dourado.png" alt="" aria-hidden="true">
+          <p class="selo selo--centro reveal" style="--d:.05s">Cardápio digital</p>
+          <h2 id="cardapio-titulo" class="titulo reveal" style="--d:.1s">Nossas <em>criações</em></h2>
+          <p class="texto reveal" style="--d:.2s">Pizzas tradicionais, especiais e doces, além dos pratos da casa. Escolha, adicione ao pedido e finalize pelo WhatsApp.</p>
+        </div>
+
+        <div class="ferramentas">
+          <div class="ferramentas__in">
+            <div class="busca" role="search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+              <label class="sr-only" for="busca">Buscar sabor</label>
+              <input id="busca" type="search" placeholder="Buscar sabor ou ingrediente" autocomplete="off" enterkeyhint="search" data-busca>
+              <button class="busca__limpar" type="button" data-busca-limpar aria-label="Limpar busca" hidden>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              </button>
+            </div>
+            <nav class="chips" aria-label="Categorias" data-chips></nav>
+          </div>
+        </div>
+
+        <section class="destaques" data-destaques-secao aria-labelledby="destaques-titulo">
+          <div class="destaques__cab">
+            <h3 id="destaques-titulo">As mais <em>pedidas</em></h3>
+            <p>Deslize para ver</p>
+          </div>
+          <div class="trilho" data-destaques></div>
+        </section>
+
+        <div data-categorias></div>
+        <div class="vazio" data-vazio hidden><strong>Nenhum sabor encontrado</strong>Tente outro nome ou ingrediente.</div>
+        <p class="cardapio__nota">Fotos ilustrativas. Consulte tamanhos, valores e disponibilidade pelo WhatsApp.</p>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="sobre" id="sobre" aria-labelledby="sobre-titulo">
+      <div class="wrap sobre__in">
+        <div>
+          <p class="selo reveal">Sobre a Fino Sabor</p>
+          <h2 id="sobre-titulo" class="titulo reveal" style="--d:.1s">Mais do que uma refeição, <em>uma experiência.</em></h2>
+          <p class="texto reveal" style="--d:.2s">A Fino Sabor reúne churrascaria e pizzaria em um mesmo ambiente, no centro de Xanxerê. De dia, o churrasco na brasa com o buffet do almoço. À noite, as pizzas saindo do forno, em dezenas de sabores salgados e doces.</p>
+          <ul class="sobre__lista">
+            <li class="reveal" style="--d:.25s"><div><strong>Churrascaria no almoço</strong><span>Todos os dias, a partir das 11h30.</span></div></li>
+            <li class="reveal" style="--d:.3s"><div><strong>Pizzaria à noite</strong><span>De terça a domingo, a partir das 19h30, com rodízio.</span></div></li>
+            <li class="reveal" style="--d:.35s"><div><strong>Mais de 80 sabores de pizza</strong><span>Tradicionais, especiais e doces, para todos os gostos.</span></div></li>
+          </ul>
+          <div class="sobre__acoes reveal" style="--d:.4s">
+            <a class="btn btn--vinho" href="#cardapio">Ver o cardápio</a>
+            <a class="btn btn--contorno" data-link-instagram href="#" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+        <div class="colagem reveal" style="--d:.15s">
+          <figure class="colagem__foto colagem__foto--a"><img data-foto="sobre-a" data-parallax="-14" alt="Mesa posta com pizza e vinho" loading="lazy"></figure>
+          <figure class="colagem__foto colagem__foto--b"><img data-foto="sobre-b" data-parallax="10" alt="Carne sendo fatiada na churrasqueira" loading="lazy"></figure>
+          <figure class="colagem__foto colagem__foto--c"><img data-foto="sobre-c" data-parallax="-8" alt="Ambiente do restaurante" loading="lazy"></figure>
+          <img class="colagem__logo" src="assets/img/logo-circulo.png" alt="Logo Fino Sabor" width="600" height="600" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato -->
+    <section class="contato" id="contato" aria-labelledby="contato-titulo">
+      <div class="wrap contato__in">
+        <div>
+          <p class="selo reveal">Contato</p>
+          <h2 id="contato-titulo" class="titulo reveal" style="--d:.1s">Venha nos <em>visitar.</em></h2>
+          <ul class="contato__lista" data-contato-lista></ul>
+        </div>
+        <div class="contato__cartao reveal" style="--d:.2s">
+          <img data-foto="contato" alt="" loading="lazy">
+          <p class="selo selo--claro">Pedidos e reservas</p>
+          <h3>Fale com a gente pelo <em>WhatsApp.</em></h3>
+          <p>Monte seu pedido aqui no site ou chame direto para tirar dúvidas e reservar sua mesa.</p>
+          <div class="acoes">
+            <button class="btn btn--ouro" type="button" data-abrir-pedido>Fazer meu pedido</button>
+            <a class="btn btn--contorno-claro" data-link-wa href="#" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chamada final -->
+    <section class="chamada">
+      <img class="chamada__simbolo" src="assets/img/simbolo-branco.png" alt="" aria-hidden="true">
+      <div class="wrap">
+        <p class="selo selo--centro selo--claro reveal">Fino Sabor</p>
+        <h2 class="titulo titulo--claro reveal" style="--d:.1s">Seu próximo momento especial começa com um <em>bom sabor.</em></h2>
+        <button class="btn btn--ouro reveal" style="--d:.2s" type="button" data-abrir-pedido>Faça seu pedido</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="rodape">
+    <div class="wrap">
+      <div class="rodape__grid">
+        <div class="rodape__marca">
+          <img src="assets/img/logo-circulo.png" alt="Fino Sabor" width="600" height="600" loading="lazy">
+          <strong>Fino Sabor</strong>
+          <small>Churrascaria e Pizzaria</small>
+          <p>Churrasco na brasa no almoço e pizzas artesanais à noite, no centro de Xanxerê.</p>
+        </div>
+        <div>
+          <h4>Cardápio</h4>
+          <ul data-rodape-cardapio></ul>
+        </div>
+        <div>
+          <h4>Horários</h4>
+          <ul data-rodape-horarios></ul>
+        </div>
+        <div>
+          <h4>Contato</h4>
+          <ul>
+            <li><strong>Endereço</strong><a data-link-mapa href="#" target="_blank" rel="noopener"><span data-txt-endereco></span><br><span data-txt-cidade></span></a></li>
+            <li><strong>WhatsApp</strong><a data-link-wa href="#" target="_blank" rel="noopener" data-txt-telefone></a></li>
+            <li><strong>Instagram</strong><a data-link-instagram href="#" target="_blank" rel="noopener" data-txt-instagram></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="rodape__base">
+        <span>© <span data-ano></span> Fino Sabor · Churrascaria e Pizzaria</span>
+        <span>Fotos ilustrativas · Pedidos pelo WhatsApp</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flutuante e botão de pedido (celular) -->
+  <a class="flutuante" data-link-wa href="#" target="_blank" rel="noopener" aria-label="Conversar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>
+  </a>
+  <button class="btn btn--vinho pedido-fab" type="button" data-abrir-pedido>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+    Meu pedido <span class="btn-pedido__n" data-contador>0</span>
+  </button>
+
+  <!-- Painel do pedido -->
+  <div class="escurecer" data-escurecer></div>
+  <aside class="pedido" data-pedido aria-label="Meu pedido" aria-hidden="true">
+    <div class="pedido__cab">
+      <h3><small>Fino Sabor</small>Meu pedido</h3>
+      <button class="fechar" type="button" data-fechar-pedido aria-label="Fechar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="pedido__corpo">
+      <div class="pedido__vazio" data-pedido-vazio>
+        <img src="assets/img/simbolo-bordo.png" alt="">
+        <strong>Seu pedido está vazio</strong>
+        Escolha os sabores no cardápio e eles aparecem aqui.
+      </div>
+      <div data-pedido-itens></div>
+      <form class="formulario" data-form hidden novalidate>
+        <h4>Seus dados</h4>
+        <div class="campo">
+          <label for="f-nome">Nome</label>
+          <input id="f-nome" name="nome" type="text" autocomplete="name" placeholder="Como podemos te chamar?" required>
+        </div>
+        <div class="campo">
+          <label>Atendimento</label>
+          <div class="opcoes" data-opcoes-atendimento></div>
+        </div>
+        <div class="campo" data-campo-endereco hidden>
+          <label for="f-endereco">Endereço para entrega</label>
+          <input id="f-endereco" name="endereco" type="text" autocomplete="street-address" placeholder="Rua, número, bairro e referência">
+        </div>
+        <div class="campo" data-campo-pessoas hidden>
+          <label for="f-pessoas">Quantas pessoas?</label>
+          <input id="f-pessoas" name="pessoas" type="number" min="1" inputmode="numeric" placeholder="Ex.: 4">
+        </div>
+        <div class="campo">
+          <label for="f-pagamento">Forma de pagamento</label>
+          <select id="f-pagamento" name="pagamento" data-select-pagamento></select>
+        </div>
+        <div class="campo">
+          <label for="f-obs">Observações gerais</label>
+          <textarea id="f-obs" name="obs" placeholder="Ex.: sem cebola, horário de retirada, ponto da carne..."></textarea>
+        </div>
+      </form>
+    </div>
+    <div class="pedido__pe" data-pedido-pe hidden>
+      <div class="total"><span>Total</span><strong data-total></strong></div>
+      <button class="btn btn--wa" type="button" data-enviar>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.8-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 12 12 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3c.2-.6.2-1.1.2-1.2l-.5-.3Z"/></svg>
+        Enviar pedido pelo WhatsApp
+      </button>
+      <p class="pedido__aviso">O pedido abre no WhatsApp já organizado. A confirmação é feita pela equipe.</p>
+    </div>
+  </aside>
+
+  <div class="toast" data-toast role="status" aria-live="polite">
+    <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>
+    <span data-toast-texto></span>
+    <button type="button" data-abrir-pedido>Ver</button>
+  </div>
+
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
