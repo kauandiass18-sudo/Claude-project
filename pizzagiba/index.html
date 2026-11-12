@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <script>document.documentElement.classList.add("js");if(matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion-off")</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pizza Giba · Forno a lenha · Pedido pelo WhatsApp</title>
+  <meta name="description" content="Pizza Giba: pizzas de forno a lenha com massa artesanal. Veja o cardápio completo, monte seu pedido e finalize pelo WhatsApp.">
+  <meta name="theme-color" content="#171515">
+  <link rel="canonical" href="https://kauandiass18-sudo.github.io/Claude-project/pizzagiba/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Pizza Giba · Forno a lenha">
+  <meta property="og:description" content="Cardápio completo e pedido direto pelo WhatsApp.">
+  <meta property="og:url" content="https://kauandiass18-sudo.github.io/Claude-project/pizzagiba/">
+  <meta property="og:image" content="https://kauandiass18-sudo.github.io/Claude-project/pizzagiba/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" as="image" href="assets/img/forno-frango.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#cardapio">Pular para o cardápio</a>
+
+  <!-- ===== Navegação ===== -->
+  <header class="nav" data-nav>
+    <div class="wrap nav__in">
+      <a href="#topo" class="brand" data-scroll aria-label="Pizza Giba, início">
+        <svg class="brand__mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18.5" fill="none" stroke="#C5A36A" stroke-width="1.2"/><path d="M20 7.5 32.5 31.5h-25Z" fill="none" stroke="#F4EBDD" stroke-width="1.3" stroke-linejoin="round"/><circle cx="20" cy="17" r="1.6" fill="#C5A36A"/><circle cx="16.5" cy="24.5" r="1.6" fill="#C5A36A"/><circle cx="23.5" cy="25.5" r="1.6" fill="#C5A36A"/></svg>
+        <span class="brand__text"><span class="brand__name" data-nome>Pizza Giba</span><span class="brand__sub">Forno a lenha</span></span>
+      </a>
+      <nav class="nav__links" aria-label="Seções">
+        <a href="#cardapio" data-scroll>Cardápio</a>
+        <a href="#destaques" data-scroll>Destaques</a>
+        <a href="#casa" data-scroll>A casa</a>
+        <a href="#contato" data-scroll>Contato</a>
+      </nav>
+      <div class="nav__right">
+        <button type="button" class="cart-btn" data-open-cart aria-label="Abrir meu pedido">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+          <span class="lbl">Meu pedido</span><span class="cart-btn__n" data-cart-count>0</span>
+        </button>
+        <button type="button" class="burger" data-burger aria-label="Abrir menu" aria-expanded="false"><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-menu" data-mobile-menu>
+    <a href="#cardapio" data-scroll>Cardápio</a>
+    <a href="#destaques" data-scroll>Destaques</a>
+    <a href="#casa" data-scroll>A casa</a>
+    <a href="#contato" data-scroll>Contato</a>
+    <a href="#" data-open-cart>Meu pedido</a>
+    <p class="mobile-menu__meta"><span data-telefone></span> · <span data-instagram-user></span></p>
+  </div>
+
+  <main id="topo">
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero__glow"></div>
+      <div class="hero__glow hero__glow--b"></div>
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-hero="eyebrow">Pizzaria · forno a lenha</p>
+          <h1 class="hero__title">
+            <span class="line"><span>Do forno</span></span>
+            <span class="line"><span>a lenha,</span></span>
+            <span class="line"><span><em>gostosa a</em></span></span>
+            <span class="line"><span><em>qualquer hora.</em></span></span>
+          </h1>
+          <p class="lead hero__lead" data-hero="lead">Massa artesanal, recheio caprichado e o calor da lenha em cada pizza. Escolha o sabor, monte o pedido e receba em casa ou retire na pizzaria.</p>
+          <div class="hero__cta" data-hero="cta">
+            <a href="#cardapio" class="btn btn--gold" data-scroll>Faça seu pedido
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#cardapio" class="btn btn--ghost" data-scroll>Explorar cardápio</a>
+          </div>
+          <div class="hero__facts" data-hero="facts">
+            <div><b data-fact-sabores>—</b><span>sabores de pizza</span></div>
+            <div><b>Lenha</b><span>forno tradicional</span></div>
+            <div><b>Entrega</b><span>ou retirada</span></div>
+          </div>
+        </div>
+        <div class="hero__media">
+          <div class="hero__ring"></div>
+          <div class="hero__frame" data-clip>
+            <img src="assets/img/forno-frango.webp" width="828" height="927" alt="Pizza de frango com catupiry saindo do forno a lenha da Pizza Giba" fetchpriority="high" data-parallax="-8">
+          </div>
+          <div class="hero__badge" aria-hidden="true">
+            <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs><circle cx="60" cy="60" r="58"/><text><textPath href="#circ">forno a lenha · pizza giba · forno a lenha ·</textPath></text></svg>
+          </div>
+          <p class="hero__caption"><i></i>Direto do forno</p>
+        </div>
+      </div>
+      <p class="scroll-hint">Role</p>
+    </section>
+
+    <!-- ===== Faixa ===== -->
+    <div class="strip" aria-hidden="true"><div class="strip__track" data-strip></div></div>
+
+    <!-- ===== Destaques ===== -->
+    <section class="sec sec--cream" id="destaques">
+      <div class="wrap">
+        <div class="sec-head sec-head--row" data-reveal>
+          <div>
+            <p class="eyebrow">Destaques</p>
+            <h2 class="title">Assinaturas <em>da casa</em></h2>
+          </div>
+          <p class="lead">Os sabores que levam o nome da pizzaria e os que o forno a lenha deixa ainda melhores.</p>
+        </div>
+        <div class="feat" data-feat></div>
+      </div>
+    </section>
+
+    <!-- ===== Cardápio ===== -->
+    <section class="sec" id="cardapio">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">Cardápio</p>
+          <h2 class="title">Escolha, monte o pedido <em>e receba.</em></h2>
+          <p class="lead">Pizzas em dois tamanhos, pratos, sobremesas e bebidas. Toque em adicionar e finalize pelo WhatsApp.</p>
+        </div>
+        <div class="menu-tools">
+          <div class="tabs" role="tablist" data-tabs></div>
+          <label class="search"><span class="sr">Buscar no cardápio</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" placeholder="Buscar sabor ou ingrediente" data-search autocomplete="off">
+          </label>
+        </div>
+        <div data-menu aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ===== Promoções (aparece só quando houver) ===== -->
+    <section class="sec sec--wine hidden" id="promocoes" data-promos-sec>
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">Combos e promoções</p>
+          <h2 class="title">Ofertas <em>do momento</em></h2>
+        </div>
+        <div class="promos" data-promos></div>
+      </div>
+    </section>
+
+    <!-- ===== A casa ===== -->
+    <section class="sec sec--clip" id="casa">
+      <div class="wrap story">
+        <div class="story__media" data-reveal>
+          <div class="story__glow"></div>
+          <div class="story__frame">
+            <img src="assets/img/forno-calabresa.webp" width="828" height="1104" alt="Pizza coberta com fatias de calabresa, cebola e azeitonas na pá, em frente ao fogo do forno a lenha" loading="lazy" data-parallax="10">
+          </div>
+          <div class="story__stamp">Feita na lenha</div>
+        </div>
+        <div class="story__copy" data-reveal>
+          <p class="eyebrow">A casa</p>
+          <h2 class="title">O fogo faz <em>a diferença.</em></h2>
+          <p class="lead">Na Pizza Giba, a pizza entra no forno a lenha e sai com a borda alta e tostada, o queijo borbulhando e aquele cheiro de madeira que forno elétrico nenhum imita.</p>
+          <p class="lead">Massa artesanal, recheio caprichado até a borda. Do clássico de mussarela às assinaturas da casa, tudo passa pelo mesmo fogo.</p>
+          <ul class="story__points">
+            <li><i>01</i><div><b>Forno a lenha</b><span>Calor alto e constante: massa leve por dentro, crocante por fora.</span></div></li>
+            <li><i>02</i><div><b>Massa artesanal</b><span>Feita na casa, com recheio generoso até a borda.</span></div></li>
+            <li><i>03</i><div><b>Gostosa a qualquer hora</b><span>Entrega ou retirada, do jeito que for melhor para você.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Avaliações ===== -->
+    <section class="sec sec--cream" id="avaliacoes">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">Avaliações</p>
+          <h2 class="title">Quem já <em>provou</em></h2>
+        </div>
+        <div data-reviews data-reveal></div>
+      </div>
+    </section>
+
+    <!-- ===== Contato ===== -->
+    <section class="sec" id="contato">
+      <div class="wrap">
+        <div class="sec-head" data-reveal>
+          <p class="eyebrow">Contato</p>
+          <h2 class="title">Venha buscar <em>ou peça em casa.</em></h2>
+        </div>
+        <div class="contact">
+          <div data-reveal>
+            <ul class="info" data-info></ul>
+            <div class="contact__cta">
+              <a class="btn btn--wa" data-wa-link target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 16.8L2 22l5.3-1.2A11 11 0 1 0 20.5 3.5Z"/><path d="M8.5 9.2c.2-.6.5-.7.9-.7h.6c.2 0 .4 0 .6.5l.8 1.9c.1.2 0 .4-.1.6l-.5.6c-.1.1-.2.3 0 .5a7 7 0 0 0 3.3 3c.2.1.4.1.5-.1l.7-.9c.2-.2.4-.2.6-.1l1.9.9c.2.1.4.2.4.4a2.3 2.3 0 0 1-1.6 2c-.5.1-1.2.2-3.4-.8a9.5 9.5 0 0 1-4.5-4.4c-.4-.9-.6-1.7-.2-2.4Z"/></svg>
+                Chamar no WhatsApp</a>
+              <a class="btn btn--ghost" data-ig-link target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </div>
+          <div class="map" data-map data-reveal></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__in">
+      <p class="footer__big"><span data-nome>Pizza Giba</span><br><em>forno a lenha</em></p>
+      <div class="footer__meta">
+        <a data-ig-link target="_blank" rel="noopener"><span data-instagram-user></span></a>
+        <a data-wa-link target="_blank" rel="noopener"><span data-telefone></span></a>
+        <span>© <span data-ano></span> <span data-nome>Pizza Giba</span></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Flutuantes ===== -->
+  <a class="fab" data-wa-link target="_blank" rel="noopener" aria-label="Falar pelo WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>
+  </a>
+  <div class="mbar" data-mbar>
+    <a href="#cardapio" class="btn btn--ghost" data-scroll>Cardápio</a>
+    <button type="button" class="btn btn--gold" data-open-cart>Pedido <span data-cart-count-mobile>0</span></button>
+  </div>
+  <div class="toast" data-toast role="status"></div>
+
+  <!-- ===== Gaveta do pedido ===== -->
+  <div class="drawer-bg" data-close-cart></div>
+  <aside class="drawer" aria-label="Meu pedido" data-drawer>
+    <div class="drawer__head">
+      <h2><small>Pizza Giba</small>Meu pedido</h2>
+      <button type="button" class="x" data-close-cart aria-label="Fechar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="drawer__body">
+      <div data-cart-lines></div>
+      <form data-checkout novalidate>
+        <div class="fs">
+          <p class="fs__t">Receber como</p>
+          <div class="seg" data-modo>
+            <button type="button" data-modo-btn="entrega" class="is-on">Entrega</button>
+            <button type="button" data-modo-btn="retirada">Retirada</button>
+          </div>
+          <p class="note" data-entrega-note></p>
+        </div>
+        <div class="fs">
+          <p class="fs__t">Seus dados</p>
+          <div class="field"><label for="c-nome">Nome</label><input id="c-nome" name="nome" autocomplete="name" required></div>
+          <div class="field"><label for="c-fone">Telefone (opcional)</label><input id="c-fone" name="fone" type="tel" autocomplete="tel" inputmode="tel"></div>
+        </div>
+        <div class="fs" data-endereco>
+          <p class="fs__t">Endereço de entrega</p>
+          <div class="f21">
+            <div class="field"><label for="c-rua">Rua</label><input id="c-rua" name="rua" autocomplete="address-line1"></div>
+            <div class="field"><label for="c-num">Número</label><input id="c-num" name="numero" inputmode="numeric"></div>
+          </div>
+          <div class="f2">
+            <div class="field"><label for="c-bairro">Bairro</label><input id="c-bairro" name="bairro" autocomplete="address-level3"></div>
+            <div class="field"><label for="c-cidade">Cidade</label><input id="c-cidade" name="cidade" autocomplete="address-level2"></div>
+          </div>
+          <div class="field"><label for="c-comp">Complemento ou referência</label><input id="c-comp" name="complemento"></div>
+        </div>
+        <div class="fs">
+          <p class="fs__t">Pagamento</p>
+          <div class="pay" data-pay></div>
+          <div class="field hidden" data-troco><label for="c-troco">Troco para quanto?</label><input id="c-troco" name="troco" inputmode="decimal" placeholder="Ex.: 100"></div>
+        </div>
+        <div class="fs">
+          <p class="fs__t">Observações</p>
+          <div class="field"><label for="c-obs" class="sr">Observações</label><textarea id="c-obs" name="obs" placeholder="Sem cebola, bem assada, campainha quebrada..."></textarea></div>
+        </div>
+        <p class="err" data-err aria-live="assertive"></p>
+      </form>
+    </div>
+    <div class="drawer__foot">
+      <div class="totals" data-totals></div>
+      <button type="button" class="btn btn--wa" data-send>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.2 16.8L2 22l5.3-1.2A11 11 0 1 0 20.5 3.5Z"/></svg>
+        Enviar pedido pelo WhatsApp</button>
+      <p class="note">O pedido abre no WhatsApp já preenchido. A confirmação e o tempo de entrega são combinados na conversa.</p>
+    </div>
+  </aside>
+
+  <script src="data/cardapio.js"></script>
+  <script src="assets/js/vendor/gsap.min.js" defer></script>
+  <script src="assets/js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>

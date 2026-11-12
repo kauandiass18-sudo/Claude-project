@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel · Pizza Giba</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+  <header class="top">
+    <div class="top__brand"><span class="top__name">Pizza Giba</span><span class="top__sub">Painel do cardápio</span></div>
+    <nav class="top__tabs" data-tabs>
+      <button type="button" class="is-on" data-tab="produtos">Produtos</button>
+      <button type="button" data-tab="promocoes">Promoções</button>
+      <button type="button" data-tab="info">Informações</button>
+      <button type="button" data-tab="avaliacoes">Avaliações</button>
+      <button type="button" data-tab="publicar">Publicar</button>
+    </nav>
+    <div class="top__right">
+      <span class="saved" data-saved>—</span>
+      <a class="btn btn--ghost" href="index.html" target="_blank" rel="noopener">Ver site</a>
+      <button type="button" class="btn btn--gold" data-download>Baixar cardapio.js</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <!-- Produtos -->
+    <section class="panel is-on" data-panel="produtos">
+      <div class="panel__head">
+        <div><h1>Produtos</h1><p class="help">Preços, descrições, fotos e disponibilidade. As mudanças ficam salvas neste navegador; para valerem no site publicado, baixe o arquivo em <b>Publicar</b>.</p></div>
+        <button type="button" class="btn btn--gold" data-new-product>Novo produto</button>
+      </div>
+      <div class="tools">
+        <div class="chips" data-cat-filter></div>
+        <input type="search" placeholder="Buscar" data-prod-search>
+      </div>
+      <div class="list" data-prod-list></div>
+    </section>
+
+    <!-- Promoções -->
+    <section class="panel" data-panel="promocoes">
+      <div class="panel__head">
+        <div><h1>Combos e promoções</h1><p class="help">Aparecem numa seção própria do site e dentro do cardápio em "Combos e promoções". Sem promoções cadastradas, a seção fica escondida.</p></div>
+        <button type="button" class="btn btn--gold" data-new-promo>Nova promoção</button>
+      </div>
+      <div class="list" data-promo-list></div>
+    </section>
+
+    <!-- Informações -->
+    <section class="panel" data-panel="info">
+      <div class="panel__head"><div><h1>Informações da pizzaria</h1><p class="help">Contato, endereço, horários e regras de entrega.</p></div></div>
+      <form class="form" data-info-form>
+        <div class="card">
+          <h2>Contato</h2>
+          <div class="grid2">
+            <label>Nome<input name="nome"></label>
+            <label>Slogan<input name="slogan"></label>
+            <label>WhatsApp dos pedidos <small>só números, com 55 e DDD</small><input name="whatsapp" inputmode="numeric"></label>
+            <label>Telefone como aparece no site<input name="telefone"></label>
+            <label>Link do Instagram<input name="instagram" type="url"></label>
+            <label>Usuário do Instagram<input name="instagramUser"></label>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Endereço e mapa</h2>
+          <div class="grid2">
+            <label>Endereço (rua, número, bairro)<input name="endereco"></label>
+            <label>Cidade e estado<input name="cidade"></label>
+            <label>Link "Como chegar" (Google Maps)<input name="mapsUrl" type="url"></label>
+            <label>Endereço do mapa incorporado <small>no Google Maps: Compartilhar → Incorporar um mapa → copie só o que está em src="..."</small><input name="mapsEmbed" type="url"></label>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Horários exibidos</h2>
+          <p class="help">Ex.: "Terça a domingo" e "18h às 23h".</p>
+          <div class="rows" data-horarios></div>
+          <button type="button" class="btn btn--sm" data-add-horario>Adicionar linha</button>
+        </div>
+        <div class="card">
+          <h2>Aberto agora</h2>
+          <p class="help">Para o site mostrar "Aberto agora" ou "Fechado agora". Deixe desligado se não quiser.</p>
+          <label class="switch"><input type="checkbox" name="func_on"> Mostrar status de aberto/fechado</label>
+          <div class="days" data-days></div>
+          <div class="grid2">
+            <label>Abre às<input name="func_abre" type="time"></label>
+            <label>Fecha às <small>se passar da meia-noite, informe o horário normalmente, ex.: 00:30</small><input name="func_fecha" type="time"></label>
+          </div>
+        </div>
+        <div class="card">
+          <h2>Entrega e pagamento</h2>
+          <div class="grid2">
+            <label class="switch"><input type="checkbox" name="entrega_ativo"> Faz entrega</label>
+            <label class="switch"><input type="checkbox" name="entrega_retirada"> Permite retirada</label>
+            <label>Taxa de entrega fixa (R$) <small>vazio = "a confirmar pelo WhatsApp"</small><input name="entrega_taxa" inputmode="decimal"></label>
+            <label>Tempo médio de entrega <small>ex.: 40 a 60 min</small><input name="entrega_tempo"></label>
+          </div>
+          <p class="help" style="margin-top:14px">Formas de pagamento aceitas</p>
+          <div class="days" data-pagamentos></div>
+        </div>
+        <div class="card">
+          <h2>Destaques da página inicial</h2>
+          <p class="help">Marque até 4 produtos. O primeiro com foto vira a imagem grande.</p>
+          <div class="days" data-destaques></div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Avaliações -->
+    <section class="panel" data-panel="avaliacoes">
+      <div class="panel__head">
+        <div><h1>Avaliações</h1><p class="help">Cadastre apenas avaliações reais de clientes. Sem nenhuma, o site mostra um convite para avaliar.</p></div>
+        <button type="button" class="btn btn--gold" data-new-review>Nova avaliação</button>
+      </div>
+      <div class="list" data-review-list></div>
+    </section>
+
+    <!-- Publicar -->
+    <section class="panel" data-panel="publicar">
+      <div class="panel__head"><div><h1>Publicar</h1></div></div>
+      <div class="card">
+        <h2>Como funciona</h2>
+        <ol class="steps">
+          <li>Tudo o que você altera aqui é salvo automaticamente <b>neste navegador</b>. Abrindo o site neste mesmo aparelho, você já vê o resultado.</li>
+          <li>Para o site publicado mudar para todo mundo, clique em <b>Baixar cardapio.js</b> e substitua o arquivo <code>pizzagiba/data/cardapio.js</code> na hospedagem.</li>
+          <li>Depois de publicado, pode clicar em <b>Descartar alterações locais</b>: o site passa a ler o arquivo novo.</li>
+        </ol>
+        <div class="actions">
+          <button type="button" class="btn btn--gold" data-download>Baixar cardapio.js</button>
+          <label class="btn btn--ghost">Importar cardapio.js<input type="file" accept=".js,.json" data-import hidden></label>
+          <button type="button" class="btn btn--danger" data-reset>Descartar alterações locais</button>
+        </div>
+        <p class="help" data-pub-info></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Editor de produto -->
+  <div class="modal" data-modal>
+    <div class="modal__bg" data-modal-close></div>
+    <form class="modal__box" data-prod-form>
+      <div class="modal__head"><h2 data-modal-title>Produto</h2><button type="button" class="x" data-modal-close aria-label="Fechar">×</button></div>
+      <div class="modal__body">
+        <div class="grid2">
+          <label>Nome<input name="nome" required></label>
+          <label>Categoria<select name="cat"></select></label>
+          <label>Grupo dentro da categoria <small>ex.: Vinhos, Sucos, Sobremesas</small><input name="grupo"></label>
+          <label>Opções de escolha <small>separe por vírgula, ex.: Morango, Pêssego</small><input name="opcoes"></label>
+        </div>
+        <label>Descrição / ingredientes<textarea name="desc" rows="3"></textarea></label>
+        <label class="switch"><input type="checkbox" name="temTamanhos"> Tem tamanhos (pizza)</label>
+        <div class="grid3" data-precos-tamanhos></div>
+        <div class="grid3" data-preco-unico>
+          <label>Preço (R$)<input name="preco" inputmode="decimal"></label>
+          <label>Preço antigo <small>opcional, aparece riscado</small><input name="precoAntigo" inputmode="decimal"></label>
+        </div>
+        <div class="photo">
+          <div class="photo__prev" data-photo-prev></div>
+          <div class="photo__ctl">
+            <label class="btn btn--sm btn--ghost">Enviar foto<input type="file" accept="image/*" data-photo-file hidden></label>
+            <label>ou caminho/endereço da imagem<input name="foto" placeholder="assets/img/minha-pizza.webp"></label>
+            <button type="button" class="link" data-photo-clear>Remover foto</button>
+          </div>
+        </div>
+        <div class="row">
+          <label class="switch"><input type="checkbox" name="ativo" checked> Ativo (aparece no site)</label>
+          <label class="switch"><input type="checkbox" name="novidade"> Selo "Novidade"</label>
+          <label class="switch"><input type="checkbox" name="destaque"> Destaque da página inicial</label>
+        </div>
+      </div>
+      <div class="modal__foot">
+        <button type="button" class="btn btn--danger btn--sm" data-prod-delete>Excluir</button>
+        <span style="flex:1"></span>
+        <button type="button" class="btn btn--ghost" data-modal-close>Cancelar</button>
+        <button type="submit" class="btn btn--gold">Salvar</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="toast" data-toast></div>
+  <script src="data/cardapio.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>
