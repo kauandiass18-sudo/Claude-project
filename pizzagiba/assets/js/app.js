@@ -101,12 +101,12 @@
     if (pizza && ADDONS.length) {
       opts += ADDONS.map(function (a) { return '<label class="chk"><input type="checkbox" data-addon="' + esc(a.id) + '"> ' + esc(a.nome) + " · +" + money(a.preco) + "</label>"; }).join("");
     }
-    return '<article class="item' + (p.foto ? " has-photo" : "") + '" data-item="' + esc(p.id) + '">' + media +
+    return '<article class="item' + (p.foto ? " has-photo" : "") + '" data-item="' + esc(p.id) + '">' + media + '<div class="item__body">' +
       '<h3 class="item__name">' + esc(p.nome) + tags + "</h3>" +
       (p.desc ? '<p class="item__desc">' + esc(p.desc) + "</p>" : "") +
       (opts ? '<div class="item__opts">' + opts + "</div>" : "") +
       '<div class="item__foot">' + priceArea +
-      '<button type="button" class="add" data-add><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Adicionar</span></button></div></article>';
+      '<button type="button" class="add" data-add><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Adicionar</span></button></div></div></article>';
   }
 
   function renderMenu() {
