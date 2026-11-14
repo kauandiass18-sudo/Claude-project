@@ -38,7 +38,7 @@
   $$("[data-wa-link]").forEach(function (el) { el.href = waLink("Olá! Vim pelo site da " + (DATA.nome || "Pizza Giba") + "."); });
   $$("[data-ig-link]").forEach(function (el) { if (DATA.instagram) el.href = DATA.instagram; else el.classList.add("hidden"); });
   var nPizzas = PRODUCTS.filter(isPizza).length;
-  var factEl = $("[data-fact-sabores]"); if (factEl) factEl.textContent = nPizzas;
+  $$("[data-fact-sabores]").forEach(function (el) { el.textContent = nPizzas; });
 
   var strip = $("[data-strip]");
   if (strip) {
@@ -57,13 +57,12 @@
     var html = "";
     html += '<article class="feat__photo" data-reveal>' +
       (withPhoto.foto ? '<img src="' + esc(withPhoto.foto) + '" alt="' + esc(withPhoto.nome) + '" loading="lazy" data-parallax="6">' : "") +
-      '<div class="feat__photo-body"><p class="eyebrow" style="color:var(--gold)">' + (withPhoto.foto ? "Direto do forno" : "Assinatura") + '</p>' +
+      '<div class="feat__photo-body">' +
       '<h3>' + esc(withPhoto.nome) + '</h3><p>' + esc(withPhoto.desc) + '</p>' +
       '<div class="price-row"><span class="price-tag"><small>' + (withPhoto.precos ? "a partir de" : "") + '</small>' + money(minPrice(withPhoto)) + '</span>' +
       '<button type="button" class="btn btn--gold btn--sm" data-go="' + esc(withPhoto.id) + '">Pedir esta</button></div></div></article>';
-    html += '<div class="feat__list">' + rest.map(function (p, i) {
-      return '<article class="feat__card" data-reveal style="transition-delay:' + (i * 60) + 'ms">' +
-        '<span class="mono" aria-hidden="true">' + esc(p.nome.charAt(0)) + '</span>' +
+    html += '<div class="feat__list">' + rest.map(function (p) {
+      return '<article class="feat__card" data-reveal>' +
         '<div><h3>' + esc(p.nome) + '</h3><p>' + esc(p.desc) + '</p></div>' +
         '<span class="price"><small>' + (p.precos ? "a partir de" : "") + '</small>' + money(minPrice(p)) + '</span>' +
         '<button type="button" class="go" data-go="' + esc(p.id) + '" aria-label="Ver ' + esc(p.nome) + ' no cardápio"></button></article>';
@@ -85,9 +84,7 @@
 
   function itemHTML(p) {
     var pizza = isPizza(p);
-    var media = p.foto
-      ? '<img src="' + esc(p.foto) + '" alt="' + esc(p.nome) + '" loading="lazy" width="112" height="112">'
-      : '<span class="mono" aria-hidden="true">' + esc(p.nome.replace(/^[ÀA]\s/, "").charAt(0)) + "</span>";
+    var media = p.foto ? '<div class="item__media"><img src="' + esc(p.foto) + '" alt="' + esc(p.nome) + '" loading="lazy" width="96" height="96"></div>' : "";
     var tags = (p.novidade ? '<span class="tag tag--new">Novidade</span>' : "") + ((DATA.destaques || []).indexOf(p.id) > -1 ? '<span class="tag">Da casa</span>' : "");
     var priceArea;
     if (pizza && p.precos) {
@@ -104,13 +101,12 @@
     if (pizza && ADDONS.length) {
       opts += ADDONS.map(function (a) { return '<label class="chk"><input type="checkbox" data-addon="' + esc(a.id) + '"> ' + esc(a.nome) + " · +" + money(a.preco) + "</label>"; }).join("");
     }
-    return '<article class="item" data-item="' + esc(p.id) + '">' +
-      '<div class="item__media">' + media + "</div>" +
-      '<div class="item__body"><h3 class="item__name">' + esc(p.nome) + tags + "</h3>" +
+    return '<article class="item' + (p.foto ? " has-photo" : "") + '" data-item="' + esc(p.id) + '">' + media +
+      '<h3 class="item__name">' + esc(p.nome) + tags + "</h3>" +
       (p.desc ? '<p class="item__desc">' + esc(p.desc) + "</p>" : "") +
       (opts ? '<div class="item__opts">' + opts + "</div>" : "") +
       '<div class="item__foot">' + priceArea +
-      '<button type="button" class="add" data-add><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Adicionar</span></button></div></div></article>';
+      '<button type="button" class="add" data-add><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg><span>Adicionar</span></button></div></article>';
   }
 
   function renderMenu() {
@@ -314,7 +310,7 @@
     var box = $("[data-reviews]"); if (!box) return;
     var list = (DATA.avaliacoes || []).filter(function (r) { return r && r.texto; });
     if (!list.length) {
-      box.innerHTML = '<div class="reviews-empty"><div><h3>As avaliações entram aqui.</h3><p>Este espaço é reservado para depoimentos reais de clientes. Já provou a Pizza Giba? Conte como foi pelo WhatsApp ou marque ' + esc(DATA.instagramUser || "a pizzaria") + ' no Instagram.</p></div>' +
+      box.innerHTML = '<div class="reviews-empty"><p>Ainda não publicamos avaliações aqui. Se você já pediu, conta pra gente como foi pelo WhatsApp ou marca ' + esc(DATA.instagramUser || "a pizzaria") + ' no Instagram.</p>' +
         '<a class="btn btn--dark btn--sm" target="_blank" rel="noopener" href="' + waLink("Olá! Quero deixar minha avaliação da " + (DATA.nome || "Pizza Giba") + ":") + '">Enviar avaliação</a></div>';
       return;
     }
@@ -351,7 +347,7 @@
 
     var map = $("[data-map]");
     if (DATA.mapsEmbed) map.innerHTML = '<iframe src="' + esc(DATA.mapsEmbed) + '" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa com a localização da ' + esc(DATA.nome || "Pizza Giba") + '" allowfullscreen></iframe>';
-    else map.innerHTML = '<div class="map__empty"><div><strong>Mapa em breve</strong>Assim que o endereço for cadastrado, a localização aparece aqui.</div></div>';
+    else { map.remove(); $(".contact").classList.add("contact--single"); }
   })();
   function statusHTML() {
     var f = DATA.funcionamento; if (!f || !f.dias) return "";
@@ -404,10 +400,13 @@
       .from(".hero__title .line > span", { yPercent: 110, duration: 1.1, stagger: .09, ease: "power4.out" }, .15)
       .from('[data-hero="lead"]', { y: 18, opacity: 0, duration: .9 }, .6)
       .from('[data-hero="cta"] .btn', { y: 16, opacity: 0, duration: .8, stagger: .1 }, .75)
-      .from('[data-hero="facts"] > div', { y: 14, opacity: 0, duration: .8, stagger: .08 }, .9)
-      .to("[data-clip]", { clipPath: "inset(0 0 0% 0 round 6px)", duration: 1.4, ease: "power4.inOut" }, .2)
+      .from('[data-hero="meta"]', { y: 10, opacity: 0, duration: .8 }, .95)
+      .to("[data-clip]", { clipPath: "inset(0 0 0% 0 round 4px)", duration: 1.4, ease: "power4.inOut" }, .2)
       .from(".hero__frame img", { scale: 1.25, duration: 1.8, ease: "power3.out" }, .2)
-      .from(".hero__badge, .hero__caption, .hero__ring", { opacity: 0, duration: 1 }, 1.1);
+      .from('[data-hero="cap"]', { opacity: 0, duration: 1 }, 1.2);
+    // Fundo: a luz acompanha a rolagem de leve
+    var glow = $("[data-bg-glow]");
+    if (glow) gsap.to(glow, { yPercent: -12, ease: "none", scrollTrigger: { trigger: document.body, start: "top top", end: "bottom bottom", scrub: 1.2 } });
     // Reveals
     ScrollTrigger.batch("[data-reveal]", {
       start: "top 88%",

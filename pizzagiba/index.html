@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Pizza Giba · Forno a lenha · Pedido pelo WhatsApp</title>
   <meta name="description" content="Pizza Giba: pizzas de forno a lenha com massa artesanal. Veja o cardápio completo, monte seu pedido e finalize pelo WhatsApp.">
-  <meta name="theme-color" content="#171515">
+  <meta name="theme-color" content="#141212">
   <link rel="canonical" href="https://kauandiass18-sudo.github.io/Claude-project/pizzagiba/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
@@ -26,6 +26,7 @@
 </head>
 <body>
   <a class="skip" href="#cardapio">Pular para o cardápio</a>
+  <div class="bg" aria-hidden="true"><div class="bg__glow" data-bg-glow></div></div>
 
   <!-- ===== Navegação ===== -->
   <header class="nav" data-nav>
@@ -36,8 +37,8 @@
       </a>
       <nav class="nav__links" aria-label="Seções">
         <a href="#cardapio" data-scroll>Cardápio</a>
-        <a href="#destaques" data-scroll>Destaques</a>
-        <a href="#casa" data-scroll>A casa</a>
+        <a href="#destaques" data-scroll>Da casa</a>
+        <a href="#casa" data-scroll>O forno</a>
         <a href="#contato" data-scroll>Contato</a>
       </nav>
       <div class="nav__right">
@@ -51,8 +52,8 @@
   </header>
   <div class="mobile-menu" data-mobile-menu>
     <a href="#cardapio" data-scroll>Cardápio</a>
-    <a href="#destaques" data-scroll>Destaques</a>
-    <a href="#casa" data-scroll>A casa</a>
+    <a href="#destaques" data-scroll>Da casa</a>
+    <a href="#casa" data-scroll>O forno</a>
     <a href="#contato" data-scroll>Contato</a>
     <a href="#" data-open-cart>Meu pedido</a>
     <p class="mobile-menu__meta"><span data-telefone></span> · <span data-instagram-user></span></p>
@@ -61,55 +62,36 @@
   <main id="topo">
     <!-- ===== Hero ===== -->
     <section class="hero">
-      <div class="hero__glow"></div>
-      <div class="hero__glow hero__glow--b"></div>
       <div class="wrap hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow" data-hero="eyebrow">Pizzaria · forno a lenha</p>
+          <p class="eyebrow" data-hero="eyebrow">Pizzaria de forno a lenha</p>
           <h1 class="hero__title">
             <span class="line"><span>Do forno</span></span>
             <span class="line"><span>a lenha,</span></span>
             <span class="line"><span><em>gostosa a</em></span></span>
             <span class="line"><span><em>qualquer hora.</em></span></span>
           </h1>
-          <p class="lead hero__lead" data-hero="lead">Massa artesanal, recheio caprichado e o calor da lenha em cada pizza. Escolha o sabor, monte o pedido e receba em casa ou retire na pizzaria.</p>
+          <p class="lead hero__lead" data-hero="lead">Massa artesanal, forno a lenha e <span data-fact-sabores>60</span> sabores no cardápio. Escolha aqui, monte o pedido e termine no WhatsApp.</p>
           <div class="hero__cta" data-hero="cta">
-            <a href="#cardapio" class="btn btn--gold" data-scroll>Faça seu pedido
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="#cardapio" class="btn btn--gold" data-scroll>Faça seu pedido</a>
             <a href="#cardapio" class="btn btn--ghost" data-scroll>Explorar cardápio</a>
           </div>
-          <div class="hero__facts" data-hero="facts">
-            <div><b data-fact-sabores>—</b><span>sabores de pizza</span></div>
-            <div><b>Lenha</b><span>forno tradicional</span></div>
-            <div><b>Entrega</b><span>ou retirada</span></div>
-          </div>
+          <p class="hero__meta" data-hero="meta"><a data-ig-link target="_blank" rel="noopener"><span data-instagram-user></span></a><span class="sep"></span><a data-wa-link target="_blank" rel="noopener"><span data-telefone></span></a></p>
         </div>
-        <div class="hero__media">
-          <div class="hero__ring"></div>
+        <figure class="hero__media">
           <div class="hero__frame" data-clip>
             <img src="assets/img/forno-frango.webp" width="828" height="927" alt="Pizza de frango com catupiry saindo do forno a lenha da Pizza Giba" fetchpriority="high" data-parallax="-8">
           </div>
-          <div class="hero__badge" aria-hidden="true">
-            <svg viewBox="0 0 120 120"><defs><path id="circ" d="M60 60 m-44 0 a44 44 0 1 1 88 0 a44 44 0 1 1 -88 0"/></defs><circle cx="60" cy="60" r="58"/><text><textPath href="#circ">forno a lenha · pizza giba · forno a lenha ·</textPath></text></svg>
-          </div>
-          <p class="hero__caption"><i></i>Direto do forno</p>
-        </div>
+          <figcaption class="hero__cap" data-hero="cap">Frango com catupiry, na boca do forno.</figcaption>
+        </figure>
       </div>
-      <p class="scroll-hint">Role</p>
     </section>
 
-    <!-- ===== Faixa ===== -->
-    <div class="strip" aria-hidden="true"><div class="strip__track" data-strip></div></div>
-
-    <!-- ===== Destaques ===== -->
+    <!-- ===== Da casa ===== -->
     <section class="sec sec--cream" id="destaques">
       <div class="wrap">
-        <div class="sec-head sec-head--row" data-reveal>
-          <div>
-            <p class="eyebrow">Destaques</p>
-            <h2 class="title">Assinaturas <em>da casa</em></h2>
-          </div>
-          <p class="lead">Os sabores que levam o nome da pizzaria e os que o forno a lenha deixa ainda melhores.</p>
+        <div class="sec-head" data-reveal>
+          <h2 class="title">Assinaturas <em>da casa</em></h2>
         </div>
         <div class="feat" data-feat></div>
       </div>
@@ -118,10 +100,9 @@
     <!-- ===== Cardápio ===== -->
     <section class="sec" id="cardapio">
       <div class="wrap">
-        <div class="sec-head" data-reveal>
-          <p class="eyebrow">Cardápio</p>
-          <h2 class="title">Escolha, monte o pedido <em>e receba.</em></h2>
-          <p class="lead">Pizzas em dois tamanhos, pratos, sobremesas e bebidas. Toque em adicionar e finalize pelo WhatsApp.</p>
+        <div class="sec-head sec-head--row" data-reveal>
+          <h2 class="title">Cardápio</h2>
+          <p class="lead">Pizzas em dois tamanhos, grande e média. Toque em adicionar e feche o pedido pelo WhatsApp.</p>
         </div>
         <div class="menu-tools">
           <div class="tabs" role="tablist" data-tabs></div>
@@ -138,33 +119,26 @@
     <section class="sec sec--wine hidden" id="promocoes" data-promos-sec>
       <div class="wrap">
         <div class="sec-head" data-reveal>
-          <p class="eyebrow">Combos e promoções</p>
-          <h2 class="title">Ofertas <em>do momento</em></h2>
+          <h2 class="title">Combos e promoções</h2>
         </div>
         <div class="promos" data-promos></div>
       </div>
     </section>
 
-    <!-- ===== A casa ===== -->
+    <!-- ===== O forno ===== -->
     <section class="sec sec--clip" id="casa">
       <div class="wrap story">
-        <div class="story__media" data-reveal>
-          <div class="story__glow"></div>
+        <figure class="story__media" data-reveal>
           <div class="story__frame">
             <img src="assets/img/forno-calabresa.webp" width="828" height="1104" alt="Pizza coberta com fatias de calabresa, cebola e azeitonas na pá, em frente ao fogo do forno a lenha" loading="lazy" data-parallax="10">
           </div>
-          <div class="story__stamp">Feita na lenha</div>
-        </div>
+          <figcaption class="story__cap">Na pá, antes de ir para a mesa.</figcaption>
+        </figure>
         <div class="story__copy" data-reveal>
-          <p class="eyebrow">A casa</p>
-          <h2 class="title">O fogo faz <em>a diferença.</em></h2>
-          <p class="lead">Na Pizza Giba, a pizza entra no forno a lenha e sai com a borda alta e tostada, o queijo borbulhando e aquele cheiro de madeira que forno elétrico nenhum imita.</p>
-          <p class="lead">Massa artesanal, recheio caprichado até a borda. Do clássico de mussarela às assinaturas da casa, tudo passa pelo mesmo fogo.</p>
-          <ul class="story__points">
-            <li><i>01</i><div><b>Forno a lenha</b><span>Calor alto e constante: massa leve por dentro, crocante por fora.</span></div></li>
-            <li><i>02</i><div><b>Massa artesanal</b><span>Feita na casa, com recheio generoso até a borda.</span></div></li>
-            <li><i>03</i><div><b>Gostosa a qualquer hora</b><span>Entrega ou retirada, do jeito que for melhor para você.</span></div></li>
-          </ul>
+          <h2 class="title">Forno de tijolo, <em>lenha de verdade.</em></h2>
+          <p class="lead">Aqui não tem forno elétrico. A pizza entra na pá, encosta no calor da lenha e sai com a borda tostada, o queijo estourando e aquele cheiro de fumaça que só o fogo dá.</p>
+          <p class="lead">Massa artesanal, recheio até a borda e <span data-fact-sabores>60</span> sabores para escolher, da Mussarela à Viçosa. Entrega ou retirada, do jeito que for melhor para você.</p>
+          <a href="#cardapio" class="btn btn--ghost" data-scroll>Ver o cardápio</a>
         </div>
       </div>
     </section>
@@ -173,8 +147,7 @@
     <section class="sec sec--cream" id="avaliacoes">
       <div class="wrap">
         <div class="sec-head" data-reveal>
-          <p class="eyebrow">Avaliações</p>
-          <h2 class="title">Quem já <em>provou</em></h2>
+          <h2 class="title">Quem já provou</h2>
         </div>
         <div data-reviews data-reveal></div>
       </div>
@@ -184,8 +157,7 @@
     <section class="sec" id="contato">
       <div class="wrap">
         <div class="sec-head" data-reveal>
-          <p class="eyebrow">Contato</p>
-          <h2 class="title">Venha buscar <em>ou peça em casa.</em></h2>
+          <h2 class="title">Fale com a gente</h2>
         </div>
         <div class="contact">
           <div data-reveal>
