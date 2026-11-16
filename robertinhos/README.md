@@ -45,7 +45,7 @@ A página se atualiza sozinha, sem mexer no HTML.
 | `campanha.webp` | Faixa da Coleção Promessa's | vertical 3:4 |
 | `editorial.webp` | Seção "A arte de se vestir bem" | vertical 4:5 |
 | `acessorios.webp` | Seção "O arremate do look" | vertical 3:4 |
-| `marca.webp` | Seção "Sobre a marca" | vertical 3:4 |
+| `marca.webp` | Painel da seção "Sobre a marca" | vertical 1:2 (formato story) |
 | `logo.png` | Cabeçalho, rodapé, selo e ícone do site | quadrado, fundo transparente |
 | `produto-01-terno-azul-marinho.webp` … `produto-12-gravata-paisley-azul.webp` | Grade da coleção | vertical 3:4 |
 | `detalhe-01-combinacoes.webp` … `detalhe-04-caimento.webp` | Galeria de detalhes | vertical 3:4 |
@@ -86,14 +86,14 @@ Cada peça é um bloco `<article class="product">` no `index.html`:
 - `detalhe-02-lapela.webp` — pin dourado na lapela
 - `detalhe-03-bolso.webp` — bolsos com pala
 - `detalhe-04-caimento.webp` — punho e botões
+- `marca.webp` — assinatura da marca em formato vertical
 
 **Ainda provisórias** (recortadas das capturas do Instagram, rendem menos nas
 áreas grandes). Em ordem de prioridade para substituir:
 
 1. `campanha.webp` — ocupa meia tela na faixa da Coleção Promessa's
 2. `editorial.webp` — foto grande da seção "A arte de se vestir bem"
-3. `marca.webp` — seção "Sobre a marca"
-4. `produto-02` a `produto-05`, `produto-07` a `produto-12` — grade da coleção
+3. `produto-02` a `produto-05`, `produto-07` a `produto-12` — grade da coleção
 
 ---
 
