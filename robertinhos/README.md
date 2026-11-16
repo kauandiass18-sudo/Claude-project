@@ -74,6 +74,27 @@ Cada peça é um bloco `<article class="product">` no `index.html`:
 - A bolinha ao lado do nome é a cor do tecido: `<i class="sw" style="--c:#C9BCA6">`.
 - Os contadores dos filtros são calculados sozinhos.
 
+### Status das fotografias
+
+**Já são fotos profissionais da loja** (alta resolução, prontas para o cliente):
+
+- `hero.webp` — terno xadrez azul-marinho com gravata rosa
+- `produto-01-terno-azul-marinho.webp` — conjunto completo em manequim
+- `produto-06-terno-cinza-claro.webp` — conjunto completo em manequim
+- `acessorios.webp` — nó da gravata paisley
+- `detalhe-01-combinacoes.webp` — gravata de bolinhas e pin
+- `detalhe-02-lapela.webp` — pin dourado na lapela
+- `detalhe-03-bolso.webp` — bolsos com pala
+- `detalhe-04-caimento.webp` — punho e botões
+
+**Ainda provisórias** (recortadas das capturas do Instagram, rendem menos nas
+áreas grandes). Em ordem de prioridade para substituir:
+
+1. `campanha.webp` — ocupa meia tela na faixa da Coleção Promessa's
+2. `editorial.webp` — foto grande da seção "A arte de se vestir bem"
+3. `marca.webp` — seção "Sobre a marca"
+4. `produto-02` a `produto-05`, `produto-07` a `produto-12` — grade da coleção
+
 ---
 
 ## 3. Texto institucional
