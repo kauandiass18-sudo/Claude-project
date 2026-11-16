@@ -4,19 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Robertinho's Men Fashion</title>
-<meta name="description" content="Robertinho's Men Fashion: ternos, costumes, camisas, gravatas e pastas para homens que marcam presença. Atendimento pelo WhatsApp e envio para todo o Brasil.">
+<meta name="description" content="Robertinho's Men Fashion: ternos, costumes, camisas, gravatas e pastas para homens que marcam presença. Atendimento pessoal e envio para todo o Brasil.">
 <meta name="theme-color" content="#14243B">
+<meta name="format-detection" content="telephone=no">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Robertinho's Men Fashion — Moda masculina">
-<meta property="og:description" content="Ternos, costumes, camisas, gravatas e pastas. Atendimento pelo WhatsApp e envio para todo o Brasil.">
-<meta property="og:image" content="assets/img/look-bege-completo.webp">
+<meta property="og:description" content="Ternos, costumes, camisas, gravatas e pastas. Atendimento pessoal e envio para todo o Brasil.">
+<meta property="og:image" content="assets/img/hero.webp">
 <meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/img/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/img/look-bege-completo.webp">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/hero.webp" fetchpriority="high">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -29,13 +31,13 @@
 </script>
 <style>
 /* ==========================================================================
-   ROBERTINHO'S MEN FASHION
+   ROBERTINHO'S MEN FASHION — sistema visual
    ========================================================================== */
 :root{
   --navy:#14243B;--navy-deep:#0E1A2C;--navy-soft:#1C3150;
-  --gold:#B89A61;--gold-soft:rgba(184,154,97,.38);--gold-line:rgba(184,154,97,.22);
+  --gold:#B89A61;--gold-soft:rgba(184,154,97,.38);--gold-line:rgba(184,154,97,.20);
   --off:#F4F1EA;--off-2:#ECE8DE;--white:#FFFFFF;--ink:#252525;--ink-2:#5C5C5C;--ink-3:#8A8A8A;
-  --serif:"Cormorant Garamond","Times New Roman",serif;
+  --serif:"Playfair Display","Times New Roman",serif;
   --sans:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
   --gutter:clamp(20px, 5vw, 80px);--max:1440px;
   --ease:cubic-bezier(.22,.61,.36,1);--ease-out:cubic-bezier(.16,1,.3,1);
@@ -51,41 +53,46 @@ img{display:block;max-width:100%;height:auto}
 figure{margin:0}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
-h1,h2,h3,h4{font-family:var(--serif);font-weight:500;margin:0;line-height:1.02;letter-spacing:-.01em}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;margin:0;line-height:1.06;letter-spacing:-.018em}
 p{margin:0}
 em{font-style:italic;font-weight:400}
+ol,ul{margin:0;padding:0;list-style:none}
 :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 ::selection{background:var(--navy);color:var(--off)}
 .skip{position:absolute;left:-999px;top:10px;background:var(--navy);color:var(--off);padding:10px 16px;z-index:999}
 .skip:focus{left:10px}
 .wrap{width:min(100% - var(--gutter)*2, var(--max));margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* tipografia */
+/* --- tipografia ---------------------------------------------------------- */
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:14px}
 .eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
-.h-xl{font-size:clamp(48px, 8vw, 128px);line-height:.96}
-.h-l{font-size:clamp(40px, 5.6vw, 84px);line-height:1}
-.h-m{font-size:clamp(30px, 3.4vw, 48px);line-height:1.08}
-.lead{font-size:clamp(16px, 1.2vw, 19px);line-height:1.7;color:var(--ink-2);max-width:46ch}
+.h-l{font-size:clamp(33px, 4.3vw, 64px);line-height:1.06}
+.h-m{font-size:clamp(25px, 2.7vw, 39px);line-height:1.12}
+.lead{font-size:clamp(16px, 1.15vw, 18px);line-height:1.7;color:var(--ink-2);max-width:46ch}
 .on-dark .lead{color:rgba(244,241,234,.72)}
+.mask{display:block;overflow:hidden;padding:.16em 0 .1em;margin:-.16em 0 -.1em}
+.mask > i{display:block;font-style:inherit;transform:translateY(110%);transition:transform 1.15s var(--ease-out)}
+.mask.in > i{transform:none}
 
-/* botões */
+/* --- botões e links ------------------------------------------------------ */
 .btn{--bg:var(--navy);--fg:var(--off);--bd:var(--navy);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;height:56px;padding:0 32px;border:1px solid var(--bd);background:var(--bg);color:var(--fg);font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;overflow:hidden;isolation:isolate;transition:color .5s var(--ease),border-color .5s var(--ease),transform .4s var(--ease)}
 .btn::after{content:"";position:absolute;inset:0;background:var(--gold);z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform .55s var(--ease-out)}
 .btn:hover::after,.btn:focus-visible::after{transform:scaleX(1)}
 .btn:hover,.btn:focus-visible{color:var(--navy);border-color:var(--gold)}
 .btn:active{transform:translateY(1px)}
-.btn svg{width:16px;height:16px;flex:none}
+.btn svg{width:16px;height:16px;flex:none;transition:transform .45s var(--ease)}
+.btn:hover svg:last-child{transform:translateX(4px)}
 .btn.gold{--bg:var(--gold);--fg:var(--navy);--bd:var(--gold)}
 .btn.gold::after{background:var(--off)}
 .btn.ghost{--bg:transparent;--fg:var(--off);--bd:rgba(244,241,234,.35)}
 .btn.ghost::after{background:var(--off)}
 .btn.ghost:hover{color:var(--navy);border-color:var(--off)}
-.btn.ghost-dark{--bg:transparent;--fg:var(--navy);--bd:rgba(20,36,59,.35)}
+.btn.ghost-dark{--bg:transparent;--fg:var(--navy);--bd:rgba(20,36,59,.3)}
 .btn.ghost-dark::after{background:var(--navy)}
 .btn.ghost-dark:hover{color:var(--off);border-color:var(--navy)}
 .btn.small{height:42px;padding:0 20px;font-size:11px}
-.link{display:inline-flex;align-items:center;gap:10px;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);padding-bottom:6px;position:relative}
+.link{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);padding-bottom:6px;position:relative}
 .link::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform-origin:right;transition:transform .5s var(--ease-out)}
 .link:hover::after{transform:scaleX(0);transform-origin:left;animation:relink .6s var(--ease-out) forwards}
 @keyframes relink{0%{transform:scaleX(0);transform-origin:left}100%{transform:scaleX(1);transform-origin:left}}
@@ -94,18 +101,23 @@ em{font-style:italic;font-weight:400}
 .on-dark .link{color:var(--off)}
 .wa-ico{width:16px;height:16px}
 
-/* preloader */
-.loader{position:fixed;inset:0;z-index:1000;background:var(--navy);display:grid;place-items:center;transition:opacity .7s var(--ease),visibility .7s}
+/* --- barra de progresso -------------------------------------------------- */
+.prog{position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:var(--gold);z-index:200;pointer-events:none}
+
+/* --- preloader ----------------------------------------------------------- */
+.loader{position:fixed;inset:0;z-index:1000;background:var(--navy);display:grid;place-items:center;transition:opacity .8s var(--ease),visibility .8s}
 .loader.done{opacity:0;visibility:hidden;pointer-events:none}
-.loader__mark{display:flex;flex-direction:column;align-items:center;gap:22px}
+.loader__mark{display:flex;flex-direction:column;align-items:center;gap:20px}
 .loader__mark img{width:64px;height:64px;border-radius:50%;opacity:0;animation:fadeUp .9s var(--ease-out) .1s forwards}
-.loader__word{font-family:var(--serif);font-size:13px;letter-spacing:.42em;text-transform:uppercase;color:var(--off);opacity:0;animation:fadeUp .9s var(--ease-out) .25s forwards}
-.loader__line{width:120px;height:1px;background:rgba(244,241,234,.14);position:relative;overflow:hidden}
-.loader__line::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;animation:load 1.1s var(--ease) .2s forwards}
+.loader__word{font-family:var(--serif);font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:var(--off);opacity:0;animation:fadeUp .9s var(--ease-out) .25s forwards}
+.loader__sub{font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fadeUp .9s var(--ease-out) .35s forwards}
+.loader__line{width:140px;height:1px;background:rgba(244,241,234,.14);position:relative;overflow:hidden;margin-top:8px}
+.loader__line::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;animation:load 1.3s var(--ease) .2s forwards}
+.loader__pct{position:absolute;right:var(--gutter);bottom:var(--gutter);font-family:var(--serif);font-size:clamp(36px,5.6vw,66px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.4)}
 @keyframes load{to{transform:scaleX(1)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-/* header */
+/* --- header -------------------------------------------------------------- */
 .header{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--header-h);display:flex;align-items:center;color:var(--off);transition:height .5s var(--ease)}
 .header::before{content:"";position:absolute;inset:0;background:rgba(14,26,44,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;transition:opacity .5s var(--ease)}
 .header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold-line);opacity:0;transition:opacity .5s}
@@ -116,10 +128,11 @@ em{font-style:italic;font-weight:400}
 .brand img{width:42px;height:42px;border-radius:50%;transition:width .5s var(--ease),height .5s var(--ease)}
 .header.is-compact .brand img{width:36px;height:36px}
 .brand__name{display:flex;flex-direction:column;line-height:1.05}
-.brand__name b{font-family:var(--serif);font-weight:600;font-size:17px;letter-spacing:.14em;text-transform:uppercase}
+.brand__name b{font-family:var(--serif);font-weight:500;font-size:15px;letter-spacing:.15em;text-transform:uppercase}
 .brand__name span{font-size:9px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-top:3px}
-.nav{display:flex;gap:34px;justify-content:center}
-.nav a{font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;position:relative;padding:6px 0}
+.nav{display:flex;gap:32px;justify-content:center}
+.nav a{font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;position:relative;padding:6px 0;opacity:.82;transition:opacity .4s}
+.nav a:hover,.nav a.active{opacity:1}
 .nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease-out)}
 .nav a:hover::after,.nav a.active::after{transform:scaleX(1);transform-origin:left}
 .header__right{display:flex;justify-content:flex-end;align-items:center;gap:18px}
@@ -131,8 +144,7 @@ em{font-style:italic;font-weight:400}
 .burger.open span:nth-child(2){top:21px;width:22px;transform:rotate(-45deg)}
 .mnav{position:fixed;inset:0;z-index:90;background:var(--navy);color:var(--off);display:flex;flex-direction:column;justify-content:space-between;padding:calc(var(--header-h) + 24px) var(--gutter) max(32px, env(safe-area-inset-bottom));clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease-out);visibility:hidden}
 .mnav.open{clip-path:inset(0 0 0 0);visibility:visible}
-.mnav__links{display:flex;flex-direction:column;gap:6px}
-.mnav__links a{font-family:var(--serif);font-size:clamp(34px, 9vw, 52px);line-height:1.15;display:flex;align-items:baseline;gap:18px;padding:6px 0;border-bottom:1px solid rgba(244,241,234,.08);opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.mnav__links a{font-family:var(--serif);font-size:clamp(28px, 7.4vw, 43px);line-height:1.2;display:flex;align-items:baseline;gap:18px;padding:6px 0;border-bottom:1px solid rgba(244,241,234,.08);opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
 .mnav__links a small{font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--gold)}
 .mnav.open .mnav__links a{opacity:1;transform:none}
 .mnav.open .mnav__links a:nth-child(1){transition-delay:.18s}
@@ -144,46 +156,37 @@ em{font-style:italic;font-weight:400}
 .mnav__foot{display:flex;flex-direction:column;gap:14px;opacity:0;transition:opacity .6s .5s}
 .mnav.open .mnav__foot{opacity:1}
 .mnav__foot .btn{width:100%}
-.mnav__foot p{font-size:12px;letter-spacing:.1em;color:rgba(244,241,234,.55);text-align:center}
+.mnav__foot p{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,241,234,.5);text-align:center}
 
 /* ==========================================================================
    HERO
    ========================================================================== */
 .hero{position:relative;min-height:100svh;background:var(--navy);color:var(--off);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:hidden}
-.hero__text{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-h) + 40px) clamp(24px,4vw,64px) 110px max(var(--gutter), calc((100vw - var(--max)) / 2))}
+.hero__text{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-h) + 40px) clamp(24px,4vw,64px) 120px max(var(--gutter), calc((100vw - var(--max)) / 2))}
 .hero__text .wrap-l{width:min(100%, 600px)}
 .hero .rv{transition:none}
-.hero h1{font-size:clamp(46px, 5.4vw, 82px);line-height:.98;margin:24px 0 26px}
+.hero h1{font-size:clamp(37px, 4.4vw, 67px);line-height:1.04;margin:24px 0 26px}
 .hero h1 em{color:var(--gold)}
-.hero .lead{max-width:40ch}
-.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.hero .lead{max-width:38ch;color:rgba(244,241,234,.72)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
 .hero__visual{position:relative;min-height:60vh}
 .hero__frame{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 0 100% 0)}
 .hero__frame img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.12)}
 .hero__frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,44,.78) 0%,rgba(14,26,44,.25) 14%,rgba(14,26,44,0) 30%),linear-gradient(90deg,var(--navy) 0%,rgba(20,36,59,.35) 10%,rgba(20,36,59,0) 30%),linear-gradient(0deg,rgba(14,26,44,.6) 0%,rgba(14,26,44,0) 30%)}
 .hero__grain{position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.hero__caption{position:absolute;right:var(--gutter);bottom:40px;z-index:3;display:flex;align-items:center;gap:14px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,241,234,.7);font-weight:600}
+.hero__caption{position:absolute;right:var(--gutter);bottom:40px;z-index:3;display:flex;align-items:center;gap:14px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,241,234,.72);font-weight:600}
 .hero__caption::before{content:"";width:36px;height:1px;background:var(--gold)}
 .hero__scroll{position:absolute;left:max(var(--gutter), calc((100vw - var(--max)) / 2));bottom:40px;z-index:3;display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:rgba(244,241,234,.5);font-weight:600}
 .hero__scroll i{width:1px;height:44px;background:rgba(244,241,234,.25);position:relative;overflow:hidden}
 .hero__scroll i::after{content:"";position:absolute;left:0;top:0;width:100%;height:50%;background:var(--gold);animation:drop 2.2s var(--ease) infinite}
 @keyframes drop{0%{transform:translateY(-100%)}60%,100%{transform:translateY(220%)}}
 
-/* letreiro */
-.marquee{background:var(--navy-deep);color:var(--off);overflow:hidden;border-top:1px solid rgba(244,241,234,.06);padding:26px 0}
-.marquee__track{display:flex;gap:0;width:max-content;animation:marq 42s linear infinite}
-.marquee__track span{font-family:var(--serif);font-size:clamp(26px,3vw,40px);line-height:1;padding:0 36px;display:flex;align-items:center;gap:36px;white-space:nowrap;color:rgba(244,241,234,.85)}
+/* --- letreiro ------------------------------------------------------------ */
+.marquee{background:var(--navy-deep);color:var(--off);overflow:hidden;border-top:1px solid rgba(244,241,234,.06);padding:24px 0}
+.marquee__track{display:flex;width:max-content;animation:marq 44s linear infinite}
+.marquee__track span{font-family:var(--serif);font-size:clamp(21px,2.3vw,31px);line-height:1;padding:0 34px;display:flex;align-items:center;gap:34px;white-space:nowrap;color:rgba(244,241,234,.82)}
 .marquee__track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold)}
 @keyframes marq{to{transform:translateX(-50%)}}
-
-/* ==========================================================================
-   DECLARAÇÃO (palavras entram com o scroll)
-   ========================================================================== */
-.statement{background:var(--navy);color:var(--off);padding:clamp(120px,16vw,240px) 0;position:relative;overflow:hidden}
-.statement p{font-family:var(--serif);font-size:clamp(34px, 5.4vw, 82px);line-height:1.08;max-width:18ch;margin:0 auto;text-align:center}
-.statement .w{opacity:.14;transition:opacity .4s}
-.statement .w.on{opacity:1}
-.statement em{color:var(--gold)}
 
 /* ==========================================================================
    SEÇÕES
@@ -191,41 +194,63 @@ em{font-style:italic;font-weight:400}
 .section{padding:clamp(96px, 11vw, 160px) 0}
 .on-dark{background:var(--navy);color:var(--off)}
 .head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(44px, 5vw, 72px)}
-.head h2{margin-top:22px}
-.head .num{font-family:var(--serif);font-size:clamp(60px,8vw,120px);line-height:.8;color:transparent;-webkit-text-stroke:1px var(--gold-soft);user-select:none}
+.head h2{margin-top:20px}
+.head .num{font-family:var(--serif);font-size:clamp(50px,6.4vw,94px);line-height:.78;color:transparent;-webkit-text-stroke:1px var(--gold-soft);user-select:none}
 
-/* coleção */
-.filters{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:clamp(40px, 4vw, 64px);padding-bottom:16px;border-bottom:1px solid rgba(20,36,59,.12);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+/* --- declaração ---------------------------------------------------------- */
+.statement{background:var(--navy);color:var(--off);padding:clamp(120px,16vw,230px) 0;position:relative;overflow:hidden}
+.statement p{font-family:var(--serif);font-size:clamp(27px, 4.1vw, 61px);line-height:1.14;max-width:18ch;margin:0 auto;text-align:center}
+.statement .w{opacity:.14;transition:opacity .4s}
+.statement .w.on{opacity:1}
+.statement em{color:var(--gold)}
+.statement__rule{width:1px;height:clamp(40px,6vw,80px);background:var(--gold-soft);margin:0 auto clamp(32px,4vw,56px)}
+
+/* --- coleção ------------------------------------------------------------- */
+.filters{display:flex;gap:4px;margin-bottom:clamp(40px, 4vw, 64px);padding-bottom:14px;border-bottom:1px solid rgba(20,36,59,.12);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .filters::-webkit-scrollbar{display:none}
-.filter{flex:none;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);padding:10px 16px;position:relative;transition:color .4s}
-.filter::after{content:"";position:absolute;left:16px;right:16px;bottom:2px;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .45s var(--ease-out)}
+.filter{flex:none;display:inline-flex;align-items:flex-start;gap:5px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);padding:10px 16px;position:relative;transition:color .4s}
+.filter sup{font-size:8.5px;letter-spacing:0;color:var(--gold);font-weight:600;line-height:1}
+.filter::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .45s var(--ease-out)}
 .filter:hover,.filter.active{color:var(--navy)}
 .filter.active::after{transform:scaleX(1)}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(40px, 5vw, 88px) clamp(20px, 2.6vw, 40px)}
+
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(40px, 5vw, 84px) clamp(20px, 2.6vw, 40px)}
 .product{display:flex;flex-direction:column}
 .product.is-hidden{display:none}
-.product.offset{margin-top:clamp(0px, 6vw, 96px)}
-.product__media{position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--off-2)}
-.product__media img,.product__media svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
-.product__media:hover img{transform:scale(1.045)}
-.product__tag{position:absolute;left:0;top:0;padding:10px 14px;background:var(--navy);color:var(--off);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;z-index:4}
+.product.offset{margin-top:clamp(0px, 6vw, 92px)}
+.product__media{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;background:var(--off-2)}
+.product__media img,.product__media svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--ease-out)}
+.product__media::before{content:"";position:absolute;inset:0;background:rgba(14,26,44,.3);opacity:0;transition:opacity .6s var(--ease);z-index:2}
+.product__media:hover::before{opacity:1}
+.product__media:hover img{transform:scale(1.05)}
+.product__disc{position:absolute;left:50%;top:50%;z-index:3;width:clamp(84px,7vw,104px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(244,241,234,.55);color:var(--off);display:grid;place-items:center;text-align:center;font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;opacity:0;transform:translate(-50%,-50%) scale(.86);transition:opacity .5s var(--ease),transform .6s var(--ease-out);pointer-events:none}
+.product__media:hover .product__disc{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.product__tag{position:absolute;left:0;top:0;z-index:4;padding:10px 14px;background:var(--navy);color:var(--off);font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600}
 .product__tag.gold{background:var(--gold);color:var(--navy)}
 .product__body{padding-top:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
-.product__cat{font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--gold);display:block;margin-bottom:6px}
-.product__name{font-size:clamp(24px, 2vw, 30px);font-weight:500}
-.product__body .link{flex:none;font-size:10.5px;padding-bottom:4px}
+.product__cat{font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--gold);display:block;margin-bottom:7px}
+.product__name{font-size:clamp(21px, 1.6vw, 26px);font-weight:500;display:flex;align-items:center;gap:11px}
+.sw{width:11px;height:11px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1px rgba(20,36,59,.18);flex:none}
+.product__body .link{flex:none;padding-bottom:4px}
+.product--cta{background:var(--navy);color:var(--off);display:flex;align-items:center;justify-content:center;text-align:center;aspect-ratio:3/4;position:relative;overflow:hidden;transition:background-color .5s var(--ease)}
+.product--cta:hover{background:var(--navy-soft)}
+.product--cta span{display:flex;flex-direction:column;align-items:center;gap:18px;padding:32px}
+.product--cta svg{width:30px;height:30px;color:var(--gold)}
+.product--cta b{font-family:var(--serif);font-size:clamp(22px,1.8vw,27px);font-weight:400;line-height:1.16}
+.product--cta small{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(244,241,234,.6);font-weight:600}
+.product--cta::after{content:"";position:absolute;inset:16px;border:1px solid var(--gold-line);pointer-events:none}
 
-/* campanha */
-.campaign{position:relative;background:var(--navy-deep);color:var(--off);overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:80vh}
+/* --- campanha ------------------------------------------------------------ */
+.campaign{position:relative;background:var(--navy-deep);color:var(--off);overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:84vh}
 .campaign__media{position:relative;min-height:60vh}
 .campaign__media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.campaign__media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,26,44,0) 60%,var(--navy-deep) 100%)}
+.campaign__media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,26,44,0) 58%,var(--navy-deep) 100%)}
 .campaign__text{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,7vw,120px) clamp(28px,6vw,100px)}
-.campaign__text h2{font-size:clamp(56px, 7.5vw, 124px);line-height:.92;margin:22px 0 32px}
-.campaign__text h2 em{color:var(--gold);display:block}
-.campaign__text .lead{margin-bottom:36px}
+.campaign__text h2{font-size:clamp(44px, 5.7vw, 93px);line-height:1;margin:20px 0 28px}
+.campaign__text h2 em{color:var(--gold)}
+.campaign__text .lead{margin-bottom:34px;color:rgba(244,241,234,.66)}
 
-/* editorial */
+/* --- editorial ----------------------------------------------------------- */
 .editorial{position:relative;overflow:hidden}
 .editorial .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 clamp(20px,2.6vw,40px);align-items:center}
 .editorial__media{grid-column:1 / span 7;position:relative;aspect-ratio:4/5}
@@ -233,57 +258,59 @@ em{font-style:italic;font-weight:400}
 .editorial__media img{width:100%;height:100%;object-fit:cover;object-position:50% 0%}
 .editorial__frame{position:absolute;right:-22px;bottom:-22px;width:42%;aspect-ratio:1;border:1px solid var(--gold-soft);pointer-events:none}
 .editorial__text{grid-column:8 / span 5;padding-left:clamp(0px,2vw,32px)}
-.editorial__text h2{margin:22px 0 26px}
+.editorial__text h2{margin:20px 0 24px}
 .editorial__text h2 em{color:var(--gold)}
-.words{list-style:none;margin:44px 0 0;padding:0}
-.words li{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-top:1px solid rgba(244,241,234,.12);font-family:var(--serif);font-size:clamp(28px,2.6vw,38px);line-height:1}
+.words{margin:42px 0 0}
+.words li{display:flex;align-items:baseline;gap:20px;padding:18px 0;border-top:1px solid rgba(244,241,234,.12);font-family:var(--serif);font-size:clamp(22px,1.9vw,29px);line-height:1.1}
 .words li:last-child{border-bottom:1px solid rgba(244,241,234,.12)}
 .words li small{font-family:var(--sans);font-size:10px;letter-spacing:.3em;color:var(--gold);font-weight:600}
-.words li span{margin-left:auto;font-family:var(--sans);font-size:13px;color:rgba(244,241,234,.55);text-align:right;max-width:22ch;line-height:1.4}
-.editorial__num{position:absolute;right:var(--gutter);top:clamp(40px,6vw,80px);font-family:var(--serif);font-size:clamp(120px,18vw,280px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.18);pointer-events:none;user-select:none}
+.words li span{margin-left:auto;font-family:var(--sans);font-size:12.5px;color:rgba(244,241,234,.55);text-align:right;max-width:24ch;line-height:1.45}
+.editorial__num{position:absolute;right:var(--gutter);top:clamp(40px,6vw,80px);font-family:var(--serif);font-size:clamp(96px,14vw,215px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.16);pointer-events:none;user-select:none}
 
-/* detalhes */
+/* --- detalhes ------------------------------------------------------------ */
 .details{background:var(--off);overflow:hidden}
 .details__head{padding:clamp(96px, 11vw, 160px) 0 clamp(36px,4vw,56px)}
 .details__head .wrap{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
-.details__head h2{margin-top:22px}
+.details__head h2{margin-top:20px}
 .details__hint{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--ink-3);display:flex;align-items:center;gap:12px;white-space:nowrap;padding-bottom:10px}
 .details__hint svg{width:36px;height:10px}
 .hscroll{position:relative;height:100svh;display:flex;align-items:center}
 .track{display:flex;gap:clamp(20px,3vw,48px);padding:0 var(--gutter);will-change:transform;align-items:center}
-.detail{flex:none;width:clamp(280px,30vw,440px);display:flex;flex-direction:column;gap:16px}
+.detail{flex:none;width:clamp(280px,29vw,420px);display:flex;flex-direction:column;gap:16px}
 .detail:nth-child(even){transform:translateY(clamp(24px,5vh,64px))}
-.detail.wide{width:clamp(320px,36vw,540px)}
+.detail.wide{width:clamp(320px,36vw,530px)}
 .detail__media{aspect-ratio:3/4;overflow:hidden;background:var(--off-2)}
 .detail.wide .detail__media{aspect-ratio:4/5}
 .detail__media img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease-out)}
-.detail:hover .detail__media img{transform:scale(1.04)}
+.detail:hover .detail__media img{transform:scale(1.045)}
 .detail__cap{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
-.detail__cap h3{font-size:22px}
-.detail__cap span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--gold);white-space:nowrap}
+.detail__cap h3{font-size:19px;display:flex;align-items:baseline;gap:12px}
+.detail__cap h3 small{font-family:var(--sans);font-size:9.5px;letter-spacing:.26em;color:var(--gold);font-weight:600}
+.detail__cap span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--ink-3);white-space:nowrap}
 .track__end{flex:none;width:var(--gutter)}
 
-/* acessórios */
+/* --- acessórios ---------------------------------------------------------- */
 .acc{background:var(--white)}
 .acc__ed{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:40px clamp(32px,6vw,112px);align-items:center}
 .acc__media{position:relative;aspect-ratio:3/4;background:var(--off-2)}
 .acc__media img{width:100%;height:100%;object-fit:cover}
-.acc__text h2{margin:22px 0 26px}
+.acc__text h2{margin:20px 0 24px}
 .acc__text h2 em{color:var(--gold)}
-.acc__list{list-style:none;margin:44px 0 0;padding:0}
-.acc__list li{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;border-top:1px solid rgba(20,36,59,.12)}
+.acc__list{margin:40px 0 0}
+.acc__list li{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;border-top:1px solid rgba(20,36,59,.12);transition:padding-left .5s var(--ease)}
 .acc__list li:last-child{border-bottom:1px solid rgba(20,36,59,.12)}
-.acc__list b{font-family:var(--serif);font-size:clamp(26px,2.4vw,34px);font-weight:500;line-height:1.1}
+.acc__list li:hover{padding-left:10px}
+.acc__list b{font-family:var(--serif);font-size:clamp(22px,1.9vw,28px);font-weight:400;line-height:1.14}
 
-/* presentes */
+/* --- presentes ----------------------------------------------------------- */
 .gifts{background:var(--navy);color:var(--off);position:relative;overflow:hidden}
 .gifts .wrap{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(28px,5vw,80px);padding:clamp(56px,7vw,96px) 0}
-.gifts__box{width:clamp(120px,14vw,180px);aspect-ratio:1}
+.gifts__box{width:clamp(110px,13vw,168px);aspect-ratio:1}
 .gifts__box svg{width:100%;height:100%}
 .gifts h2{margin:14px 0 0}
 .gifts h2 em{color:var(--gold)}
 
-/* marca */
+/* --- marca --------------------------------------------------------------- */
 .brand-sec{background:var(--off)}
 .brand-sec .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:40px clamp(20px,2.6vw,40px);align-items:center}
 .brand-sec__logo{grid-column:1 / span 5;position:relative}
@@ -292,50 +319,57 @@ em{font-style:italic;font-weight:400}
 .brand-sec__logo .seal{position:absolute;right:-28px;bottom:-28px;width:124px;height:124px;border-radius:50%;background:var(--off);display:grid;place-items:center;box-shadow:0 10px 40px rgba(20,36,59,.12)}
 .brand-sec__logo .seal img{width:96px;height:96px;border-radius:50%}
 .brand-sec__text{grid-column:7 / span 6}
-.brand-sec__text h2{margin:22px 0 28px}
+.brand-sec__text h2{margin:20px 0 26px}
 .brand-sec__text h2 em{color:var(--gold)}
-.brand-sec__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.brand-sec__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
 
-/* contato */
+/* --- contato ------------------------------------------------------------- */
 .contact{background:var(--navy-deep);color:var(--off);position:relative;overflow:hidden;text-align:center}
 .contact .wrap{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
-.contact h2{margin:22px 0 20px;max-width:14ch}
+.contact h2{margin:20px 0 18px;max-width:15ch}
 .contact h2 em{color:var(--gold)}
 .contact .lead{text-align:center;color:rgba(244,241,234,.66)}
-.contact__cta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:40px}
-.contact__ig{margin-top:40px;font-family:var(--serif);font-size:22px;color:rgba(244,241,234,.8);display:inline-flex;align-items:center;gap:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0 clamp(24px,4vw,64px);width:min(100%,900px);margin:clamp(48px,6vw,76px) 0 0;text-align:left}
+.steps li{padding:26px 0 0;border-top:1px solid rgba(244,241,234,.14);display:flex;flex-direction:column;gap:8px}
+.steps b{font-family:var(--serif);font-size:26px;font-weight:400;color:transparent;-webkit-text-stroke:1px var(--gold-soft);line-height:1}
+.steps h3{font-size:21px}
+.steps p{font-size:13.5px;color:rgba(244,241,234,.6);line-height:1.55;max-width:26ch}
+.contact__cta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:clamp(44px,5vw,64px)}
+.contact__ig{margin-top:34px;font-family:var(--serif);font-size:19px;color:rgba(244,241,234,.78);display:inline-flex;align-items:center;gap:12px;transition:color .4s}
+.contact__ig:hover{color:var(--off)}
 .contact__ig svg{width:18px;height:18px;color:var(--gold)}
-.contact__word{position:absolute;left:50%;bottom:-.12em;transform:translateX(-50%);font-family:var(--serif);font-size:clamp(90px,22vw,340px);line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.14);pointer-events:none;user-select:none}
+.contact__word{position:absolute;left:50%;bottom:-.14em;transform:translateX(-50%);font-family:var(--serif);font-size:clamp(70px,16vw,255px);line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.13);pointer-events:none;user-select:none}
 
-/* rodapé */
+/* --- rodapé -------------------------------------------------------------- */
 .footer{background:var(--navy-deep);color:var(--off);position:relative;border-top:1px solid rgba(244,241,234,.08)}
-.footer__top{padding:clamp(48px,6vw,80px) 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:32px}
-.footer__nav{display:flex;gap:28px;flex-wrap:wrap;justify-content:center}
-.footer__nav a{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.7);transition:color .3s}
-.footer__nav a:hover{color:var(--off)}
-.footer__social{display:flex;justify-content:flex-end;gap:22px}
-.footer__social a{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:rgba(244,241,234,.7)}
-.footer__social a svg{width:18px;height:18px;color:var(--gold)}
-.footer__social a:hover{color:var(--off)}
-.footer__bottom{padding:24px 0 max(24px, env(safe-area-inset-bottom));border-top:1px solid rgba(244,241,234,.08);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;font-size:12px;color:rgba(244,241,234,.45)}
+.footer__top{padding:clamp(56px,7vw,92px) 0;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px clamp(24px,4vw,64px)}
+.footer__brand{display:flex;flex-direction:column;gap:20px;max-width:320px}
+.footer__brand p{font-family:var(--serif);font-size:19px;line-height:1.38;color:rgba(244,241,234,.78)}
+.footer h4{font-family:var(--sans);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:20px}
+.footer ul{display:flex;flex-direction:column;gap:11px}
+.footer li a,.footer li span{font-size:13.5px;color:rgba(244,241,234,.68);transition:color .3s}
+.footer li a:hover{color:var(--off)}
+.footer__social a{display:inline-flex;align-items:center;gap:10px}
+.footer__social svg{width:16px;height:16px;color:var(--gold)}
+.footer__bottom{padding:22px 0 max(22px, env(safe-area-inset-bottom));border-top:1px solid rgba(244,241,234,.08);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 32px;font-size:11.5px;color:rgba(244,241,234,.42)}
 .footer__bottom a{color:rgba(244,241,234,.6)}
 .footer__bottom a:hover{color:var(--off)}
 
-/* botão flutuante */
+/* --- botão flutuante ----------------------------------------------------- */
 .fab{position:fixed;right:max(18px, env(safe-area-inset-right));bottom:max(18px, env(safe-area-inset-bottom));z-index:80;display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 20px 0 16px;border-radius:999px;background:var(--navy);color:var(--off);border:1px solid var(--gold-soft);box-shadow:0 12px 32px rgba(14,26,44,.28);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transform:translateY(20px);opacity:0;transition:opacity .5s var(--ease),transform .5s var(--ease),background-color .4s}
 .fab.show{opacity:1;transform:none}
 .fab:hover{background:var(--navy-soft)}
 .fab svg{width:20px;height:20px;color:var(--gold)}
 
-/* reveal */
-.rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
+/* --- reveal -------------------------------------------------------------- */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease-out),transform 1s var(--ease-out)}
 .rv.in{opacity:1;transform:none}
 .rv-img{position:relative;overflow:hidden}
-.rv-img::after{content:"";position:absolute;inset:-1px;background:var(--reveal-bg,var(--off));z-index:3;transform-origin:bottom;transition:transform 1.25s var(--ease-out);pointer-events:none}
+.rv-img::after{content:"";position:absolute;inset:-1px;background:var(--reveal-bg,var(--off));z-index:6;transform-origin:bottom;transition:transform 1.25s var(--ease-out);pointer-events:none}
 .rv-img.in::after{transform:scaleY(0)}
 .rv-img img{transform:scale(1.1);transition:transform 1.6s var(--ease-out)}
 .rv-img.in img{transform:scale(1)}
-.on-dark,.gifts,.footer,.campaign,.contact{--reveal-bg:var(--navy)}
+.on-dark,.gifts,.footer{--reveal-bg:var(--navy)}
 .campaign,.contact{--reveal-bg:var(--navy-deep)}
 .acc{--reveal-bg:var(--white)}
 [data-stagger] > .rv:nth-child(2){transition-delay:.1s}
@@ -346,7 +380,7 @@ em{font-style:italic;font-weight:400}
    RESPONSIVO
    ========================================================================== */
 @media (max-width:1100px){
-  .nav{gap:24px}
+  .nav{gap:22px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .editorial__media{grid-column:1 / span 12;aspect-ratio:4/5}
   .editorial__text{grid-column:1 / span 12;padding:48px 0 0}
@@ -354,6 +388,7 @@ em{font-style:italic;font-weight:400}
   .brand-sec__text{grid-column:1 / span 12}
   .gifts .wrap{grid-template-columns:auto 1fr}
   .gifts .btn{grid-column:1 / -1}
+  .footer__top{grid-template-columns:1fr 1fr}
 }
 @media (max-width:900px){
   :root{--header-h:72px}
@@ -369,9 +404,9 @@ em{font-style:italic;font-weight:400}
   .hero__cta{margin-top:30px}
   .hero__cta .btn{width:100%}
   .hero__caption,.hero__scroll{display:none}
-  .head{flex-direction:column;align-items:flex-start;gap:16px}
+  .head{flex-direction:column;align-items:flex-start;gap:14px}
   .head .num{display:none}
-  .filters{flex-wrap:nowrap;margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);width:auto}
+  .filters{margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);width:auto}
   .product.offset{margin-top:0}
   .campaign{grid-template-columns:1fr;min-height:auto}
   .campaign__media{min-height:62svh}
@@ -387,29 +422,38 @@ em{font-style:italic;font-weight:400}
   .detail:nth-child(even){transform:none}
   .acc__ed{grid-template-columns:1fr}
   .acc__media{max-width:520px}
-  .gifts .wrap{grid-template-columns:1fr;gap:28px}
-  .gifts__box{width:110px}
+  .gifts .wrap{grid-template-columns:1fr;gap:26px}
+  .gifts__box{width:100px}
   .brand-sec__logo .seal{right:12px;bottom:-28px}
   .editorial__num{display:none}
-  .footer__top{grid-template-columns:1fr;justify-items:center;text-align:center}
-  .footer__social{justify-content:center}
+  .steps{grid-template-columns:1fr;gap:0}
+  .steps li{padding:22px 0}
+  .steps p{max-width:40ch}
+  .footer__top{grid-template-columns:1fr;gap:36px}
 }
 @media (max-width:600px){
   .grid{grid-template-columns:1fr;gap:56px 0}
   .product__body{flex-direction:column;align-items:flex-start;gap:12px}
-  .product__name{font-size:30px}
+  .product__name{font-size:26px}
+  .product--cta{aspect-ratio:4/3}
   .btn{height:54px;padding:0 24px}
   .fab span{display:none}
   .fab{padding:0;width:52px;justify-content:center}
-  .words li span{display:none}
+  .words li{flex-wrap:wrap;gap:10px 16px}
+  .words li span{margin-left:0;text-align:left;max-width:none;flex-basis:100%}
   .footer__bottom{justify-content:center;text-align:center}
 }
-@media (hover:none){.product__media:hover img{transform:none}}
+@media (hover:none){
+  .product__media:hover img{transform:none}
+  .product__media::before,.product__disc{display:none}
+  .acc__list li:hover{padding-left:0}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   .rv,.rv-img{opacity:1;transform:none}
   .rv-img::after{display:none}
   .rv-img img{transform:none}
+  .mask > i{transform:none}
   .hero__frame{clip-path:none}
   .hero__frame img{transform:none}
   .loader{display:none}
@@ -420,13 +464,16 @@ em{font-style:italic;font-weight:400}
 </head>
 <body>
 <a class="skip" href="#inicio">Ir para o conteúdo</a>
+<div class="prog" id="prog" aria-hidden="true"></div>
 
 <div class="loader" id="loader" aria-hidden="true">
   <div class="loader__mark">
     <img src="assets/img/logo.png" alt="" width="64" height="64">
     <span class="loader__word">Robertinho's</span>
+    <span class="loader__sub">Men Fashion</span>
     <span class="loader__line"></span>
   </div>
+  <span class="loader__pct" id="pct">00</span>
 </div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -473,13 +520,15 @@ em{font-style:italic;font-weight:400}
 
 <main id="inicio">
 
-<!-- HERO -->
+<!-- ======================================================================
+     HERO
+     ====================================================================== -->
 <section class="hero" aria-label="Apresentação">
   <div class="hero__text">
     <div class="wrap-l">
       <p class="eyebrow rv">Moda masculina</p>
-      <h1 class="rv">O estilo perfeito para homens que <em>marcam presença.</em></h1>
-      <p class="lead rv">Ternos, costumes, camisas, gravatas e pastas. Atendimento pessoal e envio para todo o Brasil.</p>
+      <h1 class="rv">O estilo perfeito<br>para homens que<br><em>marcam presença.</em></h1>
+      <p class="lead rv">Ternos, costumes, camisas, gravatas e pastas. Escolha a peça, fale com a loja e receba onde estiver.</p>
       <div class="hero__cta rv">
         <a class="btn gold" href="#colecao">Ver a coleção <svg><use href="#i-arr"/></svg></a>
         <a class="btn ghost" data-wa data-msg="Olá! Vi o site da Robertinho's Men Fashion e gostaria de atendimento." href="#contato"><svg class="wa-ico"><use href="#i-wa"/></svg><span data-wa-label>Atendimento pelo WhatsApp</span></a>
@@ -488,7 +537,7 @@ em{font-style:italic;font-weight:400}
   </div>
   <div class="hero__visual">
     <div class="hero__frame" id="heroFrame">
-      <img src="assets/img/look-bege-completo.webp" alt="Homem vestindo terno bege completo da Robertinho's Men Fashion" width="550" height="732" fetchpriority="high">
+      <img src="assets/img/hero.webp" alt="Homem vestindo terno bege completo da Robertinho's Men Fashion" width="550" height="732" fetchpriority="high">
     </div>
     <div class="hero__grain"></div>
     <p class="hero__caption">Terno bege</p>
@@ -497,19 +546,21 @@ em{font-style:italic;font-weight:400}
 </section>
 
 <div class="marquee" aria-hidden="true">
-  <div class="marquee__track" id="marquee">
+  <div class="marquee__track">
     <span>Ternos</span><span>Costumes</span><span>Camisas</span><span>Gravatas</span><span>Pastas</span><span>Enviamos para todo o Brasil</span>
     <span>Ternos</span><span>Costumes</span><span>Camisas</span><span>Gravatas</span><span>Pastas</span><span>Enviamos para todo o Brasil</span>
   </div>
 </div>
 
-<!-- COLEÇÃO -->
+<!-- ======================================================================
+     COLEÇÃO
+     ====================================================================== -->
 <section class="section" id="colecao" aria-labelledby="colecao-t">
   <div class="wrap">
     <div class="head">
       <div>
         <p class="eyebrow rv">Coleção</p>
-        <h2 class="h-l rv" id="colecao-t">Escolhidos com<br>olho de alfaiate.</h2>
+        <h2 class="h-l" id="colecao-t"><span class="mask"><i>Escolhidos com</i></span><span class="mask"><i>olho de alfaiate.</i></span></h2>
       </div>
       <span class="num rv" aria-hidden="true">01</span>
     </div>
@@ -526,126 +577,240 @@ em{font-style:italic;font-weight:400}
     </div>
 
     <div class="grid" id="productGrid">
+
       <article class="product" data-cat="ternos" data-name="Terno azul-marinho">
-        <div class="product__media rv-img"><img src="assets/img/terno-navy-paisley.webp" alt="Terno azul-marinho com camisa branca e gravata paisley azul e verde" width="550" height="732" loading="lazy"><span class="product__tag">Clássico</span></div>
-        <div class="product__body"><div><span class="product__cat">Ternos</span><h3 class="product__name">Azul-marinho</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="ternos" data-name="Terno bege">
-        <div class="product__media rv-img"><img src="assets/img/novo-bege-loja.webp" alt="Terno bege com gravata azul estampada, fotografado na loja" width="550" height="732" loading="lazy"><span class="product__tag gold">Novo</span></div>
-        <div class="product__body"><div><span class="product__cat">Ternos</span><h3 class="product__name">Bege</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="ternos" data-name="Terno cinza três peças">
-        <div class="product__media rv-img"><img src="assets/img/cinza-tres-pecas.webp" alt="Terno cinza três peças com colete e gravata azul estampada" width="550" height="606" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Ternos</span><h3 class="product__name">Cinza três peças</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="ternos" data-name="Terno azul-marinho com gravata rosa">
-        <div class="product__media rv-img"><img src="assets/img/navy-gravata-rosa.webp" alt="Terno azul-marinho com gravata rosa de bolinhas" width="550" height="732" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Ternos</span><h3 class="product__name">Azul-marinho slim</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="ternos" data-name="Terno xadrez azul-marinho">
-        <div class="product__media rv-img"><img src="assets/img/xadrez-manequim.webp" alt="Terno azul-marinho xadrez em manequim com gravata paisley azul" width="550" height="732" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Ternos</span><h3 class="product__name">Xadrez azul-marinho</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="ternos" data-name="Terno cinza claro">
-        <div class="product__media rv-img"><img src="assets/img/cinza-manequim.webp" alt="Terno cinza claro texturizado em manequim com gravata azul" width="550" height="562" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Ternos</span><h3 class="product__name">Cinza claro</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="ternos" data-name="Terno marrom">
-        <div class="product__media rv-img"><img src="assets/img/marrom-relogio.webp" alt="Detalhe de terno marrom com relógio dourado" width="550" height="732" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Ternos</span><h3 class="product__name">Marrom</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="ternos" data-name="Terno preto">
-        <div class="product__media rv-img"><img src="assets/img/preto-gravata-verde.webp" alt="Terno preto com gravata verde estampada e relógio dourado" width="550" height="732" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Ternos</span><h3 class="product__name">Preto</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="blazers" data-name="Blazer cinza claro">
-        <div class="product__media rv-img"><img src="assets/img/cinza-claro-gravata.webp" alt="Blazer cinza claro com camisa branca, gravata azul estampada e pin na lapela" width="550" height="732" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Blazers</span><h3 class="product__name">Cinza claro</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="calcas" data-name="Calça social bege">
-        <div class="product__media rv-img"><img src="assets/img/calca-bege-sapato.webp" alt="Calça social bege com sapato marrom de couro" width="550" height="732" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Calças</span><h3 class="product__name">Social bege</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="camisas" data-name="Camisa social branca">
-        <div class="product__media rv-img"><img src="assets/img/punho-relogio-navy.webp" alt="Punho de camisa social branca sob paletó azul-marinho, com relógio dourado" width="550" height="732" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Camisas</span><h3 class="product__name">Social branca</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="gravatas" data-name="Gravata paisley azul">
-        <div class="product__media rv-img"><img src="assets/img/xadrez-paisley-azul.webp" alt="Gravata paisley azul sobre camisa branca e terno xadrez escuro" width="550" height="732" loading="lazy"></div>
-        <div class="product__body"><div><span class="product__cat">Gravatas</span><h3 class="product__name">Paisley azul</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
-      </article>
-      <article class="product" data-cat="acessorios" data-name="Pastas">
-        <div class="product__media rv-img">
-          <svg viewBox="0 0 300 400" role="img" aria-label="Pastas" style="background:var(--navy)">
-            <rect x="24" y="24" width="252" height="352" fill="none" stroke="#B89A61" stroke-opacity=".35"/>
-            <g fill="none" stroke="#B89A61" stroke-width="1.4"><rect x="80" y="170" width="140" height="96" rx="4"/><path d="M125 170v-18a8 8 0 0 1 8-8h34a8 8 0 0 1 8 8v18M80 206h140"/><rect x="140" y="200" width="20" height="12" rx="2"/></g>
-            <text x="150" y="320" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="30" fill="#F4F1EA">Pastas</text>
-          </svg>
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o terno azul-marinho">
+          <img src="assets/img/produto-01-terno-azul-marinho.webp" alt="Terno azul-marinho com camisa branca e gravata paisley azul e verde" width="550" height="732" loading="lazy" decoding="async">
+          <span class="product__tag">Clássico</span>
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#273C66"></i>Azul-marinho</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
         </div>
-        <div class="product__body"><div><span class="product__cat">Acessórios</span><h3 class="product__name">Pastas</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
       </article>
+
+      <article class="product" data-cat="ternos" data-name="Terno bege">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o terno bege">
+          <img src="assets/img/produto-02-terno-bege.webp" alt="Terno bege com gravata azul estampada, fotografado na loja" width="550" height="732" loading="lazy" decoding="async">
+          <span class="product__tag gold">Novo</span>
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#C9BCA6"></i>Bege</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="ternos" data-name="Terno cinza três peças">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o terno cinza três peças">
+          <img src="assets/img/produto-03-terno-cinza-tres-pecas.webp" alt="Terno cinza três peças com colete e gravata azul estampada" width="550" height="606" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#76726A"></i>Cinza três peças</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="ternos" data-name="Terno azul-marinho slim">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o terno azul-marinho slim">
+          <img src="assets/img/produto-04-terno-azul-marinho-slim.webp" alt="Terno azul-marinho de corte ajustado com gravata rosa de bolinhas" width="548" height="732" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#16233B"></i>Azul-marinho slim</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="ternos" data-name="Terno xadrez azul-marinho">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o terno xadrez azul-marinho">
+          <img src="assets/img/produto-05-terno-xadrez.webp" alt="Terno azul-marinho xadrez em manequim, com gravata paisley azul" width="550" height="732" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#2A3040"></i>Xadrez azul-marinho</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="ternos" data-name="Terno cinza claro">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o terno cinza claro">
+          <img src="assets/img/produto-06-terno-cinza-claro.webp" alt="Terno cinza claro texturizado em manequim, com gravata azul" width="548" height="562" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#A9A7A4"></i>Cinza claro</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="ternos" data-name="Terno marrom">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o terno marrom">
+          <img src="assets/img/produto-07-terno-marrom.webp" alt="Detalhe de terno marrom com relógio dourado no punho" width="548" height="732" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#6B5347"></i>Marrom</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="ternos" data-name="Terno preto">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o terno preto">
+          <img src="assets/img/produto-08-terno-preto.webp" alt="Terno preto com gravata verde estampada e relógio dourado" width="548" height="732" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#1C1C1E"></i>Preto</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="blazers" data-name="Blazer cinza claro">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o blazer cinza claro">
+          <img src="assets/img/produto-09-blazer-cinza-claro.webp" alt="Blazer cinza claro com camisa branca, gravata azul estampada e pin na lapela" width="550" height="732" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Blazers</span><h3 class="product__name"><i class="sw" style="--c:#ADAAA5"></i>Cinza claro</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="calcas" data-name="Calça social bege">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar a calça social bege">
+          <img src="assets/img/produto-10-calca-social-bege.webp" alt="Calça social bege com sapato marrom de couro" width="548" height="732" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Calças</span><h3 class="product__name"><i class="sw" style="--c:#CDBEA9"></i>Social bege</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="camisas" data-name="Camisa social branca">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar a camisa social branca">
+          <img src="assets/img/produto-11-camisa-social-branca.webp" alt="Punho de camisa social branca sob paletó azul-marinho, com relógio dourado" width="550" height="732" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Camisas</span><h3 class="product__name"><i class="sw" style="--c:#F0EEE9"></i>Social branca</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="gravatas" data-name="Gravata paisley azul">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar a gravata paisley azul">
+          <img src="assets/img/produto-12-gravata-paisley-azul.webp" alt="Gravata paisley azul sobre camisa branca e terno xadrez escuro" width="548" height="732" loading="lazy" decoding="async">
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Gravatas</span><h3 class="product__name"><i class="sw" style="--c:#3E5E8F"></i>Paisley azul</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
+      <article class="product" data-cat="acessorios" data-name="Pastas">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar as pastas">
+          <svg viewBox="0 0 300 400" role="img" aria-label="Pastas" style="background:var(--navy)">
+            <rect x="24" y="24" width="252" height="352" fill="none" stroke="#B89A61" stroke-opacity=".32"/>
+            <g fill="none" stroke="#B89A61" stroke-width="1.4"><rect x="80" y="170" width="140" height="96" rx="4"/><path d="M125 170v-18a8 8 0 0 1 8-8h34a8 8 0 0 1 8 8v18M80 206h140"/><rect x="140" y="200" width="20" height="12" rx="2"/></g>
+            <text x="150" y="322" text-anchor="middle" font-family="Playfair Display, serif" font-size="30" fill="#F4F1EA">Pastas</text>
+          </svg>
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Acessórios</span><h3 class="product__name">Pastas</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
+        </div>
+      </article>
+
       <article class="product" data-cat="kits" data-name="Kit presente">
-        <div class="product__media rv-img">
+        <a class="product__media rv-img" data-wa data-product href="#contato" aria-label="Consultar o kit presente">
           <svg viewBox="0 0 300 400" role="img" aria-label="Kit presente" style="background:var(--off-2)">
             <rect x="24" y="24" width="252" height="352" fill="none" stroke="#B89A61" stroke-opacity=".45"/>
             <g fill="none" stroke="#14243B" stroke-width="1.4"><rect x="90" y="176" width="120" height="84" rx="2"/><path d="M84 158h132v18H84zM150 158v102M150 158c-14-4-26-14-22-26 4-10 18-6 22 10 4-16 18-20 22-10 4 12-8 22-22 26"/></g>
-            <text x="150" y="320" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="30" fill="#14243B">Kit presente</text>
+            <text x="150" y="322" text-anchor="middle" font-family="Playfair Display, serif" font-size="30" fill="#14243B">Kit presente</text>
           </svg>
+          <span class="product__disc">Consultar</span>
+        </a>
+        <div class="product__body">
+          <div><span class="product__cat">Presentes</span><h3 class="product__name">Kit presente</h3></div>
+          <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
         </div>
-        <div class="product__body"><div><span class="product__cat">Presentes</span><h3 class="product__name">Kit presente</h3></div><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></div>
       </article>
+
+      <a class="product product--cta rv" href="https://www.instagram.com/robertinhos_menfashion/" target="_blank" rel="noopener">
+        <span>
+          <svg><use href="#i-ig"/></svg>
+          <b>Ver tudo no Instagram</b>
+          <small>@robertinhos_menfashion</small>
+        </span>
+      </a>
+
     </div>
   </div>
 </section>
 
-<!-- CAMPANHA (publicada pela marca no Instagram) -->
+<!-- ======================================================================
+     CAMPANHA — publicada pela marca no Instagram
+     ====================================================================== -->
 <section class="campaign" aria-label="Coleção Promessa's">
   <div class="campaign__media rv-img">
-    <img src="assets/img/colecao-promessas.webp" alt="Forro azul do paletó com a arte da Coleção Promessa's" width="550" height="732" loading="lazy">
+    <img src="assets/img/campanha.webp" alt="Forro azul do paletó com a arte da Coleção Promessa's" width="550" height="732" loading="lazy" decoding="async">
   </div>
   <div class="campaign__text">
     <p class="eyebrow rv">Coleção</p>
-    <h2 class="rv"><em>Promessa's</em></h2>
-    <p class="lead rv" style="color:rgba(244,241,234,.66)">A campanha apresentada pela Robertinho's no Instagram.</p>
+    <h2><span class="mask"><i><em>Promessa's</em></i></span></h2>
+    <p class="lead rv">A campanha apresentada pela Robertinho's no Instagram.</p>
     <div class="rv"><a class="btn ghost" href="https://www.instagram.com/robertinhos_menfashion/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Ver no Instagram</a></div>
   </div>
 </section>
 
-<!-- DECLARAÇÃO -->
+<!-- ======================================================================
+     DECLARAÇÃO
+     ====================================================================== -->
 <section class="statement" aria-label="Posicionamento">
   <div class="wrap">
+    <div class="statement__rule rv" aria-hidden="true"></div>
     <p id="statement">Um bom terno não pede licença. <em>Ele entra na sala antes de você.</em></p>
   </div>
 </section>
 
-<!-- EDITORIAL -->
+<!-- ======================================================================
+     ALFAIATARIA
+     ====================================================================== -->
 <section class="section editorial on-dark" id="alfaiataria" aria-labelledby="alf-t">
   <span class="editorial__num" aria-hidden="true">02</span>
   <div class="wrap">
     <div class="editorial__media" id="parallax">
-      <div class="editorial__media-in rv-img"><img src="assets/img/cinza-look-completo.webp" alt="Homem vestindo terno cinza três peças completo" width="550" height="606" loading="lazy"></div>
+      <div class="editorial__media-in rv-img"><img src="assets/img/editorial.webp" alt="Homem vestindo terno cinza três peças completo" width="550" height="606" loading="lazy" decoding="async"></div>
       <span class="editorial__frame" aria-hidden="true"></span>
     </div>
     <div class="editorial__text">
       <p class="eyebrow rv">A arte de se vestir bem</p>
-      <h2 class="h-l rv" id="alf-t">O terno certo não grita. <em>Ele se impõe.</em></h2>
+      <h2 class="h-l" id="alf-t"><span class="mask"><i>O terno certo</i></span><span class="mask"><i>não grita.</i></span><span class="mask"><i><em>Ele se impõe.</em></i></span></h2>
       <p class="lead rv">Ombro que assenta, calça que quebra no ponto certo, gravata que conversa com o tecido.</p>
       <ul class="words" data-stagger>
-        <li class="rv"><small>01</small>Caimento<span>Ombro, cintura e punho no lugar</span></li>
-        <li class="rv"><small>02</small>Cor<span>Marinho, areia, cinza e marrom</span></li>
-        <li class="rv"><small>03</small>Detalhe<span>Pin, lenço, relógio e botão</span></li>
+        <li class="rv"><small>01</small>Caimento<span>Ombro alinhado, cintura marcada, punho à mostra.</span></li>
+        <li class="rv"><small>02</small>Cor<span>Marinho, areia, cinza e marrom como base.</span></li>
+        <li class="rv"><small>03</small>Detalhe<span>Pin na lapela, lenço no bolso, relógio no punho.</span></li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- DETALHES -->
+<!-- ======================================================================
+     DETALHES
+     ====================================================================== -->
 <section class="details" id="detalhes" aria-labelledby="det-t">
   <div class="details__head">
     <div class="wrap">
       <div>
         <p class="eyebrow rv">Detalhes</p>
-        <h2 class="h-l rv" id="det-t">De perto, tudo importa.</h2>
+        <h2 class="h-l" id="det-t"><span class="mask"><i>De perto, tudo importa.</i></span></h2>
       </div>
       <p class="details__hint rv">Deslize <svg viewBox="0 0 36 10" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M0 5h34M30 1l4 4-4 4"/></svg></p>
     </div>
@@ -653,36 +818,39 @@ em{font-style:italic;font-weight:400}
   <div class="hscroll" id="hscroll">
     <div class="track" id="track">
       <figure class="detail wide">
-        <div class="detail__media rv-img"><img src="assets/img/montagem-relogio.webp" alt="Montagem com detalhes de looks sociais organizados ao redor de ponteiros de relógio" width="550" height="732" loading="lazy"></div>
-        <figcaption class="detail__cap"><h3>Combinações</h3><span>Gravata, relógio, lapela</span></figcaption>
+        <div class="detail__media rv-img"><img src="assets/img/detalhe-01-combinacoes.webp" alt="Montagem com detalhes de looks sociais organizados ao redor de ponteiros de relógio" width="550" height="732" loading="lazy" decoding="async"></div>
+        <figcaption class="detail__cap"><h3><small>01</small>Combinações</h3><span>Gravata, relógio, lapela</span></figcaption>
       </figure>
       <figure class="detail">
-        <div class="detail__media rv-img"><img src="assets/img/bege-lapela-pin.webp" alt="Lapela de paletó bege com pin dourado e lenço no bolso" width="550" height="732" loading="lazy"></div>
-        <figcaption class="detail__cap"><h3>Lapela</h3><span>Bege</span></figcaption>
+        <div class="detail__media rv-img"><img src="assets/img/detalhe-02-lapela.webp" alt="Lapela de paletó bege com pin dourado e lenço no bolso" width="548" height="732" loading="lazy" decoding="async"></div>
+        <figcaption class="detail__cap"><h3><small>02</small>Lapela</h3><span>Pin e lenço</span></figcaption>
       </figure>
       <figure class="detail">
-        <div class="detail__media rv-img"><img src="assets/img/bege-bolso-relogio.webp" alt="Bolso de paletó bege com mão no bolso e relógio dourado" width="550" height="732" loading="lazy"></div>
-        <figcaption class="detail__cap"><h3>Bolso</h3><span>Areia</span></figcaption>
+        <div class="detail__media rv-img"><img src="assets/img/detalhe-03-bolso.webp" alt="Bolso de paletó bege com a mão no bolso e relógio dourado" width="550" height="732" loading="lazy" decoding="async"></div>
+        <figcaption class="detail__cap"><h3><small>03</small>Bolso</h3><span>Acabamento</span></figcaption>
       </figure>
       <figure class="detail wide">
-        <div class="detail__media rv-img"><img src="assets/img/bege-detalhe-relogio.webp" alt="Detalhe do caimento de terno bege com relógio dourado" width="550" height="732" loading="lazy"></div>
-        <figcaption class="detail__cap"><h3>Caimento</h3><span>Linho</span></figcaption>
+        <div class="detail__media rv-img"><img src="assets/img/detalhe-04-caimento.webp" alt="Detalhe do caimento do terno bege com relógio dourado" width="550" height="732" loading="lazy" decoding="async"></div>
+        <figcaption class="detail__cap"><h3><small>04</small>Caimento</h3><span>Manga e punho</span></figcaption>
       </figure>
       <div class="track__end" aria-hidden="true"></div>
     </div>
   </div>
 </section>
 
-<!-- ACESSÓRIOS -->
+<!-- ======================================================================
+     ACESSÓRIOS
+     ====================================================================== -->
 <section class="section acc" id="acessorios" aria-labelledby="acc-t">
   <div class="wrap">
     <div class="acc__ed">
       <div class="acc__media rv-img">
-        <img src="assets/img/gravata-verde-no.webp" alt="Nó de gravata verde estampada sobre camisa branca, com relógio dourado" width="550" height="562" loading="lazy">
+        <img src="assets/img/acessorios.webp" alt="Nó de gravata verde estampada sobre camisa branca, com relógio dourado" width="550" height="562" loading="lazy" decoding="async">
       </div>
       <div class="acc__text">
         <p class="eyebrow rv">Acessórios</p>
-        <h2 class="h-l rv" id="acc-t">O arremate <em>do look.</em></h2>
+        <h2 class="h-l" id="acc-t"><span class="mask"><i>O arremate <em>do look.</em></i></span></h2>
+        <p class="lead rv">A gravata muda o terno. A pasta termina o look.</p>
         <ul class="acc__list" data-stagger>
           <li class="rv" data-name="Gravatas"><b>Gravatas</b><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></li>
           <li class="rv" data-name="Pastas"><b>Pastas</b><a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a></li>
@@ -693,7 +861,9 @@ em{font-style:italic;font-weight:400}
   </div>
 </section>
 
-<!-- PRESENTES -->
+<!-- ======================================================================
+     PRESENTES
+     ====================================================================== -->
 <section class="gifts" id="presentes" aria-label="Presentes">
   <div class="wrap">
     <div class="gifts__box rv" aria-hidden="true">
@@ -707,20 +877,26 @@ em{font-style:italic;font-weight:400}
   </div>
 </section>
 
-<!-- MARCA -->
+<!-- ======================================================================
+     MARCA
+     ====================================================================== -->
 <section class="section brand-sec" id="marca" aria-labelledby="marca-t">
   <div class="wrap">
     <div class="brand-sec__logo rv-img">
-      <div class="ph"><img src="assets/img/logo-video.webp" alt="Logotipo Robertinho's Men Fashion sobre homem de terno ajustando o paletó" width="550" height="732" loading="lazy"></div>
+      <div class="ph"><img src="assets/img/marca.webp" alt="Logotipo Robertinho's Men Fashion sobre homem de terno ajustando o paletó" width="550" height="732" loading="lazy" decoding="async"></div>
       <div class="seal"><img src="assets/img/logo.png" alt="Logotipo Robertinho's Men Fashion" width="96" height="96" loading="lazy"></div>
     </div>
     <div class="brand-sec__text">
       <p class="eyebrow rv">Sobre a marca</p>
-      <h2 class="h-l rv" id="marca-t">Robertinho's <em>Men Fashion</em></h2>
-      <!-- TEXTO EDITÁVEL: substitua pelos dados reais do proprietário. -->
+      <h2 class="h-l" id="marca-t"><span class="mask"><i>Robertinho's</i></span><span class="mask"><i><em>Men Fashion</em></i></span></h2>
+
+      <!-- ==================================================================
+           TEXTO EDITÁVEL — troque pelos dados reais do proprietário.
+           ================================================================== -->
       <div data-editable="sobre">
-        <p class="lead rv">Moda masculina especializada em ternos, costumes, camisas, gravatas e pastas. Atendimento pessoal pelo WhatsApp e envio para todo o Brasil.</p>
+        <p class="lead rv">Moda masculina especializada em ternos, costumes, camisas, gravatas e pastas. Cada look publicado pela loja é uma combinação pensada: o tom do terno, a estampa da gravata, o pin na lapela. Atendimento pessoal e envio para todo o Brasil.</p>
       </div>
+
       <div class="brand-sec__cta rv">
         <a class="btn" href="https://www.instagram.com/robertinhos_menfashion/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@robertinhos_menfashion</a>
         <a class="btn ghost-dark" data-wa data-msg="Olá! Gostaria de conhecer melhor a Robertinho's Men Fashion." href="#contato"><span data-wa-label>Falar com a loja</span></a>
@@ -729,13 +905,22 @@ em{font-style:italic;font-weight:400}
   </div>
 </section>
 
-<!-- CONTATO -->
+<!-- ======================================================================
+     CONTATO
+     ====================================================================== -->
 <section class="section contact" id="contato" aria-labelledby="contato-t">
   <span class="contact__word" aria-hidden="true">Robertinho's</span>
   <div class="wrap">
     <p class="eyebrow rv">Contato</p>
-    <h2 class="h-l rv" id="contato-t">Viu algo que combina com você? <em>Fale com a loja.</em></h2>
+    <h2 class="h-l" id="contato-t"><span class="mask"><i>Viu algo que combina com você?</i></span><span class="mask"><i><em>Fale com a loja.</em></i></span></h2>
     <p class="lead rv">Disponibilidade, tamanhos e sugestões de combinação. Conversa direta, sem formulário.</p>
+
+    <ol class="steps" data-stagger>
+      <li class="rv"><b>01</b><h3>Escolha a peça</h3><p>Percorra a coleção e separe o que combina com você.</p></li>
+      <li class="rv"><b>02</b><h3>Fale com a loja</h3><p>O botão abre a conversa já com a peça indicada.</p></li>
+      <li class="rv"><b>03</b><h3>Receba onde estiver</h3><p>Enviamos para todo o Brasil.</p></li>
+    </ol>
+
     <div class="contact__cta rv">
       <a class="btn gold" data-wa data-msg="Olá! Vi o site da Robertinho's Men Fashion e gostaria de atendimento." href="#contato"><svg class="wa-ico"><use href="#i-wa"/></svg><span data-wa-label>Atendimento pelo WhatsApp</span></a>
       <a class="btn ghost" href="https://www.instagram.com/robertinhos_menfashion/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Instagram</a>
@@ -749,21 +934,36 @@ em{font-style:italic;font-weight:400}
 <footer class="footer">
   <div class="wrap">
     <div class="footer__top">
-      <a class="brand" href="#inicio" aria-label="Robertinho's Men Fashion — início">
-        <img src="assets/img/logo.png" alt="" width="42" height="42" loading="lazy">
-        <span class="brand__name"><b>Robertinho's</b><span>Men Fashion</span></span>
-      </a>
-      <nav class="footer__nav" aria-label="Rodapé">
-        <a href="#colecao">Coleção</a><a href="#alfaiataria">Alfaiataria</a><a href="#acessorios">Acessórios</a><a href="#presentes">Presentes</a><a href="#marca">Marca</a><a href="#contato">Contato</a>
-      </nav>
-      <div class="footer__social">
-        <a data-wa data-msg="Olá! Gostaria de atendimento da Robertinho's Men Fashion." href="#contato"><svg><use href="#i-wa"/></svg><span data-wa-label>WhatsApp</span></a>
-        <a href="https://www.instagram.com/robertinhos_menfashion/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Instagram</a>
+      <div class="footer__brand">
+        <a class="brand" href="#inicio" aria-label="Robertinho's Men Fashion — início">
+          <img src="assets/img/logo.png" alt="" width="42" height="42" loading="lazy">
+          <span class="brand__name"><b>Robertinho's</b><span>Men Fashion</span></span>
+        </a>
+        <p>O estilo perfeito para homens que marcam presença.</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#colecao">Coleção</a></li>
+          <li><a href="#alfaiataria">Alfaiataria</a></li>
+          <li><a href="#detalhes">Detalhes</a></li>
+          <li><a href="#acessorios">Acessórios</a></li>
+          <li><a href="#presentes">Presentes</a></li>
+          <li><a href="#marca">Sobre a marca</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Atendimento</h4>
+        <ul class="footer__social">
+          <li><a data-wa data-msg="Olá! Gostaria de atendimento da Robertinho's Men Fashion." href="#contato"><svg><use href="#i-wa"/></svg><span data-wa-label>WhatsApp</span></a></li>
+          <li><a href="https://www.instagram.com/robertinhos_menfashion/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>Instagram</a></li>
+          <li><span>Enviamos para todo o Brasil</span></li>
+        </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <span>© <span id="year"></span> Robertinho's Men Fashion. Todos os direitos reservados.</span>
-      <span>Enviamos para todo o Brasil</span>
+      <span>Costumes · Ternos · Gravatas · Pastas · Camisas</span>
       <a href="#inicio">Voltar ao topo ↑</a>
     </div>
   </div>
@@ -789,7 +989,7 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
   const hasWA = /^\d{10,15}$/.test(CONFIG.WHATSAPP);
   const igDM = `https://ig.me/m/${CONFIG.INSTAGRAM}`;
 
-  /* links de atendimento */
+  /* --- links de atendimento --- */
   const buildMsg = (el) => {
     if (el.hasAttribute('data-product')) {
       const name = el.closest('[data-name]')?.dataset.name || 'uma peça';
@@ -802,16 +1002,18 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
     el.target = '_blank'; el.rel = 'noopener';
     if (!hasWA) {
       const lab = el.querySelector('[data-wa-label]');
-      if (lab) lab.textContent = lab.textContent.replace(/pelo WhatsApp/i, 'pelo Instagram').replace(/^WhatsApp$/i, 'Instagram');
+      if (lab) lab.textContent = lab.textContent.replace(/pelo WhatsApp/i, 'pelo Instagram').replace(/^WhatsApp$/i, 'Direct do Instagram');
       el.title = 'Atendimento pelo Instagram';
     }
   });
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* preloader + hero */
+  /* --- preloader + entrada do hero --- */
   const loader = document.getElementById('loader');
+  const pct = document.getElementById('pct');
   const frame = document.getElementById('heroFrame');
-  let heroDone = false;
+  let heroDone = false, n = 0;
+  const tick = setInterval(() => { n = Math.min(100, n + Math.ceil(Math.random() * 9)); pct.textContent = String(n).padStart(2, '0'); if (n === 100) clearInterval(tick); }, 90);
   const heroIn = () => {
     if (heroDone) return; heroDone = true;
     if (reduce || !window.gsap) {
@@ -822,11 +1024,11 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
     gsap.to(frame.querySelector('img'), { scale: 1, duration: 2.2, ease: 'power3.out' });
     gsap.to('.hero .rv', { opacity: 1, y: 0, duration: 1.1, stagger: .12, ease: 'power3.out', delay: .25, clearProps: 'transform' });
   };
-  const finish = () => { loader.classList.add('done'); heroIn(); };
-  if (reduce) finish(); else window.addEventListener('load', () => setTimeout(finish, 900));
-  setTimeout(() => { if (!loader.classList.contains('done')) finish(); }, 3500);
+  const finish = () => { clearInterval(tick); pct.textContent = '100'; loader.classList.add('done'); heroIn(); };
+  if (reduce) finish(); else window.addEventListener('load', () => setTimeout(finish, 1000));
+  setTimeout(() => { if (!loader.classList.contains('done')) finish(); }, 3600);
 
-  /* scroll suave */
+  /* --- scroll suave --- */
   let lenis = null;
   if (!reduce && window.Lenis && window.gsap) {
     lenis = new Lenis({ lerp: .09, smoothWheel: true });
@@ -839,21 +1041,24 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
     else window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + offset, behavior: reduce ? 'auto' : 'smooth' });
   };
 
-  /* header / fab / nav ativa */
-  const header = document.getElementById('header'), fab = document.getElementById('fab');
+  /* --- header, progresso e navegação ativa --- */
+  const header = document.getElementById('header'), fab = document.getElementById('fab'), prog = document.getElementById('prog');
   const navLinks = [...document.querySelectorAll('.nav a')];
   const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
   const onScroll = () => {
     const y = window.scrollY;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
     header.classList.toggle('is-compact', y > 40);
     fab.classList.toggle('show', y > window.innerHeight * .6);
     let cur = sections[0];
     sections.forEach(s => { if (s.getBoundingClientRect().top <= 140) cur = s; });
     navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur.id));
   };
-  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll); onScroll();
 
-  /* menu mobile */
+  /* --- menu mobile --- */
   const burger = document.getElementById('burger'), mnav = document.getElementById('mnav');
   const setMenu = (open) => {
     burger.classList.toggle('open', open); mnav.classList.toggle('open', open);
@@ -866,7 +1071,7 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
   burger.addEventListener('click', () => setMenu(!burger.classList.contains('open')));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && mnav.classList.contains('open')) setMenu(false); });
 
-  /* âncoras */
+  /* --- âncoras --- */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const id = a.getAttribute('href'); if (id.length < 2) return;
@@ -879,14 +1084,22 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
     });
   });
 
-  /* filtros */
+  /* --- filtros da coleção --- */
   const filters = [...document.querySelectorAll('.filter')];
-  const products = [...document.querySelectorAll('#productGrid .product')];
+  const products = [...document.querySelectorAll('#productGrid .product:not(.product--cta)')];
+  filters.forEach(f => {
+    const cat = f.dataset.filter;
+    const total = cat === 'all' ? products.length : products.filter(p => p.dataset.cat === cat).length;
+    f.insertAdjacentHTML('beforeend', `<sup>${String(total).padStart(2, '0')}</sup>`);
+  });
   const layout = (list) => list.forEach((p, i) => p.classList.toggle('offset', i % 3 === 1));
   const setFilter = (cat) => {
     filters.forEach(f => { const on = f.dataset.filter === cat; f.classList.toggle('active', on); f.setAttribute('aria-pressed', on); });
     const show = products.filter(p => cat === 'all' || p.dataset.cat === cat);
-    const apply = () => { products.forEach(p => p.classList.toggle('is-hidden', !show.includes(p))); layout(show); show.forEach(p => p.querySelector('.rv-img')?.classList.add('in')); };
+    const apply = () => {
+      products.forEach(p => p.classList.toggle('is-hidden', !show.includes(p)));
+      layout(show); show.forEach(p => p.querySelector('.rv-img')?.classList.add('in'));
+    };
     if (reduce || !window.gsap) { apply(); return; }
     gsap.to(products, { opacity: 0, y: 14, duration: .3, stagger: .015, ease: 'power2.in', onComplete: () => {
       apply();
@@ -897,26 +1110,29 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
   filters.forEach(f => f.addEventListener('click', () => setFilter(f.dataset.filter)));
   layout(products);
 
-  /* reveal */
+  /* --- revelações --- */
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
   }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
-  document.querySelectorAll('.rv:not(.hero .rv), .rv-img').forEach(el => io.observe(el));
+  document.querySelectorAll('.rv:not(.hero .rv), .rv-img, .mask').forEach(el => io.observe(el));
+  document.querySelectorAll('h1, h2').forEach(h => {
+    h.querySelectorAll(':scope > .mask > i').forEach((i, k) => { i.style.transitionDelay = (k * .09) + 's'; });
+  });
 
-  /* declaração: palavras */
+  /* --- declaração: palavras --- */
   const st = document.getElementById('statement');
   st.innerHTML = st.innerHTML.replace(/(<em>|<\/em>)/g, m => m === '<em>' ? '\u0001' : '\u0002')
     .split(/\s+/).map(w => `<span class="w">${w}</span>`).join(' ')
     .replace(/\u0001/g, '<em>').replace(/\u0002/g, '</em>');
   const words = [...st.querySelectorAll('.w')];
 
-  /* efeitos ligados ao scroll */
+  /* --- efeitos ligados ao scroll --- */
   if (!reduce && window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.create({
-      trigger: '.statement', start: 'top 75%', end: 'bottom 60%', scrub: true,
-      onUpdate: self => { const n = Math.round(self.progress * words.length); words.forEach((w, i) => w.classList.toggle('on', i < n)); }
+      trigger: '.statement', start: 'top 75%', end: 'bottom 62%', scrub: true,
+      onUpdate: self => { const k = Math.round(self.progress * words.length); words.forEach((w, i) => w.classList.toggle('on', i < k)); }
     });
 
     gsap.fromTo('.editorial__frame', { yPercent: 18 }, { yPercent: -18, ease: 'none',
@@ -925,6 +1141,8 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
       scrollTrigger: { trigger: '.editorial', start: 'top bottom', end: 'bottom top', scrub: true } });
     gsap.fromTo('.campaign__media img', { yPercent: -6 }, { yPercent: 6, ease: 'none',
       scrollTrigger: { trigger: '.campaign', start: 'top bottom', end: 'bottom top', scrub: true } });
+    gsap.fromTo('.contact__word', { xPercent: -54 }, { xPercent: -46, ease: 'none',
+      scrollTrigger: { trigger: '.contact', start: 'top bottom', end: 'bottom top', scrub: true } });
 
     gsap.matchMedia().add('(min-width: 901px)', () => {
       const track = document.getElementById('track'), hs = document.getElementById('hscroll');
