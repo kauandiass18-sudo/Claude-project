@@ -71,7 +71,9 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 
 /* --- tipografia ---------------------------------------------------------- */
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:14px}
-.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold)}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--gold);transition:width .95s var(--ease-out) .2s}
+.eyebrow.rv::before{width:0}
+.eyebrow.rv.in::before{width:28px}
 .h-l{font-size:clamp(33px, 4.3vw, 64px);line-height:1.06}
 .h-m{font-size:clamp(25px, 2.7vw, 39px);line-height:1.12}
 .lead{font-size:clamp(16px, 1.15vw, 18px);line-height:1.7;color:var(--ink-2);max-width:46ch;text-wrap:pretty}
@@ -121,6 +123,18 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
   opacity:0;transition:opacity 1.4s var(--ease-out) .5s}
 .marks.in{opacity:.55}
 
+/* --- trilho lateral de seções -------------------------------------------- */
+.rail{position:fixed;left:clamp(16px,1.9vw,30px);top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;gap:16px;opacity:0;visibility:hidden;transition:opacity .7s var(--ease),visibility .7s}
+.rail.on{opacity:1;visibility:visible}
+.rail a{display:flex;align-items:center;gap:11px;height:12px}
+.rail i{display:block;width:14px;height:1px;background:currentColor;opacity:.4;transition:width .5s var(--ease-out),opacity .4s,background-color .4s}
+.rail a::after{content:attr(data-s);font-size:8.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;white-space:nowrap;opacity:0;transform:translateX(-5px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.rail a:hover::after{opacity:.75;transform:none}
+.rail a.active i{width:28px;opacity:1;background:var(--gold)}
+.rail a:hover.active::after{color:var(--gold)}
+.rail{color:var(--off)}
+.rail.light{color:var(--navy)}
+
 /* --- barra de progresso -------------------------------------------------- */
 .prog{position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:var(--gold);z-index:200;pointer-events:none}
 
@@ -154,6 +168,11 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .nav a{font-size:11.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;position:relative;padding:6px 0;opacity:.82;transition:opacity .4s}
 .nav a:hover,.nav a.active{opacity:1}
 .nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease-out)}
+.swap{display:block;position:relative;overflow:hidden}
+.swap em{display:block;font-style:normal;transition:transform .55s var(--ease-out)}
+.swap::after{content:attr(data-t);position:absolute;left:0;top:0;transform:translateY(108%);transition:transform .55s var(--ease-out)}
+.nav a:hover .swap em{transform:translateY(-108%)}
+.nav a:hover .swap::after{transform:translateY(0)}
 .nav a:hover::after,.nav a.active::after{transform:scaleX(1);transform-origin:left}
 .header__right{display:flex;justify-content:flex-end;align-items:center;gap:18px}
 .burger{display:none;width:44px;height:44px;position:relative;margin-right:-10px}
@@ -189,6 +208,8 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .hero h1 em{color:var(--gold)}
 .hero .lead{max-width:38ch;color:rgba(244,241,234,.72)}
 .hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.hero__seam{position:absolute;left:50%;top:0;bottom:0;width:1px;z-index:3;background:linear-gradient(180deg,transparent,var(--gold-line) 16%,var(--gold-line) 84%,transparent);pointer-events:none}
+.hero__seam::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;transform:translate(-50%,-50%) rotate(45deg);border:1px solid var(--gold);background:var(--navy)}
 .hero__visual{position:relative;min-height:60vh}
 .hero__frame{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 0 100% 0)}
 .hero__frame img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.12)}
@@ -231,15 +252,16 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .filters::-webkit-scrollbar{display:none}
 .filter{flex:none;display:inline-flex;align-items:flex-start;gap:5px;font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);padding:10px 16px;position:relative;transition:color .4s}
 .filter sup{font-size:8.5px;letter-spacing:0;color:var(--gold);font-weight:600;line-height:1}
-.filter::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .45s var(--ease-out)}
 .filter:hover,.filter.active{color:var(--navy)}
-.filter.active::after{transform:scaleX(1)}
+.filters{position:relative}
+.filters__ind{position:absolute;bottom:0;left:0;height:1px;width:0;background:var(--gold);transform:translateX(0);transition:transform .55s var(--ease-out),width .55s var(--ease-out),opacity .4s;pointer-events:none}
 
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(40px, 5vw, 84px) clamp(20px, 2.6vw, 40px)}
 .product{display:flex;flex-direction:column}
 .product.is-hidden{display:none}
 .product.offset{margin-top:clamp(0px, 6vw, 92px)}
-.product__media{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;background:var(--off-2)}
+.product__media{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;background:var(--off-2);box-shadow:0 20px 44px -28px rgba(20,36,59,.4);transition:box-shadow .6s var(--ease)}
+.product__media:hover{box-shadow:0 26px 54px -26px rgba(20,36,59,.5)}
 .product__media img,.product__media svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--ease-out)}
 .product__media::before{content:"";position:absolute;inset:0;background:rgba(14,26,44,.3);opacity:0;transition:opacity .6s var(--ease);z-index:2}
 .product__media:hover::before{opacity:1}
@@ -281,6 +303,7 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .editorial{position:relative;overflow:hidden}
 .editorial .wrap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 clamp(20px,2.6vw,40px);align-items:center}
 .editorial__media{grid-column:1 / span 7;position:relative;aspect-ratio:4/5}
+.editorial__media .marks{z-index:4}
 .editorial__media-in{position:absolute;inset:0;overflow:hidden}
 .editorial__media img{width:100%;height:100%;object-fit:cover;object-position:50% 0%}
 .editorial__frame{position:absolute;right:-22px;bottom:-22px;width:42%;aspect-ratio:1;border:1px solid var(--gold-soft);pointer-events:none}
@@ -310,7 +333,12 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .detail.wide .detail__media{aspect-ratio:4/5}
 .detail__media img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease-out)}
 .detail:hover .detail__media img{transform:scale(1.045)}
-.detail__cap{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.detail__cap{display:flex;justify-content:space-between;align-items:baseline;gap:16px;position:relative;padding-top:13px}
+.detail__cap::before{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:rgba(20,36,59,.14)}
+.detail__cap::after{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-out)}
+.detail:hover .detail__cap::after{transform:scaleX(1)}
+.detail__cap h3{transition:transform .6s var(--ease-out)}
+.detail:hover .detail__cap h3{transform:translateX(5px)}
 .detail__cap h3{font-size:19px;display:flex;align-items:baseline;gap:12px}
 .detail__cap h3 small{font-family:var(--sans);font-size:9.5px;letter-spacing:.26em;color:var(--gold);font-weight:600}
 .detail__cap span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--ink-3);white-space:nowrap}
@@ -377,7 +405,8 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .contact__word{position:absolute;left:50%;bottom:-.14em;transform:translateX(-50%);font-family:var(--serif);font-size:clamp(70px,16vw,255px);line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.13);pointer-events:none;user-select:none}
 
 /* --- rodapé -------------------------------------------------------------- */
-.footer{background:var(--navy-deep);color:var(--off);position:relative;border-top:1px solid rgba(244,241,234,.08)}
+.footer{background:var(--navy-deep);color:var(--off);position:relative;border-top:1px solid rgba(244,241,234,.08);overflow:hidden}
+.footer__seal{position:absolute;right:clamp(16px,3vw,56px);top:50%;transform:translateY(-50%);width:clamp(170px,19vw,260px);opacity:.05;pointer-events:none;user-select:none}
 .footer__top{padding:clamp(56px,7vw,92px) 0;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px clamp(24px,4vw,64px)}
 .footer__brand{display:flex;flex-direction:column;gap:20px;max-width:320px}
 .footer__brand p{font-family:var(--serif);font-size:19px;line-height:1.38;color:rgba(244,241,234,.78)}
@@ -431,6 +460,9 @@ html.fine .product__disc{display:none}
 /* ==========================================================================
    RESPONSIVO
    ========================================================================== */
+@media (max-width:1280px){
+  .rail{display:none}
+}
 @media (max-width:1100px){
   .nav{gap:22px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -459,7 +491,7 @@ html.fine .product__disc{display:none}
   .hero h1{margin:18px 0 20px}
   .hero__cta{margin-top:30px}
   .hero__cta .btn{width:100%}
-  .hero__caption,.hero__scroll{display:none}
+  .hero__caption,.hero__scroll,.hero__seam{display:none}
   .head{flex-direction:column;align-items:flex-start;gap:14px}
   .head .num{display:none}
   .filters{margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);width:auto}
@@ -488,6 +520,7 @@ html.fine .product__disc{display:none}
   .steps{grid-template-columns:1fr;gap:0}
   .steps li{padding:22px 0}
   .steps p{max-width:40ch}
+  .footer__seal{display:none}
   .footer__top{grid-template-columns:1fr;gap:36px}
 }
 @media (max-width:600px){
@@ -515,6 +548,7 @@ html.fine .product__disc{display:none}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
   .cursor{display:none}
   .marks{opacity:.55}
+  .eyebrow.rv::before{width:28px}
   html.fine,html.fine *{cursor:auto!important}
   .rv,.rv-img,.brand-sec__mark{opacity:1;transform:none}
   .rv-img::after{display:none}
@@ -531,6 +565,14 @@ html.fine .product__disc{display:none}
 <body>
 <a class="skip" href="#inicio">Ir para o conteúdo</a>
 <div class="prog" id="prog" aria-hidden="true"></div>
+<nav class="rail" id="rail" aria-label="Ir para seção">
+  <a href="#colecao" data-s="Coleção"><i></i></a>
+  <a href="#alfaiataria" data-s="Alfaiataria"><i></i></a>
+  <a href="#detalhes" data-s="Detalhes"><i></i></a>
+  <a href="#acessorios" data-s="Acessórios"><i></i></a>
+  <a href="#marca" data-s="Marca"><i></i></a>
+  <a href="#contato" data-s="Contato"><i></i></a>
+</nav>
 <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__ring"><i class="cursor__txt"></i></span><span class="cursor__dot"></span></div>
 
 <div class="loader" id="loader" aria-hidden="true">
@@ -594,7 +636,7 @@ html.fine .product__disc{display:none}
   <div class="hero__text">
     <div class="wrap-l">
       <p class="eyebrow rv">Moda masculina</p>
-      <h1 class="rv">O estilo perfeito<br>para homens que<br><em>marcam presença.</em></h1>
+      <h1><span class="mask"><i>O estilo perfeito</i></span><span class="mask"><i>para homens que</i></span><span class="mask"><i><em>marcam presença.</em></i></span></h1>
       <p class="lead rv">Ternos, costumes, camisas, gravatas e pastas. Escolha a peça, fale com a loja e receba onde estiver.</p>
       <div class="hero__cta rv">
         <a class="btn gold" href="#colecao">Ver a coleção <svg><use href="#i-arr"/></svg></a>
@@ -602,6 +644,7 @@ html.fine .product__disc{display:none}
       </div>
     </div>
   </div>
+  <span class="hero__seam" aria-hidden="true"></span>
   <div class="hero__visual">
     <div class="hero__frame" id="heroFrame">
       <img src="assets/img/hero.webp" alt="Homem vestindo terno azul-marinho xadrez com camisa branca e gravata rosa estampada" width="828" height="1107" fetchpriority="high">
@@ -634,6 +677,7 @@ html.fine .product__disc{display:none}
     </div>
 
     <div class="filters rv" role="group" aria-label="Filtrar por categoria" id="filters">
+      <span class="filters__ind" id="filterInd" aria-hidden="true"></span>
       <button class="filter active" data-filter="all" aria-pressed="true">Todos</button>
       <button class="filter" data-filter="ternos" aria-pressed="false">Ternos</button>
       <button class="filter" data-filter="blazers" aria-pressed="false">Blazers</button>
@@ -856,6 +900,7 @@ html.fine .product__disc{display:none}
   <span class="editorial__num" aria-hidden="true">02</span>
   <div class="wrap">
     <div class="editorial__media" id="parallax">
+      <span class="marks" aria-hidden="true"></span>
       <div class="editorial__media-in rv-img"><img src="assets/img/editorial.webp" alt="Homem vestindo terno cinza três peças completo" width="550" height="606" loading="lazy" decoding="async"></div>
       <span class="editorial__frame" aria-hidden="true"></span>
     </div>
@@ -1009,6 +1054,7 @@ html.fine .product__disc{display:none}
 
 <footer class="footer stitched" style="--stitch-bg:var(--navy-deep)">
   <div class="wrap">
+    <img class="footer__seal" src="assets/img/logo.png" alt="" width="340" height="340" loading="lazy" aria-hidden="true">
     <div class="footer__top">
       <div class="footer__brand">
         <a class="brand" href="#inicio" aria-label="Robertinho's Men Fashion — início">
@@ -1083,6 +1129,10 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
     }
   });
   document.getElementById('year').textContent = new Date().getFullYear();
+  document.querySelectorAll('.nav a').forEach(a => {
+    const t = a.textContent.trim();
+    a.innerHTML = `<span class="swap" data-t="${t}"><em>${t}</em></span>`;
+  });
 
   /* --- preloader + entrada do hero --- */
   const loader = document.getElementById('loader');
@@ -1094,11 +1144,12 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
     if (heroDone) return; heroDone = true;
     if (reduce || !window.gsap) {
       frame.style.clipPath = 'inset(0)'; frame.querySelector('img').style.transform = 'none';
-      document.querySelectorAll('.hero .rv').forEach(e => e.classList.add('in')); return;
+      document.querySelectorAll('.hero .rv, .hero h1 .mask').forEach(e => e.classList.add('in')); return;
     }
     gsap.to(frame, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.6, ease: 'power4.out' });
     gsap.to(frame.querySelector('img'), { scale: 1, duration: 2.2, ease: 'power3.out' });
     gsap.to('.hero .rv', { opacity: 1, y: 0, duration: 1.1, stagger: .12, ease: 'power3.out', delay: .25, clearProps: 'transform' });
+    document.querySelectorAll('.hero h1 .mask').forEach((m, i) => setTimeout(() => m.classList.add('in'), 320 + i * 115));
   };
   const finish = () => { clearInterval(tick); pct.textContent = '100'; loader.classList.add('done'); heroIn(); };
   if (reduce) finish(); else window.addEventListener('load', () => setTimeout(finish, 1000));
@@ -1131,8 +1182,26 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
     sections.forEach(s => { if (s.getBoundingClientRect().top <= 140) cur = s; });
     navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur.id));
   };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll); onScroll();
+  const rail = document.getElementById('rail');
+  const railLinks = [...rail.querySelectorAll('a')];
+  const railTargets = railLinks.map(a => document.querySelector(a.getAttribute('href')));
+  const tones = [['.hero','d'],['.marquee','d'],['#colecao','l'],['.campaign','d'],['.statement','d'],
+    ['#alfaiataria','d'],['#detalhes','l'],['#acessorios','l'],['#presentes','d'],['#marca','d'],
+    ['#contato','d'],['.footer','d']].map(([sel, t]) => [document.querySelector(sel), t]).filter(x => x[0]);
+  const onRail = () => {
+    const mid = window.innerHeight / 2;
+    rail.classList.toggle('on', window.scrollY > window.innerHeight * .75);
+    let cur = -1;
+    railTargets.forEach((el, i) => { const r = el.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) cur = i; });
+    if (cur < 0) railTargets.forEach((el, i) => { if (el.getBoundingClientRect().top <= mid) cur = i; });
+    railLinks.forEach((a, i) => a.classList.toggle('active', i === cur));
+    let tone = 'd';
+    tones.forEach(([el, t]) => { const r = el.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) tone = t; });
+    rail.classList.toggle('light', tone === 'l');
+  };
+  window.addEventListener('scroll', () => { onScroll(); onRail(); }, { passive: true });
+  window.addEventListener('resize', () => { onScroll(); onRail(); });
+  onScroll(); onRail();
 
   /* --- menu mobile --- */
   const burger = document.getElementById('burger'), mnav = document.getElementById('mnav');
@@ -1183,15 +1252,24 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
       window.ScrollTrigger && ScrollTrigger.refresh();
     }});
   };
-  filters.forEach(f => f.addEventListener('click', () => setFilter(f.dataset.filter)));
+  const ind = document.getElementById('filterInd');
+  const moveInd = () => {
+    const on = document.querySelector('.filter.active'); if (!on) return;
+    ind.style.width = (on.offsetWidth - 32) + 'px';
+    ind.style.transform = `translateX(${on.offsetLeft + 16}px)`;
+  };
+  filters.forEach(f => f.addEventListener('click', () => { setFilter(f.dataset.filter); moveInd(); }));
+  document.getElementById('filters').addEventListener('scroll', moveInd, { passive: true });
+  window.addEventListener('resize', moveInd);
   layout(products);
+  requestAnimationFrame(() => setTimeout(moveInd, 140));
 
   /* --- revelações --- */
   const io = new IntersectionObserver(entries => {
     entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
   }, { rootMargin: '0px 0px -8% 0px', threshold: .08 });
   document.querySelectorAll('.product__media').forEach(m => m.insertAdjacentHTML('beforeend', '<span class="product__frame"></span>'));
-  document.querySelectorAll('.rv:not(.hero .rv), .rv-img, .mask, .brand-sec__mark, .marks').forEach(el => io.observe(el));
+  document.querySelectorAll('.rv:not(.hero .rv), .rv-img, .mask:not(.hero .mask), .brand-sec__mark, .marks').forEach(el => io.observe(el));
   document.querySelectorAll('h1, h2').forEach(h => {
     h.querySelectorAll(':scope > .mask > i').forEach((i, k) => { i.style.transitionDelay = (k * .09) + 's'; });
   });
