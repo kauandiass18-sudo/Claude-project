@@ -139,15 +139,22 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .prog{position:fixed;top:0;left:0;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:var(--gold);z-index:200;pointer-events:none}
 
 /* --- preloader ----------------------------------------------------------- */
-.loader{position:fixed;inset:0;z-index:1000;background:var(--navy);display:grid;place-items:center;transition:opacity .8s var(--ease),visibility .8s}
-.loader.done{opacity:0;visibility:hidden;pointer-events:none}
-.loader__mark{display:flex;flex-direction:column;align-items:center;gap:20px}
+.loader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden}
+.loader__half{position:absolute;left:0;right:0;height:50.5%;background:var(--navy);transition:transform 1.15s cubic-bezier(.76,0,.24,1) .12s}
+.loader__half--t{top:0}
+.loader__half--b{bottom:0}
+.loader.done{pointer-events:none}
+.loader.done .loader__half--t{transform:translateY(-100%)}
+.loader.done .loader__half--b{transform:translateY(100%)}
+.loader.done .loader__mark,.loader.done .loader__pct{opacity:0;transition:opacity .35s var(--ease)}
+.loader.gone{visibility:hidden}
+.loader__mark{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:20px}
 .loader__mark img{width:64px;height:64px;border-radius:50%;opacity:0;animation:fadeUp .9s var(--ease-out) .1s forwards}
 .loader__word{font-family:var(--serif);font-size:13px;letter-spacing:.4em;text-transform:uppercase;color:var(--off);opacity:0;animation:fadeUp .9s var(--ease-out) .25s forwards}
 .loader__sub{font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fadeUp .9s var(--ease-out) .35s forwards}
 .loader__line{width:140px;height:1px;background:rgba(244,241,234,.14);position:relative;overflow:hidden;margin-top:8px}
 .loader__line::after{content:"";position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;animation:load 1.3s var(--ease) .2s forwards}
-.loader__pct{position:absolute;right:var(--gutter);bottom:var(--gutter);font-family:var(--serif);font-size:clamp(36px,5.6vw,66px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.4)}
+.loader__pct{position:absolute;z-index:2;right:var(--gutter);bottom:var(--gutter);font-family:var(--serif);font-size:clamp(36px,5.6vw,66px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.4)}
 @keyframes load{to{transform:scaleX(1)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
@@ -202,18 +209,18 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
    ========================================================================== */
 .hero{position:relative;min-height:100svh;background:var(--navy);color:var(--off);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);overflow:hidden}
 .hero__text{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--header-h) + 40px) clamp(24px,4vw,64px) 120px max(var(--gutter), calc((100vw - var(--max)) / 2))}
-.hero__text .wrap-l{width:min(100%, 600px)}
+.hero__text .wrap-l{width:min(126%, 740px)}
 .hero .rv{transition:none}
-.hero h1{font-size:clamp(37px, 4.4vw, 67px);line-height:1.04;margin:24px 0 26px}
+.hero h1{position:relative;z-index:3;font-size:clamp(39px, 5.1vw, 78px);line-height:1.02;margin:28px 0 30px;text-shadow:0 2px 50px rgba(14,26,44,.55)}
 .hero h1 em{color:var(--gold)}
-.hero .lead{max-width:38ch;color:rgba(244,241,234,.72)}
-.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+.hero .lead{max-width:34ch;color:rgba(244,241,234,.78);position:relative;z-index:3}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px;position:relative;z-index:3}
 .hero__seam{position:absolute;left:50%;top:0;bottom:0;width:1px;z-index:3;background:linear-gradient(180deg,transparent,var(--gold-line) 16%,var(--gold-line) 84%,transparent);pointer-events:none}
 .hero__seam::after{content:"";position:absolute;left:50%;top:50%;width:7px;height:7px;transform:translate(-50%,-50%) rotate(45deg);border:1px solid var(--gold);background:var(--navy)}
 .hero__visual{position:relative;min-height:60vh}
 .hero__frame{position:absolute;inset:0;overflow:hidden;clip-path:inset(0 0 100% 0)}
 .hero__frame img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;transform:scale(1.12)}
-.hero__frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,44,.78) 0%,rgba(14,26,44,.25) 14%,rgba(14,26,44,0) 30%),linear-gradient(90deg,var(--navy) 0%,rgba(20,36,59,.35) 10%,rgba(20,36,59,0) 30%),linear-gradient(0deg,rgba(14,26,44,.6) 0%,rgba(14,26,44,0) 30%)}
+.hero__frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,26,44,.78) 0%,rgba(14,26,44,.25) 14%,rgba(14,26,44,0) 30%),linear-gradient(90deg,var(--navy) 0%,var(--navy) 6%,rgba(20,36,59,.72) 20%,rgba(20,36,59,.22) 38%,rgba(20,36,59,0) 54%),linear-gradient(0deg,rgba(14,26,44,.6) 0%,rgba(14,26,44,0) 30%)}
 .hero__frame::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:radial-gradient(125% 95% at 52% 38%,transparent 52%,rgba(14,26,44,.3) 100%)}
 .hero__grain{position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .hero__caption{position:absolute;right:var(--gutter);bottom:40px;z-index:3;display:flex;align-items:center;gap:14px;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,241,234,.72);font-weight:600}
@@ -240,8 +247,15 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .head .num{font-family:var(--serif);font-variant-numeric:oldstyle-nums;font-size:clamp(50px,6.4vw,94px);line-height:.78;color:transparent;-webkit-text-stroke:1px var(--gold-soft);user-select:none}
 
 /* --- declaração ---------------------------------------------------------- */
-.statement{background:var(--navy);color:var(--off);padding:clamp(120px,16vw,230px) 0;position:relative;overflow:hidden}
-.statement p{font-family:var(--serif);font-size:clamp(27px, 4.1vw, 61px);line-height:1.14;max-width:18ch;margin:0 auto;text-align:center}
+.statement{background:var(--navy-deep);color:var(--off);position:relative;overflow:hidden;min-height:118svh;display:grid;place-items:center;isolation:isolate}
+.wall{position:absolute;inset:-14% -2%;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.2vw,20px);z-index:-2}
+.wall__col{display:flex;flex-direction:column;gap:clamp(10px,1.2vw,20px);will-change:transform}
+.wall__col img{width:100%;aspect-ratio:3/4;object-fit:cover;filter:grayscale(.12) brightness(.92) contrast(1.04)}
+.wall__veil{position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,var(--navy-deep) 0%,rgba(14,26,44,.55) 16%,rgba(14,26,44,.5) 84%,var(--navy-deep) 100%),
+  radial-gradient(58% 46% at 50% 50%,rgba(14,26,44,.82) 0%,rgba(14,26,44,.22) 100%)}
+.statement__in{position:relative;z-index:1;text-align:center;padding:clamp(80px,10vw,140px) 0}
+.statement p{font-family:var(--serif);font-size:clamp(30px, 4.6vw, 70px);line-height:1.12;max-width:17ch;margin:0 auto;text-align:center;text-shadow:0 2px 40px rgba(14,26,44,.6)}
 .statement .w{opacity:.14;transition:opacity .4s}
 .statement .w.on{opacity:1}
 .statement em{color:var(--gold)}
@@ -260,6 +274,14 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .product{display:flex;flex-direction:column}
 .product.is-hidden{display:none}
 .product.offset{margin-top:clamp(0px, 6vw, 92px)}
+.product.feature{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,2.6vw,44px);align-items:center}
+.product.feature .product__media{aspect-ratio:3/4}
+.product.feature .product__body{padding-top:0;flex-direction:column;align-items:flex-start;justify-content:center;gap:18px;padding-right:clamp(0px,2vw,32px)}
+.product.feature .product__cat{margin-bottom:10px}
+.product.feature .product__name{font-size:clamp(30px,2.9vw,44px)}
+.product.feature .feat-note{font-size:14.5px;line-height:1.65;color:var(--ink-2);max-width:30ch}
+.feat-note{display:none}
+.product.feature .feat-note{display:block}
 .product__media{position:relative;display:block;overflow:hidden;aspect-ratio:3/4;background:var(--off-2);box-shadow:0 20px 44px -28px rgba(20,36,59,.4);transition:box-shadow .6s var(--ease)}
 .product__media:hover{box-shadow:0 26px 54px -26px rgba(20,36,59,.5)}
 .product__media img,.product__media svg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--ease-out)}
@@ -466,6 +488,9 @@ html.fine .product__disc{display:none}
 @media (max-width:1100px){
   .nav{gap:22px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .product.feature{grid-template-columns:1fr;gap:18px;align-items:stretch}
+  .product.feature .product__body{padding-top:18px;flex-direction:row;align-items:flex-end;justify-content:space-between}
+  .product.feature .feat-note{display:none}
   .editorial__media{grid-column:1 / span 12;aspect-ratio:4/5}
   .editorial__text{grid-column:1 / span 12;padding:48px 0 0}
   .brand-sec .wrap{grid-template-columns:1fr;justify-items:center;gap:clamp(40px,5vw,64px)}
@@ -487,11 +512,14 @@ html.fine .product__disc{display:none}
   .hero__visual{order:-1;min-height:70svh;max-height:82svh}
   .hero__frame img{object-position:50% 12%}
   .hero__frame::after{background:linear-gradient(180deg,rgba(14,26,44,.8) 0%,rgba(14,26,44,.2) 18%,rgba(14,26,44,0) 32%),linear-gradient(0deg,var(--navy) 0%,rgba(20,36,59,.4) 30%,rgba(20,36,59,0) 62%)}
-  .hero__text{padding:0 var(--gutter) 64px;margin-top:-22vh}
+  .hero__text{padding:0 var(--gutter) 64px;margin-top:-17vh}
   .hero h1{margin:18px 0 20px}
   .hero__cta{margin-top:30px}
   .hero__cta .btn{width:100%}
   .hero__caption,.hero__scroll,.hero__seam{display:none}
+  .statement{min-height:92svh}
+  .wall{grid-template-columns:repeat(3,1fr);inset:-30% -10%}
+  .wall__col:nth-child(4){display:none}
   .head{flex-direction:column;align-items:flex-start;gap:14px}
   .head .num{display:none}
   .filters{margin-inline:calc(var(--gutter) * -1);padding-inline:var(--gutter);width:auto}
@@ -525,6 +553,9 @@ html.fine .product__disc{display:none}
 }
 @media (max-width:600px){
   .grid{grid-template-columns:1fr;gap:56px 0}
+  .product.feature{grid-column:span 1}
+  .product.feature .product__body{flex-direction:column;align-items:flex-start}
+  .product.feature .product__name{font-size:30px}
   .product__body{flex-direction:column;align-items:flex-start;gap:12px}
   .product__name{font-size:26px}
   .product--cta{aspect-ratio:4/3}
@@ -576,6 +607,8 @@ html.fine .product__disc{display:none}
 <div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__ring"><i class="cursor__txt"></i></span><span class="cursor__dot"></span></div>
 
 <div class="loader" id="loader" aria-hidden="true">
+  <span class="loader__half loader__half--t"></span>
+  <span class="loader__half loader__half--b"></span>
   <div class="loader__mark">
     <img src="assets/img/logo.png" alt="" width="64" height="64">
     <span class="loader__word">Robertinho's</span>
@@ -697,7 +730,7 @@ html.fine .product__disc{display:none}
           <span class="product__disc">Consultar</span>
         </a>
         <div class="product__body">
-          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#22376B"></i>Azul-marinho</h3></div>
+          <div><span class="product__cat">Ternos</span><h3 class="product__name"><i class="sw" style="--c:#22376B"></i>Azul-marinho</h3><p class="feat-note">Conjunto completo em manequim: paletó, calça, camisa branca e gravata paisley.</p></div>
           <a class="link" data-wa data-product href="#contato">Consultar <svg><use href="#i-arr"/></svg></a>
         </div>
       </article>
@@ -887,7 +920,34 @@ html.fine .product__disc{display:none}
      DECLARAÇÃO
      ====================================================================== -->
 <section class="statement" aria-label="Posicionamento">
-  <div class="wrap">
+  <div class="wall" aria-hidden="true">
+    <div class="wall__col" data-sp="-19">
+      <img src="assets/img/produto-01-terno-azul-marinho.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/detalhe-02-lapela.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/produto-07-terno-marrom.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/produto-12-gravata-paisley-azul.webp" alt="" loading="lazy" decoding="async">
+    </div>
+    <div class="wall__col" data-sp="13">
+      <img src="assets/img/produto-06-terno-cinza-claro.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/detalhe-03-bolso.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/produto-05-terno-xadrez.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/acessorios.webp" alt="" loading="lazy" decoding="async">
+    </div>
+    <div class="wall__col" data-sp="-26">
+      <img src="assets/img/produto-09-blazer-cinza-claro.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/produto-03-terno-cinza-tres-pecas.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/detalhe-04-caimento.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/produto-10-calca-social-bege.webp" alt="" loading="lazy" decoding="async">
+    </div>
+    <div class="wall__col" data-sp="20">
+      <img src="assets/img/produto-08-terno-preto.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/detalhe-01-combinacoes.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/produto-04-terno-azul-marinho-slim.webp" alt="" loading="lazy" decoding="async">
+      <img src="assets/img/produto-11-camisa-social-branca.webp" alt="" loading="lazy" decoding="async">
+    </div>
+  </div>
+  <div class="wall__veil" aria-hidden="true"></div>
+  <div class="wrap statement__in">
     <div class="statement__rule rv" aria-hidden="true"></div>
     <p id="statement">Um bom terno não pede licença. <em>Ele entra na sala antes de você.</em></p>
   </div>
@@ -1151,7 +1211,7 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
     gsap.to('.hero .rv', { opacity: 1, y: 0, duration: 1.1, stagger: .12, ease: 'power3.out', delay: .25, clearProps: 'transform' });
     document.querySelectorAll('.hero h1 .mask').forEach((m, i) => setTimeout(() => m.classList.add('in'), 320 + i * 115));
   };
-  const finish = () => { clearInterval(tick); pct.textContent = '100'; loader.classList.add('done'); heroIn(); };
+  const finish = () => { clearInterval(tick); pct.textContent = '100'; loader.classList.add('done'); setTimeout(() => loader.classList.add('gone'), 1500); heroIn(); };
   if (reduce) finish(); else window.addEventListener('load', () => setTimeout(finish, 1000));
   setTimeout(() => { if (!loader.classList.contains('done')) finish(); }, 3600);
 
@@ -1237,7 +1297,10 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
     const total = cat === 'all' ? products.length : products.filter(p => p.dataset.cat === cat).length;
     f.insertAdjacentHTML('beforeend', `<sup>${String(total).padStart(2, '0')}</sup>`);
   });
-  const layout = (list) => list.forEach((p, i) => p.classList.toggle('offset', i % 3 === 1));
+  const layout = (list) => list.forEach((p, i) => {
+    p.classList.toggle('feature', i === 0 && list.length > 3);
+    p.classList.toggle('offset', i >= 2 && (i - 2) % 3 === 1);
+  });
   const setFilter = (cat) => {
     filters.forEach(f => { const on = f.dataset.filter === cat; f.classList.toggle('active', on); f.setAttribute('aria-pressed', on); });
     const show = products.filter(p => cat === 'all' || p.dataset.cat === cat);
@@ -1328,6 +1391,19 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
       trigger: '.statement', start: 'top 75%', end: 'bottom 62%', scrub: true,
       onUpdate: self => { const k = Math.round(self.progress * words.length); words.forEach((w, i) => w.classList.toggle('on', i < k)); }
     });
+
+    document.querySelectorAll('.wall__col').forEach(col => {
+      const need = col.parentElement.offsetHeight * 1.2;
+      let guard = 0;
+      while (col.scrollHeight < need && guard++ < 3) {
+        [...col.children].forEach(n => col.appendChild(n.cloneNode(true)));
+      }
+      const sp = parseFloat(col.dataset.sp);
+      gsap.fromTo(col, { yPercent: -sp }, { yPercent: sp, ease: 'none',
+        scrollTrigger: { trigger: '.statement', start: 'top bottom', end: 'bottom top', scrub: .5 } });
+    });
+    gsap.fromTo('.wall', { scale: 1.1 }, { scale: 1, ease: 'none',
+      scrollTrigger: { trigger: '.statement', start: 'top bottom', end: 'center center', scrub: .5 } });
 
     gsap.fromTo('.editorial__frame', { yPercent: 18 }, { yPercent: -18, ease: 'none',
       scrollTrigger: { trigger: '#parallax', start: 'top bottom', end: 'bottom top', scrub: true } });
