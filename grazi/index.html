@@ -1,0 +1,1155 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grazi · Manicure & Pedicure — Faxinal dos Guedes</title>
+<meta name="description" content="Manicure, pedicure e Spa dos Pés em Faxinal dos Guedes, SC. Delicadeza em cada detalhe: um momento de cuidado, beleza e carinho dedicado a você.">
+<meta name="theme-color" content="#FAF7F5">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Grazi · Manicure & Pedicure">
+<meta property="og:description" content="Delicadeza em cada detalhe. Manicure, pedicure e Spa dos Pés em Faxinal dos Guedes, SC.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23F3EAE3'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-size='36' font-style='italic' fill='%23C98F9F'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap">
+<script>
+  /* Esconde só os elementos da abertura até a animação começar (com saída de segurança). */
+  (function () {
+    var calmo = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!calmo) {
+      document.documentElement.classList.add('intro');
+      setTimeout(function () { document.documentElement.classList.remove('intro'); }, 3500);
+    }
+  })();
+</script>
+<style>
+/* =========================================================================
+   TOKENS
+   ========================================================================= */
+:root{
+  --blush:#EBC8D2;
+  --rosa:#C98F9F;
+  --rosa-forte:#B47A8A;      /* rosa antigo um tom abaixo, só para fundo de botão (legibilidade) */
+  --off:#FAF7F5;
+  --creme:#F3EAE3;
+  --salvia:#A8B5A0;
+  --salvia-fundo:#E9ECE3;
+  --ouro:#C6A66B;
+  --marrom:#66504D;
+  --tinta:#43322F;
+  --linha:rgba(102,80,77,.16);
+
+  --serif:"Cormorant Garamond", "Cormorant", Georgia, serif;
+  --sans:"Jost", "Helvetica Neue", Arial, sans-serif;
+
+  --gutter:clamp(20px, 5vw, 72px);
+  --max:1320px;
+  --raio:14px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-suave:cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+body{
+  margin:0;background:var(--off);color:var(--marrom);
+  font-family:var(--sans);font-weight:300;font-size:clamp(16px,1.05vw,17.5px);line-height:1.7;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+:focus-visible{outline:1.5px solid var(--rosa);outline-offset:4px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.pular{position:absolute;left:16px;top:-60px;z-index:200;background:var(--tinta);color:var(--off);padding:10px 16px;border-radius:8px;font-size:14px}
+.pular:focus{top:12px}
+
+main{overflow-x:clip}
+.wrap{width:100%;max-width:calc(var(--max) + var(--gutter)*2);margin:0 auto;padding:0 var(--gutter)}
+
+/* tipografia ------------------------------------------------------------ */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-family:var(--sans);font-weight:400;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--rosa);
+}
+.eyebrow::before{content:"";width:28px;height:1px;background:var(--ouro);opacity:.8}
+.titulo{
+  font-family:var(--serif);font-weight:300;color:var(--tinta);
+  font-size:clamp(38px,5.4vw,76px);line-height:1.04;letter-spacing:-.01em;margin:22px 0 0;
+}
+.titulo em{font-style:italic;color:var(--rosa)}
+.lead{font-size:clamp(17px,1.3vw,19px);max-width:34em;margin:24px 0 0;color:var(--marrom)}
+
+/* palavras animadas */
+.palavra{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.palavra > span{display:inline-block;will-change:transform}
+
+/* botões ----------------------------------------------------------------- */
+.botoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  min-height:54px;padding:0 30px;border-radius:999px;
+  font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  transition:transform .5s var(--ease-suave), background-color .4s var(--ease), color .4s var(--ease), border-color .4s var(--ease), box-shadow .5s var(--ease);
+  isolation:isolate;overflow:hidden;white-space:nowrap;
+}
+.btn svg{width:18px;height:18px;flex:none;transition:transform .5s var(--ease-suave)}
+.btn--rosa{background:var(--rosa-forte);color:#fff;box-shadow:0 10px 30px -14px rgba(180,122,138,.8)}
+.btn--rosa::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform 1s var(--ease-suave);
+}
+.btn--rosa:hover{background:#A86F7F;transform:translateY(-2px);box-shadow:0 16px 36px -16px rgba(168,111,127,.9)}
+.btn--rosa:hover::after{transform:translateX(120%)}
+.btn--linha{border:1px solid rgba(102,80,77,.35);color:var(--tinta);background:transparent}
+.btn--linha:hover{border-color:var(--tinta);background:var(--tinta);color:var(--off);transform:translateY(-2px)}
+.btn:hover svg{transform:translateX(3px)}
+.btn--claro{background:var(--off);color:var(--tinta)}
+.btn--claro:hover{background:#fff;transform:translateY(-2px)}
+
+.link-seta{
+  display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta);
+  padding:8px 0;border-bottom:1px solid var(--linha);transition:border-color .4s var(--ease),gap .4s var(--ease)
+}
+.link-seta:hover{border-color:var(--rosa);gap:16px}
+.link-seta svg{width:16px;height:16px}
+
+/* ramos botânicos -------------------------------------------------------- */
+.ramo{position:absolute;pointer-events:none;color:var(--salvia);fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+.ramo .folha{fill:currentColor;fill-opacity:.0;transition:fill-opacity 1.2s var(--ease)}
+.ramo.cheio .folha{fill-opacity:.14}
+.ramo .botao-flor{stroke:var(--rosa)}
+
+/* =========================================================================
+   FOTOS E MOLDURAS-PLACEHOLDER
+   ========================================================================= */
+.foto{position:relative;overflow:hidden;background:var(--creme)}
+.foto img{width:100%;height:100%;object-fit:cover}
+.ph{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  color:var(--rosa);text-align:center;padding:20px;
+}
+.ph svg{width:min(42%,140px);height:auto;fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;opacity:.75}
+.ph span{font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--marrom);opacity:.62;line-height:1.6;max-width:16em}
+.tom-blush{background:linear-gradient(170deg,#F8EEF0 0%,#F1DFE4 100%)}
+.tom-creme{background:linear-gradient(160deg,#F7F0EA 0%,#EFE3D9 100%)}
+.tom-salvia{background:linear-gradient(160deg,#EEF1E9 0%,#DFE5D8 100%)}
+.tom-salvia .ph{color:#7F9277}
+.tom-champ{background:linear-gradient(170deg,#F8F2EA 0%,#F0E5D4 100%)}
+.tom-champ .ph{color:#B08F55}
+
+/* =========================================================================
+   NAVEGAÇÃO
+   ========================================================================= */
+.nav{
+  position:fixed;inset:0 0 auto 0;z-index:60;
+  transition:background-color .5s var(--ease), box-shadow .5s var(--ease), transform .6s var(--ease-suave);
+}
+.nav.solida{background:rgba(250,247,245,.86);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);box-shadow:0 1px 0 var(--linha)}
+.nav.escondida{transform:translateY(-100%)}
+.nav__in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.marca{display:flex;flex-direction:column;line-height:1;color:var(--tinta)}
+.marca b{font-family:var(--serif);font-weight:400;font-size:28px;letter-spacing:.14em}
+.marca small{font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:var(--rosa);margin-top:5px}
+.nav__links{display:none;gap:36px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--marrom)}
+.nav__links a{position:relative;padding:6px 0}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--rosa);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease-suave)}
+.nav__links a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav__cta{display:none;min-height:44px;padding:0 22px;font-size:11.5px}
+.menu-btn{width:48px;height:48px;margin-right:-10px;display:grid;place-items:center;border-radius:50%}
+.menu-btn i{display:block;width:24px;height:1px;background:var(--tinta);position:relative;transition:background .3s}
+.menu-btn i::before,.menu-btn i::after{content:"";position:absolute;left:0;width:24px;height:1px;background:var(--tinta);transition:transform .5s var(--ease-suave), top .5s var(--ease-suave)}
+.menu-btn i::before{top:-6px}
+.menu-btn i::after{top:6px;width:16px}
+.menu-aberto .menu-btn i{background:transparent}
+.menu-aberto .menu-btn i::before{top:0;transform:rotate(45deg)}
+.menu-aberto .menu-btn i::after{top:0;width:24px;transform:rotate(-45deg)}
+
+.menu{
+  position:fixed;inset:0;z-index:55;background:var(--creme);
+  display:flex;flex-direction:column;justify-content:space-between;padding:110px var(--gutter) calc(32px + env(safe-area-inset-bottom));
+  clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .8s var(--ease-suave), visibility 0s .8s;
+}
+.menu-aberto .menu{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .8s var(--ease-suave), visibility 0s}
+.menu ol{list-style:none;margin:0;padding:0;counter-reset:m}
+.menu li{counter-increment:m;border-bottom:1px solid var(--linha);overflow:hidden}
+.menu li a{display:flex;align-items:baseline;gap:16px;padding:14px 0;font-family:var(--serif);font-size:clamp(32px,9vw,44px);font-weight:300;color:var(--tinta);
+  transform:translateY(100%);transition:transform .7s var(--ease-suave)}
+.menu li a::before{content:"0" counter(m);font-family:var(--sans);font-size:11px;letter-spacing:.2em;color:var(--rosa)}
+.menu-aberto .menu li a{transform:none}
+.menu-aberto .menu li:nth-child(2) a{transition-delay:.05s}
+.menu-aberto .menu li:nth-child(3) a{transition-delay:.1s}
+.menu-aberto .menu li:nth-child(4) a{transition-delay:.15s}
+.menu-aberto .menu li:nth-child(5) a{transition-delay:.2s}
+.menu-aberto .menu li:nth-child(6) a{transition-delay:.25s}
+.menu__pe{display:flex;flex-direction:column;gap:18px}
+.menu__pe .btn{width:100%}
+.menu__pe p{margin:0;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--marrom);text-align:center}
+
+@media (min-width:1024px){
+  .nav__links,.nav__cta{display:inline-flex}
+  .menu-btn,.menu{display:none}
+}
+
+/* =========================================================================
+   HERO
+   ========================================================================= */
+.hero{position:relative;padding:96px 0 64px;overflow:hidden}
+.hero__grid{display:grid;gap:36px;align-items:center}
+.hero__visual{position:relative;justify-self:center;width:min(76%,340px);margin-top:8px}
+.arco{
+  position:relative;aspect-ratio:4/5;border-radius:999px 999px var(--raio) var(--raio);overflow:hidden;
+  box-shadow:0 40px 80px -50px rgba(102,80,77,.45);
+}
+.arco .foto,.arco__img{position:absolute;inset:0}
+.arco__img{will-change:transform}
+.arco__aro{position:absolute;inset:-12px;border:1px solid var(--ouro);opacity:.55;border-radius:999px 999px calc(var(--raio) + 12px) calc(var(--raio) + 12px);pointer-events:none}
+.hero__detalhe{
+  position:absolute;left:-6%;bottom:9%;width:32%;aspect-ratio:1;border-radius:50%;overflow:hidden;
+  border:6px solid var(--off);box-shadow:0 18px 40px -22px rgba(102,80,77,.5)
+}
+.hero__detalhe .foto{position:absolute;inset:0}
+.hero__detalhe .ph svg{width:46%}
+.hero__detalhe .ph span{display:none}
+.selo{
+  position:absolute;right:-14%;top:10%;width:78px;height:78px;color:var(--ouro);
+}
+.selo svg{width:100%;height:100%;animation:gira 40s linear infinite}
+.selo text{font-family:var(--sans);font-size:9.6px;letter-spacing:.32em;text-transform:uppercase;fill:var(--marrom)}
+.selo i{position:absolute;inset:50% auto auto 50%;width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--rosa);border-radius:50%}
+@keyframes gira{to{transform:rotate(360deg)}}
+
+.hero__texto{text-align:center;position:relative;z-index:2}
+.hero__local{font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--marrom);opacity:.8}
+.hero__nome{margin:18px 0 0;font-family:var(--serif);font-weight:300;color:var(--tinta);line-height:.82;
+  font-size:clamp(96px,26vw,210px);letter-spacing:.06em;padding-left:.06em}
+.hero__nome .letra{display:inline-block;will-change:transform}
+.hero__oficio{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:20px;
+  font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--marrom);padding-left:.42em}
+.hero__oficio::before,.hero__oficio::after{content:"";width:34px;height:1px;background:var(--ouro)}
+.hero__frase{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(28px,3.4vw,44px);line-height:1.15;color:var(--rosa);margin:34px 0 0}
+.hero__sub{margin:14px auto 0;max-width:27em;font-size:clamp(16px,1.2vw,18px)}
+.hero .botoes{justify-content:center}
+.hero .btn{flex:1 1 220px;max-width:300px}
+.hero .ramo--a{width:110px;left:-18px;top:70px;transform:rotate(-14deg)}
+.hero .ramo--b{width:90px;right:-10px;bottom:40px;transform:scaleX(-1) rotate(-8deg);display:none}
+.rolar{display:none}
+
+@media (min-width:900px){
+  .hero{padding:120px 0 80px;min-height:100svh;display:flex;align-items:center}
+  .hero__grid{grid-template-columns:1.05fr .95fr;gap:clamp(40px,6vw,110px)}
+  .hero__texto{text-align:left;order:-1}
+  .hero__visual{justify-self:end;width:min(100%,520px)}
+  .hero__nome{font-size:clamp(130px,14.5vw,232px);margin-left:-.06em}
+  .hero__oficio{justify-content:flex-start;padding-left:0}
+  .hero__oficio::before{display:none}
+  .hero__sub{margin-left:0}
+  .hero .botoes{justify-content:flex-start}
+  .hero .btn{flex:0 0 auto}
+  .hero .ramo--a{left:auto;right:44%;top:auto;bottom:4%;width:120px;transform:rotate(8deg)}
+  .hero .ramo--b{display:block;right:.5%;top:auto;bottom:4%;width:96px}
+  .selo{right:-6%;top:12%;width:100px;height:100px}
+  .rolar{display:flex;align-items:center;gap:14px;position:absolute;left:var(--gutter);bottom:34px;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--marrom);opacity:.7}
+  .rolar i{width:1px;height:44px;background:var(--linha);position:relative;overflow:hidden}
+  .rolar i::after{content:"";position:absolute;left:0;top:0;width:1px;height:40%;background:var(--rosa);animation:desce 2.6s var(--ease) infinite}
+  @keyframes desce{0%{transform:translateY(-100%)}100%{transform:translateY(260%)}}
+}
+
+/* =========================================================================
+   SEÇÕES
+   ========================================================================= */
+.secao{position:relative;padding:clamp(88px,12vw,168px) 0}
+.cabeca{max-width:720px}
+.cabeca--centro{margin:0 auto;text-align:center}
+.cabeca--centro .eyebrow::after{content:"";width:28px;height:1px;background:var(--ouro);opacity:.8}
+.cabeca--centro .lead{margin-left:auto;margin-right:auto}
+
+/* SOBRE ------------------------------------------------------------------ */
+.sobre{background:var(--off)}
+.sobre__grid{display:grid;gap:56px;align-items:center}
+.sobre__foto{position:relative;width:min(88%,480px);justify-self:start}
+.sobre__foto::before{content:"";position:absolute;inset:10% -10% -7% 14%;border:1px solid rgba(198,166,107,.5);border-radius:var(--raio);z-index:0}
+.sobre__foto .moldura{position:relative;z-index:1;aspect-ratio:4/5;border-radius:220px 220px var(--raio) var(--raio);overflow:hidden}
+.sobre__foto .foto{position:absolute;inset:0}
+.sobre__foto .ramo{width:96px;right:-22%;bottom:-6%;z-index:2}
+.sobre__assin{
+  position:absolute;z-index:3;left:6%;bottom:-26px;background:var(--off);padding:14px 22px;border-radius:999px;
+  font-family:var(--serif);font-style:italic;font-size:22px;color:var(--tinta);box-shadow:0 14px 30px -20px rgba(102,80,77,.45)
+}
+.sobre__assin small{font-family:var(--sans);font-style:normal;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--rosa);margin-left:8px}
+.sobre__texto p{margin:0}
+.sobre__texto .lead{margin-top:28px}
+.pilares{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:0;border-top:1px solid var(--linha)}
+.pilares li{display:flex;gap:18px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--linha);font-size:15.5px}
+.pilares b{font-family:var(--serif);font-weight:400;font-style:italic;font-size:22px;color:var(--rosa);min-width:2ch}
+.fecho{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(26px,2.6vw,34px);color:var(--tinta);margin-top:40px !important;display:flex;align-items:center;gap:16px}
+.fecho::before{content:"";width:40px;height:1px;background:var(--ouro);flex:none}
+@media (min-width:900px){
+  .sobre__grid{grid-template-columns:.9fr 1.1fr;gap:clamp(60px,8vw,140px)}
+  .sobre__foto{width:100%}
+  .sobre__texto{padding-top:40px}
+}
+
+/* GALERIA ---------------------------------------------------------------- */
+.galeria-sec{background:var(--creme)}
+.galeria-sec::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--ouro),transparent);opacity:.4}
+.galeria{columns:2;column-gap:12px;margin-top:clamp(48px,6vw,80px)}
+.galeria li{break-inside:avoid;margin-bottom:12px;list-style:none}
+.galeria{padding:0}
+.peca{
+  position:relative;display:block;width:100%;border-radius:10px;overflow:hidden;cursor:zoom-in;
+  transform:translateZ(0);
+}
+.peca .foto{position:relative;width:100%;border-radius:inherit}
+.peca[data-formato="retrato"] .foto{aspect-ratio:4/5}
+.peca[data-formato="alto"] .foto{aspect-ratio:2/3}
+.peca[data-formato="quadrado"] .foto{aspect-ratio:1/1}
+.peca .foto > img,.peca .foto > .ph{position:absolute;inset:0;transition:transform 1.4s var(--ease-suave)}
+.peca:hover .foto > img,.peca:hover .foto > .ph,.peca:focus-visible .foto > img{transform:scale(1.045)}
+.peca::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(to top,rgba(67,50,47,.32),transparent 45%);opacity:0;transition:opacity .7s var(--ease)
+}
+.peca:hover::after{opacity:1}
+.peca__mais{
+  position:absolute;right:14px;bottom:14px;z-index:2;width:40px;height:40px;border-radius:50%;background:rgba(250,247,245,.92);color:var(--tinta);
+  display:grid;place-items:center;opacity:0;transform:translateY(8px) scale(.9);transition:opacity .5s var(--ease), transform .6s var(--ease-suave)
+}
+.peca__mais svg{width:16px;height:16px}
+.peca:hover .peca__mais,.peca:focus-visible .peca__mais{opacity:1;transform:none}
+.galeria__pe{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center;margin-top:clamp(48px,6vw,72px);text-align:center}
+.galeria__pe p{margin:0;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--tinta)}
+@media (min-width:700px){ .galeria{columns:3;column-gap:20px} .galeria li{margin-bottom:20px} }
+@media (min-width:1180px){ .galeria{columns:4;column-gap:26px} .galeria li{margin-bottom:26px} }
+
+/* LIGHTBOX */
+.lb{
+  position:fixed;inset:0;z-index:100;display:flex;align-items:center;justify-content:center;
+  background:rgba(43,32,30,.9);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  opacity:0;visibility:hidden;transition:opacity .5s var(--ease), visibility 0s .5s;
+}
+.lb.aberto{opacity:1;visibility:visible;transition:opacity .5s var(--ease), visibility 0s}
+.lb__palco{position:relative;width:min(92vw,880px);height:min(80svh,980px);display:flex;align-items:center;justify-content:center}
+.lb__fig{position:relative;max-width:100%;max-height:100%;border-radius:12px;overflow:hidden;transform:scale(.96);transition:transform .7s var(--ease-suave), opacity .35s var(--ease)}
+.lb.aberto .lb__fig{transform:none}
+.lb__fig img{max-width:min(92vw,880px);max-height:min(80svh,980px);width:auto;height:auto;object-fit:contain}
+.lb__fig .foto{width:min(80vw,560px);aspect-ratio:4/5}
+.lb__fig.trocando{opacity:0}
+.lb__btn{
+  position:absolute;z-index:2;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(250,247,245,.1);color:var(--off);border:1px solid rgba(250,247,245,.28);transition:background .4s var(--ease), color .4s var(--ease)
+}
+.lb__btn:hover{background:var(--off);color:var(--tinta)}
+.lb__btn svg{width:20px;height:20px}
+.lb__fechar{top:calc(16px + env(safe-area-inset-top));right:16px}
+.lb__ant{left:16px;top:50%;margin-top:-26px}
+.lb__prox{right:16px;top:50%;margin-top:-26px}
+.lb__info{position:absolute;left:0;right:0;bottom:calc(18px + env(safe-area-inset-bottom));text-align:center;color:rgba(250,247,245,.8);font-size:12px;letter-spacing:.24em;text-transform:uppercase}
+@media (max-width:699px){
+  .lb__ant,.lb__prox{top:auto;bottom:calc(8px + env(safe-area-inset-bottom));margin:0}
+  .lb__palco{height:72svh}
+}
+
+/* SERVIÇOS --------------------------------------------------------------- */
+.servicos{background:var(--off)}
+.cards{display:grid;gap:18px;margin-top:clamp(48px,6vw,80px)}
+.card{
+  position:relative;display:flex;flex-direction:column;padding:40px 30px 34px;border-radius:var(--raio);
+  background:#fff;border:1px solid rgba(102,80,77,.09);
+  transition:transform .7s var(--ease-suave), box-shadow .7s var(--ease-suave), border-color .5s var(--ease);
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -40px rgba(102,80,77,.45);border-color:rgba(201,143,159,.35)}
+.card__num{position:absolute;top:30px;right:30px;font-family:var(--serif);font-style:italic;font-size:20px;color:var(--ouro)}
+.card__icone{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;background:var(--creme);color:var(--rosa);transition:background .6s var(--ease)}
+.card:hover .card__icone{background:#F5E3E8}
+.card__icone svg{width:40px;height:40px;fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.1;color:var(--tinta);margin:30px 0 0}
+.card p{margin:14px 0 0;font-size:15.5px;flex:1}
+.card__linha{display:block;width:36px;height:1px;background:var(--ouro);margin-top:28px;transition:width .7s var(--ease-suave)}
+.card:hover .card__linha{width:72px}
+.card--destaque{background:var(--salvia-fundo);border-color:transparent}
+.card--destaque .card__icone{background:rgba(255,255,255,.7);color:#7F9277}
+.card--destaque:hover .card__icone{background:#fff}
+.card a.link-seta{margin-top:24px;align-self:flex-start}
+@media (min-width:900px){ .cards{grid-template-columns:repeat(3,1fr);gap:24px} .card{padding:48px 40px 42px} }
+
+/* SPA DOS PÉS ------------------------------------------------------------ */
+.spa{background:var(--salvia-fundo);overflow:hidden}
+.spa__grid{display:grid;gap:56px;align-items:center}
+.spa .eyebrow{color:#6F8268}
+.spa .titulo em{color:#7F9277}
+.spa__fotos{position:relative;width:min(100%,520px);justify-self:center}
+.spa__arco{position:relative;aspect-ratio:3/4;border-radius:var(--raio) var(--raio) 999px 999px;overflow:hidden}
+.spa__arco .foto{position:absolute;inset:0}
+.spa__circ{position:absolute;right:-4%;top:-6%;width:34%;aspect-ratio:1;border-radius:50%;border:1px solid var(--ouro);opacity:.6}
+.spa .ramo{color:#8FA087}
+.spa .ramo--a{width:120px;left:-36px;bottom:-30px}
+.spa .ramo--b{width:90px;right:4%;top:60px;transform:scaleX(-1);display:none}
+.spa__lista{list-style:none;padding:0;margin:36px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.spa__lista li{padding:9px 18px;border-radius:999px;border:1px solid rgba(111,130,104,.35);font-size:13px;letter-spacing:.08em;color:#566650}
+.btn--salvia{background:#6F8268;color:#fff}
+.btn--salvia:hover{background:#5E7058;transform:translateY(-2px)}
+@media (min-width:900px){
+  .spa__grid{grid-template-columns:1fr 1fr;gap:clamp(60px,8vw,140px)}
+  .spa__texto{order:-1}
+  .spa .ramo--b{display:block}
+}
+
+/* DEPOIMENTOS ------------------------------------------------------------ */
+.depo{background:var(--off)}
+.depo__lista{display:grid;gap:18px;margin-top:clamp(48px,6vw,80px)}
+.depo__card{
+  position:relative;margin:0;padding:40px 32px 32px;border-radius:var(--raio);background:var(--creme);
+  display:flex;flex-direction:column;transition:transform .7s var(--ease-suave), box-shadow .7s var(--ease-suave)
+}
+.depo__card:hover{transform:translateY(-4px);box-shadow:0 26px 50px -36px rgba(102,80,77,.5)}
+.depo__card::before{content:"\201C";position:absolute;right:26px;top:4px;font-family:var(--serif);font-size:110px;line-height:1;color:var(--blush)}
+.estrelas{display:flex;gap:5px;color:var(--ouro)}
+.estrelas svg{width:14px;height:14px;fill:currentColor}
+.depo__card blockquote{margin:22px 0 0;font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--tinta);font-weight:400;flex:1}
+.depo__card figcaption{margin-top:26px;padding-top:18px;border-top:1px solid var(--linha);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--marrom);display:flex;justify-content:space-between;gap:12px;align-items:center}
+.etiqueta{font-size:9.5px;letter-spacing:.2em;padding:5px 10px;border-radius:999px;border:1px dashed var(--rosa);color:var(--rosa);white-space:nowrap}
+@media (min-width:900px){ .depo__lista{grid-template-columns:repeat(3,1fr);gap:24px} }
+
+/* INSTAGRAM -------------------------------------------------------------- */
+.insta{background:var(--creme)}
+.insta__topo{display:flex;flex-direction:column;gap:28px}
+.insta__user{display:inline-flex;align-items:center;gap:12px;font-family:var(--serif);font-style:italic;font-size:24px;color:var(--tinta)}
+.insta__user svg{width:22px;height:22px;stroke:var(--rosa);fill:none;stroke-width:1.4}
+.insta__grade{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:48px;padding:0;list-style:none}
+.insta__grade a{position:relative;display:block;aspect-ratio:1;overflow:hidden;border-radius:6px}
+.insta__grade .foto{position:absolute;inset:0}
+.insta__grade .foto > *{transition:transform 1.2s var(--ease-suave)}
+.insta__grade a:hover .foto > *{transform:scale(1.05)}
+.insta__grade .ph span{display:none}
+.insta__grade .ph svg{width:30%}
+.insta__grade a::after{content:"";position:absolute;inset:0;background:rgba(201,143,159,.0);transition:background .6s var(--ease)}
+.insta__grade a:hover::after{background:rgba(201,143,159,.16)}
+.insta__aviso{margin:18px 0 0;font-size:13px;opacity:.75}
+@media (min-width:700px){ .insta__grade{grid-template-columns:repeat(6,1fr);gap:12px} }
+@media (min-width:900px){ .insta__topo{flex-direction:row;align-items:flex-end;justify-content:space-between} }
+
+/* AGENDAMENTO ------------------------------------------------------------ */
+.agenda{background:var(--off);padding:clamp(40px,6vw,80px) 0}
+.agenda__bloco{
+  position:relative;overflow:hidden;border-radius:clamp(18px,2.4vw,28px);background:var(--marrom);color:#F3E6E2;
+  padding:clamp(64px,9vw,128px) clamp(24px,6vw,96px);text-align:center;isolation:isolate
+}
+.agenda__bloco::before{
+  content:"";position:absolute;width:140%;aspect-ratio:1;left:50%;top:-75%;transform:translateX(-50%);z-index:-1;
+  background:radial-gradient(closest-side,rgba(235,200,210,.16),transparent 70%)
+}
+.agenda .eyebrow{color:var(--blush)}
+.agenda .eyebrow::after{content:"";width:28px;height:1px;background:var(--ouro);opacity:.8}
+.agenda .titulo{color:#FBF3F0;font-size:clamp(40px,6vw,88px);max-width:12em;margin-left:auto;margin-right:auto}
+.agenda .titulo em{color:var(--blush)}
+.agenda .lead{color:#E9DAD5;margin:26px auto 0;max-width:30em}
+.agenda .botoes{justify-content:center;margin-top:44px}
+.agenda .btn--rosa{min-height:60px;padding:0 38px;box-shadow:0 18px 40px -18px rgba(0,0,0,.5)}
+.agenda__nota{margin:22px 0 0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:rgba(243,230,226,.62)}
+.agenda .ramo{color:rgba(235,200,210,.55)}
+.agenda .ramo .botao-flor{stroke:var(--ouro)}
+.agenda .ramo--a{width:110px;left:2%;bottom:-20px}
+.agenda .ramo--b{width:110px;right:2%;top:-10px;transform:rotate(180deg)}
+@media (max-width:699px){ .agenda .ramo{display:none} }
+
+/* LOCALIZAÇÃO ------------------------------------------------------------ */
+.local{background:var(--off);padding-top:clamp(64px,8vw,120px)}
+.local__grid{display:grid;gap:40px;align-items:stretch}
+.local__card{padding:clamp(36px,4vw,56px);border-radius:var(--raio);background:var(--creme);display:flex;flex-direction:column;align-items:flex-start}
+.pino{width:64px;height:64px;border-radius:50%;background:var(--off);display:grid;place-items:center;color:var(--rosa)}
+.pino svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
+.local__cidade{font-family:var(--serif);font-weight:300;font-size:clamp(36px,4vw,54px);line-height:1.05;color:var(--tinta);margin:28px 0 0}
+.local__cidade .uf{display:block;font-style:italic;color:var(--rosa);font-size:.62em;margin-top:6px}
+.local__end{margin:22px 0 0;font-size:16px}
+.local__card .botoes{margin-top:auto;padding-top:32px}
+.mapa{position:relative;min-height:320px;border-radius:var(--raio);overflow:hidden;background:var(--salvia-fundo)}
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.75) sepia(.08)}
+.mapa__vazio{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center;padding:32px;color:#7F9277}
+.mapa__vazio svg{width:100%;max-width:340px;height:auto;fill:none;stroke:currentColor;stroke-width:.9;opacity:.7}
+.mapa__vazio p{margin:0;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--marrom);opacity:.6}
+@media (min-width:900px){ .local__grid{grid-template-columns:.85fr 1.15fr;gap:24px} .mapa{min-height:440px} }
+
+/* RODAPÉ ----------------------------------------------------------------- */
+.rodape{position:relative;overflow:hidden;background:#F4E3E7;color:var(--tinta);padding:clamp(80px,10vw,128px) 0 calc(36px + env(safe-area-inset-bottom));margin-top:clamp(88px,12vw,160px)}
+.rodape__marca{text-align:center}
+.rodape__marca b{display:block;font-family:var(--serif);font-weight:300;font-size:clamp(72px,14vw,168px);line-height:.85;letter-spacing:.08em;padding-left:.08em;color:var(--tinta)}
+.rodape__marca small{display:block;margin-top:18px;font-size:12px;letter-spacing:.42em;text-transform:uppercase;padding-left:.42em}
+.rodape__marca p{margin:22px 0 0;font-family:var(--serif);font-style:italic;font-size:26px;color:#9B6474}
+.rodape__cols{display:grid;gap:36px;margin-top:clamp(56px,7vw,88px);padding-top:44px;border-top:1px solid rgba(67,50,47,.16)}
+.rodape h4{margin:0 0 16px;font-size:11px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:#9B6474}
+.rodape ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15.5px}
+.rodape ul a{transition:color .3s var(--ease)}
+.rodape ul a:hover{color:#9B6474}
+.rodape__base{padding-right:76px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin-top:56px;padding-top:24px;border-top:1px solid rgba(67,50,47,.16);font-size:12.5px;opacity:.78}
+.rodape .ramo{color:rgba(102,80,77,.35)}
+.rodape .ramo .botao-flor{stroke:rgba(102,80,77,.45)}
+.rodape .ramo--a{width:120px;left:-14px;top:30px;transform:rotate(-10deg)}
+.rodape .ramo--b{width:120px;right:-14px;top:30px;transform:scaleX(-1) rotate(-10deg)}
+@media (min-width:700px){ .rodape__cols{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:699px){ .rodape .ramo{width:72px} }
+
+/* WHATSAPP FLUTUANTE ----------------------------------------------------- */
+.wa{
+  position:fixed;z-index:50;right:max(18px, env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));
+  display:flex;align-items:center;gap:0;height:56px;padding:0 17px;border-radius:999px;
+  background:var(--off);color:var(--tinta);border:1px solid rgba(201,143,159,.4);
+  box-shadow:0 16px 36px -18px rgba(102,80,77,.55);
+  transform:translateY(120px);opacity:0;transition:transform .8s var(--ease-suave), opacity .6s var(--ease), background .4s var(--ease), gap .5s var(--ease-suave);
+}
+.wa.visivel{transform:none;opacity:1}
+.wa svg{width:22px;height:22px;color:var(--rosa-forte);flex:none}
+.wa span{max-width:0;overflow:hidden;white-space:nowrap;font-size:11.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;transition:max-width .6s var(--ease-suave)}
+@media (hover:hover){ .wa:hover{gap:12px;background:#fff} .wa:hover span{max-width:120px} }
+
+/* REVELAÇÃO (só quando o JS de animação estiver ativo) -------------------- */
+.intro .hero [data-intro],.intro .hero__nome{opacity:0}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .ramo .folha{fill-opacity:.14}
+}
+</style>
+</head>
+<body>
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<!-- símbolos SVG reutilizados -------------------------------------------- -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- ramo botânico: haste, folhas e um botão de rosa -->
+    <symbol id="ramo" viewBox="0 0 120 300">
+      <path class="traco" d="M60 296C57 236 67 182 59 124 52 74 62 38 72 12"/>
+      <path class="traco folha" d="M59 252C40 246 26 230 22 208 42 212 56 228 59 252Z"/>
+      <path class="traco" d="M59 252C48 238 36 224 22 208"/>
+      <path class="traco folha" d="M62 214C80 206 94 190 98 168 78 174 64 190 62 214Z"/>
+      <path class="traco" d="M62 214C72 198 84 184 98 168"/>
+      <path class="traco folha" d="M57 160C38 154 26 138 24 118 42 122 55 138 57 160Z"/>
+      <path class="traco" d="M57 160C46 146 35 132 24 118"/>
+      <path class="traco folha" d="M60 112C76 104 88 90 90 72 72 78 61 92 60 112Z"/>
+      <path class="traco" d="M60 112C69 98 79 86 90 72"/>
+      <path class="traco botao-flor" d="M72 12C64 14 60 22 63 30 66 36 74 37 79 32 84 26 81 14 72 12Z"/>
+      <path class="traco botao-flor" d="M72 12C70 20 71 27 75 34"/>
+      <path class="traco" d="M66 36C62 40 60 44 61 50M76 36C79 40 79 45 77 50"/>
+    </symbol>
+    <!-- rosa em traço fino (molduras de foto) -->
+    <symbol id="rosa" viewBox="0 0 120 150">
+      <path d="M60 62c-5 0-8-3-8-7 0-5 4-8 9-8 6 0 10 4 10 10 0 7-6 12-13 12-9 0-15-6-15-14 0-10 8-17 18-17 12 0 20 9 20 20"/>
+      <path d="M81 58c3 12-6 26-21 26-14 0-25-10-25-24 0-8 3-14 8-19"/>
+      <path d="M43 41c-8 3-14 10-14 20 0 17 14 30 31 30s31-13 31-30c0-9-4-16-10-21"/>
+      <path d="M81 40c-2-8-10-15-21-15-6 0-12 2-16 6"/>
+      <path d="M60 91v55"/>
+      <path d="M60 122c-8-10-20-12-28-8 6 9 18 12 28 8z"/>
+      <path d="M60 110c8-8 19-9 26-5-6 8-17 10-26 5z"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- NAVEGAÇÃO ============================================================ -->
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="marca" href="#inicio" aria-label="Grazi Manicure e Pedicure, voltar ao início">
+      <b>GRAZI</b><small>Manicure &amp; Pedicure</small>
+    </a>
+    <nav class="nav__links" aria-label="Seções">
+      <a href="#sobre">Sobre</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#spa">Spa dos Pés</a>
+      <a href="#local">Localização</a>
+    </nav>
+    <a class="btn btn--rosa nav__cta" data-wa="agendamento" href="#agendar" target="_blank" rel="noopener">Agendar</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><i></i></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true">
+  <ol>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#trabalhos">Trabalhos</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#spa">Spa dos Pés</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#local">Localização</a></li>
+  </ol>
+  <div class="menu__pe">
+    <a class="btn btn--rosa" data-wa="agendamento" href="#agendar" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+    <p>Faxinal dos Guedes · SC</p>
+  </div>
+</div>
+
+<main id="conteudo">
+
+<!-- HERO ================================================================= -->
+<section class="hero" id="inicio" aria-label="Apresentação">
+  <svg class="ramo ramo--a" data-intro aria-hidden="true"><use href="#ramo"/></svg>
+  <svg class="ramo ramo--b" data-intro aria-hidden="true"><use href="#ramo"/></svg>
+
+  <div class="wrap hero__grid">
+    <div class="hero__visual" data-intro>
+      <div class="arco">
+        <div class="arco__img"><div class="foto" data-foto="hero" data-tom="blush" data-rotulo="Foto principal · unhas"></div></div>
+      </div>
+      <span class="arco__aro" aria-hidden="true"></span>
+      <div class="hero__detalhe"><div class="foto" data-foto="heroDetalhe" data-tom="creme"></div></div>
+      <div class="selo" aria-hidden="true">
+        <svg viewBox="0 0 100 100"><defs><path id="circ" d="M50 50m-38 0a38 38 0 1 1 76 0a38 38 0 1 1-76 0"/></defs>
+          <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width=".6"/>
+          <text><textPath href="#circ">Cuidado · Beleza · Carinho · </textPath></text>
+        </svg><i></i>
+      </div>
+    </div>
+
+    <div class="hero__texto">
+      <p class="hero__local" data-intro>Faxinal dos Guedes · Santa Catarina</p>
+      <h1 class="hero__nome" aria-label="Grazi, Manicure e Pedicure"><span aria-hidden="true" data-letras>Grazi</span></h1>
+      <p class="hero__oficio" data-intro aria-hidden="true">Manicure &amp; Pedicure</p>
+      <p class="hero__frase" data-intro>Delicadeza em cada detalhe.</p>
+      <p class="hero__sub" data-intro>Um momento de cuidado, beleza e carinho dedicado a você.</p>
+      <div class="botoes" data-intro>
+        <a class="btn btn--linha" href="#trabalhos">Conheça meu trabalho</a>
+        <a class="btn btn--rosa" data-wa="agendamento" href="#agendar" target="_blank" rel="noopener">Agendar horário
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </div>
+  <div class="rolar" aria-hidden="true"><i></i>Role para conhecer</div>
+</section>
+
+<!-- SOBRE ================================================================ -->
+<section class="secao sobre" id="sobre" aria-labelledby="t-sobre">
+  <div class="wrap sobre__grid">
+    <div class="sobre__foto" data-revela>
+      <div class="moldura"><div class="foto" data-foto="grazi" data-tom="creme" data-rotulo="Foto da Grazi" data-parallax></div></div>
+      <svg class="ramo" aria-hidden="true" data-desenha><use href="#ramo"/></svg>
+      <p class="sobre__assin">Grazi<small>Manicure &amp; Pedicure</small></p>
+    </div>
+    <div class="sobre__texto">
+      <p class="eyebrow" data-revela>Sobre a Grazi</p>
+      <h2 class="titulo" id="t-sobre" data-split>Mais do que unhas bonitas, <em>momentos de cuidado.</em></h2>
+      <p class="lead" data-revela>Cada detalhe importa. Meu objetivo é proporcionar uma experiência de cuidado, beleza e bem-estar, valorizando a sua beleza e fazendo com que cada visita seja um momento especial.</p>
+      <ul class="pilares" data-revela-lista>
+        <li><b>i.</b>Atenção aos detalhes, do começo ao fim.</li>
+        <li><b>ii.</b>Um atendimento acolhedor, sem pressa.</li>
+        <li><b>iii.</b>Um espaço pensado para você se sentir em casa.</li>
+      </ul>
+      <p class="fecho" data-revela>Será um prazer cuidar de você.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA ============================================================== -->
+<section class="secao galeria-sec" id="trabalhos" aria-labelledby="t-galeria">
+  <div class="wrap">
+    <div class="cabeca cabeca--centro">
+      <p class="eyebrow" data-revela>Trabalhos</p>
+      <h2 class="titulo" id="t-galeria" data-split>Beleza que aparece <em>nos detalhes.</em></h2>
+      <p class="lead" data-revela>Um pouco do carinho e da dedicação presentes em cada trabalho.</p>
+    </div>
+    <ul class="galeria" id="galeria" aria-label="Galeria de trabalhos"></ul>
+    <div class="galeria__pe" data-revela>
+      <p>Gostou de algum? Me chama e a gente conversa.</p>
+      <a class="link-seta" data-insta href="#" target="_blank" rel="noopener">Ver mais no Instagram
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS ============================================================= -->
+<section class="secao servicos" id="servicos" aria-labelledby="t-serv">
+  <div class="wrap">
+    <div class="cabeca">
+      <p class="eyebrow" data-revela>Serviços</p>
+      <h2 class="titulo" id="t-serv" data-split>Um cuidado especial <em>para você.</em></h2>
+    </div>
+    <div class="cards" data-revela-lista>
+      <article class="card">
+        <span class="card__num">01</span>
+        <span class="card__icone" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M16 4h8v8h-8z"/><path d="M17.5 12h5v3h-5z"/><path d="M13 15h14a3 3 0 0 1 3 3v14a4 4 0 0 1-4 4H14a4 4 0 0 1-4-4V18a3 3 0 0 1 3-3z"/><path d="M14.5 21v8"/><path d="M10 25h20" opacity=".5"/></svg>
+        </span>
+        <h3>Manicure</h3>
+        <p>Mãos bem cuidadas e uma esmaltação feita com calma, com acabamento caprichado do jeitinho que você gosta.</p>
+        <span class="card__linha" aria-hidden="true"></span>
+      </article>
+      <article class="card">
+        <span class="card__num">02</span>
+        <span class="card__icone" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M17 36c-4 0-6.5-3.2-6.5-8 0-4.6 1.6-7.6 2.4-10.6.9-3.4 3-5.4 6.1-5.4 3 0 4.6 2.4 4.6 6 0 3.2-1.6 5.6-1.6 9.4 0 4.2-.8 8.6-5 8.6z"/><circle cx="12" cy="7.5" r="2.4"/><circle cx="17.5" cy="5.5" r="2"/><circle cx="22.5" cy="6.3" r="1.7"/><circle cx="26.5" cy="8.6" r="1.5"/><circle cx="29.5" cy="12" r="1.3"/></svg>
+        </span>
+        <h3>Pedicure</h3>
+        <p>Pés tratados com atenção a cada detalhe, para você caminhar leve e se sentir bonita da ponta dos pés.</p>
+        <span class="card__linha" aria-hidden="true"></span>
+      </article>
+      <article class="card card--destaque">
+        <span class="card__num">03</span>
+        <span class="card__icone" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M20 33c-6.5 0-13-4.5-15-11 5 .2 10 2.6 15 8 5-5.4 10-7.8 15-8-2 6.5-8.5 11-15 11z"/><path d="M20 30c-3.4-3.4-5-8-5-12.4 0-4.2 2-8.2 5-11.6 3 3.4 5 7.4 5 11.6 0 4.4-1.6 9-5 12.4z"/><path d="M14.6 21.6c-2.6-2-4-5-4.2-8.6 2.4.3 4.4 1.2 6 2.6M25.4 21.6c2.6-2 4-5 4.2-8.6-2.4.3-4.4 1.2-6 2.6"/></svg>
+        </span>
+        <h3>Spa dos Pés</h3>
+        <p>Uma pausa para relaxar e se cuidar, pensada com conforto e carinho para você sair renovada.</p>
+        <a class="link-seta" href="#spa">Conhecer o Spa
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SPA DOS PÉS ========================================================== -->
+<section class="secao spa" id="spa" aria-labelledby="t-spa">
+  <svg class="ramo ramo--b" aria-hidden="true" data-desenha><use href="#ramo"/></svg>
+  <div class="wrap spa__grid">
+    <div class="spa__texto">
+      <p class="eyebrow" data-revela>Spa dos Pés</p>
+      <h2 class="titulo" id="t-spa" data-split>Um momento <em>só seu.</em></h2>
+      <p class="lead" data-revela>Permita-se desacelerar e aproveitar um momento de cuidado e bem-estar.</p>
+      <ul class="spa__lista" data-revela-lista aria-label="O que você encontra">
+        <li>Pausa</li><li>Conforto</li><li>Cuidado</li><li>Bem-estar</li>
+      </ul>
+      <div class="botoes" data-revela>
+        <a class="btn btn--salvia" data-wa="spa" href="#agendar" target="_blank" rel="noopener">Quero conhecer
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+    <div class="spa__fotos" data-revela>
+      <span class="spa__circ" aria-hidden="true"></span>
+      <div class="spa__arco"><div class="foto" data-foto="spa" data-tom="creme" data-rotulo="Foto do Spa dos Pés" data-parallax></div></div>
+      <svg class="ramo ramo--a" aria-hidden="true" data-desenha><use href="#ramo"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS ========================================================== -->
+<section class="secao depo" id="depoimentos" aria-labelledby="t-depo">
+  <div class="wrap">
+    <div class="cabeca cabeca--centro">
+      <p class="eyebrow" data-revela>Depoimentos</p>
+      <h2 class="titulo" id="t-depo" data-split>Carinho que <em>conquista.</em></h2>
+    </div>
+    <div class="depo__lista" id="depoimentos-lista" data-revela-lista></div>
+  </div>
+</section>
+
+<!-- INSTAGRAM ============================================================ -->
+<section class="secao insta" id="instagram" aria-labelledby="t-insta">
+  <div class="wrap">
+    <div class="insta__topo">
+      <div class="cabeca">
+        <p class="eyebrow" data-revela>Instagram</p>
+        <h2 class="titulo" id="t-insta" data-split>Um pouquinho mais do <em>universo Grazi.</em></h2>
+        <p class="lead" data-revela>Novos trabalhos, bastidores e novidades do espaço, sempre por lá.</p>
+      </div>
+      <div data-revela>
+        <a class="btn btn--linha" data-insta href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>
+          Acompanhe no Instagram</a>
+      </div>
+    </div>
+    <ul class="insta__grade" id="insta-grade" data-revela-lista></ul>
+    <p class="insta__user" data-revela style="margin-top:28px">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+      <a data-insta data-insta-user href="#" target="_blank" rel="noopener">@graziimanicurepedicure</a>
+    </p>
+  </div>
+</section>
+
+<!-- AGENDAMENTO ========================================================== -->
+<section class="agenda" id="agendar" aria-labelledby="t-agenda">
+  <div class="wrap">
+    <div class="agenda__bloco" data-revela>
+      <svg class="ramo ramo--a" aria-hidden="true" data-desenha><use href="#ramo"/></svg>
+      <svg class="ramo ramo--b" aria-hidden="true" data-desenha><use href="#ramo"/></svg>
+      <p class="eyebrow">Agendamento</p>
+      <h2 class="titulo" id="t-agenda" data-split>Seu momento de cuidado <em>começa aqui.</em></h2>
+      <p class="lead">Escolha seu melhor momento e entre em contato para agendar seu horário.</p>
+      <div class="botoes">
+        <a class="btn btn--rosa" data-wa="agendamento" href="#agendar" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg>
+          Agendar pelo WhatsApp</a>
+      </div>
+      <p class="agenda__nota">A conversa abre com uma mensagem pronta</p>
+    </div>
+  </div>
+</section>
+
+<!-- LOCALIZAÇÃO ========================================================== -->
+<section class="secao local" id="local" aria-labelledby="t-local">
+  <div class="wrap local__grid">
+    <div class="local__card" data-revela>
+      <span class="pino" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21.5s-7-6.2-7-11.8A7 7 0 0 1 19 9.7c0 5.6-7 11.8-7 11.8z"/><circle cx="12" cy="9.6" r="2.6"/></svg></span>
+      <p class="eyebrow" style="margin-top:28px">Onde estou</p>
+      <h2 class="local__cidade" id="t-local"><span data-cidade>Faxinal dos Guedes</span><span class="uf" data-estado>Santa Catarina</span></h2>
+      <p class="local__end" id="endereco">Um espaço acolhedor, preparado com carinho para receber você.</p>
+      <div class="botoes">
+        <a class="btn btn--rosa" id="btn-local" data-wa="endereco" href="#agendar" target="_blank" rel="noopener">Pedir a localização</a>
+      </div>
+    </div>
+    <div class="mapa" id="mapa" data-revela>
+      <div class="mapa__vazio">
+        <svg viewBox="0 0 340 200" aria-hidden="true">
+          <path d="M0 140C60 120 90 150 150 128S250 70 340 92"/><path d="M0 60C80 80 120 40 190 58S290 140 340 120" opacity=".6"/>
+          <path d="M120 0C110 60 140 120 128 200" opacity=".6"/><path d="M250 0C240 80 270 140 236 200" opacity=".4"/>
+          <path d="M170 98s-14-12-14-24a14 14 0 0 1 28 0c0 12-14 24-14 24z" stroke-width="1.4"/><circle cx="170" cy="74" r="5"/>
+        </svg>
+        <p>O mapa aparece aqui quando o endereço for configurado</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- RODAPÉ =============================================================== -->
+<footer class="rodape">
+  <svg class="ramo ramo--a" aria-hidden="true" data-desenha><use href="#ramo"/></svg>
+  <svg class="ramo ramo--b" aria-hidden="true" data-desenha><use href="#ramo"/></svg>
+  <div class="wrap">
+    <div class="rodape__marca" data-revela>
+      <b>GRAZI</b>
+      <small>Manicure &amp; Pedicure</small>
+      <p>Delicadeza em cada detalhe.</p>
+    </div>
+    <div class="rodape__cols">
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#trabalhos">Trabalhos</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#spa">Spa dos Pés</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a data-wa="agendamento" href="#agendar" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a data-insta href="#" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Localização</h4>
+        <ul>
+          <li><a href="#local"><span data-cidade>Faxinal dos Guedes</span> — <span data-estado-uf>SC</span></a></li>
+          <li id="rodape-end" hidden></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape__base">
+      <span>© <span id="ano">2026</span> Grazi Manicure &amp; Pedicure. Todos os direitos reservados.</span>
+      <a href="#inicio">Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a class="wa" id="wa-flutuante" data-wa="agendamento" href="#agendar" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#ico-wa"/></svg><span>Agendar</span>
+</a>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada" aria-hidden="true">
+  <div class="lb__palco"><figure class="lb__fig" id="lb-fig" style="margin:0"></figure></div>
+  <button class="lb__btn lb__fechar" type="button" data-lb="fechar" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="lb__btn lb__ant" type="button" data-lb="ant" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M15 6l-6 6 6 6"/></svg></button>
+  <button class="lb__btn lb__prox" type="button" data-lb="prox" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 6l6 6-6 6"/></svg></button>
+  <p class="lb__info" id="lb-info" aria-live="polite"></p>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="ico-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zm-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.01 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28z"/></symbol>
+</svg>
+
+<script src="config.js"></script>
+<script src="vendor/gsap.min.js" defer></script>
+<script src="vendor/ScrollTrigger.min.js" defer></script>
+<script src="vendor/lenis.min.js" defer></script>
+<script defer>
+document.addEventListener('DOMContentLoaded', function () {
+  'use strict';
+  var C = window.GRAZI || {};
+  var doc = document.documentElement;
+  var calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var esc = function (t) { return String(t == null ? '' : t).replace(/[&<>"']/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); };
+
+  /* ------------------------------------------------------------------ links */
+  function linkWa(tipo) {
+    var msg = { agendamento: C.mensagemAgendamento, spa: C.mensagemSpa, endereco: C.mensagemEndereco }[tipo] || C.mensagemAgendamento || '';
+    var num = String(C.whatsapp || '').replace(/\D/g, '');
+    return 'https://wa.me/' + num + '?text=' + encodeURIComponent(msg);
+  }
+  $$('[data-wa]').forEach(function (a) { a.href = linkWa(a.getAttribute('data-wa')); });
+  var insta = C.instagram || 'https://www.instagram.com/graziimanicurepedicure/';
+  $$('[data-insta]').forEach(function (a) { a.href = insta; });
+  if (C.instagramUsuario) $$('[data-insta-user]').forEach(function (a) { a.textContent = C.instagramUsuario; });
+  if (C.cidade) $$('[data-cidade]').forEach(function (e) { e.textContent = C.cidade; });
+  if (C.estado) $$('[data-estado]').forEach(function (e) { e.textContent = C.estado; });
+  $('#ano').textContent = new Date().getFullYear();
+
+  /* ---------------------------------------------------------- fotos/molduras */
+  var tons = ['blush', 'creme', 'salvia', 'champ'];
+  function moldura(rotulo) {
+    return '<div class="ph" aria-hidden="true"><svg viewBox="0 0 120 150"><use href="#rosa"/></svg>' +
+      (rotulo ? '<span>' + esc(rotulo) + '</span>' : '') + '</div>';
+  }
+  function preencheFoto(el, foto, rotulo, tom, prioridade) {
+    el.classList.add('tom-' + (tom || 'creme'));
+    if (foto && foto.src) {
+      el.innerHTML = '<img src="' + esc(foto.src) + '" alt="' + esc(foto.alt || '') + '"' +
+        (prioridade ? ' fetchpriority="high"' : ' loading="lazy"') + ' decoding="async">';
+    } else {
+      el.innerHTML = moldura(rotulo);
+      el.setAttribute('role', 'img');
+      el.setAttribute('aria-label', (foto && foto.alt ? foto.alt : 'Foto') + ' (em breve)');
+    }
+  }
+  var fotos = C.fotos || {};
+  $$('[data-foto]').forEach(function (el) {
+    var k = el.getAttribute('data-foto');
+    preencheFoto(el, fotos[k], el.getAttribute('data-rotulo'), el.getAttribute('data-tom'), k === 'hero');
+  });
+
+  /* --------------------------------------------------------------- galeria */
+  var galeria = (C.galeria || []).filter(Boolean);
+  var ul = $('#galeria');
+  ul.innerHTML = galeria.map(function (g, i) {
+    return '<li><button type="button" class="peca" data-i="' + i + '" data-formato="' + esc(g.formato || 'retrato') + '" aria-label="Ampliar: ' + esc(g.alt || ('Trabalho ' + (i + 1))) + '">' +
+      '<div class="foto"></div><span class="peca__mais" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 5v14M5 12h14"/></svg></span></button></li>';
+  }).join('');
+  $$('.peca .foto', ul).forEach(function (el, i) {
+    preencheFoto(el, galeria[i], galeria[i].src ? '' : 'Foto do trabalho ' + String(i + 1).padStart(2, '0'), tons[i % tons.length]);
+  });
+
+  /* ------------------------------------------------------------- instagram */
+  var posts = (C.instagramPosts || []).filter(Boolean);
+  $('#insta-grade').innerHTML = posts.map(function (p, i) {
+    return '<li><a href="' + esc(p.link || insta) + '" target="_blank" rel="noopener" aria-label="Abrir no Instagram"><div class="foto"></div></a></li>';
+  }).join('');
+  $$('#insta-grade .foto').forEach(function (el, i) { preencheFoto(el, posts[i], '', tons[(i + 1) % tons.length]); });
+
+  /* ----------------------------------------------------------- depoimentos */
+  var depos = (C.depoimentos || []).filter(function (d) { return d && d.texto; });
+  if (!depos.length) {
+    $('#depoimentos').hidden = true;
+    $$('a[href="#depoimentos"]').forEach(function (a) { a.parentNode.hidden = true; });
+  } else {
+    var estrela = '<svg viewBox="0 0 24 24"><path d="M12 2.8l2.7 6 6.5.6-4.9 4.3 1.5 6.4L12 16.8 6.2 20.1l1.5-6.4-4.9-4.3 6.5-.6z"/></svg>';
+    $('#depoimentos-lista').innerHTML = depos.map(function (d) {
+      return '<figure class="depo__card"><div class="estrelas" aria-label="Avaliação">' + estrela + estrela + estrela + estrela + estrela + '</div>' +
+        '<blockquote>' + esc(d.texto) + '</blockquote><figcaption><span>' + esc(d.nome || '') + '</span>' +
+        (d.exemplo ? '<span class="etiqueta">Exemplo</span>' : '') + '</figcaption></figure>';
+    }).join('');
+  }
+
+  /* ----------------------------------------------------------- localização */
+  var end = (C.endereco || '').trim();
+  if (end) {
+    $('#endereco').textContent = end;
+    var re = $('#rodape-end'); re.textContent = end; re.hidden = false;
+    var bl = $('#btn-local');
+    bl.removeAttribute('data-wa');
+    bl.href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(end + ', ' + (C.cidade || '') + ' - ' + (C.estado || ''));
+    bl.textContent = 'Abrir no Google Maps';
+  }
+  if (C.mapa) {
+    $('#mapa').innerHTML = '<iframe src="' + esc(C.mapa) + '" title="Mapa: localização do espaço da Grazi" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>';
+  }
+
+  /* --------------------------------------------------------------- lightbox */
+  var lb = $('#lb'), lbFig = $('#lb-fig'), lbInfo = $('#lb-info'), atual = 0, ultimoFoco = null;
+  function mostra(i, sem) {
+    atual = (i + galeria.length) % galeria.length;
+    var g = galeria[atual];
+    var monta = function () {
+      if (g.src) {
+        lbFig.innerHTML = '<img src="' + esc(g.src) + '" alt="' + esc(g.alt || '') + '">';
+      } else {
+        lbFig.innerHTML = '<div class="foto"></div>';
+        preencheFoto($('.foto', lbFig), g, 'Foto do trabalho ' + String(atual + 1).padStart(2, '0'), tons[atual % tons.length]);
+      }
+      lbInfo.textContent = String(atual + 1).padStart(2, '0') + ' / ' + String(galeria.length).padStart(2, '0');
+      lbFig.classList.remove('trocando');
+    };
+    if (sem) monta(); else { lbFig.classList.add('trocando'); setTimeout(monta, 220); }
+  }
+  function abre(i) {
+    ultimoFoco = document.activeElement;
+    mostra(i, true);
+    lb.classList.add('aberto'); lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    if (window.__lenis) window.__lenis.stop();
+    setTimeout(function () { $('.lb__fechar').focus(); }, 50);
+  }
+  function fecha() {
+    lb.classList.remove('aberto'); lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (window.__lenis) window.__lenis.start();
+    if (ultimoFoco) ultimoFoco.focus();
+  }
+  ul.addEventListener('click', function (e) { var b = e.target.closest('.peca'); if (b) abre(+b.getAttribute('data-i')); });
+  lb.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-lb]');
+    if (b) { var a = b.getAttribute('data-lb'); if (a === 'fechar') fecha(); else mostra(atual + (a === 'prox' ? 1 : -1)); return; }
+    if (!e.target.closest('.lb__fig')) fecha();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('aberto')) return;
+    if (e.key === 'Escape') fecha();
+    else if (e.key === 'ArrowRight') mostra(atual + 1);
+    else if (e.key === 'ArrowLeft') mostra(atual - 1);
+    else if (e.key === 'Tab') {
+      var f = $$('.lb__btn', lb), p = f.indexOf(document.activeElement);
+      e.preventDefault(); f[(p + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+  var tx = null;
+  lb.addEventListener('touchstart', function (e) { tx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (tx === null) return; var dx = e.changedTouches[0].clientX - tx; tx = null;
+    if (Math.abs(dx) > 50) mostra(atual + (dx < 0 ? 1 : -1));
+  });
+
+  /* ------------------------------------------------------------- menu mobile */
+  var menuBtn = $('.menu-btn'), menu = $('#menu');
+  function menuToggle(abrir) {
+    doc.classList.toggle('menu-aberto', abrir);
+    menuBtn.setAttribute('aria-expanded', abrir); menuBtn.setAttribute('aria-label', abrir ? 'Fechar menu' : 'Abrir menu');
+    menu.setAttribute('aria-hidden', !abrir);
+    if (window.__lenis) abrir ? window.__lenis.stop() : window.__lenis.start();
+    document.body.style.overflow = abrir ? 'hidden' : '';
+  }
+  menuBtn.addEventListener('click', function () { menuToggle(!doc.classList.contains('menu-aberto')); });
+  $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { menuToggle(false); }); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && doc.classList.contains('menu-aberto')) menuToggle(false); });
+
+  /* ------------------------------------------------------ nav + botão flutuante */
+  var nav = $('#nav'), wa = $('#wa-flutuante'), ultimoY = 0;
+  function aoRolar() {
+    var y = window.scrollY;
+    nav.classList.toggle('solida', y > 30);
+    nav.classList.toggle('escondida', y > 500 && y > ultimoY && !doc.classList.contains('menu-aberto'));
+    wa.classList.toggle('visivel', y > window.innerHeight * 0.6);
+    ultimoY = y;
+  }
+  window.addEventListener('scroll', aoRolar, { passive: true }); aoRolar();
+
+  /* ---------------------------------------------------- âncoras com offset */
+  $$('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var id = a.getAttribute('href'); if (id.length < 2 || a.hasAttribute('data-wa')) return;
+      var alvo = $(id); if (!alvo) return;
+      e.preventDefault();
+      if (window.__lenis) window.__lenis.scrollTo(alvo, { offset: id === '#inicio' ? 0 : -60, duration: 1.4 });
+      else alvo.scrollIntoView({ behavior: calmo ? 'auto' : 'smooth' });
+      history.replaceState(null, '', id);
+    });
+  });
+
+  /* ================================================================ MOVIMENTO */
+  function semAnimacao() { doc.classList.remove('intro'); $$('.ramo').forEach(function (r) { r.classList.add('cheio'); }); }
+  if (calmo) { semAnimacao(); return; }
+
+  window.addEventListener('load', function () {
+    if (!window.gsap || !window.ScrollTrigger) { semAnimacao(); return; }
+    var gsap = window.gsap; gsap.registerPlugin(window.ScrollTrigger);
+
+    if (window.Lenis) {
+      var lenis = new window.Lenis({ duration: 1.15, smoothWheel: true });
+      window.__lenis = lenis;
+      lenis.on('scroll', window.ScrollTrigger.update);
+      gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    /* ramos: preparam o traço para "desenhar" */
+    function prepara(svg) {
+      var use = svg.querySelector('use'); var ref = use && document.querySelector(use.getAttribute('href'));
+      if (!ref) return [];
+      var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      svg.setAttribute('viewBox', ref.getAttribute('viewBox'));
+      g.innerHTML = ref.innerHTML; svg.replaceChild(g, use);
+      return $$('.traco', g).map(function (p) {
+        var L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; return p;
+      });
+    }
+
+    /* abertura ------------------------------------------------------------- */
+    var nome = $('[data-letras]');
+    nome.innerHTML = nome.textContent.split('').map(function (l) { return '<span class="letra">' + l + '</span>'; }).join('');
+    var heroRamos = $$('.hero .ramo').map(prepara);
+    var tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    tl.fromTo('.arco', { clipPath: 'inset(100% 0% 0% 0% round 999px 999px 14px 14px)' }, { clipPath: 'inset(0% 0% 0% 0% round 999px 999px 14px 14px)', duration: 1.8, ease: 'expo.inOut' }, 0)
+      .fromTo('.arco__img', { scale: 1.25 }, { scale: 1, duration: 2.4 }, 0.2)
+      .fromTo('.arco__aro', { opacity: 0, scale: .96 }, { opacity: .55, scale: 1, duration: 1.6 }, 1)
+      .from('.hero__detalhe', { scale: 0, duration: 1.4 }, 1.1)
+      .from('.selo', { opacity: 0, rotate: -40, duration: 1.6 }, 1.2)
+      .from('.hero__nome .letra', { yPercent: 110, opacity: 0, duration: 1.6, stagger: .07 }, 0.5)
+      .from('.hero__local, .hero__oficio, .hero__frase, .hero__sub, .hero .botoes', { y: 24, opacity: 0, duration: 1.3, stagger: .1 }, 0.9);
+    doc.classList.remove('intro');
+    heroRamos.forEach(function (ps, k) {
+      tl.to(ps, { strokeDashoffset: 0, duration: 2.6, ease: 'power2.inOut', stagger: .05 }, 0.9 + k * .2);
+    });
+    tl.add(function () { $$('.hero .ramo').forEach(function (r) { r.classList.add('cheio'); }); }, 2.6);
+
+    /* parallax suave do hero */
+    gsap.to('.arco__img', { yPercent: 10, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+    gsap.to('.hero__texto', { y: -40, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+    /* títulos palavra por palavra */
+    $$('[data-split]').forEach(function (h) {
+      var walk = function (node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function (w) {
+              if (!w) return;
+              if (/^\s+$/.test(w)) { frag.appendChild(document.createTextNode(' ')); return; }
+              var o = document.createElement('span'); o.className = 'palavra';
+              var i = document.createElement('span'); i.textContent = w; o.appendChild(i); frag.appendChild(o);
+            });
+            n.parentNode.replaceChild(frag, n);
+          } else if (n.nodeType === 1) walk(n);
+        });
+      };
+      walk(h);
+      gsap.from($$('.palavra > span', h), { yPercent: 110, duration: 1.3, ease: 'expo.out', stagger: .06,
+        scrollTrigger: { trigger: h, start: 'top 86%', once: true } });
+    });
+
+    $$('[data-revela]').forEach(function (el) {
+      gsap.from(el, { y: 36, opacity: 0, duration: 1.4, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+    $$('[data-revela-lista]').forEach(function (el) {
+      gsap.from(el.children, { y: 40, opacity: 0, duration: 1.3, ease: 'expo.out', stagger: .1, scrollTrigger: { trigger: el, start: 'top 86%', once: true } });
+    });
+
+    /* galeria: entrada delicada em lotes */
+    gsap.set('#galeria li', { y: 50, opacity: 0 });
+    window.ScrollTrigger.batch('#galeria li', {
+      start: 'top 92%', once: true,
+      onEnter: function (b) { gsap.to(b, { y: 0, opacity: 1, duration: 1.4, ease: 'expo.out', stagger: .09 }); }
+    });
+
+    /* fotos com parallax interno */
+    $$('[data-parallax]').forEach(function (el) {
+      gsap.fromTo(el, { yPercent: -6, scale: 1.12 }, { yPercent: 6, scale: 1.12, ease: 'none', scrollTrigger: { trigger: el.parentNode, start: 'top bottom', end: 'bottom top', scrub: true } });
+    });
+
+    /* ramos que se desenham com a rolagem */
+    $$('[data-desenha]').forEach(function (svg) {
+      var ps = prepara(svg);
+      gsap.to(ps, { strokeDashoffset: 0, ease: 'none', stagger: .04,
+        scrollTrigger: { trigger: svg, start: 'top 95%', end: 'top 45%', scrub: 1, onLeave: function () { svg.classList.add('cheio'); } } });
+    });
+
+    window.ScrollTrigger.refresh();
+  });
+});
+</script>
+</body>
+</html>
