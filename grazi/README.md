@@ -1,45 +1,130 @@
-# Grazi · Manicure & Pedicure — landing page
+# Grazi · Manicure & Pedicure
 
-Página única em HTML, CSS e JavaScript puro. Não precisa de build.
-Abra `grazi/index.html` no navegador ou publique a pasta `grazi/` inteira.
+Site de uma página em HTML, CSS e JavaScript puro. Não precisa instalar nada
+nem rodar build: abra `grazi/index.html` no navegador, ou publique a pasta
+`grazi/` inteira em qualquer hospedagem.
 
 ```
 grazi/
-├── index.html     A página (estrutura, visual e animações)
-├── config.js      ← É AQUI QUE VOCÊ EDITA
-├── img/           Fotos (crie subpastas se quiser: img/galeria, img/instagram)
-└── vendor/        GSAP 3.12.5, ScrollTrigger e Lenis 1.1.13 (animações e rolagem suave)
+├── index.html        A página
+├── config.js         ← É AQUI QUE VOCÊ EDITA
+├── assets/
+│   ├── style.css     Visual (cores, fontes, espaçamentos)
+│   └── app.js        Monta a página e cuida das interações
+├── img/              Suas fotos
+└── vendor/           Bibliotecas de animação (GSAP e Lenis)
 ```
 
-## O que configurar em `config.js`
+---
 
-| Campo | O que é |
+## 1. O essencial antes de divulgar
+
+| O quê | Onde | Por quê |
+|---|---|---|
+| Número do WhatsApp | `config.js` → `whatsapp` | Sem ele, o botão abre o WhatsApp sem destinatário |
+| Fotos dos trabalhos | `config.js` → `galeria` | É a seção mais importante da página |
+| Foto da Grazi | `config.js` → `fotos.grazi` | Dá rosto à marca |
+| Depoimentos reais | `config.js` → `depoimentos` | Os atuais são exemplos e aparecem marcados |
+
+Enquanto uma foto não for informada, o site mostra uma moldura delicada com o
+nome da foto que vai ali. Nada de imagem de banco no lugar dos trabalhos reais.
+
+---
+
+## 2. Campos do `config.js`
+
+### Contato
+
+- **`whatsapp`** — só números, com país e DDD: `"5549999999999"`.
+- **`mensagemAgendamento`**, **`mensagemSpa`**, **`mensagemEndereco`** — o texto
+  que já aparece escrito quando a cliente abre a conversa.
+- **`instagram`** e **`instagramUsuario`** — perfil e @ exibido.
+
+### Localização
+
+- **`cidade`**, **`estado`** — aparecem na página e no rodapé.
+- **`endereco`** — texto completo. Preenchido, aparece na seção Localização e no
+  rodapé, e o botão passa de "Pedir a localização" para "Abrir no Google Maps".
+- **`mapa`** — link de incorporação. No Google Maps: Compartilhar → Incorporar um
+  mapa → copie só o endereço que está dentro de `src="..."`.
+- **`horarios`** — lista opcional. Vazia, a seção de horários não aparece.
+  ```js
+  horarios: [
+    { dias: "Segunda a sexta", horas: "9h às 19h" },
+    { dias: "Sábado",          horas: "9h às 16h" }
+  ],
+  ```
+
+### Fotos principais
+
+| Campo | Formato ideal |
 |---|---|
-| `whatsapp` | Número só com dígitos: `55` + DDD + número. Ex.: `"5549999999999"` |
-| `mensagemAgendamento`, `mensagemSpa`, `mensagemEndereco` | Mensagens que já abrem escritas no WhatsApp |
-| `endereco` | Endereço completo. Quando preenchido, aparece na seção e no rodapé, e o botão vira "Abrir no Google Maps" |
-| `mapa` | Link de incorporação do Google Maps (Compartilhar → Incorporar um mapa → o endereço dentro de `src="..."`) |
-| `fotos.hero` | Foto principal de unhas (vertical, ideal 1200×1500 ou maior) |
-| `fotos.heroDetalhe` | Foto pequena redonda do hero (quadrada) |
-| `fotos.grazi` | Retrato da Grazi (vertical) |
-| `fotos.spa` | Foto do Spa dos Pés (vertical) |
-| `galeria` | Lista de trabalhos. `formato`: `"retrato"` (4:5), `"alto"` (2:3) ou `"quadrado"` (1:1) |
-| `instagramPosts` | 6 fotos para a seção do Instagram (atualização manual; `link` opcional) |
-| `depoimentos` | Depoimentos reais. Apague `exemplo: true` ao trocar o texto. Lista vazia esconde a seção |
+| `fotos.hero` | Vertical (4:5), a partir de 1200×1500 |
+| `fotos.heroDetalhe` | Quadrada, pequena (aparece num círculo) |
+| `fotos.grazi` | Retrato vertical (4:5) |
+| `fotos.spa` | Vertical (3:4) |
 
-Enquanto uma foto estiver vazia, a página mostra uma moldura delicada com o nome
-da foto que deve entrar ali — nada de imagem de banco no lugar dos trabalhos.
+### Galeria
 
-## Fotos: como preparar
+```js
+{ src: "img/galeria/unhas-01.jpg", alt: "Esmaltação nude com arte floral", formato: "retrato" }
+```
 
-- Formato `.jpg` ou `.webp`, lado maior entre 1600 e 2000 px, até ~400 KB cada
-  (dá para comprimir em squoosh.app sem perder qualidade visível).
-- Nomes simples, sem espaço nem acento: `img/galeria/unhas-01.jpg`.
-- No `config.js`: `{ src: "img/galeria/unhas-01.jpg", alt: "Esmaltação nude com arte floral", formato: "retrato" }`.
-- O `alt` descreve a foto para leitores de tela e para o Google.
+- **`formato`**: `"retrato"` (4:5), `"alto"` (2:3), `"quadrado"` (1:1) ou
+  `"paisagem"` (3:2). Misturar formatos deixa o mosaico mais bonito.
+- **`alt`**: descreva a foto em poucas palavras. Aparece na foto ampliada, ajuda
+  no Google e em leitores de tela.
+- Pode colocar quantas fotos quiser: a galeria cresce sozinha.
 
-## Antes de publicar
+### Instagram
 
-1. Preencher `whatsapp` (sem número, o botão abre o WhatsApp e a pessoa escolhe o contato).
-2. Trocar os depoimentos de exemplo por reais, ou deixar `depoimentos: []`.
-3. Colocar ao menos a foto principal, a foto da Grazi e as fotos da galeria.
+`instagramPosts` é uma lista opcional, atualizada à mão (não é integração ao
+vivo). Vazia, a seção mostra só o convite e o botão — que é como está agora.
+
+### Depoimentos
+
+Troque os textos pelos reais e **apague a linha `exemplo: true`**. Enquanto ela
+existir, o depoimento aparece com a etiqueta "Exemplo". Lista vazia (`[]`)
+esconde a seção inteira, inclusive o item no menu.
+
+---
+
+## 3. Como preparar as fotos
+
+1. Formato `.jpg` ou `.webp`, lado maior entre 1600 e 2000 px.
+2. Comprima até uns 300–400 KB por foto (o site [squoosh.app](https://squoosh.app)
+   faz isso sem perda visível).
+3. Nomes simples, sem espaço nem acento: `img/galeria/unhas-01.jpg`.
+4. Informe o caminho no `config.js`.
+
+As fotos já carregam sob demanda, então a galeria pode ter muitas imagens sem
+deixar a página lenta.
+
+---
+
+## 4. Depois de publicar
+
+Em `index.html`, no topo do arquivo, há uma linha para a imagem que aparece
+quando alguém compartilha o link no WhatsApp:
+
+```html
+<meta property="og:image" content="">
+```
+
+Cole aí o endereço completo de uma foto, por exemplo
+`https://seusite.com.br/img/capa.jpg`.
+
+O site já envia para o Google os dados do negócio (tipo, cidade, serviços,
+WhatsApp e horários) a partir do que estiver no `config.js`.
+
+---
+
+## 5. Detalhes técnicos
+
+- **Tipografia:** Bodoni Moda (títulos) e Jost (textos), do Google Fonts.
+- **Animações:** GSAP com ScrollTrigger e rolagem suave com Lenis, servidos da
+  pasta `vendor/` — o site não depende de nenhum serviço externo para funcionar.
+- **Movimento reduzido:** quem configura o celular ou o computador para reduzir
+  animações vê a página inteira parada, sem perder nenhum conteúdo.
+- **Acessibilidade:** contraste conferido, navegação por teclado na galeria e no
+  menu, textos alternativos vindos do `config.js`.
