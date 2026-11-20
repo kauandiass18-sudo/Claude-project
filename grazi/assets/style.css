@@ -20,8 +20,9 @@
   --rosa-100:#F2DDE2;
   --rosa-200:#EBC8D2;   /* blush da marca */
   --rosa-400:#C98F9F;   /* rosa antigo da marca — elementos gráficos */
-  --rosa-500:#B87F90;   /* itálicos grandes */
-  --rosa-600:#955C6B;   /* textos pequenos, botões, links */
+  --rosa-500:#AE7384;   /* itálicos grandes (>=24px) */
+  --rosa-600:#8D5968;   /* textos pequenos, botões e links sobre papel ou creme */
+  --rosa-700:#7E4C5A;   /* textos pequenos sobre o rosa do rodapé */
 
   /* verde sálvia */
   --salvia:#A8B5A0;
@@ -145,7 +146,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.26) 50%,transparent 70%);
   transition:transform 1s var(--suave);
 }
-.btn--rosa:hover{background:#84505D;transform:translateY(-2px);box-shadow:0 18px 38px -18px rgba(102,56,70,.9)}
+.btn--rosa:hover{background:#774855;transform:translateY(-2px);box-shadow:0 18px 38px -18px rgba(102,56,70,.9)}
 .btn--rosa:hover::after{transform:translateX(120%)}
 
 .btn--linha{border:1px solid rgba(149,92,107,.45);color:var(--tinta)}
@@ -155,7 +156,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .btn--salvia:hover{background:#56664F;transform:translateY(-2px)}
 
 .link-seta{
-  display:inline-flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--fio);
+  display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 0;border-bottom:1px solid var(--fio);
   font-size:11.5px;font-weight:400;letter-spacing:.24em;text-transform:uppercase;color:var(--tinta);
   transition:border-color .4s var(--saida),gap .4s var(--saida),color .4s var(--saida);
 }
@@ -180,7 +181,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .ph svg{width:min(42%,132px);height:auto;opacity:.8;
   fill:none;stroke:currentColor;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}
 .ph b{max-width:16em;font-size:10.5px;font-weight:400;letter-spacing:.26em;text-transform:uppercase;
-  line-height:1.7;color:var(--marrom);opacity:.62}
+  line-height:1.7;color:var(--marrom)}
 
 .tom-blush{background:linear-gradient(170deg,#F7EAEE,#EFD9E0)}
 .tom-creme{background:linear-gradient(170deg,#F5ECE3,#E9DBCD)}
@@ -212,7 +213,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .marca small{margin-top:6px;font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--rosa-600)}
 
 .nav__links{display:none;gap:38px;font-size:11.5px;letter-spacing:.24em;text-transform:uppercase}
-.nav__links a{position:relative;padding:6px 0}
+.nav__links a{position:relative;padding:12px 0}
 .nav__links a::after{
   content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--rosa-400);
   transform:scaleX(0);transform-origin:right;transition:transform .5s var(--suave);
@@ -256,6 +257,11 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .menu__pe{display:flex;flex-direction:column;gap:18px}
 .menu__pe .btn{width:100%}
 .menu__pe p{margin:0;text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+
+/* telas muito estreitas: o botão quebra em duas linhas em vez de estourar */
+@media (max-width:380px){
+  .btn{white-space:normal;text-align:center;line-height:1.35;padding:14px 20px;letter-spacing:.18em}
+}
 
 @media (min-width:1024px){
   .nav__links,.nav__cta{display:inline-flex}
@@ -303,9 +309,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .hero__detalhe .ph svg{width:46%}
 .hero__detalhe .ph b{display:none}
 
-.selo{position:absolute;right:-13%;top:9%;width:80px;height:80px;color:var(--ouro)}
+.selo{position:absolute;right:-4%;top:8%;width:76px;height:76px;color:var(--ouro)}
 .selo svg{width:100%;height:100%;animation:gira 42s linear infinite}
-.selo text{font-family:var(--sans);font-size:9.4px;letter-spacing:.3em;text-transform:uppercase;fill:var(--marrom)}
+.selo text{font-family:var(--sans);font-size:9.4px;letter-spacing:.3em;text-transform:uppercase;color:var(--marrom);fill:var(--marrom)}
 .selo i{position:absolute;top:50%;left:50%;width:7px;height:7px;margin:-3.5px 0 0 -3.5px;border-radius:50%;background:var(--rosa-400)}
 @keyframes gira{to{transform:rotate(360deg)}}
 
@@ -465,8 +471,9 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 /* ------------------------------------------------------------- INSTAGRAM */
 .insta--vazio{padding-block:clamp(76px,9vw,120px)}
 .insta__topo{display:flex;flex-direction:column;gap:28px}
-.insta__user{display:inline-flex;align-items:center;gap:11px;margin:22px 0 0;
+.insta__user{display:inline-flex;align-items:center;gap:11px;margin:16px 0 0;
   font-family:var(--serif);font-style:italic;font-size:19.5px;color:var(--rosa-600)}
+.insta__user a{display:inline-block;padding:10px 0}
 .insta__user svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.3}
 .insta__grade{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
   margin:clamp(44px,5vw,60px) 0 0;padding:0;list-style:none}
@@ -514,7 +521,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .pino svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round}
 .local__cidade{margin:28px 0 0;font-family:var(--serif);font-weight:400;
   font-size:clamp(32px,3.2vw,42px);line-height:1.08;color:var(--tinta)}
-.local__cidade .uf{display:block;margin-top:6px;font-style:italic;font-size:.62em;color:var(--rosa-500)}
+.local__cidade .uf{display:block;margin-top:6px;font-style:italic;font-size:.62em;color:var(--rosa-600)}
 .local__end{margin:22px 0 0;font-weight:300}
 .horarios{margin:26px 0 0;padding:22px 0 0;border-top:1px solid var(--fio);list-style:none;display:grid;gap:8px;width:100%}
 .horarios li{display:flex;justify-content:space-between;gap:16px;font-size:15px;font-weight:300}
@@ -537,23 +544,24 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   font-size:clamp(68px,13vw,160px);line-height:.85;letter-spacing:.09em;padding-left:.09em}
 .rodape__marca small{display:block;margin-top:18px;padding-left:.42em;
   font-size:11.5px;letter-spacing:.42em;text-transform:uppercase}
-.rodape__marca p{margin:24px 0 0;font-family:var(--serif);font-style:italic;font-size:23px;color:var(--rosa-600)}
+.rodape__marca p{margin:24px 0 0;font-family:var(--serif);font-style:italic;font-size:23px;color:var(--rosa-700)}
 .rodape__nav{
   display:flex;flex-wrap:wrap;justify-content:center;gap:12px 32px;
   margin-top:clamp(52px,6vw,76px);padding-top:40px;border-top:1px solid rgba(149,92,107,.26);
   font-size:12px;letter-spacing:.2em;text-transform:uppercase;
 }
-.rodape__nav a{padding:4px 0;transition:color .4s var(--saida)}
-.rodape__nav a:hover{color:var(--rosa-600)}
+.rodape__nav a{display:inline-block;padding:11px 0;transition:color .4s var(--saida)}
+.rodape__nav a:hover{color:var(--rosa-700)}
 .rodape__flor{display:block;width:54px;height:68px;margin:34px auto 0;color:rgba(139,84,99,.95);
   fill:none;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
 .rodape__contato{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 24px;
   margin:24px 0 0;font-family:var(--serif);font-style:italic;font-size:20px}
-.rodape__contato a{transition:color .4s var(--saida)}
-.rodape__contato a:hover{color:var(--rosa-600)}
+.rodape__contato a{display:inline-block;padding:10px 2px;transition:color .4s var(--saida)}
+.rodape__contato a:hover{color:var(--rosa-700)}
 .rodape__contato i{width:4px;height:4px;border-radius:50%;background:rgba(149,92,107,.5)}
-.rodape__cidade{margin:18px 0 0;text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rosa-600)}
+.rodape__cidade{margin:18px 0 0;text-align:center;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--rosa-700)}
 .rodape__cidade #rodape-end{display:block;margin-top:10px;font-size:14.5px;letter-spacing:.06em;text-transform:none;color:var(--marrom)}
+.rodape__base a{display:inline-block;padding:11px 0}
 .rodape__base{
   display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-right:76px;
   margin-top:clamp(52px,6vw,76px);padding-top:26px;border-top:1px solid rgba(149,92,107,.26);

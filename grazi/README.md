@@ -11,7 +11,9 @@ grazi/
 ├── assets/
 │   ├── style.css     Visual (cores, fontes, espaçamentos)
 │   └── app.js        Monta a página e cuida das interações
-├── img/              Suas fotos
+├── img/              Suas fotos e os ícones da marca
+├── site.webmanifest  Permite instalar o site na tela inicial do celular
+├── robots.txt        Libera o site para os buscadores
 └── vendor/           Bibliotecas de animação (GSAP e Lenis)
 ```
 
@@ -72,6 +74,8 @@ nome da foto que vai ali. Nada de imagem de banco no lugar dos trabalhos reais.
 
 - **`formato`**: `"retrato"` (4:5), `"alto"` (2:3), `"quadrado"` (1:1) ou
   `"paisagem"` (3:2). Misturar formatos deixa o mosaico mais bonito.
+  Escolha o formato mais parecido com o da foto: se a foto for quadrada e você
+  marcar `"alto"`, as laterais vão ser cortadas para preencher o espaço.
 - **`alt`**: descreva a foto em poucas palavras. Aparece na foto ampliada, ajuda
   no Google e em leitores de tela.
 - Pode colocar quantas fotos quiser: a galeria cresce sozinha.
@@ -102,20 +106,27 @@ deixar a página lenta.
 
 ---
 
-## 4. Depois de publicar
+## 4. O que já vem pronto
 
-Em `index.html`, no topo do arquivo, há uma linha para a imagem que aparece
-quando alguém compartilha o link no WhatsApp:
+**Imagem de compartilhamento.** Quando alguém manda o link no WhatsApp, aparece
+um cartão com o nome da marca, a frase e a cidade (`img/og-grazi.jpg`). Se a
+prévia não aparecer na sua hospedagem, troque o caminho no `index.html` pelo
+endereço completo:
 
 ```html
-<meta property="og:image" content="">
+<meta property="og:image" content="https://seusite.com.br/img/og-grazi.jpg">
 ```
 
-Cole aí o endereço completo de uma foto, por exemplo
-`https://seusite.com.br/img/capa.jpg`.
+Quando tiver uma foto bonita de um trabalho, vale trocar o cartão por ela.
 
-O site já envia para o Google os dados do negócio (tipo, cidade, serviços,
-WhatsApp e horários) a partir do que estiver no `config.js`.
+**Ícones.** O site tem ícone próprio na aba do navegador e na tela inicial do
+celular (`img/favicon.svg`, `img/icone-192.png`, `img/icone-512.png`,
+`img/apple-touch-icon.png`). Para trocar, substitua os arquivos mantendo os
+mesmos nomes e tamanhos.
+
+**Google.** O site informa automaticamente que é um salão de unhas, em qual
+cidade, quais serviços, o WhatsApp e os horários — tudo montado a partir do
+`config.js`.
 
 ---
 
