@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Claude para YouTube",
+  "version": "1.0.0",
+  "description": "Resuma vídeos do YouTube e converse sobre eles com o Claude.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.anthropic.com/*",
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "page-bridge.js"
+      ],
+      "world": "MAIN",
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page": "options.html",
+  "action": {
+    "default_title": "Claude para YouTube — configurações",
+    "default_popup": "options.html"
+  },
+  "icons": {
+    "128": "icon128.png"
+  }
+}

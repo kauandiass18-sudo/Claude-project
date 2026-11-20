@@ -1,0 +1,15 @@
+{
+  "name": "claude-youtube",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "esbuild src/background.js --bundle --format=esm --platform=browser --target=chrome120 --minify --outfile=extension/background.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^1.11.0",
+    "esbuild": "^0.28.2"
+  }
+}
