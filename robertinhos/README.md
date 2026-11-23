@@ -118,6 +118,12 @@ inventada.
 - Coleção com filtros por categoria, contadores automáticos e grade alternada.
 - Frase de posicionamento que acende palavra por palavra conforme o scroll.
 - Galeria de detalhes que corre na horizontal no computador e por toque no celular.
+- Visualizador de peça: tocar a fotografia abre a peça em tela cheia, com
+  navegação por setas, teclado e deslize, e botão de consulta dentro.
+- Seleção de peças: o botão "+" sobre cada fotografia monta uma lista. Uma
+  barra aparece com a contagem e envia todas de uma vez pelo WhatsApp, numeradas.
+  A seleção fica guardada no navegador de quem visita.
+- Paleta de tons: tocar um tom leva até a peça na grade e a destaca.
 - Botões de atendimento em todos os pontos de decisão, com mensagem por peça.
 - Barra de progresso de leitura, menu de celular em tela cheia e botão flutuante.
 - Acessibilidade: navegação por teclado, textos alternativos e respeito à

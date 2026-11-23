@@ -474,6 +474,51 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .footer__bottom a{color:rgba(244,241,234,.6)}
 .footer__bottom a:hover{color:var(--off)}
 
+/* --- visualizador de peça ------------------------------------------------ */
+.viewer{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:clamp(16px,3vw,48px);
+  background:rgba(10,18,32,.93);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
+  opacity:0;visibility:hidden;overflow-y:auto;overscroll-behavior:contain;transition:opacity .5s var(--ease),visibility .5s}
+.viewer.open{opacity:1;visibility:visible}
+.viewer__stage{display:grid;grid-template-columns:auto minmax(0,320px);gap:clamp(24px,4vw,64px);align-items:center;max-width:1100px;width:100%}
+.viewer__img{position:relative;height:min(78svh,760px);aspect-ratio:3/4;overflow:hidden;background:var(--navy);justify-self:end}
+.viewer__img img{width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .55s var(--ease),transform .8s var(--ease-out)}
+.viewer.ready .viewer__img img{opacity:1;transform:none}
+.viewer__img::after{content:"";position:absolute;inset:14px;border:1px solid rgba(184,154,97,.3);pointer-events:none}
+.viewer__meta{color:var(--off);display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.viewer__count{font-size:10px;letter-spacing:.3em;font-weight:600;color:var(--gold);font-variant-numeric:oldstyle-nums}
+.viewer__meta h3{font-size:clamp(28px,2.8vw,42px);display:flex;align-items:center;gap:12px}
+.viewer__meta .lead{color:rgba(244,241,234,.6);font-size:14.5px;margin-top:2px}
+.viewer__cta{display:flex;flex-direction:column;gap:12px;margin-top:20px;width:min(100%,290px)}
+.viewer__close,.viewer__nav{position:absolute;z-index:3;display:grid;place-items:center;width:52px;height:52px;border:1px solid rgba(244,241,234,.22);color:var(--off);border-radius:50%;transition:border-color .4s,background-color .4s,transform .4s var(--ease)}
+.viewer__close:hover,.viewer__nav:hover{border-color:var(--gold);background:rgba(184,154,97,.14)}
+.viewer__close{top:clamp(16px,2.4vw,34px);right:clamp(16px,2.4vw,34px)}
+.viewer__close svg,.viewer__nav svg{width:17px;height:17px}
+.viewer__nav{top:50%;margin-top:-26px}
+.viewer__nav--prev{left:clamp(10px,2vw,30px)}
+.viewer__nav--next{right:clamp(10px,2vw,30px)}
+.viewer__nav--prev:hover{transform:translateX(-3px)}
+.viewer__nav--next:hover{transform:translateX(3px)}
+
+/* --- seleção de peças ---------------------------------------------------- */
+.pick{position:absolute;top:0;right:0;z-index:5;width:46px;height:46px;display:grid;place-items:center;background:rgba(14,26,44,.72);color:var(--off);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);opacity:0;transform:translateY(-6px);transition:opacity .45s var(--ease),transform .45s var(--ease),background-color .4s}
+.product:hover .pick,.pick.on{opacity:1;transform:none}
+.pick:hover{background:var(--gold);color:var(--navy)}
+.pick.on{background:var(--gold);color:var(--navy)}
+.pick svg{width:15px;height:15px}
+.pick .ck{display:none}
+.pick.on .ck{display:block}
+.pick.on .pl{display:none}
+.tray{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translate(-50%,130%);z-index:210;
+  display:flex;align-items:center;gap:clamp(14px,2vw,26px);padding:12px 12px 12px 24px;background:var(--navy);color:var(--off);
+  border:1px solid var(--gold-soft);box-shadow:0 18px 44px rgba(10,18,32,.4);transition:transform .6s var(--ease-out)}
+.tray.on{transform:translate(-50%,0)}
+.tray__n{font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;white-space:nowrap}
+.tray__n b{font-family:var(--serif);font-size:20px;letter-spacing:0;color:var(--gold);margin-right:7px;font-variant-numeric:oldstyle-nums}
+.tray__clear{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:rgba(244,241,234,.55);transition:color .4s}
+.tray__clear:hover{color:var(--off)}
+.tray .btn{height:46px;padding:0 22px}
+
 /* --- cursor sob medida (apenas mouse) ------------------------------------ */
 .cursor{position:fixed;left:0;top:0;z-index:300;pointer-events:none;opacity:0;transition:opacity .4s}
 .cursor.on{opacity:1}
@@ -492,6 +537,7 @@ html.fine .product__disc{display:none}
 /* --- botão flutuante ----------------------------------------------------- */
 .fab{position:fixed;right:max(18px, env(safe-area-inset-right));bottom:max(18px, env(safe-area-inset-bottom));z-index:80;display:inline-flex;align-items:center;gap:12px;height:52px;padding:0 20px 0 16px;border-radius:999px;background:var(--navy);color:var(--off);border:1px solid var(--gold-soft);box-shadow:0 12px 32px rgba(14,26,44,.28);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transform:translateY(20px);opacity:0;transition:opacity .5s var(--ease),transform .5s var(--ease),background-color .4s}
 .fab.show{opacity:1;transform:none}
+body.has-sel .fab{opacity:0;pointer-events:none;transform:translateY(20px)}
 .fab:hover{background:var(--navy-soft)}
 .fab svg{width:20px;height:20px;color:var(--gold)}
 
@@ -535,8 +581,22 @@ html.fine .product__disc{display:none}
   .gifts .btn{grid-column:1 / -1}
   .footer__top{grid-template-columns:1fr 1fr}
 }
+@media (max-width:1100px){
+  body.has-sel .viewer{padding-bottom:104px}
+  .viewer__stage{grid-template-columns:1fr;gap:22px;justify-items:center;max-width:520px}
+  .viewer__img{height:min(46svh,460px);justify-self:center}
+  .viewer__meta{align-items:center;text-align:center}
+  .viewer__cta{align-items:center}
+  .viewer__nav{width:46px;height:46px;margin-top:-23px}
+}
 @media (max-width:900px){
   :root{--header-h:72px}
+  .pick{opacity:1;transform:none;width:42px;height:42px}
+  .viewer__img{height:min(40svh,400px)}
+  body.has-sel .viewer{padding-bottom:96px}
+  .tray{left:var(--gutter);right:var(--gutter);transform:translateY(130%);width:auto;padding:10px 10px 10px 18px;gap:12px}
+  .tray.on{transform:translateY(0)}
+  .tray .btn{flex:1;padding:0 14px;font-size:10.5px}
   .header .wrap{grid-template-columns:1fr auto}
   .nav,.header__right .btn{display:none}
   .burger{display:block}
@@ -658,6 +718,10 @@ html.fine .product__disc{display:none}
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.1.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.2c0-.2-.2-.2-.5-.4Z"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></symbol>
   <symbol id="i-arr" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-l" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" d="M4 12.5l5.5 5.5L20 7"/></symbol>
 </svg>
 
 <header class="header" id="header">
@@ -1216,6 +1280,31 @@ html.fine .product__disc{display:none}
   </div>
 </footer>
 
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Visualizar peça" aria-hidden="true">
+  <button class="viewer__close" id="vClose" aria-label="Fechar"><svg><use href="#i-x"/></svg></button>
+  <button class="viewer__nav viewer__nav--prev" id="vPrev" aria-label="Peça anterior"><svg><use href="#i-l"/></svg></button>
+  <button class="viewer__nav viewer__nav--next" id="vNext" aria-label="Próxima peça"><svg><use href="#i-arr"/></svg></button>
+  <figure class="viewer__stage">
+    <div class="viewer__img"><img id="vImg" alt="" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" width="828" height="1104"></div>
+    <figcaption class="viewer__meta">
+      <span class="viewer__count" id="vCount"></span>
+      <span class="product__cat" id="vCat"></span>
+      <h3 id="vName"></h3>
+      <p class="lead" id="vNote"></p>
+      <div class="viewer__cta">
+        <a class="btn gold" id="vWa" data-wa data-product href="#contato"><svg class="wa-ico"><use href="#i-wa"/></svg><span data-wa-label>Consultar pelo WhatsApp</span></a>
+        <button class="btn ghost" id="vPick">Adicionar à seleção</button>
+      </div>
+    </figcaption>
+  </figure>
+</div>
+
+<div class="tray" id="tray" aria-live="polite">
+  <span class="tray__n"><b id="trayN">0</b> <span id="trayW">peças</span></span>
+  <button class="tray__clear" id="trayClear">Limpar</button>
+  <a class="btn gold" id="traySend" href="#contato">Enviar seleção</a>
+</div>
+
 <a class="fab" id="fab" data-wa data-msg="Olá! Vi o site da Robertinho's Men Fashion e gostaria de atendimento." href="#contato" aria-label="Falar com a loja">
   <svg><use href="#i-wa"/></svg><span data-wa-label>Falar com a loja</span>
 </a>
@@ -1392,6 +1481,107 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
   layout(products);
   requestAnimationFrame(() => setTimeout(moveInd, 140));
 
+  /* --- visualizador de peça e seleção --- */
+  const cards = [...document.querySelectorAll('#productGrid .product:not(.product--cta)')]
+    .filter(c => c.querySelector('.product__media img'));
+  const viewer = document.getElementById('viewer');
+  const vImg = document.getElementById('vImg'), vName = document.getElementById('vName');
+  const vCat = document.getElementById('vCat'), vCount = document.getElementById('vCount');
+  const vNote = document.getElementById('vNote'), vWa = document.getElementById('vWa'), vPick = document.getElementById('vPick');
+  let vIndex = 0, lastFocus = null;
+
+  const waHref = (name) => hasWA
+    ? `https://wa.me/${CONFIG.WHATSAPP}?text=${encodeURIComponent(`Olá! Vi "${name}" no site da ${CONFIG.BRAND} e gostaria de consultar a disponibilidade.`)}`
+    : igDM;
+
+  const show = (i) => {
+    vIndex = (i + cards.length) % cards.length;
+    const c = cards[vIndex], img = c.querySelector('.product__media img');
+    viewer.classList.remove('ready');
+    const swap = () => {
+      vImg.src = img.currentSrc || img.src; vImg.alt = img.alt;
+      vName.innerHTML = c.querySelector('.product__name').innerHTML;
+      vCat.textContent = c.querySelector('.product__cat').textContent;
+      vNote.textContent = c.querySelector('.feat-note')?.textContent || '';
+      vNote.style.display = vNote.textContent ? '' : 'none';
+      vCount.textContent = String(vIndex + 1).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+      vWa.href = waHref(c.dataset.name);
+      syncPickBtn();
+      requestAnimationFrame(() => viewer.classList.add('ready'));
+    };
+    setTimeout(swap, 90);
+  };
+  const openViewer = (i) => {
+    lastFocus = document.activeElement;
+    show(i); viewer.classList.add('open'); viewer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; if (lenis) lenis.stop();
+    document.getElementById('vClose').focus({ preventScroll: true });
+  };
+  const closeViewer = () => {
+    viewer.classList.remove('open'); viewer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = ''; if (lenis) lenis.start();
+    lastFocus?.focus({ preventScroll: true });
+  };
+  cards.forEach((c, i) => c.querySelector('.product__media').addEventListener('click', e => { e.preventDefault(); openViewer(i); }));
+  document.getElementById('vClose').addEventListener('click', closeViewer);
+  document.getElementById('vPrev').addEventListener('click', () => show(vIndex - 1));
+  document.getElementById('vNext').addEventListener('click', () => show(vIndex + 1));
+  viewer.addEventListener('click', e => { if (e.target === viewer) closeViewer(); });
+  document.addEventListener('keydown', e => {
+    if (!viewer.classList.contains('open')) return;
+    if (e.key === 'Escape') closeViewer();
+    if (e.key === 'ArrowLeft') show(vIndex - 1);
+    if (e.key === 'ArrowRight') show(vIndex + 1);
+  });
+  let tx0 = null;
+  viewer.addEventListener('touchstart', e => { tx0 = e.changedTouches[0].clientX; }, { passive: true });
+  viewer.addEventListener('touchend', e => {
+    if (tx0 === null) return;
+    const d = e.changedTouches[0].clientX - tx0;
+    if (Math.abs(d) > 56) show(vIndex + (d < 0 ? 1 : -1));
+    tx0 = null;
+  }, { passive: true });
+
+  /* seleção */
+  const KEY = 'rmf_sel';
+  let sel = [];
+  try { sel = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (err) { sel = []; }
+  const tray = document.getElementById('tray'), trayN = document.getElementById('trayN'), trayW = document.getElementById('trayW');
+  const traySend = document.getElementById('traySend');
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(sel)); } catch (err) {} };
+  const syncPickBtn = () => {
+    const on = sel.includes(cards[vIndex]?.dataset.name);
+    vPick.textContent = on ? 'Na seleção ✓' : 'Adicionar à seleção';
+  };
+  const render = () => {
+    document.querySelectorAll('.pick').forEach(b => b.classList.toggle('on', sel.includes(b.dataset.name)));
+    trayN.textContent = sel.length;
+    trayW.textContent = sel.length === 1 ? 'peça' : 'peças';
+    tray.classList.toggle('on', sel.length > 0);
+    document.body.classList.toggle('has-sel', sel.length > 0);
+    const msg = `Olá! Separei ${sel.length === 1 ? 'esta peça' : 'estas peças'} no site da ${CONFIG.BRAND}:\n\n`
+      + sel.map((n, i) => `${i + 1}. ${n}`).join('\n') + '\n\nGostaria de consultar a disponibilidade.';
+    traySend.href = hasWA ? `https://wa.me/${CONFIG.WHATSAPP}?text=${encodeURIComponent(msg)}` : igDM;
+    traySend.target = '_blank'; traySend.rel = 'noopener';
+    syncPickBtn();
+  };
+  const toggle = (name) => {
+    const i = sel.indexOf(name);
+    i < 0 ? sel.push(name) : sel.splice(i, 1);
+    save(); render();
+  };
+  cards.forEach(c => {
+    const b = document.createElement('button');
+    b.className = 'pick'; b.dataset.name = c.dataset.name;
+    b.setAttribute('aria-label', 'Adicionar ' + c.dataset.name + ' à seleção');
+    b.innerHTML = '<svg class="pl"><use href="#i-plus"/></svg><svg class="ck"><use href="#i-check"/></svg>';
+    b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); toggle(c.dataset.name); });
+    c.querySelector('.product__media').appendChild(b);
+  });
+  vPick.addEventListener('click', () => toggle(cards[vIndex].dataset.name));
+  document.getElementById('trayClear').addEventListener('click', () => { sel = []; save(); render(); });
+  render();
+
   /* --- paleta: leva até a peça --- */
   document.querySelectorAll('.tone').forEach(t => {
     t.addEventListener('click', () => {
@@ -1451,7 +1641,7 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
       });
     });
     over('a, button, .filter', 'link');
-    over('.product__media', 'media', 'Consultar');
+    over('.product__media', 'media', 'Ampliar');
     over('.detail__media, .acc__media, .brand-sec__panel', 'media');
   }
 
