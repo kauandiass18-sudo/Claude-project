@@ -232,9 +232,17 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 
 /* --- letreiro ------------------------------------------------------------ */
 .marquee{background:var(--navy-deep);color:var(--off);overflow:hidden;border-top:1px solid rgba(244,241,234,.06);padding:24px 0}
+.marquee--two{display:flex;flex-direction:column;gap:14px;padding:24px 0 22px}
+.marquee--two .marquee__track:last-child{animation-duration:58s;animation-direction:reverse}
+.marquee--two .marquee__track:last-child span{color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.4);font-size:clamp(17px,1.7vw,24px);padding:0 26px;gap:26px}
+.marquee--two .marquee__track:last-child span::after{width:4px;height:4px;background:rgba(184,154,97,.45)}
 .marquee__track{display:flex;width:max-content;animation:marq 44s linear infinite}
 .marquee__track span{font-family:var(--serif);font-size:clamp(21px,2.3vw,31px);line-height:1;padding:0 34px;display:flex;align-items:center;gap:34px;white-space:nowrap;color:rgba(244,241,234,.82)}
 .marquee__track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.marquee--alt{padding:0 0 26px;border-top:0}
+.marquee--alt .marquee__track{animation-duration:58s;animation-direction:reverse}
+.marquee--alt span{color:transparent;-webkit-text-stroke:1px rgba(184,154,97,.42);font-size:clamp(19px,2vw,28px);padding:0 28px;gap:28px}
+.marquee--alt span::after{width:4px;height:4px;background:rgba(184,154,97,.5)}
 @keyframes marq{to{transform:translateX(-50%)}}
 
 /* ==========================================================================
@@ -298,7 +306,11 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .product__tag.gold{background:var(--gold);color:var(--navy)}
 .product__body{padding-top:18px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
 .product__cat{font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:600;color:var(--gold);display:block;margin-bottom:7px}
-.product__name{font-size:clamp(21px, 1.6vw, 26px);font-weight:500;display:flex;align-items:center;gap:11px}
+.product__name{font-size:clamp(21px, 1.6vw, 26px);font-weight:500;display:flex;align-items:center;gap:11px;transition:transform .55s var(--ease-out),color .4s}
+.product:hover .product__name{transform:translateX(6px)}
+.product__body > div{position:relative}
+.product__body > div::after{content:"";position:absolute;left:0;bottom:-9px;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease-out)}
+.product:hover .product__body > div::after{transform:scaleX(1)}
 .sw{width:11px;height:11px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1px rgba(20,36,59,.18);flex:none}
 .product__body .link{flex:none;padding-bottom:4px}
 .product--cta{background:var(--navy);color:var(--off);display:flex;align-items:center;justify-content:center;text-align:center;aspect-ratio:3/4;position:relative;overflow:hidden;transition:background-color .5s var(--ease)}
@@ -308,6 +320,26 @@ html{scrollbar-width:thin;scrollbar-color:#C9BFA8 var(--off-2)}
 .product--cta b{font-family:var(--serif);font-size:clamp(22px,1.8vw,27px);font-weight:400;line-height:1.16}
 .product--cta small{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:rgba(244,241,234,.6);font-weight:600}
 .product--cta::after{content:"";position:absolute;inset:16px;border:1px solid var(--gold-line);pointer-events:none}
+
+/* --- paleta de tons ------------------------------------------------------ */
+.tones{background:var(--navy);color:var(--off);position:relative;overflow:hidden;--stitch-bg:var(--navy)}
+.tones .wrap{padding:clamp(56px,6.5vw,92px) 0}
+.tones__head{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:clamp(34px,4vw,52px)}
+.tones__head h2{margin-top:16px;font-size:clamp(28px,2.9vw,44px)}
+.tones__head h2 em{color:var(--gold)}
+.tones__head p{font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:rgba(244,241,234,.45);white-space:nowrap;padding-bottom:6px}
+.tones__row{display:flex;gap:clamp(18px,3vw,52px);overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
+.tones__row::-webkit-scrollbar{display:none}
+.tone{flex:none;display:flex;flex-direction:column;align-items:center;gap:14px;width:clamp(84px,9vw,124px);text-align:center}
+.tone__dot{position:relative;width:clamp(54px,5.4vw,76px);aspect-ratio:1;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(244,241,234,.14);transition:transform .55s var(--ease-out),box-shadow .5s var(--ease)}
+.tone__dot::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid var(--gold);opacity:0;transform:scale(.88);transition:opacity .5s var(--ease),transform .55s var(--ease-out)}
+.tone:hover .tone__dot{transform:translateY(-5px)}
+.tone:hover .tone__dot::after{opacity:1;transform:scale(1)}
+.tone b{font-family:var(--sans);font-size:9.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,241,234,.66);line-height:1.5;transition:color .4s}
+.tone:hover b{color:var(--off)}
+.product.spot .product__media{animation:spot 2.1s var(--ease)}
+@keyframes spot{0%,100%{box-shadow:0 20px 44px -28px rgba(20,36,59,.4)}18%,62%{box-shadow:0 0 0 2px var(--gold),0 24px 54px -26px rgba(20,36,59,.45)}}
+.product.spot .product__name{color:var(--navy)}
 
 /* --- campanha ------------------------------------------------------------ */
 .campaign{position:relative;background:var(--navy-deep);color:var(--off);overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:84vh}
@@ -517,6 +549,10 @@ html.fine .product__disc{display:none}
   .hero__cta{margin-top:30px}
   .hero__cta .btn{width:100%}
   .hero__caption,.hero__scroll,.hero__seam{display:none}
+  .tones__head{flex-direction:column;align-items:flex-start;gap:12px}
+  .tones__head p{padding-bottom:0}
+  .tones .wrap{position:relative}
+  .tones__row{margin-right:calc(var(--gutter) * -1);padding-right:var(--gutter);-webkit-mask-image:linear-gradient(90deg,#000 86%,transparent 100%);mask-image:linear-gradient(90deg,#000 86%,transparent 100%)}
   .statement{min-height:92svh}
   .wall{grid-template-columns:repeat(3,1fr);inset:-30% -10%}
   .wall__col:nth-child(4){display:none}
@@ -689,10 +725,14 @@ html.fine .product__disc{display:none}
   <p class="hero__scroll"><i></i>Role</p>
 </section>
 
-<div class="marquee" aria-hidden="true">
+<div class="marquee marquee--two" aria-hidden="true">
   <div class="marquee__track">
     <span>Ternos</span><span>Costumes</span><span>Camisas</span><span>Gravatas</span><span>Pastas</span><span>Enviamos para todo o Brasil</span>
     <span>Ternos</span><span>Costumes</span><span>Camisas</span><span>Gravatas</span><span>Pastas</span><span>Enviamos para todo o Brasil</span>
+  </div>
+  <div class="marquee__track">
+    <span>Robertinho's</span><span>Men Fashion</span><span>Moda Masculina</span><span>Robertinho's</span><span>Men Fashion</span><span>Moda Masculina</span>
+    <span>Robertinho's</span><span>Men Fashion</span><span>Moda Masculina</span><span>Robertinho's</span><span>Men Fashion</span><span>Moda Masculina</span>
   </div>
 </div>
 
@@ -895,6 +935,31 @@ html.fine .product__disc{display:none}
         </span>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     PALETA
+     ====================================================================== -->
+<section class="tones stitched" aria-labelledby="tons-t">
+  <div class="wrap">
+    <div class="tones__head">
+      <div>
+        <p class="eyebrow rv">Tons</p>
+        <h2 class="rv" id="tons-t">A paleta <em>da casa.</em></h2>
+      </div>
+      <p class="rv">Toque para ver a peça</p>
+    </div>
+    <div class="tones__row" data-stagger>
+      <button class="tone rv" data-go="Terno azul-marinho"><span class="tone__dot" style="--c:#22376B"></span><b>Azul-marinho</b></button>
+      <button class="tone rv" data-go="Terno xadrez azul-marinho"><span class="tone__dot" style="--c:#2A3040"></span><b>Xadrez</b></button>
+      <button class="tone rv" data-go="Terno preto"><span class="tone__dot" style="--c:#1C1C1E"></span><b>Preto</b></button>
+      <button class="tone rv" data-go="Terno cinza três peças"><span class="tone__dot" style="--c:#76726A"></span><b>Grafite</b></button>
+      <button class="tone rv" data-go="Terno cinza claro"><span class="tone__dot" style="--c:#A9A7A3"></span><b>Cinza claro</b></button>
+      <button class="tone rv" data-go="Terno bege"><span class="tone__dot" style="--c:#C9BCA6"></span><b>Bege</b></button>
+      <button class="tone rv" data-go="Calça social bege"><span class="tone__dot" style="--c:#CDBEA9"></span><b>Areia</b></button>
+      <button class="tone rv" data-go="Terno marrom"><span class="tone__dot" style="--c:#6B5347"></span><b>Marrom</b></button>
     </div>
   </div>
 </section>
@@ -1326,6 +1391,20 @@ const CONFIG = { WHATSAPP: "", INSTAGRAM: "robertinhos_menfashion", BRAND: "Robe
   window.addEventListener('resize', moveInd);
   layout(products);
   requestAnimationFrame(() => setTimeout(moveInd, 140));
+
+  /* --- paleta: leva até a peça --- */
+  document.querySelectorAll('.tone').forEach(t => {
+    t.addEventListener('click', () => {
+      const card = [...document.querySelectorAll('#productGrid .product')].find(p => p.dataset.name === t.dataset.go);
+      if (!card) return;
+      if (card.classList.contains('is-hidden')) setFilter('all');
+      setTimeout(() => {
+        scrollTo(card, -140);
+        card.classList.add('spot');
+        setTimeout(() => card.classList.remove('spot'), 2200);
+      }, card.classList.contains('is-hidden') ? 420 : 0);
+    });
+  });
 
   /* --- revelações --- */
   const io = new IntersectionObserver(entries => {
